@@ -1,0 +1,6 @@
+#!/usr/bin/env sh
+. "$(dirname -- "$0")/_/husky.sh"
+
+cd landing-page
+
+pnpm commitlint --edit --config=commitlint.config.js

@@ -7,11 +7,39 @@
     "start": "astro dev",
     "build": "astro check && astro build",
     "preview": "astro preview",
-    "astro": "astro"
+    "astro": "astro",
+    "prepare": "cd .. && husky install landing-page/.husky",
+    "pre-commit-lint": "pnpm lint-staged"
   },
   "dependencies": {
     "@astrojs/check": "^0.3.4",
+    "@astrojs/react": "^3.0.9",
+    "@astrojs/tailwind": "^5.1.0",
+    "@types/react": "^18.2.45",
+    "@types/react-dom": "^18.2.18",
     "astro": "^4.0.8",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-hook-form": "^7.49.2",
+    "tailwindcss": "^3.4.0",
     "typescript": "^5.3.3"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^18.4.3",
+    "@commitlint/config-conventional": "^18.4.3",
+    "@typescript-eslint/eslint-plugin": "^6.16.0",
+    "@typescript-eslint/parser": "^6.16.0",
+    "eslint": "^8.56.0",
+    "eslint-plugin-react": "^7.33.2",
+    "eslint-plugin-react-hooks": "^4.6.0",
+    "husky": "^8.0.3",
+    "lint-staged": "^15.2.0",
+    "prettier": "3.1.1"
+  },
+  "lint-staged": {
+    "src/**/*.{ts,tsx}": [
+      "npx prettier --write",
+      "eslint src/*.{js,jsx,ts,tsx} --fix-dry-run --no-error-on-unmatched-pattern"
+    ]
   }
 }
