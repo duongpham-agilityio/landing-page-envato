@@ -1,36 +1,77 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# **REACT PROJECT - ENVATO MARKET**
 
-## Getting Started
+### Overview:
 
-First, run the development server:
+- This is an internal project which will demonstrate the dashboard like a real system.
+- [Design](https://preview.themeforest.net/item/bankco-react-tailwind-admin-templates/full_screen_preview/47639153)
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+### Timeline:
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+- Estimate time: 4 weeks.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## TECH STACKS:
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+### Libraries:
 
-## Learn More
+- [React](https://react.dev/learn): is a JavaScript library for building user interfaces.
+- [React Query](https://tanstack.com/query/latest/): Powerful asynchronous state management for TS/JS, React.
+- [Zustand](https://github.com/pmndrs/zustand):A small, fast, and scalable bearbones state management solution. Zustand has a comfy API based on hooks. It isn't boilerplatey or opinionated, but has enough convention to be explicit and flux-like.
+- [React Hook Form](https://react-hook-form.com/): React Hook Form reduces the amount of code you need to write while removing unnecessary re-renders.
+- [Chakra](https://chakra-ui.com/): Chakra UI is a simple, modular and accessible component library that gives you the building blocks you need to build your React applications.
+- [Apex Chart](https://apexcharts.com/react-chart-demos/column-charts/basic/): ApexCharts is a modern charting library that helps developers to create beautiful and interactive visualizations for web pages.
+- [React Router](https://v5.reactrouter.com/web/guides/quick-start): is a standard library for routing in React.
+- [Storybook](https://storybook.js.org/): captures the rendered state of a UI component. Developers write multiple stories per component that describe all the “interesting” states a component can support.
+- Editor: Visual Studio Code.
 
-To learn more about Next.js, take a look at the following resources:
+### Testing
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- [React Testing Library](https://testing-library.com/): Simple and complete testing utilities that encourage good testing practices. Is a light-weight solution for testing web pages by querying and interacting with DOM nodes.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+### Debug tool
 
-## Deploy on Vercel
+- [React Developer Tools](https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi) React Developer Tools is a Chrome DevTools extension for the open-source React JavaScript library. It allows you to inspect the React component hierarchies in the Chrome Developer Tools.
+- [Responsively App](https://responsively.app/): A simple application for developing, help dev test design in many screens.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### Hosting
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+- Open http://localhost:5173 to view it in the browser.
+
+### CI/CD, Deployment, Hosting
+
+- Vercel
+- Firebase
+
+### Document:
+
+- [Requirements and plan](https://docs.google.com/document/d/1ldS_HWBGAXGrlWht7vxZAVjFcJo5wu8SajiaIf1_xR8/edit)
+
+### Flow App
+
+![Flow App Practices](./public/images/work-flow.png)
+
+### Task Management
+
+- [Trello](https://trello.com/b/xo8WyIM1/envato-market-system)
+
+## Getting started
+
+Build and Run app:
+
+| Command                                                                     | Action                        |
+| :-------------------------------------------------------------------------- | :---------------------------- |
+| `$ git clone https://gitlab.asoft-python.com/kien.nguyen/envato-market.git` | Clone Repository with HTTPS   |
+| `$ git clone git@gitlab.asoft-python.com:kien.nguyen/envato-market.git`     | Clone Repository with SSH     |
+| `$ cd envato-market`                                                        | Redirect to folder            |
+| `$ git checkout develop`                                                    | Checkout branch               |
+| `$ npm i pnpm`                                                              | Install packages pnpm         |
+| `$ pnpm install`                                                            | Install packages dependencies |
+| `$ pnpm run build`                                                          | Run build app                 |
+| `$ pnpm run storybook`                                                      | Run Storybook                 |
+| `$ pnpm test`                                                               | Run Unit Test                 |
+| `$ pnpm dev`                                                                | Run webpage                   |
+
+### Prerequisites:
+
+- Node: version 18.17.1
+- pnpm: version 8.10.5
+- Vite: version 5.0.0
