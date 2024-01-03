@@ -1,4 +1,4 @@
-import { defineConfig, squooshImageService } from 'astro/config';
+import { defineConfig, sharpImageService } from 'astro/config';
 import react from '@astrojs/react';
 import tailwind from '@astrojs/tailwind';
 
@@ -7,6 +7,6 @@ export default defineConfig({
   integrations: [react(), tailwind()],
   image: {
     domains: ['loremflickr'],
-    service: squooshImageService(),
+    service: sharpImageService(),
   },
 });
