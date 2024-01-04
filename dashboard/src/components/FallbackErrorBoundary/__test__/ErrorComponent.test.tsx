@@ -1,15 +1,12 @@
 import { render, screen } from '@testing-library/react';
 import FallbackErrorBoundary from '..';
 
-const mockErrorMessage = 'mock error';
+const mockError: Error = {
+  name: 'name mock',
+  message: 'message mock',
+};
 
-const setup = () =>
-  render(
-    <FallbackErrorBoundary
-      error={mockErrorMessage}
-      resetErrorBoundary={jest.fn()}
-    />,
-  );
+const setup = () => render(<FallbackErrorBoundary error={mockError} />);
 
 describe('FallbackErrorBoundary test cases', () => {
   it('should render correctly', () => {
@@ -35,6 +32,6 @@ describe('FallbackErrorBoundary test cases', () => {
     const inputErrorMessage =
       screen.getByTestId<HTMLParagraphElement>('error-message');
 
-    expect(inputErrorMessage.textContent).toEqual(mockErrorMessage);
+    expect(inputErrorMessage.textContent).toEqual(mockError.message);
   });
 });

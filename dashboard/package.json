@@ -30,6 +30,7 @@
     "zustand": "^4.4.7"
   },
   "devDependencies": {
+    "@chakra-ui/storybook-addon": "^5.1.0",
     "@commitlint/cli": "^18.4.3",
     "@commitlint/config-conventional": "^18.4.3",
     "@storybook/addon-essentials": "7.6.7",

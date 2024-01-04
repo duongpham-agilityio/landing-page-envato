@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Navigation test case should render correctly with the default destination 1`] = `
+<div>
+  <a
+    aria-label="navigate-item"
+    class="chakra-link css-1h1hto7"
+    href="/"
+  >
+    Mock navigation
+  </a>
+</div>
+`;

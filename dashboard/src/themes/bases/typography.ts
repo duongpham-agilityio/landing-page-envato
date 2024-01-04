@@ -19,8 +19,8 @@ export const fontFamilies = {
 };
 
 export const fonts = {
-  primary: 'var(--font-urbanist)',
-  secondary: 'var(--font-poppins)',
+  primary: `${urbanist.style.fontFamily}, sans-serif`,
+  secondary: `${poppins.style.fontFamily}, sans-serif`,
 };
 
 export const fontSizes: ThemeOverride['fontSizes'] = {

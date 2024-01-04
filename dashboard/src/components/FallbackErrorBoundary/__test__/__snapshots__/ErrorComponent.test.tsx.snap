@@ -15,7 +15,7 @@ exports[`FallbackErrorBoundary test cases should render correctly 1`] = `
       class="chakra-text css-1ly9ogx"
       data-testid="error-message"
     >
-      mock error
+      message mock
     </p>
   </div>
 </div>

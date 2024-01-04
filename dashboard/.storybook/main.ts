@@ -9,11 +9,11 @@ const config: StorybookConfig = {
     '@storybook/addon-essentials',
     '@storybook/addon-onboarding',
     '@storybook/addon-interactions',
+    '@chakra-ui/storybook-addon',
+    'storybook-addon-next-router',
   ],
-  framework: {
-    name: '@storybook/nextjs',
-    options: {},
-  },
+
+  framework: '@storybook/nextjs',
   docs: {
     autodocs: 'tag',
   },

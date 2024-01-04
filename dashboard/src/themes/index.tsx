@@ -12,6 +12,7 @@ import {
   letterSpacings,
   colors,
   sizes,
+  breakpoints,
 } from './bases';
 
 // Components
@@ -43,6 +44,7 @@ export const configThemes = {
       colors,
       sizes,
     },
+    breakpoints,
     components: {
       Tag,
       Text,
