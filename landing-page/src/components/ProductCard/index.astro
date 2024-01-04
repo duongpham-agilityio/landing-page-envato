@@ -15,12 +15,9 @@ const hoverStyles: string = [
   '[&:hover>.pesudo]:bg-black',
   '[&:hover>.pesudo]:opacity-[0.7]',
 ].join(' ');
-const captionStyles: string = [
-  'absolute',
-  'z-10',
-  'top-[30px]',
-  'left-[30px]',
-].join(' ');
+const captionStyles: string = ['absolute', 'z-10', 'top-lg', 'left-lg'].join(
+  ' ',
+);
 const transitionStyles: string = ['transition', 'duration-300'].join(' ');
 ---
 
@@ -45,6 +42,7 @@ const transitionStyles: string = ['transition', 'duration-300'].join(' ');
   <a
     href={href}
     class={`pesudo absolute top-0 w-full h-full z-[1] ${transitionStyles}`}
+    aria-label='Read more about'
   >
   </a>
 </figure>

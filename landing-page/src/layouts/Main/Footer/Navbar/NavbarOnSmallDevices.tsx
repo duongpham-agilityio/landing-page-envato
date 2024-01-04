@@ -23,7 +23,8 @@ const NavbarOnSmallDevices = (): JSX.Element => {
   return (
     <div className='lg:hidden'>
       <Button
-        className='flex justify-center items-center pt-[0] pb-0 px-0 mt-4 w-[36px] h-[30px]'
+        aria-label='Show Menu'
+        className='flex justify-center items-center pt-[0] pb-0 px-0 mt-4 w-[36px] h-lg'
         onclick={handleToggle}
       >
         <HamburgerMenuIcon width='18' height='18' />

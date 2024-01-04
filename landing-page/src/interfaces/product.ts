@@ -4,7 +4,7 @@ export interface IProduct {
   description: string;
   category: string;
   currency: string;
-  imageURL: string[];
+  imageURLs: string[];
   amount: number;
   stock: number;
   createdAt: number;

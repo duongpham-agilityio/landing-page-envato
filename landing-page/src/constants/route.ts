@@ -4,3 +4,7 @@ export const ROUTES = {
   CART: '/cart',
   CHECKOUT: '/checkout',
 };
+
+export const ENDPOINTS = {
+  PRODUCTS: '/products',
+};

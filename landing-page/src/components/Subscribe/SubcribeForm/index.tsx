@@ -7,7 +7,7 @@ const SubscribeForm = (): JSX.Element => {
   const [email, setEmail] = useState<string>('');
 
   return (
-    <div className='w-full flex mt-[100px] lg:mt-0'>
+    <div className='w-full flex mt-3xl lg:mt-0'>
       <Input
         placeholder='Your E-mail'
         size='md'

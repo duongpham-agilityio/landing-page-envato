@@ -16,22 +16,37 @@ type TSidebarProps = {
   onToggle?: () => void;
 };
 
+const hoverAfterStyle: string = [
+  'after:w-0',
+  'after:h-1',
+  'after:transition-all',
+  'after:duration-500',
+  'hover:after:absolute',
+  'hover:after:z-10',
+  'hover:after:top-[50%]',
+  'hover:after:left-[-70px]',
+  'hover:after:w-[30px]',
+  'hover:after:h-[3px]',
+  'hover:after:bg-sun',
+].join(' ');
+
 const SideBarAllDevices = ({
   isOpen = false,
   onToggle,
 }: TSidebarProps): JSX.Element => (
   <header
-    className={`fixed md:relative z-50 w-[320px] bg-white py-[60px] px-[70px] h-full animate-sidebarSlideIn md:animate-none md:block ${
+    className={`fixed md:relative z-50 w-[320px] bg-white py-2xl px-[70px] h-full animate-sidebarSlideIn md:animate-none md:block md:p-xl md:basis-[280px] lg:basis-[320px] lg:py-2xl lg:px-[70px] ${
       isOpen ? 'block' : 'hidden'
     }`}
   >
     <Button
+      aria-label='Close Button'
       className='flex md:hidden bg-sun w-10 h-10 justify-center items-center absolute top-0 right-md'
       onclick={onToggle}
     >
       <CloseSideBar width={10} height={12} />
     </Button>
-    <h1 className='mb-[100px]'>
+    <h1 className='mb-3xl'>
       <a href={ROUTES.HOME}>
         <img
           src='/assets/logo-header-mobile.webp'
@@ -51,7 +66,7 @@ const SideBarAllDevices = ({
                 href={href}
                 className={`${
                   href === pathName ? 'text-sun' : ''
-                } text-secondary hover:text-sun uppercase text-sm leading-[53px] py-5 relative w-min-content after:w-0 after:h-1 after:transition-all after:duration-500 hover:after:absolute hover:after:z-10 hover:after:top-[50%] hover:after:left-[-70px] hover:after:w-[30px] hover:after:h-[3px] hover:after:bg-sun`}
+                } text-secondary hover:text-sun uppercase text-sm leading-[53px] py-5 relative ${hoverAfterStyle}`}
               >
                 {text}
               </a>
