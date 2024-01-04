@@ -2,7 +2,9 @@ export const PRODUCTS = [
   {
     createdAt: '2024-01-01T17:24:10.516Z',
     name: 'Ergonomic Steel Chair',
-    imageURLs: ['https://loremflickr.com/640/480/technics'],
+    imageURLs: [
+      'https://preview.colorlib.com/theme/amado/img/bg-img/1.jpg.webp',
+    ],
     description:
       'Laboriosam nostrum voluptate voluptate itaque animi. Voluptatibus soluta mollitia ad. Aspernatur accusamus eos ullam eaque. Dolorem iste vel odio. Earum enim laudantium. Rerum eius molestias fuga dignissimos voluptatem.',
     stock: 6632,
@@ -10,21 +12,13 @@ export const PRODUCTS = [
     amount: 2735,
     id: '1',
   },
-  {
-    createdAt: '2024-01-01T18:21:38.976Z',
-    name: 'Gorgeous Frozen Soap',
-    imageURLs: ['https://loremflickr.com/640/480/technics'],
-    description:
-      'Illum rem repellendus officiis unde. Totam magni totam dolor quam doloribus dicta deleniti nisi. Doloribus deleniti consequatur. Nostrum beatae nihil.',
-    stock: 65360,
-    currency: '$',
-    amount: 91995,
-    id: '2',
-  },
+
   {
     createdAt: '2024-01-01T18:40:49.933Z',
     name: 'Tasty Bronze Mouse',
-    imageURLs: ['https://loremflickr.com/640/480/technics'],
+    imageURLs: [
+      'https://preview.colorlib.com/theme/amado/img/bg-img/5.jpg.webp',
+    ],
     description:
       'Modi cum iste cumque. Eveniet occaecati rem temporibus incidunt atque qui. Hic repudiandae aspernatur sit.',
     stock: 66827,
@@ -35,7 +29,9 @@ export const PRODUCTS = [
   {
     createdAt: '2024-01-01T13:27:14.519Z',
     name: 'Awesome Cotton Sausages',
-    imageURLs: ['https://loremflickr.com/640/480/technics'],
+    imageURLs: [
+      'https://preview.colorlib.com/theme/amado/img/bg-img/8.jpg.webp',
+    ],
     description:
       'Consequuntur laudantium accusantium aperiam fugit pariatur neque. Necessitatibus aperiam provident possimus earum corporis incidunt quam quia ipsam. Dicta earum quos.',
     stock: 18266,
@@ -43,98 +39,23 @@ export const PRODUCTS = [
     amount: 51927,
     id: '4',
   },
-  {
-    createdAt: '2024-01-02T04:36:37.029Z',
-    name: 'Tasty Metal Bacon',
-    imageURLs: ['https://loremflickr.com/640/480/technics'],
-    description:
-      'Vero pariatur alias ad repellendus animi deleniti sequi ratione. Voluptate rem velit sit error sapiente voluptatibus perferendis at. Necessitatibus doloremque accusantium dolorum veritatis explicabo impedit iusto. Neque consequuntur modi illo quo. Natus odio tempore occaecati similique fugiat enim ab veniam iusto.',
-    stock: 25251,
-    currency: '$',
-    amount: 52280,
-    id: '5',
-  },
-  {
-    createdAt: '2024-01-02T09:22:32.553Z',
-    name: 'Electronic Fresh Chicken',
-    imageURLs: ['https://loremflickr.com/640/480/technics'],
-    description:
-      'Enim maiores eligendi vel. Veritatis dolorum commodi iste. A excepturi excepturi quisquam accusantium ipsam eligendi accusamus error.',
-    stock: 27949,
-    currency: '$',
-    amount: 79129,
-    id: '6',
-  },
-  {
-    createdAt: '2024-01-02T07:31:03.282Z',
-    name: 'Elegant Wooden Chair',
-    imageURLs: ['https://loremflickr.com/640/480/technics'],
-    description:
-      'Cupiditate vel reiciendis libero. Inventore voluptas voluptatum at quos cupiditate. Officia maiores cumque explicabo molestiae eaque dicta eveniet dolorem eius. Similique iusto hic quos laborum. Quidem error autem.',
-    stock: 56955,
-    currency: '$',
-    amount: 53255,
-    id: '7',
-  },
-  {
-    createdAt: '2024-01-02T14:27:12.401Z',
-    name: 'Gorgeous Frozen Computer',
-    imageURLs: ['https://loremflickr.com/640/480/technics'],
-    description:
-      'Pariatur eaque natus. Neque vel officiis omnis atque tenetur possimus laboriosam fugiat. Culpa nostrum mollitia.',
-    stock: 86423,
-    currency: '$',
-    amount: 41183,
-    id: '8',
-  },
-  {
-    createdAt: '2024-01-03T02:58:25.909Z',
-    name: 'Oriental Rubber Mouse',
-    imageURLs: ['https://loremflickr.com/640/480/technics'],
-    description:
-      'Consectetur aperiam id consequatur voluptatibus vel asperiores eius sapiente. Sint aliquam ad dolor ullam ducimus non commodi. Est quam at voluptas aperiam consequuntur labore. Voluptates enim saepe.',
-    stock: 89637,
-    currency: '$',
-    amount: 72231,
-    id: '9',
-  },
+
   {
     createdAt: '2024-01-02T03:49:36.018Z',
     name: 'Licensed Concrete Fish',
-    imageURLs: ['https://loremflickr.com/640/480/technics'],
+    imageURLs: ['https://preview.colorlib.com/theme/amado/img/bg-img/2.jpg'],
     description:
       'Eum enim consequatur sint tempore ipsam veniam. Adipisci aspernatur modi ducimus qui voluptatum adipisci totam. Accusantium excepturi recusandae culpa sint tempore reprehenderit temporibus. Sunt mollitia doloremque tenetur accusantium. Saepe iusto quas quo fugit voluptas vel. Nisi aliquam deleniti quia ducimus.',
     stock: 21776,
-    currency: '$0',
+    currency: '$',
     amount: 91777,
     id: '10',
   },
-  {
-    createdAt: '2024-01-03T03:09:57.598Z',
-    name: 'Gorgeous Cotton Chips',
-    imageURLs: ['https://loremflickr.com/640/480/technics'],
-    description:
-      'Totam maxime aspernatur quo fuga cum. Culpa officia sequi incidunt iste reprehenderit assumenda nemo. Enim voluptas eius. Voluptatem maiores aliquid eveniet labore.',
-    stock: 95931,
-    currency: '$1',
-    amount: 93487,
-    id: '11',
-  },
-  {
-    createdAt: '2024-01-02T16:56:31.053Z',
-    name: 'Refined Frozen Bacon',
-    imageURLs: ['https://loremflickr.com/640/480/technics'],
-    description:
-      'Amet provident assumenda cum repellat autem. Fugiat quasi distinctio autem excepturi accusamus fugit atque aperiam. Repellendus tenetur magnam accusantium rem maiores ex similique sed. Facilis tempora aspernatur quaerat. Sequi neque aliquid ratione qui dolorem autem. Ea nobis vero ipsam rerum consequatur aut et hic porro.',
-    stock: 3992,
-    currency: '$',
-    amount: 78594,
-    id: '12',
-  },
+
   {
     createdAt: '2024-01-02T13:04:53.560Z',
     name: 'Recycled Fresh Cheese',
-    imageURLs: ['https://loremflickr.com/640/480/technics'],
+    imageURLs: ['https://preview.colorlib.com/theme/amado/img/bg-img/6.jpg'],
     description:
       'Ad quibusdam libero esse. Consequatur modi enim consequuntur at placeat molestiae cupiditate ducimus. Voluptatum laboriosam deleniti. Laborum vel provident dolore aperiam quo. Aliquid doloribus error corporis quia voluptatum.',
     stock: 81225,
@@ -145,7 +66,7 @@ export const PRODUCTS = [
   {
     createdAt: '2024-01-02T03:43:08.238Z',
     name: 'Gorgeous Cotton Hat',
-    imageURLs: ['https://loremflickr.com/640/480/technics'],
+    imageURLs: ['https://preview.colorlib.com/theme/amado/img/bg-img/9.jpg'],
     description:
       'Necessitatibus eos corrupti deleniti aut. Ex ea consequuntur dolores vel explicabo nihil. Minima commodi facere consequuntur beatae labore voluptas culpa debitis tempore. Harum modi beatae asperiores aperiam dignissimos. Consectetur eligendi dolore. Eos beatae ad at.',
     stock: 3498,
@@ -156,7 +77,7 @@ export const PRODUCTS = [
   {
     createdAt: '2024-01-02T17:19:05.261Z',
     name: 'Sleek Granite Keyboard',
-    imageURLs: ['https://loremflickr.com/640/480/technics'],
+    imageURLs: ['https://preview.colorlib.com/theme/amado/img/bg-img/3.jpg'],
     description:
       'In accusamus culpa reiciendis repudiandae at tempora ad officiis. Deleniti aperiam ipsam esse voluptatum earum temporibus voluptates nulla libero. Laborum dicta voluptatem. Adipisci praesentium exercitationem ex sequi et atque numquam labore adipisci. Hic qui quidem delectus corrupti suscipit.',
     stock: 17381,
@@ -167,7 +88,7 @@ export const PRODUCTS = [
   {
     createdAt: '2024-01-02T08:32:49.940Z',
     name: 'Oriental Metal Chair',
-    imageURLs: ['https://loremflickr.com/640/480/technics'],
+    imageURLs: ['https://preview.colorlib.com/theme/amado/img/bg-img/4.jpg'],
     description:
       'Rerum tempora totam provident in eum iure consequatur at. Autem itaque libero fugiat sint porro assumenda explicabo nemo. Harum eum modi eos doloribus voluptas qui minima cum.',
     stock: 36167,
@@ -178,34 +99,12 @@ export const PRODUCTS = [
   {
     createdAt: '2024-01-03T02:52:37.153Z',
     name: 'Bespoke Plastic Tuna',
-    imageURLs: ['https://loremflickr.com/640/480/technics'],
+    imageURLs: ['https://preview.colorlib.com/theme/amado/img/bg-img/7.jpg'],
     description:
       'Quis ut itaque quod unde quae. Vero dolore repudiandae quasi perferendis. Veniam ab quaerat labore possimus laborum architecto aut praesentium adipisci.',
     stock: 80512,
     currency: '$',
     amount: 91081,
     id: '17',
-  },
-  {
-    createdAt: '2024-01-02T17:37:08.592Z',
-    name: 'Bespoke Concrete Hat',
-    imageURLs: ['https://loremflickr.com/640/480/technics'],
-    description:
-      'Quaerat et quam excepturi libero esse consequuntur possimus accusantium. Culpa aperiam nisi. Maxime culpa voluptas. Iusto fugit eaque expedita necessitatibus. Facere mollitia repellat distinctio ipsum error.',
-    stock: 95277,
-    currency: '$',
-    amount: 28816,
-    id: '18',
-  },
-  {
-    createdAt: '2024-01-02T21:19:44.822Z',
-    name: 'Licensed Metal Car',
-    imageURLs: ['https://loremflickr.com/640/480/technics'],
-    description:
-      'Dicta deleniti dolor provident labore fugiat placeat pariatur eos. Quidem dolorum doloribus nisi officiis ipsum amet perferendis distinctio. Sequi cupiditate quae.',
-    stock: 42753,
-    currency: '$',
-    amount: 9953,
-    id: '19',
   },
 ];

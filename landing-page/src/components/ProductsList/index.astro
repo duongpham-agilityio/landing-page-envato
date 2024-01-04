@@ -5,15 +5,20 @@ import { ProductCard } from '@app/components';
 // Constants
 import { ROUTES } from '@app/constants';
 
-// Mocks
-import { PRODUCTS } from '@app/mocks';
+// Types
+import type { IProduct } from '@app/interfaces';
+
+//Services
+import { getProducts } from '@app/services';
+
+const products: IProduct[] = (await getProducts()) || [];
 ---
 
 <ul
   class='w-full columns-1 sm:columns-2 md:columns-1 nearLg:columns-2 nearXl:columns-3 gap-0 transition-all'
 >
   {
-    PRODUCTS.map(({ id, imageURLs, amount, currency, name }) => (
+    products.map(({ id, imageURLs, amount, currency, name }) => (
       <li class='break-inside-avoid'>
         <ProductCard
           amount={amount}
