@@ -12,6 +12,9 @@ import { IMAGES } from '@/lib/constants';
 // Components
 import { TTransferControl } from '.';
 
+// Utils
+import { generatePlaceholder } from '@/lib/utils';
+
 const UserSelectorComponent = ({ control }: TTransferControl): JSX.Element => (
   <>
     <Text
@@ -50,19 +53,10 @@ const UserSelectorComponent = ({ control }: TTransferControl): JSX.Element => (
         alt={IMAGES.DEBIT_ICON.alt}
         width={24}
         height={24}
-        // fallbackSrc={IMAGES.USER.url}
+        sizes="100vw"
+        placeholder="blur"
+        blurDataURL={generatePlaceholder(52, 52)}
       />
-
-      {/* <Image
-        src={IMAGES.DEBIT_ICON.url}
-        alt={IMAGES.DEBIT_ICON.alt}
-        // fallbackSrc={IMAGES.USER.url}
-        boxSize={6}
-        position="absolute"
-        left={5}
-        top="50%"
-        transform="translateY(-50%)"
-      /> */}
 
       <Text
         sx={{

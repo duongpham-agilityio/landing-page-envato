@@ -1,0 +1,21 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Fetching component should renders correctly 1`] = `
+<div>
+  <div
+    class="chakra-skeleton css-1dl4gcj"
+  />
+  <div
+    class="chakra-skeleton css-1dl4gcj"
+  />
+  <div
+    class="chakra-skeleton css-1dl4gcj"
+  />
+  <div
+    class="chakra-skeleton css-1dl4gcj"
+  />
+  <div
+    class="chakra-skeleton css-1dl4gcj"
+  />
+</div>
+`;

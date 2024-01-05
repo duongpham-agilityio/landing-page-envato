@@ -12,3 +12,7 @@ export { default as Dropdown } from './common/Dropdown';
 export { default as SwitchTheme } from './SwitchTheme';
 export { default as CardPayment } from './CardPayment';
 export { default as BoxChat } from './BoxChat';
+export { default as TotalStatisticCard } from './TotalStatisticCard';
+export { default as Fetching } from './Skeleton/Fetching';
+export { default as TotalStatisticListSkeleton } from './Skeleton/TotalStatisticListSkeleton';
+export { default as TotalStatisticList } from './TotalStatisticList';
