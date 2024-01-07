@@ -1,0 +1,25 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Statistical component Should render correctly 1`] = `
+<div>
+  <div
+    class="css-n2i4qd"
+    dir="row"
+  >
+    <div
+      class="css-1tzz1x1"
+    />
+    <p
+      class="chakra-text css-9n3bbc"
+    >
+      Spending
+    </p>
+    <p
+      class="chakra-text css-15h4n6s"
+    >
+      1234
+      %
+    </p>
+  </div>
+</div>
+`;

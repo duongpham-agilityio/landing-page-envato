@@ -11,7 +11,7 @@ import {
 import { ISpendingStatistics } from '@/lib/interfaces';
 
 // Mocks
-import { INITIAL_TOTAL_STATISTICS } from '@/lib/mocks';
+import { SPENDING_STATISTICS_MOCK } from '@/lib/mocks';
 
 interface TotalListComponentProps {
   spendingStatistics?: ISpendingStatistics[];
@@ -19,7 +19,8 @@ interface TotalListComponentProps {
 }
 
 const TotalStatisticListComponent = ({
-  spendingStatistics = INITIAL_TOTAL_STATISTICS,
+  // TODO: call api later
+  spendingStatistics = SPENDING_STATISTICS_MOCK,
   isLoading = false,
 }: TotalListComponentProps) => {
   if (isLoading) return <TotalStatisticListSkeleton />;

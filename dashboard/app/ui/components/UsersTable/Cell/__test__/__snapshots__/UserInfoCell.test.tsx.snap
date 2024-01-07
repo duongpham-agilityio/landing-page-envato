@@ -1,0 +1,54 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`TotalCard component renders correctly 1`] = `
+<div>
+  <table
+    class="chakra-table css-0"
+  >
+    <tr
+      class="css-0"
+    >
+      <td
+        class="css-i3u192"
+      >
+        <div
+          class="css-1h2sv0j"
+        >
+          <img
+            alt="Image of test"
+            class="chakra-image css-1rqxmuh"
+            src="url"
+          />
+          <div
+            class="css-1rr4qq7"
+          >
+            <h4
+              class="chakra-text css-197ngd6"
+            >
+              test
+            </h4>
+            <p
+              class="chakra-text css-vxhtcb"
+            >
+              <span
+                class="chakra-text css-9feaud"
+                title="Finance managers"
+              >
+                Finance managers
+                ⋅
+              </span>
+              <span
+                class="chakra-text css-1rgac5r"
+              >
+                Jakarta, Indonesia
+                ⋅
+                2 days ago
+              </span>
+            </p>
+          </div>
+        </div>
+      </td>
+    </tr>
+  </table>
+</div>
+`;

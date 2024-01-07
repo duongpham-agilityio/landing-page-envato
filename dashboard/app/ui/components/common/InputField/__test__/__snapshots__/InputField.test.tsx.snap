@@ -1,0 +1,172 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`InputField component Render correctly with default props 1`] = `
+<div>
+  <div
+    class="chakra-form-control css-0"
+    role="group"
+  >
+    <div
+      class="chakra-input__group css-169ufh8"
+      data-group="true"
+    >
+      <input
+        class="chakra-input css-6hxpcw"
+        id="field-:r0:"
+        name="email"
+        placeholder="Email"
+        type="text"
+      />
+    </div>
+  </div>
+</div>
+`;
+
+exports[`InputField component Render correctly with error message 1`] = `
+<div>
+  <div
+    class="chakra-form-control css-0"
+    data-invalid=""
+    role="group"
+  >
+    <div
+      class="chakra-input__group css-169ufh8"
+      data-group="true"
+    >
+      <input
+        aria-describedby="field-:r5:-feedback"
+        aria-invalid="true"
+        class="chakra-input css-6hxpcw"
+        id="field-:r5:"
+        name="email"
+        placeholder="Email"
+        type="text"
+      />
+    </div>
+    <div
+      aria-live="polite"
+      class="chakra-form__error-message css-70qvj9"
+      id="field-:r5:-feedback"
+    >
+      Field is required
+    </div>
+  </div>
+</div>
+`;
+
+exports[`InputField component Render correctly with left icon 1`] = `
+<div>
+  <div
+    class="chakra-form-control css-0"
+    role="group"
+  >
+    <div
+      class="chakra-input__group css-169ufh8"
+      data-group="true"
+    >
+      <div
+        class="chakra-input__left-element css-1u2k0bl"
+      >
+        <svg
+          class="chakra-icon css-onkibi"
+          focusable="false"
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M.439,21.44a1.5,1.5,0,0,0,2.122,2.121L11.823,14.3a.25.25,0,0,1,.354,0l9.262,9.263a1.5,1.5,0,1,0,2.122-2.121L14.3,12.177a.25.25,0,0,1,0-.354l9.263-9.262A1.5,1.5,0,0,0,21.439.44L12.177,9.7a.25.25,0,0,1-.354,0L2.561.44A1.5,1.5,0,0,0,.439,2.561L9.7,11.823a.25.25,0,0,1,0,.354Z"
+            fill="currentColor"
+          />
+        </svg>
+      </div>
+      <input
+        class="chakra-input css-6hxpcw"
+        id="field-:r3:"
+        name="email"
+        placeholder="Email"
+        type="text"
+      />
+    </div>
+  </div>
+</div>
+`;
+
+exports[`InputField component Render correctly with right icon 1`] = `
+<div>
+  <div
+    class="chakra-form-control css-0"
+    role="group"
+  >
+    <div
+      class="chakra-input__group css-169ufh8"
+      data-group="true"
+    >
+      <input
+        class="chakra-input css-6hxpcw"
+        id="field-:r4:"
+        name="email"
+        placeholder="Email"
+        type="text"
+      />
+      <button
+        class="chakra-input__right-element css-1uzzgp1"
+        type="button"
+      >
+        <svg
+          class="chakra-icon css-onkibi"
+          focusable="false"
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M.439,21.44a1.5,1.5,0,0,0,2.122,2.121L11.823,14.3a.25.25,0,0,1,.354,0l9.262,9.263a1.5,1.5,0,1,0,2.122-2.121L14.3,12.177a.25.25,0,0,1,0-.354l9.263-9.262A1.5,1.5,0,0,0,21.439.44L12.177,9.7a.25.25,0,0,1-.354,0L2.561.44A1.5,1.5,0,0,0,.439,2.561L9.7,11.823a.25.25,0,0,1,0,.354Z"
+            fill="currentColor"
+          />
+        </svg>
+      </button>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`InputField component Render correctly with variant is authentication 1`] = `
+<div>
+  <div
+    class="chakra-form-control css-0"
+    role="group"
+  >
+    <div
+      class="chakra-input__group css-169ufh8"
+      data-group="true"
+    >
+      <input
+        class="chakra-input css-6hxpcw"
+        id="field-:r2:"
+        name="email"
+        placeholder="Email"
+        type="text"
+      />
+    </div>
+  </div>
+</div>
+`;
+
+exports[`InputField component Render correctly with variant is secondary 1`] = `
+<div>
+  <div
+    class="chakra-form-control css-0"
+    role="group"
+  >
+    <div
+      class="chakra-input__group css-169ufh8"
+      data-group="true"
+    >
+      <input
+        class="chakra-input css-6hxpcw"
+        id="field-:r1:"
+        name="email"
+        placeholder="Email"
+        type="text"
+      />
+    </div>
+  </div>
+</div>
+`;

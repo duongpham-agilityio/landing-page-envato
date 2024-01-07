@@ -1,0 +1,160 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`RevenueFlow component renders correctly 1`] = `
+<div>
+  <div
+    class="css-p120lk"
+  >
+    <div
+      class="css-1spmqp"
+    >
+      <h3
+        class="chakra-heading css-0"
+      >
+        Revenue Flow
+      </h3>
+      <div
+        class="css-vd6ngq"
+      >
+        <div
+          class="css-r2hvuq"
+        >
+          <div
+            class="css-gp7d97"
+          />
+          <p
+            class="chakra-text css-0"
+          >
+            Pending
+          </p>
+        </div>
+        <div
+          class="css-r2hvuq"
+        >
+          <div
+            class="css-iffjed"
+          />
+          <p
+            class="chakra-text css-0"
+          >
+            Signed
+          </p>
+        </div>
+        <div
+          class="css-r2hvuq"
+        >
+          <div
+            class="css-843j3o"
+          />
+          <p
+            class="chakra-text css-0"
+          >
+            Lost
+          </p>
+        </div>
+      </div>
+      <div
+        class="css-1dodor3"
+      >
+        <button
+          aria-controls="menu-list-:r1:"
+          aria-expanded="false"
+          aria-haspopup="menu"
+          class="chakra-button chakra-menu__menu-button css-9v42w8"
+          id="menu-button-:r1:"
+          type="button"
+        >
+          <span
+            class="css-xl71ch"
+          >
+            <div
+              class="css-70qvj9"
+            >
+              <p
+                class="chakra-text css-g5hezf"
+              >
+                Jan - Dec
+              </p>
+              <svg
+                fill="none"
+                height="24"
+                stroke="#1A202C"
+                style="transform: rotate(undefined);"
+                viewBox="0 0 24 24"
+                width="24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M7 10L12 14L17 10"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                />
+              </svg>
+            </div>
+          </span>
+        </button>
+        <div
+          class="css-0"
+          style="visibility: hidden; position: absolute; inset: 0 auto auto 0;"
+        >
+          <div
+            aria-orientation="vertical"
+            class="chakra-menu__menu-list css-ta0hp9"
+            id="menu-list-:r1:"
+            role="menu"
+            style="transform-origin: var(--popper-transform-origin); opacity: 0; visibility: hidden; transform: scale(0.8) translateZ(0);"
+            tabindex="-1"
+          >
+            <button
+              class="chakra-menu__menuitem css-1jeunnm"
+              data-index="0"
+              id="menu-list-:r1:-menuitem-:r2:"
+              role="menuitem"
+              tabindex="-1"
+              type="button"
+            >
+              <p
+                class="chakra-text css-1198d6z"
+              >
+                Jan - Dec
+              </p>
+            </button>
+            <button
+              class="chakra-menu__menuitem css-1jeunnm"
+              data-index="1"
+              id="menu-list-:r1:-menuitem-:r3:"
+              role="menuitem"
+              tabindex="-1"
+              type="button"
+            >
+              <p
+                class="chakra-text css-1198d6z"
+              >
+                Jan - Jun
+              </p>
+            </button>
+            <button
+              class="chakra-menu__menuitem css-1jeunnm"
+              data-index="2"
+              id="menu-list-:r1:-menuitem-:r4:"
+              role="menuitem"
+              tabindex="-1"
+              type="button"
+            >
+              <p
+                class="chakra-text css-1198d6z"
+              >
+                July - Dec
+              </p>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div>
+      Mocked Chart Component
+    </div>
+  </div>
+</div>
+`;

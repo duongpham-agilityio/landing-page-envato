@@ -1,0 +1,21 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`TotalCard component renders correctly 1`] = `
+<div>
+  <table
+    class="chakra-table css-0"
+  >
+    <tr
+      class="css-0"
+    >
+      <td
+        class="css-dq40i2"
+      >
+        <span
+          class="chakra-badge css-3jdwwr"
+        />
+      </td>
+    </tr>
+  </table>
+</div>
+`;

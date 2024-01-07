@@ -1,3 +1,5 @@
+'use client';
+
 import { ChangeEvent, memo, useCallback } from 'react';
 import { Box, Image, Heading, Flex, Input, Button } from '@chakra-ui/react';
 

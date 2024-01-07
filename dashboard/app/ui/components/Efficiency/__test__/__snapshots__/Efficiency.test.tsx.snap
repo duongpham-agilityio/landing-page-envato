@@ -1,0 +1,271 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Efficiency component renders correctly 1`] = `
+<div>
+  <div
+    class="css-mejsgu"
+  >
+    <div
+      class="css-1spmqp"
+    >
+      <h3
+        class="chakra-heading css-0"
+      >
+        Efficiency
+      </h3>
+      <div
+        class="css-19vtkro"
+      >
+        <button
+          aria-controls="menu-list-:r1:"
+          aria-expanded="false"
+          aria-haspopup="menu"
+          class="chakra-button chakra-menu__menu-button css-1ptp4uh"
+          id="menu-button-:r1:"
+          type="button"
+        >
+          <span
+            class="css-xl71ch"
+          >
+            <div
+              class="css-70qvj9"
+            >
+              <p
+                class="chakra-text css-0"
+              >
+                Weekly
+              </p>
+              <svg
+                fill="none"
+                height="24"
+                stroke="#A0AEC0"
+                style="transform: rotate(undefined);"
+                viewBox="0 0 24 24"
+                width="24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M7 10L12 14L17 10"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                />
+              </svg>
+            </div>
+          </span>
+        </button>
+        <div
+          class="css-0"
+          style="visibility: hidden; position: absolute; inset: 0 auto auto 0;"
+        >
+          <div
+            aria-orientation="vertical"
+            class="chakra-menu__menu-list css-ta0hp9"
+            id="menu-list-:r1:"
+            role="menu"
+            style="transform-origin: var(--popper-transform-origin); opacity: 0; visibility: hidden; transform: scale(0.8) translateZ(0);"
+            tabindex="-1"
+          >
+            <button
+              class="chakra-menu__menuitem css-1jeunnm"
+              data-index="0"
+              id="menu-list-:r1:-menuitem-:r2:"
+              role="menuitem"
+              tabindex="-1"
+              type="button"
+            >
+              <p
+                class="chakra-text css-1198d6z"
+              >
+                Weekly
+              </p>
+            </button>
+            <button
+              class="chakra-menu__menuitem css-1jeunnm"
+              data-index="1"
+              id="menu-list-:r1:-menuitem-:r3:"
+              role="menuitem"
+              tabindex="-1"
+              type="button"
+            >
+              <p
+                class="chakra-text css-1198d6z"
+              >
+                Monthly
+              </p>
+            </button>
+            <button
+              class="chakra-menu__menuitem css-1jeunnm"
+              data-index="2"
+              id="menu-list-:r1:-menuitem-:r4:"
+              role="menuitem"
+              tabindex="-1"
+              type="button"
+            >
+              <p
+                class="chakra-text css-1198d6z"
+              >
+                Yearly
+              </p>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="css-znl6z1"
+    >
+      <div
+        class="css-wax5jp"
+      >
+        <div>
+          EfficiencyInfo component
+        </div>
+        <div
+          class="css-0"
+        >
+          <div
+            class="css-jmbq56"
+          >
+            <div
+              class="css-1qofolz"
+            >
+              <p
+                class="chakra-text css-szwmee"
+              >
+                $
+                5
+              </p>
+              <svg
+                fill="none"
+                height="12"
+                viewBox="0 0 14 12"
+                width="14"
+              >
+                <path
+                  clip-rule="evenodd"
+                  d="M10.7749 0.558058C10.5309 0.313981 10.1351 0.313981 9.89107 0.558058L7.39107 3.05806C7.14699 3.30214 7.14699 3.69786 7.39107 3.94194C7.63514 4.18602 8.03087 4.18602 8.27495 3.94194L9.70801 2.50888V11C9.70801 11.3452 9.98783 11.625 10.333 11.625C10.6782 11.625 10.958 11.3452 10.958 11V2.50888L12.3911 3.94194C12.6351 4.18602 13.0309 4.18602 13.2749 3.94194C13.519 3.69786 13.519 3.30214 13.2749 3.05806L10.7749 0.558058Z"
+                  fill="#22C55E"
+                  fill-rule="evenodd"
+                />
+                <path
+                  clip-rule="evenodd"
+                  d="M3.22407 11.4419C3.46815 11.686 3.86388 11.686 4.10796 11.4419L6.60796 8.94194C6.85203 8.69786 6.85203 8.30214 6.60796 8.05806C6.36388 7.81398 5.96815 7.81398 5.72407 8.05806L4.29102 9.49112L4.29101 1C4.29101 0.654823 4.01119 0.375001 3.66602 0.375001C3.32084 0.375001 3.04102 0.654823 3.04102 1L3.04102 9.49112L1.60796 8.05806C1.36388 7.81398 0.968151 7.81398 0.724074 8.05806C0.479996 8.30214 0.479996 8.69786 0.724074 8.94194L3.22407 11.4419Z"
+                  fill="#22C55E"
+                  fill-rule="evenodd"
+                  opacity="0.4"
+                />
+              </svg>
+            </div>
+            <p
+              class="chakra-text css-jz5bk3"
+            >
+              Arrival
+            </p>
+          </div>
+          <div
+            class="css-0"
+          >
+            <div
+              class="css-1qofolz"
+            >
+              <p
+                class="chakra-text css-0"
+              >
+                $
+                6
+              </p>
+              <svg
+                fill="none"
+                height="12"
+                viewBox="0 0 14 12"
+                width="14"
+              >
+                <path
+                  clip-rule="evenodd"
+                  d="M10.7749 0.558058C10.5309 0.313981 10.1351 0.313981 9.89107 0.558058L7.39107 3.05806C7.14699 3.30214 7.14699 3.69786 7.39107 3.94194C7.63514 4.18602 8.03087 4.18602 8.27495 3.94194L9.70801 2.50888V11C9.70801 11.3452 9.98783 11.625 10.333 11.625C10.6782 11.625 10.958 11.3452 10.958 11V2.50888L12.3911 3.94194C12.6351 4.18602 13.0309 4.18602 13.2749 3.94194C13.519 3.69786 13.519 3.30214 13.2749 3.05806L10.7749 0.558058Z"
+                  fill="#FFF"
+                  fill-rule="evenodd"
+                />
+                <path
+                  clip-rule="evenodd"
+                  d="M3.22407 11.4419C3.46815 11.686 3.86388 11.686 4.10796 11.4419L6.60796 8.94194C6.85203 8.69786 6.85203 8.30214 6.60796 8.05806C6.36388 7.81398 5.96815 7.81398 5.72407 8.05806L4.29102 9.49112L4.29101 1C4.29101 0.654823 4.01119 0.375001 3.66602 0.375001C3.32084 0.375001 3.04102 0.654823 3.04102 1L3.04102 9.49112L1.60796 8.05806C1.36388 7.81398 0.968151 7.81398 0.724074 8.05806C0.479996 8.30214 0.479996 8.69786 0.724074 8.94194L3.22407 11.4419Z"
+                  fill="#FFF"
+                  fill-rule="evenodd"
+                  opacity="0.4"
+                />
+              </svg>
+            </div>
+            <p
+              class="chakra-text css-jz5bk3"
+            >
+              Spending
+            </p>
+          </div>
+        </div>
+      </div>
+      <div
+        class="css-r12esa"
+      >
+        <div
+          class="css-n2i4qd"
+          dir="row"
+        >
+          <div
+            class="css-1tzz1x1"
+          />
+          <p
+            class="chakra-text css-9n3bbc"
+          >
+            Goal
+          </p>
+          <p
+            class="chakra-text css-15h4n6s"
+          >
+            50
+            %
+          </p>
+        </div>
+        <div
+          class="css-n2i4qd"
+          dir="row"
+        >
+          <div
+            class="css-1uk3ab5"
+          />
+          <p
+            class="chakra-text css-9n3bbc"
+          >
+            Spending
+          </p>
+          <p
+            class="chakra-text css-15h4n6s"
+          >
+            30
+            %
+          </p>
+        </div>
+        <div
+          class="css-n2i4qd"
+          dir="row"
+        >
+          <div
+            class="css-1crr2gq"
+          />
+          <p
+            class="chakra-text css-9n3bbc"
+          >
+            Others
+          </p>
+          <p
+            class="chakra-text css-15h4n6s"
+          >
+            20
+            %
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;

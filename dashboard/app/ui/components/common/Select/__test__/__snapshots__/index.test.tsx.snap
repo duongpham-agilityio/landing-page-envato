@@ -1,0 +1,80 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Select Match snapshot 1`] = `
+<div>
+  <button
+    aria-controls="menu-list-:r1:"
+    aria-expanded="false"
+    aria-haspopup="menu"
+    class="chakra-button chakra-menu__menu-button css-lyu4i6"
+    id="menu-button-:r1:"
+    type="button"
+  >
+    <span
+      class="css-xl71ch"
+    >
+      <span
+        class="chakra-text css-cwazn2"
+      >
+        github
+      </span>
+    </span>
+  </button>
+  <div
+    class="css-0"
+    style="visibility: hidden; position: absolute; inset: 0 auto auto 0;"
+  >
+    <div
+      aria-orientation="vertical"
+      class="chakra-menu__menu-list css-ta0hp9"
+      id="menu-list-:r1:"
+      role="menu"
+      style="transform-origin: var(--popper-transform-origin); opacity: 0; visibility: hidden; transform: scale(0.8) translateZ(0);"
+      tabindex="-1"
+    >
+      <button
+        class="chakra-menu__menuitem css-1oz22gy"
+        data-index="0"
+        id="menu-list-:r1:-menuitem-:r2:"
+        role="menuitem"
+        tabindex="-1"
+        type="button"
+      >
+        <p
+          class="chakra-text css-1198d6z"
+        >
+          github
+        </p>
+      </button>
+      <button
+        class="chakra-menu__menuitem css-1oz22gy"
+        data-index="1"
+        id="menu-list-:r1:-menuitem-:r3:"
+        role="menuitem"
+        tabindex="-1"
+        type="button"
+      >
+        <p
+          class="chakra-text css-1198d6z"
+        >
+          facebook
+        </p>
+      </button>
+      <button
+        class="chakra-menu__menuitem css-1oz22gy"
+        data-index="2"
+        id="menu-list-:r1:-menuitem-:r4:"
+        role="menuitem"
+        tabindex="-1"
+        type="button"
+      >
+        <p
+          class="chakra-text css-1198d6z"
+        >
+          instagram
+        </p>
+      </button>
+    </div>
+  </div>
+</div>
+`;

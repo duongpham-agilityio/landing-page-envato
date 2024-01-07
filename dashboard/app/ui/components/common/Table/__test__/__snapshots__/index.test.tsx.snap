@@ -1,0 +1,289 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Table Match to snapshot 1`] = `
+<div>
+  <div
+    class="chakra-table__container css-12od5nk"
+  >
+    <table
+      class="chakra-table css-0"
+    >
+      <thead
+        class="css-0"
+      >
+        <tr
+          class="css-0"
+        >
+          <th
+            class="css-uvf2im"
+          >
+            <p
+              class="chakra-text css-9m1sly"
+              title="Customer name"
+            >
+              Customer name
+            </p>
+          </th>
+          <th
+            class="css-uvf2im"
+          >
+            <p
+              class="chakra-text css-9m1sly"
+              title="Email"
+            >
+              Email
+            </p>
+          </th>
+          <th
+            class="css-uvf2im"
+          >
+            <p
+              class="chakra-text css-9m1sly"
+              title="Location"
+            >
+              Location
+            </p>
+          </th>
+          <th
+            class="css-uvf2im"
+          >
+            <p
+              class="chakra-text css-9m1sly"
+              title="Spent"
+            >
+              Spent
+            </p>
+          </th>
+          <th
+            class="css-uvf2im"
+          >
+            <p
+              class="chakra-text css-9m1sly"
+              title=""
+            />
+          </th>
+        </tr>
+      </thead>
+      <tbody
+        class="css-0"
+      >
+        <tr
+          class="css-0"
+        >
+          <td
+            class="css-9l1yrg"
+          >
+            <p
+              class="chakra-text css-24haq4"
+            >
+              Devon Lane
+            </p>
+          </td>
+          <td
+            class="css-9l1yrg"
+          >
+            <p
+              class="chakra-text css-24haq4"
+            >
+              devon@mail.com
+            </p>
+          </td>
+          <td
+            class="css-9l1yrg"
+          >
+            <p
+              class="chakra-text css-24haq4"
+            >
+              Philadelphia, USA
+            </p>
+          </td>
+          <td
+            class="css-9l1yrg"
+          >
+            <p
+              class="chakra-text css-24haq4"
+            >
+              $101.00
+            </p>
+          </td>
+          <button>
+            action
+          </button>
+        </tr>
+        <tr
+          class="css-0"
+        >
+          <td
+            class="css-9l1yrg"
+          >
+            <p
+              class="chakra-text css-24haq4"
+            >
+              Devon Lane
+            </p>
+          </td>
+          <td
+            class="css-9l1yrg"
+          >
+            <p
+              class="chakra-text css-24haq4"
+            >
+              devon@mail.com
+            </p>
+          </td>
+          <td
+            class="css-9l1yrg"
+          >
+            <p
+              class="chakra-text css-24haq4"
+            >
+              Philadelphia, USA
+            </p>
+          </td>
+          <td
+            class="css-9l1yrg"
+          >
+            <p
+              class="chakra-text css-24haq4"
+            >
+              $101.00
+            </p>
+          </td>
+          <button>
+            action
+          </button>
+        </tr>
+        <tr
+          class="css-0"
+        >
+          <td
+            class="css-9l1yrg"
+          >
+            <p
+              class="chakra-text css-24haq4"
+            >
+              Devon Lane
+            </p>
+          </td>
+          <td
+            class="css-9l1yrg"
+          >
+            <p
+              class="chakra-text css-24haq4"
+            >
+              devon@mail.com
+            </p>
+          </td>
+          <td
+            class="css-9l1yrg"
+          >
+            <p
+              class="chakra-text css-24haq4"
+            >
+              Philadelphia, USA
+            </p>
+          </td>
+          <td
+            class="css-9l1yrg"
+          >
+            <p
+              class="chakra-text css-24haq4"
+            >
+              $101.00
+            </p>
+          </td>
+          <button>
+            action
+          </button>
+        </tr>
+        <tr
+          class="css-0"
+        >
+          <td
+            class="css-9l1yrg"
+          >
+            <p
+              class="chakra-text css-24haq4"
+            >
+              Devon Lane
+            </p>
+          </td>
+          <td
+            class="css-9l1yrg"
+          >
+            <p
+              class="chakra-text css-24haq4"
+            >
+              devon@mail.com
+            </p>
+          </td>
+          <td
+            class="css-9l1yrg"
+          >
+            <p
+              class="chakra-text css-24haq4"
+            >
+              Philadelphia, USA
+            </p>
+          </td>
+          <td
+            class="css-9l1yrg"
+          >
+            <p
+              class="chakra-text css-24haq4"
+            >
+              $101.00
+            </p>
+          </td>
+          <button>
+            action
+          </button>
+        </tr>
+        <tr
+          class="css-0"
+        >
+          <td
+            class="css-9l1yrg"
+          >
+            <p
+              class="chakra-text css-24haq4"
+            >
+              Devon Lane
+            </p>
+          </td>
+          <td
+            class="css-9l1yrg"
+          >
+            <p
+              class="chakra-text css-24haq4"
+            >
+              devon@mail.com
+            </p>
+          </td>
+          <td
+            class="css-9l1yrg"
+          >
+            <p
+              class="chakra-text css-24haq4"
+            >
+              Philadelphia, USA
+            </p>
+          </td>
+          <td
+            class="css-9l1yrg"
+          >
+            <p
+              class="chakra-text css-24haq4"
+            >
+              $101.00
+            </p>
+          </td>
+          <button>
+            action
+          </button>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+`;

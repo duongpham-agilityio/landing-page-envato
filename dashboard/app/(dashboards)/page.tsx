@@ -1,3 +1,12 @@
+import {
+  BoxChat,
+  CardPayment,
+  Efficiency,
+  RevenueFlow,
+  TotalStatisticList,
+  TransactionTable,
+} from '@/ui/components';
+import { QueryProvider } from '@/ui/providers';
 import { Box, Grid, GridItem, Stack } from '@chakra-ui/react';
 
 const Dashboard = () => (
@@ -9,33 +18,22 @@ const Dashboard = () => (
     gap={0}
   >
     <GridItem colSpan={3}>
-      {/* <Fetching isError={false} errorMessage="Total statistic data error">
-        <TotalStatisticList
-          spendingStatistics={SPENDING_STATISTICS_MOCK}
-          isLoading={false}
-        />
-      </Fetching> */}
+      <TotalStatisticList />
 
-      {/* <Grid
+      <Grid
         templateColumns={{ base: 'repeat(1, 1fr)', lg: 'repeat(3, 1fr)' }}
         mt={6}
         gap={6}
       >
         <GridItem colSpan={{ base: 3, xl: 2 }}>
-          <Fetching
-            isLoading={false}
-            isError={false}
-            errorMessage="Revenue flow data error"
-            variant="secondary"
-            size="md"
-          >
-            <p>Revenue flow component</p>
-          </Fetching>
+          <RevenueFlow />
         </GridItem>
         <GridItem display={{ base: 'none', xl: 'block' }}>
-          <p>Efficiency component</p>
+          <QueryProvider>
+            <Efficiency />
+          </QueryProvider>
         </GridItem>
-      </Grid> */}
+      </Grid>
 
       {/* Transactions table */}
       <Box
@@ -46,7 +44,10 @@ const Dashboard = () => (
         px={6}
         py={5}
       >
-        <p>Transaction table component</p>
+        {' '}
+        <QueryProvider>
+          <TransactionTable />
+        </QueryProvider>
       </Box>
     </GridItem>
     <GridItem mt={{ base: 6, '5xl': 0 }} ml={{ '5xl': 12 }}>
@@ -54,7 +55,7 @@ const Dashboard = () => (
         direction={{ base: 'column', lg: 'row', '2xl': 'column' }}
         spacing={{ base: 6, lg: 0 }}
       >
-        {/* <Box w="full">
+        <Box w="full">
           <CardPayment />
         </Box>
 
@@ -64,7 +65,7 @@ const Dashboard = () => (
           ml={{ lg: 6, '2xl': 0 }}
         >
           <BoxChat />
-        </Box> */}
+        </Box>
       </Stack>
     </GridItem>
   </Grid>

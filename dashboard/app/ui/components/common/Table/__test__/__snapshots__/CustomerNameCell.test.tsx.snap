@@ -1,0 +1,28 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CustomerNameCell Match to snapshot 1`] = `
+<div>
+  <table
+    class="chakra-table css-0"
+  >
+    <td
+      class="css-99cbv8"
+    >
+      <div
+        class="css-w6z44q"
+      >
+        <img
+          alt="Image of Duong Pham"
+          class="chakra-image css-19idant"
+          src="undefined"
+        />
+        <p
+          class="chakra-text css-tuvgq"
+        >
+          Duong Pham
+        </p>
+      </div>
+    </td>
+  </table>
+</div>
+`;

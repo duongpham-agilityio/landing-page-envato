@@ -1,0 +1,227 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`UserTable component should renders correctly 1`] = `
+<div>
+  <div
+    class="chakra-table__container css-12od5nk"
+  >
+    <table
+      class="chakra-table css-0"
+    >
+      <thead
+        class="css-0"
+      >
+        <tr
+          class="css-0"
+        />
+      </thead>
+      <tbody
+        class="css-0"
+      >
+        <tr
+          class="css-0"
+        >
+          <td
+            class="css-i3u192"
+          >
+            <div
+              class="css-1h2sv0j"
+            >
+              <img
+                alt="Image of Abdur Rohman"
+                class="chakra-image css-1rqxmuh"
+                src="https://cdn-icons-png.flaticon.com/512/5556/5556468.png"
+              />
+              <div
+                class="css-1rr4qq7"
+              >
+                <h4
+                  class="chakra-text css-197ngd6"
+                >
+                  Abdur Rohman
+                </h4>
+                <p
+                  class="chakra-text css-vxhtcb"
+                >
+                  <span
+                    class="chakra-text css-9feaud"
+                    title="Finance managers"
+                  >
+                    Finance managers
+                    ⋅
+                  </span>
+                  <span
+                    class="chakra-text css-1rgac5r"
+                  >
+                    Jakarta, Indonesia
+                    ⋅
+                    2 days ago
+                  </span>
+                </p>
+              </div>
+            </div>
+          </td>
+          <td
+            class="css-dq40i2"
+          >
+            <span
+              class="chakra-badge css-3jdwwr"
+            >
+              Full Time
+            </span>
+          </td>
+          <td
+            class="css-dq40i2"
+          >
+            <span
+              class="chakra-badge css-3jdwwr"
+            >
+              Senior Level
+            </span>
+          </td>
+          <td
+            class="css-1vvhs8e"
+          >
+            <button
+              aria-controls="menu-list-:rb:"
+              aria-expanded="false"
+              aria-haspopup="menu"
+              class="chakra-button chakra-menu__menu-button css-14rg285"
+              id="menu-button-:rb:"
+              type="button"
+            >
+              <span
+                class="css-xl71ch"
+              >
+                <button
+                  aria-label="This is the icon action"
+                  class="chakra-button css-1x5hsk6"
+                  type="button"
+                >
+                  <svg
+                    aria-hidden="true"
+                    fill="none"
+                    focusable="false"
+                    height="4"
+                    width="18"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M8 2a1 1 0 1 0 2 0 1 1 0 0 0-2 0ZM1 2a1 1 0 1 0 2 0 1 1 0 0 0-2 0ZM15 2a1 1 0 1 0 2 0 1 1 0 0 0-2 0Z"
+                      stroke="#A0AEC0"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                    />
+                  </svg>
+                </button>
+              </span>
+            </button>
+          </td>
+        </tr>
+        <tr
+          class="css-0"
+        >
+          <td
+            class="css-i3u192"
+          >
+            <div
+              class="css-1h2sv0j"
+            >
+              <img
+                alt="Image of Devon Rohman"
+                class="chakra-image css-1rqxmuh"
+                src="https://cdn-icons-png.flaticon.com/512/5556/5556468.png"
+              />
+              <div
+                class="css-1rr4qq7"
+              >
+                <h4
+                  class="chakra-text css-197ngd6"
+                >
+                  Devon Rohman
+                </h4>
+                <p
+                  class="chakra-text css-vxhtcb"
+                >
+                  <span
+                    class="chakra-text css-9feaud"
+                    title="Finance managers"
+                  >
+                    Finance managers
+                    ⋅
+                  </span>
+                  <span
+                    class="chakra-text css-1rgac5r"
+                  >
+                    Jakarta, Indonesia
+                    ⋅
+                    4 days ago
+                  </span>
+                </p>
+              </div>
+            </div>
+          </td>
+          <td
+            class="css-dq40i2"
+          >
+            <span
+              class="chakra-badge css-3jdwwr"
+            >
+              Full Time
+            </span>
+          </td>
+          <td
+            class="css-dq40i2"
+          >
+            <span
+              class="chakra-badge css-3jdwwr"
+            >
+              Senior Level
+            </span>
+          </td>
+          <td
+            class="css-1vvhs8e"
+          >
+            <button
+              aria-controls="menu-list-:rn:"
+              aria-expanded="false"
+              aria-haspopup="menu"
+              class="chakra-button chakra-menu__menu-button css-14rg285"
+              id="menu-button-:rn:"
+              type="button"
+            >
+              <span
+                class="css-xl71ch"
+              >
+                <button
+                  aria-label="This is the icon action"
+                  class="chakra-button css-1x5hsk6"
+                  type="button"
+                >
+                  <svg
+                    aria-hidden="true"
+                    fill="none"
+                    focusable="false"
+                    height="4"
+                    width="18"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M8 2a1 1 0 1 0 2 0 1 1 0 0 0-2 0ZM1 2a1 1 0 1 0 2 0 1 1 0 0 0-2 0ZM15 2a1 1 0 1 0 2 0 1 1 0 0 0-2 0Z"
+                      stroke="#A0AEC0"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                    />
+                  </svg>
+                </button>
+              </span>
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+`;
