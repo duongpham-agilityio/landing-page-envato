@@ -1,0 +1,63 @@
+---
+// Component
+import Heading from '@app/components/Heading/index.astro';
+import Button from '@app/components/Button/index';
+
+// Mocks
+import { CARD_TOTAL } from '@app/mocks/cardTotal';
+
+interface CardTotalProps {
+  subTotal?: string;
+  delivery?: string;
+  total?: string;
+  prefixCurrency?: string;
+  className?: string;
+}
+
+const { className = '' } = Astro.props;
+
+const {
+  subTotal = '',
+  delivery = '',
+  total = '',
+  prefixCurrency = '',
+} = CARD_TOTAL;
+
+const listStyleDescription: string = [
+  '[&>*:nth-child(n)]:mb-lg',
+  '[&>*:nth-child(n)]:font-primary',
+  '[&>*:nth-child(n)]:text-[14px]',
+  '[&>*:nth-child(n)]:text-elementary',
+  '[&>*:nth-child(n)]:flex',
+  '[&>*:nth-child(n)]:justify-between',
+].join(' ');
+
+const fontSemibold: string = ['font-semibold'].join(' ');
+---
+
+<div class={`bg-desertStorm font-semibold mt-[118px] py-lg px-5 ${className}`}>
+  <div>
+    <Heading tag='h3' variant='secondary' className='font-semibold'>
+      Cart Total
+    </Heading>
+    <div class={`mt-lg ${listStyleDescription}`}>
+      <p class={`${fontSemibold}`}>
+        Subtotal:<span class={`${fontSemibold}`}
+          >{prefixCurrency}{subTotal}</span
+        >
+      </p>
+      <p class={`${fontSemibold}`}>
+        Delivery:<span class={`${fontSemibold}`}>{delivery}</span>
+      </p>
+      <p class={`${fontSemibold}`}>
+        Total:<span class={`${fontSemibold}`}>{prefixCurrency}{total}</span>
+      </p>
+    </div>
+    <Button
+      variant='baseStyle'
+      className='text-white hover:bg-secondary hover:text-white w-full h-[55px] font-semibold !leading-14'
+    >
+      Checkout
+    </Button>
+  </div>
+</div>

@@ -8,7 +8,8 @@
     "eslint:recommended",
     "plugin:@typescript-eslint/recommended",
     "plugin:react/recommended",
-    "plugin:react-hooks/recommended"
+    "plugin:react-hooks/recommended",
+    "plugin:astro/recommended"
   ],
   "ignorePatterns": ["dist"],
   "parser": "@typescript-eslint/parser",
@@ -37,8 +38,21 @@
       }
     ],
     "no-useless-escape": "off",
-    "arrow-body-style": ["error", "as-needed"],
+
     "react/no-array-index-key": "error",
     "react/display-name": "error"
-  }
+  },
+  "overrides": [
+    {
+      "files": ["*.astro"],
+      "parser": "astro-eslint-parser",
+      "parserOptions": {
+        "parser": "@typescript-eslint/parser",
+        "extraFileExtensions": [".astro"]
+      },
+      "rules": {
+        "react/no-unknown-property": "off"
+      }
+    }
+  ]
 }

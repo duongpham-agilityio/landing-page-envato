@@ -10,18 +10,17 @@ type Props = Pick<IProduct, 'name' | 'amount' | 'currency'> & {
 };
 
 const { imageURL, name, currency, amount, href } = Astro.props;
-const hoverStyles: string = [
+const hoverStyles: string[] = [
   '[&:hover>div>.caption]:text-white',
   '[&:hover>.pesudo]:bg-black',
   '[&:hover>.pesudo]:opacity-[0.7]',
-].join(' ');
-const captionStyles: string = ['absolute', 'z-10', 'top-lg', 'left-lg'].join(
-  ' ',
-);
-const transitionStyles: string = ['transition', 'duration-300'].join(' ');
+];
+const captionStyles: string[] = ['absolute', 'z-10', 'top-lg', 'left-lg'];
+const transitionStyles: string[] = ['transition', 'duration-300'];
 ---
 
-<figure class={`relative w-full h-full cursor-pointer ${hoverStyles}`}>
+<!-- class={`relative w-full h-full cursor-pointer ${hoverStyles}`} -->
+<figure class:list={['relative w-full h-full cursor-pointer', ...hoverStyles]}>
   <Image
     src={imageURL}
     widths={[250, 526, 622]}
@@ -32,18 +31,26 @@ const transitionStyles: string = ['transition', 'duration-300'].join(' ');
     class='w-full h-full object-contain'
   />
   <div
-    class={`${captionStyles} pt-3 after:absolute after:top-0 after:block after:w-20 after:h-[3px] after:bg-sun`}
+    class:list={[
+      'pt-3 after:absolute after:top-0 after:block after:w-20 after:h-[3px] after:bg-sun',
+      ...captionStyles,
+    ]}
   >
-    <figcaption class=`caption text-base text-sparingly ${transitionStyles}`>
+    <figcaption
+      class:list={['caption text-base text-sparingly', ...transitionStyles]}
+    >
       From {currency}{amount}
     </figcaption>
-    <figcaption class={`caption text-2xl ${transitionStyles}`}>
+    <figcaption class:list={['caption text-2xl', ...transitionStyles]}>
       {name}
     </figcaption>
   </div>
   <a
     href={href}
-    class={`pesudo absolute top-0 w-full h-full z-[1] ${transitionStyles}`}
+    class:list={[
+      'pesudo absolute top-0 w-full h-full z-[1]',
+      ...transitionStyles,
+    ]}
     aria-label='Read more about'
   >
   </a>
