@@ -1,6 +1,7 @@
 import { memo } from 'react';
+import dynamic from 'next/dynamic';
 import { Box, Flex, Text, useColorMode } from '@chakra-ui/react';
-import Chart from 'react-apexcharts';
+const Chart = dynamic(() => import('react-apexcharts'), { ssr: false });
 
 // Components
 import Statistical from './Statistical';
@@ -67,12 +68,13 @@ const EfficiencyComponent = ({
           series={statistical.map((item) => item.value)}
           type="donut"
           width="200"
+          height="auto"
         />
         <Box>
           <Box mb={6}>
             <Flex alignItems="center" gap={1}>
               <Text variant="textLg" color="text.currencyColor">
-                ${formatDecimalNumber(arrival, true)}
+                ${formatDecimalNumber(arrival || 0, true)}
               </Text>
               <Sort />
             </Flex>
@@ -83,7 +85,7 @@ const EfficiencyComponent = ({
           <Box>
             <Flex alignItems="center" gap={1}>
               <Text variant="textLg">
-                ${formatDecimalNumber(spending, true)}
+                ${formatDecimalNumber(spending || 0, true)}
               </Text>
               <Sort color={sortIconColor} />
             </Flex>

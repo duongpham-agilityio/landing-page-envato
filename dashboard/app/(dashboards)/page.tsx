@@ -1,13 +1,23 @@
-import {
-  BoxChat,
-  CardPayment,
-  Efficiency,
-  RevenueFlow,
-  TotalStatisticList,
-  TransactionTable,
-} from '@/ui/components';
+import dynamic from 'next/dynamic';
 import { QueryProvider } from '@/ui/providers';
 import { Box, Grid, GridItem, Stack } from '@chakra-ui/react';
+
+// Lazy load components
+const CardPayment = dynamic(() => import('@/ui/components/CardPayment'));
+const BoxChat = dynamic(() => import('@/ui/components/BoxChat'));
+const TotalStatisticList = dynamic(
+  () => import('@/ui/components/TotalStatisticList'),
+  { ssr: false },
+);
+const RevenueFlow = dynamic(() => import('@/ui/components/RevenueFlow'), {
+  ssr: false,
+});
+const Efficiency = dynamic(() => import('@/ui/components/Efficiency'), {
+  ssr: false,
+});
+const TransactionTable = dynamic(
+  () => import('@/ui/components/TransactionTable'),
+);
 
 const Dashboard = () => (
   <Grid
@@ -35,7 +45,6 @@ const Dashboard = () => (
         </GridItem>
       </Grid>
 
-      {/* Transactions table */}
       <Box
         mt={6}
         as="section"

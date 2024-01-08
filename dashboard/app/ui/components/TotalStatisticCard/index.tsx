@@ -1,10 +1,14 @@
 'use client';
 
 import { memo } from 'react';
+import dynamic from 'next/dynamic';
 
 // Components
 import { Box, Image, HStack, Text, Flex } from '@chakra-ui/react';
-import Chart from 'react-apexcharts';
+// import Chart from 'react-apexcharts';
+const Chart = dynamic(() => import('react-apexcharts'), {
+  ssr: false,
+});
 
 // Images
 import { IMAGES } from '@/lib/constants';
@@ -98,6 +102,8 @@ const TotalCardComponent = ({
             },
           ]}
           type="area"
+          width="100%"
+          height="auto"
         />
       </Box>
     </Flex>

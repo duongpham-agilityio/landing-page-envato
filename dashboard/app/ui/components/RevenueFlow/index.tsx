@@ -2,9 +2,10 @@
 
 import { memo, useCallback, useMemo, useState } from 'react';
 import isEqual from 'react-fast-compare';
+import dynamic from 'next/dynamic';
 
 // Components
-import Chart from 'react-apexcharts';
+const Chart = dynamic(() => import('react-apexcharts'), { ssr: false });
 import {
   Box,
   Flex,
@@ -207,6 +208,7 @@ const RevenueFlowComponent = ({
         }}
         series={chartData}
         type="bar"
+        width="100%"
         height="230"
       />
     </Box>

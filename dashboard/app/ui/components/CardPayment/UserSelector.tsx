@@ -12,9 +12,6 @@ import { IMAGES } from '@/lib/constants';
 // Components
 import { TTransferControl } from '.';
 
-// Utils
-import { generatePlaceholder } from '@/lib/utils';
-
 const UserSelectorComponent = ({ control }: TTransferControl): JSX.Element => (
   <>
     <Text
@@ -54,8 +51,6 @@ const UserSelectorComponent = ({ control }: TTransferControl): JSX.Element => (
         width={24}
         height={24}
         sizes="100vw"
-        placeholder="blur"
-        blurDataURL={generatePlaceholder(52, 52)}
       />
 
       <Text

@@ -1,11 +1,14 @@
 import { memo } from 'react';
+import dynamic from 'next/dynamic';
 
 // Components
 import { Grid, GridItem } from '@chakra-ui/react';
-import {
-  TotalStatisticCard,
-  TotalStatisticListSkeleton,
-} from '@/ui/components';
+import { TotalStatisticListSkeleton } from '@/ui/components';
+
+const TotalStatisticCard = dynamic(
+  () => import('@/ui/components/TotalStatisticCard'),
+  { ssr: false },
+);
 
 // Types
 import { ISpendingStatistics } from '@/lib/interfaces';
