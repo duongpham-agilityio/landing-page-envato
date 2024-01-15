@@ -34,6 +34,7 @@ const Carousel = ({ images }: TCarouselProps): JSX.Element => (
           placeholderSrc={generatePlaceholder(250, 250)}
           width={250}
           height={250}
+          loading='lazy'
           className='thumb-image'
         />
       ))}

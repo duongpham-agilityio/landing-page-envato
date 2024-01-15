@@ -1,8 +1,14 @@
-import { useCallback, useEffect, useMemo, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 
 // Components
 import { Button } from '..';
 import CloseSideBarMenuMemorized from '../icons/CloseSideBar';
+
+// Utils
+import { getStyles } from '@app/utils';
+
+// Themes
+import { toast } from '@app/themes/components';
 
 export type TTypeToast = 'success' | 'error';
 type TToastProps = {
@@ -21,26 +27,6 @@ const Toast = ({
   onBlur,
 }: TToastProps): JSX.Element | null => {
   const [isOpenToast, setIsOpenToast] = useState<boolean>(isOpen);
-
-  const {
-    text = '',
-    button,
-    toastBg,
-  }: Record<string, string> = useMemo(() => {
-    const styles: Record<Required<typeof type>, Record<string, string>> = {
-      success: {
-        toastBg: 'bg-green-400',
-        button: '#fff',
-      },
-      error: {
-        toastBg: 'bg-red-400',
-        button: '#000',
-        text: 'text-white',
-      },
-    };
-
-    return styles[type];
-  }, [type]);
 
   const handleCloseToast = useCallback(() => setIsOpenToast(false), []);
 
@@ -62,18 +48,20 @@ const Toast = ({
 
   return isOpen ? (
     <section
-      className={`fixed flex justify-between items-center z-50 top-10 left-[50%] translate-x-[-50%]  w-[80%] sm:w-[400px] p-1 shadow-2xl rounded-md ${toastBg}`}
+      className={`${getStyles(toast.baseStyle)} ${getStyles(
+        toast.variants[type],
+      )}`}
       onClick={(e) => e.preventDefault()}
       onMouseMove={onHover}
       onMouseLeave={onBlur}
     >
-      <p className={`px-3 text-sm nearLg:text-md ${text}`}>{message}</p>
+      <p className={'px-3 text-sm nearLg:text-md text-inherit'}>{message}</p>
       <Button
         aria-label='Close Button'
         className='flex bg-transparent w-10 h-10 justify-center items-center rounded-[100%] !pt-0 pb-[0px] self-end'
         onClick={handleCloseToast}
       >
-        <CloseSideBarMenuMemorized width={10} height={10} fill={button} />
+        <CloseSideBarMenuMemorized width={10} height={10} fill='#000' />
       </Button>
     </section>
   ) : null;

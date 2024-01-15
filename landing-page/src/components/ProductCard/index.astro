@@ -49,4 +49,13 @@ const transitionStyles: string[] = ['transition', 'duration-300'];
       <span class=''> {name}</span>
     </figcaption>
   </div>
+  <a
+    href={href}
+    class:list={[
+      'pesudo absolute top-0 w-full h-full z-[1]',
+      ...transitionStyles,
+    ]}
+    aria-label='Read more about'
+  >
+  </a>
 </figure>
