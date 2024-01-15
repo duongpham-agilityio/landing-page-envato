@@ -26,15 +26,7 @@ const transitionStyles: string[] = ['transition', 'duration-300'];
   <Image
     src={imageURL}
     placeholderSrc={generatePlaceholder(250, 250)}
-    srcSet={`
-    ${imageURL} 280w,
-    ${imageURL} 480w,
-    ${imageURL} 560w,
-    ${imageURL} 840w,
-    ${imageURL} 960w,
-    ${imageURL} 1440w
-    `}
-    sizes='(min-width:768px)480px,87.5vw'
+    sizes='(min-width:768px) 480px, 87.5vw'
     width={250}
     height={250}
     alt={`This is the image for ${name}`}
