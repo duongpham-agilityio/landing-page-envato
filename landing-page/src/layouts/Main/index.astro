@@ -1,9 +1,12 @@
 ---
 // Components
 import GlobalLayout from '@app/layouts/Global/index.astro';
-import { Subscribe } from '@app/components';
+import SubscribeForm from '@app/components/Subscribe/SubcribeForm';
+// import { Subscribe } from '@app/components';
 import Wrapper from './Wrapper';
 import Footer from './Footer/index.astro';
+// Components
+import { Container, Heading } from '@app/components';
 
 const currentPathName: string = Astro.url.pathname;
 ---
@@ -12,6 +15,23 @@ const currentPathName: string = Astro.url.pathname;
   <Wrapper client:visible pathName={currentPathName}>
     <slot />
   </Wrapper>
-  <Subscribe />
+
+  <section class='mt-[70px] lg:mt-0 py-[100px] bg-iridium'>
+    <Container className='lg:flex gap-[30px] items-center'>
+      <div class='flex-1'>
+        <Heading className='text-3xl text-white font-normal'>
+          Subscribe for a <span class='text-sun'>25% Discount</span>
+        </Heading>
+        <p class='pt-2 text-little text-base font-normal'>
+          Nulla ac convallis lorem, eget euismod nisl. Donec in libero sit amet
+          mi vulputate consectetur. Donec auctor interdum purus, ac finibus
+          massa bibendum nec.
+        </p>
+      </div>
+      <div class='flex-1'>
+        <SubscribeForm client:visible />
+      </div>
+    </Container>
+  </section>
   <Footer />
 </GlobalLayout>
