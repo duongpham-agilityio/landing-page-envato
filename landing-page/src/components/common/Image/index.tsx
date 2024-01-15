@@ -1,7 +1,7 @@
 import { memo, type ImgHTMLAttributes, useState, useEffect } from 'react';
 import isEqual from 'react-fast-compare';
 
-type TImageProps = ImgHTMLAttributes<HTMLImageElement> & {
+type TImageProps = Omit<ImgHTMLAttributes<HTMLImageElement>, 'srcSet'> & {
   placeholderSrc?: string;
 };
 
@@ -11,15 +11,27 @@ const ImageCustom = ({
   ...props
 }: TImageProps): JSX.Element => {
   const [imgSrc, setImgSrc] = useState(placeholderSrc || src);
+  const [srcSetState, setSrcSet] = useState<string>(placeholderSrc);
 
   useEffect(() => {
     const img = new Image();
     img.src = src;
 
-    img.onload = () => setImgSrc(src);
+    img.onload = () => {
+      setSrcSet(`
+    ${src} 280w,
+    ${src} 480w,
+    ${src} 560w,
+    ${src} 840w,
+    ${src} 960w,
+    ${src} 1440w
+    `);
+
+      setImgSrc(src);
+    };
   }, [src]);
 
-  return <img {...{ src: imgSrc, ...props }} />;
+  return <img {...{ src: imgSrc, srcSet: srcSetState, ...props }} />;
 };
 
 const ImageMemorized = memo(ImageCustom, isEqual);
