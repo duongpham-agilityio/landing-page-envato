@@ -16,17 +16,17 @@ const ImageCustom = ({
   useEffect(() => {
     const img = new Image();
     img.src = src;
-
-    img.onload = () => {
-      setSrcSet(`
+    img.srcset = `
     ${src} 280w,
     ${src} 480w,
     ${src} 560w,
     ${src} 840w,
     ${src} 960w,
     ${src} 1440w
-    `);
+    `;
 
+    img.onload = () => {
+      setSrcSet(img.srcset);
       setImgSrc(src);
     };
   }, [src]);
