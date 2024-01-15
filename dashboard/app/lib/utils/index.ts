@@ -6,3 +6,4 @@ export * from './helpers';
 export * from './text';
 export * from './localStorage';
 export * from './image';
+export * from './statistical';

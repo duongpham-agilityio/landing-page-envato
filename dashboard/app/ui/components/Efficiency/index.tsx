@@ -1,6 +1,11 @@
 'use client';
 
 import { memo, useCallback, useState } from 'react';
+import {
+  HydrationBoundary,
+  QueryClient,
+  dehydrate,
+} from '@tanstack/react-query';
 
 // Components
 import {
@@ -16,6 +21,8 @@ import { TOption } from '@/ui/components/common/Select';
 import EfficiencyInfo from './EfficiencyInfo';
 import EfficiencyRefetch from './Refetching';
 
+const queryClient = new QueryClient();
+
 // Icons
 import { Arrow } from '@/ui/components/Icons';
 
@@ -29,7 +36,6 @@ import { IEfficiency } from '@/lib/interfaces';
 import { QueryProvider } from '@/ui/providers';
 
 const EfficiencyComponent = () => {
-  //TODO: update later
   const [efficiencyType, setEfficiencyType] = useState<string>('weekly');
 
   const [isLoadingSelectEfficiencyType, setLoadingSelectEfficiencyType] =
@@ -123,7 +129,9 @@ const EfficiencyComponent = () => {
 
 const WrappedEfficiency = () => (
   <QueryProvider>
-    <EfficiencyComponent />
+    <HydrationBoundary state={dehydrate(queryClient)}>
+      <EfficiencyComponent />
+    </HydrationBoundary>
   </QueryProvider>
 );
 

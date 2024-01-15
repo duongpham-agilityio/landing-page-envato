@@ -5,13 +5,15 @@ import { memo } from 'react';
 import { END_POINTS } from '@/lib/constants';
 
 // Interface
-import { IRevenueFlow, ISpendingStatistics } from '@/lib/interfaces';
-
-// Services
-import { getStatistical } from '@/lib/services';
+import {
+  IEfficiency,
+  IRevenueFlow,
+  ISpendingStatistics,
+} from '@/lib/interfaces';
 
 // Components
 import { Box, Grid, GridItem, Stack } from '@chakra-ui/react';
+import { prefetchStatistical } from '@/lib/utils';
 
 // Lazy load components
 const CardPayment = dynamic(() => import('@/ui/components/CardPayment'));
@@ -26,13 +28,10 @@ const TransactionTable = dynamic(
 );
 
 const DashboardPage = async () => {
-  const spendingStatistics = await getStatistical<ISpendingStatistics[]>(
-    END_POINTS.STATISTICS,
-  );
-
-  const revenueFlowData = await getStatistical<IRevenueFlow[]>(
-    END_POINTS.REVENUE,
-  );
+  // Prefetch total statistics, revenue and efficiency data
+  await prefetchStatistical<ISpendingStatistics[]>(END_POINTS.STATISTICS);
+  await prefetchStatistical<IRevenueFlow[]>(END_POINTS.REVENUE);
+  await prefetchStatistical<IEfficiency[]>(`${END_POINTS.EFFICIENCY}/weekly`);
 
   return (
     <Grid
@@ -43,7 +42,7 @@ const DashboardPage = async () => {
       gap={0}
     >
       <GridItem colSpan={3}>
-        <TotalStatisticList data={spendingStatistics} />
+        <TotalStatisticList />
 
         <Grid
           templateColumns={{ base: 'repeat(1, 1fr)', lg: 'repeat(3, 1fr)' }}
@@ -51,7 +50,7 @@ const DashboardPage = async () => {
           gap={6}
         >
           <GridItem colSpan={{ base: 3, xl: 2 }}>
-            <RevenueFlow data={revenueFlowData} />
+            <RevenueFlow />
           </GridItem>
           <GridItem display={{ base: 'none', xl: 'block' }}>
             <Efficiency />

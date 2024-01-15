@@ -1,7 +1,6 @@
 'use client';
 
 import { Fragment, memo } from 'react';
-import dynamic from 'next/dynamic';
 import Link from 'next/link';
 import {
   Box,
@@ -26,8 +25,8 @@ import { IMAGES, MENU_LIST, MENU_LIST_ICON } from '@/lib/constants';
 // Hooks
 import { useAuth } from '@/lib/hooks';
 
-// Lazy loading components
-const Avatar = dynamic(() => import('../Avatar/index'));
+// Components
+import Avatar from '../Avatar';
 
 interface DropdownProps {
   src?: string;
