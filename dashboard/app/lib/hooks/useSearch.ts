@@ -47,7 +47,7 @@ export const useSearch = () => {
         newSearchParams += `${key}=${value}`;
       }
 
-      router.push(`${pathName}${newSearchParams}`);
+      router.push(`${pathName}${newSearchParams}`, { scroll: false });
     },
 
     [pathName, router, searchParams],
