@@ -8,6 +8,6 @@ export type TDataSource = {
 export type THeaderTable = {
   title?: string;
   key?: string;
-  renderBody?: (_: TDataSource) => JSX.Element;
+  renderBody?: (_: TDataSource, index: number) => JSX.Element;
   renderHead?: (title: string, key: string) => JSX.Element;
 };

@@ -1,10 +1,15 @@
 import { memo } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 
 // Components
-import { Box, Flex, Img, Td, Text, Tooltip } from '@chakra-ui/react';
+import { Box, Flex, Td, Text, Tooltip } from '@chakra-ui/react';
 
-type TUserInfoProps = {
+// Utils
+import { generatePlaceholder } from '@/lib/utils';
+import { ImageProps } from '@chakra-ui/next-js';
+
+type TUserInfoProps = Pick<ImageProps, 'loading' | 'priority'> & {
   name: string;
   imageURL: string;
   email: string;
@@ -14,6 +19,7 @@ const UserInfoComponent = ({
   imageURL,
   name,
   email,
+  loading = 'lazy',
 }: TUserInfoProps): JSX.Element => (
   <Td
     py={5}
@@ -25,15 +31,23 @@ const UserInfoComponent = ({
     minW={{ base: 470, xl: 270 }}
   >
     <Flex alignItems="center" gap="10px">
-      <Img
-        src={`${imageURL}`}
-        alt={`Image of ${name}`}
-        w={16}
-        h={16}
-        borderRadius="lg"
-        bgColor="transparent"
-        objectFit="cover"
-      />
+      <Box w={16} h={16} pos="relative">
+        <Image
+          src={`${imageURL}`}
+          alt={`Image of ${name}`}
+          fill
+          loading={loading}
+          sizes="100vw"
+          blurDataURL={generatePlaceholder(16, 16)}
+          placeholder="blur"
+          quality={60}
+          objectFit="cover"
+          style={{
+            backgroundColor: 'transparent',
+            borderRadius: '8px',
+          }}
+        />
+      </Box>
       <Box flex={1}>
         <Tooltip minW="max-content" placement="bottom-start" label={name}>
           <Text
