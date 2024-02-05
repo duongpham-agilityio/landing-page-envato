@@ -247,6 +247,7 @@ const Card = ({ balance }: TCardProps) => {
             </Text>
             <IconButton
               aria-label="eye"
+              data-testid="btn-eye"
               icon={iconBalance}
               w="fit-content"
               bg="none"

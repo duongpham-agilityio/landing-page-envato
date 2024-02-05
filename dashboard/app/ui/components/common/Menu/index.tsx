@@ -69,7 +69,6 @@ const Menu = ({
 
       <List
         mt={2.5}
-        role="listbox"
         aria-label="list-icon"
         spacing={isExpandSidebar ? 5.5 : 2.75}
         w="full"
@@ -88,7 +87,7 @@ const Menu = ({
                 : onClickMenuItem;
 
             return (
-              <ListItem key={id} aria-label="item-icon" role="list">
+              <ListItem key={id} aria-label="item-icon">
                 {isExpandSidebar ? (
                   <Navigation destination={destination} onClick={handleClick}>
                     <LeftIconComponent />

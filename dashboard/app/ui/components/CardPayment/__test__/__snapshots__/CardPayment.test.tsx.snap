@@ -27,6 +27,7 @@ exports[`CardPayment test cases CardPayment component renders correctly 1`] = `
           <button
             aria-label="eye"
             class="chakra-button css-c713z0"
+            data-testid="btn-eye"
             type="button"
           >
             <svg

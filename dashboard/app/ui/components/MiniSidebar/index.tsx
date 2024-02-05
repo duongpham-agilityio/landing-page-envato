@@ -3,6 +3,7 @@ import isEqual from 'react-fast-compare';
 
 // components
 import {
+  Box,
   Center,
   ColorMode,
   Drawer,
@@ -10,7 +11,6 @@ import {
   DrawerContent,
   DrawerHeader,
   Image,
-  List,
   VStack,
   useColorMode,
 } from '@chakra-ui/react';
@@ -108,7 +108,7 @@ const MiniSidebar = ({
           justifyContent="center"
         >
           <VStack>
-            <List>
+            <Box>
               {MINI_SIDEBAR_MENU(role as string).map((item) => (
                 <Menu
                   key={item.id}
@@ -118,7 +118,7 @@ const MiniSidebar = ({
                   onSignOut={onSignOut}
                 />
               ))}
-            </List>
+            </Box>
           </VStack>
         </DrawerBody>
       </DrawerContent>

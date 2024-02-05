@@ -30,13 +30,13 @@ export const useGetRoomChat = () => {
 
 // Author: Loc Vo
 export const getCurrentUser = async (user: TUserInfo) => {
-  const admin = await getAllUserDetailsExceptWithId(user?.id);
+  const userList = await getAllUserDetailsExceptWithId(user?.id);
 
-  const adminInfo = admin.find(
+  const adminInfo = userList.find(
     (userItem) => userItem.role === AUTHENTICATION_ROLE.SUPER_ADMIN,
   );
 
-  if (admin) {
+  if (adminInfo) {
     const adminUid = adminInfo?.uid;
     const userUid = user?.uid;
     return {

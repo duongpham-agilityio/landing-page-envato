@@ -1,4 +1,4 @@
-import dynamic from 'next/dynamic';
+import lazy from 'next/dynamic';
 import {
   HydrationBoundary,
   QueryClient,
@@ -22,16 +22,16 @@ import { Box, Grid, GridItem, Stack } from '@chakra-ui/react';
 import { prefetchStatistical } from '@/lib/utils';
 
 // Lazy load components
-const CardPayment = dynamic(() => import('@/ui/components/CardPayment'));
-const BoxChat = dynamic(() => import('@/ui/components/BoxChat'));
-const TotalStatisticList = dynamic(
+const CardPayment = lazy(() => import('@/ui/components/CardPayment'));
+const BoxChat = lazy(() => import('@/ui/components/BoxChat'));
+const TotalStatisticList = lazy(
   () => import('@/ui/components/TotalStatisticList'),
 );
-const RevenueFlow = dynamic(() => import('@/ui/components/RevenueFlow'));
-const Efficiency = dynamic(() => import('@/ui/components/Efficiency'));
-const TransactionTable = dynamic(
-  () => import('@/ui/components/TransactionTable'),
-);
+const RevenueFlow = lazy(() => import('@/ui/components/RevenueFlow'));
+const Efficiency = lazy(() => import('@/ui/components/Efficiency'));
+const TransactionTable = lazy(() => import('@/ui/components/TransactionTable'));
+
+export const dynamic = 'force-dynamic';
 
 const Dashboard = async () => {
   const queryClient = new QueryClient();

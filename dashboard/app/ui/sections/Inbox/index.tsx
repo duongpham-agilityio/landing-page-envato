@@ -13,7 +13,13 @@ import {
 
 // Firebase
 import { convertTimeMessage, db } from '@/lib/utils';
-import { doc, getDoc, onSnapshot, setDoc } from 'firebase/firestore';
+import {
+  DocumentData,
+  doc,
+  getDoc,
+  onSnapshot,
+  setDoc,
+} from 'firebase/firestore';
 
 // Components
 import {
@@ -34,12 +40,6 @@ import { FIREBASE_CHAT, IMAGES } from '@/lib/constants';
 import { TMessages } from '@/lib/interfaces';
 import { useRouter, useSearchParams } from 'next/navigation';
 
-type TChats = {
-  userInfo: { uid: string; avatarUrl: string; displayName: string };
-  lastMessage: { text: string };
-  date: number;
-};
-
 const ChatMemberList = () => {
   const colorFill = useColorModeValue(
     theme.colors.gray[800],
@@ -50,7 +50,7 @@ const ChatMemberList = () => {
   const router = useRouter();
   const searchParams = useSearchParams();
   const [adminUid, setAdminUid] = useState<string>('');
-  const [chats, setChats] = useState<TChats[]>([]);
+  const [chats, setChats] = useState<DocumentData | undefined>({});
   const [messages, setMessages] = useState<TMessages[]>([]);
   const [roomChatId, setRoomChatId] = useState<string | null>(null);
   const [showRoom, setShowRoom] = useState<boolean>(false);
@@ -103,7 +103,7 @@ const ChatMemberList = () => {
           `${currentUser?.uid}`,
         );
         const unsub = onSnapshot(chatDocRef, (doc) => {
-          setChats(doc.data() as TChats[]);
+          setChats(doc.data());
         });
 
         return () => {
@@ -117,11 +117,18 @@ const ChatMemberList = () => {
     currentUser?.uid && getChats();
   }, [currentUser?.uid]);
 
+  const dataChats = useMemo(
+    () => chats && Object.entries(chats)?.sort((a, b) => b[1].date - a[1].date),
+    [chats],
+  );
+
   // Effect 2: Fetch messages when uidUser changes
   useEffect(() => {
     const getRoomChat = async () => {
       if (uidUser) {
         const roomChatId = currentUser?.uid + uidUser;
+
+        const userInfo = chats && chats[roomChatId]?.userInfo;
 
         const chatDocRef = doc(db, FIREBASE_CHAT.CHATS, roomChatId);
         const chatDocSnap = await getDoc(chatDocRef);
@@ -138,8 +145,14 @@ const ChatMemberList = () => {
         );
         setAdminUid(uidUser);
         setRoomChatId(roomChatId);
-        setNameUser(`${userChat?.firstName} ${userChat?.lastName}`);
-        setAvatar(userChat?.avatarURL as string);
+        setNameUser(
+          userInfo
+            ? userInfo.displayName
+            : `${userChat?.firstName} ${userChat?.lastName}`,
+        );
+        setAvatar(
+          userInfo ? userInfo?.avatarUrl : (userChat?.avatarURL as string),
+        );
         setShowRoom(true);
 
         return () => {
@@ -150,6 +163,7 @@ const ChatMemberList = () => {
 
     currentUser?.uid && getRoomChat();
   }, [
+    chats,
     currentUser?.uid,
     uidUser,
     userChat?.avatarURL,
@@ -171,11 +185,6 @@ const ChatMemberList = () => {
     };
   }, [roomChatId]);
 
-  const dataChats = useMemo(
-    () => chats && Object.entries(chats)?.sort((a, b) => b[1].date - a[1].date),
-    [chats],
-  );
-
   return (
     <Grid
       templateColumns="repeat(12, minmax(0, 1fr))"
@@ -190,13 +199,14 @@ const ChatMemberList = () => {
           bg="background.body.septenary"
         >
           <Flex justify="flex-start" overflowX="scroll">
-            {dataChats.map((chat) => (
-              <ChatMember
-                key={chat[0]}
-                avatar={chat[1].userInfo?.avatarUrl}
-                onClick={() => handleMemberClick(chat[1].userInfo)}
-              />
-            ))}
+            {dataChats &&
+              dataChats.map((chat) => (
+                <ChatMember
+                  key={chat[0]}
+                  avatar={chat[1].userInfo?.avatarUrl}
+                  onClick={() => handleMemberClick(chat[1].userInfo)}
+                />
+              ))}
           </Flex>
         </GridItem>
       ) : (
@@ -232,23 +242,24 @@ const ChatMemberList = () => {
             <EditIcon color={colorFill} />
           </Flex>
           <Flex direction="column" gap={6} py={3.5}>
-            {dataChats.map((chat) => (
-              <ChatMember
-                key={chat[0]}
-                avatar={chat[1].userInfo?.avatarUrl}
-                name={chat[1].userInfo?.displayName}
-                onClick={() => handleMemberClick(chat[1].userInfo)}
-                icon={
-                  <FallbackImage
-                    boxSize={4}
-                    src={IMAGES.ATTACH.url}
-                    alt={IMAGES.ATTACH.alt}
-                  />
-                }
-                localeTime={convertTimeMessage(chat[1].date)}
-                lastMessages={chat[1]?.lastMessage?.text}
-              />
-            ))}
+            {dataChats &&
+              dataChats.map((chat) => (
+                <ChatMember
+                  key={chat[0]}
+                  avatar={chat[1].userInfo?.avatarUrl}
+                  name={chat[1].userInfo?.displayName}
+                  onClick={() => handleMemberClick(chat[1].userInfo)}
+                  icon={
+                    <FallbackImage
+                      boxSize={4}
+                      src={IMAGES.ATTACH.url}
+                      alt={IMAGES.ATTACH.alt}
+                    />
+                  }
+                  localeTime={convertTimeMessage(chat[1].date)}
+                  lastMessages={chat[1]?.lastMessage?.text}
+                />
+              ))}
           </Flex>
         </GridItem>
       )}
