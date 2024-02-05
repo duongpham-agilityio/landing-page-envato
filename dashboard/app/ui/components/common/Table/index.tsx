@@ -84,9 +84,9 @@ const Table = ({
                 data-testid="table-row"
               >
                 {!!columns.length &&
-                  columns.map((column) =>
+                  columns.map((column, index) =>
                     column.renderBody ? (
-                      column.renderBody(data)
+                      column.renderBody(data, index)
                     ) : (
                       <Td
                         key={column.key}
