@@ -73,7 +73,8 @@ const UsersComponent = ({
           name={`${name}`}
           imageURL={`${image}`}
           email={`${email}`}
-          loading={index <= 8 ? 'eager' : 'lazy'}
+          loading={index <= 10 ? 'eager' : 'lazy'}
+          priority={index <= 10 ? true : false}
         />
       ),
     },
