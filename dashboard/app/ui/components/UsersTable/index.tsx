@@ -28,6 +28,7 @@ import { TOption } from '@/ui/components/common/Select';
 
 // Utils
 import { formatUserResponse } from '@/lib/utils';
+import Head from 'next/head';
 
 type TUsersProps = {
   users: TUserDetail[];
@@ -73,7 +74,8 @@ const UsersComponent = ({
           name={`${name}`}
           imageURL={`${image}`}
           email={`${email}`}
-          loading={index <= 8 ? 'eager' : 'lazy'}
+          loading={index <= 10 ? 'eager' : 'lazy'}
+          priority={index <= 10 ? true : false}
         />
       ),
     },
@@ -146,28 +148,48 @@ const UsersComponent = ({
   ];
 
   return (
-    <Fetching isLoading={isLoadingUser} isError={isUserError}>
-      <Table
-        variant="secondary"
-        columns={columns as THeaderTable[]}
-        dataSource={formatUserResponse(users)}
-        onClickTableRow={onClickUser}
-      />
-      {!!users?.length && (
-        <Box mt={8}>
-          <Pagination
-            pageSize={data?.limit}
-            currentPage={data?.currentPage}
-            isDisabledPrev={isDisabledPrev}
-            isDisableNext={isDisableNext}
-            arrOfCurrButtons={arrOfCurrButtons}
-            onLimitChange={onChangeLimit}
-            onPageChange={onPageChange}
-            onClickPage={onPageClick}
-          />
-        </Box>
-      )}
-    </Fetching>
+    <>
+      <Head>
+        {formatUserResponse(users).map((user, index) =>
+          index < 10 ? (
+            <link
+              // eslint-disable-next-line react/no-array-index-key
+              key={index}
+              rel="preload"
+              // eslint-disable-next-line react/no-unknown-property
+              fetchPriority="high"
+              as="image"
+              href={user.image}
+              type="image/webp"
+            ></link>
+          ) : (
+            <></>
+          ),
+        )}
+      </Head>
+      <Fetching isLoading={isLoadingUser} isError={isUserError}>
+        <Table
+          variant="secondary"
+          columns={columns as THeaderTable[]}
+          dataSource={formatUserResponse(users)}
+          onClickTableRow={onClickUser}
+        />
+        {!!users?.length && (
+          <Box mt={8}>
+            <Pagination
+              pageSize={data?.limit}
+              currentPage={data?.currentPage}
+              isDisabledPrev={isDisabledPrev}
+              isDisableNext={isDisableNext}
+              arrOfCurrButtons={arrOfCurrButtons}
+              onLimitChange={onChangeLimit}
+              onPageChange={onPageChange}
+              onClickPage={onPageClick}
+            />
+          </Box>
+        )}
+      </Fetching>
+    </>
   );
 };
 

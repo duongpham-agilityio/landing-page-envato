@@ -19,7 +19,7 @@ const UserInfoComponent = ({
   imageURL,
   name,
   email,
-  loading = 'lazy',
+  ...imageProps
 }: TUserInfoProps): JSX.Element => (
   <Td
     py={5}
@@ -31,21 +31,17 @@ const UserInfoComponent = ({
     minW={{ base: 470, xl: 270 }}
   >
     <Flex alignItems="center" gap="10px">
-      <Box w={16} h={16} pos="relative">
+      <Box w={16} h={16} pos="relative" borderRadius={8} overflow="hidden">
         <Image
           src={`${imageURL}`}
           alt={`Image of ${name}`}
           fill
-          loading={loading}
           sizes="100vw"
           blurDataURL={generatePlaceholder(16, 16)}
           placeholder="blur"
           quality={60}
           objectFit="cover"
-          style={{
-            backgroundColor: 'transparent',
-            borderRadius: '8px',
-          }}
+          {...imageProps}
         />
       </Box>
       <Box flex={1}>
