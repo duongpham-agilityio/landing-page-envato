@@ -336,7 +336,6 @@ const TransactionTableComponent = ({
         renderNameUser,
         renderPaymentStatus,
         renderTransactionStatus,
-        renderActionIcon,
         renderSpent,
       );
     }

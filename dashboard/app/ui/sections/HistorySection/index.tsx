@@ -7,9 +7,7 @@ import dynamic from 'next/dynamic';
 // Lazy loading components
 const CardPayment = dynamic(() => import('@/ui/components/CardPayment'));
 const BoxChat = dynamic(() => import('@/ui/components/BoxChat'));
-const TransactionTable = dynamic(
-  () => import('@/ui/components/TransactionTable'),
-);
+const HistoriesTable = dynamic(() => import('@/ui/components/HistoriesTable'));
 
 const HistorySection = () => (
   <Grid
@@ -28,7 +26,7 @@ const HistorySection = () => (
         px={6}
         py={5}
       >
-        <TransactionTable isOpenHistoryModal />
+        <HistoriesTable />
       </Box>
     </GridItem>
     <InView>

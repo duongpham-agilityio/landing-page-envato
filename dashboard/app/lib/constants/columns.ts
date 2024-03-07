@@ -51,7 +51,6 @@ export const COLUMNS_HISTORY = (
   renderBody: ({ id, image, name }: TDataSource) => void,
   renderPaymentStatus: ({ paymentStatus }: TDataSource) => void,
   renderTransactionStatus: ({ paymentStatus }: TDataSource) => void,
-  renderActionIcon: (data: TTransaction) => void,
   renderSpent: (spent: TTransaction) => void,
 ) => [
   {
@@ -82,10 +81,5 @@ export const COLUMNS_HISTORY = (
     key: 'transactionStatus',
     renderHead: renderHead,
     renderBody: renderTransactionStatus,
-  },
-  {
-    title: '',
-    key: 'action',
-    renderBody: renderActionIcon,
   },
 ];
