@@ -12,6 +12,7 @@ export const ROUTES = {
   NOT_FOUND: '*',
   SUPPORT: 'supports',
   INBOX: 'inbox',
+  PRODUCT: 'products',
 };
 
 export const COMMON_ROUTES = [

@@ -1,6 +1,6 @@
 'use client';
 
-import { memo, useCallback, useEffect, useMemo } from 'react';
+import { memo, useCallback, useMemo } from 'react';
 import dynamic from 'next/dynamic';
 import { Controller, useForm } from 'react-hook-form';
 const ReactQuill = dynamic(() => import('react-quill'), { ssr: false });
@@ -10,9 +10,9 @@ import {
   Box,
   Button,
   Flex,
-  FormControl,
   Text,
   theme,
+  FormControl,
   useColorModeValue,
   useToast,
   VStack,
@@ -45,7 +45,6 @@ import { customToast, formatAllowOnlyNumbers } from '@/lib/utils';
 
 const SupportsSection = () => {
   const toast = useToast();
-
   const user = authStore((state) => state.user);
   const { id, email, firstName, lastName, phoneNumber, title, description } =
     (user as TUserDetail) || {};
@@ -145,11 +144,6 @@ const SupportsSection = () => {
     },
     [createIssues, reset],
   );
-
-  useEffect(() => {
-    const tooltip = document.querySelector('.ql-tooltip');
-    tooltip?.remove();
-  });
 
   return (
     <Flex

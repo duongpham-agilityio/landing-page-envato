@@ -4,6 +4,7 @@ import {
   HistoryIcon,
   InboxIcon,
   MyWalletIcon,
+  ProductIcon,
   SettingIcon,
   SignOutIcon,
   SupportIcon,
@@ -56,6 +57,12 @@ export const MENU_ITEM_LIST = (role: string) => [
     leftIcon: HistoryIcon,
     menuItemContent: 'Histories',
     destination: `/${ROUTES.HISTORY}`,
+  },
+  {
+    id: 6,
+    leftIcon: ProductIcon,
+    menuItemContent: 'Products',
+    destination: `/${ROUTES.PRODUCT}`,
   },
 ];
 
