@@ -16,6 +16,7 @@ import {
 /** @type {import('tailwindcss').Config} */
 export default {
   content: ['./src/**/*.{astro,html,ts,tsx}'],
+  darkMode: 'selector',
   theme: {
     extend: {
       ...animation,

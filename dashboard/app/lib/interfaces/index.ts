@@ -13,3 +13,4 @@ export * from './issues';
 export * from './form';
 export * from './wallet';
 export * from './money';
+export * from './product';

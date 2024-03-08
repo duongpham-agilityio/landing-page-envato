@@ -24,6 +24,7 @@ type TInputFieldProps = Omit<InputProps, 'onChange'> & {
   label?: string;
   leftIcon?: ReactNode;
   rightIcon?: ReactNode;
+  typeInput?: string;
   onChange: (value: string) => void;
 };
 
@@ -31,6 +32,7 @@ const InputComponent = (
   {
     isError = false,
     errorMessages = 'Default error', //
+    typeInput = 'text',
     label,
     leftIcon,
     rightIcon,
@@ -61,7 +63,7 @@ const InputComponent = (
           <InputLeftElement pointerEvents="none">{leftIcon}</InputLeftElement>
         )}
         <Input
-          type="text"
+          type={typeInput}
           color="text.primary"
           onChange={handleChangeValue}
           ref={ref}

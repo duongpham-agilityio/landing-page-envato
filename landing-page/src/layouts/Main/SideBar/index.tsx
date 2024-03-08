@@ -4,6 +4,7 @@ import { navigate } from 'astro:transitions/client';
 // Components
 import Button from '@app/components/Button/index.tsx';
 import CloseSideBar from '@app/components/icons/CloseSideBar/index.tsx';
+import SwitchTheme from '@app/components/SwitchTheme/index.tsx';
 
 // Constant
 import { ROUTES } from '@app/constants';
@@ -23,7 +24,7 @@ type TSidebarProps = {
 
 // Styles CSS
 const styleHeader: string =
-  'fixed md:relative z-50 w-[320px] bg-white py-2xl px-[70px] h-full animate-sidebarSlideIn md:animate-none md:block md:p-xl md:basis-[280px] lg:basis-[320px] lg:py-2xl lg:px-[70px]';
+  'fixed md:relative z-50 w-[320px] bg-white py-2xl px-[70px] h-full animate-sidebarSlideIn md:animate-none md:block md:p-xl md:basis-[280px] lg:basis-[320px] lg:py-2xl lg:px-[70px] dark:bg-bgDarkTheme dark:text-white';
 const hoverAfterStyle: string =
   'after:w-0 after:h-1 after:transition-all after:duration-500 hover:after:absolute hover:after:z-10 hover:after:top-[50%] hover:after:left-[-70px] hover:after:w-[30px] hover:after:h-[3px] hover:after:bg-sun';
 
@@ -70,7 +71,17 @@ const SideBarAllDevices = ({
       <h1 className='mb-3xl'>
         <a href={ROUTES.HOME}>
           <img
+            className='dark:hidden'
+            id='logo-header'
             src='/assets/logo-header-mobile.webp'
+            alt='Logo'
+            width={137}
+            height={55}
+            loading='lazy'
+          />
+          <img
+            className='hidden dark:block'
+            src='/assets/logo.webp'
             alt='Logo'
             width={137}
             height={55}
@@ -79,6 +90,7 @@ const SideBarAllDevices = ({
         </a>
       </h1>
       <nav>
+        <SwitchTheme id="switch-theme"/>
         <ul>
           {options.map(
             ({ id, href, text }): JSX.Element => (
@@ -87,7 +99,7 @@ const SideBarAllDevices = ({
                   href={href}
                   className={`${
                     href === pathName ? '!text-[#956A04]' : ''
-                  } text-secondary font-semibold hover:text-sun uppercase text-sm leading-[53px] py-5 relative ${hoverAfterStyle}`}
+                  } text-secondary font-semibold hover:text-sun uppercase text-sm leading-[53px] py-5 relative dark:text-white ${hoverAfterStyle}`}
                   onClick={(e) => {
                     e.preventDefault();
                     navigate(href);

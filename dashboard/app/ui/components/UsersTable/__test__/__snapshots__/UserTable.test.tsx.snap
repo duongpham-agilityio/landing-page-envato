@@ -294,7 +294,7 @@ exports[`UserTable component should renders correctly 1`] = `
       >
         <button
           aria-label="btn-prev"
-          class="chakra-button css-159lhy8"
+          class="chakra-button css-1nz9y48"
           data-testid="prev-button"
           disabled=""
           type="button"
@@ -321,7 +321,7 @@ exports[`UserTable component should renders correctly 1`] = `
         />
         <button
           aria-label="btn-next"
-          class="chakra-button css-159lhy8"
+          class="chakra-button css-1ljbk21"
           data-testid="next-button"
           disabled=""
           type="button"

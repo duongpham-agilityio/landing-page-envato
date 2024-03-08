@@ -16,5 +16,6 @@ export const colors: Config['theme'] = {
     desertStorm: '#f5f7fa',
     infoRGBA: 'rgba(0,123,255,.25)',
     darkRGBA: 'rgba(255, 255, 255, 0.4)',
+    bgDarkTheme: '#1D1E24',
   },
 };

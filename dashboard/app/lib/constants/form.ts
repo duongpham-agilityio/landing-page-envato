@@ -122,4 +122,34 @@ export const AUTH_SCHEMA = {
       return true;
     },
   },
+
+  NAME: {
+    required: ERROR_MESSAGES.FIELD_REQUIRED('Name'),
+  },
+
+  PRICE: {
+    required: ERROR_MESSAGES.FIELD_REQUIRED('Price'),
+    validate: (value: number) => {
+      if (!Number(value)) {
+        return ERROR_MESSAGES.PRICE_INVALID;
+      }
+
+      return true;
+    },
+  },
+
+  QUANTITY: {
+    required: ERROR_MESSAGES.FIELD_REQUIRED('Quantity'),
+    validate: (value: number) => {
+      if (!Number(value)) {
+        return ERROR_MESSAGES.QUANTITY_INVALID;
+      }
+
+      return true;
+    },
+  },
+
+  GALLERY_THUMBNAIL: {
+    required: ERROR_MESSAGES.FIELD_REQUIRED('Gallery Thumbnail'),
+  },
 };

@@ -13,7 +13,7 @@ type THeaderProps = {
 const HeaderMobile = ({ onToggleSidebar }: THeaderProps): JSX.Element => {
   // Styles CSS
   const styleHeader: string =
-    'bg-white flex justify-between items-center fixed z-20 top-0 left-0 right-0 h-[70px] shadow-navMobile py-2 px-8 md:hidden';
+    'bg-white flex justify-between items-center fixed z-20 top-0 left-0 right-0 h-[70px] shadow-navMobile py-2 px-8 md:hidden dark:bg-bgDarkTheme';
 
   const handleOpenSidebar: MouseEventHandler<HTMLButtonElement> = useCallback(
     (e) => {
@@ -28,7 +28,16 @@ const HeaderMobile = ({ onToggleSidebar }: THeaderProps): JSX.Element => {
     <header className={`${styleHeader}`}>
       <a href={ROUTES.HOME} className='text-infoRGBA'>
         <img
+          className='dark:hidden'
           src='/assets/logo-header-mobile.webp'
+          alt='Logo'
+          width={70}
+          height={28}
+          loading='lazy'
+        />
+        <img
+          className='hidden dark:block'
+          src='/assets/logo.webp'
           alt='Logo'
           width={70}
           height={28}

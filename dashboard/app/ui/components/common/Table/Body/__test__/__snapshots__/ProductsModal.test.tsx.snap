@@ -1,0 +1,159 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Product Modal match to snapshot 1`] = `
+<div>
+  <form
+    class="chakra-stack css-tl3ftk"
+    id="update-product-form"
+  >
+    <div
+      class="css-1jqq95v"
+    >
+      <div
+        class="chakra-form-control css-0"
+        role="group"
+      >
+        <label
+          class="chakra-form__label css-1ebhc9e"
+          for="field-:r0:"
+          id="field-:r0:-label"
+        >
+          Name
+        </label>
+        <div
+          class="chakra-input__group css-169ufh8"
+          data-group="true"
+        >
+          <input
+            class="chakra-input css-hrsdoh"
+            data-testid="edit-field-name"
+            id="field-:r0:"
+            name="name"
+            type="text"
+            value="Tivi"
+          />
+        </div>
+      </div>
+      <div
+        class="chakra-form-control css-0"
+        role="group"
+      >
+        <label
+          class="chakra-form__label css-1ebhc9e"
+          for="field-:r1:"
+          id="field-:r1:-label"
+        >
+          Price
+        </label>
+        <div
+          class="chakra-input__group css-169ufh8"
+          data-group="true"
+        >
+          <input
+            class="chakra-input css-1ua7efh"
+            id="field-:r1:"
+            name="price"
+            type="number"
+            value="1111"
+          />
+        </div>
+      </div>
+    </div>
+    <div
+      class="css-1jqq95v"
+    >
+      <div
+        class="chakra-form-control css-0"
+        role="group"
+      >
+        <label
+          class="chakra-form__label css-1ebhc9e"
+          for="field-:r2:"
+          id="field-:r2:-label"
+        >
+          Quantity
+        </label>
+        <div
+          class="chakra-input__group css-169ufh8"
+          data-group="true"
+        >
+          <input
+            class="chakra-input css-hrsdoh"
+            id="field-:r2:"
+            name="stock"
+            type="number"
+            value="11"
+          />
+        </div>
+      </div>
+      <div
+        class="chakra-form-control css-0"
+        role="group"
+      >
+        <label
+          class="chakra-form__label css-1ebhc9e"
+          for="field-:r3:"
+          id="field-:r3:-label"
+        >
+          Description
+        </label>
+        <div
+          class="chakra-input__group css-169ufh8"
+          data-group="true"
+        >
+          <input
+            class="chakra-input css-1ua7efh"
+            id="field-:r3:"
+            name="description"
+            type="text"
+            value=""
+          />
+        </div>
+      </div>
+    </div>
+    <div
+      class="chakra-form-control css-0"
+      role="group"
+    >
+      <label
+        class="chakra-form__label css-1ebhc9e"
+        for="field-:r4:"
+        id="field-:r4:-label"
+      >
+        Gallery Thumbnail
+      </label>
+      <div
+        class="chakra-input__group css-169ufh8"
+        data-group="true"
+      >
+        <input
+          class="chakra-input css-1ua7efh"
+          id="field-:r4:"
+          name="imageURLs"
+          type="text"
+          value="image.png"
+        />
+      </div>
+    </div>
+    <div
+      class="css-16xzy9q"
+    >
+      <button
+        class="chakra-button css-nz6i3s"
+        data-testid="submit-product-form"
+        disabled=""
+        form="update-product-form"
+        type="submit"
+      >
+        Save
+      </button>
+      <button
+        class="chakra-button css-vxb15r"
+        type="button"
+      >
+        Cancel
+      </button>
+    </div>
+  </form>
+</div>
+`;

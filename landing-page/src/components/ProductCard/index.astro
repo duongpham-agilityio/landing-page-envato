@@ -67,7 +67,9 @@ const styleLinkTagItems: string[] = [
       From {currency}{formatDecimalNumber(amount)}
     </figcaption>
 
-    <figcaption class:list={['caption text-2xl', ...transitionStyles]}>
+    <figcaption
+      class:list={['caption text-2xl dark:text-black', ...transitionStyles]}
+    >
       <span class='line-clamp-1'> {name}</span>
     </figcaption>
   </div>

@@ -1307,14 +1307,6 @@ exports[`Transaction table Match with snapshot with isOpenHistoryModal = true 1`
                 </button>
               </div>
             </th>
-            <th
-              class="css-1oes28j"
-            >
-              <p
-                class="chakra-text css-uw1nru"
-                title=""
-              />
-            </th>
           </tr>
         </thead>
         <tbody
@@ -1387,46 +1379,6 @@ exports[`Transaction table Match with snapshot with isOpenHistoryModal = true 1`
                 Cancelled
               </span>
             </td>
-            <td
-              class="css-kgr5cp"
-            >
-              <button
-                aria-controls="menu-list-:r1i:"
-                aria-expanded="false"
-                aria-haspopup="menu"
-                class="chakra-button chakra-menu__menu-button css-1of25bg"
-                id="menu-button-:r1i:"
-                type="button"
-              >
-                <span
-                  class="css-xl71ch"
-                >
-                  <button
-                    aria-label="This is the icon action"
-                    class="chakra-button css-1c8sy4r"
-                    data-testid="dot-icon"
-                    type="button"
-                  >
-                    <svg
-                      aria-hidden="true"
-                      fill="none"
-                      focusable="false"
-                      height="4"
-                      width="18"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                        d="M8 2a1 1 0 1 0 2 0 1 1 0 0 0-2 0ZM1 2a1 1 0 1 0 2 0 1 1 0 0 0-2 0ZM15 2a1 1 0 1 0 2 0 1 1 0 0 0-2 0Z"
-                        stroke="#A0AEC0"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="2"
-                      />
-                    </svg>
-                  </button>
-                </span>
-              </button>
-            </td>
           </tr>
           <tr
             class="css-0"
@@ -1495,46 +1447,6 @@ exports[`Transaction table Match with snapshot with isOpenHistoryModal = true 1`
                 Completed
               </span>
             </td>
-            <td
-              class="css-kgr5cp"
-            >
-              <button
-                aria-controls="menu-list-:r1s:"
-                aria-expanded="false"
-                aria-haspopup="menu"
-                class="chakra-button chakra-menu__menu-button css-1of25bg"
-                id="menu-button-:r1s:"
-                type="button"
-              >
-                <span
-                  class="css-xl71ch"
-                >
-                  <button
-                    aria-label="This is the icon action"
-                    class="chakra-button css-1c8sy4r"
-                    data-testid="dot-icon"
-                    type="button"
-                  >
-                    <svg
-                      aria-hidden="true"
-                      fill="none"
-                      focusable="false"
-                      height="4"
-                      width="18"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                        d="M8 2a1 1 0 1 0 2 0 1 1 0 0 0-2 0ZM1 2a1 1 0 1 0 2 0 1 1 0 0 0-2 0ZM15 2a1 1 0 1 0 2 0 1 1 0 0 0-2 0Z"
-                        stroke="#A0AEC0"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="2"
-                      />
-                    </svg>
-                  </button>
-                </span>
-              </button>
-            </td>
           </tr>
           <tr
             class="css-0"
@@ -1602,46 +1514,6 @@ exports[`Transaction table Match with snapshot with isOpenHistoryModal = true 1`
               >
                 Pending
               </span>
-            </td>
-            <td
-              class="css-kgr5cp"
-            >
-              <button
-                aria-controls="menu-list-:r26:"
-                aria-expanded="false"
-                aria-haspopup="menu"
-                class="chakra-button chakra-menu__menu-button css-1of25bg"
-                id="menu-button-:r26:"
-                type="button"
-              >
-                <span
-                  class="css-xl71ch"
-                >
-                  <button
-                    aria-label="This is the icon action"
-                    class="chakra-button css-1c8sy4r"
-                    data-testid="dot-icon"
-                    type="button"
-                  >
-                    <svg
-                      aria-hidden="true"
-                      fill="none"
-                      focusable="false"
-                      height="4"
-                      width="18"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                        d="M8 2a1 1 0 1 0 2 0 1 1 0 0 0-2 0ZM1 2a1 1 0 1 0 2 0 1 1 0 0 0-2 0ZM15 2a1 1 0 1 0 2 0 1 1 0 0 0-2 0Z"
-                        stroke="#A0AEC0"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="2"
-                      />
-                    </svg>
-                  </button>
-                </span>
-              </button>
             </td>
           </tr>
         </tbody>
