@@ -79,7 +79,7 @@ const ProductTable = ({
                         onChange={handleChange}
                         onIncrease={handleInCrease}
                         onDecrease={handleDecrease}
-                        className='!text-left pl-2 md:!text-center md:!pl-0 min-w-10'
+                        className='!text-left pl-2 md:!text-center md:!pl-0 min-w-10 dark:text-primary'
                       />
                     </div>
                     <div className=''>

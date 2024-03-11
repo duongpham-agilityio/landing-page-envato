@@ -100,7 +100,7 @@ const Cart = ({ data }: TCartProps): JSX.Element => {
 
   return (
     <Indicator isOpen={isOpen}>
-      <h2 className='capitalize font-primary text-primary text-3xl py-[30px]'>
+      <h2 className='capitalize font-primary text-primary text-3xl py-[30px] dark:text-white'>
         Shopping Cart
       </h2>
       <section className='nearLg:grid nearLg:grid-cols-12 nearLg:gap-[30px]'>

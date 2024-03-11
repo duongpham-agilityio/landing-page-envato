@@ -100,10 +100,10 @@ const ProductInfo = ({
 
   // Styles CSS
   const stylesSectionProductInfo: string =
-    'col-span-12 nearLg:col-span-5 mt-[70px] nearLg:mt-0 font-primary';
+    'col-span-12 nearLg:col-span-5 mt-[70px] nearLg:mt-0 font-primary dark:text-white';
   const styleLineText: string =
-    'after:absolute after:block after:top-0 after:w-[80px] after:h-[3px] after:bg-sun';
-  const colorElementary: string = 'text-elementary';
+    'after:absolute after:block after:top-0 after:w-[80px] after:h-[3px] after:bg-sun dark:text-white';
+  const colorElementary: string = 'text-elementary dark:text-white';
 
   return (
     <Indicator isOpen={isSubmit}>
@@ -115,7 +115,7 @@ const ProductInfo = ({
           {formatDecimalNumber(amount)}
         </p>
 
-        <h2 className='text-3xl text-primary pb-3'>
+        <h2 className='text-3xl text-primary pb-3 dark:text-white'>
           <span className='line-clamp-1'>{name}</span>
         </h2>
         <p className={`flex items-center text-xs gap-1 ${colorElementary}`}>
@@ -132,11 +132,11 @@ const ProductInfo = ({
             onIncrease={handleChangeQuantityByStep(1)}
             onDecrease={handleChangeQuantityByStep(-1)}
             onChange={setQuantity}
-            className='w-[113px]'
+            className='w-[113px] dark:text-primary'
           />
 
           <Button
-            className={`w-full sm:w-[280px] md:w-[310px] nearLg:w-full lg:w-[310px] ${
+            className={`w-full sm:w-[280px] md:w-[310px] nearLg:w-full lg:w-[310px] dark:text-primary ${
               isOutStock && 'bg-slate-200'
             } ${
               isSubmit ? '!bg-gray-400' : 'hover:text-white hover:bg-secondary'

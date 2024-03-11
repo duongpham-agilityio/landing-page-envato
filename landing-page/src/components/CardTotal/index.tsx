@@ -60,7 +60,7 @@ const CardTotal = ({
           type='submit'
           disabled={isDisableSubmit}
           variant={VARIANTS.SECONDARY}
-          className={`hover:bg-secondary  w-full !h-[55px] font-semibold !leading-14 mt-[70px] ${
+          className={`hover:bg-secondary  w-full !h-[55px] font-semibold !leading-14 mt-[70px] dark:text-primary ${
             isDisableSubmit ? '!bg-gray-400' : 'hover:text-white'
           }`}
           onClick={onCheckout}
