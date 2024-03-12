@@ -9,7 +9,7 @@ import InputField from '@/ui/components/common/InputField';
 import { UploadProducts } from '@/ui/components';
 
 // Interfaces
-import { TProductRequest } from '@/lib/interfaces';
+import { TProductRequest, TProductResponse } from '@/lib/interfaces';
 
 // Constants
 import {
@@ -26,15 +26,14 @@ import { authStore } from '@/lib/stores';
 import { parseFormattedNumber } from '@/lib/utils';
 
 interface ProductProps {
-  product?: TProductRequest;
-  onDeleteProduct?: () => void;
+  data?: TProductResponse;
   onCreateProduct?: (productData: Omit<TProductRequest, 'id'>) => void;
   onUpdateProduct?: (productData: TProductRequest) => void;
   onCloseModal?: () => void;
 }
 
 const ProductForm = ({
-  product,
+  data,
   onCreateProduct,
   onUpdateProduct,
   onCloseModal,
@@ -48,14 +47,14 @@ const ProductForm = ({
     reset,
   } = useForm<TProductRequest>({
     defaultValues: {
-      _id: product?._id,
-      name: product?.name,
-      imageURLs: product?.imageURLs,
-      currency: product?.currency || CURRENCY_PRODUCT,
-      amount: product?.amount,
-      stock: product?.stock,
-      description: product?.description,
-      createdAt: product?.createdAt,
+      _id: data?.product._id,
+      name: data?.product.name,
+      imageURLs: data?.product.imageURLs,
+      currency: data?.product.currency || CURRENCY_PRODUCT,
+      amount: data?.product.amount,
+      stock: data?.product.stock,
+      description: data?.product.description,
+      createdAt: data?.product.createdAt,
     },
   });
   const userId = authStore((state) => state.user?.id);
@@ -82,6 +81,7 @@ const ProductForm = ({
         amount: parseFormattedNumber(data.amount),
         userId,
       };
+
       data._id
         ? onUpdateProduct && onUpdateProduct(requestData)
         : onCreateProduct && onCreateProduct(requestData);
@@ -205,6 +205,7 @@ const ProductForm = ({
         render={({ field }) => (
           <UploadProducts
             label="Gallery Thumbnail"
+            images={data?.product.imageURLs}
             onUploadError={handleShowErrorWhenUploadImage}
             onChange={field.onChange}
           />

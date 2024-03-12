@@ -48,8 +48,16 @@ import {
 } from '@/lib/constants';
 
 // Types
-import { TProductRequest } from '@/lib/interfaces';
-import { TDataSource, THeaderTable, TProduct } from '@/lib/interfaces';
+import {
+  TProductRequest,
+  TDataSource,
+  THeaderTable,
+  TProduct,
+  TProductResponse,
+} from '@/lib/interfaces';
+
+// Stores
+import { authStore } from '@/lib/stores';
 
 interface TFilterUserProps {
   isOpenHistoryModal?: boolean;
@@ -59,14 +67,24 @@ const ProductsTableComponent = ({
   isOpenHistoryModal = false,
 }: TFilterUserProps) => {
   const toast = useToast();
-  // const userId = authStore((state) => state.user?.id);
+  const userId = authStore((state) => state.user?.id);
   const { get, setSearchParam: setSearchTransaction } = useSearch();
   // const [filter, setFilter] = useState<string>('');
   const [isOpenConfirmModal, setIsOpenConfirmModal] = useState(false);
 
   const handleToggleModal = () => setIsOpenConfirmModal((prev) => !prev);
 
-  const { products } = useProducts({
+  const {
+    products,
+    isLoading: isLoadingProducts,
+    isError: isProductsError,
+    createProduct,
+    deleteProduct,
+    updateProduct,
+    isCreateProduct,
+    isDeleteProduct,
+    isUpdateProduct,
+  } = useProducts({
     name: get('name') || '',
   });
 
@@ -82,15 +100,13 @@ const ProductsTableComponent = ({
     handlePageClick,
   } = usePagination(products);
 
-  const { createProduct, isCreateProduct } = useProducts();
-
   const handleDebounceSearch = useDebounce((value: string) => {
     resetPage();
     setSearchTransaction('name', value);
   }, []);
 
   const handleCreateProduct = useCallback(
-    (product: Omit<TProductRequest, 'id'>) => {
+    (product: Omit<TProductRequest, '_id'>) => {
       createProduct(
         {
           ...product,
@@ -120,6 +136,77 @@ const ProductsTableComponent = ({
     [createProduct, toast],
   );
 
+  const handleDeleteProduct = useCallback(
+    (data: Partial<TProduct & { userId: string; productId: string }>) => {
+      deleteProduct(
+        {
+          productId: data._id,
+          userId: userId,
+        },
+        {
+          onSuccess: () => {
+            toast(
+              customToast(
+                SUCCESS_MESSAGES.DELETE_SUCCESS.title,
+                SUCCESS_MESSAGES.DELETE_SUCCESS.description,
+                STATUS.SUCCESS,
+              ),
+            );
+          },
+          onError: () => {
+            toast(
+              customToast(
+                ERROR_MESSAGES.DELETE_FAIL.title,
+                ERROR_MESSAGES.DELETE_FAIL.description,
+                STATUS.ERROR,
+              ),
+            );
+          },
+        },
+      );
+    },
+    [deleteProduct, toast, userId],
+  );
+
+  const handleUpdateProduct = useCallback(
+    (data: TProductRequest) => {
+      updateProduct(
+        {
+          productId: data._id,
+          userId: userId,
+          name: data?.name,
+          imageURLs: data?.imageURLs,
+          currency: data?.currency,
+          amount: data?.amount,
+          stock: data?.stock,
+          description: data?.description,
+          createdAt: data?.createdAt,
+        },
+        {
+          onSuccess: () => {
+            toast(
+              customToast(
+                SUCCESS_MESSAGES.UPDATE_TRANSACTION_SUCCESS.title,
+                SUCCESS_MESSAGES.UPDATE_TRANSACTION_SUCCESS.description,
+                STATUS.SUCCESS,
+              ),
+            );
+          },
+          onError: () => {
+            toast(
+              customToast(
+                ERROR_MESSAGES.UPDATE_TRANSACTION_FAIL.title,
+                ERROR_MESSAGES.UPDATE_TRANSACTION_FAIL.description,
+                STATUS.ERROR,
+              ),
+            );
+          },
+        },
+      );
+    },
+    [toast, updateProduct, userId],
+  );
+
   const renderHead = useCallback((title: string): JSX.Element => {
     // TODO: handle click sort
     const handleClick = () => {};
@@ -130,8 +217,8 @@ const ProductsTableComponent = ({
   }, []);
 
   const renderNameUser = useCallback(
-    ({ id, name }: TDataSource): JSX.Element => (
-      <ProductNameCell id={id} key={id} name={name} />
+    ({ id, _id, name }: TDataSource): JSX.Element => (
+      <ProductNameCell _id={_id} key={id} name={name} />
     ),
     [],
   );
@@ -146,12 +233,12 @@ const ProductsTableComponent = ({
         color="text.primary"
         fontWeight="semibold"
         textAlign="left"
-        w={{ base: 350, xl: 220, '3xl': 300, '4xl': 200, '6xl': 250 }}
+        minW={180}
       >
         <Flex
           alignItems="center"
           gap="10px"
-          w={{ base: 240, '3xl': 200, '5xl': 240 }}
+          minW={180}
           borderRadius="15px"
           paddingLeft="20px"
         >
@@ -164,7 +251,7 @@ const ProductsTableComponent = ({
               placeholder="blur"
               blurDataURL={generatePlaceholder(40, 40)}
               style={{
-                objectFit: 'cover',
+                objectFit: 'contain',
                 borderRadius: '15px',
               }}
             />
@@ -186,13 +273,14 @@ const ProductsTableComponent = ({
         fontWeight="semibold"
         textAlign="left"
         w={{ base: 150, md: 20 }}
+        minW={150}
       >
         <Text
           fontSize="md"
           fontWeight="semibold"
           whiteSpace="break-spaces"
           noOfLines={1}
-          w={{ base: 100, md: 220, '3xl': 300, '5xl': 200, '7xl': 250 }}
+          minW={150}
           flex={1}
         >
           {amount}
@@ -212,14 +300,14 @@ const ProductsTableComponent = ({
         color="text.primary"
         fontWeight="semibold"
         textAlign="left"
-        w={{ base: 150, md: 20 }}
+        minW={120}
       >
         <Text
           fontSize="md"
           fontWeight="semibold"
           whiteSpace="break-spaces"
           noOfLines={1}
-          w={{ base: 100, md: 220, '3xl': 300, '5xl': 200, '7xl': 200 }}
+          minW={120}
           flex={1}
         >
           {stock}
@@ -242,15 +330,16 @@ const ProductsTableComponent = ({
   );
 
   const renderActionIcon = useCallback(
-    (data: TProduct) => (
+    (data: TProductResponse) => (
       <ActionCell
+        product={data}
         key={`${data._id}-action`}
         isOpenModal={true}
-        onDeleteTransaction={() => console.log()}
-        onUpdateTransaction={() => console.log()}
+        onDeleteProduct={handleDeleteProduct}
+        onUpdateProduct={handleUpdateProduct}
       />
     ),
-    [],
+    [handleDeleteProduct, handleUpdateProduct],
   );
 
   const columns = useMemo(
@@ -276,16 +365,16 @@ const ProductsTableComponent = ({
   );
 
   return (
-    <>
-      <Flex>
+    <Indicator isOpen={isCreateProduct || isDeleteProduct || isUpdateProduct}>
+      <Flex flexDirection={{ base: 'column', md: 'row' }}>
         <SearchBar
           filterOptions={isOpenHistoryModal ? MONTHS_OPTIONS : ROLES}
-          searchValue={get('name') || ''}
+          searchValue={get('name')?.toLowerCase() || ''}
           onSearch={handleDebounceSearch}
           // onFilter={setFilter}
         />
         <Button
-          w={200}
+          w={{ base: 'none', md: 200 }}
           type="button"
           role="button"
           aria-label="Add User"
@@ -293,15 +382,15 @@ const ProductsTableComponent = ({
           bg="primary.300"
           textTransform="capitalize"
           onClick={handleToggleModal}
-          marginLeft="20px"
+          marginLeft={{ base: 'initial', md: '20px' }}
         >
           Add Product
         </Button>
       </Flex>
       <Fetching
         quality={15}
-        // isLoading={isLoadingTransactions}
-        // isError={isTransactionsError}
+        isLoading={isLoadingProducts}
+        isError={isProductsError}
       >
         <Box mt={5}>
           <Table
@@ -326,22 +415,20 @@ const ProductsTableComponent = ({
       </Fetching>
 
       {isOpenConfirmModal && (
-        <Indicator isOpen={isCreateProduct}>
-          <Modal
-            isOpen={isOpenConfirmModal}
-            onClose={handleToggleModal}
-            title="Add User"
-            body={
-              <ProductForm
-                onCloseModal={handleToggleModal}
-                onCreateProduct={handleCreateProduct}
-              />
-            }
-            haveCloseButton
-          />
-        </Indicator>
+        <Modal
+          isOpen={isOpenConfirmModal}
+          onClose={handleToggleModal}
+          title="Add User"
+          body={
+            <ProductForm
+              onCloseModal={handleToggleModal}
+              onCreateProduct={handleCreateProduct}
+            />
+          }
+          haveCloseButton
+        />
       )}
-    </>
+    </Indicator>
   );
 };
 

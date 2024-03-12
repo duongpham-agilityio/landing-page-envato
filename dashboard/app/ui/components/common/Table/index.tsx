@@ -33,7 +33,7 @@ const Table = ({
   <TableContainer
     overflowX={{
       base: 'scroll',
-      '2xl': 'hidden',
+      '6xl': 'hidden',
     }}
   >
     <TableChakra {...props}>

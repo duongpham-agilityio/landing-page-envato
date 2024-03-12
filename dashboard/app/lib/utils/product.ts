@@ -32,7 +32,7 @@ export const formatProductResponse = (products: TProduct[] = []) =>
     } = product;
 
     return {
-      id: _id,
+      _id: _id,
       name: formatUppercaseFirstLetter(name),
       description: formatUppercaseFirstLetter(description),
       date: dayjs(createdAt).format(TIME_FORMAT),
@@ -40,5 +40,6 @@ export const formatProductResponse = (products: TProduct[] = []) =>
       amount: `${currency}${formatDecimalNumber(+amount)}`,
       stock: `${formatAmountNumber(stock.toString())}`,
       productStatus: stock > 0 ? PRODUCT_STATUS.IN_STOCK : PRODUCT_STATUS.SOLD,
+      product: { ...product },
     };
   });

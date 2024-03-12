@@ -5,7 +5,7 @@ export type TProduct = {
   name: string;
   description: string;
   stock: number;
-  amount: string;
+  amount: number;
   currency: string;
   createdAt: string;
   imageURLs: string[];
@@ -15,11 +15,14 @@ export type TProduct = {
 export interface TProductRequest {
   _id: string;
   name: string;
-  price: number;
   amount: number;
   stock: number;
   description?: string;
   currency?: string;
   createdAt?: string;
   imageURLs: string[];
+}
+
+export interface TProductResponse extends TProduct {
+  product: TProductRequest;
 }

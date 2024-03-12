@@ -19,16 +19,18 @@ import { useImageUploader } from '@/lib/hooks';
 
 export type TUploadImageProductsProps = {
   label: string;
+  images?: string[];
   onUploadError: (message: string) => void;
   onChange: (value: string[]) => void;
 };
 
 const UploadProductsComponent = ({
   label,
+  images = [],
   onChange,
   onUploadError,
 }: TUploadImageProductsProps) => {
-  const [previewURL, setPreviewURL] = useState<string[]>([]);
+  const [previewURL, setPreviewURL] = useState<string[]>(images);
   const { onDrop } = useImageUploader({
     onChange,
     onUploadError,

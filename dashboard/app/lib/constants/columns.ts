@@ -1,5 +1,10 @@
 // Types
-import { TDataSource, TProduct, TTransaction } from '../interfaces';
+import {
+  TDataSource,
+  TProduct,
+  TProductResponse,
+  TTransaction,
+} from '../interfaces';
 
 export const COLUMNS_DASHBOARD = (
   onRenderHead: (title: string, key: string) => void,
@@ -91,7 +96,7 @@ export const COLUMNS_PRODUCTS = (
   onRenderPrice: (amount: TProduct) => void,
   onRenderStatus: (productStatus: TDataSource) => void,
   onRenderQuantity: (stock: TProduct) => void,
-  onRenderActionIcon: (data: TProduct) => void,
+  onRenderActionIcon: (data: TProductResponse) => void,
 ) => [
   {
     title: 'Product Name',
