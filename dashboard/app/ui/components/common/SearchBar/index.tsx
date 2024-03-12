@@ -62,6 +62,7 @@ const SearchBarComponent = ({
       }}
       alignItems="stretch"
       onSubmit={handleStopSubmitForm}
+      width="100%"
     >
       <Box
         display={{

@@ -8,7 +8,7 @@ export type TProduct = {
   amount: string;
   currency: string;
   createdAt: string;
-  imageURLs: string;
+  imageURLs: string[];
   productStatus: PRODUCT_STATUS;
 };
 

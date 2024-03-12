@@ -58,3 +58,4 @@ export { default as InputSendMessages } from './InputSendMessages';
 export { default as PinCodeModal } from './PinCodeModal';
 export { default as ProductsTable } from './ProductsTable';
 export { default as UploadProducts } from './UploadProducts';
+export { default as ProductForm } from './common/Table/Body/ProductForm';

@@ -2,7 +2,14 @@ import { TCustomer, TProduct } from '.';
 
 export type TDataSource = {
   id?: string | number;
-  [key: string]: string | number | boolean | TCustomer | TProduct | undefined;
+  [key: string]:
+    | string
+    | string[]
+    | number
+    | boolean
+    | TCustomer
+    | TProduct
+    | undefined;
 };
 
 export type THeaderTable = {

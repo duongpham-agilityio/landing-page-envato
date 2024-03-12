@@ -2,8 +2,8 @@
 
 // import Link from 'next/link';
 import Image from 'next/image';
-import { memo, useCallback, useMemo } from 'react';
-import { Box, Flex, Td, Text, Th } from '@chakra-ui/react';
+import { memo, useCallback, useMemo, useState } from 'react';
+import { Box, Flex, Td, Text, Th, useToast } from '@chakra-ui/react';
 
 // Components
 import {
@@ -15,6 +15,10 @@ import {
   ActionCell,
   StatusCell,
   ProductNameCell,
+  Modal,
+  Button,
+  ProductForm,
+  Indicator,
 } from '@/ui/components';
 
 // Hooks
@@ -26,7 +30,11 @@ import {
 } from '@/lib/hooks';
 
 // Utils
-import { generatePlaceholder, formatProductResponse } from '@/lib/utils';
+import {
+  generatePlaceholder,
+  formatProductResponse,
+  customToast,
+} from '@/lib/utils';
 
 // Constants
 import {
@@ -34,9 +42,13 @@ import {
   ROLES,
   COLUMNS_PRODUCTS,
   STATUS_LABEL,
+  SUCCESS_MESSAGES,
+  STATUS,
+  ERROR_MESSAGES,
 } from '@/lib/constants';
 
 // Types
+import { TProductRequest } from '@/lib/interfaces';
 import { TDataSource, THeaderTable, TProduct } from '@/lib/interfaces';
 
 interface TFilterUserProps {
@@ -46,10 +58,13 @@ interface TFilterUserProps {
 const ProductsTableComponent = ({
   isOpenHistoryModal = false,
 }: TFilterUserProps) => {
-  // const toast = useToast();
+  const toast = useToast();
   // const userId = authStore((state) => state.user?.id);
   const { get, setSearchParam: setSearchTransaction } = useSearch();
   // const [filter, setFilter] = useState<string>('');
+  const [isOpenConfirmModal, setIsOpenConfirmModal] = useState(false);
+
+  const handleToggleModal = () => setIsOpenConfirmModal((prev) => !prev);
 
   const { products } = useProducts({
     name: get('name') || '',
@@ -67,10 +82,43 @@ const ProductsTableComponent = ({
     handlePageClick,
   } = usePagination(products);
 
+  const { createProduct, isCreateProduct } = useProducts();
+
   const handleDebounceSearch = useDebounce((value: string) => {
     resetPage();
     setSearchTransaction('name', value);
   }, []);
+
+  const handleCreateProduct = useCallback(
+    (product: Omit<TProductRequest, 'id'>) => {
+      createProduct(
+        {
+          ...product,
+        },
+        {
+          onSuccess: () => {
+            toast(
+              customToast(
+                SUCCESS_MESSAGES.CREATE_PRODUCT_SUCCESS.title,
+                SUCCESS_MESSAGES.CREATE_PRODUCT_SUCCESS.description,
+                STATUS.SUCCESS,
+              ),
+            );
+          },
+          onError: () => {
+            toast(
+              customToast(
+                ERROR_MESSAGES.UPDATE_TRANSACTION_FAIL.title,
+                ERROR_MESSAGES.UPDATE_TRANSACTION_FAIL.description,
+                STATUS.ERROR,
+              ),
+            );
+          },
+        },
+      );
+    },
+    [createProduct, toast],
+  );
 
   const renderHead = useCallback((title: string): JSX.Element => {
     // TODO: handle click sort
@@ -229,12 +277,27 @@ const ProductsTableComponent = ({
 
   return (
     <>
-      <SearchBar
-        filterOptions={isOpenHistoryModal ? MONTHS_OPTIONS : ROLES}
-        searchValue={get('name') || ''}
-        onSearch={handleDebounceSearch}
-        // onFilter={setFilter}
-      />
+      <Flex>
+        <SearchBar
+          filterOptions={isOpenHistoryModal ? MONTHS_OPTIONS : ROLES}
+          searchValue={get('name') || ''}
+          onSearch={handleDebounceSearch}
+          // onFilter={setFilter}
+        />
+        <Button
+          w={200}
+          type="button"
+          role="button"
+          aria-label="Add User"
+          colorScheme="primary"
+          bg="primary.300"
+          textTransform="capitalize"
+          onClick={handleToggleModal}
+          marginLeft="20px"
+        >
+          Add Product
+        </Button>
+      </Flex>
       <Fetching
         quality={15}
         // isLoading={isLoadingTransactions}
@@ -261,6 +324,23 @@ const ProductsTableComponent = ({
           </Box>
         )}
       </Fetching>
+
+      {isOpenConfirmModal && (
+        <Indicator isOpen={isCreateProduct}>
+          <Modal
+            isOpen={isOpenConfirmModal}
+            onClose={handleToggleModal}
+            title="Add User"
+            body={
+              <ProductForm
+                onCloseModal={handleToggleModal}
+                onCreateProduct={handleCreateProduct}
+              />
+            }
+            haveCloseButton
+          />
+        </Indicator>
+      )}
     </>
   );
 };
