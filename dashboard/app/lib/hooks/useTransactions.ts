@@ -6,11 +6,7 @@ import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
 import { getTransactions, transactionHttpService } from '@/lib/services';
 
 // Constants
-import {
-  END_POINTS,
-  TIME_FORMAT,
-  TRANSACTION_STATUS_ENUM,
-} from '@/lib/constants';
+import { END_POINTS, TIME_FORMAT, TRANSACTION_STATUS } from '@/lib/constants';
 
 // Types
 import { IDataList, TAddress, TCustomer, TTransaction } from '@/lib/interfaces';
@@ -181,7 +177,7 @@ export const useTransactions = (queryParam?: TSearchTransaction) => {
 
   const { dataTransaction, dataHistory } = transactions.reduce<IDataList>(
     (dataList, transaction) => {
-      if (transaction.transactionStatus === TRANSACTION_STATUS_ENUM.ARCHIVED) {
+      if (transaction.transactionStatus === TRANSACTION_STATUS.ARCHIVED) {
         dataList.dataHistory.push(transaction);
       } else {
         dataList.dataTransaction.push(transaction);
@@ -259,7 +255,7 @@ export const useTransactions = (queryParam?: TSearchTransaction) => {
               item._id === variables.transactionId
                 ? {
                     ...item,
-                    transactionStatus: TRANSACTION_STATUS_ENUM.ARCHIVED,
+                    transactionStatus: TRANSACTION_STATUS.ARCHIVED,
                   }
                 : item,
             );

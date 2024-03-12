@@ -1,4 +1,4 @@
-import { Status } from '@/lib/interfaces';
+import { Status, StatusProduct } from '@/lib/interfaces';
 
 export const STATUS_LABEL = {
   [Status.FULL_TIME]: 'primary',
@@ -13,6 +13,8 @@ export const STATUS_LABEL = {
   [Status.ARCHIVED]: 'quaternary',
   [Status.LOCK]: 'quaternary',
   [Status.UNLOCK]: 'primary',
+  [StatusProduct.SOLD]: 'secondary',
+  [StatusProduct.IN_STOCK]: 'primary',
 };
 
 export const STATUS_SUBMIT = {

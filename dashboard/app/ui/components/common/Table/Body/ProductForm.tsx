@@ -4,20 +4,32 @@ import { memo, useCallback, useMemo } from 'react';
 import { Controller, useForm } from 'react-hook-form';
 
 // Components
-import { Button, Flex, VStack } from '@chakra-ui/react';
+import { Button, Flex, VStack, useToast } from '@chakra-ui/react';
 import InputField from '@/ui/components/common/InputField';
+import { UploadProducts } from '@/ui/components';
 
 // Interfaces
-import { TProduct } from '@/lib/interfaces';
+import { TProductRequest } from '@/lib/interfaces';
 
 // Constants
-import { AUTH_SCHEMA, STATUS_SUBMIT } from '@/lib/constants';
+import {
+  AUTH_SCHEMA,
+  CURRENCY_PRODUCT,
+  SHOW_TIME,
+  STATUS_SUBMIT,
+} from '@/lib/constants';
+
+// Stores
+import { authStore } from '@/lib/stores';
+
+// Utils
+import { parseFormattedNumber } from '@/lib/utils';
 
 interface ProductProps {
-  product?: TProduct;
+  product?: TProductRequest;
   onDeleteProduct?: () => void;
-  onCreateProduct?: (productData: Omit<TProduct, 'id'>) => void;
-  onUpdateProduct?: (productData: TProduct) => void;
+  onCreateProduct?: (productData: Omit<TProductRequest, 'id'>) => void;
+  onUpdateProduct?: (productData: TProductRequest) => void;
   onCloseModal?: () => void;
 }
 
@@ -27,23 +39,26 @@ const ProductForm = ({
   onUpdateProduct,
   onCloseModal,
 }: ProductProps) => {
+  const toast = useToast();
   const {
     control,
     formState: { isDirty },
     clearErrors,
     handleSubmit,
     reset,
-  } = useForm<TProduct>({
+  } = useForm<TProductRequest>({
     defaultValues: {
-      id: product?.id,
+      _id: product?._id,
       name: product?.name,
       imageURLs: product?.imageURLs,
-      price: product?.price,
+      currency: product?.currency || CURRENCY_PRODUCT,
+      amount: product?.amount,
       stock: product?.stock,
       description: product?.description,
       createdAt: product?.createdAt,
     },
   });
+  const userId = authStore((state) => state.user?.id);
 
   const disabled = useMemo(
     () => !isDirty || status === STATUS_SUBMIT.PENDING,
@@ -51,7 +66,7 @@ const ProductForm = ({
   );
 
   const handleChangeValue = useCallback(
-    <T,>(field: keyof TProduct, changeHandler: (value: T) => void) =>
+    <T,>(field: keyof TProductRequest, changeHandler: (value: T) => void) =>
       (data: T) => {
         clearErrors(field);
         changeHandler(data);
@@ -60,20 +75,32 @@ const ProductForm = ({
   );
 
   const handleSubmitForm = useCallback(
-    (dataInfo: TProduct) => {
+    (data: TProductRequest) => {
       const requestData = {
-        ...dataInfo,
-        stock: Number(dataInfo.stock),
-        price: Number(dataInfo.price),
+        ...data,
+        stock: parseFormattedNumber(data.stock),
+        amount: parseFormattedNumber(data.amount),
+        userId,
       };
-
-      dataInfo.id
+      data._id
         ? onUpdateProduct && onUpdateProduct(requestData)
         : onCreateProduct && onCreateProduct(requestData);
       reset(requestData);
       onCloseModal && onCloseModal();
     },
-    [onCloseModal, onCreateProduct, onUpdateProduct, reset],
+    [onCloseModal, onCreateProduct, onUpdateProduct, reset, userId],
+  );
+
+  const handleShowErrorWhenUploadImage = useCallback(
+    (message: string) => {
+      toast({
+        description: message,
+        status: 'error',
+        duration: SHOW_TIME,
+        position: 'top-right',
+      });
+    },
+    [toast],
   );
 
   return (
@@ -103,18 +130,17 @@ const ProductForm = ({
         />
         <Controller
           control={control}
-          rules={AUTH_SCHEMA.PRICE}
-          name="price"
+          rules={AUTH_SCHEMA.AMOUNT}
+          name="amount"
           render={({ field, fieldState: { error } }) => (
             <InputField
-              typeInput="number"
               variant="authentication"
               bg="background.body.primary"
               label="Price"
               {...field}
               isError={!!error}
               errorMessages={error?.message}
-              onChange={handleChangeValue('price', field.onChange)}
+              onChange={handleChangeValue('amount', field.onChange)}
             />
           )}
         />
@@ -126,7 +152,6 @@ const ProductForm = ({
           name="stock"
           render={({ field, field: { onChange }, fieldState: { error } }) => (
             <InputField
-              typeInput="number"
               variant="authentication"
               bg="background.body.primary"
               label="Quantity"
@@ -157,20 +182,35 @@ const ProductForm = ({
 
       <Controller
         control={control}
-        rules={AUTH_SCHEMA.GALLERY_THUMBNAIL}
-        name="imageURLs"
+        name="currency"
         render={({ field, fieldState: { error } }) => (
           <InputField
             variant="authentication"
             bg="background.body.primary"
-            label="Gallery Thumbnail"
+            label="Currency"
             {...field}
             isError={!!error}
             errorMessages={error?.message}
-            onChange={handleChangeValue('imageURLs', field.onChange)}
+            onChange={handleChangeValue('currency', field.onChange)}
+            isDisabled
+            defaultValue={CURRENCY_PRODUCT}
           />
         )}
       />
+
+      <Controller
+        control={control}
+        rules={AUTH_SCHEMA.GALLERY_THUMBNAIL}
+        name="imageURLs"
+        render={({ field }) => (
+          <UploadProducts
+            label="Gallery Thumbnail"
+            onUploadError={handleShowErrorWhenUploadImage}
+            onChange={field.onChange}
+          />
+        )}
+      />
+
       <Flex my={4}>
         <Button
           type="submit"

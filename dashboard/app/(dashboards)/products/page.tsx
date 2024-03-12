@@ -1,7 +1,7 @@
-import { ProductsSection } from '@/ui/sections';
 import { memo } from 'react';
+import dynamic from 'next/dynamic';
 
-export const dynamic = 'force-dynamic';
+const ProductsSection = dynamic(() => import('@/ui/sections/ProductsSection'));
 
 const Products = () => <ProductsSection />;
 

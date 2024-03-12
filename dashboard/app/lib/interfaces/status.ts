@@ -13,6 +13,11 @@ export enum Status {
   UNLOCK = 'Unlock',
 }
 
+export enum StatusProduct {
+  SOLD = 'Sold',
+  IN_STOCK = 'In-stock',
+}
+
 export enum RevenueFlowStatus {
   PENDING = 'pending',
   SINGED = 'signed',

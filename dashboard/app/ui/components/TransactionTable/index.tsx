@@ -41,7 +41,7 @@ import {
   STATUS,
   STATUS_LABEL,
   SUCCESS_MESSAGES,
-  TRANSACTION_STATUS_ENUM,
+  TRANSACTION_STATUS,
   MONTHS_OPTIONS,
   ROLES,
 } from '@/lib/constants';
@@ -157,7 +157,7 @@ const TransactionTableComponent = ({
         {
           transactionId: updateData.id,
           userId: userId,
-          transactionStatus: TRANSACTION_STATUS_ENUM.ARCHIVED,
+          transactionStatus: TRANSACTION_STATUS.ARCHIVED,
         },
         {
           onSuccess: () => {

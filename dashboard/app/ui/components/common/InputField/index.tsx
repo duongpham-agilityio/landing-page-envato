@@ -16,6 +16,7 @@ import {
   FormLabel,
   FormErrorMessage,
 } from '@chakra-ui/react';
+import { formatAmountNumber } from '@/lib/utils';
 
 type TInputFieldProps = Omit<InputProps, 'onChange'> & {
   isValidate?: boolean;
@@ -42,7 +43,20 @@ const InputComponent = (
   ref: ForwardedRef<HTMLInputElement>,
 ): JSX.Element => {
   const handleChangeValue = useCallback(
-    (e: ChangeEvent<HTMLInputElement>): void => onChange(e.target.value),
+    (e: ChangeEvent<HTMLInputElement>): void => {
+      const value: string = e.target.value;
+
+      if (Number(value)) {
+        if (isNaN(+value.replaceAll(',', ''))) return;
+
+        // Remove non-numeric characters and leading zeros
+        const sanitizedValue = formatAmountNumber(value);
+
+        onChange(sanitizedValue);
+      } else {
+        onChange(value);
+      }
+    },
     [onChange],
   );
 

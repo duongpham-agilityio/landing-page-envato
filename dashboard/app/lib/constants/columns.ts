@@ -1,5 +1,5 @@
 // Types
-import { TDataSource, TTransaction } from '../interfaces';
+import { TDataSource, TProduct, TTransaction } from '../interfaces';
 
 export const COLUMNS_DASHBOARD = (
   onRenderHead: (title: string, key: string) => void,
@@ -81,5 +81,57 @@ export const COLUMNS_HISTORY = (
     key: 'transactionStatus',
     renderHead: renderHead,
     renderBody: renderTransactionStatus,
+  },
+];
+
+export const COLUMNS_PRODUCTS = (
+  onRenderHead: (title: string, key: string) => void,
+  onRenderBody: ({ id, name }: TDataSource) => void,
+  onRenderGallery: ({ imageURLs, name }: TProduct) => void,
+  onRenderPrice: (amount: TProduct) => void,
+  onRenderStatus: (productStatus: TDataSource) => void,
+  onRenderQuantity: (stock: TProduct) => void,
+  onRenderActionIcon: (data: TProduct) => void,
+) => [
+  {
+    title: 'Product Name',
+    key: 'name',
+    renderHead: onRenderHead,
+    renderBody: onRenderBody,
+  },
+  {
+    title: 'Gallery Thumbnail',
+    key: 'imageURLs',
+    renderHead: onRenderHead,
+    renderBody: onRenderGallery,
+  },
+  {
+    title: 'Price',
+    key: 'price',
+    renderHead: onRenderHead,
+    renderBody: onRenderPrice,
+  },
+  {
+    title: 'Status',
+    key: 'productStatus',
+    renderHead: onRenderHead,
+    renderBody: onRenderStatus,
+  },
+  {
+    title: 'Quantity',
+    key: 'quantity',
+    renderHead: onRenderHead,
+    renderBody: onRenderQuantity,
+  },
+  {
+    title: 'Date',
+    key: 'date',
+    renderHead: onRenderHead,
+  },
+  {
+    title: '',
+    key: 'action',
+    renderBody: onRenderActionIcon,
+    renderHead: onRenderHead,
   },
 ];

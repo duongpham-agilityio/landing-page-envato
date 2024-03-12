@@ -1,8 +1,8 @@
-import { TCustomer } from '.';
+import { TCustomer, TProduct } from '.';
 
 export type TDataSource = {
   id?: string | number;
-  [key: string]: string | number | boolean | TCustomer | undefined;
+  [key: string]: string | number | boolean | TCustomer | TProduct | undefined;
 };
 
 export type THeaderTable = {

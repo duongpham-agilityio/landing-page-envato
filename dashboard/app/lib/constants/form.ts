@@ -127,11 +127,11 @@ export const AUTH_SCHEMA = {
     required: ERROR_MESSAGES.FIELD_REQUIRED('Name'),
   },
 
-  PRICE: {
-    required: ERROR_MESSAGES.FIELD_REQUIRED('Price'),
+  AMOUNT: {
+    required: ERROR_MESSAGES.FIELD_REQUIRED('Amount'),
     validate: (value: number) => {
-      if (!Number(value)) {
-        return ERROR_MESSAGES.PRICE_INVALID;
+      if (Number(value) <= 0) {
+        return ERROR_MESSAGES.AMOUNT_INVALID;
       }
 
       return true;
@@ -141,7 +141,7 @@ export const AUTH_SCHEMA = {
   QUANTITY: {
     required: ERROR_MESSAGES.FIELD_REQUIRED('Quantity'),
     validate: (value: number) => {
-      if (!Number(value)) {
+      if (Number(value) < 0) {
         return ERROR_MESSAGES.QUANTITY_INVALID;
       }
 

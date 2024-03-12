@@ -114,6 +114,25 @@ export const formatAmountNumber = (value: string): string => {
   return decimalValue ? `${newValueFormat}${decimalValue}` : newValueFormat;
 };
 
+export const parseFormattedNumber = (value: number): number => {
+  if (!value) {
+    return 0;
+  }
+
+  const cleanValue = (value as unknown as string).replace(
+    REGEX.FORMAT_NUMBER,
+    '',
+  );
+
+  const parsedNumber = parseFloat(cleanValue);
+
+  if (Number.isNaN(parsedNumber)) {
+    return 0;
+  }
+
+  return parsedNumber;
+};
+
 /**
  * Format number rg: 12345 -> 12,345.00 if isOmitDecimals = false or 12,345 if isOmitDecimals = true
  * @param number

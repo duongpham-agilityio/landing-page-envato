@@ -11,4 +11,5 @@ export const REGEX = {
   DECIMAL_PATTERN: /^\d*(\.\d{0,2})?$/,
   FORMAT_MONEY: /(\d)(?=(\d{3})+(?!\d))/,
   URL: /^(https?|ftp):\/\/(-\.)?([^\s/?\.#-]+\.?)+([^\s]*)$/i,
+  FORMAT_NUMBER: /[^\d.-]/g,
 };

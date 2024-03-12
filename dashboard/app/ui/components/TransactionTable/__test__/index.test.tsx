@@ -14,7 +14,7 @@ import { QueryProvider } from '@/ui/providers';
 import { TRANSACTIONS } from '@/lib/mocks';
 
 // Constants
-import { DEBOUNCE_TIME, TRANSACTION_STATUS_ENUM } from '@/lib/constants';
+import { DEBOUNCE_TIME, TRANSACTION_STATUS } from '@/lib/constants';
 
 jest.mock('@/lib/hooks', () => ({
   ...jest.requireActual('@/lib/hooks'),
@@ -129,7 +129,7 @@ describe('Transaction table', () => {
       expect(deleteTransactionMock).toHaveBeenCalledWith(
         {
           transactionId: '1701513537051',
-          transactionStatus: TRANSACTION_STATUS_ENUM.ARCHIVED,
+          transactionStatus: TRANSACTION_STATUS.ARCHIVED,
         },
         expect.objectContaining({
           onSuccess: expect.any(Function),
@@ -158,7 +158,7 @@ describe('Transaction table', () => {
       expect(deleteTransactionMock).toHaveBeenCalledWith(
         {
           transactionId: '1701513537051',
-          transactionStatus: TRANSACTION_STATUS_ENUM.ARCHIVED,
+          transactionStatus: TRANSACTION_STATUS.ARCHIVED,
         },
         expect.objectContaining({
           onSuccess: expect.any(Function),
@@ -196,7 +196,7 @@ describe('Transaction table', () => {
   //     expect(updateTransactionMock).toHaveBeenCalledWith(
   //       {
   //         transactionId: '1701513537051',
-  //         transactionStatus: TRANSACTION_STATUS_ENUM.ARCHIVED,
+  //         transactionStatus: TRANSACTION_STATUS.ARCHIVED,
   //       },
   //       expect.objectContaining({
   //         onSuccess: expect.any(Function),
@@ -225,7 +225,7 @@ describe('Transaction table', () => {
   //     expect(deleteTransactionMock).toHaveBeenCalledWith(
   //       {
   //         transactionId: '1701513537051',
-  //         transactionStatus: TRANSACTION_STATUS_ENUM.ARCHIVED,
+  //         transactionStatus: TRANSACTION_STATUS.ARCHIVED,
   //       },
   //       expect.objectContaining({
   //         onSuccess: expect.any(Function),

@@ -1,4 +1,4 @@
-import { PAYMENT_STATUS_ENUM, TRANSACTION_STATUS_ENUM } from '@/lib/constants';
+import { PAYMENT_STATUS, TRANSACTION_STATUS } from '@/lib/constants';
 import { TTransaction } from '@/lib/interfaces';
 
 export const TRANSACTIONS: TTransaction[] = [
@@ -26,8 +26,8 @@ export const TRANSACTIONS: TTransaction[] = [
       'https://static.nike.com/a/images/t_PDP_1280_v1/f_auto,q_auto:eco/af53d53d-561f-450a-a483-70a7ceee380f/dunk-low-shoes-t9dFBx.png',
     createdAt: '1681982541000',
     location: 'Philadelphia, USA',
-    paymentStatus: PAYMENT_STATUS_ENUM.PAID,
-    transactionStatus: TRANSACTION_STATUS_ENUM.CANCELED,
+    paymentStatus: PAYMENT_STATUS.PAID,
+    transactionStatus: TRANSACTION_STATUS.CANCELED,
   },
   {
     _id: '1701513537052',
@@ -53,8 +53,8 @@ export const TRANSACTIONS: TTransaction[] = [
       'https://static.nike.com/a/images/t_PDP_1280_v1/f_auto,q_auto:eco/af53d53d-561f-450a-a483-70a7ceee380f/dunk-low-shoes-t9dFBx.png',
     createdAt: '1681982541000',
     location: 'Philadelphia, USA',
-    paymentStatus: PAYMENT_STATUS_ENUM.PAID,
-    transactionStatus: TRANSACTION_STATUS_ENUM.COMPLETED,
+    paymentStatus: PAYMENT_STATUS.PAID,
+    transactionStatus: TRANSACTION_STATUS.COMPLETED,
   },
   {
     _id: '1701513537053',
@@ -80,8 +80,8 @@ export const TRANSACTIONS: TTransaction[] = [
       'https://static.nike.com/a/images/t_PDP_1280_v1/f_auto,q_auto:eco/af53d53d-561f-450a-a483-70a7ceee380f/.png',
     location: 'Philadelphia, USA',
     createdAt: '1681982541000',
-    paymentStatus: PAYMENT_STATUS_ENUM.UN_PAID,
-    transactionStatus: TRANSACTION_STATUS_ENUM.PENDING,
+    paymentStatus: PAYMENT_STATUS.UN_PAID,
+    transactionStatus: TRANSACTION_STATUS.PENDING,
   },
 ];
 
@@ -109,8 +109,8 @@ export const MOCK_TRANSACTION_DETAIL = {
     'https://static.nike.com/a/images/t_PDP_1280_v1/f_auto,q_auto:eco/af53d53d-561f-450a-a483-70a7ceee380f/dunk-low-shoes-t9dFBx.png',
   createdAt: '1681982541000',
   location: 'Philadelphia, USA',
-  paymentStatus: PAYMENT_STATUS_ENUM.PAID,
-  transactionStatus: TRANSACTION_STATUS_ENUM.CANCELED,
+  paymentStatus: PAYMENT_STATUS.PAID,
+  transactionStatus: TRANSACTION_STATUS.CANCELED,
 };
 
 export const MOCK_TRANSACTION = {
@@ -135,6 +135,6 @@ export const MOCK_TRANSACTION = {
   location: 'Philadelphia, USA',
   image:
     'https://static.nike.com/a/images/t_PDP_1280_v1/f_auto,q_auto:eco/af53d53d-561f-450a-a483-70a7ceee380f/dunk-low-shoes-t9dFBx.png',
-  paymentStatus: PAYMENT_STATUS_ENUM.PAID,
-  transactionStatus: TRANSACTION_STATUS_ENUM.CANCELED,
+  paymentStatus: PAYMENT_STATUS.PAID,
+  transactionStatus: TRANSACTION_STATUS.CANCELED,
 };

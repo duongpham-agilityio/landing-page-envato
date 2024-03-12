@@ -4,9 +4,9 @@ import userEvent from '@testing-library/user-event';
 
 describe('Product Modal', () => {
   const mockProduct = {
-    id: '123',
+    _id: '123',
     name: 'Tivi',
-    price: 1111,
+    amount: 1111,
     stock: 11,
     imageURLs: ['image.png'],
   };

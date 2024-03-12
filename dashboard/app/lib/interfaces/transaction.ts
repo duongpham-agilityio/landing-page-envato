@@ -1,5 +1,5 @@
 // Constants
-import { PAYMENT_STATUS_ENUM, TRANSACTION_STATUS_ENUM } from '@/lib/constants';
+import { PAYMENT_STATUS, TRANSACTION_STATUS } from '@/lib/constants';
 
 // Types
 import { TCustomer } from '.';
@@ -15,8 +15,8 @@ export type TTransaction = {
   location: string;
   image: string;
   type: string;
-  paymentStatus: PAYMENT_STATUS_ENUM;
-  transactionStatus: TRANSACTION_STATUS_ENUM;
+  paymentStatus: PAYMENT_STATUS;
+  transactionStatus: TRANSACTION_STATUS;
 };
 
 export interface IDataList {
