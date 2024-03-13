@@ -20,12 +20,12 @@ export type TSearchProduct = {
 };
 
 type TSortType = 'desc' | 'asc';
-export type TProductSortField = 'name' | 'spent' | 'date';
+export type TProductSortField = 'name' | 'price' | 'date' | 'quantity';
 type TSort = {
   field: TProductSortField | '';
   type: TSortType;
 };
-export type TSortProductHandler = (field: TProductSortField) => void;
+export type TProductSortHandler = (field: TProductSortField) => void;
 
 export const useProducts = (queryParam?: TSearchProduct) => {
   const queryClient = useQueryClient();
@@ -95,19 +95,26 @@ export const useProducts = (queryParam?: TSearchProduct) => {
           name: prevProductName,
           createdAt: prevCreatedAt,
           amount: prevAmount,
+          stock: prevQuantity,
         }: TProduct,
         {
           name: nextProductName,
           createdAt: nextCreatedAt,
           amount: nextAmount,
+          stock: nextQuantity,
         }: TProduct,
       ) => {
         const valueForField: Record<TProductSortField, number> = {
           name: handleSort(type, prevProductName ?? '', nextProductName ?? ''),
-          spent: handleSort(
+          price: handleSort(
             type,
             String(prevAmount) ?? '',
             String(nextAmount) ?? '',
+          ),
+          quantity: handleSort(
+            type,
+            String(prevQuantity) ?? '',
+            String(nextQuantity) ?? '',
           ),
           date: handleSort(
             type,
@@ -138,7 +145,7 @@ export const useProducts = (queryParam?: TSearchProduct) => {
     });
   }, [transactionsAfterSort, searchName]);
 
-  const sortBy: TSortProductHandler = useCallback(
+  const sortBy: TProductSortHandler = useCallback(
     (field: TProductSortField) => {
       setSortValue((prev) => ({
         field: field,

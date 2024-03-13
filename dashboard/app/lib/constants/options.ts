@@ -134,3 +134,14 @@ export const ROLES = [
     label: 'Anonymous',
   },
 ];
+
+export const FILTER_PRODUCT = [
+  {
+    value: 'Sold',
+    label: 'Sold',
+  },
+  {
+    value: 'In-stock',
+    label: 'In stock',
+  },
+];

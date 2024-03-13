@@ -53,10 +53,10 @@ const SearchBarComponent = ({
 
   return (
     <HStack
-      flexDirection={{ base: 'column', md: 'row' }}
+      flexDirection={{ base: 'column', sm: 'column', lg: 'row' }}
       as="form"
       data-testid="search-bar"
-      h={{ base: 'none', md: 14 }}
+      h={{ base: 'none', lg: 14 }}
       gap={{
         base: '2',
         sm: '2',
@@ -65,7 +65,7 @@ const SearchBarComponent = ({
       alignItems="stretch"
       onSubmit={handleStopSubmitForm}
       width="100%"
-      marginBottom={{ base: 15, md: 0 }}
+      marginBottom={{ base: 15, lg: 0 }}
     >
       <Box
         display={{
@@ -99,8 +99,7 @@ const SearchBarComponent = ({
         w={{
           base: '100%',
           sm: '100%',
-          lg: '15%',
-          xl: '12%',
+          lg: '150px',
         }}
         borderWidth="1px"
         borderRadius="lg"

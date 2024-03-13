@@ -4,7 +4,16 @@ import { memo, useCallback, useMemo } from 'react';
 import { Controller, useForm } from 'react-hook-form';
 
 // Components
-import { Button, Flex, VStack, useToast } from '@chakra-ui/react';
+import {
+  Button,
+  Flex,
+  FormControl,
+  FormErrorMessage,
+  FormLabel,
+  Input,
+  VStack,
+  useToast,
+} from '@chakra-ui/react';
 import InputField from '@/ui/components/common/InputField';
 import { UploadProducts } from '@/ui/components';
 
@@ -23,7 +32,7 @@ import {
 import { authStore } from '@/lib/stores';
 
 // Utils
-import { parseFormattedNumber } from '@/lib/utils';
+import { formatAmountNumber, parseFormattedNumber } from '@/lib/utils';
 
 interface ProductProps {
   data?: TProductResponse;
@@ -78,7 +87,7 @@ const ProductForm = ({
       const requestData = {
         ...data,
         stock: parseFormattedNumber(data.stock),
-        amount: parseFormattedNumber(data.amount),
+        amount: data.amount,
         userId,
       };
 
@@ -132,17 +141,49 @@ const ProductForm = ({
           control={control}
           rules={AUTH_SCHEMA.AMOUNT}
           name="amount"
-          render={({ field, fieldState: { error } }) => (
-            <InputField
-              variant="authentication"
-              bg="background.body.primary"
-              label="Price"
-              {...field}
-              isError={!!error}
-              errorMessages={error?.message}
-              onChange={handleChangeValue('amount', field.onChange)}
-            />
-          )}
+          render={({ field: { value, onChange }, fieldState: { error } }) => {
+            const handleChange = (
+              event: React.ChangeEvent<HTMLInputElement>,
+            ) => {
+              const value: string = event.target.value;
+
+              if (isNaN(+value.replaceAll(',', ''))) return;
+
+              // Remove non-numeric characters and leading zeros
+              const sanitizedValue = formatAmountNumber(value);
+
+              onChange(sanitizedValue);
+            };
+
+            return (
+              <FormControl isInvalid={!!error}>
+                <FormLabel
+                  color="text.secondary"
+                  marginInlineEnd={0}
+                  minW="max-content"
+                >
+                  Amount
+                </FormLabel>
+                <Input
+                  bg="background.body.primary"
+                  variant="authentication"
+                  type="text"
+                  placeholder="0.00"
+                  color="text.primary"
+                  fontSize="1xl"
+                  value={value}
+                  name="amount"
+                  onChange={handleChange}
+                  autoComplete="off"
+                  position="static"
+                  isInvalid={!!error}
+                />
+                {!!error && (
+                  <FormErrorMessage>{error?.message}</FormErrorMessage>
+                )}
+              </FormControl>
+            );
+          }}
         />
       </Flex>
       <Flex mb={2}>
@@ -150,18 +191,49 @@ const ProductForm = ({
           control={control}
           rules={AUTH_SCHEMA.QUANTITY}
           name="stock"
-          render={({ field, field: { onChange }, fieldState: { error } }) => (
-            <InputField
-              variant="authentication"
-              bg="background.body.primary"
-              label="Quantity"
-              mr={2}
-              {...field}
-              isError={!!error}
-              errorMessages={error?.message}
-              onChange={handleChangeValue('stock', onChange)}
-            />
-          )}
+          render={({ field: { value, onChange }, fieldState: { error } }) => {
+            const handleChange = (
+              event: React.ChangeEvent<HTMLInputElement>,
+            ) => {
+              const value: string = event.target.value;
+
+              if (isNaN(+value.replaceAll(',', ''))) return;
+
+              // Remove non-numeric characters and leading zeros
+              const sanitizedValue = formatAmountNumber(value);
+
+              onChange(sanitizedValue);
+            };
+
+            return (
+              <FormControl isInvalid={!!error} mr={2}>
+                <FormLabel
+                  color="text.secondary"
+                  marginInlineEnd={0}
+                  minW="max-content"
+                >
+                  Quantity
+                </FormLabel>
+                <Input
+                  bg="background.body.primary"
+                  variant="authentication"
+                  type="text"
+                  placeholder="0"
+                  color="text.primary"
+                  fontSize="1xl"
+                  value={value}
+                  name="quantity"
+                  onChange={handleChange}
+                  autoComplete="off"
+                  position="static"
+                  isInvalid={!!error}
+                />
+                {!!error && (
+                  <FormErrorMessage>{error?.message}</FormErrorMessage>
+                )}
+              </FormControl>
+            );
+          }}
         />
         <Controller
           control={control}

@@ -28,6 +28,7 @@ import {
   useProducts,
   useSearch,
 } from '@/lib/hooks';
+import { TProductSortField } from '@/lib/hooks/useProducts';
 
 // Utils
 import {
@@ -38,13 +39,13 @@ import {
 
 // Constants
 import {
-  MONTHS_OPTIONS,
-  ROLES,
   COLUMNS_PRODUCTS,
   STATUS_LABEL,
   SUCCESS_MESSAGES,
   STATUS,
   ERROR_MESSAGES,
+  FILTER_PRODUCT,
+  PRODUCT_STATUS,
 } from '@/lib/constants';
 
 // Types
@@ -59,17 +60,11 @@ import {
 // Stores
 import { authStore } from '@/lib/stores';
 
-interface TFilterUserProps {
-  isOpenHistoryModal?: boolean;
-}
-
-const ProductsTableComponent = ({
-  isOpenHistoryModal = false,
-}: TFilterUserProps) => {
+const ProductsTableComponent = () => {
   const toast = useToast();
   const userId = authStore((state) => state.user?.id);
   const { get, setSearchParam: setSearchTransaction } = useSearch();
-  // const [filter, setFilter] = useState<string>('');
+  const [filter, setFilter] = useState<string>('');
   const [isOpenConfirmModal, setIsOpenConfirmModal] = useState(false);
 
   const handleToggleModal = () => setIsOpenConfirmModal((prev) => !prev);
@@ -78,6 +73,7 @@ const ProductsTableComponent = ({
     products,
     isLoading: isLoadingProducts,
     isError: isProductsError,
+    sortBy,
     createProduct,
     deleteProduct,
     updateProduct,
@@ -87,6 +83,18 @@ const ProductsTableComponent = ({
   } = useProducts({
     name: get('name') || '',
   });
+
+  const productsMemorized = useMemo(
+    () =>
+      products.filter(({ stock }) => {
+        if (stock > 0) {
+          return PRODUCT_STATUS.IN_STOCK.includes(filter.trim());
+        } else {
+          return PRODUCT_STATUS.SOLD.includes(filter.trim());
+        }
+      }),
+    [filter, products],
+  );
 
   const {
     data,
@@ -98,7 +106,7 @@ const ProductsTableComponent = ({
     handleChangeLimit,
     handlePageChange,
     handlePageClick,
-  } = usePagination(products);
+  } = usePagination(productsMemorized);
 
   const handleDebounceSearch = useDebounce((value: string) => {
     resetPage();
@@ -207,14 +215,18 @@ const ProductsTableComponent = ({
     [toast, updateProduct, userId],
   );
 
-  const renderHead = useCallback((title: string): JSX.Element => {
-    // TODO: handle click sort
-    const handleClick = () => {};
+  const renderHead = useCallback(
+    (title: string, key: string): JSX.Element => {
+      const handleClick = () => {
+        sortBy && sortBy(key as TProductSortField);
+      };
 
-    if (!title) return <Th w={50} maxW={50} />;
+      if (!title) return <Th w={50} maxW={50} />;
 
-    return <HeadCell key={title} title={title} onClick={handleClick} />;
-  }, []);
+      return <HeadCell key={title} title={title} onClick={handleClick} />;
+    },
+    [toast, updateProduct, userId],
+  );
 
   const renderNameUser = useCallback(
     ({ id, _id, name }: TDataSource): JSX.Element => (
@@ -366,15 +378,15 @@ const ProductsTableComponent = ({
 
   return (
     <Indicator isOpen={isCreateProduct || isDeleteProduct || isUpdateProduct}>
-      <Flex flexDirection={{ base: 'column', md: 'row' }}>
+      <Flex flexDirection={{ base: 'column', lg: 'row' }}>
         <SearchBar
-          filterOptions={isOpenHistoryModal ? MONTHS_OPTIONS : ROLES}
+          filterOptions={FILTER_PRODUCT}
           searchValue={get('name')?.toLowerCase() || ''}
           onSearch={handleDebounceSearch}
-          // onFilter={setFilter}
+          onFilter={setFilter}
         />
         <Button
-          w={{ base: 'none', md: 200 }}
+          w={{ base: 'none', lg: 200 }}
           type="button"
           role="button"
           aria-label="Add User"
@@ -382,7 +394,7 @@ const ProductsTableComponent = ({
           bg="primary.300"
           textTransform="capitalize"
           onClick={handleToggleModal}
-          marginLeft={{ base: 'initial', md: '20px' }}
+          marginLeft={{ base: 'initial', lg: '20px' }}
         >
           Add Product
         </Button>
@@ -418,7 +430,7 @@ const ProductsTableComponent = ({
         <Modal
           isOpen={isOpenConfirmModal}
           onClose={handleToggleModal}
-          title="Add User"
+          title="Add Product"
           body={
             <ProductForm
               onCloseModal={handleToggleModal}

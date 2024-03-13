@@ -16,7 +16,6 @@ import {
   FormLabel,
   FormErrorMessage,
 } from '@chakra-ui/react';
-import { formatAmountNumber } from '@/lib/utils';
 
 type TInputFieldProps = Omit<InputProps, 'onChange'> & {
   isValidate?: boolean;
@@ -25,7 +24,6 @@ type TInputFieldProps = Omit<InputProps, 'onChange'> & {
   label?: string;
   leftIcon?: ReactNode;
   rightIcon?: ReactNode;
-  typeInput?: string;
   onChange: (value: string) => void;
 };
 
@@ -33,7 +31,6 @@ const InputComponent = (
   {
     isError = false,
     errorMessages = 'Default error', //
-    typeInput = 'text',
     label,
     leftIcon,
     rightIcon,
@@ -43,20 +40,7 @@ const InputComponent = (
   ref: ForwardedRef<HTMLInputElement>,
 ): JSX.Element => {
   const handleChangeValue = useCallback(
-    (e: ChangeEvent<HTMLInputElement>): void => {
-      const value: string = e.target.value;
-
-      if (Number(value)) {
-        if (isNaN(+value.replaceAll(',', ''))) return;
-
-        // Remove non-numeric characters and leading zeros
-        const sanitizedValue = formatAmountNumber(value);
-
-        onChange(sanitizedValue);
-      } else {
-        onChange(value);
-      }
-    },
+    (e: ChangeEvent<HTMLInputElement>): void => onChange(e.target.value),
     [onChange],
   );
 
@@ -77,7 +61,7 @@ const InputComponent = (
           <InputLeftElement pointerEvents="none">{leftIcon}</InputLeftElement>
         )}
         <Input
-          type={typeInput}
+          type="text"
           color="text.primary"
           onChange={handleChangeValue}
           ref={ref}
