@@ -72,7 +72,7 @@ const Checkout = ({ total }: TCheckoutProps): JSX.Element => {
 
   return (
     <Indicator isOpen={isOpen}>
-      <h2 className='capitalize font-primary text-primary text-3xl py-[30px]'>
+      <h2 className='capitalize font-primary text-primary text-3xl py-[30px] dark:text-white'>
         Checkout
       </h2>
       <form

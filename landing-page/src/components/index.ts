@@ -14,3 +14,4 @@ export { default as Cart } from './Cart';
 export { default as ContactForm } from './ContactForm';
 export { default as Checkout } from './Checkout';
 export { default as Indicator } from './Indicator';
+export { default as SwitchTheme } from './SwitchTheme';

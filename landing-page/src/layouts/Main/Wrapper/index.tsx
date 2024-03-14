@@ -10,6 +10,9 @@ import { ArrowTop } from '@app/components/icons';
 // Mocks
 import { NAVBAR } from '@app/constants';
 
+// Context
+import { ThemeProvider } from '@app/context/ThemeContext';
+
 type TWrapperProps = {
   children?: ReactNode;
   pathName: string;
@@ -56,12 +59,15 @@ const Wrapper = ({ children, pathName }: TWrapperProps): JSX.Element => {
 
   return (
     <section className='flex' id='top'>
-      <SideBarAllDevices
-        options={NAVBAR}
-        pathName={pathName}
-        isOpen={isOpenSidebar}
-        onToggle={handleToggleSidebar}
-      />
+      <ThemeProvider>
+        <SideBarAllDevices
+          options={NAVBAR}
+          pathName={pathName}
+          isOpen={isOpenSidebar}
+          onToggle={handleToggleSidebar}
+        />
+      </ThemeProvider>
+
       <div className='flex-1 min-h-[60vh]'>
         <HeaderMobile onToggleSidebar={handleToggleSidebar} />
         <div className='pt-[70px] md:pt-0 h-full'>{children}</div>

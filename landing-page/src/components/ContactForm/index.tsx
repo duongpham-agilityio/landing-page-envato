@@ -113,7 +113,7 @@ const ContactForm = ({ control, onSubmit }: TContactFormProps) => {
           )}
         />
       </div>
-      <div className='md:!w-[50%] md:pr-[15px]'>
+      <div className='md:!w-[50%]'>
         <Controller
           control={control}
           rules={{ required: true, maxLength: 100 }}
