@@ -5,7 +5,7 @@ export type TProduct = {
   name: string;
   description: string;
   stock: number;
-  amount: string;
+  amount: number;
   currency: string;
   createdAt: string;
   imageURLs: string[];
@@ -17,7 +17,7 @@ export interface TProductRequest {
   limit: number | undefined;
   _id: string;
   name: string;
-  amount: string;
+  amount: number;
   stock: number;
   description?: string;
   currency?: string;

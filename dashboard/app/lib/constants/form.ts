@@ -129,7 +129,7 @@ export const AUTH_SCHEMA = {
 
   AMOUNT: {
     required: ERROR_MESSAGES.FIELD_REQUIRED('Amount'),
-    validate: (value: string) => {
+    validate: (value: number) => {
       if (Number(value) <= 0) {
         return ERROR_MESSAGES.AMOUNT_INVALID;
       }

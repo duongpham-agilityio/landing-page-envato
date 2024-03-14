@@ -30,7 +30,7 @@ exports[`Product Modal match to snapshot 1`] = `
             id="field-:r0:"
             name="name"
             type="text"
-            value="Tivi"
+            value=""
           />
         </div>
       </div>
@@ -43,27 +43,25 @@ exports[`Product Modal match to snapshot 1`] = `
           for="field-:r1:"
           id="field-:r1:-label"
         >
-          Price
+          Amount
         </label>
-        <div
-          class="chakra-input__group css-169ufh8"
-          data-group="true"
-        >
-          <input
-            class="chakra-input css-1ua7efh"
-            id="field-:r1:"
-            name="price"
-            type="number"
-            value="1111"
-          />
-        </div>
+        <input
+          autocomplete="off"
+          class="chakra-input css-1iok8jb"
+          data-testid="field-amount"
+          id="field-:r1:"
+          name="amount"
+          placeholder="0.00"
+          type="text"
+          value=""
+        />
       </div>
     </div>
     <div
       class="css-1jqq95v"
     >
       <div
-        class="chakra-form-control css-0"
+        class="chakra-form-control css-1qkvt8e"
         role="group"
       >
         <label
@@ -73,18 +71,16 @@ exports[`Product Modal match to snapshot 1`] = `
         >
           Quantity
         </label>
-        <div
-          class="chakra-input__group css-169ufh8"
-          data-group="true"
-        >
-          <input
-            class="chakra-input css-hrsdoh"
-            id="field-:r2:"
-            name="stock"
-            type="number"
-            value="11"
-          />
-        </div>
+        <input
+          autocomplete="off"
+          class="chakra-input css-1iok8jb"
+          data-testid="field-quantity"
+          id="field-:r2:"
+          name="quantity"
+          placeholder="0"
+          type="text"
+          value=""
+        />
       </div>
       <div
         class="chakra-form-control css-0"
@@ -120,7 +116,7 @@ exports[`Product Modal match to snapshot 1`] = `
         for="field-:r4:"
         id="field-:r4:-label"
       >
-        Gallery Thumbnail
+        Currency
       </label>
       <div
         class="chakra-input__group css-169ufh8"
@@ -128,11 +124,51 @@ exports[`Product Modal match to snapshot 1`] = `
       >
         <input
           class="chakra-input css-1ua7efh"
+          disabled=""
           id="field-:r4:"
-          name="imageURLs"
+          name="currency"
           type="text"
-          value="image.png"
+          value="USD"
         />
+      </div>
+    </div>
+    <div
+      class="css-hk64jw"
+    >
+      <label
+        class="chakra-form__label css-30jpi7"
+        for="file"
+      >
+        Gallery Thumbnail
+        <div
+          class="css-1tak1x5"
+        >
+          <div
+            class="css-9ivr70"
+          />
+          <div
+            class="css-guqklo"
+          />
+        </div>
+      </label>
+      <div
+        class="css-befzna"
+        role="presentation"
+        tabindex="0"
+      >
+        <input
+          class="chakra-input css-0"
+          data-testid="field-image"
+          multiple=""
+          style="display: none;"
+          tabindex="-1"
+          type="file"
+        />
+        <p
+          class="chakra-text css-0"
+        >
+          Drag drop some files here, or click to select files
+        </p>
       </div>
     </div>
     <div

@@ -86,7 +86,7 @@ const ProductsTableComponent = () => {
 
   const productsMemorized = useMemo(
     () =>
-      products.filter(({ stock }) => {
+      products?.filter(({ stock }) => {
         if (stock > 0) {
           return PRODUCT_STATUS.IN_STOCK.includes(filter.trim());
         } else {
@@ -395,6 +395,7 @@ const ProductsTableComponent = () => {
           textTransform="capitalize"
           onClick={handleToggleModal}
           marginLeft={{ base: 'initial', lg: '20px' }}
+          data-testid="button-add"
         >
           Add Product
         </Button>
@@ -410,7 +411,7 @@ const ProductsTableComponent = () => {
             dataSource={formatProductResponse(filterData)}
           />
         </Box>
-        {!!products.length && (
+        {!!products?.length && (
           <Box mt={8}>
             <Pagination
               pageSize={data.limit}

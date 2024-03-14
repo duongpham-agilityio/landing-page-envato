@@ -1,0 +1,23 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ProductNameCell Match to snapshot 1`] = `
+<div>
+  <table
+    class="chakra-table css-0"
+  >
+    <td
+      class="css-s13ras"
+    >
+      <div
+        class="css-1pumsy8"
+      >
+        <p
+          class="chakra-text css-tuvgq"
+        >
+          Xbox one
+        </p>
+      </div>
+    </td>
+  </table>
+</div>
+`;

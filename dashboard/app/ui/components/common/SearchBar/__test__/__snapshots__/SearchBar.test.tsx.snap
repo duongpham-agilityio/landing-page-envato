@@ -3,7 +3,7 @@
 exports[`SearchBar render Should render match with snapshot. 1`] = `
 <div>
   <form
-    class="chakra-stack css-psovwv"
+    class="chakra-stack css-yoechi"
     data-testid="search-bar"
   >
     <div
@@ -43,7 +43,7 @@ exports[`SearchBar render Should render match with snapshot. 1`] = `
       </div>
     </div>
     <div
-      class="css-1mtqfsh"
+      class="css-88fnzk"
     >
       <button
         aria-controls="menu-list-:r2:"

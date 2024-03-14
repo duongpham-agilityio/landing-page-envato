@@ -12,7 +12,7 @@ exports[`TransactionSection render Should render match with snapshot. 1`] = `
         class="css-1gg9e9z"
       >
         <form
-          class="chakra-stack css-e8jbrs"
+          class="chakra-stack css-16wym0o"
           data-testid="search-bar"
         >
           <div
@@ -52,7 +52,7 @@ exports[`TransactionSection render Should render match with snapshot. 1`] = `
             </div>
           </div>
           <div
-            class="css-11pz9l2"
+            class="css-tzs3vb"
           >
             <button
               aria-controls="menu-list-:r2:"

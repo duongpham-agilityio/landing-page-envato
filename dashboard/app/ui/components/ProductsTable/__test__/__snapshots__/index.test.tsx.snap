@@ -1,0 +1,1474 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Product table Match with snapshot with default prop 1`] = `
+<div>
+  <div
+    class="css-194coc3"
+  >
+    <form
+      class="chakra-stack css-16wym0o"
+      data-testid="search-bar"
+    >
+      <div
+        class="css-1b9rej7"
+      >
+        <div
+          class="chakra-form-control css-1kxonj9"
+          role="group"
+        >
+          <div
+            class="chakra-input__group css-1091msq"
+            data-group="true"
+          >
+            <div
+              class="chakra-input__left-element css-1kg931p"
+            >
+              <svg
+                class="chakra-icon css-onkibi"
+                focusable="false"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M23.414,20.591l-4.645-4.645a10.256,10.256,0,1,0-2.828,2.829l4.645,4.644a2.025,2.025,0,0,0,2.828,0A2,2,0,0,0,23.414,20.591ZM10.25,3.005A7.25,7.25,0,1,1,3,10.255,7.258,7.258,0,0,1,10.25,3.005Z"
+                  fill="currentColor"
+                />
+              </svg>
+            </div>
+            <input
+              class="chakra-input css-1ybypo"
+              data-testid="search-transaction"
+              id="field-:r0:"
+              placeholder="Search by name, email, or other..."
+              type="text"
+              value=""
+            />
+          </div>
+        </div>
+      </div>
+      <div
+        class="css-tzs3vb"
+      >
+        <button
+          aria-controls="menu-list-:r2:"
+          aria-expanded="false"
+          aria-haspopup="menu"
+          class="chakra-button chakra-menu__menu-button css-1d0mwls"
+          id="menu-button-:r2:"
+          type="button"
+        >
+          <span
+            class="css-xl71ch"
+          >
+            <span
+              class="css-ccj5l2"
+            >
+              <svg
+                fill="none"
+                height="17"
+                stroke="#1D1E24"
+                width="18"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M7.552 13.502H1.25M10.362 3.81h6.301"
+                />
+                <path
+                  clip-rule="evenodd"
+                  d="M5.948 3.756a2.355 2.355 0 0 0-2.363-2.347 2.355 2.355 0 0 0-2.363 2.347 2.355 2.355 0 0 0 2.363 2.346 2.355 2.355 0 0 0 2.363-2.346ZM17.221 13.463a2.354 2.354 0 0 0-2.362-2.346 2.355 2.355 0 0 0-2.364 2.346 2.355 2.355 0 0 0 2.364 2.347 2.354 2.354 0 0 0 2.362-2.347Z"
+                />
+              </svg>
+              Filters
+            </span>
+          </span>
+        </button>
+        <div
+          class="css-r6z5ec"
+          style="visibility: hidden; position: absolute; inset: 0 auto auto 0;"
+        >
+          <div
+            aria-orientation="vertical"
+            class="chakra-menu__menu-list css-1k4isgz"
+            id="menu-list-:r2:"
+            role="menu"
+            style="transform-origin: var(--popper-transform-origin); opacity: 0; visibility: hidden; transform: scale(0.8) translateZ(0);"
+            tabindex="-1"
+          >
+            <button
+              class="chakra-menu__menuitem css-o9weuj"
+              data-index="0"
+              id="menu-list-:r2:-menuitem-:r3:"
+              role="menuitem"
+              tabindex="-1"
+              type="button"
+            >
+              <p
+                class="chakra-text css-15asmb0"
+              >
+                Sold
+              </p>
+            </button>
+            <button
+              class="chakra-menu__menuitem css-o9weuj"
+              data-index="1"
+              id="menu-list-:r2:-menuitem-:r4:"
+              role="menuitem"
+              tabindex="-1"
+              type="button"
+            >
+              <p
+                class="chakra-text css-15asmb0"
+              >
+                In stock
+              </p>
+            </button>
+          </div>
+        </div>
+      </div>
+    </form>
+    <button
+      aria-label="Add User"
+      class="chakra-button css-14h3i8e"
+      data-testid="button-add"
+      role="button"
+      type="button"
+    >
+      Add Product
+    </button>
+  </div>
+  <div
+    class="css-17qnj1m"
+  >
+    <div
+      class="chakra-table__container css-5wdta2"
+    >
+      <table
+        class="chakra-table css-5605sr"
+      >
+        <thead
+          class="css-0"
+        >
+          <tr
+            class="css-0"
+          >
+            <th
+              class="css-1fgb9gn"
+            >
+              <div
+                class="css-1k9efnl"
+              >
+                <p
+                  class="chakra-text css-10ze6i3"
+                  title="Product Name"
+                >
+                  Product Name
+                </p>
+                <button
+                  aria-label="This is the icon for Product Name"
+                  class="chakra-button css-1c8sy4r"
+                  data-testid="sort-icon"
+                  type="button"
+                >
+                  <svg
+                    fill="none"
+                    height="12"
+                    viewBox="0 0 14 12"
+                    width="14"
+                  >
+                    <path
+                      clip-rule="evenodd"
+                      d="M10.7749 0.558058C10.5309 0.313981 10.1351 0.313981 9.89107 0.558058L7.39107 3.05806C7.14699 3.30214 7.14699 3.69786 7.39107 3.94194C7.63514 4.18602 8.03087 4.18602 8.27495 3.94194L9.70801 2.50888V11C9.70801 11.3452 9.98783 11.625 10.333 11.625C10.6782 11.625 10.958 11.3452 10.958 11V2.50888L12.3911 3.94194C12.6351 4.18602 13.0309 4.18602 13.2749 3.94194C13.519 3.69786 13.519 3.30214 13.2749 3.05806L10.7749 0.558058Z"
+                      fill="#969BA0"
+                      fill-rule="evenodd"
+                    />
+                    <path
+                      clip-rule="evenodd"
+                      d="M3.22407 11.4419C3.46815 11.686 3.86388 11.686 4.10796 11.4419L6.60796 8.94194C6.85203 8.69786 6.85203 8.30214 6.60796 8.05806C6.36388 7.81398 5.96815 7.81398 5.72407 8.05806L4.29102 9.49112L4.29101 1C4.29101 0.654823 4.01119 0.375001 3.66602 0.375001C3.32084 0.375001 3.04102 0.654823 3.04102 1L3.04102 9.49112L1.60796 8.05806C1.36388 7.81398 0.968151 7.81398 0.724074 8.05806C0.479996 8.30214 0.479996 8.69786 0.724074 8.94194L3.22407 11.4419Z"
+                      fill="#969BA0"
+                      fill-rule="evenodd"
+                      opacity="1"
+                    />
+                  </svg>
+                </button>
+              </div>
+            </th>
+            <th
+              class="css-1fgb9gn"
+            >
+              <div
+                class="css-1k9efnl"
+              >
+                <p
+                  class="chakra-text css-10ze6i3"
+                  title="Gallery Thumbnail"
+                >
+                  Gallery Thumbnail
+                </p>
+                <button
+                  aria-label="This is the icon for Gallery Thumbnail"
+                  class="chakra-button css-1c8sy4r"
+                  data-testid="sort-icon"
+                  type="button"
+                >
+                  <svg
+                    fill="none"
+                    height="12"
+                    viewBox="0 0 14 12"
+                    width="14"
+                  >
+                    <path
+                      clip-rule="evenodd"
+                      d="M10.7749 0.558058C10.5309 0.313981 10.1351 0.313981 9.89107 0.558058L7.39107 3.05806C7.14699 3.30214 7.14699 3.69786 7.39107 3.94194C7.63514 4.18602 8.03087 4.18602 8.27495 3.94194L9.70801 2.50888V11C9.70801 11.3452 9.98783 11.625 10.333 11.625C10.6782 11.625 10.958 11.3452 10.958 11V2.50888L12.3911 3.94194C12.6351 4.18602 13.0309 4.18602 13.2749 3.94194C13.519 3.69786 13.519 3.30214 13.2749 3.05806L10.7749 0.558058Z"
+                      fill="#969BA0"
+                      fill-rule="evenodd"
+                    />
+                    <path
+                      clip-rule="evenodd"
+                      d="M3.22407 11.4419C3.46815 11.686 3.86388 11.686 4.10796 11.4419L6.60796 8.94194C6.85203 8.69786 6.85203 8.30214 6.60796 8.05806C6.36388 7.81398 5.96815 7.81398 5.72407 8.05806L4.29102 9.49112L4.29101 1C4.29101 0.654823 4.01119 0.375001 3.66602 0.375001C3.32084 0.375001 3.04102 0.654823 3.04102 1L3.04102 9.49112L1.60796 8.05806C1.36388 7.81398 0.968151 7.81398 0.724074 8.05806C0.479996 8.30214 0.479996 8.69786 0.724074 8.94194L3.22407 11.4419Z"
+                      fill="#969BA0"
+                      fill-rule="evenodd"
+                      opacity="1"
+                    />
+                  </svg>
+                </button>
+              </div>
+            </th>
+            <th
+              class="css-1fgb9gn"
+            >
+              <div
+                class="css-1k9efnl"
+              >
+                <p
+                  class="chakra-text css-10ze6i3"
+                  title="Price"
+                >
+                  Price
+                </p>
+                <button
+                  aria-label="This is the icon for Price"
+                  class="chakra-button css-1c8sy4r"
+                  data-testid="sort-icon"
+                  type="button"
+                >
+                  <svg
+                    fill="none"
+                    height="12"
+                    viewBox="0 0 14 12"
+                    width="14"
+                  >
+                    <path
+                      clip-rule="evenodd"
+                      d="M10.7749 0.558058C10.5309 0.313981 10.1351 0.313981 9.89107 0.558058L7.39107 3.05806C7.14699 3.30214 7.14699 3.69786 7.39107 3.94194C7.63514 4.18602 8.03087 4.18602 8.27495 3.94194L9.70801 2.50888V11C9.70801 11.3452 9.98783 11.625 10.333 11.625C10.6782 11.625 10.958 11.3452 10.958 11V2.50888L12.3911 3.94194C12.6351 4.18602 13.0309 4.18602 13.2749 3.94194C13.519 3.69786 13.519 3.30214 13.2749 3.05806L10.7749 0.558058Z"
+                      fill="#969BA0"
+                      fill-rule="evenodd"
+                    />
+                    <path
+                      clip-rule="evenodd"
+                      d="M3.22407 11.4419C3.46815 11.686 3.86388 11.686 4.10796 11.4419L6.60796 8.94194C6.85203 8.69786 6.85203 8.30214 6.60796 8.05806C6.36388 7.81398 5.96815 7.81398 5.72407 8.05806L4.29102 9.49112L4.29101 1C4.29101 0.654823 4.01119 0.375001 3.66602 0.375001C3.32084 0.375001 3.04102 0.654823 3.04102 1L3.04102 9.49112L1.60796 8.05806C1.36388 7.81398 0.968151 7.81398 0.724074 8.05806C0.479996 8.30214 0.479996 8.69786 0.724074 8.94194L3.22407 11.4419Z"
+                      fill="#969BA0"
+                      fill-rule="evenodd"
+                      opacity="1"
+                    />
+                  </svg>
+                </button>
+              </div>
+            </th>
+            <th
+              class="css-1fgb9gn"
+            >
+              <div
+                class="css-1k9efnl"
+              >
+                <p
+                  class="chakra-text css-10ze6i3"
+                  title="Status"
+                >
+                  Status
+                </p>
+                <button
+                  aria-label="This is the icon for Status"
+                  class="chakra-button css-1c8sy4r"
+                  data-testid="sort-icon"
+                  type="button"
+                >
+                  <svg
+                    fill="none"
+                    height="12"
+                    viewBox="0 0 14 12"
+                    width="14"
+                  >
+                    <path
+                      clip-rule="evenodd"
+                      d="M10.7749 0.558058C10.5309 0.313981 10.1351 0.313981 9.89107 0.558058L7.39107 3.05806C7.14699 3.30214 7.14699 3.69786 7.39107 3.94194C7.63514 4.18602 8.03087 4.18602 8.27495 3.94194L9.70801 2.50888V11C9.70801 11.3452 9.98783 11.625 10.333 11.625C10.6782 11.625 10.958 11.3452 10.958 11V2.50888L12.3911 3.94194C12.6351 4.18602 13.0309 4.18602 13.2749 3.94194C13.519 3.69786 13.519 3.30214 13.2749 3.05806L10.7749 0.558058Z"
+                      fill="#969BA0"
+                      fill-rule="evenodd"
+                    />
+                    <path
+                      clip-rule="evenodd"
+                      d="M3.22407 11.4419C3.46815 11.686 3.86388 11.686 4.10796 11.4419L6.60796 8.94194C6.85203 8.69786 6.85203 8.30214 6.60796 8.05806C6.36388 7.81398 5.96815 7.81398 5.72407 8.05806L4.29102 9.49112L4.29101 1C4.29101 0.654823 4.01119 0.375001 3.66602 0.375001C3.32084 0.375001 3.04102 0.654823 3.04102 1L3.04102 9.49112L1.60796 8.05806C1.36388 7.81398 0.968151 7.81398 0.724074 8.05806C0.479996 8.30214 0.479996 8.69786 0.724074 8.94194L3.22407 11.4419Z"
+                      fill="#969BA0"
+                      fill-rule="evenodd"
+                      opacity="1"
+                    />
+                  </svg>
+                </button>
+              </div>
+            </th>
+            <th
+              class="css-1fgb9gn"
+            >
+              <div
+                class="css-1k9efnl"
+              >
+                <p
+                  class="chakra-text css-10ze6i3"
+                  title="Quantity"
+                >
+                  Quantity
+                </p>
+                <button
+                  aria-label="This is the icon for Quantity"
+                  class="chakra-button css-1c8sy4r"
+                  data-testid="sort-icon"
+                  type="button"
+                >
+                  <svg
+                    fill="none"
+                    height="12"
+                    viewBox="0 0 14 12"
+                    width="14"
+                  >
+                    <path
+                      clip-rule="evenodd"
+                      d="M10.7749 0.558058C10.5309 0.313981 10.1351 0.313981 9.89107 0.558058L7.39107 3.05806C7.14699 3.30214 7.14699 3.69786 7.39107 3.94194C7.63514 4.18602 8.03087 4.18602 8.27495 3.94194L9.70801 2.50888V11C9.70801 11.3452 9.98783 11.625 10.333 11.625C10.6782 11.625 10.958 11.3452 10.958 11V2.50888L12.3911 3.94194C12.6351 4.18602 13.0309 4.18602 13.2749 3.94194C13.519 3.69786 13.519 3.30214 13.2749 3.05806L10.7749 0.558058Z"
+                      fill="#969BA0"
+                      fill-rule="evenodd"
+                    />
+                    <path
+                      clip-rule="evenodd"
+                      d="M3.22407 11.4419C3.46815 11.686 3.86388 11.686 4.10796 11.4419L6.60796 8.94194C6.85203 8.69786 6.85203 8.30214 6.60796 8.05806C6.36388 7.81398 5.96815 7.81398 5.72407 8.05806L4.29102 9.49112L4.29101 1C4.29101 0.654823 4.01119 0.375001 3.66602 0.375001C3.32084 0.375001 3.04102 0.654823 3.04102 1L3.04102 9.49112L1.60796 8.05806C1.36388 7.81398 0.968151 7.81398 0.724074 8.05806C0.479996 8.30214 0.479996 8.69786 0.724074 8.94194L3.22407 11.4419Z"
+                      fill="#969BA0"
+                      fill-rule="evenodd"
+                      opacity="1"
+                    />
+                  </svg>
+                </button>
+              </div>
+            </th>
+            <th
+              class="css-1fgb9gn"
+            >
+              <div
+                class="css-1k9efnl"
+              >
+                <p
+                  class="chakra-text css-10ze6i3"
+                  title="Date"
+                >
+                  Date
+                </p>
+                <button
+                  aria-label="This is the icon for Date"
+                  class="chakra-button css-1c8sy4r"
+                  data-testid="sort-icon"
+                  type="button"
+                >
+                  <svg
+                    fill="none"
+                    height="12"
+                    viewBox="0 0 14 12"
+                    width="14"
+                  >
+                    <path
+                      clip-rule="evenodd"
+                      d="M10.7749 0.558058C10.5309 0.313981 10.1351 0.313981 9.89107 0.558058L7.39107 3.05806C7.14699 3.30214 7.14699 3.69786 7.39107 3.94194C7.63514 4.18602 8.03087 4.18602 8.27495 3.94194L9.70801 2.50888V11C9.70801 11.3452 9.98783 11.625 10.333 11.625C10.6782 11.625 10.958 11.3452 10.958 11V2.50888L12.3911 3.94194C12.6351 4.18602 13.0309 4.18602 13.2749 3.94194C13.519 3.69786 13.519 3.30214 13.2749 3.05806L10.7749 0.558058Z"
+                      fill="#969BA0"
+                      fill-rule="evenodd"
+                    />
+                    <path
+                      clip-rule="evenodd"
+                      d="M3.22407 11.4419C3.46815 11.686 3.86388 11.686 4.10796 11.4419L6.60796 8.94194C6.85203 8.69786 6.85203 8.30214 6.60796 8.05806C6.36388 7.81398 5.96815 7.81398 5.72407 8.05806L4.29102 9.49112L4.29101 1C4.29101 0.654823 4.01119 0.375001 3.66602 0.375001C3.32084 0.375001 3.04102 0.654823 3.04102 1L3.04102 9.49112L1.60796 8.05806C1.36388 7.81398 0.968151 7.81398 0.724074 8.05806C0.479996 8.30214 0.479996 8.69786 0.724074 8.94194L3.22407 11.4419Z"
+                      fill="#969BA0"
+                      fill-rule="evenodd"
+                      opacity="1"
+                    />
+                  </svg>
+                </button>
+              </div>
+            </th>
+            <th
+              class="css-1dmf4gl"
+            />
+          </tr>
+        </thead>
+        <tbody
+          class="css-0"
+        >
+          <tr
+            class="css-0"
+            data-testid="table-row"
+          >
+            <td
+              class="css-pkkr8k"
+            >
+              <div
+                class="css-1pumsy8"
+              >
+                <p
+                  class="chakra-text css-b5wh8g"
+                >
+                  Ban phim
+                </p>
+              </div>
+            </td>
+            <td
+              class="css-ecqwn"
+            >
+              <div
+                class="css-jg952l"
+              >
+                <div
+                  class="css-135qrun"
+                >
+                  <img
+                    alt="Image of Ban phim"
+                    data-nimg="fill"
+                    decoding="async"
+                    loading="lazy"
+                    sizes="100vw"
+                    src="/_next/image?url=https%3A%2F%2Fi.ibb.co%2FsC4FyPz%2Fban-phim-co-gaming-sidotech-yindiao-k100-jpg-1659689824-05082022155704.jpg&w=3840&q=75"
+                    srcset="/_next/image?url=https%3A%2F%2Fi.ibb.co%2FsC4FyPz%2Fban-phim-co-gaming-sidotech-yindiao-k100-jpg-1659689824-05082022155704.jpg&w=640&q=75 640w, /_next/image?url=https%3A%2F%2Fi.ibb.co%2FsC4FyPz%2Fban-phim-co-gaming-sidotech-yindiao-k100-jpg-1659689824-05082022155704.jpg&w=750&q=75 750w, /_next/image?url=https%3A%2F%2Fi.ibb.co%2FsC4FyPz%2Fban-phim-co-gaming-sidotech-yindiao-k100-jpg-1659689824-05082022155704.jpg&w=828&q=75 828w, /_next/image?url=https%3A%2F%2Fi.ibb.co%2FsC4FyPz%2Fban-phim-co-gaming-sidotech-yindiao-k100-jpg-1659689824-05082022155704.jpg&w=1080&q=75 1080w, /_next/image?url=https%3A%2F%2Fi.ibb.co%2FsC4FyPz%2Fban-phim-co-gaming-sidotech-yindiao-k100-jpg-1659689824-05082022155704.jpg&w=1200&q=75 1200w, /_next/image?url=https%3A%2F%2Fi.ibb.co%2FsC4FyPz%2Fban-phim-co-gaming-sidotech-yindiao-k100-jpg-1659689824-05082022155704.jpg&w=1920&q=75 1920w, /_next/image?url=https%3A%2F%2Fi.ibb.co%2FsC4FyPz%2Fban-phim-co-gaming-sidotech-yindiao-k100-jpg-1659689824-05082022155704.jpg&w=2048&q=75 2048w, /_next/image?url=https%3A%2F%2Fi.ibb.co%2FsC4FyPz%2Fban-phim-co-gaming-sidotech-yindiao-k100-jpg-1659689824-05082022155704.jpg&w=3840&q=75 3840w"
+                    style="position: absolute; height: 100%; width: 100%; left: 0px; top: 0px; right: 0px; bottom: 0px; object-fit: contain; color: transparent; border-radius: 15px; background-size: contain; background-position: 50% 50%; background-repeat: no-repeat;"
+                  />
+                </div>
+              </div>
+            </td>
+            <td
+              class="css-1gewy2d"
+            >
+              <p
+                class="chakra-text css-55jbf7"
+              >
+                USD100.00
+              </p>
+            </td>
+            <td
+              class="css-3qub4l"
+            >
+              <span
+                class="chakra-badge css-1nt00i9"
+              >
+                In-stock
+              </span>
+            </td>
+            <td
+              class="css-o2v2fg"
+            >
+              <p
+                class="chakra-text css-1w9sl8l"
+              >
+                1
+              </p>
+            </td>
+            <td
+              class="css-1v6q597"
+            >
+              <p
+                class="chakra-text css-gmde4n"
+              >
+                Mar 13, 2024
+              </p>
+            </td>
+            <td
+              class="css-kgr5cp"
+            >
+              <button
+                aria-controls="menu-list-:rc:"
+                aria-expanded="false"
+                aria-haspopup="menu"
+                class="chakra-button chakra-menu__menu-button css-1of25bg"
+                id="menu-button-:rc:"
+                type="button"
+              >
+                <span
+                  class="css-xl71ch"
+                >
+                  <button
+                    aria-label="This is the icon action"
+                    class="chakra-button css-1c8sy4r"
+                    data-testid="dot-icon"
+                    type="button"
+                  >
+                    <svg
+                      aria-hidden="true"
+                      fill="none"
+                      focusable="false"
+                      height="4"
+                      width="18"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M8 2a1 1 0 1 0 2 0 1 1 0 0 0-2 0ZM1 2a1 1 0 1 0 2 0 1 1 0 0 0-2 0ZM15 2a1 1 0 1 0 2 0 1 1 0 0 0-2 0Z"
+                        stroke="#A0AEC0"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                      />
+                    </svg>
+                  </button>
+                </span>
+              </button>
+              <div
+                class="css-r6z5ec"
+                style="visibility: hidden; position: absolute; min-width: max-content; inset: 0 auto auto 0;"
+              >
+                <div
+                  aria-orientation="vertical"
+                  class="chakra-menu__menu-list css-19p6z7a"
+                  id="menu-list-:rc:"
+                  role="menu"
+                  style="transform-origin: var(--popper-transform-origin); opacity: 0; visibility: hidden; transform: scale(0.8) translateZ(0);"
+                  tabindex="-1"
+                >
+                  <button
+                    class="chakra-menu__menuitem css-1m94u4a"
+                    data-index="0"
+                    id="menu-list-:rc:-menuitem-:rd:"
+                    role="menuitem"
+                    tabindex="-1"
+                    type="button"
+                  >
+                    <div
+                      class="css-1og1ejg"
+                    >
+                      <svg
+                        class="chakra-icon css-n4g5d6"
+                        data-testid="edit-icon"
+                        focusable="false"
+                        viewBox="0 0 24 24"
+                      >
+                        <g
+                          fill="none"
+                          stroke="currentColor"
+                          stroke-linecap="round"
+                          stroke-width="2"
+                        >
+                          <path
+                            d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"
+                          />
+                          <path
+                            d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"
+                          />
+                        </g>
+                      </svg>
+                      <svg
+                        class="chakra-icon css-c8antd"
+                        data-testid="del-icon"
+                        focusable="false"
+                        viewBox="0 0 24 24"
+                      >
+                        <g
+                          fill="currentColor"
+                        >
+                          <path
+                            d="M19.452 7.5H4.547a.5.5 0 00-.5.545l1.287 14.136A2 2 0 007.326 24h9.347a2 2 0 001.992-1.819L19.95 8.045a.5.5 0 00-.129-.382.5.5 0 00-.369-.163zm-9.2 13a.75.75 0 01-1.5 0v-9a.75.75 0 011.5 0zm5 0a.75.75 0 01-1.5 0v-9a.75.75 0 011.5 0zM22 4h-4.75a.25.25 0 01-.25-.25V2.5A2.5 2.5 0 0014.5 0h-5A2.5 2.5 0 007 2.5v1.25a.25.25 0 01-.25.25H2a1 1 0 000 2h20a1 1 0 000-2zM9 3.75V2.5a.5.5 0 01.5-.5h5a.5.5 0 01.5.5v1.25a.25.25 0 01-.25.25h-5.5A.25.25 0 019 3.75z"
+                          />
+                        </g>
+                      </svg>
+                    </div>
+                  </button>
+                </div>
+              </div>
+            </td>
+          </tr>
+          <tr
+            class="css-0"
+            data-testid="table-row"
+          >
+            <td
+              class="css-pkkr8k"
+            >
+              <div
+                class="css-1pumsy8"
+              >
+                <p
+                  class="chakra-text css-b5wh8g"
+                >
+                  Tay cam xbox
+                </p>
+              </div>
+            </td>
+            <td
+              class="css-ecqwn"
+            >
+              <div
+                class="css-jg952l"
+              >
+                <div
+                  class="css-135qrun"
+                >
+                  <img
+                    alt="Image of Tay cam xbox"
+                    data-nimg="fill"
+                    decoding="async"
+                    loading="lazy"
+                    sizes="100vw"
+                    src="/_next/image?url=https%3A%2F%2Fi.ibb.co%2FpwH6GTk%2Fpng-clipart-playstation-3-playstation-2-gamepad-directinput-gamepad-game-electronics.png&w=3840&q=75"
+                    srcset="/_next/image?url=https%3A%2F%2Fi.ibb.co%2FpwH6GTk%2Fpng-clipart-playstation-3-playstation-2-gamepad-directinput-gamepad-game-electronics.png&w=640&q=75 640w, /_next/image?url=https%3A%2F%2Fi.ibb.co%2FpwH6GTk%2Fpng-clipart-playstation-3-playstation-2-gamepad-directinput-gamepad-game-electronics.png&w=750&q=75 750w, /_next/image?url=https%3A%2F%2Fi.ibb.co%2FpwH6GTk%2Fpng-clipart-playstation-3-playstation-2-gamepad-directinput-gamepad-game-electronics.png&w=828&q=75 828w, /_next/image?url=https%3A%2F%2Fi.ibb.co%2FpwH6GTk%2Fpng-clipart-playstation-3-playstation-2-gamepad-directinput-gamepad-game-electronics.png&w=1080&q=75 1080w, /_next/image?url=https%3A%2F%2Fi.ibb.co%2FpwH6GTk%2Fpng-clipart-playstation-3-playstation-2-gamepad-directinput-gamepad-game-electronics.png&w=1200&q=75 1200w, /_next/image?url=https%3A%2F%2Fi.ibb.co%2FpwH6GTk%2Fpng-clipart-playstation-3-playstation-2-gamepad-directinput-gamepad-game-electronics.png&w=1920&q=75 1920w, /_next/image?url=https%3A%2F%2Fi.ibb.co%2FpwH6GTk%2Fpng-clipart-playstation-3-playstation-2-gamepad-directinput-gamepad-game-electronics.png&w=2048&q=75 2048w, /_next/image?url=https%3A%2F%2Fi.ibb.co%2FpwH6GTk%2Fpng-clipart-playstation-3-playstation-2-gamepad-directinput-gamepad-game-electronics.png&w=3840&q=75 3840w"
+                    style="position: absolute; height: 100%; width: 100%; left: 0px; top: 0px; right: 0px; bottom: 0px; object-fit: contain; color: transparent; border-radius: 15px; background-size: contain; background-position: 50% 50%; background-repeat: no-repeat;"
+                  />
+                </div>
+              </div>
+            </td>
+            <td
+              class="css-1gewy2d"
+            >
+              <p
+                class="chakra-text css-55jbf7"
+              >
+                USD123.00
+              </p>
+            </td>
+            <td
+              class="css-3qub4l"
+            >
+              <span
+                class="chakra-badge css-oyldzo"
+              >
+                Sold
+              </span>
+            </td>
+            <td
+              class="css-o2v2fg"
+            >
+              <p
+                class="chakra-text css-1w9sl8l"
+              >
+                0
+              </p>
+            </td>
+            <td
+              class="css-1v6q597"
+            >
+              <p
+                class="chakra-text css-gmde4n"
+              >
+                Mar 13, 2024
+              </p>
+            </td>
+            <td
+              class="css-kgr5cp"
+            >
+              <button
+                aria-controls="menu-list-:rl:"
+                aria-expanded="false"
+                aria-haspopup="menu"
+                class="chakra-button chakra-menu__menu-button css-1of25bg"
+                id="menu-button-:rl:"
+                type="button"
+              >
+                <span
+                  class="css-xl71ch"
+                >
+                  <button
+                    aria-label="This is the icon action"
+                    class="chakra-button css-1c8sy4r"
+                    data-testid="dot-icon"
+                    type="button"
+                  >
+                    <svg
+                      aria-hidden="true"
+                      fill="none"
+                      focusable="false"
+                      height="4"
+                      width="18"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M8 2a1 1 0 1 0 2 0 1 1 0 0 0-2 0ZM1 2a1 1 0 1 0 2 0 1 1 0 0 0-2 0ZM15 2a1 1 0 1 0 2 0 1 1 0 0 0-2 0Z"
+                        stroke="#A0AEC0"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                      />
+                    </svg>
+                  </button>
+                </span>
+              </button>
+              <div
+                class="css-r6z5ec"
+                style="visibility: hidden; position: absolute; min-width: max-content; inset: 0 auto auto 0;"
+              >
+                <div
+                  aria-orientation="vertical"
+                  class="chakra-menu__menu-list css-19p6z7a"
+                  id="menu-list-:rl:"
+                  role="menu"
+                  style="transform-origin: var(--popper-transform-origin); opacity: 0; visibility: hidden; transform: scale(0.8) translateZ(0);"
+                  tabindex="-1"
+                >
+                  <button
+                    class="chakra-menu__menuitem css-1m94u4a"
+                    data-index="0"
+                    id="menu-list-:rl:-menuitem-:rm:"
+                    role="menuitem"
+                    tabindex="-1"
+                    type="button"
+                  >
+                    <div
+                      class="css-1og1ejg"
+                    >
+                      <svg
+                        class="chakra-icon css-n4g5d6"
+                        data-testid="edit-icon"
+                        focusable="false"
+                        viewBox="0 0 24 24"
+                      >
+                        <g
+                          fill="none"
+                          stroke="currentColor"
+                          stroke-linecap="round"
+                          stroke-width="2"
+                        >
+                          <path
+                            d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"
+                          />
+                          <path
+                            d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"
+                          />
+                        </g>
+                      </svg>
+                      <svg
+                        class="chakra-icon css-c8antd"
+                        data-testid="del-icon"
+                        focusable="false"
+                        viewBox="0 0 24 24"
+                      >
+                        <g
+                          fill="currentColor"
+                        >
+                          <path
+                            d="M19.452 7.5H4.547a.5.5 0 00-.5.545l1.287 14.136A2 2 0 007.326 24h9.347a2 2 0 001.992-1.819L19.95 8.045a.5.5 0 00-.129-.382.5.5 0 00-.369-.163zm-9.2 13a.75.75 0 01-1.5 0v-9a.75.75 0 011.5 0zm5 0a.75.75 0 01-1.5 0v-9a.75.75 0 011.5 0zM22 4h-4.75a.25.25 0 01-.25-.25V2.5A2.5 2.5 0 0014.5 0h-5A2.5 2.5 0 007 2.5v1.25a.25.25 0 01-.25.25H2a1 1 0 000 2h20a1 1 0 000-2zM9 3.75V2.5a.5.5 0 01.5-.5h5a.5.5 0 01.5.5v1.25a.25.25 0 01-.25.25h-5.5A.25.25 0 019 3.75z"
+                          />
+                        </g>
+                      </svg>
+                    </div>
+                  </button>
+                </div>
+              </div>
+            </td>
+          </tr>
+          <tr
+            class="css-0"
+            data-testid="table-row"
+          >
+            <td
+              class="css-pkkr8k"
+            >
+              <div
+                class="css-1pumsy8"
+              >
+                <p
+                  class="chakra-text css-b5wh8g"
+                >
+                  Tay cam 3
+                </p>
+              </div>
+            </td>
+            <td
+              class="css-ecqwn"
+            >
+              <div
+                class="css-jg952l"
+              >
+                <div
+                  class="css-135qrun"
+                >
+                  <img
+                    alt="Image of Tay cam 3"
+                    data-nimg="fill"
+                    decoding="async"
+                    loading="lazy"
+                    sizes="100vw"
+                    src="/_next/image?url=https%3A%2F%2Fi.ibb.co%2F3yzTC5Q%2Fimage-57.png%2Chttps%3A%2F%2Fi.ibb.co%2FHq9kqmc%2Fimage-58.png%2Chttps%3A%2F%2Fi.ibb.co%2FYdnfHMf%2Fimage-63.png&w=3840&q=75"
+                    srcset="/_next/image?url=https%3A%2F%2Fi.ibb.co%2F3yzTC5Q%2Fimage-57.png%2Chttps%3A%2F%2Fi.ibb.co%2FHq9kqmc%2Fimage-58.png%2Chttps%3A%2F%2Fi.ibb.co%2FYdnfHMf%2Fimage-63.png&w=640&q=75 640w, /_next/image?url=https%3A%2F%2Fi.ibb.co%2F3yzTC5Q%2Fimage-57.png%2Chttps%3A%2F%2Fi.ibb.co%2FHq9kqmc%2Fimage-58.png%2Chttps%3A%2F%2Fi.ibb.co%2FYdnfHMf%2Fimage-63.png&w=750&q=75 750w, /_next/image?url=https%3A%2F%2Fi.ibb.co%2F3yzTC5Q%2Fimage-57.png%2Chttps%3A%2F%2Fi.ibb.co%2FHq9kqmc%2Fimage-58.png%2Chttps%3A%2F%2Fi.ibb.co%2FYdnfHMf%2Fimage-63.png&w=828&q=75 828w, /_next/image?url=https%3A%2F%2Fi.ibb.co%2F3yzTC5Q%2Fimage-57.png%2Chttps%3A%2F%2Fi.ibb.co%2FHq9kqmc%2Fimage-58.png%2Chttps%3A%2F%2Fi.ibb.co%2FYdnfHMf%2Fimage-63.png&w=1080&q=75 1080w, /_next/image?url=https%3A%2F%2Fi.ibb.co%2F3yzTC5Q%2Fimage-57.png%2Chttps%3A%2F%2Fi.ibb.co%2FHq9kqmc%2Fimage-58.png%2Chttps%3A%2F%2Fi.ibb.co%2FYdnfHMf%2Fimage-63.png&w=1200&q=75 1200w, /_next/image?url=https%3A%2F%2Fi.ibb.co%2F3yzTC5Q%2Fimage-57.png%2Chttps%3A%2F%2Fi.ibb.co%2FHq9kqmc%2Fimage-58.png%2Chttps%3A%2F%2Fi.ibb.co%2FYdnfHMf%2Fimage-63.png&w=1920&q=75 1920w, /_next/image?url=https%3A%2F%2Fi.ibb.co%2F3yzTC5Q%2Fimage-57.png%2Chttps%3A%2F%2Fi.ibb.co%2FHq9kqmc%2Fimage-58.png%2Chttps%3A%2F%2Fi.ibb.co%2FYdnfHMf%2Fimage-63.png&w=2048&q=75 2048w, /_next/image?url=https%3A%2F%2Fi.ibb.co%2F3yzTC5Q%2Fimage-57.png%2Chttps%3A%2F%2Fi.ibb.co%2FHq9kqmc%2Fimage-58.png%2Chttps%3A%2F%2Fi.ibb.co%2FYdnfHMf%2Fimage-63.png&w=3840&q=75 3840w"
+                    style="position: absolute; height: 100%; width: 100%; left: 0px; top: 0px; right: 0px; bottom: 0px; object-fit: contain; color: transparent; border-radius: 15px; background-size: contain; background-position: 50% 50%; background-repeat: no-repeat;"
+                  />
+                </div>
+              </div>
+            </td>
+            <td
+              class="css-1gewy2d"
+            >
+              <p
+                class="chakra-text css-55jbf7"
+              >
+                USD111.00
+              </p>
+            </td>
+            <td
+              class="css-3qub4l"
+            >
+              <span
+                class="chakra-badge css-1nt00i9"
+              >
+                In-stock
+              </span>
+            </td>
+            <td
+              class="css-o2v2fg"
+            >
+              <p
+                class="chakra-text css-1w9sl8l"
+              >
+                2
+              </p>
+            </td>
+            <td
+              class="css-1v6q597"
+            >
+              <p
+                class="chakra-text css-gmde4n"
+              >
+                Mar 12, 2024
+              </p>
+            </td>
+            <td
+              class="css-kgr5cp"
+            >
+              <button
+                aria-controls="menu-list-:ru:"
+                aria-expanded="false"
+                aria-haspopup="menu"
+                class="chakra-button chakra-menu__menu-button css-1of25bg"
+                id="menu-button-:ru:"
+                type="button"
+              >
+                <span
+                  class="css-xl71ch"
+                >
+                  <button
+                    aria-label="This is the icon action"
+                    class="chakra-button css-1c8sy4r"
+                    data-testid="dot-icon"
+                    type="button"
+                  >
+                    <svg
+                      aria-hidden="true"
+                      fill="none"
+                      focusable="false"
+                      height="4"
+                      width="18"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M8 2a1 1 0 1 0 2 0 1 1 0 0 0-2 0ZM1 2a1 1 0 1 0 2 0 1 1 0 0 0-2 0ZM15 2a1 1 0 1 0 2 0 1 1 0 0 0-2 0Z"
+                        stroke="#A0AEC0"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                      />
+                    </svg>
+                  </button>
+                </span>
+              </button>
+              <div
+                class="css-r6z5ec"
+                style="visibility: hidden; position: absolute; min-width: max-content; inset: 0 auto auto 0;"
+              >
+                <div
+                  aria-orientation="vertical"
+                  class="chakra-menu__menu-list css-19p6z7a"
+                  id="menu-list-:ru:"
+                  role="menu"
+                  style="transform-origin: var(--popper-transform-origin); opacity: 0; visibility: hidden; transform: scale(0.8) translateZ(0);"
+                  tabindex="-1"
+                >
+                  <button
+                    class="chakra-menu__menuitem css-1m94u4a"
+                    data-index="0"
+                    id="menu-list-:ru:-menuitem-:rv:"
+                    role="menuitem"
+                    tabindex="-1"
+                    type="button"
+                  >
+                    <div
+                      class="css-1og1ejg"
+                    >
+                      <svg
+                        class="chakra-icon css-n4g5d6"
+                        data-testid="edit-icon"
+                        focusable="false"
+                        viewBox="0 0 24 24"
+                      >
+                        <g
+                          fill="none"
+                          stroke="currentColor"
+                          stroke-linecap="round"
+                          stroke-width="2"
+                        >
+                          <path
+                            d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"
+                          />
+                          <path
+                            d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"
+                          />
+                        </g>
+                      </svg>
+                      <svg
+                        class="chakra-icon css-c8antd"
+                        data-testid="del-icon"
+                        focusable="false"
+                        viewBox="0 0 24 24"
+                      >
+                        <g
+                          fill="currentColor"
+                        >
+                          <path
+                            d="M19.452 7.5H4.547a.5.5 0 00-.5.545l1.287 14.136A2 2 0 007.326 24h9.347a2 2 0 001.992-1.819L19.95 8.045a.5.5 0 00-.129-.382.5.5 0 00-.369-.163zm-9.2 13a.75.75 0 01-1.5 0v-9a.75.75 0 011.5 0zm5 0a.75.75 0 01-1.5 0v-9a.75.75 0 011.5 0zM22 4h-4.75a.25.25 0 01-.25-.25V2.5A2.5 2.5 0 0014.5 0h-5A2.5 2.5 0 007 2.5v1.25a.25.25 0 01-.25.25H2a1 1 0 000 2h20a1 1 0 000-2zM9 3.75V2.5a.5.5 0 01.5-.5h5a.5.5 0 01.5.5v1.25a.25.25 0 01-.25.25h-5.5A.25.25 0 019 3.75z"
+                          />
+                        </g>
+                      </svg>
+                    </div>
+                  </button>
+                </div>
+              </div>
+            </td>
+          </tr>
+          <tr
+            class="css-0"
+            data-testid="table-row"
+          >
+            <td
+              class="css-pkkr8k"
+            >
+              <div
+                class="css-1pumsy8"
+              >
+                <p
+                  class="chakra-text css-b5wh8g"
+                >
+                  Envato Market
+                </p>
+              </div>
+            </td>
+            <td
+              class="css-ecqwn"
+            >
+              <div
+                class="css-jg952l"
+              >
+                <div
+                  class="css-135qrun"
+                >
+                  <img
+                    alt="Image of Envato Market"
+                    data-nimg="fill"
+                    decoding="async"
+                    loading="lazy"
+                    sizes="100vw"
+                    src="/_next/image?url=https%3A%2F%2Fi.ibb.co%2FvxCVqcz%2Fimage-59.png%2Chttps%3A%2F%2Fi.ibb.co%2Fd0D0csn%2Fimage-61.png&w=3840&q=75"
+                    srcset="/_next/image?url=https%3A%2F%2Fi.ibb.co%2FvxCVqcz%2Fimage-59.png%2Chttps%3A%2F%2Fi.ibb.co%2Fd0D0csn%2Fimage-61.png&w=640&q=75 640w, /_next/image?url=https%3A%2F%2Fi.ibb.co%2FvxCVqcz%2Fimage-59.png%2Chttps%3A%2F%2Fi.ibb.co%2Fd0D0csn%2Fimage-61.png&w=750&q=75 750w, /_next/image?url=https%3A%2F%2Fi.ibb.co%2FvxCVqcz%2Fimage-59.png%2Chttps%3A%2F%2Fi.ibb.co%2Fd0D0csn%2Fimage-61.png&w=828&q=75 828w, /_next/image?url=https%3A%2F%2Fi.ibb.co%2FvxCVqcz%2Fimage-59.png%2Chttps%3A%2F%2Fi.ibb.co%2Fd0D0csn%2Fimage-61.png&w=1080&q=75 1080w, /_next/image?url=https%3A%2F%2Fi.ibb.co%2FvxCVqcz%2Fimage-59.png%2Chttps%3A%2F%2Fi.ibb.co%2Fd0D0csn%2Fimage-61.png&w=1200&q=75 1200w, /_next/image?url=https%3A%2F%2Fi.ibb.co%2FvxCVqcz%2Fimage-59.png%2Chttps%3A%2F%2Fi.ibb.co%2Fd0D0csn%2Fimage-61.png&w=1920&q=75 1920w, /_next/image?url=https%3A%2F%2Fi.ibb.co%2FvxCVqcz%2Fimage-59.png%2Chttps%3A%2F%2Fi.ibb.co%2Fd0D0csn%2Fimage-61.png&w=2048&q=75 2048w, /_next/image?url=https%3A%2F%2Fi.ibb.co%2FvxCVqcz%2Fimage-59.png%2Chttps%3A%2F%2Fi.ibb.co%2Fd0D0csn%2Fimage-61.png&w=3840&q=75 3840w"
+                    style="position: absolute; height: 100%; width: 100%; left: 0px; top: 0px; right: 0px; bottom: 0px; object-fit: contain; color: transparent; border-radius: 15px; background-size: contain; background-position: 50% 50%; background-repeat: no-repeat;"
+                  />
+                </div>
+              </div>
+            </td>
+            <td
+              class="css-1gewy2d"
+            >
+              <p
+                class="chakra-text css-55jbf7"
+              >
+                USD1,111.00
+              </p>
+            </td>
+            <td
+              class="css-3qub4l"
+            >
+              <span
+                class="chakra-badge css-1nt00i9"
+              >
+                In-stock
+              </span>
+            </td>
+            <td
+              class="css-o2v2fg"
+            >
+              <p
+                class="chakra-text css-1w9sl8l"
+              >
+                4
+              </p>
+            </td>
+            <td
+              class="css-1v6q597"
+            >
+              <p
+                class="chakra-text css-gmde4n"
+              >
+                Mar 12, 2024
+              </p>
+            </td>
+            <td
+              class="css-kgr5cp"
+            >
+              <button
+                aria-controls="menu-list-:r17:"
+                aria-expanded="false"
+                aria-haspopup="menu"
+                class="chakra-button chakra-menu__menu-button css-1of25bg"
+                id="menu-button-:r17:"
+                type="button"
+              >
+                <span
+                  class="css-xl71ch"
+                >
+                  <button
+                    aria-label="This is the icon action"
+                    class="chakra-button css-1c8sy4r"
+                    data-testid="dot-icon"
+                    type="button"
+                  >
+                    <svg
+                      aria-hidden="true"
+                      fill="none"
+                      focusable="false"
+                      height="4"
+                      width="18"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M8 2a1 1 0 1 0 2 0 1 1 0 0 0-2 0ZM1 2a1 1 0 1 0 2 0 1 1 0 0 0-2 0ZM15 2a1 1 0 1 0 2 0 1 1 0 0 0-2 0Z"
+                        stroke="#A0AEC0"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                      />
+                    </svg>
+                  </button>
+                </span>
+              </button>
+              <div
+                class="css-r6z5ec"
+                style="visibility: hidden; position: absolute; min-width: max-content; inset: 0 auto auto 0;"
+              >
+                <div
+                  aria-orientation="vertical"
+                  class="chakra-menu__menu-list css-19p6z7a"
+                  id="menu-list-:r17:"
+                  role="menu"
+                  style="transform-origin: var(--popper-transform-origin); opacity: 0; visibility: hidden; transform: scale(0.8) translateZ(0);"
+                  tabindex="-1"
+                >
+                  <button
+                    class="chakra-menu__menuitem css-1m94u4a"
+                    data-index="0"
+                    id="menu-list-:r17:-menuitem-:r18:"
+                    role="menuitem"
+                    tabindex="-1"
+                    type="button"
+                  >
+                    <div
+                      class="css-1og1ejg"
+                    >
+                      <svg
+                        class="chakra-icon css-n4g5d6"
+                        data-testid="edit-icon"
+                        focusable="false"
+                        viewBox="0 0 24 24"
+                      >
+                        <g
+                          fill="none"
+                          stroke="currentColor"
+                          stroke-linecap="round"
+                          stroke-width="2"
+                        >
+                          <path
+                            d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"
+                          />
+                          <path
+                            d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"
+                          />
+                        </g>
+                      </svg>
+                      <svg
+                        class="chakra-icon css-c8antd"
+                        data-testid="del-icon"
+                        focusable="false"
+                        viewBox="0 0 24 24"
+                      >
+                        <g
+                          fill="currentColor"
+                        >
+                          <path
+                            d="M19.452 7.5H4.547a.5.5 0 00-.5.545l1.287 14.136A2 2 0 007.326 24h9.347a2 2 0 001.992-1.819L19.95 8.045a.5.5 0 00-.129-.382.5.5 0 00-.369-.163zm-9.2 13a.75.75 0 01-1.5 0v-9a.75.75 0 011.5 0zm5 0a.75.75 0 01-1.5 0v-9a.75.75 0 011.5 0zM22 4h-4.75a.25.25 0 01-.25-.25V2.5A2.5 2.5 0 0014.5 0h-5A2.5 2.5 0 007 2.5v1.25a.25.25 0 01-.25.25H2a1 1 0 000 2h20a1 1 0 000-2zM9 3.75V2.5a.5.5 0 01.5-.5h5a.5.5 0 01.5.5v1.25a.25.25 0 01-.25.25h-5.5A.25.25 0 019 3.75z"
+                          />
+                        </g>
+                      </svg>
+                    </div>
+                  </button>
+                </div>
+              </div>
+            </td>
+          </tr>
+          <tr
+            class="css-0"
+            data-testid="table-row"
+          >
+            <td
+              class="css-pkkr8k"
+            >
+              <div
+                class="css-1pumsy8"
+              >
+                <p
+                  class="chakra-text css-b5wh8g"
+                >
+                  Tay cam 2
+                </p>
+              </div>
+            </td>
+            <td
+              class="css-ecqwn"
+            >
+              <div
+                class="css-jg952l"
+              >
+                <div
+                  class="css-135qrun"
+                >
+                  <img
+                    alt="Image of Tay cam 2"
+                    data-nimg="fill"
+                    decoding="async"
+                    loading="lazy"
+                    sizes="100vw"
+                    src="/_next/image?url=https%3A%2F%2Fi.ibb.co%2Fd0D0csn%2Fimage-61.png%2Chttps%3A%2F%2Fi.ibb.co%2FvxCVqcz%2Fimage-59.png&w=3840&q=75"
+                    srcset="/_next/image?url=https%3A%2F%2Fi.ibb.co%2Fd0D0csn%2Fimage-61.png%2Chttps%3A%2F%2Fi.ibb.co%2FvxCVqcz%2Fimage-59.png&w=640&q=75 640w, /_next/image?url=https%3A%2F%2Fi.ibb.co%2Fd0D0csn%2Fimage-61.png%2Chttps%3A%2F%2Fi.ibb.co%2FvxCVqcz%2Fimage-59.png&w=750&q=75 750w, /_next/image?url=https%3A%2F%2Fi.ibb.co%2Fd0D0csn%2Fimage-61.png%2Chttps%3A%2F%2Fi.ibb.co%2FvxCVqcz%2Fimage-59.png&w=828&q=75 828w, /_next/image?url=https%3A%2F%2Fi.ibb.co%2Fd0D0csn%2Fimage-61.png%2Chttps%3A%2F%2Fi.ibb.co%2FvxCVqcz%2Fimage-59.png&w=1080&q=75 1080w, /_next/image?url=https%3A%2F%2Fi.ibb.co%2Fd0D0csn%2Fimage-61.png%2Chttps%3A%2F%2Fi.ibb.co%2FvxCVqcz%2Fimage-59.png&w=1200&q=75 1200w, /_next/image?url=https%3A%2F%2Fi.ibb.co%2Fd0D0csn%2Fimage-61.png%2Chttps%3A%2F%2Fi.ibb.co%2FvxCVqcz%2Fimage-59.png&w=1920&q=75 1920w, /_next/image?url=https%3A%2F%2Fi.ibb.co%2Fd0D0csn%2Fimage-61.png%2Chttps%3A%2F%2Fi.ibb.co%2FvxCVqcz%2Fimage-59.png&w=2048&q=75 2048w, /_next/image?url=https%3A%2F%2Fi.ibb.co%2Fd0D0csn%2Fimage-61.png%2Chttps%3A%2F%2Fi.ibb.co%2FvxCVqcz%2Fimage-59.png&w=3840&q=75 3840w"
+                    style="position: absolute; height: 100%; width: 100%; left: 0px; top: 0px; right: 0px; bottom: 0px; object-fit: contain; color: transparent; border-radius: 15px; background-size: contain; background-position: 50% 50%; background-repeat: no-repeat;"
+                  />
+                </div>
+              </div>
+            </td>
+            <td
+              class="css-1gewy2d"
+            >
+              <p
+                class="chakra-text css-55jbf7"
+              >
+                USD1,111.00
+              </p>
+            </td>
+            <td
+              class="css-3qub4l"
+            >
+              <span
+                class="chakra-badge css-oyldzo"
+              >
+                Sold
+              </span>
+            </td>
+            <td
+              class="css-o2v2fg"
+            >
+              <p
+                class="chakra-text css-1w9sl8l"
+              >
+                0
+              </p>
+            </td>
+            <td
+              class="css-1v6q597"
+            >
+              <p
+                class="chakra-text css-gmde4n"
+              >
+                Mar 12, 2024
+              </p>
+            </td>
+            <td
+              class="css-kgr5cp"
+            >
+              <button
+                aria-controls="menu-list-:r1g:"
+                aria-expanded="false"
+                aria-haspopup="menu"
+                class="chakra-button chakra-menu__menu-button css-1of25bg"
+                id="menu-button-:r1g:"
+                type="button"
+              >
+                <span
+                  class="css-xl71ch"
+                >
+                  <button
+                    aria-label="This is the icon action"
+                    class="chakra-button css-1c8sy4r"
+                    data-testid="dot-icon"
+                    type="button"
+                  >
+                    <svg
+                      aria-hidden="true"
+                      fill="none"
+                      focusable="false"
+                      height="4"
+                      width="18"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M8 2a1 1 0 1 0 2 0 1 1 0 0 0-2 0ZM1 2a1 1 0 1 0 2 0 1 1 0 0 0-2 0ZM15 2a1 1 0 1 0 2 0 1 1 0 0 0-2 0Z"
+                        stroke="#A0AEC0"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                      />
+                    </svg>
+                  </button>
+                </span>
+              </button>
+              <div
+                class="css-r6z5ec"
+                style="visibility: hidden; position: absolute; min-width: max-content; inset: 0 auto auto 0;"
+              >
+                <div
+                  aria-orientation="vertical"
+                  class="chakra-menu__menu-list css-19p6z7a"
+                  id="menu-list-:r1g:"
+                  role="menu"
+                  style="transform-origin: var(--popper-transform-origin); opacity: 0; visibility: hidden; transform: scale(0.8) translateZ(0);"
+                  tabindex="-1"
+                >
+                  <button
+                    class="chakra-menu__menuitem css-1m94u4a"
+                    data-index="0"
+                    id="menu-list-:r1g:-menuitem-:r1h:"
+                    role="menuitem"
+                    tabindex="-1"
+                    type="button"
+                  >
+                    <div
+                      class="css-1og1ejg"
+                    >
+                      <svg
+                        class="chakra-icon css-n4g5d6"
+                        data-testid="edit-icon"
+                        focusable="false"
+                        viewBox="0 0 24 24"
+                      >
+                        <g
+                          fill="none"
+                          stroke="currentColor"
+                          stroke-linecap="round"
+                          stroke-width="2"
+                        >
+                          <path
+                            d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"
+                          />
+                          <path
+                            d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"
+                          />
+                        </g>
+                      </svg>
+                      <svg
+                        class="chakra-icon css-c8antd"
+                        data-testid="del-icon"
+                        focusable="false"
+                        viewBox="0 0 24 24"
+                      >
+                        <g
+                          fill="currentColor"
+                        >
+                          <path
+                            d="M19.452 7.5H4.547a.5.5 0 00-.5.545l1.287 14.136A2 2 0 007.326 24h9.347a2 2 0 001.992-1.819L19.95 8.045a.5.5 0 00-.129-.382.5.5 0 00-.369-.163zm-9.2 13a.75.75 0 01-1.5 0v-9a.75.75 0 011.5 0zm5 0a.75.75 0 01-1.5 0v-9a.75.75 0 011.5 0zM22 4h-4.75a.25.25 0 01-.25-.25V2.5A2.5 2.5 0 0014.5 0h-5A2.5 2.5 0 007 2.5v1.25a.25.25 0 01-.25.25H2a1 1 0 000 2h20a1 1 0 000-2zM9 3.75V2.5a.5.5 0 01.5-.5h5a.5.5 0 01.5.5v1.25a.25.25 0 01-.25.25h-5.5A.25.25 0 019 3.75z"
+                          />
+                        </g>
+                      </svg>
+                    </div>
+                  </button>
+                </div>
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div
+    class="css-2qrmgs"
+  >
+    <div
+      class="css-1mngwok"
+      data-testid="pagination"
+    >
+      <div
+        class="css-1y90n2a"
+      >
+        <p
+          class="chakra-text css-r5mmfv"
+        >
+          Show result:
+        </p>
+        <div
+          class="css-110fpu2"
+        >
+          <button
+            aria-controls="menu-list-:r1j:"
+            aria-expanded="false"
+            aria-haspopup="menu"
+            class="chakra-button chakra-menu__menu-button css-1d0mwls"
+            id="menu-button-:r1j:"
+            type="button"
+          >
+            <span
+              class="css-xl71ch"
+            >
+              <div
+                class="css-1l4w6pd"
+              >
+                <p
+                  class="chakra-text css-1aitddj"
+                >
+                  10
+                </p>
+                <div
+                  class="css-t4r95o"
+                >
+                  <svg
+                    fill="none"
+                    height="15"
+                    stroke="#A0AEC0"
+                    style="transform: rotate(undefined);"
+                    viewBox="0 0 18 15"
+                    width="18"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M7 10L12 14L17 10"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                    />
+                  </svg>
+                </div>
+              </div>
+            </span>
+          </button>
+          <div
+            class="css-r6z5ec"
+            style="visibility: hidden; position: absolute; inset: 0 auto auto 0;"
+          >
+            <div
+              aria-orientation="vertical"
+              class="chakra-menu__menu-list css-1k4isgz"
+              id="menu-list-:r1j:"
+              role="menu"
+              style="transform-origin: var(--popper-transform-origin); opacity: 0; visibility: hidden; transform: scale(0.8) translateZ(0);"
+              tabindex="-1"
+            >
+              <button
+                class="chakra-menu__menuitem css-o9weuj"
+                data-index="0"
+                id="menu-list-:r1j:-menuitem-:r1k:"
+                role="menuitem"
+                tabindex="-1"
+                type="button"
+              >
+                <p
+                  class="chakra-text css-15asmb0"
+                >
+                  10
+                </p>
+              </button>
+              <button
+                class="chakra-menu__menuitem css-o9weuj"
+                data-index="1"
+                id="menu-list-:r1j:-menuitem-:r1l:"
+                role="menuitem"
+                tabindex="-1"
+                type="button"
+              >
+                <p
+                  class="chakra-text css-15asmb0"
+                >
+                  20
+                </p>
+              </button>
+              <button
+                class="chakra-menu__menuitem css-o9weuj"
+                data-index="2"
+                id="menu-list-:r1j:-menuitem-:r1m:"
+                role="menuitem"
+                tabindex="-1"
+                type="button"
+              >
+                <p
+                  class="chakra-text css-15asmb0"
+                >
+                  50
+                </p>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="css-gg4vpm"
+      >
+        <button
+          aria-label="btn-prev"
+          class="chakra-button css-1u5n2r4"
+          data-testid="prev-button"
+          type="button"
+        >
+          <svg
+            fill="none"
+            height="24"
+            stroke="#A0AEC0"
+            style="transform: rotate(90deg);"
+            viewBox="0 0 24 24"
+            width="24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M7 10L12 14L17 10"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+            />
+          </svg>
+        </button>
+        <div
+          class="css-70qvj9"
+        />
+        <button
+          aria-label="btn-next"
+          class="chakra-button css-5dzvs"
+          data-testid="next-button"
+          type="button"
+        >
+          <svg
+            fill="none"
+            height="24"
+            stroke="#A0AEC0"
+            style="transform: rotate(-90deg);"
+            viewBox="0 0 24 24"
+            width="24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M7 10L12 14L17 10"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+            />
+          </svg>
+        </button>
+      </div>
+    </div>
+  </div>
+  <span
+    hidden=""
+    id="__chakra_env"
+  />
+</div>
+`;

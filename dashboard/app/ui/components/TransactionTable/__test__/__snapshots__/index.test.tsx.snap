@@ -3,7 +3,7 @@
 exports[`Transaction table Match with snapshot with default prop 1`] = `
 <div>
   <form
-    class="chakra-stack css-e8jbrs"
+    class="chakra-stack css-16wym0o"
     data-testid="search-bar"
   >
     <div
@@ -43,7 +43,7 @@ exports[`Transaction table Match with snapshot with default prop 1`] = `
       </div>
     </div>
     <div
-      class="css-11pz9l2"
+      class="css-tzs3vb"
     >
       <button
         aria-controls="menu-list-:r2:"
@@ -126,7 +126,7 @@ exports[`Transaction table Match with snapshot with default prop 1`] = `
     class="css-17qnj1m"
   >
     <div
-      class="chakra-table__container css-1nce0n3"
+      class="chakra-table__container css-5wdta2"
     >
       <table
         class="chakra-table css-5605sr"
@@ -828,7 +828,7 @@ exports[`Transaction table Match with snapshot with default prop 1`] = `
 exports[`Transaction table Match with snapshot with isOpenHistoryModal = true 1`] = `
 <div>
   <form
-    class="chakra-stack css-e8jbrs"
+    class="chakra-stack css-16wym0o"
     data-testid="search-bar"
   >
     <div
@@ -868,7 +868,7 @@ exports[`Transaction table Match with snapshot with isOpenHistoryModal = true 1`
       </div>
     </div>
     <div
-      class="css-11pz9l2"
+      class="css-tzs3vb"
     >
       <button
         aria-controls="menu-list-:rs:"
@@ -1091,7 +1091,7 @@ exports[`Transaction table Match with snapshot with isOpenHistoryModal = true 1`
     class="css-17qnj1m"
   >
     <div
-      class="chakra-table__container css-1nce0n3"
+      class="chakra-table__container css-5wdta2"
     >
       <table
         class="chakra-table css-5605sr"

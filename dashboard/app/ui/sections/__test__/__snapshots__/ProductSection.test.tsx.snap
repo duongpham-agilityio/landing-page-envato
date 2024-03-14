@@ -1,0 +1,200 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ProductSection render Should render match with snapshot. 1`] = `
+<div>
+  <div
+    class="css-1qfa3yr"
+  >
+    <div
+      class="css-rklm6r"
+    >
+      <section
+        class="css-1gg9e9z"
+      >
+        <div
+          class="css-194coc3"
+        >
+          <form
+            class="chakra-stack css-16wym0o"
+            data-testid="search-bar"
+          >
+            <div
+              class="css-1b9rej7"
+            >
+              <div
+                class="chakra-form-control css-1kxonj9"
+                role="group"
+              >
+                <div
+                  class="chakra-input__group css-1091msq"
+                  data-group="true"
+                >
+                  <div
+                    class="chakra-input__left-element css-1kg931p"
+                  >
+                    <svg
+                      class="chakra-icon css-onkibi"
+                      focusable="false"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        d="M23.414,20.591l-4.645-4.645a10.256,10.256,0,1,0-2.828,2.829l4.645,4.644a2.025,2.025,0,0,0,2.828,0A2,2,0,0,0,23.414,20.591ZM10.25,3.005A7.25,7.25,0,1,1,3,10.255,7.258,7.258,0,0,1,10.25,3.005Z"
+                        fill="currentColor"
+                      />
+                    </svg>
+                  </div>
+                  <input
+                    class="chakra-input css-1ybypo"
+                    data-testid="search-transaction"
+                    id="field-:r0:"
+                    placeholder="Search by name, email, or other..."
+                    type="text"
+                    value=""
+                  />
+                </div>
+              </div>
+            </div>
+            <div
+              class="css-tzs3vb"
+            >
+              <button
+                aria-controls="menu-list-:r2:"
+                aria-expanded="false"
+                aria-haspopup="menu"
+                class="chakra-button chakra-menu__menu-button css-1d0mwls"
+                id="menu-button-:r2:"
+                type="button"
+              >
+                <span
+                  class="css-xl71ch"
+                >
+                  <span
+                    class="css-ccj5l2"
+                  >
+                    <svg
+                      fill="none"
+                      height="17"
+                      stroke="#1D1E24"
+                      width="18"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M7.552 13.502H1.25M10.362 3.81h6.301"
+                      />
+                      <path
+                        clip-rule="evenodd"
+                        d="M5.948 3.756a2.355 2.355 0 0 0-2.363-2.347 2.355 2.355 0 0 0-2.363 2.347 2.355 2.355 0 0 0 2.363 2.346 2.355 2.355 0 0 0 2.363-2.346ZM17.221 13.463a2.354 2.354 0 0 0-2.362-2.346 2.355 2.355 0 0 0-2.364 2.346 2.355 2.355 0 0 0 2.364 2.347 2.354 2.354 0 0 0 2.362-2.347Z"
+                      />
+                    </svg>
+                    Filters
+                  </span>
+                </span>
+              </button>
+              <div
+                class="css-r6z5ec"
+                style="visibility: hidden; position: absolute; inset: 0 auto auto 0;"
+              >
+                <div
+                  aria-orientation="vertical"
+                  class="chakra-menu__menu-list css-1k4isgz"
+                  id="menu-list-:r2:"
+                  role="menu"
+                  style="transform-origin: var(--popper-transform-origin); opacity: 0; visibility: hidden; transform: scale(0.8) translateZ(0);"
+                  tabindex="-1"
+                >
+                  <button
+                    class="chakra-menu__menuitem css-o9weuj"
+                    data-index="0"
+                    id="menu-list-:r2:-menuitem-:r3:"
+                    role="menuitem"
+                    tabindex="-1"
+                    type="button"
+                  >
+                    <p
+                      class="chakra-text css-15asmb0"
+                    >
+                      Sold
+                    </p>
+                  </button>
+                  <button
+                    class="chakra-menu__menuitem css-o9weuj"
+                    data-index="1"
+                    id="menu-list-:r2:-menuitem-:r4:"
+                    role="menuitem"
+                    tabindex="-1"
+                    type="button"
+                  >
+                    <p
+                      class="chakra-text css-15asmb0"
+                    >
+                      In stock
+                    </p>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </form>
+          <button
+            aria-label="Add User"
+            class="chakra-button css-14h3i8e"
+            data-testid="button-add"
+            role="button"
+            type="button"
+          >
+            Add Product
+          </button>
+        </div>
+        <div
+          class="chakra-skeleton css-s55j40"
+        />
+        <div
+          class="chakra-skeleton css-s55j40"
+        />
+        <div
+          class="chakra-skeleton css-s55j40"
+        />
+        <div
+          class="chakra-skeleton css-s55j40"
+        />
+        <div
+          class="chakra-skeleton css-s55j40"
+        />
+        <div
+          class="chakra-skeleton css-s55j40"
+        />
+        <div
+          class="chakra-skeleton css-s55j40"
+        />
+        <div
+          class="chakra-skeleton css-s55j40"
+        />
+        <div
+          class="chakra-skeleton css-s55j40"
+        />
+        <div
+          class="chakra-skeleton css-s55j40"
+        />
+        <div
+          class="chakra-skeleton css-s55j40"
+        />
+        <div
+          class="chakra-skeleton css-s55j40"
+        />
+        <div
+          class="chakra-skeleton css-s55j40"
+        />
+        <div
+          class="chakra-skeleton css-s55j40"
+        />
+        <div
+          class="chakra-skeleton css-s55j40"
+        />
+      </section>
+    </div>
+  </div>
+  <span
+    hidden=""
+    id="__chakra_env"
+  />
+</div>
+`;

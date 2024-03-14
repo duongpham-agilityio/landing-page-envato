@@ -1,6 +1,7 @@
 export * from './spending';
 export * from './table';
 export * from './transaction';
+export * from './product';
 export * from './user';
 export * from './time';
 export * from './statistic';

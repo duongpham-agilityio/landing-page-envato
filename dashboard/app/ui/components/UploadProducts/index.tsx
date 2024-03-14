@@ -50,17 +50,25 @@ const UploadProductsComponent = ({
       >
         {label}
         <Flex mt="20px" flexDirection="column" alignItems="center" gap={3}>
-          <Flex alignItems="center" gap={3}>
+          <Flex
+            alignItems="center"
+            justify="center"
+            gap={3}
+            w={{ base: 320, md: 474 }}
+            flexWrap="wrap"
+          >
             {previewURL
               .slice(0, 3)
               ?.map((v) => (
                 <Image
                   key={v}
-                  w={{ base: 100, md: 150 }}
-                  h={{ base: 100, md: 150 }}
+                  w={{ base: 320, md: 150 }}
+                  h={{ base: 320, md: 150 }}
                   src={v}
                   alt={IMAGES.AVATAR_SIGN_UP.alt}
                   fallbackSrc={IMAGES.USER.url}
+                  borderRadius={20}
+                  objectFit="contain"
                 />
               ))}
           </Flex>
@@ -93,6 +101,7 @@ const UploadProductsComponent = ({
         <Input
           {...getInputProps()}
           size={undefined as ResponsiveValue<string> | undefined}
+          data-testid="field-image"
         />
 
         <Text>Drag drop some files here, or click to select files</Text>

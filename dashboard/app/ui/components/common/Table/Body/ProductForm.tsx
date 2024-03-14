@@ -87,7 +87,7 @@ const ProductForm = ({
       const requestData = {
         ...data,
         stock: parseFormattedNumber(data.stock),
-        amount: data.amount,
+        amount: parseFormattedNumber(data.amount),
         userId,
       };
 
@@ -177,6 +177,7 @@ const ProductForm = ({
                   autoComplete="off"
                   position="static"
                   isInvalid={!!error}
+                  data-testid="field-amount"
                 />
                 {!!error && (
                   <FormErrorMessage>{error?.message}</FormErrorMessage>
@@ -227,6 +228,7 @@ const ProductForm = ({
                   autoComplete="off"
                   position="static"
                   isInvalid={!!error}
+                  data-testid="field-quantity"
                 />
                 {!!error && (
                   <FormErrorMessage>{error?.message}</FormErrorMessage>
