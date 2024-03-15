@@ -57,8 +57,8 @@ export const useProducts = (queryParam?: TSearchProduct) => {
   });
 
   // sort products
-  const transactionsAfterSort: TProduct[] = useMemo(() => {
-    const tempTransactions: TProduct[] = [...data];
+  const productsAfterSort: TProduct[] = useMemo(() => {
+    const tempProducts: TProduct[] = [...data];
     const { field, type } = sortValue;
 
     if (!field) return data;
@@ -89,7 +89,7 @@ export const useProducts = (queryParam?: TSearchProduct) => {
       return 0;
     };
 
-    tempTransactions.sort(
+    tempProducts.sort(
       (
         {
           name: prevProductName,
@@ -127,7 +127,7 @@ export const useProducts = (queryParam?: TSearchProduct) => {
       },
     );
 
-    return tempTransactions;
+    return tempProducts;
   }, [data, sortValue]);
 
   /**
@@ -138,12 +138,12 @@ export const useProducts = (queryParam?: TSearchProduct) => {
     const isNameMatchWith = (target: string): boolean =>
       (target || '').trim().toLowerCase().includes(searchName);
 
-    return transactionsAfterSort.filter(({ name }: TProduct) => {
+    return productsAfterSort.filter(({ name }: TProduct) => {
       const isMatchWithName: boolean = isNameMatchWith(name);
 
       return isMatchWithName;
     });
-  }, [transactionsAfterSort, searchName]);
+  }, [productsAfterSort, searchName]);
 
   const sortBy: TProductSortHandler = useCallback(
     (field: TProductSortField) => {
@@ -162,6 +162,9 @@ export const useProducts = (queryParam?: TSearchProduct) => {
         product,
       ),
     onSuccess: (dataResponse) => {
+      queryClient.invalidateQueries({
+        queryKey: [END_POINTS.PRODUCTS],
+      });
       const newData = JSON.parse(dataResponse.config.data);
 
       queryClient.setQueryData(

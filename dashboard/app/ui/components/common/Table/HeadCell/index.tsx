@@ -36,19 +36,21 @@ const HeadCellComponent = ({ title, onClick }: THeadCellProps): JSX.Element => (
       >
         {title}
       </Text>
-      <IconButton
-        aria-label={`This is the icon for ${title}`}
-        w={7}
-        h={7}
-        bgColor="transparent"
-        _hover={{
-          bgColor: 'transparent',
-        }}
-        onClick={onClick}
-        data-testid="sort-icon"
-      >
-        <Sort color={colors.secondary[300]} opacityLeft={1} />
-      </IconButton>
+      {title !== 'Gallery Thumbnail' && (
+        <IconButton
+          aria-label={`This is the icon for ${title}`}
+          w={7}
+          h={7}
+          bgColor="transparent"
+          _hover={{
+            bgColor: 'transparent',
+          }}
+          onClick={onClick}
+          data-testid="sort-icon"
+        >
+          <Sort color={colors.secondary[300]} opacityLeft={1} />
+        </IconButton>
+      )}
     </Flex>
   </Th>
 );

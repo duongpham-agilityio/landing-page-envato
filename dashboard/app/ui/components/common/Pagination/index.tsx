@@ -80,7 +80,7 @@ const PaginationComponent = ({
           />
         </Box>
       </Flex>
-      <Flex justifyContent="space-between">
+      <Flex justifyContent="space-between" alignItems="center">
         <Button
           width={30}
           height={30}
