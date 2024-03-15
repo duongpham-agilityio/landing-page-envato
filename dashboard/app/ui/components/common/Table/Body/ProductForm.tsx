@@ -32,11 +32,7 @@ import {
 import { authStore } from '@/lib/stores';
 
 // Utils
-import {
-  formatAmountNumber,
-  formatDecimalNumber,
-  parseFormattedNumber,
-} from '@/lib/utils';
+import { formatAmountNumber, parseFormattedNumber } from '@/lib/utils';
 
 interface ProductProps {
   data?: TProductResponse;
@@ -90,8 +86,8 @@ const ProductForm = ({
     (data: TProductRequest) => {
       const requestData = {
         ...data,
-        stock: parseFormattedNumber(data.stock),
-        amount: parseFormattedNumber(data.amount),
+        stock: parseFormattedNumber(data.stock).toString(),
+        amount: parseFormattedNumber(data.amount).toString(),
         userId,
       };
 
@@ -148,11 +144,14 @@ const ProductForm = ({
             control={control}
             rules={AUTH_SCHEMA.AMOUNT}
             name="amount"
+            defaultValue=""
             render={({ field: { value, onChange }, fieldState: { error } }) => {
               const handleChange = (
                 event: React.ChangeEvent<HTMLInputElement>,
               ) => {
                 const value: string = event.target.value;
+
+                if (isNaN(+value.replaceAll(',', ''))) return;
 
                 // Remove non-numeric characters and leading zeros
                 const sanitizedValue = formatAmountNumber(value);
@@ -176,7 +175,7 @@ const ProductForm = ({
                     placeholder="0.00"
                     color="text.primary"
                     fontSize="1xl"
-                    value={formatDecimalNumber(value)}
+                    value={formatAmountNumber(value?.toString())}
                     name="amount"
                     onChange={handleChange}
                     autoComplete="off"
@@ -199,11 +198,14 @@ const ProductForm = ({
             control={control}
             rules={AUTH_SCHEMA.QUANTITY}
             name="stock"
+            defaultValue=""
             render={({ field: { value, onChange }, fieldState: { error } }) => {
               const handleChange = (
                 event: React.ChangeEvent<HTMLInputElement>,
               ) => {
                 const value: string = event.target.value;
+
+                if (isNaN(+value.replaceAll(',', ''))) return;
 
                 // Remove non-numeric characters and leading zeros
                 const sanitizedValue = formatAmountNumber(value);
@@ -227,7 +229,7 @@ const ProductForm = ({
                     placeholder="0"
                     color="text.primary"
                     fontSize="1xl"
-                    value={formatAmountNumber(value.toString())}
+                    value={formatAmountNumber(value?.toString())}
                     name="quantity"
                     onChange={handleChange}
                     autoComplete="off"

@@ -4,8 +4,8 @@ export type TProduct = {
   _id: string;
   name: string;
   description: string;
-  stock: number;
-  amount: number;
+  stock: string;
+  amount: string;
   currency: string;
   createdAt: string;
   imageURLs: string[];
@@ -17,8 +17,8 @@ export interface TProductRequest {
   limit: number | undefined;
   _id: string;
   name: string;
-  amount: number;
-  stock: number;
+  amount: string;
+  stock: string;
   description?: string;
   currency?: string;
   createdAt?: string;

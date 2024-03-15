@@ -5,7 +5,7 @@ export const REGEX = {
   LENGTH_IS_EIGHT: /^.{8,}$/,
   PASSWORD:
     /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*()_+{}\[\]:;<>,.?~\\/-]).{8,}$/,
-  IMG: /\.(png|jpg|webp)$/,
+  IMG: /\.(gif|jpe?g|tiff?|png|webp|bmp)$/i,
   ZIP_CODE: /^\d{5}$/,
   AMOUNT_PATTERN: /^[0-9]*$/,
   DECIMAL_PATTERN: /^\d*(\.\d{0,2})?$/,

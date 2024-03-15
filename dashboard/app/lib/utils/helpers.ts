@@ -114,7 +114,7 @@ export const formatAmountNumber = (value: string): string => {
   return decimalValue ? `${newValueFormat}${decimalValue}` : newValueFormat;
 };
 
-export const parseFormattedNumber = (value: number): number => {
+export const parseFormattedNumber = (value: string): number => {
   if (!value) {
     return 0;
   }

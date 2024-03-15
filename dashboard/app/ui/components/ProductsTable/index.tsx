@@ -87,7 +87,7 @@ const ProductsTableComponent = () => {
   const productsMemorized = useMemo(
     () =>
       products?.filter(({ stock }) => {
-        if (stock > 0) {
+        if (+stock > 0) {
           return PRODUCT_STATUS.IN_STOCK.includes(filter.trim());
         } else {
           return PRODUCT_STATUS.SOLD.includes(filter.trim());

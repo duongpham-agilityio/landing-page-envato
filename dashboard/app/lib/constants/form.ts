@@ -129,7 +129,7 @@ export const AUTH_SCHEMA = {
 
   AMOUNT: {
     required: ERROR_MESSAGES.FIELD_REQUIRED('Amount'),
-    validate: (value: number) => {
+    validate: (value: string) => {
       if (Number(value) <= 0) {
         return ERROR_MESSAGES.AMOUNT_INVALID;
       }
@@ -140,7 +140,7 @@ export const AUTH_SCHEMA = {
 
   QUANTITY: {
     required: ERROR_MESSAGES.FIELD_REQUIRED('Quantity'),
-    validate: (value: number) => {
+    validate: (value: string) => {
       if (Number(value) < 0) {
         return ERROR_MESSAGES.QUANTITY_INVALID;
       }
