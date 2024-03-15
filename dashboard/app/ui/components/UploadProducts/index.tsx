@@ -19,6 +19,7 @@ import { useImageUploader } from '@/lib/hooks';
 
 export type TUploadImageProductsProps = {
   label: string;
+  isError?: boolean;
   images?: string[];
   onUploadError: (message: string) => void;
   onChange: (value: string[]) => void;
@@ -27,6 +28,7 @@ export type TUploadImageProductsProps = {
 const UploadProductsComponent = ({
   label,
   images = [],
+  isError = false,
   onChange,
   onUploadError,
 }: TUploadImageProductsProps) => {
@@ -37,7 +39,7 @@ const UploadProductsComponent = ({
     setPreviewURL,
   });
 
-  const { getRootProps, getInputProps, isDragActive } = useDropzone({ onDrop });
+  const { getRootProps, getInputProps } = useDropzone({ onDrop });
 
   return (
     <Flex w="100%" flexDirection="column">
@@ -90,13 +92,14 @@ const UploadProductsComponent = ({
       </FormLabel>
       <Box
         {...getRootProps()}
-        border="2px"
-        borderColor={isDragActive ? 'green.500' : 'gray.200'}
+        border="1px"
+        borderColor={isError ? 'primary.200' : 'primary.600'}
         borderRadius="md"
         p={4}
         textAlign="center"
         cursor="pointer"
         _hover={{ borderColor: 'green.500' }}
+        bg="background.body.primary"
       >
         <Input
           {...getInputProps()}

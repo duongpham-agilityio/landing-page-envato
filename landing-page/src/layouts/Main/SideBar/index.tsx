@@ -1,3 +1,4 @@
+// Libs
 import { useEffect, type MouseEventHandler, useCallback } from 'react';
 import { navigate } from 'astro:transitions/client';
 
@@ -23,10 +24,8 @@ type TSidebarProps = {
 };
 
 // Styles CSS
-const styleHeader: string =
-  'fixed md:relative z-50 w-[320px] bg-white py-2xl px-[70px] h-full animate-sidebarSlideIn md:animate-none md:block md:p-xl md:basis-[280px] lg:basis-[320px] lg:py-2xl lg:px-[70px] dark:bg-bgDarkTheme dark:text-white';
-const hoverAfterStyle: string =
-  'after:w-0 after:h-1 after:transition-all after:duration-500 hover:after:absolute hover:after:z-10 hover:after:top-[50%] hover:after:left-[-70px] hover:after:w-[30px] hover:after:h-[3px] hover:after:bg-sun';
+const styleHeader: string = 'fixed md:relative z-50 w-[320px] bg-white py-2xl px-[70px] h-full animate-sidebarSlideIn md:animate-none md:block md:p-xl md:basis-[280px] lg:basis-[320px] lg:py-2xl lg:px-[70px] dark:bg-bgDarkTheme dark:text-white';
+const hoverAfterStyle: string = 'after:w-0 after:h-1 after:transition-all after:duration-500 hover:after:absolute hover:after:z-10 hover:after:top-[50%] hover:after:left-[-70px] hover:after:w-[30px] hover:after:h-[3px] hover:after:bg-sun';
 
 const SideBarAllDevices = ({
   isOpen = false,
@@ -95,11 +94,11 @@ const SideBarAllDevices = ({
           {options.map(
             ({ id, href, text }): JSX.Element => (
               <li key={id}>
-                <a
-                  href={href}
-                  className={`${
-                    href === pathName ? '!text-[#956A04]' : ''
-                  } text-secondary font-semibold hover:text-sun uppercase text-sm leading-[53px] py-5 relative dark:text-white ${hoverAfterStyle}`}
+                <a href={href}
+                  className={`text-secondary font-semibold hover:text-sun uppercase text-sm leading-[53px] py-5 relative ${href === pathName
+                    ? '!text-[#956A04] dark:!text-white'
+                    : 'dark:text-white'
+                    } ${hoverAfterStyle}`}
                   onClick={(e) => {
                     e.preventDefault();
                     navigate(href);

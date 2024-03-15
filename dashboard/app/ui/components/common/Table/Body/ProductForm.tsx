@@ -32,7 +32,11 @@ import {
 import { authStore } from '@/lib/stores';
 
 // Utils
-import { formatAmountNumber, parseFormattedNumber } from '@/lib/utils';
+import {
+  formatAmountNumber,
+  formatDecimalNumber,
+  parseFormattedNumber,
+} from '@/lib/utils';
 
 interface ProductProps {
   data?: TProductResponse;
@@ -118,140 +122,144 @@ const ProductForm = ({
       id="update-product-form"
       onSubmit={handleSubmit(handleSubmitForm)}
     >
-      <Flex mb={2}>
-        <Controller
-          control={control}
-          rules={AUTH_SCHEMA.NAME}
-          name="name"
-          render={({ field, field: { onChange }, fieldState: { error } }) => (
-            <InputField
-              variant="authentication"
-              bg="background.body.primary"
-              label="Name"
-              mr={2}
-              {...field}
-              isError={!!error}
-              errorMessages={error?.message}
-              onChange={handleChangeValue('name', onChange)}
-              data-testid="edit-field-name"
-            />
-          )}
-        />
-        <Controller
-          control={control}
-          rules={AUTH_SCHEMA.AMOUNT}
-          name="amount"
-          render={({ field: { value, onChange }, fieldState: { error } }) => {
-            const handleChange = (
-              event: React.ChangeEvent<HTMLInputElement>,
-            ) => {
-              const value: string = event.target.value;
+      <Flex w={{ sm: '100%' }} flexDirection={{ base: 'column', md: 'row' }}>
+        <Flex mb={{ sm: 5 }}>
+          <Controller
+            control={control}
+            rules={AUTH_SCHEMA.NAME}
+            name="name"
+            render={({ field, field: { onChange }, fieldState: { error } }) => (
+              <InputField
+                variant="authentication"
+                bg="background.body.primary"
+                label="Name"
+                mr={{ md: 2 }}
+                {...field}
+                isError={!!error}
+                errorMessages={error?.message}
+                onChange={handleChangeValue('name', onChange)}
+                data-testid="edit-field-name"
+              />
+            )}
+          />
+        </Flex>
+        <Flex mb={{ sm: 5 }}>
+          <Controller
+            control={control}
+            rules={AUTH_SCHEMA.AMOUNT}
+            name="amount"
+            render={({ field: { value, onChange }, fieldState: { error } }) => {
+              const handleChange = (
+                event: React.ChangeEvent<HTMLInputElement>,
+              ) => {
+                const value: string = event.target.value;
 
-              if (isNaN(+value.replaceAll(',', ''))) return;
+                // Remove non-numeric characters and leading zeros
+                const sanitizedValue = formatAmountNumber(value);
 
-              // Remove non-numeric characters and leading zeros
-              const sanitizedValue = formatAmountNumber(value);
+                onChange(sanitizedValue);
+              };
 
-              onChange(sanitizedValue);
-            };
-
-            return (
-              <FormControl isInvalid={!!error}>
-                <FormLabel
-                  color="text.secondary"
-                  marginInlineEnd={0}
-                  minW="max-content"
-                >
-                  Amount
-                </FormLabel>
-                <Input
-                  bg="background.body.primary"
-                  variant="authentication"
-                  type="text"
-                  placeholder="0.00"
-                  color="text.primary"
-                  fontSize="1xl"
-                  value={value}
-                  name="amount"
-                  onChange={handleChange}
-                  autoComplete="off"
-                  position="static"
-                  isInvalid={!!error}
-                  data-testid="field-amount"
-                />
-                {!!error && (
-                  <FormErrorMessage>{error?.message}</FormErrorMessage>
-                )}
-              </FormControl>
-            );
-          }}
-        />
+              return (
+                <FormControl isInvalid={!!error}>
+                  <FormLabel
+                    color="text.secondary"
+                    marginInlineEnd={0}
+                    minW="max-content"
+                  >
+                    Price
+                  </FormLabel>
+                  <Input
+                    bg="background.body.primary"
+                    variant="authentication"
+                    type="text"
+                    placeholder="0.00"
+                    color="text.primary"
+                    fontSize="1xl"
+                    value={formatDecimalNumber(value)}
+                    name="amount"
+                    onChange={handleChange}
+                    autoComplete="off"
+                    position="static"
+                    isInvalid={!!error}
+                    data-testid="field-amount"
+                  />
+                  {!!error && (
+                    <FormErrorMessage>{error?.message}</FormErrorMessage>
+                  )}
+                </FormControl>
+              );
+            }}
+          />
+        </Flex>
       </Flex>
-      <Flex mb={2}>
-        <Controller
-          control={control}
-          rules={AUTH_SCHEMA.QUANTITY}
-          name="stock"
-          render={({ field: { value, onChange }, fieldState: { error } }) => {
-            const handleChange = (
-              event: React.ChangeEvent<HTMLInputElement>,
-            ) => {
-              const value: string = event.target.value;
+      <Flex w={{ sm: '100%' }} flexDirection={{ base: 'column', md: 'row' }}>
+        <Flex mb={{ sm: 5 }}>
+          <Controller
+            control={control}
+            rules={AUTH_SCHEMA.QUANTITY}
+            name="stock"
+            render={({ field: { value, onChange }, fieldState: { error } }) => {
+              const handleChange = (
+                event: React.ChangeEvent<HTMLInputElement>,
+              ) => {
+                const value: string = event.target.value;
 
-              if (isNaN(+value.replaceAll(',', ''))) return;
+                // Remove non-numeric characters and leading zeros
+                const sanitizedValue = formatAmountNumber(value);
 
-              // Remove non-numeric characters and leading zeros
-              const sanitizedValue = formatAmountNumber(value);
+                onChange(sanitizedValue);
+              };
 
-              onChange(sanitizedValue);
-            };
-
-            return (
-              <FormControl isInvalid={!!error} mr={2}>
-                <FormLabel
-                  color="text.secondary"
-                  marginInlineEnd={0}
-                  minW="max-content"
-                >
-                  Quantity
-                </FormLabel>
-                <Input
-                  bg="background.body.primary"
-                  variant="authentication"
-                  type="text"
-                  placeholder="0"
-                  color="text.primary"
-                  fontSize="1xl"
-                  value={value}
-                  name="quantity"
-                  onChange={handleChange}
-                  autoComplete="off"
-                  position="static"
-                  isInvalid={!!error}
-                  data-testid="field-quantity"
-                />
-                {!!error && (
-                  <FormErrorMessage>{error?.message}</FormErrorMessage>
-                )}
-              </FormControl>
-            );
-          }}
-        />
-        <Controller
-          control={control}
-          name="description"
-          render={({ field, fieldState: { error } }) => (
-            <InputField
-              variant="authentication"
-              bg="background.body.primary"
-              label="Description"
-              {...field}
-              isError={!!error}
-              errorMessages={error?.message}
-              onChange={handleChangeValue('description', field.onChange)}
-            />
-          )}
-        />
+              return (
+                <FormControl isInvalid={!!error} mr={{ md: 2 }} mb={{ sm: 2 }}>
+                  <FormLabel
+                    color="text.secondary"
+                    marginInlineEnd={0}
+                    minW="max-content"
+                  >
+                    Quantity
+                  </FormLabel>
+                  <Input
+                    bg="background.body.primary"
+                    variant="authentication"
+                    type="text"
+                    placeholder="0"
+                    color="text.primary"
+                    fontSize="1xl"
+                    value={formatAmountNumber(value.toString())}
+                    name="quantity"
+                    onChange={handleChange}
+                    autoComplete="off"
+                    position="static"
+                    isInvalid={!!error}
+                    data-testid="field-quantity"
+                  />
+                  {!!error && (
+                    <FormErrorMessage>{error?.message}</FormErrorMessage>
+                  )}
+                </FormControl>
+              );
+            }}
+          />
+        </Flex>
+        <Flex mb={{ sm: 5 }}>
+          <Controller
+            control={control}
+            name="description"
+            render={({ field, fieldState: { error } }) => (
+              <InputField
+                variant="authentication"
+                bg="background.body.primary"
+                label="Description"
+                {...field}
+                isError={!!error}
+                errorMessages={error?.message}
+                onChange={handleChangeValue('description', field.onChange)}
+              />
+            )}
+          />
+        </Flex>
       </Flex>
 
       <Controller
@@ -276,13 +284,17 @@ const ProductForm = ({
         control={control}
         rules={AUTH_SCHEMA.GALLERY_THUMBNAIL}
         name="imageURLs"
-        render={({ field }) => (
-          <UploadProducts
-            label="Gallery Thumbnail"
-            images={data?.product.imageURLs}
-            onUploadError={handleShowErrorWhenUploadImage}
-            onChange={field.onChange}
-          />
+        render={({ field, fieldState: { error } }) => (
+          <FormControl isInvalid={!!error}>
+            <UploadProducts
+              label="Gallery Thumbnail"
+              images={data?.product.imageURLs}
+              onUploadError={handleShowErrorWhenUploadImage}
+              onChange={field.onChange}
+              isError={!!error}
+            />
+            {!!error && <FormErrorMessage>{error?.message}</FormErrorMessage>}
+          </FormControl>
         )}
       />
 

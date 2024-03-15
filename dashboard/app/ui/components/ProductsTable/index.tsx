@@ -252,12 +252,12 @@ const ProductsTableComponent = () => {
           gap="10px"
           minW={180}
           borderRadius="15px"
-          paddingLeft="20px"
+          paddingLeft={{ base: 30 }}
         >
           <Box
             pos="relative"
-            w={{ base: 50, '2xl': 100 }}
-            h={{ base: 50, '2xl': 100 }}
+            w={{ base: 50, lg: 100 }}
+            h={{ base: 50, lg: 100 }}
           >
             <Image
               src={`${imageURLs}`}
@@ -384,6 +384,7 @@ const ProductsTableComponent = () => {
     <Indicator isOpen={isCreateProduct || isDeleteProduct || isUpdateProduct}>
       <Flex flexDirection={{ base: 'column', lg: 'row' }}>
         <SearchBar
+          placeholder="Search by name"
           filterOptions={FILTER_PRODUCT}
           searchValue={get('name')?.toLowerCase() || ''}
           onSearch={handleDebounceSearch}

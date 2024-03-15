@@ -17,6 +17,7 @@ export type TSearchValue = {
 type TSearchProps = {
   searchValue: string;
   filterOptions: TOption[];
+  placeholder?: string;
   onSearch: (value: string) => void;
   onFilter?: (value: string) => void;
 };
@@ -24,6 +25,7 @@ type TSearchProps = {
 const SearchBarComponent = ({
   searchValue,
   filterOptions,
+  placeholder = 'Search by name, email, or other...',
   onSearch,
   onFilter,
 }: TSearchProps): JSX.Element => {
@@ -85,8 +87,7 @@ const SearchBarComponent = ({
                 onChange(value);
                 onSearch(value);
               }}
-              fontSize={{ base: 12, md: 14 }}
-              placeholder="Search by name, email, or other..."
+              placeholder={placeholder}
               variant="secondary"
               leftIcon={<Search2Icon />}
               rightIcon={value && <CloseIcon onClick={handleResetValue} />}
