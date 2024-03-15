@@ -85,6 +85,7 @@ const SearchBarComponent = ({
                 onChange(value);
                 onSearch(value);
               }}
+              fontSize={{ base: 12, md: 14 }}
               placeholder="Search by name, email, or other..."
               variant="secondary"
               leftIcon={<Search2Icon />}
