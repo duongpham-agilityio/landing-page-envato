@@ -257,7 +257,7 @@ const ProductsTableComponent = () => {
           <Box
             pos="relative"
             w={{ base: 50, '2xl': 100 }}
-            h={{ base: 100, '2xl': 100 }}
+            h={{ base: 50, '2xl': 100 }}
           >
             <Image
               src={`${imageURLs}`}
