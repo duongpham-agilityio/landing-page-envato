@@ -254,7 +254,11 @@ const ProductsTableComponent = () => {
           borderRadius="15px"
           paddingLeft="20px"
         >
-          <Box pos="relative" w={100} h={100}>
+          <Box
+            pos="relative"
+            w={{ base: 50, '2xl': 100 }}
+            h={{ base: 100, '2xl': 100 }}
+          >
             <Image
               src={`${imageURLs}`}
               alt={`Image of ${name}`}
