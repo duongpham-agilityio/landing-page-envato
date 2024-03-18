@@ -38,7 +38,7 @@ exports[`Product table Match with snapshot with default prop 1`] = `
               class="chakra-input css-1ybypo"
               data-testid="search-transaction"
               id="field-:r0:"
-              placeholder="Search by name, email, or other..."
+              placeholder="Search by name"
               type="text"
               value=""
             />
@@ -203,33 +203,6 @@ exports[`Product table Match with snapshot with default prop 1`] = `
                 >
                   Gallery Thumbnail
                 </p>
-                <button
-                  aria-label="This is the icon for Gallery Thumbnail"
-                  class="chakra-button css-1c8sy4r"
-                  data-testid="sort-icon"
-                  type="button"
-                >
-                  <svg
-                    fill="none"
-                    height="12"
-                    viewBox="0 0 14 12"
-                    width="14"
-                  >
-                    <path
-                      clip-rule="evenodd"
-                      d="M10.7749 0.558058C10.5309 0.313981 10.1351 0.313981 9.89107 0.558058L7.39107 3.05806C7.14699 3.30214 7.14699 3.69786 7.39107 3.94194C7.63514 4.18602 8.03087 4.18602 8.27495 3.94194L9.70801 2.50888V11C9.70801 11.3452 9.98783 11.625 10.333 11.625C10.6782 11.625 10.958 11.3452 10.958 11V2.50888L12.3911 3.94194C12.6351 4.18602 13.0309 4.18602 13.2749 3.94194C13.519 3.69786 13.519 3.30214 13.2749 3.05806L10.7749 0.558058Z"
-                      fill="#969BA0"
-                      fill-rule="evenodd"
-                    />
-                    <path
-                      clip-rule="evenodd"
-                      d="M3.22407 11.4419C3.46815 11.686 3.86388 11.686 4.10796 11.4419L6.60796 8.94194C6.85203 8.69786 6.85203 8.30214 6.60796 8.05806C6.36388 7.81398 5.96815 7.81398 5.72407 8.05806L4.29102 9.49112L4.29101 1C4.29101 0.654823 4.01119 0.375001 3.66602 0.375001C3.32084 0.375001 3.04102 0.654823 3.04102 1L3.04102 9.49112L1.60796 8.05806C1.36388 7.81398 0.968151 7.81398 0.724074 8.05806C0.479996 8.30214 0.479996 8.69786 0.724074 8.94194L3.22407 11.4419Z"
-                      fill="#969BA0"
-                      fill-rule="evenodd"
-                      opacity="1"
-                    />
-                  </svg>
-                </button>
               </div>
             </th>
             <th
@@ -425,10 +398,10 @@ exports[`Product table Match with snapshot with default prop 1`] = `
               class="css-ecqwn"
             >
               <div
-                class="css-jg952l"
+                class="css-1ihki7p"
               >
                 <div
-                  class="css-135qrun"
+                  class="css-1gb8e9t"
                 >
                   <img
                     alt="Image of Ban phim"
@@ -449,7 +422,7 @@ exports[`Product table Match with snapshot with default prop 1`] = `
               <p
                 class="chakra-text css-55jbf7"
               >
-                USD100.00
+                $100.00
               </p>
             </td>
             <td
@@ -602,10 +575,10 @@ exports[`Product table Match with snapshot with default prop 1`] = `
               class="css-ecqwn"
             >
               <div
-                class="css-jg952l"
+                class="css-1ihki7p"
               >
                 <div
-                  class="css-135qrun"
+                  class="css-1gb8e9t"
                 >
                   <img
                     alt="Image of Tay cam xbox"
@@ -626,7 +599,7 @@ exports[`Product table Match with snapshot with default prop 1`] = `
               <p
                 class="chakra-text css-55jbf7"
               >
-                USD123.00
+                $123.00
               </p>
             </td>
             <td
@@ -779,10 +752,10 @@ exports[`Product table Match with snapshot with default prop 1`] = `
               class="css-ecqwn"
             >
               <div
-                class="css-jg952l"
+                class="css-1ihki7p"
               >
                 <div
-                  class="css-135qrun"
+                  class="css-1gb8e9t"
                 >
                   <img
                     alt="Image of Tay cam 3"
@@ -803,7 +776,7 @@ exports[`Product table Match with snapshot with default prop 1`] = `
               <p
                 class="chakra-text css-55jbf7"
               >
-                USD111.00
+                $111.00
               </p>
             </td>
             <td
@@ -956,10 +929,10 @@ exports[`Product table Match with snapshot with default prop 1`] = `
               class="css-ecqwn"
             >
               <div
-                class="css-jg952l"
+                class="css-1ihki7p"
               >
                 <div
-                  class="css-135qrun"
+                  class="css-1gb8e9t"
                 >
                   <img
                     alt="Image of Envato Market"
@@ -980,7 +953,7 @@ exports[`Product table Match with snapshot with default prop 1`] = `
               <p
                 class="chakra-text css-55jbf7"
               >
-                USD1,111.00
+                $111.00
               </p>
             </td>
             <td
@@ -1133,10 +1106,10 @@ exports[`Product table Match with snapshot with default prop 1`] = `
               class="css-ecqwn"
             >
               <div
-                class="css-jg952l"
+                class="css-1ihki7p"
               >
                 <div
-                  class="css-135qrun"
+                  class="css-1gb8e9t"
                 >
                   <img
                     alt="Image of Tay cam 2"
@@ -1157,7 +1130,7 @@ exports[`Product table Match with snapshot with default prop 1`] = `
               <p
                 class="chakra-text css-55jbf7"
               >
-                USD1,111.00
+                $1,111.00
               </p>
             </td>
             <td
@@ -1412,7 +1385,7 @@ exports[`Product table Match with snapshot with default prop 1`] = `
         </div>
       </div>
       <div
-        class="css-gg4vpm"
+        class="css-69i1ev"
       >
         <button
           aria-label="btn-prev"

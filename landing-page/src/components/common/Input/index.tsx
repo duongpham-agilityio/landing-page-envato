@@ -52,7 +52,7 @@ const Input = (
   );
 
   const errorStyle: string = isError ? 'focus:shadow-red-300' : '';
-  const style: string = `px-10 w-full h-full text-sm focus:shadow-sm ${errorStyle} outline-none transition-shadow  ${VARIANTS[variant]} ${className}`;
+  const style: string = `px-10 w-full h-full text-sm focus:shadow-sm ${errorStyle} outline-none transition-shadow ${VARIANTS[variant]} ${className}`;
   const errorMsgStyles: string =
     'text-red-600 text-sm min-h-2 min-w-6 absolute top-15 left-0';
 

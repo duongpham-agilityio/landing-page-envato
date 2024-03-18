@@ -47,7 +47,7 @@ exports[`ProductSection render Should render match with snapshot. 1`] = `
                     class="chakra-input css-1ybypo"
                     data-testid="search-transaction"
                     id="field-:r0:"
-                    placeholder="Search by name, email, or other..."
+                    placeholder="Search by name"
                     type="text"
                     value=""
                   />

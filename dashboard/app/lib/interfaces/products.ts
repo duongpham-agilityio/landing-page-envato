@@ -22,7 +22,7 @@ export interface TProductRequest {
   description?: string;
   currency?: string;
   createdAt?: string;
-  imageURLs: string[];
+  imageURLs?: string[];
 }
 
 export interface TProductResponse extends TProduct {

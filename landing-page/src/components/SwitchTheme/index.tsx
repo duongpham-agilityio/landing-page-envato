@@ -5,8 +5,7 @@ import { useContext, useMemo, useCallback } from 'react';
 import { THEMES } from '../../../../dashboard/app/lib/constants/themes';
 
 // Components
-import DarkIcon from '@app/components/icons/Dark/index.tsx';
-import LightIcon from '@app/components/icons/Light/index.tsx';
+import { SunIcon, MoonIcon } from '@app/components/icons';
 import Button from '@app/components/Button/index';
 import { ThemeContext } from '@app/context/ThemeContext';
 
@@ -17,7 +16,7 @@ const SwitchTheme = () => {
   const isDarkTheme = useMemo(() => theme === THEMES.DARK, [theme]);
 
   // UseMemo is used to prevent unnecessary re-renders
-  const icon = useMemo(() => !isDarkTheme ? <DarkIcon /> : <LightIcon />, [isDarkTheme]);
+  const icon = useMemo(() => !isDarkTheme ? <SunIcon /> : <MoonIcon />, [isDarkTheme]);
 
   // Handle theme change when clicked 
   const handleChange = useCallback(() => setTheme(isDarkTheme ? THEMES.LIGHT : THEMES.DARK), [setTheme, isDarkTheme]);

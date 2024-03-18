@@ -139,7 +139,7 @@ const ProductInfo = ({
             className={`w-full sm:w-[280px] md:w-[310px] nearLg:w-full lg:w-[310px] dark:text-primary ${
               isOutStock && 'bg-slate-200'
             } ${
-              isSubmit ? '!bg-gray-400' : 'hover:text-white hover:bg-secondary'
+              isSubmit ? '!bg-gray-400' : 'hover:text-white hover:bg-secondary dark:hover:bg-sun'
             }`}
             disabled={isOutStock || isSubmit}
           >

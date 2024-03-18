@@ -13,7 +13,7 @@ interface AppProps {
 }
 
 const ThemeContext = createContext<ThemeContextType>({
-  theme: THEMES.DARK,
+  theme: THEMES.LIGHT,
 } as ThemeContextType);
 
 const ThemeProvider = ({ children }: AppProps) => {

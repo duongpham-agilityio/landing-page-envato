@@ -1,9 +1,9 @@
-type TLightIconProps = {
+type TMoonIconProps = {
   className?: string;
   id?: string;
 };
 
-export const LightIcon = ({ className = '', id = '' }: TLightIconProps) => (
+export const MoonIcon = ({ className = '', id = '' }: TMoonIconProps) => (
   <svg
     id={id}
     className={className}
@@ -22,4 +22,4 @@ export const LightIcon = ({ className = '', id = '' }: TLightIconProps) => (
   </svg>
 );
 
-export default LightIcon;
+export default MoonIcon;

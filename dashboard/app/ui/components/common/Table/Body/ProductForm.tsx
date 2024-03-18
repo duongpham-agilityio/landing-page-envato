@@ -67,7 +67,6 @@ const ProductForm = ({
     },
   });
   const userId = authStore((state) => state.user?.id);
-
   const disabled = useMemo(
     () => !isDirty || status === STATUS_SUBMIT.PENDING,
     [isDirty],
@@ -90,7 +89,6 @@ const ProductForm = ({
         amount: parseFormattedNumber(data.amount).toString(),
         userId,
       };
-
       data._id
         ? onUpdateProduct && onUpdateProduct(requestData)
         : onCreateProduct && onCreateProduct(requestData);
@@ -284,10 +282,9 @@ const ProductForm = ({
 
       <Controller
         control={control}
-        rules={AUTH_SCHEMA.GALLERY_THUMBNAIL}
         name="imageURLs"
         render={({ field, fieldState: { error } }) => (
-          <FormControl isInvalid={!!error}>
+          <FormControl>
             <UploadProducts
               label="Gallery Thumbnail"
               images={data?.product.imageURLs}
@@ -295,7 +292,6 @@ const ProductForm = ({
               onChange={field.onChange}
               isError={!!error}
             />
-            {!!error && <FormErrorMessage>{error?.message}</FormErrorMessage>}
           </FormControl>
         )}
       />

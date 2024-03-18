@@ -2,14 +2,11 @@
 import { InView } from 'react-intersection-observer';
 import { Box, Flex, Grid, GridItem } from '@chakra-ui/react';
 import dynamic from 'next/dynamic';
-import lazy from 'next/dynamic';
 
 // dynamic loading components
 const ProductsTable = dynamic(() => import('@/ui/components/ProductsTable'));
-
-// lazy loading components
-const CardPayment = lazy(() => import('@/ui/components/CardPayment'));
-const BoxChat = lazy(() => import('@/ui/components/BoxChat'));
+const CardPayment = dynamic(() => import('@/ui/components/CardPayment'));
+const BoxChat = dynamic(() => import('@/ui/components/BoxChat'));
 
 const ProductsSection = () => (
   <Grid

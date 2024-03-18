@@ -46,6 +46,7 @@ import {
   ERROR_MESSAGES,
   FILTER_PRODUCT,
   PRODUCT_STATUS,
+  IMAGES,
 } from '@/lib/constants';
 
 // Types
@@ -260,7 +261,7 @@ const ProductsTableComponent = () => {
             h={{ base: 50, lg: 100 }}
           >
             <Image
-              src={`${imageURLs}`}
+              src={`${imageURLs}` || IMAGES.CASHBACK.url}
               alt={`Image of ${name}`}
               fill
               sizes="100vw"

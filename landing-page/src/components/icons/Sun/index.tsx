@@ -1,9 +1,9 @@
-type TDarkIconProps = {
+type TSunIconProps = {
   className?: string;
   id?: string;
 };
 
-export const DarkIcon = ({ className = '', id = '' }: TDarkIconProps): JSX.Element => (
+export const SunIcon = ({ className = '', id = '' }: TSunIconProps): JSX.Element => (
   <svg
     id={id}
     className={className}
@@ -40,4 +40,4 @@ export const DarkIcon = ({ className = '', id = '' }: TDarkIconProps): JSX.Eleme
   </svg>
 );
 
-export default DarkIcon;
+export default SunIcon;

@@ -45,19 +45,19 @@ const Subscribe = (): JSX.Element => {
         </p>
       </div>
       <div className='flex-1'>
-        <form className='w-full flex mt-3xl lg:mt-0' onSubmit={handleSubmit}>
-          <div className='flex-1 '>
+        <form className='w-full mt-3xl lg:mt-0 md:flex' onSubmit={handleSubmit}>
+          <div className='md:flex-1'>
             <Input
               ref={refInput}
               placeholder='Your E-mail'
               size='md'
               variant='secondary'
-              className='font-normal outline-none focus:shadow-none'
+              className='font-normal outline-none focus:shadow-none dark:text-sparingly'
             />
           </div>
           <Button
             type='submit'
-            className='text-sm px-[31px] text-primary !py-0 hover:text-white w-[130px]'
+            className='text-sm px-[31px] text-primary !py-4 hover:text-white w-full mt-3 md:!py-0 md:mt-0 md:w-[130px]'
           >
             Subscribe
           </Button>

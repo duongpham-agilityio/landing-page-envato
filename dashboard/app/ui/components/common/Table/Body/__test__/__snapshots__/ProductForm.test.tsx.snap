@@ -7,103 +7,119 @@ exports[`Product Modal match to snapshot 1`] = `
     id="update-product-form"
   >
     <div
-      class="css-1jqq95v"
+      class="css-simwej"
     >
       <div
-        class="chakra-form-control css-0"
-        role="group"
+        class="css-dzz5xx"
       >
-        <label
-          class="chakra-form__label css-1ebhc9e"
-          for="field-:r0:"
-          id="field-:r0:-label"
-        >
-          Name
-        </label>
         <div
-          class="chakra-input__group css-169ufh8"
-          data-group="true"
+          class="chakra-form-control css-0"
+          role="group"
         >
+          <label
+            class="chakra-form__label css-1ebhc9e"
+            for="field-:r0:"
+            id="field-:r0:-label"
+          >
+            Name
+          </label>
+          <div
+            class="chakra-input__group css-169ufh8"
+            data-group="true"
+          >
+            <input
+              class="chakra-input css-12ku0zj"
+              data-testid="edit-field-name"
+              id="field-:r0:"
+              name="name"
+              type="text"
+              value=""
+            />
+          </div>
+        </div>
+      </div>
+      <div
+        class="css-dzz5xx"
+      >
+        <div
+          class="chakra-form-control css-0"
+          role="group"
+        >
+          <label
+            class="chakra-form__label css-1ebhc9e"
+            for="field-:r1:"
+            id="field-:r1:-label"
+          >
+            Price
+          </label>
           <input
-            class="chakra-input css-hrsdoh"
-            data-testid="edit-field-name"
-            id="field-:r0:"
-            name="name"
+            autocomplete="off"
+            class="chakra-input css-1iok8jb"
+            data-testid="field-amount"
+            id="field-:r1:"
+            name="amount"
+            placeholder="0.00"
+            type="text"
+            value=""
+          />
+        </div>
+      </div>
+    </div>
+    <div
+      class="css-simwej"
+    >
+      <div
+        class="css-dzz5xx"
+      >
+        <div
+          class="chakra-form-control css-1vhmbn2"
+          role="group"
+        >
+          <label
+            class="chakra-form__label css-1ebhc9e"
+            for="field-:r2:"
+            id="field-:r2:-label"
+          >
+            Quantity
+          </label>
+          <input
+            autocomplete="off"
+            class="chakra-input css-1iok8jb"
+            data-testid="field-quantity"
+            id="field-:r2:"
+            name="quantity"
+            placeholder="0"
             type="text"
             value=""
           />
         </div>
       </div>
       <div
-        class="chakra-form-control css-0"
-        role="group"
+        class="css-dzz5xx"
       >
-        <label
-          class="chakra-form__label css-1ebhc9e"
-          for="field-:r1:"
-          id="field-:r1:-label"
-        >
-          Amount
-        </label>
-        <input
-          autocomplete="off"
-          class="chakra-input css-1iok8jb"
-          data-testid="field-amount"
-          id="field-:r1:"
-          name="amount"
-          placeholder="0.00"
-          type="text"
-          value=""
-        />
-      </div>
-    </div>
-    <div
-      class="css-1jqq95v"
-    >
-      <div
-        class="chakra-form-control css-1qkvt8e"
-        role="group"
-      >
-        <label
-          class="chakra-form__label css-1ebhc9e"
-          for="field-:r2:"
-          id="field-:r2:-label"
-        >
-          Quantity
-        </label>
-        <input
-          autocomplete="off"
-          class="chakra-input css-1iok8jb"
-          data-testid="field-quantity"
-          id="field-:r2:"
-          name="quantity"
-          placeholder="0"
-          type="text"
-          value=""
-        />
-      </div>
-      <div
-        class="chakra-form-control css-0"
-        role="group"
-      >
-        <label
-          class="chakra-form__label css-1ebhc9e"
-          for="field-:r3:"
-          id="field-:r3:-label"
-        >
-          Description
-        </label>
         <div
-          class="chakra-input__group css-169ufh8"
-          data-group="true"
+          class="chakra-form-control css-0"
+          role="group"
         >
-          <input
-            class="chakra-input css-1ua7efh"
-            id="field-:r3:"
-            name="description"
-            type="text"
-            value=""
-          />
+          <label
+            class="chakra-form__label css-1ebhc9e"
+            for="field-:r3:"
+            id="field-:r3:-label"
+          >
+            Description
+          </label>
+          <div
+            class="chakra-input__group css-169ufh8"
+            data-group="true"
+          >
+            <input
+              class="chakra-input css-1ua7efh"
+              id="field-:r3:"
+              name="description"
+              type="text"
+              value=""
+            />
+          </div>
         </div>
       </div>
     </div>
@@ -128,47 +144,8 @@ exports[`Product Modal match to snapshot 1`] = `
           id="field-:r4:"
           name="currency"
           type="text"
-          value="USD"
+          value="$"
         />
-      </div>
-    </div>
-    <div
-      class="css-hk64jw"
-    >
-      <label
-        class="chakra-form__label css-30jpi7"
-        for="file"
-      >
-        Gallery Thumbnail
-        <div
-          class="css-1tak1x5"
-        >
-          <div
-            class="css-9ivr70"
-          />
-          <div
-            class="css-guqklo"
-          />
-        </div>
-      </label>
-      <div
-        class="css-befzna"
-        role="presentation"
-        tabindex="0"
-      >
-        <input
-          class="chakra-input css-0"
-          data-testid="field-image"
-          multiple=""
-          style="display: none;"
-          tabindex="-1"
-          type="file"
-        />
-        <p
-          class="chakra-text css-0"
-        >
-          Drag drop some files here, or click to select files
-        </p>
       </div>
     </div>
     <div

@@ -22,6 +22,11 @@ jest.mock('@/lib/hooks', () => ({
   useProducts: jest.fn(),
 }));
 
+jest.mock('@chakra-ui/react', () => ({
+  ...jest.requireActual('@chakra-ui/react'),
+  useToast: () => jest.fn(),
+}));
+
 jest.mock('axios');
 
 const resetMock = jest.fn();
@@ -34,13 +39,14 @@ const SORT_ICON = 'sort-icon';
 const SEARCH_PRODUCT = 'search-transaction';
 const DOT_ICON = 'dot-icon';
 const DEL_ICON = 'del-icon';
+const EDIT_ICON = 'edit-icon';
 const ACCEPT_BUTTON = 'accept-del';
-// const BUTTON_ADD = 'button-add';
-// const FIELD_NAME = 'edit-field-name';
-// const FIELD_AMOUNT = 'field-amount';
-// const FIELD_QUANTITY = 'field-quantity';
+const BUTTON_ADD = 'button-add';
+const FIELD_NAME = 'edit-field-name';
+const FIELD_AMOUNT = 'field-amount';
+const FIELD_QUANTITY = 'field-quantity';
 // const FIELD_IMAGE = 'field-image';
-// const SUBMIT = 'submit-product-form';
+const SUBMIT = 'submit-product-form';
 
 const setup = () =>
   render(<ProductsTable />, {
@@ -168,40 +174,78 @@ describe('Product table', () => {
   });
 
   // TODO: Will check and update later
-  // it('Create product success', async () => {
-  //   jest.spyOn(axios, 'post').mockResolvedValue([]);
-  //   const { getAllByTestId, getByTestId } = setup();
-  //   const buttonAddProduct = getAllByTestId(BUTTON_ADD);
+  it('Create product success', async () => {
+    jest.spyOn(axios, 'post').mockResolvedValue([]);
+    const { getAllByTestId, getByTestId } = setup();
+    const buttonAddProduct = getAllByTestId(BUTTON_ADD);
 
-  //   await act(async () => fireEvent.click(buttonAddProduct[0]));
+    await act(async () => fireEvent.click(buttonAddProduct[0]));
 
-  //   const inputFieldName = getByTestId(FIELD_NAME);
+    const inputFieldName = getByTestId(FIELD_NAME);
 
-  //   await fireEvent.change(inputFieldName, { target: { value: 'tivi' } });
+    await fireEvent.change(inputFieldName, { target: { value: 'tivi' } });
 
-  //   const inputFieldAmount = getByTestId(FIELD_AMOUNT);
+    const inputFieldAmount = getByTestId(FIELD_AMOUNT);
 
-  //   await fireEvent.change(inputFieldAmount, { target: { value: '123' } });
+    await fireEvent.change(inputFieldAmount, { target: { value: '123' } });
 
-  //   const inputFieldQuantity = getByTestId(FIELD_QUANTITY);
+    const inputFieldQuantity = getByTestId(FIELD_QUANTITY);
 
-  //   await fireEvent.change(inputFieldQuantity, { target: { value: 123 } });
+    await fireEvent.change(inputFieldQuantity, { target: { value: '123' } });
 
-  //   const inputFieldImage = getByTestId(FIELD_IMAGE);
+    // const inputFieldImage = getByTestId(FIELD_IMAGE);
 
-  //   const file = new File(['Image content'], 'image.jpg', {
-  //     type: 'image/jpeg',
-  //   });
-  //   Object.defineProperty(inputFieldImage, 'files', {
-  //     value: [file],
-  //   });
+    // const file = new File(['Image content'], 'image.jpg', {
+    //   type: 'image/jpeg',
+    // });
+    // Object.defineProperty(inputFieldImage, 'files', {
+    //   value: [file],
+    // });
 
-  //   await fireEvent.change(inputFieldImage);
+    // await fireEvent.change(inputFieldImage);
 
-  //   await waitFor(async () => fireEvent.click(getByTestId(SUBMIT)));
+    await waitFor(async () => fireEvent.click(getByTestId(SUBMIT)));
 
-  //   await waitFor(async () => {
-  //     expect(createProductMock).toHaveBeenCalled();
-  //   });
-  // });
+    await waitFor(async () => {
+      expect(createProductMock).toHaveBeenCalled();
+    });
+  });
+
+  it('Update product success', async () => {
+    jest.spyOn(axios, 'post').mockResolvedValue([]);
+    const { getAllByTestId, getByTestId } = setup();
+    const dotIcons = getAllByTestId(DOT_ICON);
+
+    await act(async () => fireEvent.click(dotIcons[0]));
+
+    const editIcon = getAllByTestId(EDIT_ICON)[0];
+
+    await waitFor(async () => fireEvent.click(editIcon));
+
+    const inputFieldName = getByTestId(FIELD_NAME);
+
+    await fireEvent.change(inputFieldName, { target: { value: 'Tivi123' } });
+
+    await waitFor(async () => fireEvent.click(getByTestId(SUBMIT)));
+
+    await waitFor(async () => {
+      expect(updateProductMock).toHaveBeenCalledWith(
+        {
+          productId: '65f174cd481c27ff30bc7886',
+          name: 'Tivi123',
+          amount: '100',
+          stock: '1',
+          createdAt: '2024-03-13T09:41:33.811Z',
+          currency: '$',
+          description: 'ban phim',
+          imageURLs: undefined,
+          userId: undefined,
+        },
+        expect.objectContaining({
+          onSuccess: expect.any(Function),
+          onError: expect.any(Function),
+        }),
+      );
+    });
+  });
 });
