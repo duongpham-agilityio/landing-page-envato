@@ -104,7 +104,7 @@ const Cart = ({ data }: TCartProps): JSX.Element => {
         Shopping Cart
       </h2>
       <section className='nearLg:grid nearLg:grid-cols-12 nearLg:gap-[30px]'>
-        <div className='col-span-12 nearLg:col-span-8 h-[500px]'>
+        <div className='col-span-12 nearLg:col-span-8'>
           <ProductTable
             products={cart}
             onChangeQuantity={handleChangeQuantity}

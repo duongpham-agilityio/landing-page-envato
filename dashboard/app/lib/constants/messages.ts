@@ -44,6 +44,10 @@ export const ERROR_MESSAGES = {
     title: 'Update failed',
     description: 'Your transaction has not been updated successfully',
   },
+  UPDATE_PRODUCT_FAIL: {
+    title: 'Update failed',
+    description: 'Your product has not been updated successfully',
+  },
   UPDATE_PASSWORD_FAIL: 'Old password is not correct',
   DELETE_NOTIFICATION: {
     title: 'Delete failed',
@@ -106,9 +110,17 @@ export const SUCCESS_MESSAGES = {
     title: 'Delete success',
     description: 'Transactions has been delete successfully',
   },
+  DELETE_PRODUCT_SUCCESS: {
+    title: 'Delete success',
+    description: 'Products has been delete successfully',
+  },
   UPDATE_TRANSACTION_SUCCESS: {
     title: 'Update success',
     description: 'Your transaction has been updated successfully',
+  },
+  UPDATE_PRODUCT_SUCCESS: {
+    title: 'Update success',
+    description: 'Your product has been updated successfully',
   },
   DELETE_NOTIFICATION_SUCCESS: {
     title: 'Delete success',

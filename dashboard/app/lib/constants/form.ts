@@ -133,7 +133,7 @@ export const AUTH_SCHEMA = {
       if (Number(value) <= 0) {
         return ERROR_MESSAGES.AMOUNT_INVALID;
       }
-      if (!value.match(REGEX.LIMIT_NUMBER)) {
+      if (!REGEX.LIMIT_NUMBER.test(value)) {
         return ERROR_MESSAGES.LIMIT_AMOUNT;
       }
 
@@ -147,7 +147,7 @@ export const AUTH_SCHEMA = {
       if (Number(value) < 0) {
         return ERROR_MESSAGES.QUANTITY_INVALID;
       }
-      if (!value.match(REGEX.LIMIT_NUMBER)) {
+      if (!REGEX.LIMIT_NUMBER.test(value)) {
         return ERROR_MESSAGES.LIMIT_QUANTITY;
       }
 

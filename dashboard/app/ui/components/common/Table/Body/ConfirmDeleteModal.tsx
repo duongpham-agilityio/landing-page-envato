@@ -17,9 +17,9 @@ const ConfirmDeleteModal = ({
   onCloseModal,
 }: ProductProps) => (
   <Box>
-    <Text fontSize="md">
+    <Text fontSize="md" w={{ base: 364 }} noOfLines={2}>
       Are you sure delete the product:
-      <Text as="span" pl={1} color="red.500" fontWeight="bold">
+      <Text as="span" pl={1} color="red.500" fontWeight="bold" maxW={120}>
         {productName}
       </Text>
       ?

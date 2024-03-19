@@ -1,0 +1,23 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Loading component Match with snapshot 1`] = `
+<div>
+  <div
+    class="css-1l4w6pd"
+  >
+    <div
+      class="chakra-spinner css-nkpswe"
+    >
+      <span
+        class="css-8b45rq"
+      >
+        Loading...
+      </span>
+    </div>
+  </div>
+  <span
+    hidden=""
+    id="__chakra_env"
+  />
+</div>
+`;

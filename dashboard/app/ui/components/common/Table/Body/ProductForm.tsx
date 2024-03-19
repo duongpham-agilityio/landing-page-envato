@@ -15,7 +15,7 @@ import {
   useToast,
 } from '@chakra-ui/react';
 import InputField from '@/ui/components/common/InputField';
-import { UploadProducts } from '@/ui/components';
+import { UploadImages } from '@/ui/components';
 
 // Interfaces
 import { TProductRequest, TProductResponse } from '@/lib/interfaces';
@@ -285,7 +285,7 @@ const ProductForm = ({
         name="imageURLs"
         render={({ field, fieldState: { error } }) => (
           <FormControl>
-            <UploadProducts
+            <UploadImages
               label="Gallery Thumbnail"
               images={data?.product.imageURLs}
               onUploadError={handleShowErrorWhenUploadImage}

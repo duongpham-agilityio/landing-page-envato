@@ -27,7 +27,7 @@ const ProductTable = ({
 }: TProductTableProps): JSX.Element => {
   // Styles CSS
   const stylesRowTable =
-    'grid grid-cols-4 text-left bg-desertStorm [&>*:nth-child(n)]:text-[12px] [&>*:nth-child(n)]:text-primary [&>*:nth-child(n)]:font-semibold p-3';
+    'grid grid-cols-4 text-left bg-desertStorm [&>*:nth-child(n)]:text-[14px] [&>*:nth-child(n)]:text-primary [&>*:nth-child(n)]:font-semibold p-3 lg:[&>*:nth-child(n)]:text-lg';
 
   return (
     <table className='w-full'>
@@ -63,10 +63,10 @@ const ProductTable = ({
                   />
                 </td>
                 <td>
-                  <p className='text-xs md:text-md lg:text-lg'>{name}</p>
+                  <p className='text-sm md:text-md lg:text-lg'>{name}</p>
                 </td>
                 <td>
-                  <p className='text-sm sm:text-md'>
+                  <p className='text-sm sm:text-md lg:text-base'>
                     {currency}
                     {formatDecimalNumber(amount)}
                   </p>

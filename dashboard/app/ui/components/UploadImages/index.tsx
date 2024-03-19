@@ -11,13 +11,16 @@ import {
   Flex,
 } from '@chakra-ui/react';
 
+// Components
+import { Loading } from '..';
+
 // Constants
 import { IMAGES } from '@/lib/constants';
 
 // Services
 import { useImageUploader } from '@/lib/hooks';
 
-export type TUploadImageProductsProps = {
+export type TUploadImageImagesProps = {
   label: string;
   isError?: boolean;
   images?: string[];
@@ -25,13 +28,13 @@ export type TUploadImageProductsProps = {
   onChange: (value: string[]) => void;
 };
 
-const UploadProductsComponent = ({
+const UploadImagesComponent = ({
   label,
   images = [],
   isError = false,
   onChange,
   onUploadError,
-}: TUploadImageProductsProps) => {
+}: TUploadImageImagesProps) => {
   const [previewURL, setPreviewURL] = useState<string[]>(images);
   const { onDrop } = useImageUploader({
     onChange,
@@ -39,7 +42,9 @@ const UploadProductsComponent = ({
     setPreviewURL,
   });
 
-  const { getRootProps, getInputProps } = useDropzone({ onDrop });
+  const { getRootProps, getInputProps, isFileDialogActive } = useDropzone({
+    onDrop,
+  });
 
   return (
     <Flex w="100%" flexDirection="column">
@@ -52,6 +57,7 @@ const UploadProductsComponent = ({
       >
         {label}
         <Flex mt="20px" flexDirection="column" alignItems="center" gap={3}>
+          {isFileDialogActive && <Loading />}
           <Flex
             alignItems="center"
             justify="center"
@@ -113,6 +119,6 @@ const UploadProductsComponent = ({
   );
 };
 
-const UploadProducts = memo(UploadProductsComponent);
+const UploadImages = memo(UploadImagesComponent);
 
-export default UploadProducts;
+export default UploadImages;

@@ -1,0 +1,49 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Upload Product Match snapshot with default props 1`] = `
+<div>
+  <div
+    class="css-hk64jw"
+  >
+    <label
+      class="chakra-form__label css-2u5lb9"
+      for="file"
+    >
+      Upload Images
+      <div
+        class="css-unhozd"
+      >
+        <div
+          class="css-vqdf2v"
+        />
+        <div
+          class="css-193m7l6"
+        />
+      </div>
+    </label>
+    <div
+      class="css-oeoy58"
+      role="presentation"
+      tabindex="0"
+    >
+      <input
+        class="chakra-input css-fmf4uc"
+        data-testid="field-image"
+        multiple=""
+        style="display: none;"
+        tabindex="-1"
+        type="file"
+      />
+      <p
+        class="chakra-text css-16h4vrm"
+      >
+        Drag drop some files here, or click to select files
+      </p>
+    </div>
+  </div>
+  <span
+    hidden=""
+    id="__chakra_env"
+  />
+</div>
+`;

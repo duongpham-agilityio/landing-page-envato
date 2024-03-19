@@ -156,8 +156,8 @@ const ProductsTableComponent = () => {
           onSuccess: () => {
             toast(
               customToast(
-                SUCCESS_MESSAGES.DELETE_SUCCESS.title,
-                SUCCESS_MESSAGES.DELETE_SUCCESS.description,
+                SUCCESS_MESSAGES.DELETE_PRODUCT_SUCCESS.title,
+                SUCCESS_MESSAGES.DELETE_PRODUCT_SUCCESS.description,
                 STATUS.SUCCESS,
               ),
             );
@@ -195,8 +195,8 @@ const ProductsTableComponent = () => {
           onSuccess: () => {
             toast(
               customToast(
-                SUCCESS_MESSAGES.UPDATE_TRANSACTION_SUCCESS.title,
-                SUCCESS_MESSAGES.UPDATE_TRANSACTION_SUCCESS.description,
+                SUCCESS_MESSAGES.UPDATE_PRODUCT_SUCCESS.title,
+                SUCCESS_MESSAGES.UPDATE_PRODUCT_SUCCESS.description,
                 STATUS.SUCCESS,
               ),
             );
@@ -204,8 +204,8 @@ const ProductsTableComponent = () => {
           onError: () => {
             toast(
               customToast(
-                ERROR_MESSAGES.UPDATE_TRANSACTION_FAIL.title,
-                ERROR_MESSAGES.UPDATE_TRANSACTION_FAIL.description,
+                ERROR_MESSAGES.UPDATE_PRODUCT_FAIL.title,
+                ERROR_MESSAGES.UPDATE_PRODUCT_FAIL.description,
                 STATUS.ERROR,
               ),
             );
@@ -261,7 +261,7 @@ const ProductsTableComponent = () => {
             h={{ base: 50, lg: 100 }}
           >
             <Image
-              src={`${imageURLs}` || IMAGES.SIGN_UP.url}
+              src={imageURLs?.toString() || IMAGES.SIGN_UP.url}
               alt={`Image of ${name}`}
               fill
               sizes="100vw"
@@ -396,7 +396,7 @@ const ProductsTableComponent = () => {
           role="button"
           aria-label="Add User"
           colorScheme="primary"
-          bg="primary.300"
+          bg="primary.500"
           textTransform="capitalize"
           onClick={handleToggleModal}
           marginLeft={{ base: 'initial', lg: '20px' }}

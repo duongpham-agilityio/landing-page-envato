@@ -34,7 +34,7 @@ const Toast = ({
     if (isOpen && !isOpenToast) {
       setIsOpenToast(isOpen);
     }
-  }, [isOpen, isOpenToast]);
+  }, [isOpen]);
 
   useEffect(() => {
     if (isOpenToast) {
@@ -46,7 +46,7 @@ const Toast = ({
     };
   }, [handleCloseToast, isOpenToast]);
 
-  return isOpen ? (
+  return isOpenToast && isOpen ? (
     <section
       className={`${getStyles(toast.baseStyle)} ${getStyles(
         toast.variants[type],

@@ -20,7 +20,8 @@ const Carousel = ({ images }: TCarouselProps): JSX.Element => {
   const renderCarouselItem = useCallback(
     () =>
       images.map((image) => (
-        <Image
+        <a key={image} href={image} aria-label='Product Detail'>
+          <Image
           alt='This is product name'
           src={image}
           key={image}
@@ -29,6 +30,7 @@ const Carousel = ({ images }: TCarouselProps): JSX.Element => {
           height={250}
           className='thumb-image'
         />
+        </a>
       )),
     [images],
   );
