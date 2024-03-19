@@ -22,7 +22,9 @@ export const ERROR_MESSAGES = {
   LINKEDIN_INVALID: 'Linkedin link is invalid',
   YOUTUBE_INVALID: 'Youtube link is invalid',
   ZIP_CODE_INVALID: 'Zip code must contain 5 numbers',
-  AMOUNT_INVALID: 'Amount is invalid',
+  AMOUNT_INVALID: 'Price is invalid',
+  LIMIT_AMOUNT: 'Price cannot exceed 1 million dollars',
+  LIMIT_QUANTITY: 'Quantity must not exceed 1 million applications',
   QUANTITY_INVALID: 'Quantity is invalid',
   SET_PIN_CODE: {
     title: 'Set PIN code failed',

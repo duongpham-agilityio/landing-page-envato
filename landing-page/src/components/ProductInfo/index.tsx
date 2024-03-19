@@ -132,7 +132,7 @@ const ProductInfo = ({
             onIncrease={handleChangeQuantityByStep(1)}
             onDecrease={handleChangeQuantityByStep(-1)}
             onChange={setQuantity}
-            className='w-[113px] dark:text-primary'
+            className='dark:text-primary'
           />
 
           <Button

@@ -8,6 +8,7 @@ export const REGEX = {
   IMG: /\.(gif|jpe?g|tiff?|png|webp|bmp)$/i,
   ZIP_CODE: /^\d{5}$/,
   AMOUNT_PATTERN: /^[0-9]*$/,
+  LIMIT_NUMBER: /^[0-9,]{0,7}((.)|(.\d{0,2})?)$/,
   DECIMAL_PATTERN: /^\d*(\.\d{0,2})?$/,
   FORMAT_MONEY: /(\d)(?=(\d{3})+(?!\d))/,
   URL: /^(https?|ftp):\/\/(-\.)?([^\s/?\.#-]+\.?)+([^\s]*)$/i,

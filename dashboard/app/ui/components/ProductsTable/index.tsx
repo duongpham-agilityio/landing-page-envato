@@ -246,7 +246,7 @@ const ProductsTableComponent = () => {
         color="text.primary"
         fontWeight="semibold"
         textAlign="left"
-        minW={180}
+        w={{ base: 150, md: 20 }}
       >
         <Flex
           alignItems="center"
@@ -290,14 +290,13 @@ const ProductsTableComponent = () => {
         fontWeight="semibold"
         textAlign="left"
         w={{ base: 150, md: 20 }}
-        minW={150}
       >
         <Text
           fontSize="md"
           fontWeight="semibold"
           whiteSpace="break-spaces"
           noOfLines={1}
-          minW={150}
+          w={{ base: 100, md: 220, '3xl': 300, '5xl': 200 }}
           flex={1}
         >
           {amount}
@@ -317,14 +316,14 @@ const ProductsTableComponent = () => {
         color="text.primary"
         fontWeight="semibold"
         textAlign="left"
-        minW={120}
+        w={{ base: 150, md: 20 }}
       >
         <Text
           fontSize="md"
           fontWeight="semibold"
           whiteSpace="break-spaces"
           noOfLines={1}
-          minW={120}
+          w={{ base: 100, md: 220, '3xl': 300, '5xl': 200 }}
           flex={1}
         >
           {stock}

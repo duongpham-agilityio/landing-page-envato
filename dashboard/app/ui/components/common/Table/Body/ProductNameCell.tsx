@@ -13,9 +13,13 @@ const ProductNameCellComponent = ({ name }: TDataSource): JSX.Element => (
     color="text.primary"
     fontWeight="semibold"
     textAlign="left"
-    minW={150}
+    w={{ base: 350, xl: 220, '3xl': 300, '4xl': 200, '6xl': 350 }}
   >
-    <Flex alignItems="center" gap="10px" minW={150}>
+    <Flex
+      alignItems="center"
+      gap="10px"
+      w={{ base: 240, '3xl': 200, '5xl': 240 }}
+    >
       <Tooltip
         minW="max-content"
         placement="bottom-start"

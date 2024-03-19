@@ -133,6 +133,9 @@ export const AUTH_SCHEMA = {
       if (Number(value) <= 0) {
         return ERROR_MESSAGES.AMOUNT_INVALID;
       }
+      if (!value.match(REGEX.LIMIT_NUMBER)) {
+        return ERROR_MESSAGES.LIMIT_AMOUNT;
+      }
 
       return true;
     },
@@ -143,6 +146,9 @@ export const AUTH_SCHEMA = {
     validate: (value: string) => {
       if (Number(value) < 0) {
         return ERROR_MESSAGES.QUANTITY_INVALID;
+      }
+      if (!value.match(REGEX.LIMIT_NUMBER)) {
+        return ERROR_MESSAGES.LIMIT_QUANTITY;
       }
 
       return true;

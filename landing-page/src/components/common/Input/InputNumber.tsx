@@ -40,7 +40,7 @@ const InputNumber = (
   );
 
   return (
-    <div className='relative w-fit xl:w-[113px]'>
+    <div className='relative sm:w-fit xl:w-[113px]'>
       <span className={'absolute right-[5px] top-[5px]'}>
         <ArrowIcon onClick={onIncrease} />
       </span>
