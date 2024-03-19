@@ -36,7 +36,7 @@ export const formatProductResponse = (products: TProduct[] = []) =>
       name: formatUppercaseFirstLetter(name),
       description: formatUppercaseFirstLetter(description),
       date: dayjs(createdAt).format(TIME_FORMAT),
-      imageURLs: imageURLs || IMAGES.CASHBACK.url,
+      imageURLs: imageURLs || IMAGES.SIGN_UP.url,
       amount: `${currency}${formatDecimalNumber(+amount)}`,
       stock: `${formatAmountNumber(stock.toString())}`,
       productStatus: +stock > 0 ? PRODUCT_STATUS.IN_STOCK : PRODUCT_STATUS.SOLD,

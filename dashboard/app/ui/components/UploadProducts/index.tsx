@@ -66,9 +66,9 @@ const UploadProductsComponent = ({
                   key={v}
                   w={{ base: 320, md: 150 }}
                   h={{ base: 320, md: 150 }}
-                  src={v || IMAGES.CASHBACK.url}
+                  src={v || IMAGES.SIGN_UP.url}
                   alt={IMAGES.AVATAR_SIGN_UP.alt}
-                  fallbackSrc={IMAGES.CASHBACK.url}
+                  fallbackSrc={IMAGES.SIGN_UP.url}
                   borderRadius={20}
                   objectFit="contain"
                 />
@@ -82,9 +82,9 @@ const UploadProductsComponent = ({
                   key={v}
                   w={{ base: 100, md: 150 }}
                   h={{ base: 100, md: 150 }}
-                  src={v || IMAGES.CASHBACK.url}
+                  src={v || IMAGES.SIGN_UP.url}
                   alt={IMAGES.AVATAR_SIGN_UP.alt}
-                  fallbackSrc={IMAGES.CASHBACK.url}
+                  fallbackSrc={IMAGES.SIGN_UP.url}
                 />
               ))}
           </Flex>

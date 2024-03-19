@@ -261,7 +261,7 @@ const ProductsTableComponent = () => {
             h={{ base: 50, lg: 100 }}
           >
             <Image
-              src={`${imageURLs}` || IMAGES.CASHBACK.url}
+              src={`${imageURLs}` || IMAGES.SIGN_UP.url}
               alt={`Image of ${name}`}
               fill
               sizes="100vw"
