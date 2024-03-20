@@ -40,7 +40,7 @@ const Wrapper = ({ children, pathName }: TWrapperProps): JSX.Element => {
         document.querySelector('.go-to-top');
 
       if (gotoTopBtn) {
-        if (window.scrollY >= 600) {
+        if (window.scrollY >= 50) {
           gotoTopBtn.classList.replace('hidden', 'block');
 
           return;
