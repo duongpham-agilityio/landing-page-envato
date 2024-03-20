@@ -9,6 +9,7 @@ import {
   FormLabel,
   Image,
   Flex,
+  CloseButton,
 } from '@chakra-ui/react';
 
 // Components
@@ -46,11 +47,17 @@ const UploadImagesComponent = ({
     onDrop,
   });
 
+  const handleRemoveImage = (index: number) => {
+    const updatedImages = [...previewURL];
+    updatedImages.splice(index, 1);
+    setPreviewURL(updatedImages);
+    onChange(updatedImages);
+  };
+
   return (
     <Flex w="100%" flexDirection="column">
       <FormLabel
         htmlFor="file"
-        cursor="pointer"
         color="text.secondary"
         marginInlineEnd={0}
         minW="max-content"
@@ -65,11 +72,22 @@ const UploadImagesComponent = ({
             w={{ base: 320, md: 474 }}
             flexWrap="wrap"
           >
-            {previewURL
-              .slice(0, 3)
-              ?.map((v) => (
+            {previewURL.slice(0, 3)?.map((v, i) => (
+              <Box key={v} position="relative">
+                <CloseButton
+                  color="common.white"
+                  bg="primary.600"
+                  borderRadius="50%"
+                  fontSize={8}
+                  size="lg"
+                  w={5}
+                  h={5}
+                  onClick={() => handleRemoveImage(i)}
+                  data-testid="del-icon"
+                  position="absolute"
+                  right={0}
+                />
                 <Image
-                  key={v}
                   w={{ base: 320, md: 150 }}
                   h={{ base: 320, md: 150 }}
                   src={v || IMAGES.SIGN_UP.url}
@@ -78,21 +96,36 @@ const UploadImagesComponent = ({
                   borderRadius={20}
                   objectFit="contain"
                 />
-              ))}
+              </Box>
+            ))}
           </Flex>
           <Flex alignItems="center" gap={3}>
-            {previewURL
-              .slice(3, 5)
-              ?.map((v) => (
+            {previewURL.slice(3, 5)?.map((v, i) => (
+              <Box key={v} position="relative">
+                <CloseButton
+                  color="common.white"
+                  bg="primary.600"
+                  borderRadius="50%"
+                  fontSize={8}
+                  size="lg"
+                  w={5}
+                  h={5}
+                  onClick={() => handleRemoveImage(i + 3)}
+                  data-testid="del-icon"
+                  position="absolute"
+                  right={0}
+                />
                 <Image
-                  key={v}
                   w={{ base: 100, md: 150 }}
                   h={{ base: 100, md: 150 }}
                   src={v || IMAGES.SIGN_UP.url}
                   alt={IMAGES.AVATAR_SIGN_UP.alt}
                   fallbackSrc={IMAGES.SIGN_UP.url}
+                  borderRadius={20}
+                  objectFit="contain"
                 />
-              ))}
+              </Box>
+            ))}
           </Flex>
         </Flex>
       </FormLabel>

@@ -296,7 +296,7 @@ const ProductsTableComponent = () => {
           fontWeight="semibold"
           whiteSpace="break-spaces"
           noOfLines={1}
-          w={{ base: 100, md: 220, '3xl': 300, '5xl': 200 }}
+          w={{ base: 100, md: 220, '3xl': 150, '5xl': 200 }}
           flex={1}
         >
           {amount}
@@ -323,7 +323,7 @@ const ProductsTableComponent = () => {
           fontWeight="semibold"
           whiteSpace="break-spaces"
           noOfLines={1}
-          w={{ base: 100, md: 220, '3xl': 300, '5xl': 200 }}
+          w={{ base: 100, md: 220, '3xl': 150, '5xl': 200 }}
           flex={1}
         >
           {stock}

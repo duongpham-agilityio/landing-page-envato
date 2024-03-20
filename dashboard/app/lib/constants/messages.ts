@@ -24,7 +24,7 @@ export const ERROR_MESSAGES = {
   ZIP_CODE_INVALID: 'Zip code must contain 5 numbers',
   AMOUNT_INVALID: 'Price is invalid',
   LIMIT_AMOUNT: 'Price cannot exceed 1 million dollars',
-  LIMIT_QUANTITY: 'Quantity must not exceed 1 million applications',
+  LIMIT_QUANTITY: 'Quantity must not exceed 1 million',
   QUANTITY_INVALID: 'Quantity is invalid',
   SET_PIN_CODE: {
     title: 'Set PIN code failed',

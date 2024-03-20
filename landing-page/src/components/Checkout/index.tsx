@@ -82,10 +82,10 @@ const Checkout = ({ total }: TCheckoutProps): JSX.Element => {
           handleCheckout();
         }}
       >
-        <div className='col-span-12 nearLg:col-span-8 h-[500px]'>
+        <div className='col-span-12 nearXl:col-span-8'>
           <ContactForm control={control} />
         </div>
-        <div className='mt-[50px] nearLg:mt-0 col-span-12 nearLg:col-span-4'>
+        <div className='mt-[50px] nearLg:mt-0 col-span-12 nearXl:col-span-4'>
           <CardTotal
             subTotal={!currentTotal ? 0 : SUBTOTAL}
             delivery='Free'

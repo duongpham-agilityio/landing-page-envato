@@ -100,7 +100,7 @@ export const formatAmountNumber = (value: string): string => {
       ? value.slice(0, dotIndex).replaceAll(',', '')
       : value.replaceAll(',', '');
 
-  const newValueFormat = newValue.replace(REGEX.FORMAT_MONEY, '$1,');
+  const newValueFormat = newValue.replace(/\B(?=(\d{3})+(?!\d))/g, ',');
 
   if (
     !REGEX.AMOUNT_PATTERN.test(newValue) ||

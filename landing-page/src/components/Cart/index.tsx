@@ -103,15 +103,15 @@ const Cart = ({ data }: TCartProps): JSX.Element => {
       <h2 className='capitalize font-primary text-primary text-3xl py-[30px] dark:text-white'>
         Shopping Cart
       </h2>
-      <section className='nearLg:grid nearLg:grid-cols-12 nearLg:gap-[30px]'>
-        <div className='col-span-12 nearLg:col-span-8'>
+      <section className='nearLg:grid nearXl:grid-cols-12 nearLg:gap-[30px]'>
+        <div className='col-span-12 nearXl:col-span-8'>
           <ProductTable
             products={cart}
             onChangeQuantity={handleChangeQuantity}
             onRemoveProduct={handleRemoveProductItem}
           />
         </div>
-        <div className='mt-[118px] nearLg:mt-0 col-span-12 nearLg:col-span-4'>
+        <div className='mt-[118px] nearLg:mt-0 col-span-12 nearXl:col-span-4'>
           <CardTotal
             {...CARD_TOTAL}
             currency='$'
