@@ -16,5 +16,6 @@ export const TITLES_HEADER = {
   [ROUTES.SUPPORT]: 'Supports',
   [ROUTES.INBOX]: 'Inbox',
   [ROUTES.PRODUCT]: 'Products',
+  [ROUTES.RECENT_ACTIVITIES]: 'Recent Activities',
   DEFAULT: 'Dashboards',
 };

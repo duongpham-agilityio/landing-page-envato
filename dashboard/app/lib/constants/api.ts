@@ -9,6 +9,7 @@ export const END_POINTS = {
   USERS: '/users',
   TRANSACTIONS: '/transactions',
   PRODUCTS: '/products',
+  RECENT_ACTIVITIES: '/recent-activities',
   STATISTICS: '/statistics',
   REVENUE: '/revenue',
   EFFICIENCY: '/efficiency',

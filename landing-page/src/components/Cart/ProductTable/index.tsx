@@ -53,14 +53,16 @@ const ProductTable = ({
                 className='grid grid-cols-4 items-center gap-2 md:gap-3 my-6 nearLg:px-3'
               >
                 <td>
-                  <Image
+                  <a href={imageURL} aria-label='Product Detail'>
+                    <Image
                     src={imageURL}
                     placeholderSrc={generatePlaceholder(250, 250)}
                     width={160}
                     height={160}
                     alt={`This is the ${name}`}
-                    className='object-cover w-[160px] h-[160px]'
+                    className='object-cover w-full h-full 2xl:w-[160px] 2xl:h-[160px]'
                   />
+                  </a>
                 </td>
                 <td>
                   <p className='text-sm md:text-md lg:text-lg'>{name}</p>
