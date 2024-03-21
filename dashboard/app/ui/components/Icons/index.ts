@@ -35,3 +35,4 @@ export * from './SupportIcon';
 export * from './Send';
 export * from './Inbox';
 export * from './Product';
+export * from './RecentActivity';

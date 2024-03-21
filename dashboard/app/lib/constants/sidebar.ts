@@ -5,6 +5,7 @@ import {
   InboxIcon,
   MyWalletIcon,
   ProductIcon,
+  RecentActivityIcon,
   SettingIcon,
   SignOutIcon,
   SupportIcon,
@@ -63,6 +64,12 @@ export const MENU_ITEM_LIST = (role: string) => [
     leftIcon: ProductIcon,
     menuItemContent: 'Products',
     destination: `/${ROUTES.PRODUCT}`,
+  },
+  {
+    id: 7,
+    leftIcon: RecentActivityIcon,
+    menuItemContent: 'Recent Activities',
+    destination: `/${ROUTES.RECENT_ACTIVITIES}`,
   },
 ];
 

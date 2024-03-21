@@ -25,10 +25,10 @@ const styleFigure: string[] = [
 const hoverStyles: string[] = [
   '[&:hover>div>.caption]:text-white',
   '[&:hover>.pesudo]:bg-black',
-  '[&:hover>.cart-icon]:z-10',
-  '[&:hover>.cart-icon]:left-[45%]',
-  '[&:hover>.cart-icon]:top-[40%]',
-  '[&:hover>.cart-icon]:',
+  '[&:hover>a>.cart-icon]:z-50',
+  '[&:hover>a>.cart-icon]:left-[45%]',
+  '[&:hover>a>.cart-icon]:top-[40%]',
+  '[&:hover>a>.cart-icon]:block',
   '[&:hover>.pesudo]:opacity-[0.7]',
 ];
 const captionStyles: string[] = [
@@ -78,12 +78,12 @@ const styleLinkTagItems: string[] = [
       <span class='line-clamp-1'> {name}</span>
     </figcaption>
   </div>
-  <div class='absolute cart-icon'><Cart /></div>
 
   <a
     href={href}
     class:list={[...styleLinkTagItems, ...transitionStyles]}
     aria-label='Read more about'
   >
+    <div class='absolute hidden cart-icon'><Cart /></div>
   </a>
 </figure>

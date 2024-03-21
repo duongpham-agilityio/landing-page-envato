@@ -97,7 +97,7 @@ const ExpandSidebar = ({
           <VStack pr={12.5} mb={9}>
             {EXPAND_SIDEBAR_MENU_LIST(role as string).map((item) => (
               <Menu
-                key={item.id}
+                key={item.title}
                 title={item.title}
                 listItem={item.listItem as TMenuItem[]}
                 onClickMenuItem={handleCloseSideBar}
