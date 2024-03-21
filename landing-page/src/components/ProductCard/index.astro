@@ -1,5 +1,6 @@
 ---
 import { Image } from '@app/components';
+import { Cart } from '@app/components/icons';
 
 // Utils
 import { formatDecimalNumber, generatePlaceholder } from '@app/utils';
@@ -24,6 +25,10 @@ const styleFigure: string[] = [
 const hoverStyles: string[] = [
   '[&:hover>div>.caption]:text-white',
   '[&:hover>.pesudo]:bg-black',
+  '[&:hover>.cart-icon]:z-10',
+  '[&:hover>.cart-icon]:left-[45%]',
+  '[&:hover>.cart-icon]:top-[40%]',
+  '[&:hover>.cart-icon]:',
   '[&:hover>.pesudo]:opacity-[0.7]',
 ];
 const captionStyles: string[] = [
@@ -73,6 +78,8 @@ const styleLinkTagItems: string[] = [
       <span class='line-clamp-1'> {name}</span>
     </figcaption>
   </div>
+  <div class='absolute cart-icon'><Cart /></div>
+
   <a
     href={href}
     class:list={[...styleLinkTagItems, ...transitionStyles]}
