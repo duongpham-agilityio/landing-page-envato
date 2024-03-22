@@ -12,7 +12,8 @@ import type { IProductInCart } from '@app/interfaces';
 import { formatDecimalNumber, generatePlaceholder } from '@app/utils';
 
 // Constants
-import { COMMON } from '@app/constants';
+import { COMMON, ROUTES } from '@app/constants';
+
 
 type TProductTableProps = {
   products: IProductInCart[];
@@ -28,7 +29,7 @@ const ProductTable = ({
   // Styles CSS
   const stylesRowTable =
     'grid grid-cols-4 text-left bg-desertStorm [&>*:nth-child(n)]:text-[14px] [&>*:nth-child(n)]:text-primary [&>*:nth-child(n)]:font-semibold p-3 lg:[&>*:nth-child(n)]:text-lg';
-
+  console.log(products);
   return (
     <table className='w-full'>
       <thead>
@@ -41,7 +42,7 @@ const ProductTable = ({
       </thead>
       <tbody>
         {products.length ? (
-          products.map(({ id, name, imageURL, amount, currency, quantity }) => {
+          products.map(({ id, productId, name, imageURL, amount, currency, quantity }) => {
             const handleChange = (value: number) => onChangeQuantity(id, value);
             const handleInCrease = () => onChangeQuantity(id, quantity + 1);
             const handleDecrease = () => onChangeQuantity(id, quantity - 1);
@@ -53,7 +54,7 @@ const ProductTable = ({
                 className='grid grid-cols-4 items-center gap-2 md:gap-3 my-6 nearLg:px-3'
               >
                 <td>
-                  <a href={imageURL} aria-label='Product Detail'>
+                  <a href={`${ROUTES.PRODUCTS}/${productId}`} aria-label='Product Detail'>
                     <Image
                     src={imageURL}
                     placeholderSrc={generatePlaceholder(250, 250)}

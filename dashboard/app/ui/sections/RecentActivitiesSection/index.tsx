@@ -4,7 +4,9 @@ import { Box, Flex, Grid, GridItem } from '@chakra-ui/react';
 import dynamic from 'next/dynamic';
 
 // dynamic loading components
-
+const RecentActivitiesTable = dynamic(
+  () => import('@/ui/components/RecentActivitiesTable'),
+);
 const CardPayment = dynamic(() => import('@/ui/components/CardPayment'));
 const BoxChat = dynamic(() => import('@/ui/components/BoxChat'));
 
@@ -24,7 +26,9 @@ const RecentActivities = () => (
         borderRadius={8}
         px={6}
         py={5}
-      ></Box>
+      >
+        <RecentActivitiesTable />
+      </Box>
     </GridItem>
     <InView>
       {({ inView, ref }) => (

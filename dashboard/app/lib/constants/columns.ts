@@ -140,3 +140,34 @@ export const COLUMNS_PRODUCTS = (
     renderHead: onRenderHead,
   },
 ];
+
+export const COLUMNS_RECENT_ACTIVITIES = (
+  onRenderHead: (title: string, key: string) => void,
+  onRenderBody: ({ id, name }: TDataSource) => void,
+  onRenderEmail: (email: string) => void,
+  onRenderActionIcon: (data: TDataSource) => void,
+) => [
+  {
+    title: 'Action Name',
+    key: 'name',
+    renderHead: onRenderHead,
+    renderBody: onRenderBody,
+  },
+  {
+    title: 'Email',
+    key: 'email',
+    renderHead: onRenderHead,
+    renderBody: onRenderEmail,
+  },
+  {
+    title: 'Date',
+    key: 'date',
+    renderHead: onRenderHead,
+  },
+  {
+    title: '',
+    key: 'action',
+    renderBody: onRenderActionIcon,
+    renderHead: onRenderHead,
+  },
+];
