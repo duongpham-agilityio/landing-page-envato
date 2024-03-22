@@ -15,7 +15,7 @@ import {
 } from '@/ui/components';
 
 // Constants
-import { COLUMNS_RECENT_ACTIVITIES, FILTER_PRODUCT } from '@/lib/constants';
+import { COLUMNS_RECENT_ACTIVITIES, MONTHS_OPTIONS } from '@/lib/constants';
 
 // Interfaces
 import { TDataSource, THeaderTable } from '@/lib/interfaces';
@@ -86,7 +86,7 @@ const RecentActivitiesTableComponent = () => {
       <Flex flexDirection={{ base: 'column', lg: 'row' }}>
         <SearchBar
           placeholder="Search by name or email"
-          filterOptions={FILTER_PRODUCT}
+          filterOptions={MONTHS_OPTIONS}
           searchValue={''}
           onSearch={() => {}}
         />
