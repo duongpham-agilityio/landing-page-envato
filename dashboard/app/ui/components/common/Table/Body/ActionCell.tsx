@@ -28,6 +28,7 @@ import {
   TProduct,
   TProductRequest,
   TProductResponse,
+  TRecentActivities,
   TTransaction,
   TUserDetail,
 } from '@/lib/interfaces';
@@ -36,6 +37,7 @@ interface ActionCallProps {
   user?: TUserDetail;
   transaction?: TTransaction;
   product?: TProductResponse;
+  activities?: TRecentActivities;
   isOpenModal?: boolean;
   isOpenUserAction?: boolean;
   onDeleteTransaction?: (transactionData: TTransaction) => void;
@@ -52,6 +54,7 @@ const ActionCellComponent = ({
   user,
   transaction,
   product,
+  activities,
   isOpenModal = false,
   isOpenUserAction = false,
   onLockUser,
@@ -64,7 +67,7 @@ const ActionCellComponent = ({
   const [isOpenConfirmModal, setIsOpenConfirmModal] = useState<boolean>(false);
   const [isDelete, setIsDelete] = useState<boolean>(false);
 
-  const customerId = transaction?.customer.customerId;
+  const customerId = transaction?.customer.customerId || activities?._id;
 
   const handleOpenConfirmModal = useCallback(
     (isDeleteModal: boolean) => () => {
@@ -175,7 +178,7 @@ const ActionCellComponent = ({
                             <EditIcon
                               w={5}
                               h={5}
-                              onClick={handleOpenConfirmModal(false)}
+                              onClick={() => handleOpenConfirmModal(false)}
                               data-testid="edit-icon"
                             />
                           )}

@@ -14,3 +14,4 @@ export * from './useMoney';
 export * from './useChat';
 export * from './useImageUploader';
 export * from './useProducts';
+export * from './useRecentActivities';

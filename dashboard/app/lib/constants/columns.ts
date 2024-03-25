@@ -3,6 +3,7 @@ import {
   TDataSource,
   TProduct,
   TProductResponse,
+  TRecentActivities,
   TTransaction,
 } from '../interfaces';
 
@@ -144,12 +145,12 @@ export const COLUMNS_PRODUCTS = (
 export const COLUMNS_RECENT_ACTIVITIES = (
   onRenderHead: (title: string, key: string) => void,
   onRenderBody: ({ id, name }: TDataSource) => void,
-  onRenderEmail: (email: string) => void,
-  onRenderActionIcon: (data: TDataSource) => void,
+  onRenderEmail: (email: TRecentActivities) => void,
+  onRenderActionIcon: (data: TRecentActivities) => void,
 ) => [
   {
     title: 'Action Name',
-    key: 'name',
+    key: 'actionName',
     renderHead: onRenderHead,
     renderBody: onRenderBody,
   },

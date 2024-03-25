@@ -11,3 +11,4 @@ export * from './prefetch';
 export * from './toast';
 export * from './getErrorMessage';
 export * from './firebase';
+export * from './recentActivities';

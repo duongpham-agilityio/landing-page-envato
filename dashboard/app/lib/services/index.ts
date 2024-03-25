@@ -9,3 +9,4 @@ export * from './money';
 export * from './users';
 export * from './image';
 export * from './products';
+export * from './recentActivities';

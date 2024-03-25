@@ -12,15 +12,35 @@ import {
   Fetching,
   ActionCell,
   ProductNameCell,
+  Pagination,
 } from '@/ui/components';
 
 // Constants
 import { COLUMNS_RECENT_ACTIVITIES, MONTHS_OPTIONS } from '@/lib/constants';
 
 // Interfaces
-import { TDataSource, THeaderTable } from '@/lib/interfaces';
+import { TDataSource, THeaderTable, TRecentActivities } from '@/lib/interfaces';
+
+// hooks
+import { usePagination, useRecentActivities } from '@/lib/hooks';
+
+// Utils
+import { formatRecentActivitiesResponse } from '@/lib/utils';
 
 const RecentActivitiesTableComponent = () => {
+  const { recentActivities } = useRecentActivities();
+
+  const {
+    data,
+    filterData,
+    arrOfCurrButtons,
+    isDisabledPrev,
+    isDisableNext,
+    handleChangeLimit,
+    handlePageChange,
+    handlePageClick,
+  } = usePagination(recentActivities);
+
   const renderHead = useCallback((title: string): JSX.Element => {
     const handleClick = () => {};
 
@@ -37,12 +57,18 @@ const RecentActivitiesTableComponent = () => {
   );
 
   const renderActionIcon = useCallback(
-    () => <ActionCell isOpenModal={true} />,
+    (data: TRecentActivities) => (
+      <ActionCell
+        key={`${data._id}-action`}
+        isOpenModal={true}
+        activities={data}
+      />
+    ),
     [],
   );
 
   const renderEmail = useCallback(
-    (email: string) => (
+    ({ email }: TRecentActivities) => (
       <Td
         py={5}
         pr={5}
@@ -93,8 +119,25 @@ const RecentActivitiesTableComponent = () => {
       </Flex>
       <Fetching quality={15}>
         <Box mt={5}>
-          <Table columns={columns as unknown as THeaderTable[]} />
+          <Table
+            columns={columns as unknown as THeaderTable[]}
+            dataSource={formatRecentActivitiesResponse(filterData)}
+          />
         </Box>
+        {!!recentActivities?.length && (
+          <Box mt={8}>
+            <Pagination
+              pageSize={data.limit}
+              currentPage={data.currentPage}
+              isDisabledPrev={isDisabledPrev}
+              isDisableNext={isDisableNext}
+              arrOfCurrButtons={arrOfCurrButtons}
+              onLimitChange={handleChangeLimit}
+              onPageChange={handlePageChange}
+              onClickPage={handlePageClick}
+            />
+          </Box>
+        )}
       </Fetching>
     </>
   );
