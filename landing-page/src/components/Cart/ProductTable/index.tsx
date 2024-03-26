@@ -29,7 +29,6 @@ const ProductTable = ({
   // Styles CSS
   const stylesRowTable =
     'grid grid-cols-4 text-left bg-desertStorm [&>*:nth-child(n)]:text-[14px] [&>*:nth-child(n)]:text-primary [&>*:nth-child(n)]:font-semibold p-3 lg:[&>*:nth-child(n)]:text-lg';
-  console.log(products);
   return (
     <table className='w-full'>
       <thead>

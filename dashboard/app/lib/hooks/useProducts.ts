@@ -56,8 +56,6 @@ export const useProducts = (queryParam?: TSearchProduct) => {
     queryFn: ({ signal }) => getProducts('', { signal }, user?.id),
   });
 
-  console.log('dataProduct', data);
-
   // sort products
   const productsAfterSort: TProduct[] = useMemo(() => {
     const tempProducts: TProduct[] = [...data];

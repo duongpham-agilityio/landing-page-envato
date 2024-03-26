@@ -1,5 +1,6 @@
 export * from './mock';
 export * from './user';
+export * from './sort';
 export * from './icons';
 export * from './spending';
 export * from './status';

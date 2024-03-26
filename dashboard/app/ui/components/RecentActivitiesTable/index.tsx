@@ -1,6 +1,6 @@
 'use client';
 
-import { Box, Flex, Td, Text, Th } from '@chakra-ui/react';
+import { Box, Flex, Td, Text, Th, Tooltip } from '@chakra-ui/react';
 import { memo, useCallback, useMemo } from 'react';
 import Link from 'next/link';
 
@@ -11,7 +11,6 @@ import {
   SearchBar,
   Fetching,
   ActionCell,
-  ProductNameCell,
   Pagination,
 } from '@/ui/components';
 
@@ -22,13 +21,35 @@ import { COLUMNS_RECENT_ACTIVITIES, MONTHS_OPTIONS } from '@/lib/constants';
 import { TDataSource, THeaderTable, TRecentActivities } from '@/lib/interfaces';
 
 // hooks
-import { usePagination, useRecentActivities } from '@/lib/hooks';
+import {
+  TActivitiesSortField,
+  usePagination,
+  useRecentActivities,
+  useSearch,
+} from '@/lib/hooks';
 
 // Utils
-import { formatRecentActivitiesResponse } from '@/lib/utils';
+import {
+  formatRecentActivitiesResponse,
+  formatUppercaseFirstLetter,
+} from '@/lib/utils';
+
+// Store
+import { authStore } from '@/lib/stores';
 
 const RecentActivitiesTableComponent = () => {
-  const { recentActivities } = useRecentActivities();
+  const { user } = authStore();
+  const { get } = useSearch();
+
+  const {
+    activities,
+    isLoading: isLoadingActivities,
+    isError: isActivitiesError,
+    sortBy,
+  } = useRecentActivities({
+    name: get('name') || '',
+    userId: user?.id,
+  });
 
   const {
     data,
@@ -39,19 +60,60 @@ const RecentActivitiesTableComponent = () => {
     handleChangeLimit,
     handlePageChange,
     handlePageClick,
-  } = usePagination(recentActivities);
+  } = usePagination(activities);
 
-  const renderHead = useCallback((title: string): JSX.Element => {
-    const handleClick = () => {};
+  const renderHead = useCallback(
+    (title: string, key: string): JSX.Element => {
+      const handleClick = () => {
+        sortBy && sortBy(key as TActivitiesSortField);
+      };
 
-    if (!title) return <Th w={50} maxW={50} />;
-
-    return <HeadCell key={title} title={title} onClick={handleClick} />;
-  }, []);
+      return !title ? (
+        <Th w={50} maxW={50} />
+      ) : (
+        <HeadCell key={title} title={title} onClick={handleClick} />
+      );
+    },
+    [sortBy],
+  );
 
   const renderNameUser = useCallback(
-    ({ id, _id, name }: TDataSource): JSX.Element => (
-      <ProductNameCell _id={_id} key={id} name={name} />
+    ({ name }: TDataSource): JSX.Element => (
+      <Td
+        py={5}
+        pr={5}
+        pl={0}
+        fontSize="md"
+        color="text.primary"
+        fontWeight="semibold"
+        textAlign="left"
+        w={{ base: 200, xl: 220, '3xl': 200, '6xl': 250 }}
+      >
+        <Flex alignItems="center" gap="10px">
+          <Tooltip
+            minW="max-content"
+            placement="bottom-start"
+            label={name as string}
+          >
+            <Text
+              display="block"
+              fontSize="md"
+              fontWeight="semibold"
+              wordBreak="break-all"
+              textOverflow="ellipsis"
+              overflow="hidden"
+              pr={10}
+              flex={1}
+              w={{ base: 200, xl: 220, '3xl': 200, '6xl': 250 }}
+            >
+              {user?.id &&
+                formatUppercaseFirstLetter(
+                  `${user?.firstName} ${user?.lastName} ${name}`,
+                )}
+            </Text>
+          </Tooltip>
+        </Flex>
+      </Td>
     ),
     [],
   );
@@ -117,14 +179,18 @@ const RecentActivitiesTableComponent = () => {
           onSearch={() => {}}
         />
       </Flex>
-      <Fetching quality={15}>
+      <Fetching
+        quality={15}
+        isLoading={isLoadingActivities}
+        isError={isActivitiesError}
+      >
         <Box mt={5}>
           <Table
             columns={columns as unknown as THeaderTable[]}
             dataSource={formatRecentActivitiesResponse(filterData)}
           />
         </Box>
-        {!!recentActivities?.length && (
+        {!!activities?.length && (
           <Box mt={8}>
             <Pagination
               pageSize={data.limit}

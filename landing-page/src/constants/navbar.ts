@@ -12,4 +12,9 @@ export const NAVBAR = [
     href: ROUTES.CART,
     text: 'cart',
   },
+  {
+    id: 3,
+    href: ROUTES.TERMS_CONDITIONS,
+    text: 'terms & conditions',
+  },
 ];

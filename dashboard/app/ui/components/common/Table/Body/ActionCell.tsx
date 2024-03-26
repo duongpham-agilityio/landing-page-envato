@@ -178,7 +178,7 @@ const ActionCellComponent = ({
                             <EditIcon
                               w={5}
                               h={5}
-                              onClick={() => handleOpenConfirmModal(false)}
+                              onClick={handleOpenConfirmModal(false)}
                               data-testid="edit-icon"
                             />
                           )}
