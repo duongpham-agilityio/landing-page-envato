@@ -22,7 +22,7 @@ export const formatRecentActivitiesResponse = (
 
     return {
       _id: _id,
-      name: formatUppercaseFirstLetter(actionName),
+      actionName: formatUppercaseFirstLetter(actionName),
       email,
       date: dayjs(createdAt).format(TIME_FORMAT),
     };

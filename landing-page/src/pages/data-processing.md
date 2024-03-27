@@ -1,0 +1,143 @@
+---
+layout: ../contents/data-processing.astro
+title: Data Processing Agreement
+---
+
+### **§ 1** 
+
+#### **General Provisions**
+
+1. This Agreement (hereinafter referred to as the "Processing Agreement") is concluded in connection with the provision of services by the Service Provider in accordance with the Landingi Terms of Use.
+2. The provision of the service is determined by the agreement between the Account Owner (hereinafter "Controller") and the Service Provider (hereinafter "Processor") through the Controller's acceptance of the Terms and Conditions of the Landingi platform, (hereinafter "Agreement").
+3. The meaning of the terms used in the Processing Agreement shall be as defined in the Terms of Use.
+4. The processing of personal data shall be carried out in accordance with and on the basis of Regulation (EU) 2016/679 of the European Parliament and of the Council of 27 April 2016 on the protection of individuals with regard to the processing of personal data and on the free movement of such data and repealing Directive 95/46/EC (General Data Protection Regulation), hereinafter referred to as "GDPR".
+
+### **§ 2** 
+
+#### **Duration of the Processing Agreement**
+
+- The Processing Agreement shall be effective from the date of conclusion until the date of its termination. The procedure for amendments to this Agreement shall be in accordance with the procedure for amendments to the Terms of Use.
+
+### **§ 3** 
+
+#### **Subject, scope, type and purpose of processing**
+
+1. The subject of this Agreement is to entrust the Processor with the processing of personal data in the name and on behalf of the Controller.
+2. The Controller shall entrust the Processor with the processing of personal data for the duration of the Agreement only for the purposes of performing the Agreement and Service in accordance with the Terms of Use.
+3. The Processor undertakes to process the personal data entrusted to it exclusively for the purposes of performing the Agreement and only to the extent necessary for the performance of these purposes, i.e. collecting, recording, organising, structuring, storing or modifying, downloading, viewing, using, disclosing by transmission, dissemination or otherwise making available, deleting. Personal data may be stored on the servers of the Processor.
+
+### **§ 4** 
+
+#### **Categories of data subjects and categories of personal data**
+
+1. The Processor shall process personal data of customers or potential customers of the Account Holder and personal data collected by the Controller's customers.
+2. The scope and type of personal data includes the data visible after logging into the Account. This data may be entered by the Account Owner or a User authorized by the Account Owner, the Controller's customers, and the customers of the Controller's customers, and is only visible within a given Account. Personal data is data of persons representing the Controller's customers or potential customers, and personal data of potential customers of the Controller's customers in terms of name, surname, email address, telephone number, customer name, IP number and others, each time provided by the aforementioned persons.
+
+### **§ 5** 
+
+#### **Representations**
+
+1. The Controller declares that in relation to the data specified in par. 4 is a controller within the meaning of Article 4(7) GDPR or a processor within the meaning of Article 4(8) GDPR.
+2. The Controller also declares that the Users added within the framework of his Account are authorised by him to process personal data.
+3. The Processor declares that it provides sufficient guarantees to implement appropriate technical and organisational measures in such a manner that processing will meet the requirements of the GDPR and ensure protection of the rights of the data subject.
+4. The Processor declares that it has the means to properly process the personal data entrusted by the Controller within the scope and purpose specified in the Agreement.
+5. The Processor declares that in connection with its obligation to keep the confidential information secret, such confidential data shall not be used, disclosed or made available, without written consent of the Controller, for any purpose other than the performance of the Agreement unless the need to disclose information results from the applicable legal regulations or from the Agreement.
+6. The Processor also declares that the persons employed in the processing of the entrusted personal data have been granted authorisations to process personal data referred to in Article 29 GDPR and that these persons have been acquainted with the provisions on personal data protection and with the liability for their breaching, have undertaken to observe them and to keep the processed personal data, and the manners of securing it, in secret indefinitely.
+7. The Parties undertake to make every effort to ensure that the means of communication used to receive, transmit and store personal data guarantee protection against access by third parties who are not authorised to read the content.
+
+### **§ 6** 
+
+#### **Further processing entities**
+
+1. The Controller agrees that the Processor may subcontract personal data for further processing to subcontractors only for purposes consistent with the Agreement, to companies providing IT solutions. Before sub-processing the data, the Processor shall inform the Controller and provide it with the data of the entity to which it entrusts the data. The list of subcontractors used by the Processor is appended as Appendix 1 to the Agreement.
+2. Subcontracting involves the transfer of personal data to third countries. The list of further entities in third countries together with the legal basis for the transfer of data is listed in Appendix 2.
+3. The Processor may transfer entrusted data to a third country where such an obligation is imposed on the processor by EU law or by the law of the Member State to which the Processor is subject. In such a case, prior to the start of processing, the Processor shall inform the Controller of this legal obligation, provided that such information is not prohibited by law for reasons of substantial public interest.
+4. The Processor shall notify the Controller at least 14 days in advance of the planned changes of further entities.
+5. The subcontractor referred to in §6.1 of the Agreement shall fulfil the same guarantees and obligations as those imposed on the Processor in this Agreement.
+6. The Processor shall be fully liable to the Controller for failure to meet the subcontractor's data protection obligations.
+7. In view of the fact that the Platform is maintained in cooperation with the Processor's subcontractors, who are further processors, and that the Processor is not able to maintain it without the cooperation of such entities, if the Controller expresses its objection to the sub-processing of personal data to any further processor, the execution of this objection shall only be possible by resigning from using the Platform by the Controller. In this case, the Processor shall reimburse the Controller for the unused period of previously paid use of the Platform.
+
+
+### **§ 7** 
+
+#### **Controller's rights and duties**
+
+1. Pursuant to Article 28(3)(h) GDPR, the Controller has the right to audit, including inspection, whether the measures taken by the Processor to process and secure the data meet the provisions of the Agreement.
+2. The Controller shall be entitled to demand from the Processor provision of the necessary information or submission of written explanations concerning the processing of personal data by the Processor, which may include the presentation of the manner of operation of ICT systems and the provision of other data necessary to check the manner and scope of personal data protection necessary to fulfil the obligations set forth in Article 28 GDPR.
+3. The audit, including inspection of the observance of principles of personal data processing, may only take place after the Controller has notified the Processor of the intention to carry out an audit, including inspection, at least 2 days before the planned date of commencement of the audit, including the inspection, in writing to the persons appointed by the Controller to carry out the audit including inspection.
+4. The audit powers referred to above may be exercised by the Controller in places where personal data are processed, on working days from 9.00 am to 5.00 pm.
+5. The Processor undertakes to remove deficiencies found during the audit, including inspection, within the period indicated by the Controller, but no longer than 14 days.
+
+### **§ 8** 
+
+#### **Obligations of the Processor**
+
+1. The Processor represents that:
+  a. it shall process personal data only on the documented instruction of the Controller (this Processing Agreement and the activities undertaken by the Platform) - this applies also to the transfer of personal data to a third country or an international organisation - unless such an obligation is imposed by EU law or the law of a Member State to which the Processor is subject; in such a case, prior to the start of the processing, the Processor shall inform the Controller of this legal obligation, unless this law prohibits the provision of such information for reasons of substantial public interest,
+
+  b. it ensures that persons authorised to process personal data shall keep it confidential or shall be under an appropriate statutory obligation to maintain confidentiality;
+  c. it shall take any and all measures required by Article 32 GDPR,
+
+  d. observes the terms and conditions of using the services of another processor, referred to in Articles 28.2 and 28.4 GDPR,
+
+  e. taking into account the nature of processing, it helps the Controller as far as possible, through appropriate technical and organisational measures, to fulfil the obligation to respond to the data subject's requests for the exercise of its rights set out in Chapter III GDPR - functionality in the Application,
+
+  f. taking into account the nature of processing and the information available to it, helps the Controller to fulfil his obligations specified in Articles 32-36 GDPR - functionality in the Application,
+
+  g. upon completion of the provision of processing services, it shall delete all personal data and any existing copies thereof which relate to the categories of persons referred to in §4 of the Processing Agreement.
+
+  h. it makes available to the Controller all information necessary to prove the fulfilment of obligations set out in Article 28 GDPR and enables the Controller to carry out audits, including inspections, and contributes to them according to the principles set out in §7.2 of the Processing Agreement.
+
+2. The Processor shall immediately inform the Controller if, in its opinion, an order issued to it constitutes a violation of GDPR or other EU or Member State data protection legislation due to the location of the Processor.
+3. The Processor undertakes that for the duration of the Processing Agreement, within the framework of its organisation, it shall process the personal data entrusted to it in accordance with the provisions of the personal data protection law (GDPR and the laws of a Member State appropriate for its registered office), including, inter alia, by applying appropriate technical and organisational measures ensuring the protection of personal data processing, adequate to the risks and categories of data covered by protection and before they are made available to unauthorised persons.
+
+### **§ 9** 
+
+#### **Processor's liability and contractual penalty**
+
+1. The Processor shall be responsible for the processing of personal data contrary to the Agreement, and in particular for making personal data available to unauthorised persons.
+2. The Processor shall be liable for any culpable damage which may arise for the Controller or third parties as a result of personal data processing by the Processor in breach of the Agreement.
+3. The total liability of the Processor shall be limited to the amount of Payments made by the Controller.
+
+### **§ 10** 
+
+#### **Final provisions**
+
+1. The contact person on the part of the Processor with regard to implementation of the Processing Agreement and data processing in accordance with the Terms of Use, including implementation of the Privacy Policy, is the Data Protection Officer. Contact details: [dpo@landingi.com](https://landing-page-envato.vercel.app/).
+2. The entrustment is necessary for proper performance of the Agreement and is not treated as a separate Service. The Controller shall not bear any fees for the conclusion of the Processing Agreement.
+3. If any provisions of the Processing Agreement prove to be invalid, this shall not affect the validity of the remaining provisions, and the Parties shall strive to replace the invalid provision with a valid provision reflecting the Parties' original will.
+4.In matters not regulated herein, the relevant provisions of Polish law shall apply.
+5. The Appendices constitute an integral part of the Agreement.
+
+
+Appendix 1: List of subcontractors
+
+Appendix 2: List of subcontractors from third countries
+
+<br/>
+<br/>
+
+Appendix 1 to the Agreement - List of subcontractors
+
+
+|              |      |         |
+| :---        |:---   | :---    |
+| Name of entity      | Address       | Scope of cooperation (purpose of entrusting the processing of personal data)   |
+| Amazon Web Sites Inc   | Data Centres in Dublin and Frankfurt        | Data hosting      |
+| Hostersi Sp. z o.o.   | ul. Jankowicka 7, 44-200 Rybnik, Poland        | Technical and administrative support to ensure consistency and continuity of access to personal data      |
+| The Rocket Science Group LLC   | Suite 5000, Atlanta, GA 30308 USA        | Sending of e-mails (only after use of the auto-responder function regarding their sending)      |
+
+<br/>
+Appendix 2 to the Agreement - List of subcontractors from third countries 
+<br/>
+<br/>
+
+
+|              |      |         |         |
+| :---        |:---   | :---    | :---    
+| Name of entity      | Address       | Country   | Applied safeguards
+| Amazon Web Sites Inc   | 410 Terry Avenue North, Seattle, WA 98109-5210, USA        | USA      | Standard contractual clauses approved by the European Commission
+| The Rocket Science Group LLC   | Suite 5000, Atlanta, GA 30308 USA        | USA     | Standard contractual clauses approved by the European Commission
+<br/>
+<br/>
+The Data Processing Agreement is available for download in a PDF form here.

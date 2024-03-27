@@ -1,6 +1,6 @@
 'use client';
 
-import { Box, Flex, Td, Text, Th, Tooltip } from '@chakra-ui/react';
+import { Box, Flex, Td, Text, Th, Tooltip, useToast } from '@chakra-ui/react';
 import { memo, useCallback, useMemo } from 'react';
 import Link from 'next/link';
 
@@ -12,10 +12,17 @@ import {
   Fetching,
   ActionCell,
   Pagination,
+  Indicator,
 } from '@/ui/components';
 
 // Constants
-import { COLUMNS_RECENT_ACTIVITIES, MONTHS_OPTIONS } from '@/lib/constants';
+import {
+  COLUMNS_RECENT_ACTIVITIES,
+  ERROR_MESSAGES,
+  MONTHS_OPTIONS,
+  STATUS,
+  SUCCESS_MESSAGES,
+} from '@/lib/constants';
 
 // Interfaces
 import { TDataSource, THeaderTable, TRecentActivities } from '@/lib/interfaces';
@@ -31,6 +38,7 @@ import {
 
 // Utils
 import {
+  customToast,
   formatRecentActivitiesResponse,
   formatUppercaseFirstLetter,
 } from '@/lib/utils';
@@ -39,7 +47,8 @@ import {
 import { authStore } from '@/lib/stores';
 
 const RecentActivitiesTableComponent = () => {
-  const { user } = authStore();
+  const toast = useToast();
+  const userId = authStore((state) => state.user?.id);
   const { get, setSearchParam: setSearchTransaction } = useSearch();
 
   const {
@@ -47,9 +56,11 @@ const RecentActivitiesTableComponent = () => {
     isLoading: isLoadingActivities,
     isError: isActivitiesError,
     sortBy,
+    deleteActivity,
+    isDeleteActiviy,
   } = useRecentActivities({
     actionName: get('actionName') || '',
-    userId: user?.id,
+    userId: userId,
   });
 
   const {
@@ -69,6 +80,42 @@ const RecentActivitiesTableComponent = () => {
     setSearchTransaction('actionName', value);
   }, []);
 
+  const handleDeleteActivities = useCallback(
+    (
+      data: Partial<
+        TRecentActivities & { userId: string; activitiesId: string }
+      >,
+    ) => {
+      deleteActivity(
+        {
+          activitiesId: data._id,
+          userId: userId,
+        },
+        {
+          onSuccess: () => {
+            toast(
+              customToast(
+                SUCCESS_MESSAGES.DELETE_PRODUCT_SUCCESS.title,
+                SUCCESS_MESSAGES.DELETE_PRODUCT_SUCCESS.description,
+                STATUS.SUCCESS,
+              ),
+            );
+          },
+          onError: () => {
+            toast(
+              customToast(
+                ERROR_MESSAGES.DELETE_FAIL.title,
+                ERROR_MESSAGES.DELETE_FAIL.description,
+                STATUS.ERROR,
+              ),
+            );
+          },
+        },
+      );
+    },
+    [deleteActivity, toast, userId],
+  );
+
   const renderHead = useCallback(
     (title: string, key: string): JSX.Element => {
       const handleClick = () => {
@@ -85,7 +132,7 @@ const RecentActivitiesTableComponent = () => {
   );
 
   const renderNameUser = useCallback(
-    ({ name }: TDataSource): JSX.Element => (
+    ({ actionName }: TDataSource): JSX.Element => (
       <Td
         py={5}
         pr={5}
@@ -100,7 +147,7 @@ const RecentActivitiesTableComponent = () => {
           <Tooltip
             minW="max-content"
             placement="bottom-start"
-            label={name as string}
+            label={actionName as string}
           >
             <Text
               display="block"
@@ -113,9 +160,7 @@ const RecentActivitiesTableComponent = () => {
               flex={1}
               w={{ base: 200, xl: 220, '3xl': 200, '6xl': 250 }}
             >
-              {formatUppercaseFirstLetter(
-                `${user?.firstName} ${user?.lastName} ${name}`,
-              )}
+              {formatUppercaseFirstLetter(`${actionName}`)}
             </Text>
           </Tooltip>
         </Flex>
@@ -127,12 +172,15 @@ const RecentActivitiesTableComponent = () => {
   const renderActionIcon = useCallback(
     (data: TRecentActivities) => (
       <ActionCell
+        activities={data}
         key={`${data._id}-action`}
         isOpenModal={true}
-        activities={data}
+        titleDelete="Delete Activity"
+        itemName={data.actionName}
+        onDeleteActivity={handleDeleteActivities}
       />
     ),
-    [],
+    [handleDeleteActivities],
   );
 
   const renderEmail = useCallback(
@@ -176,7 +224,7 @@ const RecentActivitiesTableComponent = () => {
   );
 
   return (
-    <>
+    <Indicator isOpen={isDeleteActiviy}>
       <Flex flexDirection={{ base: 'column', lg: 'row' }}>
         <SearchBar
           placeholder="Search by name or email"
@@ -211,7 +259,7 @@ const RecentActivitiesTableComponent = () => {
           </Box>
         )}
       </Fetching>
-    </>
+    </Indicator>
   );
 };
 

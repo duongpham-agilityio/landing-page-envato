@@ -5,6 +5,7 @@ export const ROUTES = {
   CHECKOUT: '/checkout',
   TERMS_CONDITIONS: '/terms-conditions',
   PRIVACY_POLICY: '/privacy-policy',
+  DATA_PROCESSING: '/data-processing',
 };
 
 export const ENDPOINTS = {

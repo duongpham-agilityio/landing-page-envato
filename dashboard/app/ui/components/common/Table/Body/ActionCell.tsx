@@ -37,7 +37,9 @@ interface ActionCallProps {
   user?: TUserDetail;
   transaction?: TTransaction;
   product?: TProductResponse;
+  itemName?: string;
   activities?: TRecentActivities;
+  titleDelete?: string;
   isOpenModal?: boolean;
   isOpenUserAction?: boolean;
   onDeleteTransaction?: (transactionData: TTransaction) => void;
@@ -46,20 +48,28 @@ interface ActionCallProps {
   onDeleteProduct?: (
     productData: Partial<TProduct & { userId: string; productId: string }>,
   ) => void;
+  onDeleteActivity?: (
+    activitiesData: Partial<
+      TRecentActivities & { userId: string; activitiesId: string }
+    >,
+  ) => void;
   onLockUser?: (userData?: TUserDetail) => void;
   onUnlockUser?: (userData?: TUserDetail) => void;
 }
 
 const ActionCellComponent = ({
   user,
-  transaction,
   product,
+  itemName,
+  transaction,
+  titleDelete,
   activities,
   isOpenModal = false,
   isOpenUserAction = false,
   onLockUser,
   onUnlockUser,
   onDeleteTransaction,
+  onDeleteActivity,
   onDeleteProduct,
   onUpdateProduct,
   onUpdateTransaction,
@@ -68,6 +78,7 @@ const ActionCellComponent = ({
   const [isDelete, setIsDelete] = useState<boolean>(false);
 
   const customerId = transaction?.customer.customerId || activities?._id;
+  const optionDelete = product || activities;
 
   const handleOpenConfirmModal = useCallback(
     (isDeleteModal: boolean) => () => {
@@ -93,6 +104,16 @@ const ActionCellComponent = ({
         product as Partial<TProduct & { userId: string; productId: string }>,
       );
   }, [handleToggleModal, onDeleteProduct, product]);
+
+  const handleDeleteActivities = useCallback(() => {
+    handleToggleModal();
+    onDeleteActivity &&
+      onDeleteActivity(
+        activities as Partial<
+          TRecentActivities & { userId: string; activitiesId: string }
+        >,
+      );
+  }, [handleToggleModal, onDeleteActivity, activities]);
 
   const handleLockUser = useCallback(
     () => onLockUser && onLockUser(user),
@@ -217,15 +238,17 @@ const ActionCellComponent = ({
         />
       )}
 
-      {isOpenConfirmModal && isDelete && product && (
+      {isOpenConfirmModal && isDelete && optionDelete && (
         <Modal
           isOpen={isOpenConfirmModal}
           onClose={handleToggleModal}
-          title="Delete Product"
+          title={titleDelete}
           body={
             <ConfirmDeleteModal
-              productName={product.name}
-              onDeleteProduct={handleDeleteProduct}
+              itemName={itemName}
+              onDeleteProduct={
+                product ? handleDeleteProduct : handleDeleteActivities
+              }
               onCloseModal={handleToggleModal}
             />
           }

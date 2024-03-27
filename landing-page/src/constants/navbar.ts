@@ -22,4 +22,9 @@ export const NAVBAR = [
     href: ROUTES.PRIVACY_POLICY,
     text: 'privacy policy',
   },
+  {
+    id: 5,
+    href: ROUTES.DATA_PROCESSING,
+    text: 'data processing',
+  },
 ];

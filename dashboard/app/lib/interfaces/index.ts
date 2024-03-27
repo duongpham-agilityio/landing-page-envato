@@ -15,4 +15,4 @@ export * from './form';
 export * from './wallet';
 export * from './money';
 export * from './products';
-export * from './recent-activities';
+export * from './recentActivities';

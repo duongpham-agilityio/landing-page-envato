@@ -144,7 +144,7 @@ export const COLUMNS_PRODUCTS = (
 
 export const COLUMNS_RECENT_ACTIVITIES = (
   onRenderHead: (title: string, key: string) => void,
-  onRenderBody: ({ id, name }: TDataSource) => void,
+  onRenderBody: ({ id, actionName }: TDataSource) => void,
   onRenderEmail: (email: TRecentActivities) => void,
   onRenderActionIcon: (data: TRecentActivities) => void,
 ) => [

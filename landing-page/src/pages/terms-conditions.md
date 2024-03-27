@@ -9,13 +9,13 @@ title: Terms & Conditions
 
 1. These Terms of Use are a contractual model and specify the terms, conditions and manner of providing the Service by the Service Provider to the User. The precondition of providing the Service is reading and accepting the provisions of the Terms of Use. By clicking the "Sign Up with Email" button or by registering through your own account on Google. inc, you accept the Terms of Use.
 
-2. The owner of the Site **[https://landingi.com](https://landingi.com/)** and the domain https://landingi.com is Landingi Sp. z o.o., registered office atPiwna 10 Street, 44-100, Gliwice, NIP: 6762461659, REGON: 122774425, entered in the business register in the District Court in Gliwice, 10th Commercial Division of the National Court Register under KRS number 0000449404.
+2. The owner of the Site **[https://landing-page-envato.com](https://landing-page-envato.vercel.app/)** and the domain **[https://landing-page-envato.com](https://landing-page-envato.vercel.app/)** is Landing Sp. z o.o., registered office atPiwna 10 Street, 44-100, Gliwice, NIP: 6762461659, REGON: 122774425, entered in the business register in the District Court in Gliwice, 10th Commercial Division of the National Court Register under KRS number 0000449404.
 
 3. The terms used in these Terms of Use shall be defined as follows:
 
-    a. Platform - an on-line platform operated by the Service Provider, functioning through the websites  https://new.landingi.com, https://app.landingi.com and https://editor.landingi.com, enabling the provision of the Service;
+    a. Platform - an on-line platform operated by the Service Provider, functioning through the websites  https://landing-page-envato.com, https://landing-page-envato.com and https://landing-page-envato.com, enabling the provision of the Service;
  
-    b. Service Provider - Landingi Sp. z o.o., registered office at Piwna 10, 44-100, Gliwice, NIP: 6762461659, REGON: 122774425, entered in the business register in the District Court in Gliwice, 10th Commercial Division of the National Court Register under KRS number 0000449404, with share capital of PLN 10,950, paid in full, e-mail: support@landingi.com, phone number: +48 539 303 900;
+    b. Service Provider - Landingi Sp. z o.o., registered office at Piwna 10, 44-100, Gliwice, NIP: 6762461659, REGON: 122774425, entered in the business register in the District Court in Gliwice, 10th Commercial Division of the National Court Register under KRS number 0000449404, with share capital of PLN 10,950, paid in full, e-mail: support@envatomarket.com, phone number: [+48 539 303 900](https://landing-page-envato.vercel.app);
 
     c. Service - a service provided electronically via the Platform by the Service Provider to the User in accordance with the provisions of the law and on the principles set out in the Terms of Use;
 Landing Page - the User's website created by means of the Platform, which assists the User in conducting advertising campaigns on the Internet. This page is displayed to the visitor as a result of marketing activities undertaken by the User. The content of the Landing Page is created and maintained by the User according to the rules specified in the Terms of Use;
@@ -46,10 +46,10 @@ Landing Page - the User's website created by means of the Platform, which assist
 
     p. Terms of Use - this document together with the privacy policy and the data processing agreement, which are an integral part of the Terms of Use;
 
-    q. Site - an online service available through the domain: https://landingi.com.
+    q. Site - an online service available through the domain: https://landing-page-envato.com.
 
-4. Detailed information about the Service can be found at https://landingi.com, as well as provided by the Service Provider by e-mail in response to an enquiry sent by the User to the e-mail address: support@landingi.com.
-5. Users may contact the Service Provider by e-mail: support@landingi.com.  
+4. Detailed information about the Service can be found at https://landing-page-envato.com, as well as provided by the Service Provider by e-mail in response to an enquiry sent by the User to the e-mail address: support@envatomarket.com.
+5. Users may contact the Service Provider by e-mail: support@envatomarket.com.  
 
 ### **§ 2** 
 
@@ -67,7 +67,7 @@ Landing Page - the User's website created by means of the Platform, which assist
     e. disable AdBlock advertising blocking tools.
 
 2. Support and technical assistance are provided by the Service Provider in the following forms:
-    a. Via email at support@landingi.com;
+    a. Via email at support@envatomarket.com;
 
     b.  Via the in-platform chat, available Monday – Friday between 9 a.m. and 10 p.m. (Polish local time) except for public holidays in the Republic of Poland;
 
@@ -109,7 +109,7 @@ with effect from the last day of the Plan.
 4. After clicking the "Delete account" button in the Platform, the data contained in the Account shall be deleted after 7 days from this event. During the 7-day period, the Account Holder may purchase the Package, which is tantamount to withdrawal of the notice of termination and results in continuation of the Agreement.
 5. The Service Provider may refuse to delete the data contained in the Account if the Account Holder has failed to fulfil his obligation undertaken within the framework of activity on the Platform or if he or another User has violated these Terms of Use or the binding legal regulations, and the preservation of the User's data is necessary to clarify these circumstances and establish the User's responsibility. If the Account has been deleted as a result of the Service Provider's decision, the Account Holder cannot register again on the Platform without the Service Provider's prior consent. Re-registration without the consent of the Service Provider shall result in deleting the Account.
 6. The Service Provider is entitled to terminate the Agreement, which shall be performed by:
-    a. deletion of the Account after 90 days from registration, if no payment has been made,
+    a. deletion of the Account after 90 days from registration, if no payment has been made.
 
     b. deletion of the Account in case of failure to purchase and pay for the Plan within 90 days from the last day of the billing period, if no further payment has been made.
 
@@ -143,35 +143,35 @@ with effect from the last day of the Plan.
 1. The User has the right to:
     a. manage his/her Account (edit data),
 
-    b. choose Plans - this right is vested exclusively in the Account Holder and Account Administrator,
+    b. choose Plans - this right is vested exclusively in the Account Holder and Account Administrator.
 
-    c. use the Site or Platform in accordance with the Terms of Use and generally applicable law,
+    c. use the Site or Platform in accordance with the Terms of Use and generally applicable law.
 
     d. send enquiries to the technical support department or raise complaints.
 2. The User undertakes to:
-    a. use the materials, personal data or digital content, as appropriate, in respect of which he has full right to use them,
+    a. use the materials, personal data or digital content, as appropriate, in respect of which he has full right to use them.
 
-    b. check in advance whether it meets the technical requirements for use of the Platform,
+    b. check in advance whether it meets the technical requirements for use of the Platform.
 
-    c. not to use the Platform in a manner that disrupts the functioning of the Service,
+    c. not to use the Platform in a manner that disrupts the functioning of the Service.
 
-    d. not to use the Platform in a manner that violates the law,
+    d. not to use the Platform in a manner that violates the law.
 
-    e. take care of linguistic correctness, avoid vulgarisms, not place hyperlinks to websites whose content may violate the provisions of the Terms of Use or law,
+    e. take care of linguistic correctness, avoid vulgarisms, not place hyperlinks to websites whose content may violate the provisions of the Terms of Use or law.
 
     f. use the Platform in accordance with the purpose, law, provisions of the Terms of Use and Terms of Use and the principles of social coexistence. It is forbidden to use the Service in order to carry out terrorist, sabotage or other criminal activities, as well as to commit any violations of the law or commit any tort, including, in particular, posting material that offends any person or violates their rights, or that contains threats or invectives, promoting hatred of or in any way harassing persons or animals, posting material which is paedophilic, revealing or promoting crime, profane, offensive, infringing or likely to infringe upon the personal or other legally protected rights of a person, posting material which attacks, degrades or promotes violence, or encourages commitment of a crime. It is also prohibited to post advertising messages that violate the law (e.g. unlawful advertising) or to publish a Landing Page to offer meetings for a fee or that are not permitted by law.
 
-    g. update materials or data, including personal data by making changes to his Account,
+    g. update materials or data, including personal data by making changes to his Account.
 
-    h. not to take any actions that are inconsistent with the provisions of generally applicable law or good manners, or which violate the personal rights of other Users, third parties or legitimate interests of the Service Provider or other Users or third parties,
+    h. not to take any actions that are inconsistent with the provisions of generally applicable law or good manners, or which violate the personal rights of other Users, third parties or legitimate interests of the Service Provider or other Users or third parties.
 
-    i. not to gain access to the Accounts of other Users that are not managed by the User,
+    i. not to gain access to the Accounts of other Users that are not managed by the User.
 
-    j. not to generate excessive or disproportionate load on the links and other infrastructure on which the Service is based,
+    j. not to generate excessive or disproportionate load on the links and other infrastructure on which the Service is based.
 
-    k. keep one's password strictly confidential,
+    k. keep one's password strictly confidential.
 
-    l. not to share his Account and Account data with other Users and third parties,
+    l. not to share his Account and Account data with other Users and third parties.
 
     m. make payments for the Service.
 
@@ -243,21 +243,21 @@ with effect from the last day of the Plan.
 
 4. The Service Provider is not liable for damage (also in the form of lost profits), image infringement, interruptions in the operation of the company, loss of data or other economic information or other losses of a material nature, resulting in particular from:
 
-    a.inability to use the Site and the Platform,
+    a.inability to use the Site and the Platform.
 
-    b. using the Site and the Platform,
+    b. using the Site and the Platform.
 
-    c. lack of access to the Site and the Platform, data, information, messages published or read in the Site and the Platform,
+    c. lack of access to the Site and the Platform, data, information, messages published or read in the Site and the Platform.
 
-    d. errors in the functioning of the Site and the Platform,
+    d. errors in the functioning of the Site and the Platform.
 
-    e. unauthorised third party access to data,
+    e. unauthorised third party access to data.
 
-    f. influence of third parties,
+    f. influence of third parties.
 
-    g. deletion of the Account,
+    g. deletion of the Account.
 
-    h. effects of additional plugins that may interfere with the Platform's operation,
+    h. effects of additional plugins that may interfere with the Platform's operation.
 
     i. and any other cause related to the Service, regardless of whether the losses and breaches were direct or indirect effects of the event.
 
@@ -284,7 +284,7 @@ with effect from the last day of the Plan.
 
 #### **Complaints**
 
-1. Each User is entitled to lodge a complaint regarding any irregularities in the operation of the Platform or the Site within 30 days of the occurrence of such irregularities. The complaint should be submitted by e-mail sent to support@landingi.com. The description of the irregularity should enable the Service Provider to identify the problem and to repair it.
+1. Each User is entitled to lodge a complaint regarding any irregularities in the operation of the Platform or the Site within 30 days of the occurrence of such irregularities. The complaint should be submitted by e-mail sent to support@envatomarket.com. The description of the irregularity should enable the Service Provider to identify the problem and to repair it.
 2. The Service Provider shall consider the complaint within 14 calendar days from the date of receiving the complaint.
 3. In case of a serious technical error, the Service Provider reserves the right to limit access to the Site, the Platform and the Service.
 4. Any possible errors in the functioning of the Site, the Platform, comments and information about the operation of the Site, the Service and the Platform, as well as violations of the Terms of Use, should be reported to the Service Provider electronically.
@@ -354,6 +354,11 @@ Date:
 
 *delete as appropriate
 
-Appendix 1:  **[Data Processing Agreement](https://landingi.com/dpa/)**
+<br/>
+<br/>
 
-Appendix 2: [Privacy Policy](https://landingi.com/privacy-policy/)
+Appendix 1:  [Data Processing Agreement](https://landing-page-envato.vercel.app/data-processing)
+
+Appendix 2: [Privacy Policy](https://landing-page-envato.vercel.app/privacy-policy)
+
+The Terms and Conditions can be downloaded in PDF form [here](https://landingi.com/wp-content/uploads/2023/06/Privacy-Policy-1.pdf).

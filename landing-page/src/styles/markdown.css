@@ -1,6 +1,15 @@
+:root {
+  --dataBg: #f9f9f9;
+  --linkTag: #2550aa;
+  --border: #ebebeb;
+}
 h3,
 h4 {
   text-align: center;
+}
+
+.data-processing {
+  background-color: var(--dataBg);
 }
 
 .style-ol > ol {
@@ -13,13 +22,42 @@ p {
   margin-top: 10px;
 }
 
-a {
+.style-ol ol > li a,
+p > a {
   text-decoration: underline;
   font-weight: bold;
+  color: var(--linkTag);
 }
-a:hover {
-  color: #2550aa;
+
+.style-ol ol > li a:hover,
+p > a:hover {
   text-decoration: none;
+}
+
+.style-ol ul {
+  margin: 20px 0 30px;
+}
+
+table {
+  margin: 40px 0;
+  overflow-y: auto;
+  width: 375px;
+  display: block;
+  overflow-x: auto;
+}
+
+table > tbody tr {
+  border-bottom: 1px solid var(--border);
+}
+
+table > tbody > tr > td {
+  padding: 25px 50px 25px 0;
+}
+
+@media (min-width: 500px) {
+  table {
+    width: 100%;
+  }
 }
 
 @media (min-width: 768px) {
