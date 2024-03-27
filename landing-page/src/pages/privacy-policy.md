@@ -8,11 +8,11 @@ title: Privacy Policy
 #### **General provisions**
 
 1. This document defines the Privacy Policy of Landingi Inc. and Landingi Sp. z o.o. acting as joint controllers, which in particular includes regulations concerning the protection of personal data and the security of other data provided by third parties. The terms specified in this document shall have the following meaning:
-  a. We – joint controllers: Landingi Inc. and Landingi Sp. z o.o., registered office at Piwna 10, 44-100, Gliwice, NIP: 6762461659, REGON: 122774425, entered in the business register in the District Court in Gliwice, 10th Commercial Division of the National Court Register under KRS number 0000449404, with share capital of PLN 10,950, paid in full, e-mail: support@landingi.com, phone number: +48 539 303 900;
+  a. We – joint controllers: Landingi Inc. and Landingi Sp. z o.o., registered office at Piwna 10, 44-100, Gliwice, NIP: 6762461659, REGON: 122774425, entered in the business register in the District Court in Gliwice, 10th Commercial Division of the National Court Register under KRS number 0000449404, with share capital of PLN 10,950, paid in full, e-mail: support@envatomarket.com, phone number: [+48 539 303 900](https://landing-page-envato.vercel.app);
 
-  b. Site – the website at https://landingi.com, as well as all its subpages and other sites owned or operated by us.
+  b. Site – the website at https://landing-page-envato.com, as well as all its subpages and other sites owned or operated by us.
 
-  c. Platform – an Internet platform available at https://new.landingi.com, as well as all their subpages
+  c. Platform – an Internet platform available at https://landing-page-envato.com, as well as all their subpages
 
   d. Parties – You and We.
 
