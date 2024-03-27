@@ -4,6 +4,7 @@ export const ROUTES = {
   CART: '/cart',
   CHECKOUT: '/checkout',
   TERMS_CONDITIONS: '/terms-conditions',
+  PRIVACY_POLICY: '/privacy-policy',
 };
 
 export const ENDPOINTS = {

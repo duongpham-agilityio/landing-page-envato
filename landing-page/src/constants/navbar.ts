@@ -17,4 +17,9 @@ export const NAVBAR = [
     href: ROUTES.TERMS_CONDITIONS,
     text: 'terms & conditions',
   },
+  {
+    id: 4,
+    href: ROUTES.PRIVACY_POLICY,
+    text: 'privacy policy',
+  },
 ];

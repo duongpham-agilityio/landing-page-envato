@@ -1,0 +1,89 @@
+---
+layout: ../contents/privacy-policy.astro
+title: Privacy Policy
+---
+
+### **§ 1** 
+
+#### **General provisions**
+
+1. This document defines the Privacy Policy of Landingi Inc. and Landingi Sp. z o.o. acting as joint controllers, which in particular includes regulations concerning the protection of personal data and the security of other data provided by third parties. The terms specified in this document shall have the following meaning:
+  a. We – joint controllers: Landingi Inc. and Landingi Sp. z o.o., registered office at Piwna 10, 44-100, Gliwice, NIP: 6762461659, REGON: 122774425, entered in the business register in the District Court in Gliwice, 10th Commercial Division of the National Court Register under KRS number 0000449404, with share capital of PLN 10,950, paid in full, e-mail: support@landingi.com, phone number: +48 539 303 900;
+
+  b. Site – the website at https://landingi.com, as well as all its subpages and other sites owned or operated by us.
+
+  c. Platform – an Internet platform available at https://new.landingi.com, as well as all their subpages
+
+  d. Parties – You and We.
+
+  e. You – the individual who gives us personal data
+
+  f. GDPR – Regulation (EU) 2016/679 of the European Parliament and of the Council of 27 April 2016 on the protection of individuals with regard to the processing of personal data and on the free movement of such data and repealing Directive 95/46/EC.
+
+</br>
+
+### **§ 2** 
+
+#### **The Data Controller and the rights of data subjects**
+
+1. We are the joint controllers of your data in the definition of GDPR.
+2. We process your data within the scope, time and purpose indicated each time in the content made available in the forms used to collect personal data.
+3. Each data subject (if we are the joint controllers) has the right to access the data, to rectify, delete or limit their processing, and the right to object. Also, the right to withdraw their consent at any time without affecting the lawfulness of processing, to transfer their data and to object to the processing of personal data.
+4. You have the right to lodge a complaint with the President of the Office for Personal Data Protection.
+5. We may refuse to delete your personal data if the preservation of your personal data is necessary due to an obligation imposed on us by law.
+
+### **§ 3** 
+
+#### **Processing of data on the Site and the Platform**
+
+1. In the case of persons who visit the Site but are not registered users, the provisions of the Privacy Policy shall apply in accordance with the current version available on the Site. Use of the Site implies acceptance of the terms.
+2. If you fill in the form in which you provide your personal data, information about data processing is located below the form.
+3. If you have access to the Platform, you can log in to your account and easily change your data, including updating, deleting and transferring it by exporting the data stored on the Platform to the .csv format. If you do not have access to the Platform, please contact us at the address indicated in §7.2 in order to exercise the aforementioned rights.
+4. We respect your right to privacy and we care about data security. For this purpose, our measures include a secure communication encryption protocol used at the stage of registration, login and use of the Site (SSL).
+5. Payment service takes place outside the Site. Personal data or data concerning your credit card necessary to make a payment are saved in a dedicated IT system by an external payment channel.
+6. Personal data provided in the Site are treated as confidential and are not visible to other users except those authorised by you.
+7. In connection with the processing of your data, we may transfer your data to a third country, while observing the highest standards of data protection and respecting the rules of the GDPR.
+8. We may subcontract the processing of your personal data as part of the provision of IT support or storage on a server. Sub-processing involves the following groups of recipients: CRM, CMS, e-mail marketing systems, payment operators, analytical systems.
+9. We do not share with third parties, sell, or disclose any data and credentials you provide necessary to connect the form with an external provider. When setting up integration with Google Spreadsheet, we do not collect, use, process, share, sell, or disclose any personal data of Google users.
+
+### **§ 4** 
+
+#### **Data protection in recruitment procedures**
+
+1. During the recruitment process, we process your personal data to the extent provided to us, in particular through one of the services selected by us for posting job offers and associating employees with employers.
+2. All permissions and information concerning your personal data are provided by you on the above-mentioned websites. If the processing of data by us requires additional action from you, we will inform you by e-mail.
+
+### **§ 5** 
+
+#### **Data security**
+1. We use technical and organisational means to ensure the security of personal data and to protect it from accidental or deliberate destruction, accidental loss, alteration, unauthorised disclosure or access, to the extent required by generally applicable law. The information is stored and processed on servers with an appropriate level of security, with appropriate security measures, meeting the requirements of Polish law.
+2. The data entrusted shall be retained on hardware and servers in properly secured information storage centres, to which only authorised persons have access.
+3. We carry out activities related to the processing of personal data with respect to all legal and technical requirements imposed on us by the provisions regarding personal data protection.
+4. We have implemented pseudonymisation, data encryption and have access controls in place so as to minimise the effects of possible data security breaches.
+5. We regularly test the security of our systems and have a backup procedure in place.
+6. Personal data is processed only by persons authorised by us or by processors with whom we cooperate closely. Sub-processing is conducted exclusively on the basis of relevant contracts.
+
+### **§ 6** 
+
+#### **Cookies**
+1. We make use of the following cookie files:
+  a. "necessary" cookies, enabling the use of services available on the Site and maintaining your session in the Site;
+
+  b. "preferences" cookies, enabling the "remembering" of settings you have chosen;
+
+  c. "marketing" cookies, enabling the provision of advertising content more suited to your interests;
+
+  d. "analytics" cookie files, enabling the collection of statistical information about visitors to the Site.
+2. The Site, the Platform and each Landing Page make use of cookies. The cookies that are processed analyse anonymous information about the use of the Site, the Platform or each Landing Page. These are tools for Internet analytics - our proprietary or external solutions, which are implemented by the Landing Page user. Cookies help to improve the functionality of the Site, the Platform or any Landing Page and to adapt it better to the expectations and needs of visitors. Both tools collect anonymous information and record trends on the site without identifying individual visitors. Like many other services, these tools use their own cookies to analyse the activities of visitors. These cookies are used to store information such as the starting time of a current visit and whether the visitor has been on the site before, what site they came from, what screen resolution their device has, how they move around the site, etc.
+3. Every person browsing the Site, Platform or any Landing Page should manage cookies by modifying the settings of their web browser. If you do not want to use them, you can prevent the storage of cookies on your device or delete the stored files permanently. Please be informed that this may, however, lead to deterioration of the quality of service provided by not collecting cookies or reading information on their basis.
+
+### **§ 7** 
+
+#### **Final provisions**
+
+1. You can contact us at any time to find out whether and how we process your personal data.
+2. We have appointed a personal data protection officer in the person of Paweł Sałajczyk, who can be contacted as follows: Piwna 10 Street, 44-100 Gliwice, phone: +48 602 325 562, e-mail: dpo@landingi.com.
+3. The Privacy Policy is effective from 01 December 2020 and supersedes any previous documents concerning personal data protection.
+
+
+The Privacy Policy is available for download in PDF form [here](https://landingi.com/wp-content/uploads/2023/06/Privacy-Policy-1.pdf).

@@ -23,6 +23,7 @@ import { TDataSource, THeaderTable, TRecentActivities } from '@/lib/interfaces';
 // hooks
 import {
   TActivitiesSortField,
+  useDebounce,
   usePagination,
   useRecentActivities,
   useSearch,
@@ -39,7 +40,7 @@ import { authStore } from '@/lib/stores';
 
 const RecentActivitiesTableComponent = () => {
   const { user } = authStore();
-  const { get } = useSearch();
+  const { get, setSearchParam: setSearchTransaction } = useSearch();
 
   const {
     activities,
@@ -47,7 +48,7 @@ const RecentActivitiesTableComponent = () => {
     isError: isActivitiesError,
     sortBy,
   } = useRecentActivities({
-    name: get('name') || '',
+    actionName: get('actionName') || '',
     userId: user?.id,
   });
 
@@ -57,10 +58,16 @@ const RecentActivitiesTableComponent = () => {
     arrOfCurrButtons,
     isDisabledPrev,
     isDisableNext,
+    resetPage,
     handleChangeLimit,
     handlePageChange,
     handlePageClick,
   } = usePagination(activities);
+
+  const handleDebounceSearch = useDebounce((value: string) => {
+    resetPage();
+    setSearchTransaction('actionName', value);
+  }, []);
 
   const renderHead = useCallback(
     (title: string, key: string): JSX.Element => {
@@ -106,10 +113,9 @@ const RecentActivitiesTableComponent = () => {
               flex={1}
               w={{ base: 200, xl: 220, '3xl': 200, '6xl': 250 }}
             >
-              {user?.id &&
-                formatUppercaseFirstLetter(
-                  `${user?.firstName} ${user?.lastName} ${name}`,
-                )}
+              {formatUppercaseFirstLetter(
+                `${user?.firstName} ${user?.lastName} ${name}`,
+              )}
             </Text>
           </Tooltip>
         </Flex>
@@ -175,8 +181,8 @@ const RecentActivitiesTableComponent = () => {
         <SearchBar
           placeholder="Search by name or email"
           filterOptions={MONTHS_OPTIONS}
-          searchValue={''}
-          onSearch={() => {}}
+          searchValue={get('actionName')?.toLowerCase() || ''}
+          onSearch={handleDebounceSearch}
         />
       </Flex>
       <Fetching
