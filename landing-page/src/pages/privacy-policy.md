@@ -8,11 +8,11 @@ title: Privacy Policy
 #### **General provisions**
 
 1. This document defines the Privacy Policy of Landingi Inc. and Landingi Sp. z o.o. acting as joint controllers, which in particular includes regulations concerning the protection of personal data and the security of other data provided by third parties. The terms specified in this document shall have the following meaning:
-  a. We – joint controllers: Landingi Inc. and Landingi Sp. z o.o., registered office at Piwna 10, 44-100, Gliwice, NIP: 6762461659, REGON: 122774425, entered in the business register in the District Court in Gliwice, 10th Commercial Division of the National Court Register under KRS number 0000449404, with share capital of PLN 10,950, paid in full, e-mail: support@envatomarket.com, phone number: [+48 539 303 900](https://landing-page-envato.vercel.app);
+  a. We – joint controllers: Landingi Inc. and Landingi Sp. z o.o., registered office at Piwna 10, 44-100, Gliwice, NIP: 6762461659, REGON: 122774425, entered in the business register in the District Court in Gliwice, 10th Commercial Division of the National Court Register under KRS number 0000449404, with share capital of PLN 10,950, paid in full, e-mail: support@envatomarket.com, phone number: [+48 539 303 900](tel:+48539303900);
 
-  b. Site – the website at https://landing-page-envato.com, as well as all its subpages and other sites owned or operated by us.
+  b. Site – the website at **[https://landing-page-envato.com](https://landing-page-envato.vercel.app/)**, as well as all its subpages and other sites owned or operated by us.
 
-  c. Platform – an Internet platform available at https://landing-page-envato.com, as well as all their subpages
+  c. Platform – an Internet platform available at **[https://landing-page-envato.com](https://landing-page-envato.vercel.app/)**, as well as all their subpages
 
   d. Parties – You and We.
 
@@ -82,8 +82,8 @@ title: Privacy Policy
 #### **Final provisions**
 
 1. You can contact us at any time to find out whether and how we process your personal data.
-2. We have appointed a personal data protection officer in the person of Paweł Sałajczyk, who can be contacted as follows: Piwna 10 Street, 44-100 Gliwice, phone: +48 602 325 562, e-mail: dpo@landingi.com.
-3. The Privacy Policy is effective from 01 December 2020 and supersedes any previous documents concerning personal data protection.
+2. We have appointed a personal data protection officer in the person of Paweł Sałajczyk, who can be contacted as follows: Piwna 10 Street, 44-100 Gliwice, phone: +48 602 325 562, e-mail: support@envatomarket.com.
+3. The Privacy Policy is effective from Mar,2024 and supersedes any previous documents concerning personal data protection.
 
 
 The Privacy Policy is available for download in PDF form [here](https://landingi.com/wp-content/uploads/2023/06/Privacy-Policy-1.pdf).

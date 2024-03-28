@@ -13,9 +13,9 @@ title: Terms & Conditions
 
 3. The terms used in these Terms of Use shall be defined as follows:
 
-    a. Platform - an on-line platform operated by the Service Provider, functioning through the websites  https://landing-page-envato.com, https://landing-page-envato.com and https://landing-page-envato.com, enabling the provision of the Service;
+    a. Platform - an on-line platform operated by the Service Provider, functioning through the websites  **[https://landing-page-envato.com](https://landing-page-envato.vercel.app/)**, **[https://landing-page-envato.com](https://landing-page-envato.vercel.app/)** and **[https://landing-page-envato.com](https://landing-page-envato.vercel.app/)**, enabling the provision of the Service;
  
-    b. Service Provider - Landingi Sp. z o.o., registered office at Piwna 10, 44-100, Gliwice, NIP: 6762461659, REGON: 122774425, entered in the business register in the District Court in Gliwice, 10th Commercial Division of the National Court Register under KRS number 0000449404, with share capital of PLN 10,950, paid in full, e-mail: support@envatomarket.com, phone number: [+48 539 303 900](https://landing-page-envato.vercel.app);
+    b. Service Provider - Landingi Sp. z o.o., registered office at Piwna 10, 44-100, Gliwice, NIP: 6762461659, REGON: 122774425, entered in the business register in the District Court in Gliwice, 10th Commercial Division of the National Court Register under KRS number 0000449404, with share capital of PLN 10,950, paid in full, e-mail: support@envatomarket.com, phone number: [+48 539 303 900](tel:+48539303900);
 
     c. Service - a service provided electronically via the Platform by the Service Provider to the User in accordance with the provisions of the law and on the principles set out in the Terms of Use;
 Landing Page - the User's website created by means of the Platform, which assists the User in conducting advertising campaigns on the Internet. This page is displayed to the visitor as a result of marketing activities undertaken by the User. The content of the Landing Page is created and maintained by the User according to the rules specified in the Terms of Use;
@@ -40,15 +40,15 @@ Landing Page - the User's website created by means of the Platform, which assist
 
     m. Plan - a set of functionalities of a given Account specified in the Price List;
 
-    n. Price List - a list of prices for the provision of the Service within the scope specified in the Plans, constituting an integral part of the Agreement. The Price List is available to the Account Holder or Account Administrator after logging in to the Platform and the Site under the link https://landingi.com/pl/cennik;
+    n. Price List - a list of prices for the provision of the Service within the scope specified in the Plans, constituting an integral part of the Agreement. The Price List is available to the Account Holder or Account Administrator after logging in to the Platform and the Site under the link **[https://landing-page-envato.com](https://landing-page-envato.vercel.app/)**;
 
     o. Account - a set of resources and settings saved in the Service Provider's database for the User as part of its use of the Service. Access to the Account is possible after logging in. The Account allows you to use the Service provided by the Platform;
 
     p. Terms of Use - this document together with the privacy policy and the data processing agreement, which are an integral part of the Terms of Use;
 
-    q. Site - an online service available through the domain: https://landing-page-envato.com.
+    q. Site - an online service available through the domain: **[https://landing-page-envato.com](https://landing-page-envato.vercel.app/)**.
 
-4. Detailed information about the Service can be found at https://landing-page-envato.com, as well as provided by the Service Provider by e-mail in response to an enquiry sent by the User to the e-mail address: support@envatomarket.com.
+4. Detailed information about the Service can be found at **[https://landing-page-envato.com](https://landing-page-envato.vercel.app/)**, as well as provided by the Service Provider by e-mail in response to an enquiry sent by the User to the e-mail address: support@envatomarket.com.
 5. Users may contact the Service Provider by e-mail: support@envatomarket.com.  
 
 ### **§ 2** 
@@ -71,7 +71,7 @@ Landing Page - the User's website created by means of the Platform, which assist
 
     b.  Via the in-platform chat, available Monday – Friday between 9 a.m. and 10 p.m. (Polish local time) except for public holidays in the Republic of Poland;
 
-    c. Via phone at +48 539 303 900, available Monday – Friday between 8 a.m. and 10 p.m. (Polish local time) except for public holidays in the Republic of Poland.
+    c. Via phone at [+48 539 303 900](tel:+48539303900), available Monday – Friday between 8 a.m. and 10 p.m. (Polish local time) except for public holidays in the Republic of Poland.
 
 3. The Service Provider provides support only for the Service.
 
@@ -315,7 +315,7 @@ with effect from the last day of the Plan.
 1. The Service Provider makes the content of the Terms of Use available before registration and sends the content of the Terms of Use in a link by e-mail. The Terms of Use may also be presented in another way, at the individual request of a person in case of problems with displaying or reading the Terms of Use. In order to do so, please contact the technical support department.
 2. In matters not regulated under these Terms of Use, the provisions of generally applicable law shall apply, in particular the Polish Civil Code of 23 April 1964 and the Act on consumer rights of 30 May 2014.
 3. Polish law shall apply to all disputes arising under these Terms of Use and the concluded Agreement. The court having jurisdiction to hear disputes shall be the court having jurisdiction over the seat of the Service Provider, unless the provision of generally applicable law reserves the exclusive jurisdiction of another court. The competent court for disputes to which the Consumer is a party shall be the Consumer's place of residence.
-4. The Terms of Use are effective from 01 December 2020.
+4. The Terms of Use are effective from Mar,2024.
 5. The rights granted to Account Holders who are sole proprietors and perform legal transactions through the Platform for non-professional purposes shall enter into force on 1 January 2021.
 
 ### **§ 15**

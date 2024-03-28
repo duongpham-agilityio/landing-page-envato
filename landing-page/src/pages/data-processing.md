@@ -103,7 +103,7 @@ title: Data Processing Agreement
 
 #### **Final provisions**
 
-1. The contact person on the part of the Processor with regard to implementation of the Processing Agreement and data processing in accordance with the Terms of Use, including implementation of the Privacy Policy, is the Data Protection Officer. Contact details: [dpo@landingi.com](https://landing-page-envato.vercel.app/).
+1. The contact person on the part of the Processor with regard to implementation of the Processing Agreement and data processing in accordance with the Terms of Use, including implementation of the Privacy Policy, is the Data Protection Officer. Contact details: support@envatomarket.com.
 2. The entrustment is necessary for proper performance of the Agreement and is not treated as a separate Service. The Controller shall not bear any fees for the conclusion of the Processing Agreement.
 3. If any provisions of the Processing Agreement prove to be invalid, this shall not affect the validity of the remaining provisions, and the Parties shall strive to replace the invalid provision with a valid provision reflecting the Parties' original will.
 4.In matters not regulated herein, the relevant provisions of Polish law shall apply.

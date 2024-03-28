@@ -22,10 +22,11 @@ const NavbarOnSmallDevices = ({
 
   const closeAnimate: string = !isOpen && isFirstToggle ? 'animate-shrink' : '';
   const openAnimate: string = isOpen ? 'animate-grow' : '';
+  const toogleMenu: string = isOpen ? 'h-[200px]' : '';
   const firstStyle: string = !isOpen && !isFirstToggle ? 'hidden' : '';
 
   return (
-    <div className='relative lg:hidden'>
+    <div className={`${toogleMenu} relative lg:hidden`}>
       <Button
         aria-label='Show Menu'
         className='flex justify-center items-center pt-[0] pb-0 mt-4  w-[36px] h-[29px] !p-0 cursor-pointer'
@@ -35,7 +36,7 @@ const NavbarOnSmallDevices = ({
       </Button>
       {/* ISSUES: height alway 300px */}
       <nav
-        className={`absolute bottom-7 bg-primary pr-10 mt-4 h-0 ${firstStyle} ${closeAnimate} ${openAnimate}`}
+        className={`pr-10 mt-4 ${firstStyle} ${closeAnimate} ${openAnimate}`}
       >
         <ul>
           {options.map(
