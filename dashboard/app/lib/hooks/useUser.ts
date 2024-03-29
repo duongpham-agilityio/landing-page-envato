@@ -6,8 +6,8 @@ import {
 } from '@tanstack/react-query';
 
 // Interfaces
-import { IIssues, TPassword, TUserDetail } from '@/lib/interfaces';
-import { TSearchTransaction } from '.';
+import { EActivity, IIssues, TPassword, TUserDetail } from '@/lib/interfaces';
+import { TSearchTransaction, useLogActivity } from '.';
 
 // Services
 import {
@@ -21,9 +21,11 @@ import {
 import { END_POINTS } from '@/lib/constants';
 
 export const useUpdateUser = () => {
+  const { logActivity } = useLogActivity();
   const { error, ...rest } = useMutation({
     mutationFn: async (user: TUserDetail) =>
       await MainHttpService.put<TUserDetail>(END_POINTS.USERS, user),
+    onSuccess: () => logActivity(END_POINTS.SETTINGS, EActivity.SAVE_PROFILE),
   });
 
   return {
@@ -33,6 +35,7 @@ export const useUpdateUser = () => {
 };
 
 export const useUpdatePassword = () => {
+  const { logActivity } = useLogActivity();
   const { error, ...rest } = useMutation({
     mutationFn: async (passwordData: TPassword) => {
       const { oldPassword, newPassword, memberId } = passwordData;
@@ -43,6 +46,7 @@ export const useUpdatePassword = () => {
         memberId,
       });
     },
+    onSuccess: () => logActivity(END_POINTS.SETTINGS, EActivity.SAVE_PASSWORD),
   });
 
   return {
@@ -72,6 +76,7 @@ export const useGetListIssues = () => {
 };
 
 export const useCreateIssues = () => {
+  const { logActivity } = useLogActivity();
   const queryClient = useQueryClient();
   const { error, ...rest } = useMutation({
     mutationFn: async (
@@ -88,6 +93,7 @@ export const useCreateIssues = () => {
         {},
       ),
     onSettled: () => {
+      logActivity(END_POINTS.SUPPORT, EActivity.CREATE_ISSUES);
       queryClient.invalidateQueries({ queryKey: [END_POINTS.SUPPORT] });
     },
   });

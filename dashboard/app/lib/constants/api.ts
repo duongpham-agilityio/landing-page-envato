@@ -30,6 +30,8 @@ export const END_POINTS = {
   LOCK: '/lock',
   UNLOCK: '/unlock',
   ADMIN: '/admin',
+  SETTINGS: '/settings',
+  LOGIN: '/login',
 };
 
 export const SEARCH_PARAM = {

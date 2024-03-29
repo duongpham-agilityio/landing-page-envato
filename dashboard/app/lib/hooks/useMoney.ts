@@ -4,12 +4,16 @@ import { useMutation, useQueryClient } from '@tanstack/react-query';
 import { addMoneyToUser, sendMoneyToUser } from '@/lib/services';
 
 // Types
-import { TAddMoney, TSendMoney } from '@/lib/interfaces';
+import { EActivity, TAddMoney, TSendMoney } from '@/lib/interfaces';
 
 // Constants
-import { END_POINTS } from '@/lib/constants';
+import { END_POINTS, ROUTES } from '@/lib/constants';
+
+// Hook
+import { useLogActivity } from '.';
 
 export const useMoney = () => {
+  const { logActivity } = useLogActivity();
   const queryClient = useQueryClient();
 
   const { mutate: addMoneyToUserWallet } = useMutation({
@@ -25,6 +29,7 @@ export const useMoney = () => {
         queryKey: [END_POINTS.NOTIFICATION],
       });
     },
+    onSuccess: () => logActivity(ROUTES.ROOT, EActivity.ADD_MONEY),
   });
 
   const { mutate: sendMoneyToUserWallet } = useMutation({
@@ -40,6 +45,7 @@ export const useMoney = () => {
         queryKey: [END_POINTS.NOTIFICATION],
       });
     },
+    onSuccess: () => logActivity(ROUTES.ROOT, EActivity.SEND_MONEY),
   });
 
   return {

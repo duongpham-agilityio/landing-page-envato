@@ -1,7 +1,7 @@
 'use client';
 
-import { Box, Flex, Td, Text, Th, Tooltip, useToast } from '@chakra-ui/react';
-import { memo, useCallback, useMemo } from 'react';
+import { Box, Flex, Td, Text, Th, Tooltip } from '@chakra-ui/react';
+import { memo, useCallback, useMemo, useState } from 'react';
 import Link from 'next/link';
 
 // Components
@@ -10,19 +10,12 @@ import {
   HeadCell,
   SearchBar,
   Fetching,
-  ActionCell,
   Pagination,
   Indicator,
 } from '@/ui/components';
 
 // Constants
-import {
-  COLUMNS_RECENT_ACTIVITIES,
-  ERROR_MESSAGES,
-  MONTHS_OPTIONS,
-  STATUS,
-  SUCCESS_MESSAGES,
-} from '@/lib/constants';
+import { ACTIVITY_OPTIONS, COLUMNS_RECENT_ACTIVITIES } from '@/lib/constants';
 
 // Interfaces
 import { TDataSource, THeaderTable, TRecentActivities } from '@/lib/interfaces';
@@ -38,7 +31,6 @@ import {
 
 // Utils
 import {
-  customToast,
   formatRecentActivitiesResponse,
   formatUppercaseFirstLetter,
 } from '@/lib/utils';
@@ -47,21 +39,27 @@ import {
 import { authStore } from '@/lib/stores';
 
 const RecentActivitiesTableComponent = () => {
-  const toast = useToast();
   const userId = authStore((state) => state.user?.id);
   const { get, setSearchParam: setSearchTransaction } = useSearch();
+  const [filter, setFilter] = useState<string>('');
 
   const {
     activities,
     isLoading: isLoadingActivities,
     isError: isActivitiesError,
     sortBy,
-    deleteActivity,
-    isDeleteActiviy,
   } = useRecentActivities({
     actionName: get('actionName') || '',
     userId: userId,
   });
+
+  const activityMemorized = useMemo(
+    () =>
+      activities.filter(
+        ({ actionName }) => actionName?.trim().includes(filter),
+      ),
+    [activities, filter],
+  );
 
   const {
     data,
@@ -73,48 +71,12 @@ const RecentActivitiesTableComponent = () => {
     handleChangeLimit,
     handlePageChange,
     handlePageClick,
-  } = usePagination(activities);
+  } = usePagination(activityMemorized);
 
   const handleDebounceSearch = useDebounce((value: string) => {
     resetPage();
     setSearchTransaction('actionName', value);
   }, []);
-
-  const handleDeleteActivities = useCallback(
-    (
-      data: Partial<
-        TRecentActivities & { userId: string; activitiesId: string }
-      >,
-    ) => {
-      deleteActivity(
-        {
-          activitiesId: data._id,
-          userId: userId,
-        },
-        {
-          onSuccess: () => {
-            toast(
-              customToast(
-                SUCCESS_MESSAGES.DELETE_PRODUCT_SUCCESS.title,
-                SUCCESS_MESSAGES.DELETE_PRODUCT_SUCCESS.description,
-                STATUS.SUCCESS,
-              ),
-            );
-          },
-          onError: () => {
-            toast(
-              customToast(
-                ERROR_MESSAGES.DELETE_FAIL.title,
-                ERROR_MESSAGES.DELETE_FAIL.description,
-                STATUS.ERROR,
-              ),
-            );
-          },
-        },
-      );
-    },
-    [deleteActivity, toast, userId],
-  );
 
   const renderHead = useCallback(
     (title: string, key: string): JSX.Element => {
@@ -131,6 +93,44 @@ const RecentActivitiesTableComponent = () => {
     [sortBy],
   );
 
+  const renderIdAction = useCallback(
+    ({ _id }: TDataSource): JSX.Element => (
+      <Td
+        py={5}
+        pr={5}
+        pl={0}
+        fontSize="md"
+        color="text.primary"
+        fontWeight="semibold"
+        textAlign="left"
+        w={{ base: 200, xl: 220, '3xl': 300, '6xl': 350 }}
+      >
+        <Flex alignItems="center" gap="10px">
+          <Tooltip
+            minW="max-content"
+            placement="bottom-start"
+            label={_id as string}
+          >
+            <Text
+              display="block"
+              fontSize="md"
+              fontWeight="semibold"
+              wordBreak="break-all"
+              textOverflow="ellipsis"
+              overflow="hidden"
+              pr={10}
+              flex={1}
+              w={{ base: 200, xl: 220, '3xl': 200, '6xl': 250 }}
+            >
+              {formatUppercaseFirstLetter(`${_id}`)}
+            </Text>
+          </Tooltip>
+        </Flex>
+      </Td>
+    ),
+    [],
+  );
+
   const renderNameUser = useCallback(
     ({ actionName }: TDataSource): JSX.Element => (
       <Td
@@ -141,7 +141,7 @@ const RecentActivitiesTableComponent = () => {
         color="text.primary"
         fontWeight="semibold"
         textAlign="left"
-        w={{ base: 200, xl: 220, '3xl': 200, '6xl': 250 }}
+        w={{ base: 200, xl: 220, '3xl': 300, '6xl': 350 }}
       >
         <Flex alignItems="center" gap="10px">
           <Tooltip
@@ -169,20 +169,6 @@ const RecentActivitiesTableComponent = () => {
     [],
   );
 
-  const renderActionIcon = useCallback(
-    (data: TRecentActivities) => (
-      <ActionCell
-        activities={data}
-        key={`${data._id}-action`}
-        isOpenModal={true}
-        titleDelete="Delete Activity"
-        itemName={data.actionName}
-        onDeleteActivity={handleDeleteActivities}
-      />
-    ),
-    [handleDeleteActivities],
-  );
-
   const renderEmail = useCallback(
     ({ email }: TRecentActivities) => (
       <Td
@@ -202,7 +188,7 @@ const RecentActivitiesTableComponent = () => {
           fontWeight="semibold"
           whiteSpace="break-spaces"
           noOfLines={1}
-          w={{ base: 100, md: 220, '3xl': 300, '5xl': 200, '7xl': 350 }}
+          w={{ base: 100, md: 220, '3xl': 200, '5xl': 200, '7xl': 350 }}
           flex={1}
         >
           {email}
@@ -216,21 +202,22 @@ const RecentActivitiesTableComponent = () => {
     () =>
       COLUMNS_RECENT_ACTIVITIES(
         renderHead,
+        renderIdAction,
         renderNameUser,
         renderEmail,
-        renderActionIcon,
       ),
-    [renderHead, renderNameUser, renderEmail, renderActionIcon],
+    [renderHead, renderIdAction, renderNameUser, renderEmail],
   );
 
   return (
-    <Indicator isOpen={isDeleteActiviy}>
+    <Indicator>
       <Flex flexDirection={{ base: 'column', lg: 'row' }}>
         <SearchBar
           placeholder="Search by name or email"
-          filterOptions={MONTHS_OPTIONS}
+          filterOptions={ACTIVITY_OPTIONS}
           searchValue={get('actionName')?.toLowerCase() || ''}
           onSearch={handleDebounceSearch}
+          onFilter={setFilter}
         />
       </Flex>
       <Fetching

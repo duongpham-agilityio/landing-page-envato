@@ -7,7 +7,7 @@ import { TRecentActivities } from '@/lib/interfaces';
 import { formatUppercaseFirstLetter } from '.';
 
 // Constants
-import { TIME_FORMAT } from '../constants';
+import { TIME_DETAIL_FORMAT } from '../constants';
 
 /**
  * Convert data show for home page
@@ -24,6 +24,6 @@ export const formatRecentActivitiesResponse = (
       _id: _id,
       actionName: formatUppercaseFirstLetter(actionName),
       email,
-      date: dayjs(createdAt).format(TIME_FORMAT),
+      date: dayjs(createdAt).format(TIME_DETAIL_FORMAT),
     };
   });

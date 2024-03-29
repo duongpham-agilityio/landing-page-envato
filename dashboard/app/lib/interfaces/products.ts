@@ -13,12 +13,12 @@ export type TProduct = {
 };
 
 export interface TProductRequest {
-  currentPage: number | undefined;
-  limit: number | undefined;
   _id: string;
   name: string;
   amount: string;
   stock: string;
+  limit?: number;
+  currentPage?: number;
   description?: string;
   currency?: string;
   createdAt?: string;

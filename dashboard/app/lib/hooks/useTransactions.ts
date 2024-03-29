@@ -9,10 +9,19 @@ import { getTransactions, transactionHttpService } from '@/lib/services';
 import { END_POINTS, TIME_FORMAT, TRANSACTION_STATUS } from '@/lib/constants';
 
 // Types
-import { IDataList, TAddress, TCustomer, TTransaction } from '@/lib/interfaces';
+import {
+  EActivity,
+  IDataList,
+  TAddress,
+  TCustomer,
+  TTransaction,
+} from '@/lib/interfaces';
 
 // Stores
 import { authStore } from '../stores';
+
+// Hook
+import { useLogActivity } from '.';
 
 export type TSearchTransaction = {
   name: string;
@@ -35,7 +44,7 @@ export type TSortHandler = (field: TSortField) => void;
 
 export const useTransactions = (queryParam?: TSearchTransaction) => {
   const queryClient = useQueryClient();
-
+  const { logActivity } = useLogActivity();
   const { user } = authStore();
 
   const { name: searchName, month: searchMonth }: TSearchTransaction =
@@ -209,6 +218,7 @@ export const useTransactions = (queryParam?: TSearchTransaction) => {
           transaction,
         ),
       onSuccess: (_, variables) => {
+        logActivity(END_POINTS.TRANSACTIONS, EActivity.UPDATE_TRANSACTION);
         queryClient.setQueryData(
           [END_POINTS.TRANSACTIONS, searchName, searchMonth],
           (oldData: TTransaction[]) => {
@@ -248,6 +258,7 @@ export const useTransactions = (queryParam?: TSearchTransaction) => {
           transaction,
         ),
       onSuccess: (_, variables) => {
+        logActivity(END_POINTS.TRANSACTIONS, EActivity.DELETE_TRANSACTION);
         queryClient.setQueryData(
           [END_POINTS.TRANSACTIONS, searchName, searchMonth],
           (oldData: TTransaction[]) => {
