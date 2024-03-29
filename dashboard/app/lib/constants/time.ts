@@ -12,6 +12,6 @@ export const SHOW_TIME = 3000;
 
 export const TIME_FORMAT = 'MMM DD, YYYY';
 
-export const TIME_DETAIL_FORMAT = 'ss:mm:HH MMM DD, YYYY';
+export const TIME_DETAIL_FORMAT = 'HH:mm:ss MMM DD, YYYY';
 
 export const LOGOUT_TIME = 1500;
