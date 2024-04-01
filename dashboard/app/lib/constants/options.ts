@@ -148,6 +148,10 @@ export const FILTER_PRODUCT = [
 
 export const ACTIVITY_OPTIONS = [
   {
+    value: '',
+    label: 'Default',
+  },
+  {
     value: 'Sign in',
     label: 'Sign in',
   },

@@ -18,6 +18,16 @@ describe('RecentActivities service', () => {
     expect(recentActivities).toEqual(recentActivities);
   });
 
+  it('Get RecentActivities with out data', async () => {
+    jest
+      .spyOn(recentActivitiesHttpService, 'get')
+      .mockResolvedValue({ data: [] });
+
+    const recentActivities = await getRecentActivities();
+
+    expect(recentActivities).toEqual(recentActivities);
+  });
+
   it('Get RecentActivities (reject)', async () => {
     try {
       jest.spyOn(recentActivitiesHttpService, 'get').mockRejectedValue({

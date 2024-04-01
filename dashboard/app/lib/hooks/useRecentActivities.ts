@@ -1,22 +1,15 @@
 import { useCallback, useMemo, useState } from 'react';
-import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
+import { useQuery } from '@tanstack/react-query';
 import dayjs from 'dayjs';
 
 // Constants
 import { END_POINTS, TIME_FORMAT } from '@/lib/constants';
 
 // Services
-import {
-  getRecentActivities,
-  recentActivitiesHttpService,
-} from '@/lib/services';
+import { getRecentActivities } from '@/lib/services';
 
 // Interface
-import {
-  SortType,
-  TActivitiesRequest,
-  TRecentActivities,
-} from '@/lib/interfaces';
+import { SortType, TRecentActivities } from '@/lib/interfaces';
 
 // Utils
 import { handleSort } from '@/lib/utils';
@@ -34,8 +27,6 @@ type TSort = {
 export type TActivitiesSortHandler = (field: TActivitiesSortField) => void;
 
 export const useRecentActivities = ({ actionName, userId }: TAction) => {
-  const queryClient = useQueryClient();
-
   const sortType: Record<SortType, SortType> = useMemo(
     () => ({
       desc: SortType.ASC,
@@ -118,31 +109,10 @@ export const useRecentActivities = ({ actionName, userId }: TAction) => {
     [sortType],
   );
 
-  const { mutate: deleteActivity, isPending: isDeleteActiviy } = useMutation({
-    mutationFn: async (
-      payload: Partial<
-        TActivitiesRequest & { userId: string; activitiesId: string }
-      >,
-    ) => {
-      await recentActivitiesHttpService.delete(END_POINTS.RECENT_ACTIVITIES, {
-        data: payload,
-      });
-    },
-    onSuccess: (_, variables) => {
-      queryClient.setQueryData(
-        [END_POINTS.RECENT_ACTIVITIES, actionName],
-        (oldData: TRecentActivities[]) =>
-          oldData.filter((item) => item._id !== variables.activitiesId),
-      );
-    },
-  });
-
   return {
     ...query,
     activities,
     data: activities,
-    isDeleteActiviy,
     sortBy,
-    deleteActivity,
   };
 };
