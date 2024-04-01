@@ -17,13 +17,13 @@ const { frontmatter } = Astro.props;
 ---
 
 <MainLayout>
-  <section>
-    <div class='px-6 mx-4 lg:mx-auto max-w-[1200px]'>
-      <Heading
-        className='text-center mt-20 mb-[65px] lg:mt-[50px] dark:text-white'
-        >{frontmatter.title}</Heading
-      >
-      <div class='style-ol text-sm md:text-base lg:pb-[65px]'>
+  <Heading
+    className='text-center mt-20 mb-[65px] lg:mt-[50px] dark:text-white'
+    text={frontmatter.title}
+  />
+  <section class='bg-[#f9f9f9] py-[65px] dark:!bg-bgDarkTheme'>
+    <div class='px-6 mx-4 2xl:mx-auto max-w-[1200px]'>
+      <div class='style-ol text-sm md:text-base'>
         <slot />
       </div>
     </div>

@@ -20,7 +20,7 @@ const { frontmatter } = Astro.props;
 ---
 
 <MainLayout>
-  <Heading className=`${styleTitle}`>{frontmatter.title}</Heading>
+  <Heading className=`${styleTitle}` text={frontmatter.title} />
   <p class='text-center text-base md:text-[18px] mb-2xl'>
     Appendix 1 to Terms of Use
   </p>

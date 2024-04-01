@@ -3,16 +3,20 @@ layout: ../contents/privacy-policy.astro
 title: Privacy Policy
 ---
 
+{/* Component */}
+import LinkTag from '@app/components/Link/link.astro'
+import Heading from '@app/components/Heading/index.astro'
+
 ### **§ 1** 
 
 #### **General provisions**
 
 1. This document defines the Privacy Policy of Landingi Inc. and Landingi Sp. z o.o. acting as joint controllers, which in particular includes regulations concerning the protection of personal data and the security of other data provided by third parties. The terms specified in this document shall have the following meaning:
-  a. We – joint controllers: Landingi Inc. and Landingi Sp. z o.o., registered office at Piwna 10, 44-100, Gliwice, NIP: 6762461659, REGON: 122774425, entered in the business register in the District Court in Gliwice, 10th Commercial Division of the National Court Register under KRS number 0000449404, with share capital of PLN 10,950, paid in full, e-mail: support@envatomarket.com, phone number: [+48 539 303 900](tel:+48539303900);
+  a. We – joint controllers: Landingi Inc. and Landingi Sp. z o.o., registered office at Piwna 10, 44-100, Gliwice, NIP: 6762461659, REGON: 122774425, entered in the business register in the District Court in Gliwice, 10th Commercial Division of the National Court Register under KRS number 0000449404, with share capital of PLN 10,950, paid in full, e-mail: support@envatomarket.com, phone number: <LinkTag href="tel:+48539303900" label="+48 539 303 900"/>;
 
-  b. Site – the website at **[https://landing-page-envato.com](https://landing-page-envato.vercel.app/)**, as well as all its subpages and other sites owned or operated by us.
+  b. Site – the website at <LinkTag href={import.meta.env.PUBLIC_ENVATO_LANDING_PAGE} label={import.meta.env.PUBLIC_ENVATO_LANDING_PAGE} />, as well as all its subpages and other sites owned or operated by us.
 
-  c. Platform – an Internet platform available at **[https://landing-page-envato.com](https://landing-page-envato.vercel.app/)**, as well as all their subpages
+  c. Platform – an Internet platform available at <LinkTag href={import.meta.env.PUBLIC_ENVATO_LANDING_PAGE} label={import.meta.env.PUBLIC_ENVATO_LANDING_PAGE} />, as well as all their subpages
 
   d. Parties – You and We.
 
@@ -20,9 +24,9 @@ title: Privacy Policy
 
   f. GDPR – Regulation (EU) 2016/679 of the European Parliament and of the Council of 27 April 2016 on the protection of individuals with regard to the processing of personal data and on the free movement of such data and repealing Directive 95/46/EC.
 
-</br>
+<br />
 
-### **§ 2** 
+<Heading className="font-bold dark:text-white" variant="SECONDARY" tag="H3" text="§ 2" />
 
 #### **The Data Controller and the rights of data subjects**
 

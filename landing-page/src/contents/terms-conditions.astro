@@ -21,9 +21,9 @@ const { frontmatter } = Astro.props;
     <div class='px-6 mx-4 lg:mx-auto max-w-[1200px]'>
       <Heading
         className='text-center mt-20 mb-[65px] lg:mt-[50px] dark:text-white'
-        >{frontmatter.title}</Heading
-      >
-      <div class='style-ol text-sm md:text-base lg:pb-[65px]'>
+        text={frontmatter.title}
+      />
+      <div class='style-ol text-sm md:text-base lg:py-[65px]'>
         <slot />
       </div>
     </div>

@@ -17,5 +17,6 @@ export const colors: Config['theme'] = {
     infoRGBA: 'rgba(0,123,255,.25)',
     darkRGBA: 'rgba(255, 255, 255, 0.4)',
     bgDarkTheme: '#1D1E24',
+    linkContent: '#2550aa',
   },
 };

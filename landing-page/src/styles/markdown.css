@@ -22,18 +22,6 @@ p {
   margin-top: 10px;
 }
 
-.style-ol ol > li a,
-p > a {
-  text-decoration: underline;
-  font-weight: bold;
-  color: var(--linkTag);
-}
-
-.style-ol ol > li a:hover,
-p > a:hover {
-  text-decoration: none;
-}
-
 .style-ol ul {
   margin: 20px 0 30px;
 }
