@@ -7,7 +7,7 @@ import { addMoneyToUser, sendMoneyToUser } from '@/lib/services';
 import { EActivity, TAddMoney, TSendMoney } from '@/lib/interfaces';
 
 // Constants
-import { END_POINTS, ROUTES } from '@/lib/constants';
+import { END_POINTS } from '@/lib/constants';
 
 // Hook
 import { useLogActivity } from '.';
@@ -28,7 +28,7 @@ export const useMoney = () => {
       queryClient.invalidateQueries({
         queryKey: [END_POINTS.NOTIFICATION],
       });
-      logActivity(ROUTES.ROOT, EActivity.ADD_MONEY);
+      logActivity(END_POINTS.WALLET, EActivity.ADD_MONEY);
     },
   });
 
@@ -44,7 +44,7 @@ export const useMoney = () => {
       queryClient.invalidateQueries({
         queryKey: [END_POINTS.NOTIFICATION],
       });
-      logActivity(ROUTES.ROOT, EActivity.SEND_MONEY);
+      logActivity(END_POINTS.WALLET, EActivity.SEND_MONEY);
     },
   });
 
