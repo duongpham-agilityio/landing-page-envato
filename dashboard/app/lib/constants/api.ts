@@ -32,6 +32,7 @@ export const END_POINTS = {
   ADMIN: '/admin',
   SETTINGS: '/settings',
   LOGIN: '/login',
+  WALLET: '/my-wallets',
 };
 
 export const SEARCH_PARAM = {
