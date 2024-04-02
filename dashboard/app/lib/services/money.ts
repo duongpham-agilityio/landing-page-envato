@@ -4,7 +4,13 @@ import axios, { AxiosInstance } from 'axios';
 import { END_POINTS } from '@/lib/constants';
 
 // Types
-import { IAxiosConfig, TAddMoney, TSendMoney } from '@/lib/interfaces';
+import {
+  IAxiosConfig,
+  TAddMoney,
+  TRecentActivities,
+  TSendMoney,
+} from '@/lib/interfaces';
+import { recentActivitiesHttpService } from '.';
 
 export const moneyHttpRequest: AxiosInstance = axios.create({
   baseURL: process.env.NEXT_PUBLIC_API,
@@ -16,24 +22,44 @@ export type TMoneyResponse = {
 
 export const addMoneyToUser = async (
   data?: TAddMoney | undefined,
+  userId?: string,
+  actionName?: string,
   config?: IAxiosConfig,
-): Promise<TMoneyResponse> =>
-  (
+): Promise<TMoneyResponse> => {
+  await recentActivitiesHttpService.post<TRecentActivities>(
+    END_POINTS.RECENT_ACTIVITIES,
+    {
+      userId: userId,
+      actionName: actionName,
+    },
+  );
+  return (
     await moneyHttpRequest.put<TMoneyResponse>(
       `${END_POINTS.ADD_MONEY}`,
       data,
       config,
     )
   ).data;
+};
 
 export const sendMoneyToUser = async (
   data?: TSendMoney | undefined,
+  userId?: string,
+  actionName?: string,
   config?: IAxiosConfig,
-): Promise<TMoneyResponse> =>
-  (
+): Promise<TMoneyResponse> => {
+  await recentActivitiesHttpService.post<TRecentActivities>(
+    END_POINTS.RECENT_ACTIVITIES,
+    {
+      userId: userId,
+      actionName: actionName,
+    },
+  );
+  return (
     await moneyHttpRequest.put<TMoneyResponse>(
       `${END_POINTS.SEND_MONEY}`,
       data,
       config,
     )
   ).data;
+};
