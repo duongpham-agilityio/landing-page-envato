@@ -18,7 +18,7 @@ import LinkTag from '@app/components/Link/link.astro'
 
     a. Platform - an on-line platform operated by the Service Provider, functioning through the websites <LinkTag href={import.meta.env.PUBLIC_ENVATO_LANDING_PAGE} label={import.meta.env.PUBLIC_ENVATO_LANDING_PAGE} />, <LinkTag href={import.meta.env.PUBLIC_ENVATO_LANDING_PAGE} label={import.meta.env.PUBLIC_ENVATO_LANDING_PAGE} /> and <LinkTag href={import.meta.env.PUBLIC_ENVATO_LANDING_PAGE} label={import.meta.env.PUBLIC_ENVATO_LANDING_PAGE} />, enabling the provision of the Service;
  
-    b. Service Provider - Landingi Sp. z o.o., registered office at Piwna 10, 44-100, Gliwice, NIP: 6762461659, REGON: 122774425, entered in the business register in the District Court in Gliwice, 10th Commercial Division of the National Court Register under KRS number 0000449404, with share capital of PLN 10,950, paid in full, e-mail: support@envatomarket.com, phone number: <LinkTag href="tel:+48539303900" label="+48 539 303 900"/>;
+    b. Service Provider - {import.meta.env.PUBLIC_ENVATO_MARKET} Sp. z o.o., registered office at Piwna 10, 44-100, Gliwice, NIP: 6762461659, REGON: 122774425, entered in the business register in the District Court in Gliwice, 10th Commercial Division of the National Court Register under KRS number 0000449404, with share capital of PLN 10,950, paid in full, e-mail: <LinkTag href={`mailto:${import.meta.env.PUBLIC_EMAI_SUPPORT}`} label={import.meta.env.PUBLIC_EMAI_SUPPORT}/>, phone number: <LinkTag href={`tel:${import.meta.env.PUBLIC_API_PHONE_OFFICIAL}`} label={import.meta.env.PUBLIC_API_PHONE_OFFICIAL} />;
 
     c. Service - a service provided electronically via the Platform by the Service Provider to the User in accordance with the provisions of the law and on the principles set out in the Terms of Use;
 Landing Page - the User's website created by means of the Platform, which assists the User in conducting advertising campaigns on the Internet. This page is displayed to the visitor as a result of marketing activities undertaken by the User. The content of the Landing Page is created and maintained by the User according to the rules specified in the Terms of Use;
@@ -43,7 +43,7 @@ Landing Page - the User's website created by means of the Platform, which assist
 
     m. Plan - a set of functionalities of a given Account specified in the Price List;
 
-    n. Price List - a list of prices for the provision of the Service within the scope specified in the Plans, constituting an integral part of the Agreement. The Price List is available to the Account Holder or Account Administrator after logging in to the Platform and the Site under the link href=href={import.meta.env.PUBLIC_ENVATO_LANDING_PAGE} label={import.meta.env.PUBLIC_ENVATO_LANDING_PAGE} />;
+    n. Price List - a list of prices for the provision of the Service within the scope specified in the Plans, constituting an integral part of the Agreement. The Price List is available to the Account Holder or Account Administrator after logging in to the Platform and the Site under the link <LinkTag href={import.meta.env.PUBLIC_ENVATO_LANDING_PAGE} label={import.meta.env.PUBLIC_ENVATO_LANDING_PAGE} />.
 
     o. Account - a set of resources and settings saved in the Service Provider's database for the User as part of its use of the Service. Access to the Account is possible after logging in. The Account allows you to use the Service provided by the Platform;
 
@@ -51,8 +51,8 @@ Landing Page - the User's website created by means of the Platform, which assist
 
     q. Site - an online service available through the domain: <LinkTag href={import.meta.env.PUBLIC_ENVATO_LANDING_PAGE} label={import.meta.env.PUBLIC_ENVATO_LANDING_PAGE} />.
 
-4. Detailed information about the Service can be found at <LinkTag href={import.meta.env.PUBLIC_ENVATO_LANDING_PAGE} label={import.meta.env.PUBLIC_ENVATO_LANDING_PAGE} />, as well as provided by the Service Provider by e-mail in response to an enquiry sent by the User to the e-mail address: support@envatomarket.com.
-5. Users may contact the Service Provider by e-mail: support@envatomarket.com.  
+4. Detailed information about the Service can be found at <LinkTag href={import.meta.env.PUBLIC_ENVATO_LANDING_PAGE} label={import.meta.env.PUBLIC_ENVATO_LANDING_PAGE} />, as well as provided by the Service Provider by e-mail in response to an enquiry sent by the User to the e-mail address: <LinkTag href={`mailto:${import.meta.env.PUBLIC_EMAI_SUPPORT}`} label={import.meta.env.PUBLIC_EMAI_SUPPORT}/>
+5. Users may contact the Service Provider by e-mail: <LinkTag href={`mailto:${import.meta.env.PUBLIC_EMAI_SUPPORT}`} label={import.meta.env.PUBLIC_EMAI_SUPPORT}/>  
 
 ### **§ 2** 
 
@@ -70,11 +70,11 @@ Landing Page - the User's website created by means of the Platform, which assist
     e. disable AdBlock advertising blocking tools.
 
 2. Support and technical assistance are provided by the Service Provider in the following forms:
-    a. Via email at support@envatomarket.com;
+    a. Via email at <LinkTag href={`mailto:${import.meta.env.PUBLIC_EMAI_SUPPORT}`} label={import.meta.env.PUBLIC_EMAI_SUPPORT}/>;
 
     b.  Via the in-platform chat, available Monday – Friday between 9 a.m. and 10 p.m. (Polish local time) except for public holidays in the Republic of Poland;
 
-    c. Via phone at <LinkTag href="tel:+48539303900" label="+48 539 303 900"/>, available Monday – Friday between 8 a.m. and 10 p.m. (Polish local time) except for public holidays in the Republic of Poland.
+    c. Via phone at <LinkTag href={`tel:${import.meta.env.PUBLIC_API_PHONE_OFFICIAL}`} label={import.meta.env.PUBLIC_API_PHONE_OFFICIAL} />, available Monday – Friday between 8 a.m. and 10 p.m. (Polish local time) except for public holidays in the Republic of Poland.
 
 3. The Service Provider provides support only for the Service.
 
@@ -137,7 +137,7 @@ with effect from the last day of the Plan.
 10. Payment of the Plan shall be connected with the subscription of the Account, which consists in the fact that the Service Provider, if the Account Holder or Account Administrator selects a credit card or PayPal payment method as the payment method, has the right to collect the payment for the Service specified in the selected Plan on his own, periodically, at the end of the last billing period in advance for the next billing period. The Account Holder or Account Administrator may cancel the subscription in the Account at any time.
 11. Using the resources of the Plan is at the User's sole discretion. In case of failure to use the parameters available under the Plan, the User is not entitled to a refund.
 12. In case of deleting the Account, the Service Provider shall return the equivalent of one - last collected monthly payment at the request of the Account Holder in case the Account Holder passes the information to the Service Provider that he has not recorded page views (page traffic) and the Service Provider confirms this information in the system. The return is one-time.
-13. On the basis of the Regulation of the Minister of Finance of 17 December 2010 on sending invoices in electronic form, the rules of their storage and the procedure of making them available to the tax authority or tax inspection authority (Journal of Laws No. 249 item 1661), invoices shall be made available only in electronic form, in PDF format, for download and self-printing, on the Account.
+13. On the basis of the Regulation of the Minister of Finance of 17 Mar,2024 on sending invoices in electronic form, the rules of their storage and the procedure of making them available to the tax authority or tax inspection authority (Journal of Laws No. 249 item 1661), invoices shall be made available only in electronic form, in PDF format, for download and self-printing, on the Account.
 14. The Account Holder accepts the above-described method of transferring invoices. This acceptance may be revoked by sending a relevant statement to the Service Provider.
 
 ### **§ 7**
@@ -181,7 +181,7 @@ with effect from the last day of the Plan.
 3. The User using Agency Plans also agrees:
     a. not to offer life-time versions to third parties;
 
-    b. not to sell services using the Landingi label;
+    b. not to sell services using the {import.meta.env.PUBLIC_ENVATO_MARKET} label;
 
     c. not to sell identical packages as the Service Provider;
 
@@ -287,7 +287,7 @@ with effect from the last day of the Plan.
 
 #### **Complaints**
 
-1. Each User is entitled to lodge a complaint regarding any irregularities in the operation of the Platform or the Site within 30 days of the occurrence of such irregularities. The complaint should be submitted by e-mail sent to support@envatomarket.com. The description of the irregularity should enable the Service Provider to identify the problem and to repair it.
+1. Each User is entitled to lodge a complaint regarding any irregularities in the operation of the Platform or the Site within 30 days of the occurrence of such irregularities. The complaint should be submitted by e-mail sent to <LinkTag href={`mailto:${import.meta.env.PUBLIC_EMAI_SUPPORT}`} label={import.meta.env.PUBLIC_EMAI_SUPPORT}/> The description of the irregularity should enable the Service Provider to identify the problem and to repair it.
 2. The Service Provider shall consider the complaint within 14 calendar days from the date of receiving the complaint.
 3. In case of a serious technical error, the Service Provider reserves the right to limit access to the Site, the Platform and the Service.
 4. Any possible errors in the functioning of the Site, the Platform, comments and information about the operation of the Site, the Service and the Platform, as well as violations of the Terms of Use, should be reported to the Service Provider electronically.
@@ -299,8 +299,8 @@ with effect from the last day of the Plan.
 
 1. All rights to the Platform or materials introduced to the Platform by the Service Provider belong to the Service Provider.
 2. If an infringement of an intellectual property right is noted, the Service Provider shall take appropriate legal action against the infringer.
-3. The indication "Landingi" (Landings) in verbal or graphic form identifies one of the Service Provider's products, which operates in business without time or territorial restrictions. The term "Landingi" is a trade name of the Service Provider.
-4. It is prohibited to distribute any elements of the Platform, including in particular the “Landingi" logo, without the written consent of the Service Provider. The User is not allowed to remove, cover, prevent the reading of or to alter trademarks, copyright information or other indications concerning intellectual property rights. It is also prohibited to copy, trade, distribute, modify materials outside the Platform or create derivative works based on the materials available on the Platform, used without the prior written consent of the Service Provider.
+3. The indication "{import.meta.env.PUBLIC_ENVATO_MARKET}" (Landings) in verbal or graphic form identifies one of the Service Provider's products, which operates in business without time or territorial restrictions. The term "{import.meta.env.PUBLIC_ENVATO_MARKET}" is a trade name of the Service Provider.
+4. It is prohibited to distribute any elements of the Platform, including in particular the “{import.meta.env.PUBLIC_ENVATO_MARKET}” logo, without the written consent of the Service Provider. The User is not allowed to remove, cover, prevent the reading of or to alter trademarks, copyright information or other indications concerning intellectual property rights. It is also prohibited to copy, trade, distribute, modify materials outside the Platform or create derivative works based on the materials available on the Platform, used without the prior written consent of the Service Provider.
 
 ### **§ 13**
 
@@ -319,19 +319,19 @@ with effect from the last day of the Plan.
 2. In matters not regulated under these Terms of Use, the provisions of generally applicable law shall apply, in particular the Polish Civil Code of 23 April 1964 and the Act on consumer rights of 30 May 2014.
 3. Polish law shall apply to all disputes arising under these Terms of Use and the concluded Agreement. The court having jurisdiction to hear disputes shall be the court having jurisdiction over the seat of the Service Provider, unless the provision of generally applicable law reserves the exclusive jurisdiction of another court. The competent court for disputes to which the Consumer is a party shall be the Consumer's place of residence.
 4. The Terms of Use are effective from Mar,2024.
-5. The rights granted to Account Holders who are sole proprietors and perform legal transactions through the Platform for non-professional purposes shall enter into force on 1 January 2021.
+5. The rights granted to Account Holders who are sole proprietors and perform legal transactions through the Platform for non-professional purposes shall enter into force on May 2014.
 
 ### **§ 15**
 
 #### **Extra-judicial means of dispute resolution**
 1. In order to resolve a dispute arising in connection with the Agreement concluded through the Platform, the Consumer has the possibility of being assisted by the following institutions before bringing an action before a court of law:
-    a. a permanent amicable consumer court referred to in the Act on Trade Inspection of 15 December 2000, by filing a motion to settle a dispute arising from the sales agreement;
+    a. a permanent amicable consumer court referred to in the Act on Trade Inspection of Mar,2024, by filing a motion to settle a dispute arising from the sales agreement;
 
     b. applying to the Provincial Inspector of Commercial Inspection to initiate mediation proceedings in order to amicably settle a dispute;
 
     c. requesting assistance from a district or city consumer ombudsman or a social organisation aimed at protecting consumer rights.
 2. Detailed information on possible non-judicial dispute resolution and available procedures is provided in registered offices and on websites of institutions such as the Trade Inspection Authority, poviat (county) consumer ombudsmen, social organisations protecting consumer rights and the Office for Protection of Competition and Consumers.
-3. An online dispute resolution platform for consumers and entrepreneurs at the EU level (ODR platform) is provided at <LinkTag href=" http://ec.europa.eu/consumers/odr" label=" http://ec.europa.eu/consumers/odr" />. The ODR platform is an interactive and multilingual webpage with a comprehensive service point for consumers and entrepreneurs seeking out-of-court settlement of a dispute regarding contractual obligations arising from an online sales contract or service contract.
+3. An online dispute resolution platform for consumers and entrepreneurs at the EU level (ODR platform) is provided at <LinkTag href={import.meta.env.PUBLIC_API_LANGUAGE} label={import.meta.env.PUBLIC_API_LANGUAGE} />. The ODR platform is an interactive and multilingual webpage with a comprehensive service point for consumers and entrepreneurs seeking out-of-court settlement of a dispute regarding contractual obligations arising from an online sales contract or service contract.
 
 MODEL WITHDRAWAL FORM
 
@@ -339,7 +339,7 @@ MODEL WITHDRAWAL FORM
 
 Recipient:
 
-Landingi Sp. z o.o., ul. Piwna 10, 44-100, Gliwice,
+{import.meta.env.PUBLIC_ENVATO_MARKET} Sp. z o.o., ul. Piwna 10, 44-100, Gliwice,
 
 I/We(*) hereby inform (*) about my/our withdrawal from the agreement on the provision of the following services:
 
@@ -364,4 +364,4 @@ Appendix 1:  <LinkTag href={import.meta.env.PUBLIC_DATA_PROCESSING} label="Data 
 
 Appendix 2: <LinkTag href={import.meta.env.PUBLIC_PRIVACY_POLICY} label="Privacy Policy"/>
 
-The Terms and Conditions can be downloaded in PDF form [here](https://landingi.com/wp-content/uploads/2023/06/Privacy-Policy-1.pdf).
+The Terms and Conditions can be downloaded in PDF form <LinkTag href={import.meta.env.PUBLIC_API_PSD} label="This link is here" />.

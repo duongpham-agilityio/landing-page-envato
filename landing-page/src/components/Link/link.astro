@@ -8,7 +8,7 @@ export interface LinkProps {
 const { href, className = '', label = '' } = Astro.props;
 
 const styleLink =
-  'font-bold font-primary !text-[#2550aa] underline-offset-1 hover:underline-offset-0 dark:!text-white';
+  'font-bold font-primary text-[#2550aa] underline-offset-1 hover:underline-offset-0 dark:text-white';
 ---
 
 <a href={href} target='_blank' class={`${styleLink} ${className}`}>{label}</a>

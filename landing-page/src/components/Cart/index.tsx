@@ -4,14 +4,14 @@ import { useCallback, useMemo, useState } from 'react';
 
 // Components
 import ProductTable from './ProductTable';
-import CardTotal from '../CardTotal';
+import CartTotal from '../CartTotal';
 import { Indicator, Toast } from '..';
 
 // Constants
 import { ROUTES, SUBTOTAL, SUCCESS_MESSAGE } from '@app/constants';
 
 // Mocks
-import { CARD_TOTAL } from '@app/mocks';
+import { CART_TOTAL } from '@app/mocks';
 
 // Types
 import type { IProductInCart } from '@app/interfaces';
@@ -112,8 +112,8 @@ const Cart = ({ data }: TCartProps): JSX.Element => {
           />
         </div>
         <div className='mt-[118px] nearLg:mt-0 col-span-12 nearXl:col-span-4'>
-          <CardTotal
-            {...CARD_TOTAL}
+          <CartTotal
+            {...CART_TOTAL}
             currency='$'
             total={totalProp}
             subTotal={subtotal}

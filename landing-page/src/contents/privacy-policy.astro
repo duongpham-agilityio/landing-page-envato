@@ -21,9 +21,9 @@ const { frontmatter } = Astro.props;
     className='text-center mt-20 mb-[65px] lg:mt-[50px] dark:text-white'
     text={frontmatter.title}
   />
-  <section class='bg-[#f9f9f9] py-[65px] dark:!bg-bgDarkTheme'>
+  <section class='py-[65px] dark:!bg-bgDarkTheme'>
     <div class='px-6 mx-4 2xl:mx-auto max-w-[1200px]'>
-      <div class='style-ol text-sm md:text-base'>
+      <div class='list-content text-sm md:text-base'>
         <slot />
       </div>
     </div>

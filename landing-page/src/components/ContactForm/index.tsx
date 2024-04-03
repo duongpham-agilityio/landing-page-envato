@@ -24,7 +24,7 @@ const ContactForm = ({ control, onSubmit }: TContactFormProps) => {
   // Styles CSS
   const inputStyle: string =
     'placeholder-onceAll text-elementary text-[14px] w-full border-0 rounded-none bg-desertStorm p-5 focus:outline-none';
-
+  const flexStyleInput: string = 'flex flex-col gap-[15px] md:mt-0 md:flex md:flex-row';
   return (
     <div
       className='flex flex-wrap [&>*:nth-child(n)]:w-full [&>*:nth-child(n)]:mb-4'
@@ -34,7 +34,7 @@ const ContactForm = ({ control, onSubmit }: TContactFormProps) => {
         onSubmit && onSubmit();
       }}
     >
-      <div className='md:!w-[50%] md:pr-[15px]'>
+      <div className={`${flexStyleInput}`}>
         <Controller
           control={control}
           name='firstName'
@@ -46,8 +46,6 @@ const ContactForm = ({ control, onSubmit }: TContactFormProps) => {
             />
           )}
         />
-      </div>
-      <div className='md:!w-[50%] md:pl-[15px]'>
         <Controller
           control={control}
           rules={{ required: true, maxLength: 100 }}
@@ -61,45 +59,41 @@ const ContactForm = ({ control, onSubmit }: TContactFormProps) => {
           )}
         />
       </div>
-      <div>
-        <Controller
-          control={control}
-          rules={{ required: true, pattern: /^\S+@\S+$/i }}
-          name='email'
-          render={({ field }) => (
-            <Input className={`${inputStyle}`} placeholder='Email' {...field} />
-          )}
-        />
-      </div>
-      <div>
-        <Controller
-          control={control}
-          rules={{ required: true }}
-          name='state'
-          render={({ field }) => (
-            <Select
-              options={CHECKOUT_ADDRESS}
-              className={`${inputStyle}`}
-              {...field}
-            />
-          )}
-        />
-      </div>
-      <div>
-        <Controller
-          control={control}
-          rules={{ required: true }}
-          name='city'
-          render={({ field }) => (
-            <Input
-              className={`${inputStyle} mb-4`}
-              placeholder='City'
-              {...field}
-            />
-          )}
-        />
-      </div>
-      <div className='md:!w-[50%] md:pr-[15px]'>
+      <Controller
+        control={control}
+        rules={{ required: true, pattern: /^\S+@\S+$/i }}
+        name='email'
+        render={({ field }) => (
+          <Input className={`${inputStyle}`} placeholder='Email' {...field} />
+        )}
+      />
+
+      <Controller
+        control={control}
+        rules={{ required: true }}
+        name='state'
+        render={({ field }) => (
+          <Select
+            options={CHECKOUT_ADDRESS}
+            className={`${inputStyle}`}
+            {...field}
+          />
+        )}
+      />
+
+      <Controller
+        control={control}
+        rules={{ required: true }}
+        name='city'
+        render={({ field }) => (
+          <Input
+            className={`${inputStyle}`}
+            placeholder='City'
+            {...field}
+          />
+        )}
+      />
+      <div className={`${flexStyleInput}`}>
         <Controller
           control={control}
           rules={{ required: true }}
@@ -112,8 +106,6 @@ const ContactForm = ({ control, onSubmit }: TContactFormProps) => {
             />
           )}
         />
-      </div>
-      <div className='md:!w-[50%]'>
         <Controller
           control={control}
           rules={{ required: true, maxLength: 100 }}

@@ -1,4 +1,4 @@
-export const CARD_TOTAL = {
+export const CART_TOTAL = {
   subTotal: 140,
   delivery: 'Free',
   total: 140,

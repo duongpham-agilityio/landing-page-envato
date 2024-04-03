@@ -7,7 +7,7 @@ import Button, { VARIANTS } from '@app/components/Button/index';
 // Utils
 import { formatDecimalNumber } from '@app/utils';
 
-type TCardTotalProps = {
+type TCartTotalProps = {
   isDisableSubmit?: boolean;
   delivery?: string;
   currency?: string;
@@ -17,7 +17,7 @@ type TCardTotalProps = {
   onCheckout?: () => void;
 };
 
-const CardTotal = ({
+const CartTotal = ({
   isDisableSubmit = false,
   delivery = '',
   currency = '',
@@ -25,7 +25,7 @@ const CardTotal = ({
   subTotal = 0,
   total = 0,
   onCheckout,
-}: TCardTotalProps): JSX.Element => {
+}: TCartTotalProps): JSX.Element => {
 
   // Styles CSS
   const listStyleDescription: string = '[&>*:nth-child(n)]:mb-lg [&>*:nth-child(n)]:font-primary [&>*:nth-child(n)]:text-[14px] [&>*:nth-child(n)]:text-elementary [&>*:nth-child(n)]:flex [&>*:nth-child(n)]:justify-between';
@@ -72,6 +72,6 @@ const CardTotal = ({
   );
 };
 
-const CardTotalMemorized = memo(CardTotal, isEqual);
+const CartTotalMemorized = memo(CartTotal, isEqual);
 
-export default CardTotalMemorized;
+export default CartTotalMemorized;

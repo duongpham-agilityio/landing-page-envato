@@ -4,7 +4,7 @@ import { useCallback, useState } from 'react';
 
 // Components
 import { ContactForm, Indicator, Toast } from '@app/components';
-import CardTotal from '../CardTotal';
+import CartTotal from '../CartTotal';
 
 // Types
 import type { TRegisterForm } from '../ContactForm';
@@ -86,7 +86,7 @@ const Checkout = ({ total }: TCheckoutProps): JSX.Element => {
           <ContactForm control={control} />
         </div>
         <div className='mt-[50px] nearLg:mt-0 col-span-12 nearXl:col-span-4'>
-          <CardTotal
+          <CartTotal
             subTotal={!currentTotal ? 0 : SUBTOTAL}
             delivery='Free'
             total={currentTotal + SUBTOTAL}

@@ -8,21 +8,17 @@ h4 {
   text-align: center;
 }
 
-.data-processing {
-  background-color: var(--dataBg);
-}
-
-.style-ol > ol {
+.list-content > ol {
   list-style-type: decimal;
   margin: 20px 0 30px;
 }
 
-.style-ol > ol li,
+.list-content > ol li,
 p {
   margin-top: 10px;
 }
 
-.style-ol ul {
+.list-content ul {
   margin: 20px 0 30px;
 }
 
