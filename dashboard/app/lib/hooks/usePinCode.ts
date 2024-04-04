@@ -43,6 +43,7 @@ export const usePinCode = () => {
         },
         {},
         EActivity.ACTIVE_PIN_CODE,
+        data.userId,
       );
     } catch (error) {
       const { message } = error as AxiosError;

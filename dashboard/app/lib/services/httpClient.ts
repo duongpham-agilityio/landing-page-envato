@@ -33,9 +33,9 @@ class HttpService {
     data: object,
     configs: object,
     actionName: string,
-    // userId?: string,
+    userId?: string,
   ): Promise<AxiosResponse<T>> {
-    const activity = logActivity(this.axiosClient, actionName);
+    const activity = logActivity(this.axiosClient, actionName, userId);
 
     return this.axiosClient
       .post<T>(`${this.baseApi}${path}`, data, configs)
