@@ -20,11 +20,7 @@ const { frontmatter } = Astro.props;
 ---
 
 <MainLayout>
-  <Heading className=`${styleTitle}` text={frontmatter.title} />
-  <p class='text-center text-base md:text-[18px] mb-2xl'>
-    Appendix 1 to Terms of Use
-  </p>
-  <section class='py-[65px] dark:!bg-bgDarkTheme'>
+  <section class='py-[65px]'>
     <div class='grid grid-12 px-6 mx-4 2xl:mx-auto max-w-[1200px]'>
       <div class='list-content text-sm md:text-base'>
         <slot />

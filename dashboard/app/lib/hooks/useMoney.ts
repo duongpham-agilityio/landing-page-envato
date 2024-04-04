@@ -18,7 +18,7 @@ export const useMoney = () => {
 
   const { mutate: addMoneyToUserWallet } = useMutation({
     mutationFn: (userData: TAddMoney) =>
-      addMoneyToUser(userData, user?.id, EActivity.ADD_MONEY),
+      addMoneyToUser(EActivity.ADD_MONEY, userData, user?.id),
     onSettled: () => {
       queryClient.invalidateQueries({
         queryKey: [END_POINTS.MY_WALLET],
@@ -34,7 +34,7 @@ export const useMoney = () => {
 
   const { mutate: sendMoneyToUserWallet } = useMutation({
     mutationFn: (userData: TSendMoney) =>
-      sendMoneyToUser(userData, user?.id, EActivity.SEND_MONEY),
+      sendMoneyToUser(EActivity.SEND_MONEY, userData, user?.id),
     onSettled: () => {
       queryClient.invalidateQueries({
         queryKey: [END_POINTS.MY_WALLET],

@@ -35,11 +35,7 @@ import {
   formatUppercaseFirstLetter,
 } from '@/lib/utils';
 
-// Store
-import { authStore } from '@/lib/stores';
-
 const RecentActivitiesTableComponent = () => {
-  const userId = authStore((state) => state.user?.id);
   const { get, setSearchParam: setSearchTransaction } = useSearch();
   const [filter, setFilter] = useState<string>('');
 
@@ -50,7 +46,6 @@ const RecentActivitiesTableComponent = () => {
     sortBy,
   } = useRecentActivities({
     actionName: get('actionName') || '',
-    userId: userId,
   });
 
   const activityMemorized = useMemo(

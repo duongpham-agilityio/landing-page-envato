@@ -3,7 +3,7 @@ import { useQuery } from '@tanstack/react-query';
 import dayjs from 'dayjs';
 
 // Constants
-import { END_POINTS, TIME_FORMAT } from '@/lib/constants';
+import { END_POINTS, TIME_DETAIL_FORMAT } from '@/lib/constants';
 
 // Services
 import { getRecentActivities } from '@/lib/services';
@@ -14,9 +14,12 @@ import { SortType, TRecentActivities } from '@/lib/interfaces';
 // Utils
 import { handleSort } from '@/lib/utils';
 
+// Store
+import { authStore } from '../stores';
+
 export type TAction = {
   actionName: string;
-  userId?: string;
+  email?: string;
 };
 
 export type TActivitiesSortField = 'actionName' | 'email' | 'date';
@@ -26,7 +29,18 @@ type TSort = {
 };
 export type TActivitiesSortHandler = (field: TActivitiesSortField) => void;
 
-export const useRecentActivities = ({ actionName, userId }: TAction) => {
+export const useRecentActivities = (queryParam?: TAction) => {
+  const userId = authStore((state) => state.user?.id);
+
+  const { actionName: searchActionName, email: searchEmail }: TAction =
+    Object.assign(
+      {
+        actionName: '',
+        email: '',
+      },
+      queryParam,
+    );
+
   const sortType: Record<SortType, SortType> = useMemo(
     () => ({
       desc: SortType.ASC,
@@ -41,7 +55,7 @@ export const useRecentActivities = ({ actionName, userId }: TAction) => {
   });
 
   const { data = [], ...query } = useQuery({
-    queryKey: [END_POINTS.RECENT_ACTIVITIES, actionName],
+    queryKey: [END_POINTS.RECENT_ACTIVITIES, searchActionName, searchEmail],
     queryFn: ({ signal }) => getRecentActivities('', { signal }, userId),
   });
 
@@ -74,8 +88,8 @@ export const useRecentActivities = ({ actionName, userId }: TAction) => {
           email: handleSort(type, prevEmail ?? '', nextEmail ?? ''),
           date: handleSort(
             type,
-            dayjs(prevCreatedAt).format(TIME_FORMAT) ?? '',
-            dayjs(nextCreatedAt).format(TIME_FORMAT) ?? '',
+            dayjs(prevCreatedAt).format(TIME_DETAIL_FORMAT) ?? '',
+            dayjs(nextCreatedAt).format(TIME_DETAIL_FORMAT) ?? '',
           ),
         };
 
@@ -92,12 +106,17 @@ export const useRecentActivities = ({ actionName, userId }: TAction) => {
    */
   const activities: TRecentActivities[] = useMemo((): TRecentActivities[] => {
     const isNameMatchWith = (target = ''): boolean =>
-      target.trim().toLowerCase().includes(actionName);
+      target.trim().toLowerCase().includes(searchActionName);
 
-    return activitiesAfterSort.filter(({ actionName }: TRecentActivities) =>
-      isNameMatchWith(actionName),
+    return activitiesAfterSort.filter(
+      ({ actionName, email }: TRecentActivities) => {
+        const isMatchWithName: boolean = isNameMatchWith(actionName);
+        const isMatchWithEmail: boolean = isNameMatchWith(email);
+
+        return isMatchWithName || isMatchWithEmail;
+      },
     );
-  }, [activitiesAfterSort, actionName]);
+  }, [activitiesAfterSort, searchActionName]);
 
   const sortBy: TActivitiesSortHandler = useCallback(
     (field: TActivitiesSortField) => {

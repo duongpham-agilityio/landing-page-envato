@@ -22,6 +22,10 @@ p {
   margin: 20px 0 30px;
 }
 
+.title-description {
+  margin-block: 20px 125px;
+}
+
 table {
   margin: 40px 0;
   overflow-y: auto;
@@ -47,6 +51,12 @@ table > tbody > tr > td {
 @media (min-width: 768px) {
   h3,
   h4 {
+    font-size: 18px;
+  }
+  .title-page {
+    margin-top: 50px;
+  }
+  .title-description {
     font-size: 18px;
   }
 }

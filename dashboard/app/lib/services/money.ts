@@ -21,9 +21,9 @@ export type TMoneyResponse = {
 };
 
 export const addMoneyToUser = async (
+  actionName: string,
   data?: TAddMoney | undefined,
   userId?: string,
-  actionName?: string,
   config?: IAxiosConfig,
 ): Promise<TMoneyResponse> => {
   await recentActivitiesHttpService.post<TRecentActivities>(
@@ -43,9 +43,9 @@ export const addMoneyToUser = async (
 };
 
 export const sendMoneyToUser = async (
+  actionName: string,
   data?: TSendMoney | undefined,
   userId?: string,
-  actionName?: string,
   config?: IAxiosConfig,
 ): Promise<TMoneyResponse> => {
   await recentActivitiesHttpService.post<TRecentActivities>(

@@ -1,0 +1,16 @@
+---
+import { MainLayout } from '@app/layouts';
+
+// Style
+import '@app/styles/markdown.css';
+---
+
+<MainLayout>
+  <section>
+    <div
+      class='list-content px-6 mx-4 lg:mx-auto max-w-[1200px] text-sm md:text-base'
+    >
+      <slot />
+    </div>
+  </section>
+</MainLayout>

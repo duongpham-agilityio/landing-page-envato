@@ -25,9 +25,6 @@ import { formatUppercaseFirstLetter, getCurrentTimeSeconds } from '@/lib/utils';
 // Stores
 import { authStore } from '@/lib/stores';
 
-// Hook
-import { useLogActivity } from '.';
-
 type TSignUpErrorField = Partial<
   Record<keyof Omit<TUserDetail, 'id' | 'createdAt'>, string>
 >;
@@ -61,7 +58,6 @@ export type TUseAuth = {
 };
 
 export const useAuth = () => {
-  const { logActivity } = useLogActivity();
   const { user } = authStore();
   const [isLogout, setIsLogout] = useState(false);
   const router = useRouter();
@@ -188,30 +184,22 @@ export const useAuth = () => {
       option?: keyof Pick<typeof router, 'push' | 'replace'>,
     ) => {
       setIsLogout(true);
-      try {
-        const { data } = await MainHttpService.getPath(END_POINTS.LOGIN);
 
-        if (data && user) {
-          await recentActivitiesHttpService.post<TActivitiesRequest>(
-            END_POINTS.RECENT_ACTIVITIES,
-            {
-              userId: user.id,
-              actionName: EActivity.SIGN_OUT,
-            },
-          );
-        }
-      } catch (error) {
-        const { response } = error as AxiosError<string>;
+      await recentActivitiesHttpService.post<TActivitiesRequest>(
+        END_POINTS.RECENT_ACTIVITIES,
+        {
+          userId: user?.id,
+          actionName: EActivity.SIGN_OUT,
+        },
+      );
 
-        throw new Error(formatUppercaseFirstLetter(response?.data));
-      }
       setTimeout(() => {
         clearStore();
         setIsLogout(false);
         router[option ?? 'replace'](redirectPath ?? ROUTES.LOGIN);
       }, LOGOUT_TIME);
     },
-    [clearStore, logActivity, router],
+    [clearStore, router, user?.id],
   );
 
   return {

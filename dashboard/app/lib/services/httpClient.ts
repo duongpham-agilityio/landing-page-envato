@@ -19,12 +19,7 @@ class HttpService {
     },
   });
 
-  getPath<T>(path: string): Promise<AxiosResponse<T>> {
-    return this.axiosClient.get<T>(`${path}`);
-  }
-
   get<T>(path: string, configs?: object): Promise<AxiosResponse<T>> {
-    this.axiosClient.interceptors.response.clear();
     return this.axiosClient.get<T>(`${this.baseApi}${path}`, configs);
   }
 

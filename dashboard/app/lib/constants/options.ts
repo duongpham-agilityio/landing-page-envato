@@ -75,6 +75,10 @@ export const SOCIAL_PLATFORM_OPTIONS = [
 
 export const MONTHS_OPTIONS = [
   {
+    value: '',
+    label: 'Default',
+  },
+  {
     value: 'jan',
     label: 'January',
   },
@@ -126,6 +130,10 @@ export const MONTHS_OPTIONS = [
 
 export const ROLES = [
   {
+    value: '',
+    label: 'Default',
+  },
+  {
     value: 'member',
     label: 'Member',
   },
@@ -136,6 +144,10 @@ export const ROLES = [
 ];
 
 export const FILTER_PRODUCT = [
+  {
+    value: '',
+    label: 'Default',
+  },
   {
     value: 'Sold',
     label: 'Sold',
