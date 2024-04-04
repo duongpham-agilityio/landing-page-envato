@@ -19,7 +19,9 @@ import {
   TProductRequest,
   TProductResponse,
 } from '@/lib/interfaces';
-import { useLogActivity } from '.';
+
+// Utils
+import { logActivity } from '../utils';
 
 export type TSearchProduct = {
   name: string;
@@ -36,7 +38,6 @@ export type TProductSortHandler = (field: TProductSortField) => void;
 export const useProducts = (queryParam?: TSearchProduct) => {
   const queryClient = useQueryClient();
   const { user } = authStore();
-  const { logActivity } = useLogActivity();
 
   const sortType: Record<TSortType, TSortType> = useMemo(
     () => ({
@@ -163,13 +164,20 @@ export const useProducts = (queryParam?: TSearchProduct) => {
   );
 
   const { mutate: createProduct, isPending: isCreateProduct } = useMutation({
-    mutationFn: async (product: Omit<TProductRequest, '_id'>) =>
-      await productsHttpService.post<TProductRequest>(
-        END_POINTS.PRODUCTS,
-        product,
-      ),
+    mutationFn: async (product: Omit<TProductRequest, '_id'>) => {
+      const activity = logActivity(
+        productsHttpService,
+        EActivity.CREATE_PRODUCT,
+      );
+
+      return await productsHttpService
+        .post<TProductRequest>(END_POINTS.PRODUCTS, product)
+        .then((response) => {
+          productsHttpService.interceptors.response.eject(activity);
+          return response;
+        });
+    },
     onSuccess: (dataResponse) => {
-      logActivity(END_POINTS.PRODUCTS, EActivity.CREATE_PRODUCT);
       queryClient.invalidateQueries({
         queryKey: [END_POINTS.PRODUCTS],
       });
@@ -186,12 +194,21 @@ export const useProducts = (queryParam?: TSearchProduct) => {
     mutationFn: async (
       payload: Partial<TProductRequest & { userId: string; productId: string }>,
     ) => {
-      await productsHttpService.delete(END_POINTS.PRODUCTS, {
-        data: payload,
-      });
+      const activity = logActivity(
+        productsHttpService,
+        EActivity.DELETE_PRODUCT,
+      );
+
+      return await productsHttpService
+        .delete(END_POINTS.PRODUCTS, {
+          data: payload,
+        })
+        .then((response) => {
+          productsHttpService.interceptors.response.eject(activity);
+          return response;
+        });
     },
     onSuccess: (_, variables) => {
-      logActivity(END_POINTS.PRODUCTS, EActivity.DELETE_PRODUCT);
       queryClient.setQueryData(
         [END_POINTS.PRODUCTS, searchName],
         (oldData: TProduct[]) =>
@@ -203,13 +220,20 @@ export const useProducts = (queryParam?: TSearchProduct) => {
   const { mutate: updateProduct, isPending: isUpdateProduct } = useMutation({
     mutationFn: async (
       product: Partial<TProductRequest & { userId: string; productId: string }>,
-    ) =>
-      await productsHttpService.put<TProductRequest>(
-        END_POINTS.PRODUCTS,
-        product,
-      ),
+    ) => {
+      const activity = logActivity(
+        productsHttpService,
+        EActivity.UPDATE_PRODUCT,
+      );
+
+      return await productsHttpService
+        .put<TProductRequest>(END_POINTS.PRODUCTS, product)
+        .then((response) => {
+          productsHttpService.interceptors.response.eject(activity);
+          return response;
+        });
+    },
     onSuccess: async (_, variables) => {
-      logActivity(END_POINTS.PRODUCTS, EActivity.UPDATE_PRODUCT);
       queryClient.setQueryData(
         [END_POINTS.PRODUCTS, searchName],
         (oldData: TProductResponse[]) => {

@@ -15,10 +15,13 @@ export const getProducts = async (
   config?: IAxiosConfig,
   userId?: string,
   page = 1,
-): Promise<TProduct[]> =>
-  (
+): Promise<TProduct[]> => {
+  productsHttpService.interceptors.response.clear();
+
+  return (
     await productsHttpService.get(
       `${END_POINTS.PRODUCTS}/${userId}/${page}${searchParam || ''}`,
       config,
     )
   ).data.result;
+};

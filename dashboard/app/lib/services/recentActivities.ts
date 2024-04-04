@@ -15,10 +15,13 @@ export const getRecentActivities = async (
   config?: IAxiosConfig,
   userId?: string,
   page = 1,
-): Promise<TRecentActivities[]> =>
-  (
+): Promise<TRecentActivities[]> => {
+  recentActivitiesHttpService.interceptors.response.clear();
+
+  return (
     await recentActivitiesHttpService.get(
       `${END_POINTS.RECENT_ACTIVITIES}/${userId}/${page}${searchParam || ''}`,
       config,
     )
   ).data.result;
+};

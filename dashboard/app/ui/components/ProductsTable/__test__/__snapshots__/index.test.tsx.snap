@@ -127,7 +127,7 @@ exports[`Product table Match with snapshot with default prop 1`] = `
     </form>
     <button
       aria-label="Add User"
-      class="chakra-button css-14h3i8e"
+      class="chakra-button css-gpwyvs"
       data-testid="button-add"
       role="button"
       type="button"
@@ -139,7 +139,7 @@ exports[`Product table Match with snapshot with default prop 1`] = `
     class="css-17qnj1m"
   >
     <div
-      class="chakra-table__container css-5wdta2"
+      class="chakra-table__container css-1d9a4hd"
     >
       <table
         class="chakra-table css-5605sr"
@@ -382,20 +382,20 @@ exports[`Product table Match with snapshot with default prop 1`] = `
             data-testid="table-row"
           >
             <td
-              class="css-pkkr8k"
+              class="css-1h4an4l"
             >
               <div
-                class="css-1pumsy8"
+                class="css-1h2sv0j"
               >
                 <p
-                  class="chakra-text css-b5wh8g"
+                  class="chakra-text css-107vws0"
                 >
                   Ban phim
                 </p>
               </div>
             </td>
             <td
-              class="css-ecqwn"
+              class="css-5x3kvh"
             >
               <div
                 class="css-1ihki7p"
@@ -417,10 +417,10 @@ exports[`Product table Match with snapshot with default prop 1`] = `
               </div>
             </td>
             <td
-              class="css-1gewy2d"
+              class="css-5x3kvh"
             >
               <p
-                class="chakra-text css-55jbf7"
+                class="chakra-text css-m2r3cg"
               >
                 $100.00
               </p>
@@ -435,10 +435,10 @@ exports[`Product table Match with snapshot with default prop 1`] = `
               </span>
             </td>
             <td
-              class="css-o2v2fg"
+              class="css-5x3kvh"
             >
               <p
-                class="chakra-text css-1w9sl8l"
+                class="chakra-text css-m2r3cg"
               >
                 1
               </p>
@@ -559,20 +559,20 @@ exports[`Product table Match with snapshot with default prop 1`] = `
             data-testid="table-row"
           >
             <td
-              class="css-pkkr8k"
+              class="css-1h4an4l"
             >
               <div
-                class="css-1pumsy8"
+                class="css-1h2sv0j"
               >
                 <p
-                  class="chakra-text css-b5wh8g"
+                  class="chakra-text css-107vws0"
                 >
                   Tay cam xbox
                 </p>
               </div>
             </td>
             <td
-              class="css-ecqwn"
+              class="css-5x3kvh"
             >
               <div
                 class="css-1ihki7p"
@@ -594,10 +594,10 @@ exports[`Product table Match with snapshot with default prop 1`] = `
               </div>
             </td>
             <td
-              class="css-1gewy2d"
+              class="css-5x3kvh"
             >
               <p
-                class="chakra-text css-55jbf7"
+                class="chakra-text css-m2r3cg"
               >
                 $123.00
               </p>
@@ -612,10 +612,10 @@ exports[`Product table Match with snapshot with default prop 1`] = `
               </span>
             </td>
             <td
-              class="css-o2v2fg"
+              class="css-5x3kvh"
             >
               <p
-                class="chakra-text css-1w9sl8l"
+                class="chakra-text css-m2r3cg"
               >
                 0
               </p>
@@ -736,20 +736,20 @@ exports[`Product table Match with snapshot with default prop 1`] = `
             data-testid="table-row"
           >
             <td
-              class="css-pkkr8k"
+              class="css-1h4an4l"
             >
               <div
-                class="css-1pumsy8"
+                class="css-1h2sv0j"
               >
                 <p
-                  class="chakra-text css-b5wh8g"
+                  class="chakra-text css-107vws0"
                 >
                   Tay cam 3
                 </p>
               </div>
             </td>
             <td
-              class="css-ecqwn"
+              class="css-5x3kvh"
             >
               <div
                 class="css-1ihki7p"
@@ -771,10 +771,10 @@ exports[`Product table Match with snapshot with default prop 1`] = `
               </div>
             </td>
             <td
-              class="css-1gewy2d"
+              class="css-5x3kvh"
             >
               <p
-                class="chakra-text css-55jbf7"
+                class="chakra-text css-m2r3cg"
               >
                 $111.00
               </p>
@@ -789,10 +789,10 @@ exports[`Product table Match with snapshot with default prop 1`] = `
               </span>
             </td>
             <td
-              class="css-o2v2fg"
+              class="css-5x3kvh"
             >
               <p
-                class="chakra-text css-1w9sl8l"
+                class="chakra-text css-m2r3cg"
               >
                 2
               </p>
@@ -913,20 +913,20 @@ exports[`Product table Match with snapshot with default prop 1`] = `
             data-testid="table-row"
           >
             <td
-              class="css-pkkr8k"
+              class="css-1h4an4l"
             >
               <div
-                class="css-1pumsy8"
+                class="css-1h2sv0j"
               >
                 <p
-                  class="chakra-text css-b5wh8g"
+                  class="chakra-text css-107vws0"
                 >
                   Envato Market
                 </p>
               </div>
             </td>
             <td
-              class="css-ecqwn"
+              class="css-5x3kvh"
             >
               <div
                 class="css-1ihki7p"
@@ -948,10 +948,10 @@ exports[`Product table Match with snapshot with default prop 1`] = `
               </div>
             </td>
             <td
-              class="css-1gewy2d"
+              class="css-5x3kvh"
             >
               <p
-                class="chakra-text css-55jbf7"
+                class="chakra-text css-m2r3cg"
               >
                 $111.00
               </p>
@@ -966,10 +966,10 @@ exports[`Product table Match with snapshot with default prop 1`] = `
               </span>
             </td>
             <td
-              class="css-o2v2fg"
+              class="css-5x3kvh"
             >
               <p
-                class="chakra-text css-1w9sl8l"
+                class="chakra-text css-m2r3cg"
               >
                 4
               </p>
@@ -1090,20 +1090,20 @@ exports[`Product table Match with snapshot with default prop 1`] = `
             data-testid="table-row"
           >
             <td
-              class="css-pkkr8k"
+              class="css-1h4an4l"
             >
               <div
-                class="css-1pumsy8"
+                class="css-1h2sv0j"
               >
                 <p
-                  class="chakra-text css-b5wh8g"
+                  class="chakra-text css-107vws0"
                 >
                   Tay cam 2
                 </p>
               </div>
             </td>
             <td
-              class="css-ecqwn"
+              class="css-5x3kvh"
             >
               <div
                 class="css-1ihki7p"
@@ -1125,10 +1125,10 @@ exports[`Product table Match with snapshot with default prop 1`] = `
               </div>
             </td>
             <td
-              class="css-1gewy2d"
+              class="css-5x3kvh"
             >
               <p
-                class="chakra-text css-55jbf7"
+                class="chakra-text css-m2r3cg"
               >
                 $1,111.00
               </p>
@@ -1143,10 +1143,10 @@ exports[`Product table Match with snapshot with default prop 1`] = `
               </span>
             </td>
             <td
-              class="css-o2v2fg"
+              class="css-5x3kvh"
             >
               <p
-                class="chakra-text css-1w9sl8l"
+                class="chakra-text css-m2r3cg"
               >
                 0
               </p>

@@ -14,10 +14,10 @@ import {
 } from '@/lib/constants';
 
 // Services
-import { MainHttpService } from '@/lib/services';
+import { MainHttpService, recentActivitiesHttpService } from '@/lib/services';
 
 // Types
-import { TUserDetail, EActivity } from '@/lib/interfaces';
+import { TUserDetail, EActivity, TActivitiesRequest } from '@/lib/interfaces';
 
 // Utils
 import { formatUppercaseFirstLetter, getCurrentTimeSeconds } from '@/lib/utils';
@@ -62,6 +62,7 @@ export type TUseAuth = {
 
 export const useAuth = () => {
   const { logActivity } = useLogActivity();
+  const { user } = authStore();
   const [isLogout, setIsLogout] = useState(false);
   const router = useRouter();
   const { updateStore, clearStore } = authStore(
@@ -71,7 +72,6 @@ export const useAuth = () => {
     }),
     shallow,
   );
-
   const handleSignInWithFirebase = useCallback(
     async (email: string, password: string) => {
       const auth = getAuth();
@@ -115,6 +115,7 @@ export const useAuth = () => {
               uid,
             },
             {},
+            EActivity.SIGN_IN,
           );
 
         let localData: TUserInfo | undefined;
@@ -122,7 +123,6 @@ export const useAuth = () => {
           const { _id, ...rest } = data;
           localData = { ...rest, id: _id };
         }
-
         return updateStore({
           user: localData,
           isRemember,
@@ -140,7 +140,7 @@ export const useAuth = () => {
         throw new Error(formatUppercaseFirstLetter(response?.data));
       }
     },
-    [handleSignInWithFirebase, updateStore],
+    [handleSignInWithFirebase, updateStore, user?.id],
   );
 
   const handleSignUp = useCallback(
@@ -163,6 +163,7 @@ export const useAuth = () => {
               fcmToken,
             },
             {},
+            EActivity.SIGN_UP,
           );
 
         let localData: TUserInfo | undefined;
@@ -178,17 +179,32 @@ export const useAuth = () => {
         throw new Error(formatUppercaseFirstLetter(response?.data));
       }
     },
-    [updateStore],
+    [updateStore, user?.id],
   );
 
   const handleLogout = useCallback(
-    (
+    async (
       redirectPath?: string,
       option?: keyof Pick<typeof router, 'push' | 'replace'>,
     ) => {
       setIsLogout(true);
-      logActivity(END_POINTS.LOGIN, EActivity.SIGN_OUT);
+      try {
+        const { data } = await MainHttpService.getPath(END_POINTS.LOGIN);
 
+        if (data && user) {
+          await recentActivitiesHttpService.post<TActivitiesRequest>(
+            END_POINTS.RECENT_ACTIVITIES,
+            {
+              userId: user.id,
+              actionName: EActivity.SIGN_OUT,
+            },
+          );
+        }
+      } catch (error) {
+        const { response } = error as AxiosError<string>;
+
+        throw new Error(formatUppercaseFirstLetter(response?.data));
+      }
       setTimeout(() => {
         clearStore();
         setIsLogout(false);

@@ -126,7 +126,7 @@ exports[`Transaction table Match with snapshot with default prop 1`] = `
     class="css-17qnj1m"
   >
     <div
-      class="chakra-table__container css-5wdta2"
+      class="chakra-table__container css-1d9a4hd"
     >
       <table
         class="chakra-table css-5605sr"
@@ -1091,7 +1091,7 @@ exports[`Transaction table Match with snapshot with isOpenHistoryModal = true 1`
     class="css-17qnj1m"
   >
     <div
-      class="chakra-table__container css-5wdta2"
+      class="chakra-table__container css-1d9a4hd"
     >
       <table
         class="chakra-table css-5605sr"

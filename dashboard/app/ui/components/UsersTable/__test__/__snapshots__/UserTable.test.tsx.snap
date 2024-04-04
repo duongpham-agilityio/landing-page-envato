@@ -3,7 +3,7 @@
 exports[`UserTable component should renders correctly 1`] = `
 <div>
   <div
-    class="chakra-table__container css-18ytbnw"
+    class="chakra-table__container css-phaltv"
   >
     <table
       class="chakra-table css-i6bazn"

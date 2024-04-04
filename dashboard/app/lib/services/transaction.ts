@@ -14,10 +14,13 @@ export const getTransactions = async (
   searchParam?: string,
   config?: IAxiosConfig,
   userId?: string,
-): Promise<TTransaction[]> =>
-  (
+): Promise<TTransaction[]> => {
+  transactionHttpService.interceptors.response.clear();
+
+  return (
     await transactionHttpService.get(
       `${END_POINTS.TRANSACTIONS}/${userId}${searchParam || ''}`,
       config,
     )
   ).data;
+};

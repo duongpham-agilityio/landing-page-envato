@@ -6,7 +6,7 @@ exports[`Upload Product Match snapshot with default props 1`] = `
     class="css-hk64jw"
   >
     <label
-      class="chakra-form__label css-2u5lb9"
+      class="chakra-form__label css-1rh809e"
       for="file"
     >
       Upload Images

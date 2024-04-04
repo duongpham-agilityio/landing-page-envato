@@ -7,10 +7,10 @@ exports[`Product Modal match to snapshot 1`] = `
     id="update-product-form"
   >
     <div
-      class="css-simwej"
+      class="css-rjewin"
     >
       <div
-        class="css-dzz5xx"
+        class="css-1veluxv"
       >
         <div
           class="chakra-form-control css-0"
@@ -39,7 +39,7 @@ exports[`Product Modal match to snapshot 1`] = `
         </div>
       </div>
       <div
-        class="css-dzz5xx"
+        class="css-1veluxv"
       >
         <div
           class="chakra-form-control css-0"
@@ -66,10 +66,10 @@ exports[`Product Modal match to snapshot 1`] = `
       </div>
     </div>
     <div
-      class="css-simwej"
+      class="css-rjewin"
     >
       <div
-        class="css-dzz5xx"
+        class="css-1veluxv"
       >
         <div
           class="chakra-form-control css-1vhmbn2"
@@ -146,6 +146,52 @@ exports[`Product Modal match to snapshot 1`] = `
           type="text"
           value="$"
         />
+      </div>
+    </div>
+    <div
+      class="chakra-form-control css-0"
+      role="group"
+    >
+      <div
+        class="css-hk64jw"
+      >
+        <label
+          class="chakra-form__label css-1ebhc9e"
+          for="file"
+          id="field-:r5:-label"
+        >
+          Gallery Thumbnail
+          <div
+            class="css-1tak1x5"
+          >
+            <div
+              class="css-1ehgv16"
+            />
+            <div
+              class="css-guqklo"
+            />
+          </div>
+        </label>
+        <div
+          class="css-4q2zl7"
+          role="presentation"
+          tabindex="0"
+        >
+          <input
+            class="chakra-input css-0"
+            data-testid="field-image"
+            id="field-:r5:"
+            multiple=""
+            style="display: none;"
+            tabindex="-1"
+            type="file"
+          />
+          <p
+            class="chakra-text css-0"
+          >
+            Drag drop some files here, or click to select files
+          </p>
+        </div>
       </div>
     </div>
     <div

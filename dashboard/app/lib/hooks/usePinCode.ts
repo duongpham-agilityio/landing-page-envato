@@ -3,7 +3,7 @@ import { AxiosError } from 'axios';
 import { useDisclosure } from '@chakra-ui/react';
 
 // Types
-import { TPinCodeForm } from '@/lib/interfaces';
+import { EActivity, TPinCodeForm } from '@/lib/interfaces';
 
 // Services
 import { MainHttpService } from '@/lib/services';
@@ -24,6 +24,7 @@ export const usePinCode = () => {
           userId: data.userId,
         },
         {},
+        EActivity.CREATE_PIN_CODE,
       );
     } catch (error) {
       const { message } = error as AxiosError;
@@ -41,6 +42,7 @@ export const usePinCode = () => {
           userId: data.userId,
         },
         {},
+        EActivity.ACTIVE_PIN_CODE,
       );
     } catch (error) {
       const { message } = error as AxiosError;

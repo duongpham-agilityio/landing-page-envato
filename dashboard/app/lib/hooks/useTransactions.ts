@@ -19,9 +19,7 @@ import {
 
 // Stores
 import { authStore } from '../stores';
-
-// Hook
-import { useLogActivity } from '.';
+import { logActivity } from '../utils';
 
 export type TSearchTransaction = {
   name: string;
@@ -44,7 +42,6 @@ export type TSortHandler = (field: TSortField) => void;
 
 export const useTransactions = (queryParam?: TSearchTransaction) => {
   const queryClient = useQueryClient();
-  const { logActivity } = useLogActivity();
   const { user } = authStore();
 
   const { name: searchName, month: searchMonth }: TSearchTransaction =
@@ -212,13 +209,20 @@ export const useTransactions = (queryParam?: TSearchTransaction) => {
         transaction: Partial<
           TTransaction & TCustomer & TAddress & { transactionId: string }
         >,
-      ) =>
-        await transactionHttpService.put<TTransaction>(
-          END_POINTS.EDIT_TRANSACTION,
-          transaction,
-        ),
+      ) => {
+        const activity = logActivity(
+          transactionHttpService,
+          EActivity.UPDATE_TRANSACTION,
+        );
+
+        return await transactionHttpService
+          .put<TTransaction>(END_POINTS.EDIT_TRANSACTION, transaction)
+          .then((response) => {
+            transactionHttpService.interceptors.response.eject(activity);
+            return response;
+          });
+      },
       onSuccess: (_, variables) => {
-        logActivity(END_POINTS.TRANSACTIONS, EActivity.UPDATE_TRANSACTION);
         queryClient.setQueryData(
           [END_POINTS.TRANSACTIONS, searchName, searchMonth],
           (oldData: TTransaction[]) => {
@@ -252,13 +256,20 @@ export const useTransactions = (queryParam?: TSearchTransaction) => {
         transaction: Partial<
           TTransaction & TCustomer & TAddress & { transactionId: string }
         >,
-      ) =>
-        await transactionHttpService.put<TTransaction>(
-          END_POINTS.DELETE_TRANSACTION,
-          transaction,
-        ),
+      ) => {
+        const activity = logActivity(
+          transactionHttpService,
+          EActivity.DELETE_TRANSACTION,
+        );
+
+        return await transactionHttpService
+          .put<TTransaction>(END_POINTS.DELETE_TRANSACTION, transaction)
+          .then((response) => {
+            transactionHttpService.interceptors.response.eject(activity);
+            return response;
+          });
+      },
       onSuccess: (_, variables) => {
-        logActivity(END_POINTS.TRANSACTIONS, EActivity.DELETE_TRANSACTION);
         queryClient.setQueryData(
           [END_POINTS.TRANSACTIONS, searchName, searchMonth],
           (oldData: TTransaction[]) => {

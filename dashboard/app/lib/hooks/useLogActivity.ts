@@ -1,41 +1,35 @@
-import { AxiosError } from 'axios';
-
-// Store
-import { authStore } from '@/lib/stores';
+import { AxiosInstance } from 'axios';
 
 // Interface
-import { TActivitiesRequest } from '../interfaces';
+import { TRecentActivities } from '../interfaces';
 
 // Service
-import { MainHttpService, recentActivitiesHttpService } from '../services';
+import { recentActivitiesHttpService } from '../services';
 
 // Constants
 import { END_POINTS } from '../constants';
 
-// Utils
-import { formatUppercaseFirstLetter } from '../utils';
-
 export const useLogActivity = () => {
-  const { user } = authStore();
-
-  const logActivity = async (url: string, actionName: string) => {
-    try {
-      const { data } = await MainHttpService.getPath(url);
-
-      if (data && user) {
-        await recentActivitiesHttpService.post<TActivitiesRequest>(
+  const logActivity = (
+    httpService: AxiosInstance,
+    actionName: string,
+    userId?: string,
+  ) => {
+    const interceptor = httpService.interceptors.response.use(
+      async (response) => {
+        await recentActivitiesHttpService.post<TRecentActivities>(
           END_POINTS.RECENT_ACTIVITIES,
           {
-            userId: user.id,
+            userId: userId,
             actionName: actionName,
           },
         );
-      }
-    } catch (error) {
-      const { response } = error as AxiosError<string>;
 
-      throw new Error(formatUppercaseFirstLetter(response?.data));
-    }
+        return response;
+      },
+    );
+
+    return interceptor;
   };
 
   return { logActivity };

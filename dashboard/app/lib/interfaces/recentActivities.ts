@@ -29,4 +29,6 @@ export enum EActivity {
   CREATE_ISSUES = 'Create issues',
   SAVE_PROFILE = 'Save profile',
   SAVE_PASSWORD = 'Save change password',
+  CREATE_PIN_CODE = 'Create pin code',
+  ACTIVE_PIN_CODE = 'Active pin code',
 }
