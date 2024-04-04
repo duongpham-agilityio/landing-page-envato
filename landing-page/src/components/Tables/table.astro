@@ -1,0 +1,29 @@
+---
+// mocks
+import { TABLES_INFO } from '@app/mocks/tableContent';
+
+// styles
+const styleTableRow = '*:py-[25px] *:pr-[50px]';
+const styleBorder = '*:border-b border-[#ebebeb]';
+---
+
+<table class='my-10 text-left'>
+  <thead class={styleBorder}>
+    <tr class={styleTableRow}>
+      <th>Name Entity</th>
+      <th>Address</th>
+      <th>Scope of Cooperation</th>
+    </tr>
+  </thead>
+  <tbody class={styleBorder}>
+    {
+      TABLES_INFO.map(({ NameEntity, Address, ScopeCooperation }) => (
+        <tr class={styleTableRow}>
+          <td>{NameEntity}</td>
+          <td>{Address}</td>
+          <td>{ScopeCooperation}</td>
+        </tr>
+      ))
+    }
+  </tbody>
+</table>

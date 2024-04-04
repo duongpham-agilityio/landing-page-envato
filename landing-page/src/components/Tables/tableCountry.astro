@@ -1,0 +1,35 @@
+---
+// mocks
+import { TABLES_COUNTRY } from '@app/mocks/tableContent';
+
+const {} = Astro.props;
+
+// styles
+const styleTableRow = '*:py-[25px] *:pr-[50px]';
+const styleBorder = '*:border-b border-[#ebebeb]';
+---
+
+<table class='my-10 text-left'>
+  <thead class={styleBorder}>
+    <tr class={styleTableRow}>
+      <th>NameEntity</th>
+      <th>Address</th>
+      <th>Country</th>
+      <th>AppliedSafeguards</th>
+    </tr>
+  </thead>
+  <tbody class={styleBorder}>
+    {
+      TABLES_COUNTRY.map(
+        ({ NameEntity, Address, Country, AppliedSafeguards }) => (
+          <tr class={styleTableRow}>
+            <td>{NameEntity}</td>
+            <td>{Address}</td>
+            <td>{Country}</td>
+            <td>{AppliedSafeguards}</td>
+          </tr>
+        ),
+      )
+    }
+  </tbody>
+</table>

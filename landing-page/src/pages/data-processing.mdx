@@ -5,6 +5,8 @@ title: Data Processing Agreement
 
 {/* Component */}
 import Heading from '@app/components/Heading/index.astro'
+import { Table, TableCountry } from '@app/components/'
+
 
 
 <Heading text="Data Processing Agreement" className="title-page mt-20 text-center dark:text-white" />
@@ -128,25 +130,8 @@ Appendix 2: List of subcontractors from third countries
 
 Appendix 1 to the Agreement - List of subcontractors
 
-
-|              |      |         |
-| :---        |:---   | :---    |
-| Name of entity      | Address       | Scope of cooperation (purpose of entrusting the processing of personal data)   |
-| Amazon Web Sites Inc   | Data Centres in Dublin and Frankfurt        | Data hosting      |
-| Hostersi Sp. z o.o.   | ul. Jankowicka 7, 44-200 Rybnik, Poland        | Technical and administrative support to ensure consistency and continuity of access to personal data      |
-| The Rocket Science Group LLC   | Suite 5000, Atlanta, GA 30308 USA        | Sending of e-mails (only after use of the auto-responder function regarding their sending)      |
-
-<br/>
-Appendix 2 to the Agreement - List of subcontractors from third countries 
-<br/>
-<br/>
-
-
-|              |      |         |         |
-| :---        |:---   | :---    | :---    
-| Name of entity      | Address       | Country   | Applied safeguards
-| Amazon Web Sites Inc   | 410 Terry Avenue North, Seattle, WA 98109-5210, USA        | USA      | Standard contractual clauses approved by the European Commission
-| The Rocket Science Group LLC   | Suite 5000, Atlanta, GA 30308 USA        | USA     | Standard contractual clauses approved by the European Commission
-<br/>
-<br/>
-The Data Processing Agreement is available for download in a PDF form here.
+<div class='overflow-x-auto'>
+    <Table />
+    <p class="my-10">Appendix 2 to the Agreement - List of subcontractors from third countries </p>
+    <TableCountry />
+</div>
