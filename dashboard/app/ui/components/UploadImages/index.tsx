@@ -132,7 +132,7 @@ const UploadImagesComponent = ({
       <Box
         {...getRootProps()}
         border="1px"
-        borderColor={isError ? 'primary.200' : 'primary.600'}
+        borderColor={isError ? 'primary.1000' : 'primary.600'}
         borderRadius="md"
         p={4}
         textAlign="center"

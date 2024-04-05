@@ -23,7 +23,7 @@ export type TOption = {
 type TSelectProps = Pick<MenuProps, 'size' | 'variant'> & {
   title?: string;
   options?: TOption[];
-  renderTitle?: (option: TOption) => JSX.Element;
+  renderTitle: (option: TOption) => JSX.Element;
   renderOption?: (option: TOption) => JSX.Element;
   onSelect?: (option: TOption) => void;
 };
@@ -44,15 +44,22 @@ const SelectComponent = ({
         as={Button}
         h="100%"
         w="100%"
-        textAlign="left"
+        textAlign="center"
         borderRadius="lg"
         px={0}
         variant={variant}
         size={size}
       >
-        {renderTitle && renderTitle(options[selected])}
-        {!renderTitle && (
-          <Text as="span" fontSize="sm" textTransform="capitalize">
+        {options[selected]?.label === 'Default' ? (
+          renderTitle(options[selected])
+        ) : (
+          <Text
+            as="span"
+            textAlign="center"
+            fontSize="md"
+            color="text.currencyColor"
+            gap={3}
+          >
             {options[selected]?.label}
           </Text>
         )}

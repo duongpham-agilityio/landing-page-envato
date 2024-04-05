@@ -2,6 +2,9 @@ h3,
 h4 {
   text-align: center;
 }
+h4 {
+  font-weight: 500;
+}
 
 .list-content > ol {
   list-style-type: decimal;
@@ -17,8 +20,20 @@ p {
   margin: 20px 0 30px;
 }
 
+.title-page,
+.title-data-page {
+  margin-top: 80px;
+}
+
+.title-page {
+  margin-bottom: 65px;
+}
+
 .title-description {
   margin-block: 20px 125px;
+}
+.table-information {
+  overflow-x: auto;
 }
 
 @media (min-width: 768px) {

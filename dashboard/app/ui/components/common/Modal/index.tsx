@@ -23,12 +23,7 @@ const ModalComponent = ({
   title = '',
   haveCloseButton = false,
 }: TModalProps) => (
-  <Modal
-    isCentered
-    closeOnOverlayClick={false}
-    isOpen={isOpen}
-    onClose={onClose}
-  >
+  <Modal isCentered isOpen={isOpen} onClose={onClose}>
     <ModalOverlay />
     <ModalContent minW={320} maxW="fit-content">
       <ModalHeader

@@ -18,22 +18,24 @@ export const formatTransactionResponse = (transactions: TTransaction[] = []) =>
   transactions.map((transaction) => {
     const {
       _id,
-      customer: {
-        customerId,
-        avatar,
-        firstName,
-        lastName,
-        address: { state, street, city, zip },
-        email,
-        role,
-      },
+      customer,
       type,
       amount,
       currency,
       createdAt,
       paymentStatus,
       transactionStatus,
-    } = transaction;
+    } = transaction || {};
+    const {
+      customerId,
+      avatar,
+      firstName,
+      lastName,
+      address,
+      email,
+      role,
+    } = customer || {};
+    const { state = '', street = '', city = '', zip = 0 } = address || {};
 
     return {
       id: _id,

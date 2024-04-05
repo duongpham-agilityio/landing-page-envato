@@ -1,6 +1,5 @@
 export const colors = {
   primary: {
-    200: '#ff0000',
     300: '#22C55E',
     400: '#D9FBE6',
     500: '#0C642F',
@@ -9,6 +8,7 @@ export const colors = {
     700: '#2A313C',
     750: '#1B1D21',
     900: '#B7FFD1',
+    1000: '#ff0000',
   },
 
   secondary: {
