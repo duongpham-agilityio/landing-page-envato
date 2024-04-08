@@ -67,9 +67,10 @@ const SideBarAllDevices = ({
       >
         <CloseSideBar />
       </Button>
-      <h1 className='mb-3xl'>
-        <a href={ROUTES.HOME}>
+      <h1 aria-label="Title Logo" className='mb-3xl'>
+        <a aria-label="Link to Home" href={ROUTES.HOME}>
           <img
+            aria-label='Light Mode'
             className='dark:hidden'
             id='logo-header'
             src='/assets/logo-header-mobile.webp'
@@ -79,6 +80,7 @@ const SideBarAllDevices = ({
             loading='lazy'
           />
           <img
+            aria-label='Dark Mode'
             className='hidden dark:block'
             src='/assets/logo.webp'
             alt='Logo'
@@ -88,7 +90,7 @@ const SideBarAllDevices = ({
           />
         </a>
       </h1>
-      <nav>
+      <nav id="navigation" aria-label="navigation">
         <SwitchTheme />
         <ul>
           {options.map(

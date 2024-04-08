@@ -26,24 +26,26 @@ const HeaderMobile = ({ onToggleSidebar }: THeaderProps): JSX.Element => {
 
   return (
     <header className={`${styleHeader}`}>
-      <a href={ROUTES.HOME} className='text-infoRGBA'>
-        <img
-          className='dark:hidden'
-          src='/assets/logo-header-mobile.webp'
-          alt='Logo'
-          width={70}
-          height={28}
-          loading='lazy'
-        />
-        <img
-          className='hidden dark:block'
-          src='/assets/logo.webp'
-          alt='Logo'
-          width={70}
-          height={28}
-          loading='lazy'
-        />
-      </a>
+      <h1>
+        <a href={ROUTES.HOME} className='text-infoRGBA'>
+          <img
+            className='dark:hidden'
+            src='/assets/logo-header-mobile.webp'
+            alt='Logo'
+            width={70}
+            height={28}
+            loading='lazy'
+          />
+          <img
+            className='hidden dark:block'
+            src='/assets/logo.webp'
+            alt='Logo'
+            width={70}
+            height={28}
+            loading='lazy'
+          />
+        </a>
+      </h1>
       <Button
         className='flex justify-center items-center bg-transparent hover:bg-transparent'
         onClick={handleOpenSidebar}

@@ -34,7 +34,7 @@ const Subscribe = (): JSX.Element => {
 
   return <section className='mt-[70px] lg:mt-0 py-[100px] bg-iridium'>
     <div className='container m-auto px-5 lg:flex gap-[30px] items-center'>
-      <div className='flex-1'>
+      <aside className='flex-1'>
         <h2 className='text-3xl text-white font-normal'>
           Subscribe for a <span className='text-sun'>25% Discount</span>
         </h2>
@@ -43,11 +43,12 @@ const Subscribe = (): JSX.Element => {
           vulputate consectetur. Donec auctor interdum purus, ac finibus massa
           bibendum nec.
         </p>
-      </div>
+      </aside>
       <div className='flex-1'>
         <form className='w-full mt-3xl lg:mt-0 md:flex' onSubmit={handleSubmit}>
-          <div className='md:flex-1'>
+          <div aria-label='Subscribe' className='md:flex-1'>
             <Input
+              aria-label='Input Email'
               ref={refInput}
               placeholder='Your E-mail'
               size='md'

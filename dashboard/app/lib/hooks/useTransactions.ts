@@ -213,6 +213,7 @@ export const useTransactions = (queryParam?: TSearchTransaction) => {
         const activity = logActivity(
           transactionHttpService,
           EActivity.UPDATE_TRANSACTION,
+          user?.id
         );
 
         return await transactionHttpService
@@ -229,19 +230,19 @@ export const useTransactions = (queryParam?: TSearchTransaction) => {
             const dataUpdated = oldData.map((item) =>
               item._id === variables.transactionId
                 ? {
-                    ...item,
-                    customer: {
-                      ...item.customer,
-                      firstName: variables.firstName,
-                      lastName: variables.lastName,
-                      address: {
-                        state: variables.state,
-                        street: variables.street,
-                        city: variables.city,
-                        zip: variables.zip,
-                      },
+                  ...item,
+                  customer: {
+                    ...item.customer,
+                    firstName: variables.firstName,
+                    lastName: variables.lastName,
+                    address: {
+                      state: variables.state,
+                      street: variables.street,
+                      city: variables.city,
+                      zip: variables.zip,
                     },
-                  }
+                  },
+                }
                 : item,
             );
             return dataUpdated;
@@ -260,6 +261,7 @@ export const useTransactions = (queryParam?: TSearchTransaction) => {
         const activity = logActivity(
           transactionHttpService,
           EActivity.DELETE_TRANSACTION,
+          user?.id
         );
 
         return await transactionHttpService
@@ -276,9 +278,9 @@ export const useTransactions = (queryParam?: TSearchTransaction) => {
             const dataUpdated = oldData.map((item) =>
               item._id === variables.transactionId
                 ? {
-                    ...item,
-                    transactionStatus: TRANSACTION_STATUS.ARCHIVED,
-                  }
+                  ...item,
+                  transactionStatus: TRANSACTION_STATUS.ARCHIVED,
+                }
                 : item,
             );
             return dataUpdated;

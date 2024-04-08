@@ -68,12 +68,13 @@ const Wrapper = ({ children, pathName }: TWrapperProps): JSX.Element => {
         />
       </ThemeProvider>
 
-      <div className='flex-1 min-h-[60vh]'>
+      <main className='flex-1 min-h-[60vh]'>
         <HeaderMobile onToggleSidebar={handleToggleSidebar} />
         <div className='pt-[70px] md:pt-0 h-full'>{children}</div>
-      </div>
+      </main>
 
       <Button
+        aria-label="Go to top"  
         className='go-to-top hidden fixed z-40 bottom-10 right-10 !w-fit !h-fit !p-0 !pb-0 shadow-md'
         onClick={handleGotoTop}
       >

@@ -168,6 +168,7 @@ export const useProducts = (queryParam?: TSearchProduct) => {
       const activity = logActivity(
         productsHttpService,
         EActivity.CREATE_PRODUCT,
+        user?.id
       );
 
       return await productsHttpService
@@ -197,6 +198,7 @@ export const useProducts = (queryParam?: TSearchProduct) => {
       const activity = logActivity(
         productsHttpService,
         EActivity.DELETE_PRODUCT,
+        user?.id
       );
 
       return await productsHttpService
@@ -224,6 +226,7 @@ export const useProducts = (queryParam?: TSearchProduct) => {
       const activity = logActivity(
         productsHttpService,
         EActivity.UPDATE_PRODUCT,
+        user?.id
       );
 
       return await productsHttpService
@@ -240,17 +243,17 @@ export const useProducts = (queryParam?: TSearchProduct) => {
           const dataUpdated = oldData.map((item) =>
             item._id === variables.productId
               ? {
-                  ...item,
-                  name: variables.name,
-                  imageURLs: variables.imageURLs,
-                  stock: variables.stock,
-                  productStatus:
-                    Number(variables.stock) > 0
-                      ? PRODUCT_STATUS.IN_STOCK
-                      : PRODUCT_STATUS.SOLD,
-                  amount: variables.amount,
-                  product: { ...variables },
-                }
+                ...item,
+                name: variables.name,
+                imageURLs: variables.imageURLs,
+                stock: variables.stock,
+                productStatus:
+                  Number(variables.stock) > 0
+                    ? PRODUCT_STATUS.IN_STOCK
+                    : PRODUCT_STATUS.SOLD,
+                amount: variables.amount,
+                product: { ...variables },
+              }
               : item,
           );
           return dataUpdated;

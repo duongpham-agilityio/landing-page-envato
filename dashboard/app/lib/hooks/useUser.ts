@@ -20,6 +20,9 @@ import {
 // Constants
 import { END_POINTS } from '@/lib/constants';
 
+// stores
+import { authStore } from '../stores';
+
 export const useUpdateUser = () => {
   const { error, ...rest } = useMutation({
     mutationFn: async (user: TUserDetail) =>
@@ -27,6 +30,7 @@ export const useUpdateUser = () => {
         END_POINTS.USERS,
         user,
         EActivity.SAVE_PROFILE,
+        user.id
       ),
   });
 
@@ -37,6 +41,7 @@ export const useUpdateUser = () => {
 };
 
 export const useUpdatePassword = () => {
+  const { user } = authStore();
   const { error, ...rest } = useMutation({
     mutationFn: async (passwordData: TPassword) => {
       const { oldPassword, newPassword, memberId } = passwordData;
@@ -49,6 +54,7 @@ export const useUpdatePassword = () => {
           memberId,
         },
         EActivity.SAVE_PASSWORD,
+        user?.id
       );
     },
   });
@@ -81,6 +87,7 @@ export const useGetListIssues = () => {
 
 export const useCreateIssues = () => {
   const queryClient = useQueryClient();
+  const { user } = authStore();
   const { error, ...rest } = useMutation({
     mutationFn: async (
       supportList: Partial<
@@ -95,6 +102,7 @@ export const useCreateIssues = () => {
         supportList,
         {},
         EActivity.CREATE_ISSUES,
+        user?.id
       ),
     onSettled: () => {
       queryClient.invalidateQueries({ queryKey: [END_POINTS.SUPPORT] });
