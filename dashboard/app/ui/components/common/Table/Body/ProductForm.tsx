@@ -117,7 +117,7 @@ const ProductForm = ({
       onSubmit={handleSubmit(handleSubmitForm)}
     >
       <Flex w={{ base: '100%' }} flexDirection={{ base: 'column', md: 'row' }}>
-        <Flex mb={{ base: 5, sm: 5 }}>
+        <Flex mb={{ base: 5, sm: 5 }} w="100%">
           <Controller
             control={control}
             rules={AUTH_SCHEMA.NAME}
@@ -137,7 +137,7 @@ const ProductForm = ({
             )}
           />
         </Flex>
-        <Flex mb={{ base: 5, sm: 5 }}>
+        <Flex mb={{ base: 5, sm: 5 }} w="100%">
           <Controller
             control={control}
             rules={AUTH_SCHEMA.AMOUNT}
@@ -191,7 +191,7 @@ const ProductForm = ({
         </Flex>
       </Flex>
       <Flex w={{ base: '100%' }} flexDirection={{ base: 'column', md: 'row' }}>
-        <Flex mb={{ base: 5, sm: 5 }}>
+        <Flex w="100%" mb={{ base: 5, sm: 5 }}>
           <Controller
             control={control}
             rules={AUTH_SCHEMA.QUANTITY}
@@ -243,7 +243,7 @@ const ProductForm = ({
             }}
           />
         </Flex>
-        <Flex mb={{ sm: 5 }}>
+        <Flex w="100%" mb={{ sm: 5 }}>
           <Controller
             control={control}
             name="description"
