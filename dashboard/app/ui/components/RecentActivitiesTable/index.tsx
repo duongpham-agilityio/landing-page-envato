@@ -108,7 +108,7 @@ const RecentActivitiesTableComponent = () => {
           >
             <Text
               display="block"
-              fontSize={{ base: 'sm', md: 'md' }}
+              fontSize={{ base: '12px', md: '16px' }}
               fontWeight="semibold"
               wordBreak="break-all"
               textOverflow="ellipsis"
