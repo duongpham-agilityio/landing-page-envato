@@ -67,7 +67,8 @@ const SideBarAllDevices = ({
       >
         <CloseSideBar />
       </Button>
-      <h1 aria-label="Title Logo" className='mb-3xl'>
+      <aside aria-label="Title Logo">
+         <h1 className='mb-3xl'>
         <a aria-label="Link to Home" href={ROUTES.HOME}>
           <img
             aria-label='Light Mode'
@@ -90,6 +91,7 @@ const SideBarAllDevices = ({
           />
         </a>
       </h1>
+      </aside>
       <nav id="navigation" aria-label="navigation">
         <SwitchTheme />
         <ul>

@@ -32,7 +32,7 @@ const CartTotal = ({
   const fontSemibold: string = 'font-semibold';
 
   return (
-    <div className={`bg-desertStorm font-semibold  py-lg px-5 ${className}`}>
+    <div className={`bg-desertStorm font-semibold py-lg px-5 ${className}`}>
       <div>
         <h3 className='text-lg text-primary leading-huge font-semibold'>
           Cart Total

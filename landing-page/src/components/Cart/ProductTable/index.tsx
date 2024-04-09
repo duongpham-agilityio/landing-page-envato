@@ -28,12 +28,11 @@ const ProductTable = ({
 }: TProductTableProps): JSX.Element => {
   // Styles CSS
   const stylesRowTable =
-    'grid grid-cols-4 text-left bg-desertStorm [&>*:nth-child(n)]:text-[14px] [&>*:nth-child(n)]:text-primary [&>*:nth-child(n)]:font-semibold p-3 lg:[&>*:nth-child(n)]:text-lg';
+    'grid grid-cols-3 text-left bg-desertStorm [&>*:nth-child(n)]:text-[14px] [&>*:nth-child(n)]:text-primary [&>*:nth-child(n)]:font-semibold p-3 lg:[&>*:nth-child(n)]:text-lg';
   return (
     <table className='w-full'>
       <thead>
         <tr className={`${stylesRowTable}`}>
-          <th></th>
           <th>Name</th>
           <th>Price</th>
           <th>Quantity</th>
@@ -50,7 +49,7 @@ const ProductTable = ({
             return (
               <tr
                 key={id}
-                className='grid grid-cols-4 items-center gap-2 md:gap-3 my-6 nearLg:px-3'
+                className='grid grid-cols-4 items-center gap-2 md:gap-3 my-6'
               >
                 <td>
                   <a href={`${ROUTES.PRODUCTS}/${productId}`} aria-label='Product Detail'>

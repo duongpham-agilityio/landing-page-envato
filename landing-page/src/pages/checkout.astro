@@ -16,7 +16,7 @@ const total: number = (await getCart()).reduce(
 ---
 
 <MainLayout>
-  <main class='p-4 md:py-[100px] nearXl:px-10'>
+  <section class='p-4 md:py-[100px] nearXl:px-10'>
     <CheckoutPage client:visible total={total} cart={cart} />
-  </main>
+  </section>
 </MainLayout>

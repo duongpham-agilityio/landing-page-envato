@@ -15,7 +15,11 @@ const cart: IProductInCart[] = await getCart();
 ---
 
 <MainLayout>
-  <main class='p-4 md:py-[100px] nearXl:px-10 mb-10'>
+  <section
+    id='products-detail'
+    aria-label='Products Table Detail'
+    class='p-4 md:py-[100px] nearXl:px-10 mb-10'
+  >
     <CartPage client:visible data={cart || []} />
-  </main>
+  </section>
 </MainLayout>

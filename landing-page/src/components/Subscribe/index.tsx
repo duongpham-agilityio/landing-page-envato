@@ -46,7 +46,7 @@ const Subscribe = (): JSX.Element => {
       </aside>
       <div className='flex-1'>
         <form className='w-full mt-3xl lg:mt-0 md:flex' onSubmit={handleSubmit}>
-          <div aria-label='Subscribe' className='md:flex-1'>
+          <aside aria-label='Subscribe' className='md:flex-1'>
             <Input
               aria-label='Input Email'
               ref={refInput}
@@ -55,7 +55,7 @@ const Subscribe = (): JSX.Element => {
               variant='secondary'
               className='font-normal outline-none focus:shadow-none dark:text-sparingly'
             />
-          </div>
+          </aside>
           <Button
             type='submit'
             className='text-sm px-[31px] text-primary !py-4 hover:text-white w-full mt-3 md:!py-0 md:mt-0 md:w-[130px]'
