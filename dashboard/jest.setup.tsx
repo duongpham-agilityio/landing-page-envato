@@ -1,5 +1,5 @@
 import '@testing-library/jest-dom';
-import React from 'react';
+import React, { ReactElement, ReactNode } from 'react';
 import * as jestFunc from '@testing-library/react';
 import { ChakraProvider } from '@chakra-ui/react';
 
@@ -91,6 +91,16 @@ jest.mock('firebase/storage', () => ({
 jest.mock('firebase/messaging', () => ({
   ...jest.requireActual('firebase/messaging'),
   getMessaging: jest.fn(),
+}));
+
+jest.mock('react-intersection-observer');
+
+jest.mock('react-intersection-observer', () => ({
+  InView: ({
+    children,
+  }: {
+    children: (props: { inView: boolean; ref: () => void }) => ReactNode;
+  }) => children({ inView: true, ref: jest.fn() }) as ReactElement,
 }));
 
 Object.defineProperty(window, 'matchMedia', {

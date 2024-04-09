@@ -4,7 +4,7 @@
 #   react-responsive-carousel: ^3.2.23
 #
 diff --git a/node_modules/react-responsive-carousel/lib/js/components/Thumbs.js b/node_modules/react-responsive-carousel/lib/js/components/Thumbs.js
-index d77659a..ec93253 100644
+index d77659a..0cd5251 100644
 --- a/node_modules/react-responsive-carousel/lib/js/components/Thumbs.js
 +++ b/node_modules/react-responsive-carousel/lib/js/components/Thumbs.js
 @@ -287,7 +287,7 @@ var Thumbs = /*#__PURE__*/function (_Component) {
@@ -12,7 +12,7 @@ index d77659a..ec93253 100644
          };
          return /*#__PURE__*/_react.default.createElement("li", _extends({}, thumbProps, {
 -          role: "button",
-+          // role: "button", 
++          role: "listitem",
            tabIndex: 0
          }), img);
        });

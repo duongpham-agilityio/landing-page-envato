@@ -2,9 +2,9 @@ import { usePathname, useSearchParams, useRouter } from 'next/navigation';
 
 // Sections
 import HistoryPage from '../histories/page';
-import { renderQueryProviderTest } from '@/lib/utils/testUtils';
 
-jest.mock('react-intersection-observer');
+// Utils
+import { renderQueryProviderTest } from '@/lib/utils/testUtils';
 
 describe('HistoryPage render', () => {
   (useSearchParams as jest.Mock).mockReturnValue({

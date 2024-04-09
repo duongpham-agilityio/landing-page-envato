@@ -6,8 +6,6 @@ import TransactionPage from '../transactions/page';
 // Utils
 import { renderQueryProviderTest } from '@/lib/utils/testUtils';
 
-jest.mock('react-intersection-observer');
-
 describe('TransactionPage render', () => {
   (useSearchParams as jest.Mock).mockReturnValue({
     get: jest.fn(),

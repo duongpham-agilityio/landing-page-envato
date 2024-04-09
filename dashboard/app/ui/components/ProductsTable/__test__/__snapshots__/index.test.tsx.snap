@@ -35,7 +35,7 @@ exports[`Product table Match with snapshot with default prop 1`] = `
               </svg>
             </div>
             <input
-              class="chakra-input css-1ybypo"
+              class="chakra-input css-1x84oq"
               data-testid="search-transaction"
               id="field-:r0:"
               placeholder="Search by name"
@@ -52,7 +52,7 @@ exports[`Product table Match with snapshot with default prop 1`] = `
           aria-controls="menu-list-:r2:"
           aria-expanded="false"
           aria-haspopup="menu"
-          class="chakra-button chakra-menu__menu-button css-1d0mwls"
+          class="chakra-button chakra-menu__menu-button css-10e6i5m"
           id="menu-button-:r2:"
           type="button"
         >
@@ -104,13 +104,27 @@ exports[`Product table Match with snapshot with default prop 1`] = `
               <p
                 class="chakra-text css-15asmb0"
               >
-                Sold
+                Default
               </p>
             </button>
             <button
               class="chakra-menu__menuitem css-o9weuj"
               data-index="1"
               id="menu-list-:r2:-menuitem-:r4:"
+              role="menuitem"
+              tabindex="-1"
+              type="button"
+            >
+              <p
+                class="chakra-text css-15asmb0"
+              >
+                Sold
+              </p>
+            </button>
+            <button
+              class="chakra-menu__menuitem css-o9weuj"
+              data-index="2"
+              id="menu-list-:r2:-menuitem-:r5:"
               role="menuitem"
               tabindex="-1"
               type="button"
@@ -456,11 +470,11 @@ exports[`Product table Match with snapshot with default prop 1`] = `
               class="css-kgr5cp"
             >
               <button
-                aria-controls="menu-list-:rc:"
+                aria-controls="menu-list-:rd:"
                 aria-expanded="false"
                 aria-haspopup="menu"
                 class="chakra-button chakra-menu__menu-button css-1of25bg"
-                id="menu-button-:rc:"
+                id="menu-button-:rd:"
                 type="button"
               >
                 <span
@@ -498,7 +512,7 @@ exports[`Product table Match with snapshot with default prop 1`] = `
                 <div
                   aria-orientation="vertical"
                   class="chakra-menu__menu-list css-19p6z7a"
-                  id="menu-list-:rc:"
+                  id="menu-list-:rd:"
                   role="menu"
                   style="transform-origin: var(--popper-transform-origin); opacity: 0; visibility: hidden; transform: scale(0.8) translateZ(0);"
                   tabindex="-1"
@@ -506,7 +520,7 @@ exports[`Product table Match with snapshot with default prop 1`] = `
                   <button
                     class="chakra-menu__menuitem css-1m94u4a"
                     data-index="0"
-                    id="menu-list-:rc:-menuitem-:rd:"
+                    id="menu-list-:rd:-menuitem-:re:"
                     role="menuitem"
                     tabindex="-1"
                     type="button"
@@ -633,11 +647,11 @@ exports[`Product table Match with snapshot with default prop 1`] = `
               class="css-kgr5cp"
             >
               <button
-                aria-controls="menu-list-:rl:"
+                aria-controls="menu-list-:rm:"
                 aria-expanded="false"
                 aria-haspopup="menu"
                 class="chakra-button chakra-menu__menu-button css-1of25bg"
-                id="menu-button-:rl:"
+                id="menu-button-:rm:"
                 type="button"
               >
                 <span
@@ -675,7 +689,7 @@ exports[`Product table Match with snapshot with default prop 1`] = `
                 <div
                   aria-orientation="vertical"
                   class="chakra-menu__menu-list css-19p6z7a"
-                  id="menu-list-:rl:"
+                  id="menu-list-:rm:"
                   role="menu"
                   style="transform-origin: var(--popper-transform-origin); opacity: 0; visibility: hidden; transform: scale(0.8) translateZ(0);"
                   tabindex="-1"
@@ -683,7 +697,7 @@ exports[`Product table Match with snapshot with default prop 1`] = `
                   <button
                     class="chakra-menu__menuitem css-1m94u4a"
                     data-index="0"
-                    id="menu-list-:rl:-menuitem-:rm:"
+                    id="menu-list-:rm:-menuitem-:rn:"
                     role="menuitem"
                     tabindex="-1"
                     type="button"
@@ -810,11 +824,11 @@ exports[`Product table Match with snapshot with default prop 1`] = `
               class="css-kgr5cp"
             >
               <button
-                aria-controls="menu-list-:ru:"
+                aria-controls="menu-list-:rv:"
                 aria-expanded="false"
                 aria-haspopup="menu"
                 class="chakra-button chakra-menu__menu-button css-1of25bg"
-                id="menu-button-:ru:"
+                id="menu-button-:rv:"
                 type="button"
               >
                 <span
@@ -852,7 +866,7 @@ exports[`Product table Match with snapshot with default prop 1`] = `
                 <div
                   aria-orientation="vertical"
                   class="chakra-menu__menu-list css-19p6z7a"
-                  id="menu-list-:ru:"
+                  id="menu-list-:rv:"
                   role="menu"
                   style="transform-origin: var(--popper-transform-origin); opacity: 0; visibility: hidden; transform: scale(0.8) translateZ(0);"
                   tabindex="-1"
@@ -860,7 +874,7 @@ exports[`Product table Match with snapshot with default prop 1`] = `
                   <button
                     class="chakra-menu__menuitem css-1m94u4a"
                     data-index="0"
-                    id="menu-list-:ru:-menuitem-:rv:"
+                    id="menu-list-:rv:-menuitem-:r10:"
                     role="menuitem"
                     tabindex="-1"
                     type="button"
@@ -987,11 +1001,11 @@ exports[`Product table Match with snapshot with default prop 1`] = `
               class="css-kgr5cp"
             >
               <button
-                aria-controls="menu-list-:r17:"
+                aria-controls="menu-list-:r18:"
                 aria-expanded="false"
                 aria-haspopup="menu"
                 class="chakra-button chakra-menu__menu-button css-1of25bg"
-                id="menu-button-:r17:"
+                id="menu-button-:r18:"
                 type="button"
               >
                 <span
@@ -1029,7 +1043,7 @@ exports[`Product table Match with snapshot with default prop 1`] = `
                 <div
                   aria-orientation="vertical"
                   class="chakra-menu__menu-list css-19p6z7a"
-                  id="menu-list-:r17:"
+                  id="menu-list-:r18:"
                   role="menu"
                   style="transform-origin: var(--popper-transform-origin); opacity: 0; visibility: hidden; transform: scale(0.8) translateZ(0);"
                   tabindex="-1"
@@ -1037,7 +1051,7 @@ exports[`Product table Match with snapshot with default prop 1`] = `
                   <button
                     class="chakra-menu__menuitem css-1m94u4a"
                     data-index="0"
-                    id="menu-list-:r17:-menuitem-:r18:"
+                    id="menu-list-:r18:-menuitem-:r19:"
                     role="menuitem"
                     tabindex="-1"
                     type="button"
@@ -1164,11 +1178,11 @@ exports[`Product table Match with snapshot with default prop 1`] = `
               class="css-kgr5cp"
             >
               <button
-                aria-controls="menu-list-:r1g:"
+                aria-controls="menu-list-:r1h:"
                 aria-expanded="false"
                 aria-haspopup="menu"
                 class="chakra-button chakra-menu__menu-button css-1of25bg"
-                id="menu-button-:r1g:"
+                id="menu-button-:r1h:"
                 type="button"
               >
                 <span
@@ -1206,7 +1220,7 @@ exports[`Product table Match with snapshot with default prop 1`] = `
                 <div
                   aria-orientation="vertical"
                   class="chakra-menu__menu-list css-19p6z7a"
-                  id="menu-list-:r1g:"
+                  id="menu-list-:r1h:"
                   role="menu"
                   style="transform-origin: var(--popper-transform-origin); opacity: 0; visibility: hidden; transform: scale(0.8) translateZ(0);"
                   tabindex="-1"
@@ -1214,7 +1228,7 @@ exports[`Product table Match with snapshot with default prop 1`] = `
                   <button
                     class="chakra-menu__menuitem css-1m94u4a"
                     data-index="0"
-                    id="menu-list-:r1g:-menuitem-:r1h:"
+                    id="menu-list-:r1h:-menuitem-:r1i:"
                     role="menuitem"
                     tabindex="-1"
                     type="button"
@@ -1285,45 +1299,21 @@ exports[`Product table Match with snapshot with default prop 1`] = `
           class="css-110fpu2"
         >
           <button
-            aria-controls="menu-list-:r1j:"
+            aria-controls="menu-list-:r1k:"
             aria-expanded="false"
             aria-haspopup="menu"
-            class="chakra-button chakra-menu__menu-button css-1d0mwls"
-            id="menu-button-:r1j:"
+            class="chakra-button chakra-menu__menu-button css-10e6i5m"
+            id="menu-button-:r1k:"
             type="button"
           >
             <span
               class="css-xl71ch"
             >
-              <div
-                class="css-1l4w6pd"
+              <span
+                class="chakra-text css-8wdd17"
               >
-                <p
-                  class="chakra-text css-1aitddj"
-                >
-                  10
-                </p>
-                <div
-                  class="css-t4r95o"
-                >
-                  <svg
-                    fill="none"
-                    height="15"
-                    stroke="#A0AEC0"
-                    style="transform: rotate(undefined);"
-                    viewBox="0 0 18 15"
-                    width="18"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      d="M7 10L12 14L17 10"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="2"
-                    />
-                  </svg>
-                </div>
-              </div>
+                10
+              </span>
             </span>
           </button>
           <div
@@ -1333,7 +1323,7 @@ exports[`Product table Match with snapshot with default prop 1`] = `
             <div
               aria-orientation="vertical"
               class="chakra-menu__menu-list css-1k4isgz"
-              id="menu-list-:r1j:"
+              id="menu-list-:r1k:"
               role="menu"
               style="transform-origin: var(--popper-transform-origin); opacity: 0; visibility: hidden; transform: scale(0.8) translateZ(0);"
               tabindex="-1"
@@ -1341,7 +1331,7 @@ exports[`Product table Match with snapshot with default prop 1`] = `
               <button
                 class="chakra-menu__menuitem css-o9weuj"
                 data-index="0"
-                id="menu-list-:r1j:-menuitem-:r1k:"
+                id="menu-list-:r1k:-menuitem-:r1l:"
                 role="menuitem"
                 tabindex="-1"
                 type="button"
@@ -1355,7 +1345,7 @@ exports[`Product table Match with snapshot with default prop 1`] = `
               <button
                 class="chakra-menu__menuitem css-o9weuj"
                 data-index="1"
-                id="menu-list-:r1j:-menuitem-:r1l:"
+                id="menu-list-:r1k:-menuitem-:r1m:"
                 role="menuitem"
                 tabindex="-1"
                 type="button"
@@ -1369,7 +1359,7 @@ exports[`Product table Match with snapshot with default prop 1`] = `
               <button
                 class="chakra-menu__menuitem css-o9weuj"
                 data-index="2"
-                id="menu-list-:r1j:-menuitem-:r1m:"
+                id="menu-list-:r1k:-menuitem-:r1n:"
                 role="menuitem"
                 tabindex="-1"
                 type="button"

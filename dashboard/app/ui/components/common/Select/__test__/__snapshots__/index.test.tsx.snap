@@ -6,7 +6,7 @@ exports[`Select Match snapshot 1`] = `
     aria-controls="menu-list-:r1:"
     aria-expanded="false"
     aria-haspopup="menu"
-    class="chakra-button chakra-menu__menu-button css-a9jpru"
+    class="chakra-button chakra-menu__menu-button css-1n3vrsk"
     id="menu-button-:r1:"
     type="button"
   >
@@ -14,7 +14,7 @@ exports[`Select Match snapshot 1`] = `
       class="css-xl71ch"
     >
       <span
-        class="chakra-text css-cwazn2"
+        class="chakra-text css-2wf856"
       >
         github
       </span>

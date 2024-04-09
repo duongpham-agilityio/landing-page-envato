@@ -5,9 +5,9 @@ import { useRouter, useSearchParams } from 'next/navigation';
 import { renderQueryProviderTest } from '@/lib/utils/testUtils';
 
 // Sections
-import { ProductsSection } from '..';
+import RecentActivities from '../RecentActivitiesSection';
 
-describe('ProductSection render', () => {
+describe('RecentActivitiesSection render', () => {
   beforeEach(async () => {
     await preloadAll();
     (useRouter as jest.Mock).mockImplementation(() => ({
@@ -23,7 +23,7 @@ describe('ProductSection render', () => {
   });
 
   test('Should render match with snapshot.', () => {
-    const { container } = renderQueryProviderTest(<ProductsSection />);
+    const { container } = renderQueryProviderTest(<RecentActivities />);
 
     expect(container).toMatchSnapshot();
   });

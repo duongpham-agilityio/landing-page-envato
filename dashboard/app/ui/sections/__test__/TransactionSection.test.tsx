@@ -7,8 +7,6 @@ import { renderQueryProviderTest } from '@/lib/utils/testUtils';
 // Sections
 import { TransactionSection } from '..';
 
-jest.mock('react-intersection-observer');
-
 describe('TransactionSection render', () => {
   beforeEach(async () => {
     await preloadAll();

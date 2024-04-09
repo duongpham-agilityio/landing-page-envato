@@ -32,7 +32,7 @@ exports[`SearchBar render Should render match with snapshot. 1`] = `
             </svg>
           </div>
           <input
-            class="chakra-input css-10kn41x"
+            class="chakra-input css-1ga50y9"
             data-testid="search-transaction"
             id="field-:r0:"
             placeholder="Search by name, email, or other..."
@@ -49,7 +49,7 @@ exports[`SearchBar render Should render match with snapshot. 1`] = `
         aria-controls="menu-list-:r2:"
         aria-expanded="false"
         aria-haspopup="menu"
-        class="chakra-button chakra-menu__menu-button css-a9jpru"
+        class="chakra-button chakra-menu__menu-button css-1n3vrsk"
         id="menu-button-:r2:"
         type="button"
       >
@@ -101,13 +101,27 @@ exports[`SearchBar render Should render match with snapshot. 1`] = `
             <p
               class="chakra-text css-1198d6z"
             >
-              Member
+              Default
             </p>
           </button>
           <button
             class="chakra-menu__menuitem css-1oz22gy"
             data-index="1"
             id="menu-list-:r2:-menuitem-:r4:"
+            role="menuitem"
+            tabindex="-1"
+            type="button"
+          >
+            <p
+              class="chakra-text css-1198d6z"
+            >
+              Member
+            </p>
+          </button>
+          <button
+            class="chakra-menu__menuitem css-1oz22gy"
+            data-index="2"
+            id="menu-list-:r2:-menuitem-:r5:"
             role="menuitem"
             tabindex="-1"
             type="button"

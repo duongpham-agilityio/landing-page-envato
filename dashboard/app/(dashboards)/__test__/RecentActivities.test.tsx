@@ -6,8 +6,6 @@ import RecentActivitiesPage from '../recent-activities/page';
 // Utils
 import { renderQueryProviderTest } from '@/lib/utils/testUtils';
 
-jest.mock('react-intersection-observer');
-
 describe('RecentActivitiesPage render', () => {
   (useSearchParams as jest.Mock).mockReturnValue({
     get: jest.fn(),

@@ -11,4 +11,9 @@ const styleLink =
   'font-primary font-bold underline-offset-1 hover:underline-offset-0 dark:text-white';
 ---
 
-<a href={href} target='_blank' class={`${styleLink} ${className}`}>{label}</a>
+<a
+  aria-label='Link about page'
+  href={href}
+  target='_blank'
+  class={`${styleLink} ${className}`}>{label}</a
+>

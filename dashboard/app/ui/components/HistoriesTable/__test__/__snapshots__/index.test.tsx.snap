@@ -32,7 +32,7 @@ exports[`Histories table Match with snapshot with default prop 1`] = `
             </svg>
           </div>
           <input
-            class="chakra-input css-1ybypo"
+            class="chakra-input css-1x84oq"
             data-testid="search-transaction"
             id="field-:r0:"
             placeholder="Search by name, email, or other..."
@@ -49,7 +49,7 @@ exports[`Histories table Match with snapshot with default prop 1`] = `
         aria-controls="menu-list-:r2:"
         aria-expanded="false"
         aria-haspopup="menu"
-        class="chakra-button chakra-menu__menu-button css-1d0mwls"
+        class="chakra-button chakra-menu__menu-button css-10e6i5m"
         id="menu-button-:r2:"
         type="button"
       >
@@ -101,7 +101,7 @@ exports[`Histories table Match with snapshot with default prop 1`] = `
             <p
               class="chakra-text css-15asmb0"
             >
-              January
+              Default
             </p>
           </button>
           <button
@@ -115,7 +115,7 @@ exports[`Histories table Match with snapshot with default prop 1`] = `
             <p
               class="chakra-text css-15asmb0"
             >
-              February
+              January
             </p>
           </button>
           <button
@@ -129,7 +129,7 @@ exports[`Histories table Match with snapshot with default prop 1`] = `
             <p
               class="chakra-text css-15asmb0"
             >
-              March
+              February
             </p>
           </button>
           <button
@@ -143,7 +143,7 @@ exports[`Histories table Match with snapshot with default prop 1`] = `
             <p
               class="chakra-text css-15asmb0"
             >
-              April
+              March
             </p>
           </button>
           <button
@@ -157,7 +157,7 @@ exports[`Histories table Match with snapshot with default prop 1`] = `
             <p
               class="chakra-text css-15asmb0"
             >
-              May
+              April
             </p>
           </button>
           <button
@@ -171,7 +171,7 @@ exports[`Histories table Match with snapshot with default prop 1`] = `
             <p
               class="chakra-text css-15asmb0"
             >
-              June
+              May
             </p>
           </button>
           <button
@@ -185,7 +185,7 @@ exports[`Histories table Match with snapshot with default prop 1`] = `
             <p
               class="chakra-text css-15asmb0"
             >
-              July
+              June
             </p>
           </button>
           <button
@@ -199,7 +199,7 @@ exports[`Histories table Match with snapshot with default prop 1`] = `
             <p
               class="chakra-text css-15asmb0"
             >
-              August
+              July
             </p>
           </button>
           <button
@@ -213,7 +213,7 @@ exports[`Histories table Match with snapshot with default prop 1`] = `
             <p
               class="chakra-text css-15asmb0"
             >
-              September
+              August
             </p>
           </button>
           <button
@@ -227,7 +227,7 @@ exports[`Histories table Match with snapshot with default prop 1`] = `
             <p
               class="chakra-text css-15asmb0"
             >
-              October
+              September
             </p>
           </button>
           <button
@@ -241,13 +241,27 @@ exports[`Histories table Match with snapshot with default prop 1`] = `
             <p
               class="chakra-text css-15asmb0"
             >
-              November
+              October
             </p>
           </button>
           <button
             class="chakra-menu__menuitem css-o9weuj"
             data-index="11"
             id="menu-list-:r2:-menuitem-:re:"
+            role="menuitem"
+            tabindex="-1"
+            type="button"
+          >
+            <p
+              class="chakra-text css-15asmb0"
+            >
+              November
+            </p>
+          </button>
+          <button
+            class="chakra-menu__menuitem css-o9weuj"
+            data-index="12"
+            id="menu-list-:r2:-menuitem-:rf:"
             role="menuitem"
             tabindex="-1"
             type="button"

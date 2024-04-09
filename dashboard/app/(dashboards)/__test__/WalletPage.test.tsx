@@ -3,8 +3,6 @@ import { QueryProvider } from '@/ui/providers';
 import { useSearchParams } from 'next/navigation';
 import MyWallets from '../my-wallets/page';
 
-jest.mock('react-intersection-observer');
-
 describe('Dashboard render', () => {
   beforeAll(async () => {
     (useSearchParams as jest.Mock).mockReturnValue({

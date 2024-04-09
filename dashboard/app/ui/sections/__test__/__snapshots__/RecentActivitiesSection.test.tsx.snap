@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`ProductSection render Should render match with snapshot. 1`] = `
+exports[`RecentActivitiesSection render Should render match with snapshot. 1`] = `
 <div>
   <div
     class="css-1qfa3yr"
@@ -47,7 +47,7 @@ exports[`ProductSection render Should render match with snapshot. 1`] = `
                     class="chakra-input css-1x84oq"
                     data-testid="search-transaction"
                     id="field-:r0:"
-                    placeholder="Search by name"
+                    placeholder="Search by name or email"
                     type="text"
                     value=""
                   />
@@ -127,7 +127,7 @@ exports[`ProductSection render Should render match with snapshot. 1`] = `
                     <p
                       class="chakra-text css-15asmb0"
                     >
-                      Sold
+                      Sign in
                     </p>
                   </button>
                   <button
@@ -141,22 +141,181 @@ exports[`ProductSection render Should render match with snapshot. 1`] = `
                     <p
                       class="chakra-text css-15asmb0"
                     >
-                      In stock
+                      Sign out
+                    </p>
+                  </button>
+                  <button
+                    class="chakra-menu__menuitem css-o9weuj"
+                    data-index="3"
+                    id="menu-list-:r2:-menuitem-:r6:"
+                    role="menuitem"
+                    tabindex="-1"
+                    type="button"
+                  >
+                    <p
+                      class="chakra-text css-15asmb0"
+                    >
+                      Sign up
+                    </p>
+                  </button>
+                  <button
+                    class="chakra-menu__menuitem css-o9weuj"
+                    data-index="4"
+                    id="menu-list-:r2:-menuitem-:r7:"
+                    role="menuitem"
+                    tabindex="-1"
+                    type="button"
+                  >
+                    <p
+                      class="chakra-text css-15asmb0"
+                    >
+                      Forgot password
+                    </p>
+                  </button>
+                  <button
+                    class="chakra-menu__menuitem css-o9weuj"
+                    data-index="5"
+                    id="menu-list-:r2:-menuitem-:r8:"
+                    role="menuitem"
+                    tabindex="-1"
+                    type="button"
+                  >
+                    <p
+                      class="chakra-text css-15asmb0"
+                    >
+                      Add money
+                    </p>
+                  </button>
+                  <button
+                    class="chakra-menu__menuitem css-o9weuj"
+                    data-index="6"
+                    id="menu-list-:r2:-menuitem-:r9:"
+                    role="menuitem"
+                    tabindex="-1"
+                    type="button"
+                  >
+                    <p
+                      class="chakra-text css-15asmb0"
+                    >
+                      Send money
+                    </p>
+                  </button>
+                  <button
+                    class="chakra-menu__menuitem css-o9weuj"
+                    data-index="7"
+                    id="menu-list-:r2:-menuitem-:ra:"
+                    role="menuitem"
+                    tabindex="-1"
+                    type="button"
+                  >
+                    <p
+                      class="chakra-text css-15asmb0"
+                    >
+                      Update transaction
+                    </p>
+                  </button>
+                  <button
+                    class="chakra-menu__menuitem css-o9weuj"
+                    data-index="8"
+                    id="menu-list-:r2:-menuitem-:rb:"
+                    role="menuitem"
+                    tabindex="-1"
+                    type="button"
+                  >
+                    <p
+                      class="chakra-text css-15asmb0"
+                    >
+                      Delete transaction
+                    </p>
+                  </button>
+                  <button
+                    class="chakra-menu__menuitem css-o9weuj"
+                    data-index="9"
+                    id="menu-list-:r2:-menuitem-:rc:"
+                    role="menuitem"
+                    tabindex="-1"
+                    type="button"
+                  >
+                    <p
+                      class="chakra-text css-15asmb0"
+                    >
+                      Create product
+                    </p>
+                  </button>
+                  <button
+                    class="chakra-menu__menuitem css-o9weuj"
+                    data-index="10"
+                    id="menu-list-:r2:-menuitem-:rd:"
+                    role="menuitem"
+                    tabindex="-1"
+                    type="button"
+                  >
+                    <p
+                      class="chakra-text css-15asmb0"
+                    >
+                      Update product
+                    </p>
+                  </button>
+                  <button
+                    class="chakra-menu__menuitem css-o9weuj"
+                    data-index="11"
+                    id="menu-list-:r2:-menuitem-:re:"
+                    role="menuitem"
+                    tabindex="-1"
+                    type="button"
+                  >
+                    <p
+                      class="chakra-text css-15asmb0"
+                    >
+                      Delete product
+                    </p>
+                  </button>
+                  <button
+                    class="chakra-menu__menuitem css-o9weuj"
+                    data-index="12"
+                    id="menu-list-:r2:-menuitem-:rf:"
+                    role="menuitem"
+                    tabindex="-1"
+                    type="button"
+                  >
+                    <p
+                      class="chakra-text css-15asmb0"
+                    >
+                      Create issues
+                    </p>
+                  </button>
+                  <button
+                    class="chakra-menu__menuitem css-o9weuj"
+                    data-index="13"
+                    id="menu-list-:r2:-menuitem-:rg:"
+                    role="menuitem"
+                    tabindex="-1"
+                    type="button"
+                  >
+                    <p
+                      class="chakra-text css-15asmb0"
+                    >
+                      Save profile
+                    </p>
+                  </button>
+                  <button
+                    class="chakra-menu__menuitem css-o9weuj"
+                    data-index="14"
+                    id="menu-list-:r2:-menuitem-:rh:"
+                    role="menuitem"
+                    tabindex="-1"
+                    type="button"
+                  >
+                    <p
+                      class="chakra-text css-15asmb0"
+                    >
+                      Save change password
                     </p>
                   </button>
                 </div>
               </div>
             </div>
           </form>
-          <button
-            aria-label="Add User"
-            class="chakra-button css-gpwyvs"
-            data-testid="button-add"
-            role="button"
-            type="button"
-          >
-            Add Product
-          </button>
         </div>
         <div
           class="chakra-skeleton css-s55j40"
@@ -288,7 +447,7 @@ exports[`ProductSection render Should render match with snapshot. 1`] = `
                   >
                     <input
                       class="chakra-input css-18ql1xp"
-                      id="field-:rd:"
+                      id="field-:rp:"
                       name="memberId"
                       placeholder="Choose an account to transfer"
                       type="text"
@@ -389,6 +548,7 @@ exports[`ProductSection render Should render match with snapshot. 1`] = `
             </button>
           </form>
         </div>
+         
       </div>
     </div>
   </div>

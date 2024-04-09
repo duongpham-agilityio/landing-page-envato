@@ -35,7 +35,7 @@ exports[`Recent Activities table Match with snapshot with default prop 1`] = `
               </svg>
             </div>
             <input
-              class="chakra-input css-1ybypo"
+              class="chakra-input css-1x84oq"
               data-testid="search-transaction"
               id="field-:r0:"
               placeholder="Search by name or email"
@@ -52,7 +52,7 @@ exports[`Recent Activities table Match with snapshot with default prop 1`] = `
           aria-controls="menu-list-:r2:"
           aria-expanded="false"
           aria-haspopup="menu"
-          class="chakra-button chakra-menu__menu-button css-1d0mwls"
+          class="chakra-button chakra-menu__menu-button css-10e6i5m"
           id="menu-button-:r2:"
           type="button"
         >
@@ -503,7 +503,7 @@ exports[`Recent Activities table Match with snapshot with default prop 1`] = `
                 class="css-1h2sv0j"
               >
                 <p
-                  class="chakra-text css-19zvnok"
+                  class="chakra-text css-10vdxag"
                 >
                   1
                 </p>
@@ -553,7 +553,7 @@ exports[`Recent Activities table Match with snapshot with default prop 1`] = `
                 class="css-1h2sv0j"
               >
                 <p
-                  class="chakra-text css-19zvnok"
+                  class="chakra-text css-10vdxag"
                 >
                   2
                 </p>
@@ -603,7 +603,7 @@ exports[`Recent Activities table Match with snapshot with default prop 1`] = `
                 class="css-1h2sv0j"
               >
                 <p
-                  class="chakra-text css-19zvnok"
+                  class="chakra-text css-10vdxag"
                 >
                   3
                 </p>
@@ -668,42 +668,18 @@ exports[`Recent Activities table Match with snapshot with default prop 1`] = `
             aria-controls="menu-list-:r15:"
             aria-expanded="false"
             aria-haspopup="menu"
-            class="chakra-button chakra-menu__menu-button css-1d0mwls"
+            class="chakra-button chakra-menu__menu-button css-10e6i5m"
             id="menu-button-:r15:"
             type="button"
           >
             <span
               class="css-xl71ch"
             >
-              <div
-                class="css-1l4w6pd"
+              <span
+                class="chakra-text css-8wdd17"
               >
-                <p
-                  class="chakra-text css-1aitddj"
-                >
-                  10
-                </p>
-                <div
-                  class="css-t4r95o"
-                >
-                  <svg
-                    fill="none"
-                    height="15"
-                    stroke="#A0AEC0"
-                    style="transform: rotate(undefined);"
-                    viewBox="0 0 18 15"
-                    width="18"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      d="M7 10L12 14L17 10"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="2"
-                    />
-                  </svg>
-                </div>
-              </div>
+                10
+              </span>
             </span>
           </button>
           <div

@@ -14,7 +14,29 @@ exports[`Dashboard render Should render match with snapshot. 1`] = `
     </div>
     <div
       class="css-gca1gs"
-    />
+    >
+      <div
+        class="css-ahthbn"
+      >
+        <div
+          class="css-hctu2c"
+        >
+          <div
+            class="css-1n1b5z6"
+          />
+          <div
+            class="css-ugfeub"
+          />
+        </div>
+        <div
+          class="css-0"
+        >
+          <section
+            class="css-1gg9e9z"
+          />
+        </div>
+      </div>
+    </div>
   </div>
   <span
     hidden=""

@@ -6,8 +6,6 @@ import { renderQueryProviderTest } from '@/lib/utils/testUtils';
 // Sections
 import { DashBoardSection } from '..';
 
-jest.mock('react-intersection-observer');
-
 describe('DashBoardSection render', () => {
   beforeEach(async () => {
     await preloadAll();
