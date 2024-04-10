@@ -9,7 +9,8 @@
     "preview": "astro preview",
     "astro": "astro",
     "prepare": "cd .. && husky install landing-page/.husky",
-    "pre-commit-lint": "pnpm lint-staged"
+    "pre-commit-lint": "pnpm lint-staged",
+    "postinstall": "patch-package"
   },
   "dependencies": {
     "@astrojs/check": "^0.3.4",

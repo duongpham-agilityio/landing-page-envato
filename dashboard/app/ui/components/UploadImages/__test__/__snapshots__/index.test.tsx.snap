@@ -23,16 +23,10 @@ exports[`Upload Product Match snapshot with default props 1`] = `
     </label>
     <div
       class="css-oeoy58"
-      role="presentation"
-      tabindex="0"
     >
       <input
         class="chakra-input css-fmf4uc"
         data-testid="field-image"
-        multiple=""
-        style="display: none;"
-        tabindex="-1"
-        type="file"
       />
       <p
         class="chakra-text css-16h4vrm"
