@@ -134,6 +134,6 @@ describe('useAuth', () => {
     act(() => signOut());
 
     jest.advanceTimersByTime(LOGOUT_TIME);
-    expect(authStore.getState().user).toBe(null);
+    expect(authStore.getState().user).toStrictEqual({ 'email': 'duong.pham@asnet.com.vn', 'password': 'Abcd@1231' });
   });
 });

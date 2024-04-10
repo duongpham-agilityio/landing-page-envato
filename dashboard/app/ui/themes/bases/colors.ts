@@ -249,12 +249,12 @@ export const colors = {
     },
 
     ternary: {
-      default: '#A0AEC0',
+      default: '#525962',
       _dark: '#FAFAFA',
     },
 
     binary: {
-      default: '#9AA2B1',
+      default: '#525962',
       _dark: '#FFF',
     },
 

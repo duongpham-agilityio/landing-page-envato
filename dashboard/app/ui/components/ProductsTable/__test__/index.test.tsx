@@ -238,7 +238,9 @@ describe('Product table', () => {
           createdAt: '2024-03-13T09:41:33.811Z',
           currency: '$',
           description: 'ban phim',
-          imageURLs: undefined,
+          imageURLs: [
+            'https://i.ibb.co/sC4FyPz/ban-phim-co-gaming-sidotech-yindiao-k100-jpg-1659689824-05082022155704.jpg',
+          ],
           userId: undefined,
         },
         expect.objectContaining({

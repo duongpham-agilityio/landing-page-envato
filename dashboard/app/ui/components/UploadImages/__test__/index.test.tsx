@@ -40,7 +40,7 @@ describe('Upload Product', () => {
     const { getByTestId } = render(
       <UploadImages
         label="Upload Images"
-        images={['image1.jpg']}
+        images={['']}
         onChange={onChangeMock}
         onUploadError={onUploadErrorMock}
       />,

@@ -17,17 +17,21 @@ const ProductsSection = () => (
     display={{ sm: 'block', md: 'grid' }}
     gap={{ base: 0, '2xl': 12 }}
   >
-    <GridItem colSpan={3}>
-      <Box
-        as="section"
-        bgColor="background.component.primary"
-        borderRadius={8}
-        px={6}
-        py={5}
-      >
-        <ProductsTable />
-      </Box>
-    </GridItem>
+    <InView>
+      {({ inView, ref }) => (
+        <GridItem colSpan={3} ref={ref}>
+          <Box
+            as="section"
+            bgColor="background.component.primary"
+            borderRadius={8}
+            px={6}
+            py={5}
+          >
+            {inView && <ProductsTable />}
+          </Box>
+        </GridItem>
+      )}
+    </InView>
     <InView>
       {({ inView, ref }) => (
         <GridItem mt={{ base: 6, '2xl': 0 }} ref={ref}>

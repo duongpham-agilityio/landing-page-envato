@@ -7,9 +7,9 @@ import {
   sendMoneyToUser,
 } from '@/lib/services';
 
-type TError = {
-  isError: boolean;
-};
+// interface
+import { EActivity } from '@/lib/interfaces';
+
 
 describe('addMoneyToUser service', () => {
   it('addMoneyToUser (resolve)', async () => {
@@ -20,9 +20,9 @@ describe('addMoneyToUser service', () => {
     };
     jest
       .spyOn(moneyHttpRequest, 'put')
-      .mockResolvedValue({ data: mockData } as AxiosResponse);
+      .mockResolvedValue({ data: mockData });
 
-    const data = await addMoneyToUser({ amount: 10, userId: '1' });
+    const data = await addMoneyToUser(EActivity.ADD_MONEY, { amount: 10, userId: '1' });
 
     expect(data).toEqual(mockData);
   });
@@ -33,11 +33,10 @@ describe('addMoneyToUser service', () => {
         isError: true,
       });
 
-      await addMoneyToUser({ amount: 10, userId: '1' });
+      await addMoneyToUser(EActivity.ADD_MONEY, { amount: 10, userId: '1' });
     } catch (error) {
-      const err = (error as unknown as TError).isError;
 
-      expect(err).toBeTruthy();
+      expect(error).toBeTruthy();
     }
   });
 });
@@ -53,7 +52,7 @@ describe('sendMoneyToUser service', () => {
       .spyOn(moneyHttpRequest, 'put')
       .mockResolvedValue({ data: mockData } as AxiosResponse);
 
-    const data = await sendMoneyToUser({
+    const data = await sendMoneyToUser(EActivity.SEND_MONEY, {
       amount: 10,
       userId: '1',
       memberId: '2',
@@ -68,11 +67,10 @@ describe('sendMoneyToUser service', () => {
         isError: true,
       });
 
-      await sendMoneyToUser({ amount: 10, userId: '1', memberId: '2' });
+      await sendMoneyToUser(EActivity.SEND_MONEY, { amount: 10, userId: '1', memberId: '2' });
     } catch (error) {
-      const err = (error as unknown as TError).isError;
 
-      expect(err).toBeTruthy();
+      expect(error).toBeTruthy();
     }
   });
 });

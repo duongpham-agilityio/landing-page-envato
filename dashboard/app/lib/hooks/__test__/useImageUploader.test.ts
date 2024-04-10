@@ -61,8 +61,7 @@ describe('useImageUploader', () => {
     expect(mockOnChange).toHaveBeenCalledWith([]);
     expect(mockSetPreviewURL).toHaveBeenCalledWith([]);
 
-    const uploadedImageUrl = 'https://example.com/image.png';
-    mockUploadImage.mockResolvedValueOnce(uploadedImageUrl);
+    mockUploadImage.mockResolvedValueOnce('https://example.com/image.png');
 
     expect(mockOnChange).toHaveBeenCalledWith([]);
   });

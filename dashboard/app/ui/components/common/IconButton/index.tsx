@@ -48,6 +48,7 @@ const IconButtonComponent = ({
       aria-label={ariaLabel}
       icon={children}
       onClick={onClick}
+      role="button"
     />
   </Box>
 );
