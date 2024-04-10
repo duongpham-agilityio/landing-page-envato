@@ -7,3 +7,9 @@ export interface PaginationType {
 export interface FormatPaginationParams extends PaginationType {
   totalCount: number;
 }
+
+export interface PaginationTableType {
+  arrOfCurrButtons: (number | string)[];
+  currentPage: number;
+  totalPage: number
+}

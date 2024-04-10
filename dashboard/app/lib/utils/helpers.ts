@@ -2,7 +2,7 @@
 import { REGEX, DOTS, ERROR_MESSAGES } from '@/lib/constants';
 
 // Types
-import { FormatPaginationParams } from '@/lib/interfaces';
+import { FormatPaginationParams, PaginationTableType } from '@/lib/interfaces';
 
 export const formatNumberButton = (numberOfPage: number): number[] =>
   Array.from({ length: numberOfPage }).map(
@@ -33,22 +33,67 @@ export const formatPagination = ({
     tempNumberOfButtons = [
       ...(rangeEnd >= formatNumberButton(numberOfPage).length - 1
         ? [
-            ...(formatNumberButton(numberOfPage).length - 3 > 1
-              ? Array.from(
-                  { length: 3 },
-                  (_, i) => formatNumberButton(numberOfPage).length - 4 + i,
-                )
-              : []),
-            formatNumberButton(numberOfPage).length - 1,
-            formatNumberButton(numberOfPage).length,
-          ]
+          ...(formatNumberButton(numberOfPage).length - 3 > 1
+            ? Array.from(
+              { length: 3 },
+              (_, i) => formatNumberButton(numberOfPage).length - 4 + i,
+            )
+            : []),
+          formatNumberButton(numberOfPage).length - 1,
+          formatNumberButton(numberOfPage).length,
+        ]
         : [
-            rangeStart,
-            rangeStart + 1,
-            rangeStart + 2,
-            DOTS,
-            formatNumberButton(numberOfPage).length,
-          ]),
+          rangeStart,
+          rangeStart + 1,
+          rangeStart + 2,
+          DOTS,
+          formatNumberButton(numberOfPage).length,
+        ]),
+    ].filter((button) => button !== null);
+  }
+
+  return tempNumberOfButtons;
+};
+
+export const formatPageArray = ({
+  totalPage,
+  currentPage,
+  arrOfCurrButtons,
+}: PaginationTableType): (string | number)[] => {
+  const numberOfPage = Math.ceil(totalPage);
+  let tempNumberOfButtons = arrOfCurrButtons;
+
+  if (formatNumberButton(numberOfPage).length <= 4) {
+    const numberOfPages = Array.from(
+      { length: formatNumberButton(numberOfPage).length },
+      (_, index) => index + 1,
+    );
+    tempNumberOfButtons = numberOfPages;
+  } else {
+    const rangeStart = Math.max(1, currentPage - 1);
+    const rangeEnd = Math.min(
+      currentPage + 1,
+      formatNumberButton(numberOfPage).length,
+    );
+    tempNumberOfButtons = [
+      ...(rangeEnd >= formatNumberButton(numberOfPage).length - 1
+        ? [
+          ...(formatNumberButton(numberOfPage).length - 3 > 1
+            ? Array.from(
+              { length: 3 },
+              (_, i) => formatNumberButton(numberOfPage).length - 4 + i,
+            )
+            : []),
+          formatNumberButton(numberOfPage).length - 1,
+          formatNumberButton(numberOfPage).length,
+        ]
+        : [
+          rangeStart,
+          rangeStart + 1,
+          rangeStart + 2,
+          DOTS,
+          formatNumberButton(numberOfPage).length,
+        ]),
     ].filter((button) => button !== null);
   }
 

@@ -12,7 +12,7 @@ import { getRecentActivities } from '@/lib/services';
 import { SortType, TRecentActivities } from '@/lib/interfaces';
 
 // Utils
-import { handleSort } from '@/lib/utils';
+import { formatPageArray, handleSort } from '@/lib/utils';
 
 // Store
 import { authStore } from '../stores';
@@ -30,6 +30,7 @@ type TSort = {
 export type TActivitiesSortHandler = (field: TActivitiesSortField) => void;
 
 export const useRecentActivities = (queryParam?: TAction) => {
+  const [currentPage, setCurrentPage] = useState(1);
   const userId = authStore((state) => state.user?.id);
 
   const { actionName: searchActionName, email: searchEmail }: TAction =
@@ -54,17 +55,32 @@ export const useRecentActivities = (queryParam?: TAction) => {
     type: SortType.ASC,
   });
 
-  const { data = [], ...query } = useQuery({
-    queryKey: [END_POINTS.RECENT_ACTIVITIES, searchActionName, searchEmail],
-    queryFn: ({ signal }) => getRecentActivities('', { signal }, userId),
+  const { data, ...query } = useQuery({
+    queryKey: [END_POINTS.RECENT_ACTIVITIES, searchActionName, searchEmail, currentPage],
+    queryFn: ({ signal }) => getRecentActivities('', { signal }, userId, currentPage),
   });
 
+  const activitiesData: TRecentActivities[] = data?.data.result || [];
+  const totalPage = data?.data.totalPage as number;
+
+  const arrOfCurrButtons: number[] = Array.from({ length: totalPage }, (_, index) => index);
+
+  const pageArray = formatPageArray({
+    totalPage,
+    currentPage,
+    arrOfCurrButtons,
+  });
+
+  const isDisableNext = currentPage === totalPage || currentPage < 1;
+
+  const isDisablePrev = currentPage <= 1;
+
   // sort activitiesSorted
-  const activitiesAfterSort: TRecentActivities[] = useMemo(() => {
-    const tempActivities: TRecentActivities[] = [...data];
+  const activitiesAfterSort: TRecentActivities[] = useMemo((): TRecentActivities[] => {
+    const tempActivities: TRecentActivities[] = [...activitiesData];
     const { field, type } = sortValue;
 
-    if (!field) return data;
+    if (!field) return activitiesData;
 
     tempActivities.sort(
       (
@@ -98,7 +114,7 @@ export const useRecentActivities = (queryParam?: TAction) => {
     );
 
     return tempActivities;
-  }, [data, sortValue]);
+  }, [activitiesData, sortValue]);
 
   /**
    * TODO: Since the API is imprecise we will use this method for now.
@@ -132,6 +148,11 @@ export const useRecentActivities = (queryParam?: TAction) => {
     ...query,
     activities,
     data: activities,
+    pageArray,
+    currentPage,
+    isDisableNext,
+    isDisablePrev,
     sortBy,
+    setCurrentPage,
   };
 };

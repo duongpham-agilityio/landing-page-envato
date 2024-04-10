@@ -15,7 +15,11 @@ import {
 } from '@/ui/components';
 
 // Constants
-import { ACTIVITY_OPTIONS, COLUMNS_RECENT_ACTIVITIES } from '@/lib/constants';
+import {
+  ACTIVITY_OPTIONS,
+  COLUMNS_RECENT_ACTIVITIES,
+  PREV,
+} from '@/lib/constants';
 
 // Interfaces
 import { TDataSource, THeaderTable, TRecentActivities } from '@/lib/interfaces';
@@ -24,7 +28,6 @@ import { TDataSource, THeaderTable, TRecentActivities } from '@/lib/interfaces';
 import {
   TActivitiesSortField,
   useDebounce,
-  usePagination,
   useRecentActivities,
   useSearch,
 } from '@/lib/hooks';
@@ -43,7 +46,12 @@ const RecentActivitiesTableComponent = () => {
     activities,
     isLoading: isLoadingActivities,
     isError: isActivitiesError,
+    pageArray,
+    currentPage,
+    isDisableNext,
+    isDisablePrev,
     sortBy,
+    setCurrentPage,
   } = useRecentActivities({
     actionName: get('actionName') || '',
   });
@@ -56,22 +64,18 @@ const RecentActivitiesTableComponent = () => {
     [activities, filter],
   );
 
-  const {
-    data,
-    filterData,
-    arrOfCurrButtons,
-    isDisabledPrev,
-    isDisableNext,
-    resetPage,
-    handleChangeLimit,
-    handlePageChange,
-    handlePageClick,
-  } = usePagination(activityMemorized);
-
   const handleDebounceSearch = useDebounce((value: string) => {
-    resetPage();
     setSearchTransaction('actionName', value);
   }, []);
+
+  const handleClickPage = (value: number) => setCurrentPage(value);
+
+  const handlePageChange = useCallback(
+    (direction: string) => {
+      setCurrentPage(direction === PREV ? currentPage - 1 : currentPage + 1);
+    },
+    [currentPage, setCurrentPage],
+  );
 
   const renderHead = useCallback(
     (title: string, key: string): JSX.Element => {
@@ -223,20 +227,18 @@ const RecentActivitiesTableComponent = () => {
         <Box mt={5}>
           <Table
             columns={columns as unknown as THeaderTable[]}
-            dataSource={formatRecentActivitiesResponse(filterData)}
+            dataSource={formatRecentActivitiesResponse(activityMemorized)}
           />
         </Box>
         {!!activities?.length && (
           <Box mt={8}>
             <Pagination
-              pageSize={data.limit}
-              currentPage={data.currentPage}
-              isDisabledPrev={isDisabledPrev}
+              currentPage={currentPage}
+              isDisabledPrev={isDisablePrev}
               isDisableNext={isDisableNext}
-              arrOfCurrButtons={arrOfCurrButtons}
-              onLimitChange={handleChangeLimit}
+              arrOfCurrButtons={pageArray}
               onPageChange={handlePageChange}
-              onClickPage={handlePageClick}
+              onClickPage={handleClickPage}
             />
           </Box>
         )}
