@@ -47,4 +47,10 @@ p {
   .title-description {
     font-size: 18px;
   }
+
+  .list-content > ol li p {
+    min-width: 100%;
+    min-height: 100%;
+    max-width: 100%;
+  }
 }
