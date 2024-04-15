@@ -15,6 +15,7 @@ import { RECENT_ACTIVITIES } from '@/lib/mocks';
 
 // Constants
 import { DEBOUNCE_TIME } from '@/lib/constants';
+import React from 'react';
 
 jest.mock('@/lib/hooks', () => ({
   ...jest.requireActual('@/lib/hooks'),
@@ -31,6 +32,7 @@ jest.mock('axios');
 
 const resetMock = jest.fn();
 const sortByMock = jest.fn();
+const setCurrentPageMock = jest.fn();
 
 const SORT_ICON = 'sort-icon';
 const SEARCH_ACTIVITY = 'search-transaction';
@@ -42,11 +44,6 @@ const setup = () =>
 
 describe('Recent Activities table', () => {
   beforeEach(() => {
-    jest.spyOn(hooks, 'usePagination').mockReturnValue({
-      resetPage: resetMock,
-      filterData: RECENT_ACTIVITIES,
-      data: [1],
-    } as unknown as ReturnType<typeof hooks.usePagination>);
     jest.spyOn(axios, 'get').mockResolvedValue(RECENT_ACTIVITIES);
     (useSearchParams as jest.Mock).mockReturnValue({
       get: jest.fn(),
@@ -59,6 +56,8 @@ describe('Recent Activities table', () => {
       activities: RECENT_ACTIVITIES,
       sortBy: sortByMock,
       isLoading: false,
+      resetPage: resetMock,
+      setCurrentPage: setCurrentPageMock,
     } as unknown as ReturnType<typeof hooks.useRecentActivities>);
   });
 

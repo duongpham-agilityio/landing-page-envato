@@ -25,6 +25,7 @@ exports[`BonusNotification test cases should render correctly 1`] = `
           aria-label="limit-bonus"
           class="chakra-button css-1l63kb4"
           data-testid="icon-button"
+          role="button"
         >
           <svg
             fill="none"

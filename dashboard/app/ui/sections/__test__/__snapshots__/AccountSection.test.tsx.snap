@@ -51,6 +51,7 @@ exports[`AccountSection render Should render match with snapshot. 1`] = `
             aria-label="switch-theme"
             class="chakra-button css-8s8ddv"
             data-testid="icon-button"
+            role="button"
           >
             <svg
               fill="none"

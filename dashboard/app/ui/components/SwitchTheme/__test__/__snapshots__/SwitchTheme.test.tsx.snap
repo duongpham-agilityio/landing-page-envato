@@ -10,6 +10,7 @@ exports[`SwitchTheme component renders correctly 1`] = `
       aria-label="switch-theme"
       class="chakra-button css-1l63kb4"
       data-testid="icon-button"
+      role="button"
     />
   </div>
 </div>

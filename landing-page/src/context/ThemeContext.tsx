@@ -20,7 +20,7 @@ const ThemeProvider = ({ children }: AppProps) => {
   const currentTheme =
     typeof window !== 'undefined' ? localStorage.getItem('theme') : null;
 
-  const [theme, setTheme] = useState<string>(currentTheme || THEMES.DARK);
+  const [theme, setTheme] = useState<string>(currentTheme || THEMES.LIGHT);
 
   const changeCurrentTheme = useCallback((newTheme: string) => {
     setTheme(newTheme);

@@ -252,6 +252,7 @@ exports[`Header render Should render match with snapshot. 1`] = `
               aria-label="switch-theme"
               class="chakra-button css-8s8ddv"
               data-testid="icon-button"
+              role="button"
             >
               <svg
                 fill="none"
@@ -292,6 +293,7 @@ exports[`Header render Should render match with snapshot. 1`] = `
                     aria-label="new-notification"
                     class="chakra-button css-8s8ddv"
                     data-testid="icon-button"
+                    role="button"
                   >
                     <svg
                       fill="#1A202C"
@@ -339,6 +341,7 @@ exports[`Header render Should render match with snapshot. 1`] = `
               aria-label="email-content"
               class="chakra-button css-8s8ddv"
               data-testid="icon-button"
+              role="button"
             >
               <svg
                 fill="none"
@@ -379,6 +382,7 @@ exports[`Header render Should render match with snapshot. 1`] = `
                   aria-label="limit-bonus"
                   class="chakra-button css-8s8ddv"
                   data-testid="icon-button"
+                  role="button"
                 >
                   <svg
                     fill="none"

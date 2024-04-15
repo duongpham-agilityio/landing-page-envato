@@ -82,7 +82,7 @@ const ProductsTableComponent = () => {
     isDeleteProduct,
     isUpdateProduct,
   } = useProducts({
-    name: get('name') || '',
+    name: get('name')?.toLowerCase() || '',
   });
 
   const productsMemorized = useMemo(
@@ -254,6 +254,7 @@ const ProductsTableComponent = () => {
           minW={180}
           borderRadius="15px"
           paddingLeft={{ base: 30 }}
+          w={{ base: 100, '3xl': 150, '5xl': 250 }}
         >
           <Box
             pos="relative"
@@ -296,7 +297,7 @@ const ProductsTableComponent = () => {
           fontWeight="semibold"
           whiteSpace="break-spaces"
           noOfLines={1}
-          w={{ base: 100, md: 220, '3xl': 150, '5xl': 200 }}
+          w={{ base: 100, '3xl': 150, '5xl': 200 }}
           flex={1}
         >
           {amount}
@@ -316,14 +317,14 @@ const ProductsTableComponent = () => {
         color="text.primary"
         fontWeight="semibold"
         textAlign="left"
-        w={{ base: 150, md: 20 }}
+        w={{ base: 100, md: 20 }}
       >
         <Text
           fontSize="md"
           fontWeight="semibold"
           whiteSpace="break-spaces"
           noOfLines={1}
-          w={{ base: 100, md: 220, '3xl': 150, '5xl': 200 }}
+          w={{ base: 100, '3xl': 150, '5xl': 200 }}
           flex={1}
         >
           {stock}

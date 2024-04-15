@@ -53,6 +53,7 @@ describe('useRecentActivities', () => {
       '',
       expect.any(Object),
       undefined,
+      1,
     );
     expect(result.current.isLoading).toBe(true);
 
@@ -64,6 +65,7 @@ describe('useRecentActivities', () => {
       '',
       expect.any(Object),
       undefined,
+      1,
     );
   });
 });

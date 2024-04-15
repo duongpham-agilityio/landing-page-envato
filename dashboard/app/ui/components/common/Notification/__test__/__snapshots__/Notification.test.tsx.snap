@@ -30,6 +30,7 @@ exports[`Notification component Should render match with snapshot. 1`] = `
             aria-label="new-notification"
             class="chakra-button css-8s8ddv"
             data-testid="icon-button"
+            role="button"
           >
             <svg
               fill="white"

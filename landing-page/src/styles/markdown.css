@@ -11,6 +11,19 @@ h4 {
   margin: 20px 0 30px;
 }
 
+.list-content > ol {
+  min-width: 200px;
+}
+
+.list-content > ol li {
+  width: 100%;
+}
+
+.list-content > ol li p {
+  width: 100%;
+  height: 100%;
+}
+
 .list-content > ol li,
 p {
   margin-top: 10px;
@@ -46,11 +59,5 @@ p {
   }
   .title-description {
     font-size: 18px;
-  }
-
-  .list-content > ol li p {
-    min-width: 100%;
-    min-height: 100%;
-    max-width: 100%;
   }
 }

@@ -2,7 +2,7 @@ import { defineStyleConfig } from '@chakra-ui/react';
 
 const COLOR = {
   LIGHT: {
-    PRIMARY: 'primary.300',
+    PRIMARY: 'primary.200',
     SECONDARY: 'primary.900',
   },
   DARK: {

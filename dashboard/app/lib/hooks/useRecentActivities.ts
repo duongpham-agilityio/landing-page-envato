@@ -75,6 +75,11 @@ export const useRecentActivities = (queryParam?: TAction) => {
 
   const isDisablePrev = currentPage <= 1;
 
+  const resetPage = useCallback(
+    () => setCurrentPage(1),
+    [],
+  );
+
   // sort activitiesSorted
   const activitiesAfterSort: TRecentActivities[] = useMemo((): TRecentActivities[] => {
     const tempActivities: TRecentActivities[] = [...activitiesData];
@@ -154,5 +159,6 @@ export const useRecentActivities = (queryParam?: TAction) => {
     isDisablePrev,
     sortBy,
     setCurrentPage,
+    resetPage
   };
 };
