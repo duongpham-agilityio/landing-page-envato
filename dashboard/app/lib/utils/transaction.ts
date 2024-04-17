@@ -35,7 +35,7 @@ export const formatTransactionResponse = (transactions: TTransaction[] = []) =>
       email,
       role,
     } = customer || {};
-    const { state = '', street = '', city = '', zip = 0 } = address || {};
+    const { state = '', street = 'Street', city = 'City', zip = 0 } = address || {};
 
     return {
       id: _id,

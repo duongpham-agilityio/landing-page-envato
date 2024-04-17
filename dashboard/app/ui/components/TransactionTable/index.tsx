@@ -261,7 +261,7 @@ const TransactionTableComponent = ({
           fontWeight="semibold"
           whiteSpace="break-spaces"
           noOfLines={1}
-          w={{ base: 100, md: 150, '3xl': 100, '6xl': 200 }}
+          w={{ base: 100, md: 150 }}
           flex={1}
         >
           {formatUppercaseFirstLetter(role)}
@@ -291,7 +291,7 @@ const TransactionTableComponent = ({
           whiteSpace="break-spaces"
           color={isSendMoney ? 'red.600' : 'text.currencyColor'}
           noOfLines={1}
-          w={{ base: 100, md: 150, '3xl': 200, '5xl': 110, '7xl': 200 }}
+          w={{ base: 100, md: 150, '3xl': 100, '5xl': 110, '7xl': 200 }}
           flex={1}
         >
           {amount}
@@ -319,7 +319,7 @@ const TransactionTableComponent = ({
           fontWeight="semibold"
           whiteSpace="break-spaces"
           noOfLines={1}
-          w={{ base: 100, md: 220, '3xl': 300, '5xl': 200, '7xl': 350 }}
+          w={{ base: 100, md: 220, '3xl': 180, '7xl': 250 }}
           flex={1}
         >
           {email}

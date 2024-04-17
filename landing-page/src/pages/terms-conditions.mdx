@@ -16,13 +16,13 @@ import Heading from '@app/components/Heading/index.astro'
 
 1. These Terms of Use are a contractual model and specify the terms, conditions and manner of providing the Service by the Service Provider to the User. The precondition of providing the Service is reading and accepting the provisions of the Terms of Use. By clicking the "Sign Up with Email" button or by registering through your own account on Google. inc, you accept the Terms of Use.
 
-2. The owner of the Site <LinkTag href={import.meta.env.PUBLIC_ENVATO_LANDING_PAGE} label={import.meta.env.PUBLIC_ENVATO_LANDING_PAGE} /> and the domain <LinkTag href={import.meta.env.PUBLIC_ENVATO_LANDING_PAGE} label={import.meta.env.PUBLIC_ENVATO_LANDING_PAGE} /> is Landing Sp. z o.o., registered office atPiwna 10 Street, 44-100, Gliwice, NIP: 6762461659, REGON: 122774425, entered in the business register in the District Court in Gliwice, 10th Commercial Division of the National Court Register under KRS number 0000449404.
+2. The owner of the Site <LinkTag href={import.meta.env.PUBLIC_ENVATO_LANDING_PAGE || 'https://landing-page-envato.vercel.app/'} label={import.meta.env.PUBLIC_ENVATO_LANDING_PAGE || 'https://landing-page-envato.vercel.app/'} /> and the domain <LinkTag href={import.meta.env.PUBLIC_ENVATO_LANDING_PAGE || 'https://landing-page-envato.vercel.app/'} label={import.meta.env.PUBLIC_ENVATO_LANDING_PAGE || 'https://landing-page-envato.vercel.app/'} /> is Landing Sp. z o.o., registered office atPiwna 10 Street, 44-100, Gliwice, NIP: 6762461659, REGON: 122774425, entered in the business register in the District Court in Gliwice, 10th Commercial Division of the National Court Register under KRS number 0000449404.
 
 3. The terms used in these Terms of Use shall be defined as follows:
 
-    a. Platform - an on-line platform operated by the Service Provider, functioning through the websites <LinkTag href={import.meta.env.PUBLIC_ENVATO_LANDING_PAGE} label={import.meta.env.PUBLIC_ENVATO_LANDING_PAGE} />, <LinkTag href={import.meta.env.PUBLIC_ENVATO_LANDING_PAGE} label={import.meta.env.PUBLIC_ENVATO_LANDING_PAGE} /> and <LinkTag href={import.meta.env.PUBLIC_ENVATO_LANDING_PAGE} label={import.meta.env.PUBLIC_ENVATO_LANDING_PAGE} />, enabling the provision of the Service;
+    a. Platform - an on-line platform operated by the Service Provider, functioning through the websites <LinkTag href={import.meta.env.PUBLIC_ENVATO_LANDING_PAGE || 'https://landing-page-envato.vercel.app/'} label={import.meta.env.PUBLIC_ENVATO_LANDING_PAGE || 'https://landing-page-envato.vercel.app/'} />, <LinkTag href={import.meta.env.PUBLIC_ENVATO_LANDING_PAGE || 'https://landing-page-envato.vercel.app/'} label={import.meta.env.PUBLIC_ENVATO_LANDING_PAGE || 'https://landing-page-envato.vercel.app/'} /> and <LinkTag href={import.meta.env.PUBLIC_ENVATO_LANDING_PAGE || 'https://landing-page-envato.vercel.app/'} label={import.meta.env.PUBLIC_ENVATO_LANDING_PAGE || 'https://landing-page-envato.vercel.app/'} />, enabling the provision of the Service;
  
-    b. Service Provider - {import.meta.env.PUBLIC_ENVATO_MARKET} Sp. z o.o., registered office at Piwna 10, 44-100, Gliwice, NIP: 6762461659, REGON: 122774425, entered in the business register in the District Court in Gliwice, 10th Commercial Division of the National Court Register under KRS number 0000449404, with share capital of PLN 10,950, paid in full, e-mail: <LinkTag href={`mailto:${import.meta.env.PUBLIC_EMAI_SUPPORT}`} label={import.meta.env.PUBLIC_EMAI_SUPPORT}/>, phone number: <LinkTag href={`tel:${import.meta.env.PUBLIC_API_PHONE_OFFICIAL}`} label={import.meta.env.PUBLIC_API_PHONE_OFFICIAL} />;
+    b. Service Provider - {import.meta.env.PUBLIC_ENVATO_MARKET || 'Envato Market'} Sp. z o.o., registered office at Piwna 10, 44-100, Gliwice, NIP: 6762461659, REGON: 122774425, entered in the business register in the District Court in Gliwice, 10th Commercial Division of the National Court Register under KRS number 0000449404, with share capital of PLN 10,950, paid in full, e-mail: <LinkTag href={`mailto:${import.meta.env.PUBLIC_EMAIL_SUPPORT || 'support@envatomarket.com'}`} label={import.meta.env.PUBLIC_EMAIL_SUPPORT || 'support@envatomarket.com'}/>, phone number: <LinkTag href={`tel:${import.meta.env.PUBLIC_API_PHONE_OFFICIAL || '+48 539 303 900'}`} label={import.meta.env.PUBLIC_API_PHONE_OFFICIAL || '+48 539 303 900'} />;
 
     c. Service - a service provided electronically via the Platform by the Service Provider to the User in accordance with the provisions of the law and on the principles set out in the Terms of Use; Landing Page - the User's website created by means of the Platform, which assists the User in conducting advertising campaigns on the Internet. This page is displayed to the visitor as a result of marketing activities undertaken by the User. The content of the Landing Page is created and maintained by the User according to the rules specified in the Terms of Use;
 
@@ -46,16 +46,16 @@ import Heading from '@app/components/Heading/index.astro'
 
     m. Plan - a set of functionalities of a given Account specified in the Price List;
 
-    n. Price List - a list of prices for the provision of the Service within the scope specified in the Plans, constituting an integral part of the Agreement. The Price List is available to the Account Holder or Account Administrator after logging in to the Platform and the Site under the link <LinkTag href={import.meta.env.PUBLIC_ENVATO_LANDING_PAGE} label={import.meta.env.PUBLIC_ENVATO_LANDING_PAGE} />.
+    n. Price List - a list of prices for the provision of the Service within the scope specified in the Plans, constituting an integral part of the Agreement. The Price List is available to the Account Holder or Account Administrator after logging in to the Platform and the Site under the link <LinkTag href={import.meta.env.PUBLIC_ENVATO_LANDING_PAGE || 'https://landing-page-envato.vercel.app/'} label={import.meta.env.PUBLIC_ENVATO_LANDING_PAGE} />.
 
     o. Account - a set of resources and settings saved in the Service Provider's database for the User as part of its use of the Service. Access to the Account is possible after logging in. The Account allows you to use the Service provided by the Platform;
 
     p. Terms of Use - this document together with the privacy policy and the data processing agreement, which are an integral part of the Terms of Use;
 
-    q. Site - an online service available through the domain: <LinkTag href={import.meta.env.PUBLIC_ENVATO_LANDING_PAGE} label={import.meta.env.PUBLIC_ENVATO_LANDING_PAGE} />.
+    q. Site - an online service available through the domain: <LinkTag href={import.meta.env.PUBLIC_ENVATO_LANDING_PAGE || 'https://landing-page-envato.vercel.app/'} label={import.meta.env.PUBLIC_ENVATO_LANDING_PAGE || 'https://landing-page-envato.vercel.app/'} />.
 
-4. Detailed information about the Service can be found at <LinkTag href={import.meta.env.PUBLIC_ENVATO_LANDING_PAGE} label={import.meta.env.PUBLIC_ENVATO_LANDING_PAGE} />, as well as provided by the Service Provider by e-mail in response to an enquiry sent by the User to the e-mail address: <LinkTag href={`mailto:${import.meta.env.PUBLIC_EMAI_SUPPORT}`} label={import.meta.env.PUBLIC_EMAI_SUPPORT}/>
-5. Users may contact the Service Provider by e-mail: <LinkTag href={`mailto:${import.meta.env.PUBLIC_EMAI_SUPPORT}`} label={import.meta.env.PUBLIC_EMAI_SUPPORT}/>  
+4. Detailed information about the Service can be found at <LinkTag href={import.meta.env.PUBLIC_ENVATO_LANDING_PAGE || 'https://landing-page-envato.vercel.app/'} label={import.meta.env.PUBLIC_ENVATO_LANDING_PAGE || 'https://landing-page-envato.vercel.app/'} />, as well as provided by the Service Provider by e-mail in response to an enquiry sent by the User to the e-mail address: <LinkTag href={`mailto:${import.meta.env.PUBLIC_EMAIL_SUPPORT || 'support@envatomarket.com'}`} label={import.meta.env.PUBLIC_EMAIL_SUPPORT || 'support@envatomarket.com'}/>
+5. Users may contact the Service Provider by e-mail: <LinkTag href={`mailto:${import.meta.env.PUBLIC_EMAIL_SUPPORT || 'support@envatomarket.com'}`} label={import.meta.env.PUBLIC_EMAIL_SUPPORT || 'support@envatomarket.com'}/>  
 
 ### **§ 2** 
 
@@ -73,11 +73,11 @@ import Heading from '@app/components/Heading/index.astro'
     e. disable AdBlock advertising blocking tools.
 
 2. Support and technical assistance are provided by the Service Provider in the following forms:
-    a. Via email at <LinkTag href={`mailto:${import.meta.env.PUBLIC_EMAI_SUPPORT}`} label={import.meta.env.PUBLIC_EMAI_SUPPORT}/>;
+    a. Via email at <LinkTag href={`mailto:${import.meta.env.PUBLIC_EMAIL_SUPPORT || 'support@envatomarket.com'}`} label={import.meta.env.PUBLIC_EMAIL_SUPPORT || 'support@envatomarket.com'}/>;
 
     b.  Via the in-platform chat, available Monday – Friday between 9 a.m. and 10 p.m. (Polish local time) except for public holidays in the Republic of Poland;
 
-    c. Via phone at <LinkTag href={`tel:${import.meta.env.PUBLIC_API_PHONE_OFFICIAL}`} label={import.meta.env.PUBLIC_API_PHONE_OFFICIAL} />, available Monday – Friday between 8 a.m. and 10 p.m. (Polish local time) except for public holidays in the Republic of Poland.
+    c. Via phone at <LinkTag href={`tel:${import.meta.env.PUBLIC_API_PHONE_OFFICIAL || '+48 539 303 900'}`} label={import.meta.env.PUBLIC_API_PHONE_OFFICIAL || '+48 539 303 900'} />, available Monday – Friday between 8 a.m. and 10 p.m. (Polish local time) except for public holidays in the Republic of Poland.
 
 3. The Service Provider provides support only for the Service.
 
@@ -184,7 +184,7 @@ with effect from the last day of the Plan.
 3. The User using Agency Plans also agrees:
     a. not to offer life-time versions to third parties;
 
-    b. not to sell services using the {import.meta.env.PUBLIC_ENVATO_MARKET} label;
+    b. not to sell services using the {import.meta.env.PUBLIC_ENVATO_MARKET || 'Envato Market'} label;
 
     c. not to sell identical packages as the Service Provider;
 
@@ -290,7 +290,7 @@ with effect from the last day of the Plan.
 
 #### Complaints
 
-1. Each User is entitled to lodge a complaint regarding any irregularities in the operation of the Platform or the Site within 30 days of the occurrence of such irregularities. The complaint should be submitted by e-mail sent to <LinkTag href={`mailto:${import.meta.env.PUBLIC_EMAI_SUPPORT}`} label={import.meta.env.PUBLIC_EMAI_SUPPORT}/> The description of the irregularity should enable the Service Provider to identify the problem and to repair it.
+1. Each User is entitled to lodge a complaint regarding any irregularities in the operation of the Platform or the Site within 30 days of the occurrence of such irregularities. The complaint should be submitted by e-mail sent to <LinkTag href={`mailto:${import.meta.env.PUBLIC_EMAIL_SUPPORT || 'support@envatomarket.com'}`} label={import.meta.env.PUBLIC_EMAIL_SUPPORT || 'support@envatomarket.com'}/> The description of the irregularity should enable the Service Provider to identify the problem and to repair it.
 2. The Service Provider shall consider the complaint within 14 calendar days from the date of receiving the complaint.
 3. In case of a serious technical error, the Service Provider reserves the right to limit access to the Site, the Platform and the Service.
 4. Any possible errors in the functioning of the Site, the Platform, comments and information about the operation of the Site, the Service and the Platform, as well as violations of the Terms of Use, should be reported to the Service Provider electronically.
@@ -302,8 +302,8 @@ with effect from the last day of the Plan.
 
 1. All rights to the Platform or materials introduced to the Platform by the Service Provider belong to the Service Provider.
 2. If an infringement of an intellectual property right is noted, the Service Provider shall take appropriate legal action against the infringer.
-3. The indication "{import.meta.env.PUBLIC_ENVATO_MARKET}" (Landings) in verbal or graphic form identifies one of the Service Provider's products, which operates in business without time or territorial restrictions. The term "{import.meta.env.PUBLIC_ENVATO_MARKET}" is a trade name of the Service Provider.
-4. It is prohibited to distribute any elements of the Platform, including in particular the “{import.meta.env.PUBLIC_ENVATO_MARKET}” logo, without the written consent of the Service Provider. The User is not allowed to remove, cover, prevent the reading of or to alter trademarks, copyright information or other indications concerning intellectual property rights. It is also prohibited to copy, trade, distribute, modify materials outside the Platform or create derivative works based on the materials available on the Platform, used without the prior written consent of the Service Provider.
+3. The indication "{import.meta.env.PUBLIC_ENVATO_MARKET || 'Envato Market'}" (Landings) in verbal or graphic form identifies one of the Service Provider's products, which operates in business without time or territorial restrictions. The term "{import.meta.env.PUBLIC_ENVATO_MARKET || 'Envato Market'}" is a trade name of the Service Provider.
+4. It is prohibited to distribute any elements of the Platform, including in particular the “{import.meta.env.PUBLIC_ENVATO_MARKET || 'Envato Market'}” logo, without the written consent of the Service Provider. The User is not allowed to remove, cover, prevent the reading of or to alter trademarks, copyright information or other indications concerning intellectual property rights. It is also prohibited to copy, trade, distribute, modify materials outside the Platform or create derivative works based on the materials available on the Platform, used without the prior written consent of the Service Provider.
 
 ### **§ 13**
 
@@ -342,7 +342,7 @@ MODEL WITHDRAWAL FORM
 
 Recipient:
 
-{import.meta.env.PUBLIC_ENVATO_MARKET} Sp. z o.o., ul. Piwna 10, 44-100, Gliwice,
+{import.meta.env.PUBLIC_ENVATO_MARKET || 'Envato Market'} Sp. z o.o., ul. Piwna 10, 44-100, Gliwice,
 
 I/We(*) hereby inform (*) about my/our withdrawal from the agreement on the provision of the following services:
 
