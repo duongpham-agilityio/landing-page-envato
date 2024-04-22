@@ -4,14 +4,7 @@ import { useStore } from 'zustand';
 import { usePathname } from 'next/navigation';
 
 // Components
-import {
-  Box,
-  Flex,
-  Heading,
-  Text,
-  theme,
-  useColorModeValue,
-} from '@chakra-ui/react';
+import { Box, Flex, Heading, Text } from '@chakra-ui/react';
 import {
   BonusNotification,
   Dropdown,
@@ -32,11 +25,9 @@ import Notification from '@/ui/components/common/Notification';
 // Stores
 import { authStore } from '@/lib/stores';
 import { TUserDetail } from '@/lib/interfaces';
+import { useColorfill } from '@/ui/themes/bases';
 const HeaderComponent = () => {
-  const colorFill = useColorModeValue(
-    theme.colors.gray[800],
-    theme.colors.white,
-  );
+  const { primary } = useColorfill();
   const pathname = usePathname();
   const name = TITLES_HEADER[`${pathname?.slice(1)}`] || TITLES_HEADER.DEFAULT;
   const user = useStore(authStore, (state) => state.user);
@@ -109,14 +100,11 @@ const HeaderComponent = () => {
             justifyContent="space-between"
           >
             <SwitchTheme />
-            <Notification colorFill={colorFill} user={user as TUserDetail} />
+            <Notification colorFill={primary} user={user as TUserDetail} />
             <IconButton ariaLabel="email-content">
-              <Email color={colorFill} />
+              <Email color={primary} />
             </IconButton>
-            <BonusNotification
-              colorFill={colorFill}
-              limitOfBonus={bonusTimes}
-            />
+            <BonusNotification colorFill={primary} limitOfBonus={bonusTimes} />
           </Flex>
           <Box
             display={{ base: 'none', default: 'inline-flex', md: 'none' }}

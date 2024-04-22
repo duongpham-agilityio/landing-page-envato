@@ -20,7 +20,7 @@ export const logActivity = (
       await recentActivitiesHttpService.post<TRecentActivities>(
         END_POINTS.RECENT_ACTIVITIES,
         {
-          userId: id || userId,
+          userId: userId || id,
           actionName: actionName,
         },
       );

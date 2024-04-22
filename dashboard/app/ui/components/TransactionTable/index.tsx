@@ -300,6 +300,33 @@ const TransactionTableComponent = ({
     );
   }, []);
 
+  const renderLocation = useCallback(
+    ({ location }: TTransaction) => (
+      <Td
+        py={5}
+        pr={5}
+        pl={0}
+        fontSize="md"
+        color="text.primary"
+        fontWeight="semibold"
+        textAlign="left"
+        w={{ base: 150, md: 20 }}
+      >
+        <Text
+          fontSize="md"
+          fontWeight="semibold"
+          whiteSpace="break-spaces"
+          noOfLines={1}
+          w={{ base: 100, md: 220, '3xl': 150, '7xl': 200 }}
+          flex={1}
+        >
+          {location}
+        </Text>
+      </Td>
+    ),
+    [],
+  );
+
   const renderEmail = useCallback(
     ({ customer: { email } }: TTransaction) => (
       <Td
@@ -341,11 +368,12 @@ const TransactionTableComponent = ({
     }
     return COLUMNS_DASHBOARD(
       renderHead,
-      renderRole,
       renderNameUser,
-      renderActionIcon,
-      renderSpent,
       renderEmail,
+      renderLocation,
+      renderSpent,
+      renderRole,
+      renderActionIcon,
     );
   }, [
     isOpenHistoryModal,
@@ -355,6 +383,7 @@ const TransactionTableComponent = ({
     renderNameUser,
     renderPaymentStatus,
     renderRole,
+    renderLocation,
     renderSpent,
     renderTransactionStatus,
   ]);

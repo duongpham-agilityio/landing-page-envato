@@ -53,7 +53,6 @@ const ListMessages = ({ messages, adminUid, avatarUser, nameUser }: Props) => {
       >
         {messages.map((message) => {
           const isSuperAdmin = message.senderId === user?.uid;
-          console.log(message.date.seconds);
 
           return (
             <MessageAdmin

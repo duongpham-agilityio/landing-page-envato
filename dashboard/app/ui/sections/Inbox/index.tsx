@@ -4,12 +4,11 @@ import { useEffect, useMemo, useState } from 'react';
 import {
   Text,
   Flex,
-  theme,
-  useColorModeValue,
   Grid,
   GridItem,
   useBreakpointValue,
   useToast,
+  Hide,
 } from '@chakra-ui/react';
 
 // Firebase
@@ -42,16 +41,14 @@ import { ERROR_MESSAGES, FIREBASE_CHAT, IMAGES, STATUS } from '@/lib/constants';
 // Interfaces
 import { TMessages } from '@/lib/interfaces';
 import { useRouter, useSearchParams } from 'next/navigation';
+import { useColorfill } from '@/ui/themes/bases';
 
 const ChatMemberList = () => {
-  const colorFill = useColorModeValue(
-    theme.colors.gray[800],
-    theme.colors.white,
-  );
+  const { primary } = useColorfill();
   const isMobile = useBreakpointValue({ base: true, lg: false });
   const router = useRouter();
   const searchParams = useSearchParams();
-  const [chats, setChats] = useState<DocumentData | undefined>({});
+  const [chats, setChats] = useState<DocumentData>();
   const [messages, setMessages] = useState<TMessages[]>([]);
   const [userInfo, setUserInfo] = useState({
     roomChatId: '',
@@ -198,7 +195,7 @@ const ChatMemberList = () => {
       borderTop="1px solid"
       borderColor="border.tertiary"
     >
-      {isMobile ? (
+      <Hide above="lg">
         <GridItem
           colSpan={12}
           mb={4}
@@ -216,7 +213,8 @@ const ChatMemberList = () => {
               ))}
           </Flex>
         </GridItem>
-      ) : (
+      </Hide>
+      <Hide below="lg">
         <GridItem
           colSpan={4}
           bg="background.body.septenary"
@@ -246,7 +244,7 @@ const ChatMemberList = () => {
                 ({chats ? Object.values(chats).length : 0})
               </Text>
             </Text>
-            <EditIcon color={colorFill} />
+            <EditIcon color={primary} />
           </Flex>
           <Flex direction="column" gap={6} py={3.5}>
             {dataChats &&
@@ -269,7 +267,7 @@ const ChatMemberList = () => {
               ))}
           </Flex>
         </GridItem>
-      )}
+      </Hide>
       {userInfo.openRoom && (
         <GridItem colSpan={isMobile ? 12 : 8}>
           <Conversation

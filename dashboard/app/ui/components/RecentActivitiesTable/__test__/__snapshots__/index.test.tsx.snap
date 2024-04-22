@@ -497,26 +497,26 @@ exports[`Recent Activities table Match with snapshot with default prop 1`] = `
             data-testid="table-row"
           >
             <td
-              class="css-1xp2ynx"
+              class="css-s4pr9k"
             >
               <div
                 class="css-1h2sv0j"
               >
                 <p
-                  class="chakra-text css-10vdxag"
+                  class="chakra-text css-18buqhy"
                 >
                   1
                 </p>
               </div>
             </td>
             <td
-              class="css-1xp2ynx"
+              class="css-s4pr9k"
             >
               <div
                 class="css-1h2sv0j"
               >
                 <p
-                  class="chakra-text css-107vws0"
+                  class="chakra-text css-16yvdbx"
                 >
                   Name 1
                 </p>
@@ -547,26 +547,26 @@ exports[`Recent Activities table Match with snapshot with default prop 1`] = `
             data-testid="table-row"
           >
             <td
-              class="css-1xp2ynx"
+              class="css-s4pr9k"
             >
               <div
                 class="css-1h2sv0j"
               >
                 <p
-                  class="chakra-text css-10vdxag"
+                  class="chakra-text css-18buqhy"
                 >
                   2
                 </p>
               </div>
             </td>
             <td
-              class="css-1xp2ynx"
+              class="css-s4pr9k"
             >
               <div
                 class="css-1h2sv0j"
               >
                 <p
-                  class="chakra-text css-107vws0"
+                  class="chakra-text css-16yvdbx"
                 >
                   Name 2
                 </p>
@@ -597,26 +597,26 @@ exports[`Recent Activities table Match with snapshot with default prop 1`] = `
             data-testid="table-row"
           >
             <td
-              class="css-1xp2ynx"
+              class="css-s4pr9k"
             >
               <div
                 class="css-1h2sv0j"
               >
                 <p
-                  class="chakra-text css-10vdxag"
+                  class="chakra-text css-18buqhy"
                 >
                   3
                 </p>
               </div>
             </td>
             <td
-              class="css-1xp2ynx"
+              class="css-s4pr9k"
             >
               <div
                 class="css-1h2sv0j"
               >
                 <p
-                  class="chakra-text css-107vws0"
+                  class="chakra-text css-16yvdbx"
                 >
                   Name 3
                 </p>

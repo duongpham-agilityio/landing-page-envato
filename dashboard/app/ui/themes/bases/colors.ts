@@ -1,3 +1,5 @@
+import { theme, useColorModeValue } from '@chakra-ui/react';
+
 export const colors = {
   primary: {
     200: '#126631',
@@ -303,4 +305,43 @@ export const colors = {
     700: '#FF784B',
     800: '#784B08',
   },
+};
+
+
+export const useColorfill = () => {
+  const primary = useColorModeValue(
+    theme.colors.gray[800],
+    theme.colors.white,
+  );
+
+  const secondary = useColorModeValue(
+    colors.secondary[200],
+    colors.secondary[600],
+  );
+
+  const tertiary = useColorModeValue(
+    theme.colors.gray[400],
+    theme.colors.white,
+  );
+
+  const quaternary = useColorModeValue('secondary.200', 'secondary.600');
+
+  const quinary = useColorModeValue(
+    theme.colors.white,
+    colors.secondary[400],
+  );
+
+  const senary: string = useColorModeValue(
+    colors.secondary[400] ?? '',
+    colors.primary[500] ?? '',
+  );
+
+  return {
+    primary,
+    secondary,
+    tertiary,
+    quaternary,
+    quinary,
+    senary
+  };
 };

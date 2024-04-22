@@ -412,7 +412,7 @@ exports[`Product table Match with snapshot with default prop 1`] = `
               class="css-5x3kvh"
             >
               <div
-                class="css-1ihki7p"
+                class="css-1x2nzxp"
               >
                 <div
                   class="css-1gb8e9t"
@@ -434,7 +434,7 @@ exports[`Product table Match with snapshot with default prop 1`] = `
               class="css-5x3kvh"
             >
               <p
-                class="chakra-text css-m2r3cg"
+                class="chakra-text css-n4848l"
               >
                 $100.00
               </p>
@@ -449,10 +449,10 @@ exports[`Product table Match with snapshot with default prop 1`] = `
               </span>
             </td>
             <td
-              class="css-5x3kvh"
+              class="css-8nbxwj"
             >
               <p
-                class="chakra-text css-m2r3cg"
+                class="chakra-text css-n4848l"
               >
                 1
               </p>
@@ -589,7 +589,7 @@ exports[`Product table Match with snapshot with default prop 1`] = `
               class="css-5x3kvh"
             >
               <div
-                class="css-1ihki7p"
+                class="css-1x2nzxp"
               >
                 <div
                   class="css-1gb8e9t"
@@ -611,7 +611,7 @@ exports[`Product table Match with snapshot with default prop 1`] = `
               class="css-5x3kvh"
             >
               <p
-                class="chakra-text css-m2r3cg"
+                class="chakra-text css-n4848l"
               >
                 $123.00
               </p>
@@ -626,10 +626,10 @@ exports[`Product table Match with snapshot with default prop 1`] = `
               </span>
             </td>
             <td
-              class="css-5x3kvh"
+              class="css-8nbxwj"
             >
               <p
-                class="chakra-text css-m2r3cg"
+                class="chakra-text css-n4848l"
               >
                 0
               </p>
@@ -766,7 +766,7 @@ exports[`Product table Match with snapshot with default prop 1`] = `
               class="css-5x3kvh"
             >
               <div
-                class="css-1ihki7p"
+                class="css-1x2nzxp"
               >
                 <div
                   class="css-1gb8e9t"
@@ -788,7 +788,7 @@ exports[`Product table Match with snapshot with default prop 1`] = `
               class="css-5x3kvh"
             >
               <p
-                class="chakra-text css-m2r3cg"
+                class="chakra-text css-n4848l"
               >
                 $111.00
               </p>
@@ -803,10 +803,10 @@ exports[`Product table Match with snapshot with default prop 1`] = `
               </span>
             </td>
             <td
-              class="css-5x3kvh"
+              class="css-8nbxwj"
             >
               <p
-                class="chakra-text css-m2r3cg"
+                class="chakra-text css-n4848l"
               >
                 2
               </p>
@@ -943,7 +943,7 @@ exports[`Product table Match with snapshot with default prop 1`] = `
               class="css-5x3kvh"
             >
               <div
-                class="css-1ihki7p"
+                class="css-1x2nzxp"
               >
                 <div
                   class="css-1gb8e9t"
@@ -965,7 +965,7 @@ exports[`Product table Match with snapshot with default prop 1`] = `
               class="css-5x3kvh"
             >
               <p
-                class="chakra-text css-m2r3cg"
+                class="chakra-text css-n4848l"
               >
                 $111.00
               </p>
@@ -980,10 +980,10 @@ exports[`Product table Match with snapshot with default prop 1`] = `
               </span>
             </td>
             <td
-              class="css-5x3kvh"
+              class="css-8nbxwj"
             >
               <p
-                class="chakra-text css-m2r3cg"
+                class="chakra-text css-n4848l"
               >
                 4
               </p>
@@ -1120,7 +1120,7 @@ exports[`Product table Match with snapshot with default prop 1`] = `
               class="css-5x3kvh"
             >
               <div
-                class="css-1ihki7p"
+                class="css-1x2nzxp"
               >
                 <div
                   class="css-1gb8e9t"
@@ -1142,7 +1142,7 @@ exports[`Product table Match with snapshot with default prop 1`] = `
               class="css-5x3kvh"
             >
               <p
-                class="chakra-text css-m2r3cg"
+                class="chakra-text css-n4848l"
               >
                 $1,111.00
               </p>
@@ -1157,10 +1157,10 @@ exports[`Product table Match with snapshot with default prop 1`] = `
               </span>
             </td>
             <td
-              class="css-5x3kvh"
+              class="css-8nbxwj"
             >
               <p
-                class="chakra-text css-m2r3cg"
+                class="chakra-text css-n4848l"
               >
                 0
               </p>

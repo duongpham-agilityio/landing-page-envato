@@ -1,7 +1,7 @@
 import dynamic from 'next/dynamic';
 
 import { useCallback, useEffect, useId } from 'react';
-import { VStack, Flex, Text, useColorModeValue, theme } from '@chakra-ui/react';
+import { VStack, Flex, Text } from '@chakra-ui/react';
 import 'react-quill/dist/quill.snow.css';
 import { Controller, useForm } from 'react-hook-form';
 const ReactQuill = dynamic(() => import('react-quill'), { ssr: false });
@@ -17,13 +17,13 @@ import { TMessages } from '@/lib/interfaces';
 import { authStore } from '@/lib/stores';
 
 // bases
-import { colors } from '@/ui/themes/bases';
+import { useColorfill } from '@/ui/themes/bases';
 
 // Hooks
 import { sendMessage } from '@/lib/utils';
 
 interface QuillProps {
-  userUid: string | undefined;
+  userUid?: string;
   avatarUser: string;
   nameUser: string;
 }
@@ -56,10 +56,7 @@ const Quill = ({ userUid, avatarUser, nameUser }: QuillProps) => {
     mode: 'onBlur',
   });
 
-  const colorFill = useColorModeValue(
-    theme.colors.white,
-    colors.secondary[400],
-  );
+  const { quinary } = useColorfill();
 
   const handleSend = useCallback(
     async (data: TMessages) => {
@@ -126,7 +123,7 @@ const Quill = ({ userUid, avatarUser, nameUser }: QuillProps) => {
                   }}
                   style={{
                     width: '100%',
-                    backgroundColor: colorFill,
+                    backgroundColor: quinary,
                   }}
                   theme="snow"
                 />

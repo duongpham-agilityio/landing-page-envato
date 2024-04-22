@@ -11,7 +11,7 @@ export const walletHttpRequest: AxiosInstance = axios.create({
 });
 
 export const getUserWallet = async (
-  userId?: string | undefined,
+  userId?: string,
   config?: IAxiosConfig,
 ): Promise<TWallet> =>
   (await walletHttpRequest.get(`${END_POINTS.MY_WALLET}/${userId}`, config))

@@ -1,8 +1,9 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { Box, theme, useColorModeValue } from '@chakra-ui/react';
+import { Box } from '@chakra-ui/react';
 
 // Components
 import BonusNotification from '.';
+import { useColorfill } from '@/ui/themes/bases';
 
 const meta: Meta<typeof BonusNotification> = {
   title: 'Custom Components/BonusNotification',
@@ -43,11 +44,8 @@ export const Primary: Story = {
     limitOfBonus: 5,
   },
   render: function Render(props) {
-    const colorFill = useColorModeValue(
-      theme.colors.gray[800],
-      theme.colors.white,
-    );
+    const { primary } = useColorfill();
 
-    return <BonusNotification {...props} colorFill={colorFill} />;
+    return <BonusNotification {...props} colorFill={primary} />;
   },
 };

@@ -119,8 +119,7 @@ const UserSelectorComponent = ({
   listUser = [],
 }: TUseSelectorProps): JSX.Element => {
   const [isOpenOptions, setOpenOptions] = useState<boolean>(false);
-  const [options, setOptions] =
-    useState<TUseSelectorProps['listUser']>(undefined);
+  const [options, setOptions] = useState<TUseSelectorProps['listUser']>();
   const filter: TUseSelectorProps['listUser'] = options ?? listUser;
 
   const handleFilterOptions = useDebounce(

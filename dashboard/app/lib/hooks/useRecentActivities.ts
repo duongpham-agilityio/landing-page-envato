@@ -3,7 +3,7 @@ import { useQuery } from '@tanstack/react-query';
 import dayjs from 'dayjs';
 
 // Constants
-import { END_POINTS, TIME_DETAIL_FORMAT } from '@/lib/constants';
+import { END_POINTS, PAGE_SIZE, TIME_DETAIL_FORMAT } from '@/lib/constants';
 
 // Services
 import { getRecentActivities } from '@/lib/services';
@@ -31,6 +31,7 @@ export type TActivitiesSortHandler = (field: TActivitiesSortField) => void;
 
 export const useRecentActivities = (queryParam?: TAction) => {
   const [currentPage, setCurrentPage] = useState(1);
+  const [limit, setLimit] = useState(PAGE_SIZE);
   const userId = authStore((state) => state.user?.id);
 
   const { actionName: searchActionName, email: searchEmail }: TAction =
@@ -56,8 +57,8 @@ export const useRecentActivities = (queryParam?: TAction) => {
   });
 
   const { data, ...query } = useQuery({
-    queryKey: [END_POINTS.RECENT_ACTIVITIES, searchActionName, searchEmail, currentPage],
-    queryFn: ({ signal }) => getRecentActivities('', { signal }, userId, currentPage),
+    queryKey: [END_POINTS.RECENT_ACTIVITIES, searchActionName, searchEmail, currentPage, limit],
+    queryFn: ({ signal }) => getRecentActivities('', { signal }, userId, currentPage, limit),
   });
 
   const activitiesData: TRecentActivities[] = data?.data.result || [];
@@ -151,6 +152,7 @@ export const useRecentActivities = (queryParam?: TAction) => {
 
   return {
     ...query,
+    limit,
     activities,
     data: activities,
     pageArray,
@@ -159,6 +161,7 @@ export const useRecentActivities = (queryParam?: TAction) => {
     isDisablePrev,
     sortBy,
     setCurrentPage,
-    resetPage
+    setLimit,
+    resetPage,
   };
 };

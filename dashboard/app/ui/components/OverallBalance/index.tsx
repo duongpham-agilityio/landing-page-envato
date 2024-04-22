@@ -9,15 +9,7 @@ const Chart = dynamic(() => import('react-apexcharts'), {
   ssr: false,
   loading: () => <Skeleton bg="background.component.primary" h={225} />,
 });
-import {
-  Box,
-  Flex,
-  Heading,
-  Skeleton,
-  Text,
-  theme,
-  useColorModeValue,
-} from '@chakra-ui/react';
+import { Box, Flex, Heading, Skeleton, Text } from '@chakra-ui/react';
 
 // Icon
 import { Arrow } from '@/ui/components/Icons';
@@ -46,6 +38,7 @@ import { INITIAL_OVERALL_BALANCE } from '@/lib/mocks';
 
 // Hooks
 import { useGetStatistic } from '@/lib/hooks';
+import { useColorfill } from '@/ui/themes/bases';
 
 type TOverallData = Omit<IRevenueFlow, 'pending'>[];
 
@@ -59,10 +52,7 @@ const OverallBalanceComponent = () => {
 
   const [option, setOption] = useState<string>('');
 
-  const colorFill = useColorModeValue(
-    theme.colors.gray[800],
-    theme.colors.white,
-  );
+  const { primary } = useColorfill();
 
   // Handle data when select option
   const dataSelected = useMemo(() => {
@@ -78,10 +68,10 @@ const OverallBalanceComponent = () => {
     ({ label }: TOption) => (
       <Flex alignItems="center">
         <Text>{label}</Text>
-        <Arrow color={colorFill} />
+        <Arrow color={primary} />
       </Flex>
     ),
-    [colorFill],
+    [primary],
   );
 
   const handleChangeSelect = useCallback(({ value }: TOption) => {
@@ -158,14 +148,14 @@ const OverallBalanceComponent = () => {
                 },
                 labels: {
                   style: {
-                    colors: colorFill,
+                    colors: primary,
                   },
                 },
               },
               yaxis: {
                 labels: {
                   style: {
-                    colors: colorFill,
+                    colors: primary,
                   },
                 },
               },

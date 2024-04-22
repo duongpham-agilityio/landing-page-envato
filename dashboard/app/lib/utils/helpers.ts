@@ -33,22 +33,22 @@ export const formatPagination = ({
     tempNumberOfButtons = [
       ...(rangeEnd >= formatNumberButton(numberOfPage).length - 1
         ? [
-          ...(formatNumberButton(numberOfPage).length - 3 > 1
-            ? Array.from(
-              { length: 3 },
-              (_, i) => formatNumberButton(numberOfPage).length - 4 + i,
-            )
-            : []),
-          formatNumberButton(numberOfPage).length - 1,
-          formatNumberButton(numberOfPage).length,
-        ]
+            ...(formatNumberButton(numberOfPage).length - 3 > 1
+              ? Array.from(
+                  { length: 3 },
+                  (_, i) => formatNumberButton(numberOfPage).length - 4 + i,
+                )
+              : []),
+            formatNumberButton(numberOfPage).length - 1,
+            formatNumberButton(numberOfPage).length,
+          ]
         : [
-          rangeStart,
-          rangeStart + 1,
-          rangeStart + 2,
-          DOTS,
-          formatNumberButton(numberOfPage).length,
-        ]),
+            rangeStart,
+            rangeStart + 1,
+            rangeStart + 2,
+            DOTS,
+            formatNumberButton(numberOfPage).length,
+          ]),
     ].filter((button) => button !== null);
   }
 
@@ -78,22 +78,22 @@ export const formatPageArray = ({
     tempNumberOfButtons = [
       ...(rangeEnd >= formatNumberButton(numberOfPage).length - 1
         ? [
-          ...(formatNumberButton(numberOfPage).length - 3 > 1
-            ? Array.from(
-              { length: 3 },
-              (_, i) => formatNumberButton(numberOfPage).length - 4 + i,
-            )
-            : []),
-          formatNumberButton(numberOfPage).length - 1,
-          formatNumberButton(numberOfPage).length,
-        ]
+            ...(formatNumberButton(numberOfPage).length - 3 > 1
+              ? Array.from(
+                  { length: 3 },
+                  (_, i) => formatNumberButton(numberOfPage).length - 4 + i,
+                )
+              : []),
+            formatNumberButton(numberOfPage).length - 1,
+            formatNumberButton(numberOfPage).length,
+          ]
         : [
-          rangeStart,
-          rangeStart + 1,
-          rangeStart + 2,
-          DOTS,
-          formatNumberButton(numberOfPage).length,
-        ]),
+            rangeStart,
+            rangeStart + 1,
+            rangeStart + 2,
+            DOTS,
+            formatNumberButton(numberOfPage).length,
+          ]),
     ].filter((button) => button !== null);
   }
 
@@ -198,9 +198,7 @@ export const formatDecimalNumber = (
 };
 
 // Format for typing numbers in input
-export const formatAllowOnlyNumbers = (
-  input: string | undefined | null,
-): string => {
+export const formatAllowOnlyNumbers = (input: string): string => {
   if (!input) {
     return ''; // or handle the case when input is undefined or null
   }

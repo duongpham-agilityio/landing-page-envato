@@ -1,20 +1,18 @@
 'use client';
 
-import { Text, useColorModeValue, theme } from '@chakra-ui/react';
+import { Text } from '@chakra-ui/react';
 import Link from 'next/link';
 
 // Assets
 import { LogoIcon } from '@/ui/components';
+import { useColorfill } from '@/ui/themes/bases';
 
 const Logo = () => {
-  const colorFill = useColorModeValue(
-    theme.colors.gray[800],
-    theme.colors.white,
-  );
+  const { primary } = useColorfill();
 
   return (
     <Text as={Link} aria-label="link-to-home" href="/" display="inline-block">
-      <LogoIcon colorFill={colorFill} />
+      <LogoIcon colorFill={primary} />
     </Text>
   );
 };

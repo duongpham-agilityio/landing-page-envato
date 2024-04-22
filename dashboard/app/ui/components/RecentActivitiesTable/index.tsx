@@ -13,6 +13,7 @@ import {
   Pagination,
   Indicator,
 } from '@/ui/components';
+import { TOption } from '../common/Select';
 
 // Constants
 import {
@@ -44,6 +45,7 @@ const RecentActivitiesTableComponent = () => {
 
   const {
     activities,
+    limit,
     isLoading: isLoadingActivities,
     isError: isActivitiesError,
     pageArray,
@@ -52,6 +54,7 @@ const RecentActivitiesTableComponent = () => {
     isDisablePrev,
     sortBy,
     setCurrentPage,
+    setLimit,
     resetPage,
   } = useRecentActivities({
     actionName: get('actionName')?.toLowerCase() || '',
@@ -77,6 +80,14 @@ const RecentActivitiesTableComponent = () => {
       setCurrentPage(direction === PREV ? currentPage - 1 : currentPage + 1);
     },
     [currentPage, setCurrentPage],
+  );
+
+  const handleChangeLimit = useCallback(
+    (limit: TOption) => {
+      setLimit(+limit.value);
+      resetPage();
+    },
+    [resetPage, setLimit],
   );
 
   const renderHead = useCallback(
@@ -210,6 +221,8 @@ const RecentActivitiesTableComponent = () => {
     [renderHead, renderIdAction, renderNameUser, renderEmail],
   );
 
+  console.log('limit', limit);
+
   return (
     <Indicator>
       <Flex flexDirection={{ base: 'column', lg: 'row' }}>
@@ -235,12 +248,14 @@ const RecentActivitiesTableComponent = () => {
         {!!activities?.length && (
           <Box mt={8}>
             <Pagination
+              pageSize={limit}
               currentPage={currentPage}
               isDisabledPrev={isDisablePrev}
               isDisableNext={isDisableNext}
               arrOfCurrButtons={pageArray}
               onPageChange={handlePageChange}
               onClickPage={handleClickPage}
+              onLimitChange={handleChangeLimit}
             />
           </Box>
         )}

@@ -8,15 +8,7 @@ const Chart = dynamic(() => import('react-apexcharts'), {
   ssr: false,
   loading: () => <Skeleton bg="background.component.primary" h={230} />,
 });
-import {
-  Box,
-  Flex,
-  Heading,
-  Skeleton,
-  Text,
-  theme,
-  useColorModeValue,
-} from '@chakra-ui/react';
+import { Box, Flex, Heading, Skeleton, Text } from '@chakra-ui/react';
 import { Fetching, Select } from '..';
 
 // Icon
@@ -40,6 +32,7 @@ import { INITIAL_REVENUE_FLOW } from '@/lib/mocks';
 
 // Hooks
 import { useGetStatistic } from '@/lib/hooks';
+import { useColorfill } from '@/ui/themes/bases';
 
 const RevenueFlowComponent = () => {
   const [option, setOption] = useState<string>('Jan,Dec');
@@ -49,19 +42,16 @@ const RevenueFlowComponent = () => {
     isError,
   } = useGetStatistic<IRevenueFlow[]>(END_POINTS.REVENUE);
 
-  const colorFill = useColorModeValue(
-    theme.colors.gray[800],
-    theme.colors.white,
-  );
+  const { primary } = useColorfill();
 
   const renderTitle = useCallback(
     ({ label }: TOption) => (
       <Flex alignItems="center">
         <Text fontSize="sm">{label}</Text>
-        <Arrow color={colorFill} />
+        <Arrow color={primary} />
       </Flex>
     ),
-    [colorFill],
+    [primary],
   );
 
   const dataSelected = useMemo(() => {
@@ -166,14 +156,14 @@ const RevenueFlowComponent = () => {
               },
               labels: {
                 style: {
-                  colors: colorFill,
+                  colors: primary,
                 },
               },
             },
             yaxis: {
               labels: {
                 style: {
-                  colors: colorFill,
+                  colors: primary,
                 },
               },
             },

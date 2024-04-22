@@ -3,14 +3,7 @@
 import { memo, useCallback, useState } from 'react';
 
 // Components
-import {
-  Box,
-  Flex,
-  Heading,
-  Text,
-  theme,
-  useColorModeValue,
-} from '@chakra-ui/react';
+import { Box, Flex, Heading, Text } from '@chakra-ui/react';
 import { Fetching, Select } from '@/ui/components';
 import { TOption } from '@/ui/components/common/Select';
 import EfficiencyInfo from './EfficiencyInfo';
@@ -30,16 +23,14 @@ import { useGetStatistic } from '@/lib/hooks';
 
 // Interfaces
 import { IEfficiency } from '@/lib/interfaces';
+import { useColorfill } from '@/ui/themes/bases';
 
 const EfficiencyComponent = () => {
   const [efficiencyType, setEfficiencyType] = useState<string>('weekly');
 
   const [isLoadingSelectEfficiencyType, setLoadingSelectEfficiencyType] =
     useState<boolean>(false);
-  const colorFill = useColorModeValue(
-    theme.colors.gray[400],
-    theme.colors.white,
-  );
+  const { tertiary } = useColorfill();
 
   const {
     data: efficiencyData,
@@ -60,10 +51,10 @@ const EfficiencyComponent = () => {
     ({ label }: TOption) => (
       <Flex alignItems="center">
         <Text>{label}</Text>
-        <Arrow color={colorFill} />
+        <Arrow color={tertiary} />
       </Flex>
     ),
-    [colorFill],
+    [tertiary],
   );
 
   if (isErrorEfficiency)

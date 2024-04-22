@@ -12,8 +12,6 @@ import {
   MenuItem,
   MenuList,
   Text,
-  theme,
-  useColorModeValue,
 } from '@chakra-ui/react';
 // Assets
 import { Arrow, Avatar, Indicator } from '@/ui/components';
@@ -22,6 +20,7 @@ import { Arrow, Avatar, Indicator } from '@/ui/components';
 import { IMAGES, MENU_LIST, MENU_LIST_ICON } from '@/lib/constants';
 // Hooks
 import { useAuth } from '@/lib/hooks';
+import { useColorfill } from '@/ui/themes/bases';
 
 interface DropdownProps {
   src?: string;
@@ -42,10 +41,7 @@ const UserDropdownMenu = ({
   offsetY = 10,
 }: DropdownProps) => {
   const { isLogoutHandling, signOut } = useAuth();
-  const colorFill = useColorModeValue(
-    theme.colors.gray[800],
-    theme.colors.white,
-  );
+  const { primary } = useColorfill();
 
   return (
     <Indicator isOpen={isLogoutHandling}>
@@ -80,7 +76,7 @@ const UserDropdownMenu = ({
                       >
                         {name}
                       </Text>
-                      <Arrow color={colorFill} />
+                      <Arrow color={primary} />
                     </Flex>
                     <Text
                       fontSize="sm"
@@ -136,7 +132,7 @@ const UserDropdownMenu = ({
                         }}
                       >
                         <Flex>
-                          <Icon color={colorFill} />
+                          <Icon color={primary} />
                           <Text ml={18} variant="text4Xl">
                             {value}
                           </Text>
@@ -182,7 +178,7 @@ const UserDropdownMenu = ({
                     {...props}
                   >
                     <Flex>
-                      <Icon color={colorFill} />
+                      <Icon color={primary} />
                       <Text ml={18} variant="text4Xl">
                         {value}
                       </Text>

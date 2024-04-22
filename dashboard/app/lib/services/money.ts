@@ -22,7 +22,7 @@ export type TMoneyResponse = {
 
 export const addMoneyToUser = async (
   actionName: string,
-  data?: TAddMoney | undefined,
+  data?: TAddMoney,
   userId?: string,
   config?: IAxiosConfig,
 ): Promise<TMoneyResponse> => {
@@ -44,7 +44,7 @@ export const addMoneyToUser = async (
 
 export const sendMoneyToUser = async (
   actionName: string,
-  data?: TSendMoney | undefined,
+  data?: TSendMoney,
   userId?: string,
   config?: IAxiosConfig,
 ): Promise<TMoneyResponse> => {

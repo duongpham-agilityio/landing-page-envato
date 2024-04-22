@@ -11,9 +11,7 @@ import {
   Button,
   Flex,
   Text,
-  theme,
   FormControl,
-  useColorModeValue,
   useToast,
   VStack,
 } from '@chakra-ui/react';
@@ -38,7 +36,7 @@ import { TUserDetail } from '@/lib/interfaces';
 import { authStore } from '@/lib/stores';
 
 // Themes
-import { colors } from '@/ui/themes/bases';
+import { useColorfill } from '@/ui/themes/bases';
 
 // Utils
 import { customToast, formatAllowOnlyNumbers } from '@/lib/utils';
@@ -90,10 +88,7 @@ const SupportsSection = () => {
     [isDirty, status, hasTitle, hasDescription],
   );
 
-  const colorFill = useColorModeValue(
-    theme.colors.white,
-    colors.secondary[400],
-  );
+  const { quinary } = useColorfill();
 
   const handleChangeValue = useCallback(
     <T,>(field: keyof TUserDetail, changeHandler: (value: T) => void) =>
@@ -303,7 +298,7 @@ const SupportsSection = () => {
                       }}
                       style={{
                         width: '100%',
-                        backgroundColor: colorFill,
+                        backgroundColor: quinary,
                         height: 300,
                       }}
                       theme="snow"
