@@ -42,6 +42,7 @@ const UserDropdownMenu = ({
 }: DropdownProps) => {
   const { isLogoutHandling, signOut } = useAuth();
   const { primary } = useColorfill();
+  const currencyColor = 'text.currencyColor';
 
   return (
     <Indicator isOpen={isLogoutHandling}>
@@ -119,11 +120,11 @@ const UserDropdownMenu = ({
                         bg="transparent"
                         _hover={{
                           bg: 'background.component.tertiary',
-                          color: 'text.currencyColor',
-                          svg: { stroke: 'text.currencyColor' },
-                          path: { stroke: 'text.currencyColor' },
-                          ellipse: { stroke: 'text.currencyColor' },
-                          circle: { stroke: 'text.currencyColor' },
+                          color: currencyColor,
+                          svg: { stroke: currencyColor },
+                          path: { stroke: currencyColor },
+                          ellipse: { stroke: currencyColor },
+                          circle: { stroke: currencyColor },
                           borderColor: 'transparent',
                           textDecoration: 'none',
                         }}
@@ -166,9 +167,9 @@ const UserDropdownMenu = ({
                     aria-label={`menu-item-${value}`}
                     _hover={{
                       bg: 'background.component.tertiary',
-                      color: 'text.currencyColor',
-                      svg: { stroke: 'text.currencyColor' },
-                      path: { stroke: 'text.currencyColor' },
+                      color: currencyColor,
+                      svg: { stroke: currencyColor },
+                      path: { stroke: currencyColor },
                       borderColor: 'transparent',
                       textDecoration: 'none',
                     }}

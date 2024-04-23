@@ -39,7 +39,6 @@ const PaginationComponent = ({
   const handleNextPage = () => onPageChange(NEXT);
 
   const handlePrevPage = () => onPageChange(PREV);
-
   const renderTitle = useCallback(
     () => (
       <Flex justifyContent="center">

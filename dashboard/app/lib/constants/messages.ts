@@ -44,6 +44,10 @@ export const ERROR_MESSAGES = {
     title: 'Update failed',
     description: 'Your transaction has not been updated successfully',
   },
+  CREATE_TRANSACTION_FAIL: {
+    title: 'Create failed',
+    description: 'Your transaction has not been create successfully',
+  },
   UPDATE_PRODUCT_FAIL: {
     title: 'Update failed',
     description: 'Your product has not been updated successfully',
@@ -151,8 +155,8 @@ export const SUCCESS_MESSAGES = {
     description: 'Check your email inbox to recover your password',
   },
   CREATE_PRODUCT_SUCCESS: {
-    title: 'Update success',
-    description: 'Your product has been updated successfully',
+    title: 'Created success',
+    description: 'Your product has been created successfully',
   },
 };
 

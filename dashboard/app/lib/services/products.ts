@@ -10,19 +10,21 @@ export const productsHttpService: AxiosInstance = axios.create({
   baseURL: process.env.NEXT_PUBLIC_API,
 });
 
+export type TProductsResponse = {
+  result: Array<TProduct>;
+  totalPage: number;
+};
+
 export const getProducts = async (
   searchParam?: string,
   config?: IAxiosConfig,
   userId?: string,
   page = 1,
   limit = PAGE_SIZE,
-): Promise<TProduct[]> => {
-  productsHttpService.interceptors.response.clear();
-
-  return (
+): Promise<TProductsResponse> =>
+  (
     await productsHttpService.get(
       `${END_POINTS.PRODUCTS}/${userId}/${page}/${limit}${searchParam || ''}`,
       config,
     )
-  ).data.result;
-};
+  ).data;

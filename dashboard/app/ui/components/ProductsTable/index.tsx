@@ -20,14 +20,10 @@ import {
   ProductForm,
   Indicator,
 } from '@/ui/components';
+import { TOption } from '../common/Select';
 
 // Hooks
-import {
-  useDebounce,
-  usePagination,
-  useProducts,
-  useSearch,
-} from '@/lib/hooks';
+import { useDebounce, useProducts, useSearch } from '@/lib/hooks';
 import { TProductSortField } from '@/lib/hooks/useProducts';
 
 // Utils
@@ -47,6 +43,7 @@ import {
   FILTER_PRODUCT,
   PRODUCT_STATUS,
   IMAGES,
+  PREV,
 } from '@/lib/constants';
 
 // Types
@@ -74,13 +71,21 @@ const ProductsTableComponent = () => {
     products,
     isLoading: isLoadingProducts,
     isError: isProductsError,
+    limit,
+    currentPage,
     sortBy,
     createProduct,
     deleteProduct,
     updateProduct,
+    resetPage,
+    setCurrentPage,
+    setLimit,
     isCreateProduct,
     isDeleteProduct,
     isUpdateProduct,
+    isDisableNext,
+    isDisablePrev,
+    pageArray,
   } = useProducts({
     name: get('name')?.toLowerCase() || '',
   });
@@ -97,22 +102,27 @@ const ProductsTableComponent = () => {
     [filter, products],
   );
 
-  const {
-    data,
-    filterData,
-    arrOfCurrButtons,
-    isDisabledPrev,
-    isDisableNext,
-    resetPage,
-    handleChangeLimit,
-    handlePageChange,
-    handlePageClick,
-  } = usePagination(productsMemorized);
-
   const handleDebounceSearch = useDebounce((value: string) => {
     resetPage();
     setSearchTransaction('name', value);
   }, []);
+
+  const handleClickPage = (value: number) => setCurrentPage(value);
+
+  const handlePageChange = useCallback(
+    (direction: string) => {
+      setCurrentPage(direction === PREV ? currentPage - 1 : currentPage + 1);
+    },
+    [currentPage, setCurrentPage],
+  );
+
+  const handleChangeLimit = useCallback(
+    (limit: TOption) => {
+      setLimit(+limit.value);
+      resetPage();
+    },
+    [resetPage, setLimit],
+  );
 
   const handleCreateProduct = useCallback(
     (product: Omit<TProductRequest, '_id'>) => {
@@ -133,8 +143,8 @@ const ProductsTableComponent = () => {
           onError: () => {
             toast(
               customToast(
-                ERROR_MESSAGES.UPDATE_TRANSACTION_FAIL.title,
-                ERROR_MESSAGES.UPDATE_TRANSACTION_FAIL.description,
+                ERROR_MESSAGES.CREATE_TRANSACTION_FAIL.title,
+                ERROR_MESSAGES.CREATE_TRANSACTION_FAIL.description,
                 STATUS.ERROR,
               ),
             );
@@ -416,24 +426,22 @@ const ProductsTableComponent = () => {
         <Box mt={5}>
           <Table
             columns={columns as unknown as THeaderTable[]}
-            dataSource={formatProductResponse(filterData)}
+            dataSource={formatProductResponse(productsMemorized)}
           />
         </Box>
-        {!!products?.length && (
-          <Box mt={8}>
-            <Pagination
-              pageSize={data.limit}
-              currentPage={data.currentPage}
-              isDisabledPrev={isDisabledPrev}
-              isDisableNext={isDisableNext}
-              arrOfCurrButtons={arrOfCurrButtons}
-              onLimitChange={handleChangeLimit}
-              onPageChange={handlePageChange}
-              onClickPage={handlePageClick}
-            />
-          </Box>
-        )}
       </Fetching>
+      <Box mt={8}>
+        <Pagination
+          pageSize={limit}
+          currentPage={currentPage}
+          isDisabledPrev={isDisablePrev}
+          isDisableNext={isDisableNext}
+          arrOfCurrButtons={pageArray}
+          onLimitChange={handleChangeLimit}
+          onPageChange={handlePageChange}
+          onClickPage={handleClickPage}
+        />
+      </Box>
 
       {isOpenConfirmModal && (
         <Modal

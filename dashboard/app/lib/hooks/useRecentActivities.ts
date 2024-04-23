@@ -57,14 +57,24 @@ export const useRecentActivities = (queryParam?: TAction) => {
   });
 
   const { data, ...query } = useQuery({
-    queryKey: [END_POINTS.RECENT_ACTIVITIES, searchActionName, searchEmail, currentPage, limit],
-    queryFn: ({ signal }) => getRecentActivities('', { signal }, userId, currentPage, limit),
+    queryKey: [
+      END_POINTS.RECENT_ACTIVITIES,
+      searchActionName,
+      searchEmail,
+      currentPage,
+      limit,
+    ],
+    queryFn: ({ signal }) =>
+      getRecentActivities('', { signal }, userId, currentPage, limit),
   });
 
   const activitiesData: TRecentActivities[] = data?.data.result || [];
   const totalPage = data?.data.totalPage as number;
 
-  const arrOfCurrButtons: number[] = Array.from({ length: totalPage }, (_, index) => index);
+  const arrOfCurrButtons: number[] = Array.from(
+    { length: totalPage },
+    (_, index) => index,
+  );
 
   const pageArray = formatPageArray({
     totalPage,
@@ -76,51 +86,49 @@ export const useRecentActivities = (queryParam?: TAction) => {
 
   const isDisablePrev = currentPage <= 1;
 
-  const resetPage = useCallback(
-    () => setCurrentPage(1),
-    [],
-  );
+  const resetPage = useCallback(() => setCurrentPage(1), []);
 
   // sort activitiesSorted
-  const activitiesAfterSort: TRecentActivities[] = useMemo((): TRecentActivities[] => {
-    const tempActivities: TRecentActivities[] = [...activitiesData];
-    const { field, type } = sortValue;
+  const activitiesAfterSort: TRecentActivities[] =
+    useMemo((): TRecentActivities[] => {
+      const tempActivities: TRecentActivities[] = activitiesData;
+      const { field, type } = sortValue;
 
-    if (!field) return activitiesData;
+      if (!field) return activitiesData;
 
-    tempActivities.sort(
-      (
-        {
-          actionName: prevActivitiesName,
-          email: prevEmail,
-          createdAt: prevCreatedAt,
-        }: TRecentActivities,
-        {
-          actionName: nextActivitiesName,
-          email: nextEmail,
-          createdAt: nextCreatedAt,
-        }: TRecentActivities,
-      ) => {
-        const valueForField: Record<TActivitiesSortField, number> = {
-          actionName: handleSort(
-            type,
-            prevActivitiesName ?? '',
-            nextActivitiesName ?? '',
-          ),
-          email: handleSort(type, prevEmail ?? '', nextEmail ?? ''),
-          date: handleSort(
-            type,
-            dayjs(prevCreatedAt).format(TIME_DETAIL_FORMAT) ?? '',
-            dayjs(nextCreatedAt).format(TIME_DETAIL_FORMAT) ?? '',
-          ),
-        };
+      tempActivities.sort(
+        (
+          {
+            actionName: prevActivitiesName,
+            email: prevEmail,
+            createdAt: prevCreatedAt,
+          }: TRecentActivities,
+          {
+            actionName: nextActivitiesName,
+            email: nextEmail,
+            createdAt: nextCreatedAt,
+          }: TRecentActivities,
+        ) => {
+          const valueForField: Record<TActivitiesSortField, number> = {
+            actionName: handleSort(
+              type,
+              prevActivitiesName,
+              nextActivitiesName,
+            ),
+            email: handleSort(type, prevEmail, nextEmail),
+            date: handleSort(
+              type,
+              dayjs(prevCreatedAt).format(TIME_DETAIL_FORMAT),
+              dayjs(nextCreatedAt).format(TIME_DETAIL_FORMAT),
+            ),
+          };
 
-        return valueForField[field] ?? 0;
-      },
-    );
+          return valueForField[field] ?? 0;
+        },
+      );
 
-    return tempActivities;
-  }, [activitiesData, sortValue]);
+      return tempActivities;
+    }, [activitiesData, sortValue]);
 
   /**
    * TODO: Since the API is imprecise we will use this method for now.

@@ -20,7 +20,7 @@ const compareValues = (
 };
 
 export const handleSort = (
-  type: SortType,
-  prevValue: string,
-  nextValue: string,
+  type: SortType = SortType.ASC,
+  prevValue: string = 'prev',
+  nextValue: string = 'next',
 ): number => compareValues(prevValue, nextValue, type);

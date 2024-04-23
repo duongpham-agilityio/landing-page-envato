@@ -7,49 +7,59 @@ import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
 import { authStore } from '@/lib/stores';
 
 // Constants
-import { END_POINTS, PRODUCT_STATUS, TIME_FORMAT } from '@/lib/constants';
+import {
+  END_POINTS,
+  PAGE_SIZE,
+  PRODUCT_STATUS,
+  TIME_FORMAT,
+} from '@/lib/constants';
 
 // Services
-import { getProducts, productsHttpService } from '@/lib/services';
+import {
+  TProductsResponse,
+  getProducts,
+  productsHttpService,
+} from '@/lib/services';
 
 // Interface
 import {
   EActivity,
+  SortType,
   TProduct,
   TProductRequest,
-  TProductResponse,
 } from '@/lib/interfaces';
 
 // Utils
-import { logActivity } from '../utils';
+import { formatPageArray, handleSort, logActivity } from '../utils';
 
 export type TSearchProduct = {
   name: string;
 };
 
-type TSortType = 'desc' | 'asc';
 export type TProductSortField = 'name' | 'price' | 'date' | 'quantity';
 type TSort = {
   field: TProductSortField | '';
-  type: TSortType;
+  type: SortType;
 };
 export type TProductSortHandler = (field: TProductSortField) => void;
 
 export const useProducts = (queryParam?: TSearchProduct) => {
+  const [currentPage, setCurrentPage] = useState(1);
+  const [limit, setLimit] = useState(PAGE_SIZE);
   const queryClient = useQueryClient();
   const { user } = authStore();
 
-  const sortType: Record<TSortType, TSortType> = useMemo(
+  const sortType: Record<SortType, SortType> = useMemo(
     () => ({
-      desc: 'asc',
-      asc: 'desc',
+      desc: SortType.ASC,
+      asc: SortType.DESC,
     }),
     [],
   );
 
   const [sortValue, setSortValue] = useState<TSort>({
     field: '',
-    type: 'asc',
+    type: SortType.ASC,
   });
 
   const { name: searchName }: TSearchProduct = Object.assign(
@@ -59,43 +69,38 @@ export const useProducts = (queryParam?: TSearchProduct) => {
     queryParam,
   );
 
-  const { data = [], ...query } = useQuery({
-    queryKey: [END_POINTS.PRODUCTS, searchName],
-    queryFn: ({ signal }) => getProducts('', { signal }, user?.id),
+  const { data, ...query } = useQuery<TProductsResponse>({
+    queryKey: [END_POINTS.PRODUCTS, searchName, currentPage, limit],
+    queryFn: ({ signal }) =>
+      getProducts('', { signal }, user?.id, currentPage, limit),
   });
+
+  const productData: TProduct[] = data?.result || [];
+  const totalPage = data?.totalPage as number;
+
+  const arrOfCurrButtons: number[] = Array.from(
+    { length: totalPage },
+    (_, index) => index,
+  );
+
+  const pageArray = formatPageArray({
+    totalPage,
+    currentPage,
+    arrOfCurrButtons,
+  });
+
+  const isDisableNext = currentPage === totalPage || currentPage < 1;
+
+  const isDisablePrev = currentPage <= 1;
+
+  const resetPage = useCallback(() => setCurrentPage(1), []);
 
   // sort products
   const productsAfterSort: TProduct[] = useMemo(() => {
-    const tempProducts: TProduct[] = [...data];
+    const tempProducts: TProduct[] = [...productData];
     const { field, type } = sortValue;
 
-    if (!field) return data;
-
-    const handleSort = (
-      type: TSortType,
-      prevValue: string,
-      nextValue: string,
-    ): number => {
-      const convertPreValue: string = prevValue.toString().trim().toLowerCase();
-      const convertNextValue: string = nextValue
-        .toString()
-        .trim()
-        .toLowerCase();
-
-      if (type === 'asc') {
-        if (convertPreValue > convertNextValue) return 1;
-
-        if (convertPreValue < convertNextValue) return -1;
-      }
-
-      if (type === 'desc') {
-        if (convertPreValue > convertNextValue) return -1;
-
-        if (convertPreValue < convertNextValue) return 1;
-      }
-
-      return 0;
-    };
+    if (!field) return productData;
 
     tempProducts.sort(
       (
@@ -136,7 +141,7 @@ export const useProducts = (queryParam?: TSearchProduct) => {
     );
 
     return tempProducts;
-  }, [data, sortValue]);
+  }, [productData, sortValue]);
 
   /**
    * TODO: Since the API is imprecise we will use this method for now.
@@ -168,7 +173,7 @@ export const useProducts = (queryParam?: TSearchProduct) => {
       const activity = logActivity(
         productsHttpService,
         EActivity.CREATE_PRODUCT,
-        user?.id
+        user?.id,
       );
 
       return await productsHttpService
@@ -179,14 +184,14 @@ export const useProducts = (queryParam?: TSearchProduct) => {
         });
     },
     onSuccess: (dataResponse) => {
-      queryClient.invalidateQueries({
-        queryKey: [END_POINTS.PRODUCTS],
-      });
       const newData = JSON.parse(dataResponse.config.data);
 
       queryClient.setQueryData(
-        [END_POINTS.PRODUCTS, searchName],
-        (oldData: TProduct[]) => [newData, ...oldData],
+        [END_POINTS.PRODUCTS, searchName, currentPage, limit],
+        (oldData: TProductsResponse) => ({
+          result: [newData, ...(oldData?.result || [])],
+          totalPage: oldData.totalPage,
+        })
       );
     },
   });
@@ -198,7 +203,7 @@ export const useProducts = (queryParam?: TSearchProduct) => {
       const activity = logActivity(
         productsHttpService,
         EActivity.DELETE_PRODUCT,
-        user?.id
+        user?.id,
       );
 
       return await productsHttpService
@@ -212,9 +217,11 @@ export const useProducts = (queryParam?: TSearchProduct) => {
     },
     onSuccess: (_, variables) => {
       queryClient.setQueryData(
-        [END_POINTS.PRODUCTS, searchName],
-        (oldData: TProduct[]) =>
-          oldData.filter((item) => item._id !== variables.productId),
+        [END_POINTS.PRODUCTS, searchName, currentPage, limit],
+        (oldData: TProductsResponse) => ({
+          result: oldData.result.filter((item) => item._id !== variables.productId),
+          totalPage: oldData.totalPage,
+        })
       );
     },
   });
@@ -226,7 +233,7 @@ export const useProducts = (queryParam?: TSearchProduct) => {
       const activity = logActivity(
         productsHttpService,
         EActivity.UPDATE_PRODUCT,
-        user?.id
+        user?.id,
       );
 
       return await productsHttpService
@@ -238,9 +245,9 @@ export const useProducts = (queryParam?: TSearchProduct) => {
     },
     onSuccess: async (_, variables) => {
       queryClient.setQueryData(
-        [END_POINTS.PRODUCTS, searchName],
-        (oldData: TProductResponse[]) => {
-          const dataUpdated = oldData.map((item) =>
+        [END_POINTS.PRODUCTS, searchName, currentPage, limit],
+        (oldData: TProductsResponse) => ({
+          result: oldData.result.map((item) =>
             item._id === variables.productId
               ? {
                 ...item,
@@ -255,23 +262,31 @@ export const useProducts = (queryParam?: TSearchProduct) => {
                 product: { ...variables },
               }
               : item,
-          );
-          return dataUpdated;
-        },
+          ),
+          totalPage: oldData.totalPage
+        })
       );
     },
   });
 
   return {
     ...query,
+    limit,
+    currentPage,
     products,
     data: products,
     isCreateProduct,
     isDeleteProduct,
     isUpdateProduct,
+    pageArray,
+    isDisableNext,
+    isDisablePrev,
     createProduct,
     deleteProduct,
     updateProduct,
     sortBy,
+    setLimit,
+    resetPage,
+    setCurrentPage,
   };
 };
