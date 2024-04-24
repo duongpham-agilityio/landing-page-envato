@@ -14,3 +14,4 @@ export * from './getErrorMessage';
 export * from './firebase';
 export * from './recentActivities';
 export * from './logAcitvity';
+export * from './updateColorScheme';

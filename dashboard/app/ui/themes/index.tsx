@@ -72,8 +72,8 @@ export const configThemes = {
       },
     },
   },
-  initialColorMode: 'system',
-  useSystemColorMode: true,
+  initialColorMode: 'light',
+  useSystemColorMode: false,
 };
 
 // Override the default properties of Tooltip component

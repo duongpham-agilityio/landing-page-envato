@@ -34,7 +34,6 @@ const Metadata = () => {
           />
           <meta property="og:title" content={HOMEPAGE_METADATA.ogTitle} />
           <meta property="og:url" content={HOMEPAGE_METADATA.ogUrl} />
-          <meta name="theme-color" content={HOMEPAGE_METADATA.themeColor} />
           <meta property="og:image" content={HOMEPAGE_METADATA.ogImage} />
         </>
       ) : (
@@ -51,7 +50,6 @@ const Metadata = () => {
           <meta property="og:image:alt" content={SIGN_IN_PAGE.ogImageAlt} />
           <meta property="og:title" content={SIGN_IN_PAGE.ogTitle} />
           <meta property="og:url" content={SIGN_IN_PAGE.ogUrl} />
-          <meta name="theme-color" content={SIGN_IN_PAGE.themeColor} />
           <meta property="og:image" content={SIGN_IN_PAGE.ogImage} />
           <meta property="fb:app_id" content={SIGN_IN_PAGE.ogFbAppId} />
         </>

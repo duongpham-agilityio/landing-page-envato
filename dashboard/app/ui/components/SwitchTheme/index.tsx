@@ -3,6 +3,9 @@
 import { ReactElement, memo } from 'react';
 import { ColorMode, useColorMode } from '@chakra-ui/react';
 
+// Constants
+import { THEMES } from '@/lib/constants';
+
 // Components
 import { IconButton } from '@/ui/components';
 
@@ -20,8 +23,15 @@ const SwitchThemeComponent = () => {
     dark: <DarkTheme color={colors.common.white} />,
   };
 
+  const handleToggleColorMode = () => {
+    toggleColorMode();
+    document.cookie = `colormode=${
+      colorMode === THEMES.DARK ? THEMES.LIGHT : THEMES.DARK
+    }`;
+  };
+
   return (
-    <IconButton ariaLabel="switch-theme" onClick={toggleColorMode}>
+    <IconButton ariaLabel="switch-theme" onClick={handleToggleColorMode}>
       {icons[colorMode]}
     </IconButton>
   );
