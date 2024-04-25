@@ -430,18 +430,16 @@ const ProductsTableComponent = () => {
           />
         </Box>
       </Fetching>
-      <Box mt={8}>
-        <Pagination
-          pageSize={limit}
-          currentPage={currentPage}
-          isDisabledPrev={isDisablePrev}
-          isDisableNext={isDisableNext}
-          arrOfCurrButtons={pageArray}
-          onLimitChange={handleChangeLimit}
-          onPageChange={handlePageChange}
-          onClickPage={handleClickPage}
-        />
-      </Box>
+      <Pagination
+        pageSize={limit}
+        currentPage={currentPage}
+        isDisabledPrev={isDisablePrev}
+        isDisableNext={isDisableNext}
+        arrOfCurrButtons={pageArray}
+        onLimitChange={handleChangeLimit}
+        onPageChange={handlePageChange}
+        onClickPage={handleClickPage}
+      />
 
       {isOpenConfirmModal && (
         <Modal

@@ -10,41 +10,7 @@ exports[`ChatMember component Should render match with snapshot. 1`] = `
     >
       <h3
         class="chakra-heading css-1rl4kbt"
-      >
-        <div
-          class="css-1wloztz"
-        >
-          <div
-            class="css-1826kcq"
-          >
-            <div
-              class="css-it2hoo"
-            >
-              <img
-                alt="/images/avatar-user-chat.webp"
-                data-nimg="1"
-                decoding="async"
-                height="48"
-                loading="lazy"
-                src="/_next/image?url=%2Fimages%2Favatar-user-chat.webp&w=96&q=75"
-                srcset="/_next/image?url=%2Fimages%2Favatar-user-chat.webp&w=48&q=75 1x, /_next/image?url=%2Fimages%2Favatar-user-chat.webp&w=96&q=75 2x"
-                style="color: transparent; border-radius: 50%; background-size: cover; background-position: 50% 50%; background-repeat: no-repeat;"
-                width="48"
-              />
-              <div
-                class="css-1ezhm34"
-              />
-            </div>
-            <div
-              class="css-dvxtzn"
-            >
-              <p
-                class="chakra-text css-16h4vrm"
-              />
-            </div>
-          </div>
-        </div>
-      </h3>
+      />
     </div>
     <div
       class="css-h5aeco"

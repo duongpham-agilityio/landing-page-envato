@@ -390,7 +390,7 @@ exports[`Personal Page test cases renders UserForm with content 1`] = `
             class="css-4bwcy0"
           >
             <label
-              class="chakra-form__label css-t806qz"
+              class="chakra-form__label css-1rsxo2y"
               for="file"
             >
               <img
@@ -400,7 +400,7 @@ exports[`Personal Page test cases renders UserForm with content 1`] = `
               />
             </label>
             <div
-              class="chakra-input__group css-165prm8"
+              class="chakra-input__group css-1g9k6l2"
               data-group="true"
             >
               <div

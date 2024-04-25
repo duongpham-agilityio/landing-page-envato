@@ -4,15 +4,7 @@ exports[`ChatMemberList render Should render match with snapshot. 1`] = `
 <div>
   <div
     class="css-yvimrc"
-  >
-    <div
-      class="css-228okk"
-    >
-      <div
-        class="css-21a99j"
-      />
-    </div>
-  </div>
+  />
   <span
     hidden=""
     id="__chakra_env"

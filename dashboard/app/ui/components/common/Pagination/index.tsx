@@ -52,16 +52,8 @@ const PaginationComponent = ({
   );
 
   return (
-    <Flex
-      data-testid="pagination"
-      w="100%"
-      justifyContent={{ base: 'center', lg: 'space-between' }}
-    >
-      <Flex
-        display={{ base: 'none', lg: 'inline-flex' }}
-        alignItems="center"
-        position="relative"
-      >
+    <Flex data-testid="pagination" justifyContent="space-between" mt={8}>
+      <Flex alignItems="center">
         <Text w={100} fontSize="sm" fontWeight="semibold" color="text.primary">
           Show result:
         </Text>

@@ -27,7 +27,7 @@ exports[`UpdateProfile component Profile component renders correctly 1`] = `
       class="css-4bwcy0"
     >
       <label
-        class="chakra-form__label css-1egtz7w"
+        class="chakra-form__label css-1qurvr0"
         for="file"
       >
         <img
@@ -37,7 +37,7 @@ exports[`UpdateProfile component Profile component renders correctly 1`] = `
         />
       </label>
       <div
-        class="chakra-input__group css-eh9zni"
+        class="chakra-input__group css-pk0pvq"
         data-group="true"
       >
         <div

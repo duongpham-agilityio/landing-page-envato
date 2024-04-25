@@ -4,7 +4,8 @@ interface DocEvent extends Event {
 }
 
 const code = () => {
-  const localStore: Storage['setItem'] = localStorage.setItem;
+  const localStore: Storage['setItem'] =
+    localStorage.setItem.bind(localStorage);
 
   localStorage.setItem = (key, value) => {
     const event = new Event('localUpdated') as DocEvent;

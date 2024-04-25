@@ -38,7 +38,6 @@ const HistoriesTableComponent = () => {
   const [filter, setFilter] = useState<string>('');
 
   const {
-    data: transactions = [],
     dataHistory,
     isLoading: isLoadingTransactions,
     isError: isTransactionsError,
@@ -185,21 +184,17 @@ const HistoriesTableComponent = () => {
             dataSource={formatTransactionResponse(filterData)}
           />
         </Box>
-        {!!transactions.length && (
-          <Box mt={8}>
-            <Pagination
-              pageSize={data.limit}
-              currentPage={data.currentPage}
-              isDisabledPrev={isDisabledPrev}
-              isDisableNext={isDisableNext}
-              arrOfCurrButtons={arrOfCurrButtons}
-              onLimitChange={handleChangeLimit}
-              onPageChange={handlePageChange}
-              onClickPage={handlePageClick}
-            />
-          </Box>
-        )}
       </Fetching>
+      <Pagination
+        pageSize={data.limit}
+        currentPage={data.currentPage}
+        isDisabledPrev={isDisabledPrev}
+        isDisableNext={isDisableNext}
+        arrOfCurrButtons={arrOfCurrButtons}
+        onLimitChange={handleChangeLimit}
+        onPageChange={handlePageChange}
+        onClickPage={handlePageClick}
+      />
     </>
   );
 };

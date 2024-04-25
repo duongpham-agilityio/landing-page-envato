@@ -105,6 +105,7 @@ const UpdateProfile = ({ control, onUploadError }: TUpdateProfileProps) => {
             <FormLabel
               htmlFor="file"
               cursor="pointer"
+              m={0}
               _hover={{ transform: 'scale(1.1)' }}
             >
               <Image
@@ -118,7 +119,7 @@ const UpdateProfile = ({ control, onUploadError }: TUpdateProfileProps) => {
               />
             </FormLabel>
 
-            <InputGroup boxSize={7}>
+            <InputGroup boxSize={0}>
               <InputLeftElement>
                 <FormLabel htmlFor="file">
                   <Image
