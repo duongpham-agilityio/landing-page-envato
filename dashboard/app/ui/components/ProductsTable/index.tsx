@@ -92,11 +92,11 @@ const ProductsTableComponent = () => {
 
   const productsMemorized = useMemo(
     () =>
-      products?.filter(({ stock }) => {
+      products?.filter(({ stock }) =>
         +stock > 0
           ? PRODUCT_STATUS.IN_STOCK.includes(filter.trim())
-          : PRODUCT_STATUS.SOLD.includes(filter.trim());
-      }),
+          : PRODUCT_STATUS.SOLD.includes(filter.trim()),
+      ),
     [filter, products],
   );
 

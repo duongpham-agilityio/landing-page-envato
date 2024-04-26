@@ -1,7 +1,7 @@
 'use client';
 
 import { memo, useCallback, useEffect, useRef, useState } from 'react';
-import { Box, Heading, Flex } from '@chakra-ui/react';
+import { Box, Heading, Flex, Spinner } from '@chakra-ui/react';
 
 // Components
 import Message from './Message';
@@ -34,6 +34,7 @@ const initialUserChat = {
 
 const BoxChatComponent = () => {
   const [messages, setMessages] = useState<TMessages[]>([]);
+  const [isLoading, setIsLoading] = useState(true);
   const user = authStore((state) => state.user);
   const hasPermission = user?.role === AUTHENTICATION_ROLE.MEMBER;
   const [userChat, setUserChat] = useState(initialUserChat);
@@ -52,6 +53,7 @@ const BoxChatComponent = () => {
       setUserChat(usersData);
       res.exists() ? setMessages(res.data().messages) : await createChatRoom();
     }
+    setIsLoading(false);
   };
 
   const createChatRoom = useCallback(async () => {
@@ -94,36 +96,43 @@ const BoxChatComponent = () => {
         </Flex>
 
         <Box padding={{ base: '24px 20px', lg: '45px 35px' }}>
-          <Box
-            ref={boxRef}
-            overflowX="auto"
-            overflowY="scroll"
-            css={{
-              '&::-webkit-scrollbar': {
-                width: 2,
-              },
-              '&::-webkit-scrollbar-track': {
-                width: 2,
-              },
-              '&::-webkit-scrollbar-thumb': {
-                background: 'gray',
-                borderRadius: '24px',
-              },
-            }}
-            maxHeight={361}
-            padding={5}
-          >
-            {messages.map((message) => (
-              <Message
-                content={message.text}
-                key={message.date.seconds}
-                senderId={message.senderId}
-                avatarAdmin={userChat.avatarAdminUrl}
-                avatarUser={userChat.avatarUrl}
-                superAdminId={userChat.adminId}
-              />
-            ))}
-          </Box>
+          {isLoading ? (
+            <Flex justifyContent="center">
+              <Spinner />
+            </Flex>
+          ) : (
+            <Box
+              ref={boxRef}
+              overflowX="auto"
+              overflowY="scroll"
+              css={{
+                '&::-webkit-scrollbar': {
+                  width: 2,
+                },
+                '&::-webkit-scrollbar-track': {
+                  width: 2,
+                },
+                '&::-webkit-scrollbar-thumb': {
+                  background: 'gray',
+                  borderRadius: '24px',
+                },
+              }}
+              maxHeight={361}
+              padding={5}
+            >
+              {messages.map((message) => (
+                <Message
+                  content={message.text}
+                  key={message.date.seconds}
+                  senderId={message.senderId}
+                  avatarAdmin={userChat.avatarAdminUrl}
+                  avatarUser={userChat.avatarUrl}
+                  superAdminId={userChat.adminId}
+                />
+              ))}
+            </Box>
+          )}
+
           <InputSendMessages boxRef={boxRef} />
         </Box>
       </Box>
