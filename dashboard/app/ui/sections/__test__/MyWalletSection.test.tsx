@@ -1,5 +1,5 @@
 import preloadAll from 'jest-next-dynamic';
-import MyWalletsSection from '../MyWalletSection';
+import MyWalletsSection from '../MyWallet';
 import { renderQueryProviderTest } from '@/lib/utils/testUtils';
 
 jest.mock('@/lib/hooks', () => ({

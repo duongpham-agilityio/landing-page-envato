@@ -195,9 +195,11 @@ const TransactionTableComponent = ({
         sortBy && sortBy(key as TSortField);
       };
 
-      if (!title) return <Th w={50} maxW={50} />;
-
-      return <HeadCell key={title} title={title} onClick={handleClick} />;
+      return title ? (
+        <HeadCell key={title} title={title} onClick={handleClick} />
+      ) : (
+        <Th w={50} maxW={50} />
+      );
     },
     [sortBy],
   );
@@ -355,37 +357,38 @@ const TransactionTableComponent = ({
     [],
   );
 
-  const columns = useMemo(() => {
-    if (isOpenHistoryModal) {
-      return COLUMNS_HISTORY(
-        renderHead,
-        renderNameUser,
-        renderPaymentStatus,
-        renderTransactionStatus,
-        renderSpent,
-      );
-    }
-    return COLUMNS_DASHBOARD(
+  const columns = useMemo(
+    () =>
+      isOpenHistoryModal
+        ? COLUMNS_HISTORY(
+            renderHead,
+            renderNameUser,
+            renderPaymentStatus,
+            renderTransactionStatus,
+            renderSpent,
+          )
+        : COLUMNS_DASHBOARD(
+            renderHead,
+            renderNameUser,
+            renderEmail,
+            renderLocation,
+            renderSpent,
+            renderRole,
+            renderActionIcon,
+          ),
+    [
+      isOpenHistoryModal,
+      renderActionIcon,
+      renderEmail,
       renderHead,
       renderNameUser,
-      renderEmail,
+      renderPaymentStatus,
+      renderRole,
       renderLocation,
       renderSpent,
-      renderRole,
-      renderActionIcon,
-    );
-  }, [
-    isOpenHistoryModal,
-    renderActionIcon,
-    renderEmail,
-    renderHead,
-    renderNameUser,
-    renderPaymentStatus,
-    renderRole,
-    renderLocation,
-    renderSpent,
-    renderTransactionStatus,
-  ]);
+      renderTransactionStatus,
+    ],
+  );
 
   return (
     <Indicator isOpen={isUpdateTransaction || isDeleteTransaction}>

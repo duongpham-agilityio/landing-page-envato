@@ -144,11 +144,7 @@ const TotalBalanceComponent = (): JSX.Element => {
 
   const handleOnSubmitAddMoney = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    if (!hasPinCode) {
-      onOpenSetPinCodeModal();
-    } else {
-      onOpenConfirmPinCodeModal();
-    }
+    hasPinCode ? onOpenConfirmPinCodeModal() : onOpenSetPinCodeModal();
   };
 
   const onSubmitPinCode: SubmitHandler<TPinCodeForm> = useCallback(

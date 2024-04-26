@@ -177,9 +177,7 @@ const UserSelectorComponent = ({
   useEffect(() => {
     const handleCloseOptions = () => setOpenOptions(false);
 
-    if (isOpenOptions) {
-      window.addEventListener('click', handleCloseOptions);
-    }
+    isOpenOptions && window.addEventListener('click', handleCloseOptions);
 
     return () => {
       window.removeEventListener('click', handleCloseOptions);

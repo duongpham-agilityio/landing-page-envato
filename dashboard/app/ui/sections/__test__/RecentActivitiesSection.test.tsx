@@ -5,7 +5,7 @@ import { useRouter, useSearchParams } from 'next/navigation';
 import { renderQueryProviderTest } from '@/lib/utils/testUtils';
 
 // Sections
-import RecentActivities from '../RecentActivitiesSection';
+import RecentActivities from '../RecentActivities';
 
 describe('RecentActivitiesSection render', () => {
   beforeEach(async () => {

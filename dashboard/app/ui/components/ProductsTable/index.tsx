@@ -93,11 +93,9 @@ const ProductsTableComponent = () => {
   const productsMemorized = useMemo(
     () =>
       products?.filter(({ stock }) => {
-        if (+stock > 0) {
-          return PRODUCT_STATUS.IN_STOCK.includes(filter.trim());
-        } else {
-          return PRODUCT_STATUS.SOLD.includes(filter.trim());
-        }
+        +stock > 0
+          ? PRODUCT_STATUS.IN_STOCK.includes(filter.trim())
+          : PRODUCT_STATUS.SOLD.includes(filter.trim());
       }),
     [filter, products],
   );
@@ -232,11 +230,13 @@ const ProductsTableComponent = () => {
         sortBy && sortBy(key as TProductSortField);
       };
 
-      if (!title) return <Th w={50} maxW={50} />;
-
-      return <HeadCell key={title} title={title} onClick={handleClick} />;
+      return title ? (
+        <HeadCell key={title} title={title} onClick={handleClick} />
+      ) : (
+        <Th w={50} maxW={50} />
+      );
     },
-    [toast, updateProduct, userId],
+    [sortBy],
   );
 
   const renderNameUser = useCallback(

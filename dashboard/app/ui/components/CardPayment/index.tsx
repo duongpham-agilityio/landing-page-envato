@@ -145,11 +145,7 @@ const CardPaymentComponent = (): JSX.Element => {
 
   const handleOnSubmitSendMoney = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    if (!hasPinCode) {
-      onOpenSetPinCodeModal();
-    } else {
-      onOpenConfirmPinCodeModal();
-    }
+    hasPinCode ? onOpenConfirmPinCodeModal() : onOpenSetPinCodeModal();
   };
 
   const onSubmitSendMoney: SubmitHandler<TTransfer> = useCallback(

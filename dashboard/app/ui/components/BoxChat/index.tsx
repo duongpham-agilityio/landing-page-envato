@@ -58,11 +58,10 @@ const BoxChatComponent = () => {
     // Get user data
     const usersData = await getInfoRoomChat(user);
 
-    if (usersData) {
+    if (usersData)
       await setDoc(doc(db, FIREBASE_CHAT.CHATS, usersData.roomChatId), {
         messages: [],
       });
-    }
   }, [user]);
 
   useEffect(() => {

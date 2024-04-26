@@ -82,9 +82,11 @@ const HistoriesTableComponent = () => {
         sortBy && sortBy(key as TSortField);
       };
 
-      if (!title) return <Th w={50} maxW={50} />;
-
-      return <HeadCell key={title} title={title} onClick={handleClick} />;
+      return title ? (
+        <HeadCell key={title} title={title} onClick={handleClick} />
+      ) : (
+        <Th w={50} maxW={50} />
+      );
     },
     [sortBy],
   );

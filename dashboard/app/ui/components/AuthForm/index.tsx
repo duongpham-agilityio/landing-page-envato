@@ -168,9 +168,7 @@ const AuthFormComponent = ({
       onChange: (value: string) => void,
     ) =>
       (data: string) => {
-        if (isError) {
-          clearErrors(field);
-        }
+        isError && clearErrors(field);
 
         onChange(data);
       },
@@ -339,7 +337,7 @@ const AuthFormComponent = ({
               textTransform="capitalize"
               textDecoration="underline"
               onClick={(e) => {
-                if (isSubmitting) return e.preventDefault();
+                isSubmitting && e.preventDefault();
               }}
             >
               forgot password?
@@ -476,7 +474,7 @@ const AuthFormComponent = ({
           textDecoration="underline"
           ml={2}
           onClick={(e) => {
-            if (isSubmitting) return e.preventDefault();
+            isSubmitting && e.preventDefault();
           }}
         >
           {!isRegister ? 'Sign Up' : 'Sign In'}

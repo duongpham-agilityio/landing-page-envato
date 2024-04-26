@@ -191,40 +191,38 @@ const Card = ({ balance }: TCardProps) => {
     resetConfirmPinCodeForm();
   }, [onCloseConfirmPinCodeModal, resetConfirmPinCodeForm]);
 
-  const pinCodeModalBody = useMemo(() => {
-    if (!user?.pinCode)
-      return (
-        <PinCode
-          control={setPinCodeControl}
-          isDisabled={!isSetValid || isSetSubmitting}
-          onSubmit={handleSubmitSetPinCode(onSubmitPinCode)}
-          onClose={handleCloseSetPinCodeModal}
-        />
-      );
-    else {
-      return (
+  const pinCodeModalBody = useMemo(
+    () =>
+      user?.pinCode ? (
         <PinCode
           control={confirmPinCodeControl}
           isDisabled={!isConfirmValid || isConfirmSubmitting}
           onSubmit={handleSubmitConfirmPinCode(onSubmitPinCode)}
           onClose={handleCloseConfirmPinCodeModal}
         />
-      );
-    }
-  }, [
-    confirmPinCodeControl,
-    handleCloseConfirmPinCodeModal,
-    handleCloseSetPinCodeModal,
-    handleSubmitConfirmPinCode,
-    handleSubmitSetPinCode,
-    isConfirmSubmitting,
-    isConfirmValid,
-    isSetSubmitting,
-    isSetValid,
-    onSubmitPinCode,
-    setPinCodeControl,
-    user?.pinCode,
-  ]);
+      ) : (
+        <PinCode
+          control={setPinCodeControl}
+          isDisabled={!isSetValid || isSetSubmitting}
+          onSubmit={handleSubmitSetPinCode(onSubmitPinCode)}
+          onClose={handleCloseSetPinCodeModal}
+        />
+      ),
+    [
+      confirmPinCodeControl,
+      handleCloseConfirmPinCodeModal,
+      handleCloseSetPinCodeModal,
+      handleSubmitConfirmPinCode,
+      handleSubmitSetPinCode,
+      isConfirmSubmitting,
+      isConfirmValid,
+      isSetSubmitting,
+      isSetValid,
+      onSubmitPinCode,
+      setPinCodeControl,
+      user?.pinCode,
+    ],
+  );
 
   return (
     <>

@@ -19,7 +19,7 @@ import { prefetchStatistical } from '@/lib/utils';
 import lazy from 'next/dynamic';
 // import { DashBoardSection } from '@/ui/sections';
 
-const DashBoardSection = lazy(() => import('@/ui/sections/DashBoardSection'));
+const DashBoardSection = lazy(() => import('@/ui/sections/DashBoard'));
 
 export const dynamic = 'force-dynamic';
 

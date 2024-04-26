@@ -95,10 +95,10 @@ const RecentActivitiesTableComponent = () => {
         sortBy && sortBy(key as TActivitiesSortField);
       };
 
-      return !title ? (
-        <Th w={50} maxW={50} />
-      ) : (
+      return title ? (
         <HeadCell key={title} title={title} onClick={handleClick} />
+      ) : (
+        <Th w={50} maxW={50} />
       );
     },
     [sortBy],

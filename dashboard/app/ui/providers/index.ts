@@ -1,4 +1,4 @@
-export { default as ChakraProvider } from './ChakraUIProvider';
-export { default as QueryProvider } from './QueryProvider';
-export { default as CheckAuthenticationProvider } from './CheckAuthenticationProvider';
-export { default as CheckPinCodeProvider } from './CheckPinCodeProvider';
+export { default as ChakraProvider } from './ChakraUI';
+export { default as QueryProvider } from './Query';
+export { default as CheckAuthenticationProvider } from './CheckAuthentication';
+export { default as CheckPinCodeProvider } from './CheckPinCode';

@@ -61,26 +61,22 @@ const Fetching = ({
     [quality, size],
   );
 
-  if (isError) {
-    return (
-      <Heading
-        as="h3"
-        color="text.primary"
-        bgColor="background.body.secondary"
-        rounded="lg"
-        boxShadow="sm"
-        p={4}
-      >
-        {errorMessage}
-      </Heading>
-    );
-  }
-
-  if (isLoading) {
-    return skeleton[variant];
-  }
-
-  return <>{children}</>;
+  return isError ? (
+    <Heading
+      as="h3"
+      color="text.primary"
+      bgColor="background.body.secondary"
+      rounded="lg"
+      boxShadow="sm"
+      p={4}
+    >
+      {errorMessage}
+    </Heading>
+  ) : isLoading ? (
+    skeleton[variant]
+  ) : (
+    <>{children}</>
+  );
 };
 
 export default Fetching;
