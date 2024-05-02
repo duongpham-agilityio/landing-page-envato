@@ -1,5 +1,5 @@
 // Libs
-import React, { memo, useState } from 'react';
+import React, { memo } from 'react';
 import { useDropzone } from 'react-dropzone';
 import {
   Box,
@@ -18,40 +18,29 @@ import { Loading } from '..';
 // Constants
 import { IMAGES } from '@/lib/constants';
 
-// Services
-import { useImageUploader } from '@/lib/hooks';
-
 export type TUploadImageImagesProps = {
   label: string;
-  isError?: boolean;
-  images?: string[];
-  onUploadError: (message: string) => void;
-  onChange: (value: string[]) => void;
+  previewURL?: string[];
+  onChange: (files: File[]) => void;
+  onRemove: (index: number) => void;
 };
 
 const UploadImagesComponent = ({
   label,
-  images = [],
-  isError = false,
+  previewURL = [],
   onChange,
-  onUploadError,
+  onRemove,
 }: TUploadImageImagesProps) => {
-  const [previewURL, setPreviewURL] = useState<string[]>(images);
-  const { onDrop } = useImageUploader({
-    onChange,
-    onUploadError,
-    setPreviewURL,
-  });
+  const onDrop = (acceptedFiles: File[]) => {
+    onChange(acceptedFiles);
+  };
 
   const { getRootProps, getInputProps, isFileDialogActive } = useDropzone({
     onDrop,
   });
 
   const handleRemoveImage = (index: number) => {
-    const updatedImages = [...previewURL];
-    updatedImages.splice(index, 1);
-    setPreviewURL(updatedImages);
-    onChange(updatedImages);
+    onRemove(index);
   };
 
   return (
@@ -132,7 +121,7 @@ const UploadImagesComponent = ({
       <Box
         {...getRootProps()}
         border="1px"
-        borderColor={isError ? 'primary.1000' : 'primary.600'}
+        borderColor="primary.600"
         borderRadius="md"
         p={4}
         textAlign="center"

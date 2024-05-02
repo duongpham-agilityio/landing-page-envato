@@ -1,6 +1,6 @@
 'use client';
 
-import { memo, useCallback, useMemo } from 'react';
+import { memo, useCallback, useMemo, useState } from 'react';
 import { AxiosResponse } from 'axios';
 
 import {
@@ -45,8 +45,12 @@ import { customToast, formatAllowOnlyNumbers } from '@/lib/utils';
 
 // Providers
 import { QueryProvider } from '@/ui/providers';
+import { uploadImage } from '@/lib/services';
 
 const UserFormComponent = () => {
+  const [avatarFile, setAvatarFile] = useState<File>();
+  const [isAvatarDirty, setIsAvatarDirty] = useState(false);
+
   const { setUser } = useAuth();
   const user = authStore((state) => state.user);
   const { mutate: updateUser, status, isPending: isSubmit } = useUpdateUser();
@@ -82,41 +86,6 @@ const UserFormComponent = () => {
     mode: 'onBlur',
   });
 
-  const handleSubmitForm = useCallback(
-    (updatedInfo: TUserDetail) => {
-      updateUser(updatedInfo, {
-        onSuccess: (response: AxiosResponse<TUserDetail>) => {
-          const updatedUser: TUserDetail = {
-            ...response.data,
-            id: response.data._id || '',
-          };
-
-          setUser({ user: updatedUser });
-
-          toast(
-            customToast(
-              SUCCESS_MESSAGES.UPDATE_SUCCESS.title,
-              SUCCESS_MESSAGES.UPDATE_SUCCESS.description,
-              STATUS.SUCCESS,
-            ),
-          );
-
-          reset(updatedInfo);
-        },
-        onError: () => {
-          toast(
-            customToast(
-              ERROR_MESSAGES.UPDATE_FAIL.title,
-              ERROR_MESSAGES.UPDATE_FAIL.description,
-              STATUS.ERROR,
-            ),
-          );
-        },
-      });
-    },
-    [updateUser, setUser, reset, toast],
-  );
-
   const handleShowErrorWhenUploadImage = useCallback((message: string) => {
     toast({
       description: message,
@@ -125,6 +94,75 @@ const UserFormComponent = () => {
       position: 'top-right',
     });
   }, []);
+
+  const handleAvatarChange = useCallback((avatarFile: File) => {
+    setAvatarFile(avatarFile);
+    setIsAvatarDirty(true);
+  }, []);
+
+  const handleSubmitForm = useCallback(
+    async (data: TUserDetail) => {
+      let uploadedAvatarUrl: string = '';
+
+      try {
+        if (avatarFile) {
+          const formData = new FormData();
+          formData.append('image', avatarFile);
+
+          uploadedAvatarUrl = await uploadImage(formData);
+        }
+
+        const updatedInfo = {
+          ...data,
+          avatarURL: uploadedAvatarUrl || user?.avatarURL,
+        };
+
+        updateUser(updatedInfo, {
+          onSuccess: (response: AxiosResponse<TUserDetail>) => {
+            const updatedUser: TUserDetail = {
+              ...response.data,
+              id: response.data._id || '',
+            };
+
+            setUser({ user: updatedUser });
+            setIsAvatarDirty(false);
+
+            toast(
+              customToast(
+                SUCCESS_MESSAGES.UPDATE_SUCCESS.title,
+                SUCCESS_MESSAGES.UPDATE_SUCCESS.description,
+                STATUS.SUCCESS,
+              ),
+            );
+
+            reset(updatedInfo);
+          },
+          onError: () => {
+            setIsAvatarDirty(false);
+
+            toast(
+              customToast(
+                ERROR_MESSAGES.UPDATE_FAIL.title,
+                ERROR_MESSAGES.UPDATE_FAIL.description,
+                STATUS.ERROR,
+              ),
+            );
+          },
+        });
+      } catch (error) {
+        handleShowErrorWhenUploadImage(ERROR_MESSAGES.UPDATE_FAIL.title);
+      }
+    },
+    [
+      updateUser,
+      avatarFile,
+      handleShowErrorWhenUploadImage,
+      user?.avatarURL,
+      setUser,
+      toast,
+      reset,
+    ],
+  );
 
   const handleChangeValue = useCallback(
     <T,>(field: keyof TUserDetail, changeHandler: (value: T) => void) =>
@@ -136,8 +174,11 @@ const UserFormComponent = () => {
   );
 
   const disabled = useMemo(
-    () => !isDirty || !isValid || status === STATUS_SUBMIT.PENDING,
-    [isDirty, isValid, status],
+    () =>
+      !(isDirty || isAvatarDirty) ||
+      !isValid ||
+      status === STATUS_SUBMIT.PENDING,
+    [isAvatarDirty, isDirty, isValid, status],
   );
 
   return (
@@ -503,6 +544,7 @@ const UserFormComponent = () => {
             <UpdateProfile
               onUploadError={handleShowErrorWhenUploadImage}
               control={control}
+              onFileChange={handleAvatarChange}
             />
           </GridItem>
         </Grid>

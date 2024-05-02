@@ -1,6 +1,7 @@
 'use client';
 
-import { useCallback, useEffect } from 'react';
+import { useEffect } from 'react';
+import { useQueryClient } from '@tanstack/react-query';
 import {
   Box,
   Flex,
@@ -14,6 +15,7 @@ import { END_POINTS, SHOW_TIME, SIDEBAR } from '@/lib/constants';
 
 // Component
 import { Header, SideBar } from '@/ui/layouts';
+import { Indicator } from '@/ui/components';
 
 // Provider
 import { CheckPinCodeProvider } from '@/ui/providers';
@@ -23,17 +25,18 @@ import { TAuthStoreData, authStore } from '@/lib/stores';
 
 // Interfaces
 import { TUserDetail } from '@/lib/interfaces';
+
+// Hooks
 import { useAuth } from '@/lib/hooks';
-import { Indicator } from '@/ui/components';
-import { breakpoints } from '@/ui/themes/bases';
-import { useQueryClient } from '@tanstack/react-query';
+
+// Utils
 import { isWindowDefined } from '@/lib/utils';
+
+// firebase
 import { getMessaging, onMessage } from 'firebase/messaging';
 
 const MainLayout = ({ children }: { children: React.ReactNode }) => {
-  const [isDesktop] = useMediaQuery(
-    `(min-width: ${breakpoints ? breakpoints['4xl'] : ''})`,
-  );
+  const [isDesktop] = useMediaQuery('(min-width: breakpoints.4xl)');
   const {
     isOpen: isExpandSidebar,
     onOpen,
@@ -44,8 +47,6 @@ const MainLayout = ({ children }: { children: React.ReactNode }) => {
 
   const user = authStore((state): TAuthStoreData['user'] => state.user);
   const { isLogoutHandling, signOut } = useAuth();
-
-  const handleSignOut = useCallback(() => signOut(), [signOut]);
 
   useEffect(() => {
     if (isDesktop) {
@@ -108,7 +109,7 @@ const MainLayout = ({ children }: { children: React.ReactNode }) => {
               user={user as TUserDetail}
               onOpen={onOpen}
               onClose={onClose}
-              onSignOut={handleSignOut}
+              onSignOut={signOut}
             />
             <Header />
             {children}

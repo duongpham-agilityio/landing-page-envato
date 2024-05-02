@@ -27,7 +27,7 @@ const ExpandSidebar = ({
   onClose,
   onSignOut,
 }: TSidebarProps) => {
-  const [isMobileAndTablet] = useMediaQuery('(max-width: 1731px)');
+  const [isMobileAndTablet] = useMediaQuery('(max-width: breakpoints.4xl)');
 
   const handleCloseSideBar = useCallback(() => {
     isMobileAndTablet && onClose();

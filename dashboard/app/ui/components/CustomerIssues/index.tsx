@@ -1,10 +1,10 @@
 'use client';
 
 import { memo } from 'react';
-import { Box, Button, Flex, Spinner, Text } from '@chakra-ui/react';
+import { Box, Button, Flex, Text } from '@chakra-ui/react';
 
 // Components
-import { CardIssues } from '@/ui/components';
+import { CardIssues, Loading } from '@/ui/components';
 
 // Interfaces
 import { IIssues } from '@/lib/interfaces';
@@ -62,11 +62,7 @@ const CustomerIssues = ({
       </Box>
     )}
 
-    {isFetching && (
-      <Flex justifyContent="center">
-        <Spinner />
-      </Flex>
-    )}
+    {isFetching && <Loading />}
 
     {hasNextPage && (
       <Button

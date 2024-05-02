@@ -1,6 +1,6 @@
 'use client';
 
-import { memo, useCallback, useMemo } from 'react';
+import { memo, useCallback, useMemo, useState } from 'react';
 import { Controller, useForm } from 'react-hook-form';
 
 // Components
@@ -24,12 +24,18 @@ import { TProductRequest, TProductResponse } from '@/lib/interfaces';
 import {
   AUTH_SCHEMA,
   CURRENCY_PRODUCT,
+  ERROR_MESSAGES,
+  LIMIT_PRODUCT_IMAGES,
+  REGEX,
   SHOW_TIME,
   STATUS_SUBMIT,
 } from '@/lib/constants';
 
 // Stores
 import { authStore } from '@/lib/stores';
+
+// Services
+import { uploadImage } from '@/lib/services';
 
 // Utils
 import { formatAmountNumber, parseFormattedNumber } from '@/lib/utils';
@@ -48,6 +54,12 @@ const ProductForm = ({
   onCloseModal,
 }: ProductProps) => {
   const toast = useToast();
+  const [previewURL, setPreviewURL] = useState<string[]>(
+    data?.product.imageURLs || [],
+  );
+  const [imageFiles, setImageFiles] = useState<File[]>([]);
+  const [isImagesDirty, setIsImagesDirty] = useState(false);
+
   const {
     control,
     formState: { isDirty },
@@ -67,35 +79,10 @@ const ProductForm = ({
     },
   });
   const userId = authStore((state) => state.user?.id);
+
   const disabled = useMemo(
-    () => !isDirty || status === STATUS_SUBMIT.PENDING,
-    [isDirty],
-  );
-
-  const handleChangeValue = useCallback(
-    <T,>(field: keyof TProductRequest, changeHandler: (value: T) => void) =>
-      (data: T) => {
-        clearErrors(field);
-        changeHandler(data);
-      },
-    [clearErrors],
-  );
-
-  const handleSubmitForm = useCallback(
-    (data: TProductRequest) => {
-      const requestData = {
-        ...data,
-        stock: parseFormattedNumber(data.stock).toString(),
-        amount: parseFormattedNumber(data.amount).toString(),
-        userId,
-      };
-      data._id
-        ? onUpdateProduct && onUpdateProduct(requestData)
-        : onCreateProduct && onCreateProduct(requestData);
-      reset(requestData);
-      onCloseModal && onCloseModal();
-    },
-    [onCloseModal, onCreateProduct, onUpdateProduct, reset, userId],
+    () => !(isDirty || isImagesDirty) || status === STATUS_SUBMIT.PENDING,
+    [isDirty, isImagesDirty],
   );
 
   const handleShowErrorWhenUploadImage = useCallback(
@@ -108,6 +95,100 @@ const ProductForm = ({
       });
     },
     [toast],
+  );
+
+  const handleFilesChange = useCallback(
+    (files: File[]) => {
+      const imagesPreview: React.SetStateAction<string[]> = [];
+
+      if (files.length > LIMIT_PRODUCT_IMAGES) {
+        return handleShowErrorWhenUploadImage(ERROR_MESSAGES.UPLOAD_IMAGE_ITEM);
+      }
+
+      files.map(async (file) => {
+        if (!file) {
+          return;
+        }
+
+        // Check type of image
+        if (!REGEX.IMG.test(file.name)) {
+          return handleShowErrorWhenUploadImage(ERROR_MESSAGES.UPLOAD_IMAGE);
+        }
+
+        const previewImage: string = URL.createObjectURL(file);
+        imagesPreview.push(previewImage);
+      });
+
+      setImageFiles(files);
+      setPreviewURL(imagesPreview);
+      setIsImagesDirty(true);
+    },
+    [handleShowErrorWhenUploadImage],
+  );
+
+  const handleRemoveImage = useCallback(
+    (index: number) => {
+      const updatedImages = [...previewURL];
+      updatedImages.splice(index, 1);
+
+      setPreviewURL(updatedImages);
+      setIsImagesDirty(true);
+    },
+    [previewURL],
+  );
+
+  const handleChangeValue = useCallback(
+    <T,>(field: keyof TProductRequest, changeHandler: (value: T) => void) =>
+      (data: T) => {
+        clearErrors(field);
+        changeHandler(data);
+      },
+    [clearErrors],
+  );
+
+  const handleSubmitForm = useCallback(
+    async (data: TProductRequest) => {
+      const imagesUpload: string[] = [];
+
+      await Promise.all(
+        imageFiles.map(async (file) => {
+          try {
+            const formData = new FormData();
+            formData.append('image', file);
+
+            const result: string = await uploadImage(formData);
+
+            imagesUpload.push(result);
+          } catch (error) {
+            handleShowErrorWhenUploadImage(ERROR_MESSAGES.UPDATE_FAIL.title);
+          }
+        }),
+      );
+
+      const requestData = {
+        ...data,
+        imageURLs: imagesUpload.length ? imagesUpload : previewURL,
+        stock: parseFormattedNumber(data.stock).toString(),
+        amount: parseFormattedNumber(data.amount).toString(),
+        userId,
+      };
+
+      data._id
+        ? onUpdateProduct && onUpdateProduct(requestData)
+        : onCreateProduct && onCreateProduct(requestData);
+      reset(requestData);
+      onCloseModal && onCloseModal();
+    },
+    [
+      handleShowErrorWhenUploadImage,
+      imageFiles,
+      onCloseModal,
+      onCreateProduct,
+      onUpdateProduct,
+      previewURL,
+      reset,
+      userId,
+    ],
   );
 
   return (
@@ -283,14 +364,13 @@ const ProductForm = ({
       <Controller
         control={control}
         name="imageURLs"
-        render={({ field, fieldState: { error } }) => (
+        render={() => (
           <FormControl>
             <UploadImages
               label="Gallery Thumbnail"
-              images={data?.product.imageURLs}
-              onUploadError={handleShowErrorWhenUploadImage}
-              onChange={field.onChange}
-              isError={!!error}
+              previewURL={previewURL}
+              onChange={handleFilesChange}
+              onRemove={handleRemoveImage}
             />
           </FormControl>
         )}

@@ -23,56 +23,48 @@ import {
   MAX_SIZE,
 } from '@/lib/constants';
 
-// Services
-import { uploadImage } from '@/lib/services/image';
-
 // Interface
 import { TUserDetail } from '@/lib/interfaces';
 
 export type TUpdateProfileProps = {
   control: Control<TUserDetail>;
   onUploadError: (message: string) => void;
+  onFileChange: (file: File) => void;
 };
 
-const UpdateProfile = ({ control, onUploadError }: TUpdateProfileProps) => {
+const UpdateProfile = ({
+  control,
+  onUploadError,
+  onFileChange,
+}: TUpdateProfileProps) => {
   const [previewURL, setPreviewURL] = useState<string>('');
 
   const handleChangeFile = useCallback(
-    (callback: (value: string) => void) =>
-      async (e: ChangeEvent<HTMLInputElement>) => {
-        const file = (e.target.files && e.target.files[0]) as File;
+    (e: ChangeEvent<HTMLInputElement>) => {
+      const file = (e.target.files && e.target.files[0]) as File;
 
-        // Check file is empty or undefined
-        if (!file) {
-          return;
-        }
+      // Check file is empty or undefined
+      if (!file) {
+        return;
+      }
 
-        // Check type of image
-        if (!REGEX.IMG.test(file.name)) {
-          return onUploadError(ERROR_MESSAGES.UPLOAD_IMAGE);
-        }
+      // Check type of image
+      if (!REGEX.IMG.test(file.name)) {
+        return onUploadError(ERROR_MESSAGES.UPLOAD_IMAGE);
+      }
 
-        // Check size of image
-        if (file.size > MAX_SIZE) {
-          return onUploadError(ERROR_MESSAGES.UPLOAD_IMAGE_SIZE);
-        }
+      // Check size of image
+      if (file.size > MAX_SIZE) {
+        return onUploadError(ERROR_MESSAGES.UPLOAD_IMAGE_SIZE);
+      }
 
-        // Uploading file
-        try {
-          callback('');
-          const previewImage: string = URL.createObjectURL(file);
-          const formData = new FormData();
+      const previewImage: string = URL.createObjectURL(file);
 
-          formData.append('image', file);
-          setPreviewURL(previewImage);
+      setPreviewURL(previewImage);
 
-          const result = await uploadImage(formData);
-          callback(result);
-        } catch (error) {
-          onUploadError(ERROR_MESSAGES.UPDATE_FAIL.title);
-        }
-      },
-    [onUploadError],
+      onFileChange(file);
+    },
+    [onFileChange, onUploadError],
   );
 
   return (
@@ -100,7 +92,7 @@ const UpdateProfile = ({ control, onUploadError }: TUpdateProfileProps) => {
         control={control}
         name="avatarURL"
         rules={AUTH_SCHEMA.AVATAR_URL}
-        render={({ field: { value, onChange } }) => (
+        render={({ field: { value } }) => (
           <Center position="relative">
             <FormLabel
               htmlFor="file"
@@ -148,7 +140,7 @@ const UpdateProfile = ({ control, onUploadError }: TUpdateProfileProps) => {
                   height="full"
                   id="file"
                   data-testid="upload-image"
-                  onChange={handleChangeFile(onChange)}
+                  onChange={handleChangeFile}
                   accept="image/*"
                   data-testId="upload-image"
                 />
