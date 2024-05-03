@@ -5,6 +5,15 @@ import { Box, Heading, useDisclosure, useToast } from '@chakra-ui/react';
 import { SubmitHandler } from 'react-hook-form';
 import { AxiosError } from 'axios';
 
+// Components
+import { PinCodeModal } from '@/ui/components';
+import CardBalance from './CardBalance';
+import UserSelector from './UserSelector';
+import EnterMoney from './EnterMoney';
+
+// Constants
+import { ERROR_MESSAGES, STATUS, SUCCESS_MESSAGES } from '@/lib/constants';
+
 // Hooks
 import {
   useAuth,
@@ -15,23 +24,14 @@ import {
   useWallet,
 } from '@/lib/hooks';
 
-// Components
-import { PinCodeModal } from '@/ui/components';
-import CardBalance from './CardBalance';
-import UserSelector from './UserSelector';
-import EnterMoney from './EnterMoney';
-
 // Stores
 import { authStore } from '@/lib/stores';
 
-// Types
-import { TPinCodeForm, TSendMoney } from '@/lib/interfaces';
-
-// Constants
-import { ERROR_MESSAGES, STATUS, SUCCESS_MESSAGES } from '@/lib/constants';
-
 // Utils
 import { customToast, getErrorMessageFromAxiosError } from '@/lib/utils';
+
+// Types
+import { TPinCodeForm, TSendMoney } from '@/lib/interfaces';
 
 // services
 import { TMoneyResponse } from '@/lib/services';

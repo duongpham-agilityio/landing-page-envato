@@ -3,11 +3,11 @@ import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
 // Constants
 import { END_POINTS } from '@/lib/constants';
 
-// Interfaces
-import { TNotification } from '@/lib/interfaces';
-
 // Services
 import { getNotifications, notificationHttpRequest } from '@/lib/services';
+
+// Interfaces
+import { TNotification } from '@/lib/interfaces';
 
 export const useNotification = (userId?: string) => {
   const queryClient = useQueryClient();

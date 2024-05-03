@@ -1,7 +1,7 @@
 import { memo } from 'react';
+import { Box } from '@chakra-ui/react';
 import isEqual from 'react-fast-compare';
 import Image from 'next/image';
-import { Box } from '@chakra-ui/react';
 
 // Utils
 import { generatePlaceholder } from '@/lib/utils';

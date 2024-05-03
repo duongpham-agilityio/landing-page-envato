@@ -9,20 +9,20 @@ import {
 import isEqual from 'react-fast-compare';
 import { Control, Controller } from 'react-hook-form';
 
-// Colors
-import { colors } from '@/ui/themes/bases/colors';
+// Constants
+import { AUTH_SCHEMA } from '@/lib/constants';
 
 // Types
 import { TPinCodeForm } from '@/lib/interfaces';
 
-// Constants
-import { AUTH_SCHEMA } from '@/lib/constants';
+// Themes
+import { colors } from '@/ui/themes/bases/colors';
 
 export type TPinCodeProps = {
+  control: Control<TPinCodeForm>;
   isDisabled?: boolean;
   onSubmit: (e: FormEvent<HTMLDivElement>) => void;
   onClose: () => void;
-  control: Control<TPinCodeForm>;
 };
 
 const defaultStyle = {
@@ -32,10 +32,10 @@ const defaultStyle = {
 };
 
 const PinCodeComponent = ({
+  control,
   isDisabled = false,
   onSubmit,
   onClose,
-  control,
 }: TPinCodeProps) => (
   <VStack as="form" onSubmit={onSubmit}>
     <HStack justifyContent="center" gap={2}>

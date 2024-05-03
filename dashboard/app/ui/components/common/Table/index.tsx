@@ -18,6 +18,7 @@ import { ERROR_MESSAGES } from '@/lib/constants';
 
 // Types
 import { TDataSource, THeaderTable } from '@/lib/interfaces';
+
 type TTableProps = TableProps & {
   columns?: THeaderTable[];
   dataSource?: TDataSource[];

@@ -8,19 +8,10 @@ import {
   useDisclosure,
   useToast,
 } from '@chakra-ui/react';
-import { TAuthStoreData, authStore } from '@/lib/stores';
 
 // Components
-import { Modal, PinCode } from '..';
-
-// Icons
 import { Eye, EyeSlash } from '@/ui/components/Icons';
-
-// Utils
-import { formatDecimalNumber } from '@/lib/utils';
-
-// Types
-import { TPinCodeForm } from '@/lib/interfaces';
+import { Modal, PinCode } from '..';
 
 // Constants
 import {
@@ -33,8 +24,14 @@ import {
 // Hooks
 import { useAuth, usePinCode } from '@/lib/hooks';
 
+// Store
+import { TAuthStoreData, authStore } from '@/lib/stores';
+
 // Utils
-import { customToast } from '@/lib/utils';
+import { customToast, formatDecimalNumber } from '@/lib/utils';
+
+// Types
+import { TPinCodeForm } from '@/lib/interfaces';
 
 type TBalanceStatus = {
   balance: string;

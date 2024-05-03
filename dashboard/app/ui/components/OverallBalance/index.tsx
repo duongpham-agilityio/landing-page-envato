@@ -3,16 +3,12 @@
 import { memo, useCallback, useMemo, useState } from 'react';
 import isEqual from 'react-fast-compare';
 import dynamic from 'next/dynamic';
-
-// Components
-const Chart = dynamic(() => import('react-apexcharts'), {
-  ssr: false,
-  loading: () => <Skeleton bg="background.component.primary" h={225} />,
-});
 import { Box, Flex, Heading, Skeleton, Text } from '@chakra-ui/react';
 
-// Icon
+// Components
 import { Arrow } from '@/ui/components/Icons';
+import Select, { TOption } from '@/ui/components/common/Select';
+import { Fetching } from '..';
 
 // Constants
 import {
@@ -23,22 +19,25 @@ import {
   REVENUE_FLOW_STATUS,
 } from '@/lib/constants';
 
-// Types
-import { IRevenueFlow, TOverallBalance } from '@/lib/interfaces';
-
-// Components
-import Select, { TOption } from '@/ui/components/common/Select';
-import { Fetching } from '..';
+// Hooks
+import { useGetStatistic } from '@/lib/hooks';
 
 // Utils
 import { formatDecimalNumber } from '@/lib/utils';
 
+// Types
+import { IRevenueFlow, TOverallBalance } from '@/lib/interfaces';
+
 // Mocks
 import { INITIAL_OVERALL_BALANCE } from '@/lib/mocks';
 
-// Hooks
-import { useGetStatistic } from '@/lib/hooks';
+// Themes
 import { useColorfill } from '@/ui/themes/bases';
+
+const Chart = dynamic(() => import('react-apexcharts'), {
+  ssr: false,
+  loading: () => <Skeleton bg="background.component.primary" h={225} />,
+});
 
 type TOverallData = Omit<IRevenueFlow, 'pending'>[];
 

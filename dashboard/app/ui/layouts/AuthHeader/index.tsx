@@ -1,5 +1,7 @@
 import { memo } from 'react';
 import { Heading as HeadingChakra, Text, VStack } from '@chakra-ui/react';
+
+// Constants
 import { ROUTES } from '@/lib/constants';
 
 type THeadingProps = {

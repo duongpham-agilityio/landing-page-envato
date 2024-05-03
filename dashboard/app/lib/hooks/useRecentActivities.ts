@@ -5,17 +5,17 @@ import dayjs from 'dayjs';
 // Constants
 import { END_POINTS, PAGE_SIZE, TIME_DETAIL_FORMAT } from '@/lib/constants';
 
+// Store
+import { authStore } from '../stores';
+
 // Services
 import { getRecentActivities } from '@/lib/services';
-
-// Interface
-import { SortType, TRecentActivities } from '@/lib/interfaces';
 
 // Utils
 import { formatPageArray, handleSort } from '@/lib/utils';
 
-// Store
-import { authStore } from '../stores';
+// Interface
+import { SortType, TRecentActivities } from '@/lib/interfaces';
 
 export type TAction = {
   actionName: string;

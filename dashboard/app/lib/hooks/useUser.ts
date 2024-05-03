@@ -5,9 +5,11 @@ import {
   useQueryClient,
 } from '@tanstack/react-query';
 
-// Interfaces
-import { EActivity, IIssues, TPassword, TUserDetail } from '@/lib/interfaces';
-import { TSearchTransaction } from '.';
+// Constants
+import { END_POINTS } from '@/lib/constants';
+
+// stores
+import { authStore } from '../stores';
 
 // Services
 import {
@@ -17,11 +19,9 @@ import {
   userHttpRequest,
 } from '@/lib/services';
 
-// Constants
-import { END_POINTS } from '@/lib/constants';
-
-// stores
-import { authStore } from '../stores';
+// Interfaces
+import { EActivity, IIssues, TPassword, TUserDetail } from '@/lib/interfaces';
+import { TSearchTransaction } from '.';
 
 export const useUpdateUser = () => {
   const { error, ...rest } = useMutation({
@@ -30,7 +30,7 @@ export const useUpdateUser = () => {
         END_POINTS.USERS,
         user,
         EActivity.SAVE_PROFILE,
-        user.id
+        user.id,
       ),
   });
 
@@ -54,7 +54,7 @@ export const useUpdatePassword = () => {
           memberId,
         },
         EActivity.SAVE_PASSWORD,
-        user?.id
+        user?.id,
       );
     },
   });
@@ -102,7 +102,7 @@ export const useCreateIssues = () => {
         supportList,
         {},
         EActivity.CREATE_ISSUES,
-        user?.id
+        user?.id,
       ),
     onSettled: () => {
       queryClient.invalidateQueries({ queryKey: [END_POINTS.SUPPORT] });

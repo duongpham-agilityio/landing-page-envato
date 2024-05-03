@@ -1,8 +1,6 @@
 'use client';
 
 import { memo, useCallback, useState } from 'react';
-
-// Components
 import {
   Box,
   Button,
@@ -13,13 +11,10 @@ import {
   Text,
   useToast,
 } from '@chakra-ui/react';
+
+// Components
 import { Bell, IconButton, Modal, Indicator } from '@/ui/components';
-
-// Utils
-import { customToast } from '@/lib/utils/toast';
-
-// Hooks
-import { useNotification } from '@/lib/hooks';
+import { NotificationItem } from './Body';
 
 // Constants
 import {
@@ -30,11 +25,14 @@ import {
   TYPE,
 } from '@/lib/constants';
 
-// Interfaces
-import { TNotification, TUserDetail } from '@/lib/interfaces';
+// Hooks
+import { useNotification } from '@/lib/hooks';
 
 // Utils
-import { NotificationItem } from './Body';
+import { customToast } from '@/lib/utils/toast';
+
+// Interfaces
+import { TNotification, TUserDetail } from '@/lib/interfaces';
 
 interface NotificationProps {
   colorFill: string;

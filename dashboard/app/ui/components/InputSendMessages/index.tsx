@@ -8,17 +8,17 @@ import { Controller, useForm } from 'react-hook-form';
 import { InputField, Button } from '@/ui/components';
 import { SendIcon } from '@/ui/components/Icons';
 
-// Interfaces
-import { TMessages } from '@/lib/interfaces';
-
-// Utils
-import { sendMessage } from '@/lib/utils';
-
 // Hooks
 import { getInfoRoomChat } from '@/lib/hooks';
 
 // Stores
 import { authStore } from '@/lib/stores';
+
+// Utils
+import { sendMessage } from '@/lib/utils';
+
+// Interfaces
+import { TMessages } from '@/lib/interfaces';
 
 interface InputSendMessagesProps {
   boxRef: RefObject<HTMLDivElement>;

@@ -1,9 +1,11 @@
 import { Box, Flex, Spacer, Text } from '@chakra-ui/react';
 import { memo } from 'react';
+import Image from 'next/image';
 
 // Constants
 import { IMAGES } from '@/lib/constants';
-import Image from 'next/image';
+
+// Utils
 import { generatePlaceholder } from '@/lib/utils';
 
 interface MessageProps {

@@ -2,12 +2,14 @@ import { memo } from 'react';
 import { Box, Flex, Input, Text } from '@chakra-ui/react';
 import { Control, Controller } from 'react-hook-form';
 
+// Constants
+import { AUTH_SCHEMA } from '@/lib/constants';
+
 // Utils
 import { formatAmountNumber } from '@/lib/utils';
 
 // Types
 import { TAddMoneyForm } from '.';
-import { AUTH_SCHEMA } from '@/lib/constants';
 
 export type TAddMoneyInputFieldProps = {
   control: Control<TAddMoneyForm>;

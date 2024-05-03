@@ -3,9 +3,9 @@ import { Box, IconButton, Text } from '@chakra-ui/react';
 
 interface IconButtonProps {
   children: JSX.Element;
-  hasNewNotification?: boolean;
-  quantityNotification?: number;
   ariaLabel?: string;
+  quantityNotification?: number;
+  hasNewNotification?: boolean;
   onClick?: () => void;
 }
 

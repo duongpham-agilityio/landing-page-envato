@@ -3,7 +3,6 @@
 import dynamic from 'next/dynamic';
 import { useCallback, useMemo } from 'react';
 import { useDisclosure, useToast } from '@chakra-ui/react';
-
 import { SubmitHandler, useForm } from 'react-hook-form';
 
 //Constants
@@ -12,14 +11,14 @@ import { ERROR_MESSAGES, STATUS, SUCCESS_MESSAGES } from '@/lib/constants';
 // Hooks
 import { useAuth, usePinCode } from '@/lib/hooks';
 
-// Types
-import { TPinCodeForm } from '@/lib/interfaces';
-
 // Stores
 import { TAuthStoreData, authStore } from '@/lib/stores';
 
 // Utils
 import { customToast } from '@/lib/utils';
+
+// Types
+import { TPinCodeForm } from '@/lib/interfaces';
 
 const Modal = dynamic(() => import('@/ui/components/common/Modal'));
 const PinCode = dynamic(() => import('@/ui/components/common/PinCode'));

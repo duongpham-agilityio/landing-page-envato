@@ -1,28 +1,27 @@
 import { memo } from 'react';
 import dynamic from 'next/dynamic';
 import { Box, Flex, Skeleton, Text, useColorMode } from '@chakra-ui/react';
-const Chart = dynamic(() => import('react-apexcharts'), {
-  ssr: false,
-  loading: () => <Skeleton bg="background.component.primary" h={145} />,
-});
 
 // Components
 import Statistical from './Statistical';
+import { Sort } from '@/ui/components/Icons';
 
 // Constants
 import { STROKE_COLORS, THEMES } from '@/lib/constants';
 
-// Icons
-import { Sort } from '@/ui/components/Icons';
+// Utils
+import { formatDecimalNumber } from '@/lib/utils';
 
 // Types
 import { IEfficiency } from '@/lib/interfaces';
 
-// Colors
+// Themes
 import { colors } from '@/ui/themes/bases/colors';
 
-// Utils
-import { formatDecimalNumber } from '@/lib/utils';
+const Chart = dynamic(() => import('react-apexcharts'), {
+  ssr: false,
+  loading: () => <Skeleton bg="background.component.primary" h={145} />,
+});
 
 const EfficiencyComponent = ({
   statistical,

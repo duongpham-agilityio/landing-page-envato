@@ -3,9 +3,6 @@ import dayjs from 'dayjs';
 import { useCallback, useMemo, useState } from 'react';
 import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
 
-// Store
-import { authStore } from '@/lib/stores';
-
 // Constants
 import {
   END_POINTS,
@@ -14,12 +11,18 @@ import {
   TIME_FORMAT,
 } from '@/lib/constants';
 
+// Store
+import { authStore } from '@/lib/stores';
+
 // Services
 import {
   TProductsResponse,
   getProducts,
   productsHttpService,
 } from '@/lib/services';
+
+// Utils
+import { formatPageArray, handleSort, logActivity } from '../utils';
 
 // Interface
 import {
@@ -28,9 +31,6 @@ import {
   TProduct,
   TProductRequest,
 } from '@/lib/interfaces';
-
-// Utils
-import { formatPageArray, handleSort, logActivity } from '../utils';
 
 export type TSearchProduct = {
   name: string;
@@ -191,7 +191,7 @@ export const useProducts = (queryParam?: TSearchProduct) => {
         (oldData: TProductsResponse) => ({
           result: [newData, ...(oldData?.result || [])],
           totalPage: oldData.totalPage,
-        })
+        }),
       );
     },
   });
@@ -219,9 +219,11 @@ export const useProducts = (queryParam?: TSearchProduct) => {
       queryClient.setQueryData(
         [END_POINTS.PRODUCTS, searchName, currentPage, limit],
         (oldData: TProductsResponse) => ({
-          result: oldData.result.filter((item) => item._id !== variables.productId),
+          result: oldData.result.filter(
+            (item) => item._id !== variables.productId,
+          ),
           totalPage: oldData.totalPage,
-        })
+        }),
       );
     },
   });
@@ -250,21 +252,21 @@ export const useProducts = (queryParam?: TSearchProduct) => {
           result: oldData.result.map((item) =>
             item._id === variables.productId
               ? {
-                ...item,
-                name: variables.name,
-                imageURLs: variables.imageURLs,
-                stock: variables.stock,
-                productStatus:
-                  Number(variables.stock) > 0
-                    ? PRODUCT_STATUS.IN_STOCK
-                    : PRODUCT_STATUS.SOLD,
-                amount: variables.amount,
-                product: { ...variables },
-              }
+                  ...item,
+                  name: variables.name,
+                  imageURLs: variables.imageURLs,
+                  stock: variables.stock,
+                  productStatus:
+                    Number(variables.stock) > 0
+                      ? PRODUCT_STATUS.IN_STOCK
+                      : PRODUCT_STATUS.SOLD,
+                  amount: variables.amount,
+                  product: { ...variables },
+                }
               : item,
           ),
-          totalPage: oldData.totalPage
-        })
+          totalPage: oldData.totalPage,
+        }),
       );
     },
   });

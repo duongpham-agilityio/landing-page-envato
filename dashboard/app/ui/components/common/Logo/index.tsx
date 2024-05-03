@@ -3,8 +3,10 @@
 import { Text } from '@chakra-ui/react';
 import Link from 'next/link';
 
-// Assets
+// Components
 import { LogoIcon } from '@/ui/components';
+
+// Themes
 import { useColorfill } from '@/ui/themes/bases';
 
 const Logo = () => {

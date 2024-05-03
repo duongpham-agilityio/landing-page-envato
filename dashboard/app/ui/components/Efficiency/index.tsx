@@ -1,28 +1,30 @@
 'use client';
 
 import { memo, useCallback, useState } from 'react';
+import { Box, Flex, Heading, Text } from '@chakra-ui/react';
 
 // Components
-import { Box, Flex, Heading, Text } from '@chakra-ui/react';
 import { Fetching, Select } from '@/ui/components';
-import { TOption } from '@/ui/components/common/Select';
 import EfficiencyInfo from './EfficiencyInfo';
 import EfficiencyRefetch from './Refetching';
-
-// Icons
-import { Arrow } from '@/ui/components/Icons';
 
 // Constants
 import { EFFICIENCY_OPTIONS, END_POINTS } from '@/lib/constants';
 
-// Types
-import { EFFICIENCY_MOCK } from '@/lib/mocks';
-
 // Hooks
 import { useGetStatistic } from '@/lib/hooks';
 
+// Types
+import { TOption } from '@/ui/components/common/Select';
+import { EFFICIENCY_MOCK } from '@/lib/mocks';
+
+// Icons
+import { Arrow } from '@/ui/components/Icons';
+
 // Interfaces
 import { IEfficiency } from '@/lib/interfaces';
+
+// Themes
 import { useColorfill } from '@/ui/themes/bases';
 
 const EfficiencyComponent = () => {

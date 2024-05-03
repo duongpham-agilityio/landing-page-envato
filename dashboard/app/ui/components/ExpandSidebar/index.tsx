@@ -22,8 +22,8 @@ import { SIDEBAR, IMAGES, EXPAND_SIDEBAR_MENU_LIST } from '@/lib/constants';
 import { TSidebarProps } from '@/ui/layouts/Sidebar';
 
 const ExpandSidebar = ({
-  isExpandSidebar,
   role,
+  isExpandSidebar,
   onClose,
   onSignOut,
 }: TSidebarProps) => {

@@ -3,14 +3,12 @@
 import { ReactElement, memo } from 'react';
 import { ColorMode, useColorMode } from '@chakra-ui/react';
 
-// Constants
-import { THEMES } from '@/lib/constants';
-
 // Components
 import { IconButton } from '@/ui/components';
-
-// Icons
 import { DarkTheme, LightTheme } from '@/ui/components/Icons';
+
+// Constants
+import { THEMES } from '@/lib/constants';
 
 // Themes
 import { colors } from '@/ui/themes/bases';

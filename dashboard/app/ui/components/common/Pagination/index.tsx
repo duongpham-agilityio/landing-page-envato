@@ -1,10 +1,8 @@
 import { memo, useCallback } from 'react';
+import { Box, Flex, Text, theme } from '@chakra-ui/react';
 
 // Components
-import { Box, Flex, Text, theme } from '@chakra-ui/react';
 import { Button, Select } from '@/ui/components';
-
-// Assets
 import { Arrow } from '@/ui/components/Icons';
 
 // Constants

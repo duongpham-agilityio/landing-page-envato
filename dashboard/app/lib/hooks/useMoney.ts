@@ -1,16 +1,16 @@
 import { useMutation, useQueryClient } from '@tanstack/react-query';
 
-// Services
-import { addMoneyToUser, sendMoneyToUser } from '@/lib/services';
-
-// Types
-import { EActivity, TAddMoney, TSendMoney } from '@/lib/interfaces';
-
 // Constants
 import { END_POINTS } from '@/lib/constants';
 
 // Hook
 import { authStore } from '../stores';
+
+// Services
+import { addMoneyToUser, sendMoneyToUser } from '@/lib/services';
+
+// Types
+import { EActivity, TAddMoney, TSendMoney } from '@/lib/interfaces';
 
 export const useMoney = () => {
   const { user } = authStore();

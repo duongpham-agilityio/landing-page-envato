@@ -1,22 +1,22 @@
 'use client';
 
 import { memo } from 'react';
+import { Grid, GridItem } from '@chakra-ui/react';
 
 // Components
-import { Grid, GridItem } from '@chakra-ui/react';
 import { Fetching, TotalStatisticCard } from '@/ui/components';
 
-// Types
-import { ISpendingStatistics } from '@/lib/interfaces';
-
-// Mocks
-import { INITIAL_TOTAL_STATISTICS } from '@/lib/mocks';
+// Constants
+import { END_POINTS } from '@/lib/constants';
 
 // Hooks
 import { useGetStatistic } from '@/lib/hooks';
 
-// Constants
-import { END_POINTS } from '@/lib/constants';
+// Mocks
+import { INITIAL_TOTAL_STATISTICS } from '@/lib/mocks';
+
+// Types
+import { ISpendingStatistics } from '@/lib/interfaces';
 
 const TotalStatisticListComponent = () => {
   const {

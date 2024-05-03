@@ -2,14 +2,14 @@ import { useCallback } from 'react';
 import { AxiosError } from 'axios';
 import { useDisclosure } from '@chakra-ui/react';
 
-// Types
-import { EActivity, TPinCodeForm } from '@/lib/interfaces';
+// Constants
+import { END_POINTS } from '@/lib/constants';
 
 // Services
 import { MainHttpService } from '@/lib/services';
 
-// Constants
-import { END_POINTS } from '@/lib/constants';
+// Types
+import { EActivity, TPinCodeForm } from '@/lib/interfaces';
 
 export type ResponsePinCode = {
   message: string;

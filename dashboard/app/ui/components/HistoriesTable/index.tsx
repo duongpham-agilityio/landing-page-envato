@@ -14,8 +14,9 @@ import {
   Fetching,
 } from '@/ui/components';
 
-// Utils
-import { formatTransactionResponse } from '@/lib/utils';
+// Constants
+import { COLUMNS_HISTORY, STATUS_LABEL, MONTHS_OPTIONS } from '@/lib/constants';
+import { TYPE } from '@/lib/constants/notification';
 
 // Hooks
 import {
@@ -26,9 +27,8 @@ import {
   useTransactions,
 } from '@/lib/hooks';
 
-// Constants
-import { COLUMNS_HISTORY, STATUS_LABEL, MONTHS_OPTIONS } from '@/lib/constants';
-import { TYPE } from '@/lib/constants/notification';
+// Utils
+import { formatTransactionResponse } from '@/lib/utils';
 
 // Types
 import { TDataSource, THeaderTable, TTransaction } from '@/lib/interfaces';
@@ -69,6 +69,8 @@ const HistoriesTableComponent = () => {
     handlePageChange,
     handlePageClick,
   } = usePagination(transactionsMemorized);
+
+  const { limit, currentPage } = data || {};
 
   // Update search params when end time debounce
   const handleDebounceSearch = useDebounce((value: string) => {
@@ -188,8 +190,8 @@ const HistoriesTableComponent = () => {
         </Box>
       </Fetching>
       <Pagination
-        pageSize={data.limit}
-        currentPage={data.currentPage}
+        pageSize={limit}
+        currentPage={currentPage}
         isDisabledPrev={isDisabledPrev}
         isDisableNext={isDisableNext}
         arrOfCurrButtons={arrOfCurrButtons}

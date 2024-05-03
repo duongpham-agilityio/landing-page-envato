@@ -23,26 +23,9 @@ export const IMAGES = {
     url: '/icons/dotted.svg',
     alt: 'This is dotted image',
   },
-  GOOGLE: {
-    url: '/icons/google.svg',
-    alt: 'This is the logo Google',
-  },
-  APPLE: {
-    url: '/icons/apple.svg',
-    alt: 'This is the logo Apple',
-  },
-
-  DEBIT_ICON: {
-    url: '/icons/debit-icon.svg',
-    alt: 'This is the logo debit card',
-  },
   AVATAR: {
     url: '/images/avatar.webp',
     alt: 'This is avatar',
-  },
-  USER_AVATAR: {
-    url: '/icons/user-avatar.webp',
-    alt: 'This is the user avatar',
   },
   TOTAL_EARN: {
     url: '/icons/total-earn.svg',
@@ -88,10 +71,6 @@ export const IMAGES = {
     url: '/icons/inbox.svg',
     alt: 'This is the inbox image',
   },
-  NOTE: {
-    url: '/icons/note.svg',
-    alt: 'This is the note image',
-  },
   INTEGRATIONS: {
     url: '/icons/integrations.svg',
     alt: 'This is the integration image',
@@ -132,21 +111,9 @@ export const IMAGES = {
     url: '/images/cashback.webp ',
     alt: 'This is the cashback image',
   },
-  MONEY_BAG: {
-    url: '/icons/money-bag.svg',
-    alt: 'This is the money bag image',
-  },
-  RIGHT_ARROW: {
-    url: '/icons/right-arrow.svg',
-    alt: 'This is the right arrow image',
-  },
   INBOX_AVATAR: {
     url: '/images/avatar.webp',
     alt: 'This is the inbox avatar image',
-  },
-  MICRO: {
-    url: '/icons/micro.svg',
-    alt: 'Micro icon',
   },
 
   ATTACH: {
@@ -154,19 +121,9 @@ export const IMAGES = {
     alt: 'Attach icon',
   },
 
-  SEND: {
-    url: '/icons/send.svg',
-    alt: 'Send icon',
-  },
-
   CHAT_USER_AVATAR: {
     url: '/images/avatar-user-chat.webp',
     alt: 'This is the user avatar',
-  },
-
-  INCREASE_ICON: {
-    url: '/icons/increase.svg',
-    alt: 'This is the increase icon',
   },
 
   CARD_PAYMENT: {
@@ -201,10 +158,6 @@ export const IMAGES = {
   PASSWORD: {
     url: 'images/reset-password.svg',
     alt: 'This is password image',
-  },
-  PLUS: {
-    url: 'icons/plus.svg',
-    alt: 'This is the plus icon',
   },
   FALLBACK: {
     url: 'images/fallback.webp',

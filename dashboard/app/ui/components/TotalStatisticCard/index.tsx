@@ -2,20 +2,18 @@
 
 import { memo } from 'react';
 import dynamic from 'next/dynamic';
-
-// Components
 import { Box, Image, HStack, Text, Flex, Skeleton } from '@chakra-ui/react';
+
+// Constants
+import { IMAGES } from '@/lib/constants';
+
+// Utils
+import { formatDecimalNumber } from '@/lib/utils';
 
 const Chart = dynamic(() => import('react-apexcharts'), {
   ssr: false,
   loading: () => <Skeleton bg="background.component.primary" h={108} />,
 });
-
-// Images
-import { IMAGES } from '@/lib/constants';
-
-// Utils
-import { formatDecimalNumber } from '@/lib/utils';
 
 interface TotalCardComponentProps {
   title: string;
@@ -26,10 +24,10 @@ interface TotalCardComponentProps {
 }
 
 const TotalCardComponent = ({
-  title,
-  total,
-  growth,
-  weeklyIncome,
+  title = 'Total',
+  total = 0,
+  growth = 0,
+  weeklyIncome = [],
   isLoading = false,
 }: TotalCardComponentProps) => (
   <Box p={5} bg="background.component.primary" rounded="lg">

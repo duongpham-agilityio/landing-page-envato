@@ -1,36 +1,53 @@
-import { memo } from 'react';
+// Libs
+import { memo, useCallback } from 'react';
 import { Box, Flex, Hide, Text } from '@chakra-ui/react';
+import Image from 'next/image';
 
-// Themes
-import { useColorfill } from '@/ui/themes/bases/colors';
+// Constants
+import { IMAGES } from '@/lib/constants';
 
 // Utils
 import { generatePlaceholder, getStatusColor } from '@/lib/utils';
 
-// Constants
-import { IMAGES } from '@/lib/constants';
-import Image from 'next/image';
+// Themes
+import { useColorfill } from '@/ui/themes/bases/colors';
 
 export type Props = {
+  uid?: string;
   avatar?: string;
   name?: string;
   localeTime?: string;
   icon?: React.ReactNode;
   statusColor?: string;
-  onClick?: () => void;
   lastMessages?: string;
+  onClick?: (user: {
+    uid: string;
+    avatarUrl: string;
+    displayName: string;
+  }) => void;
 };
 
 const ChatMember = ({
+  uid = '',
+  name = '',
   avatar = IMAGES.CHAT_USER_AVATAR.url,
-  name,
-  lastMessages,
-  localeTime,
+  localeTime = '',
   icon,
   statusColor = '',
+  lastMessages = '',
   onClick,
 }: Props) => {
   const { secondary } = useColorfill();
+
+  const handleClick = useCallback(() => {
+    const user = {
+      uid,
+      avatarUrl: avatar,
+      displayName: name,
+    };
+
+    onClick && onClick(user);
+  }, []);
 
   return (
     <>
@@ -38,7 +55,7 @@ const ChatMember = ({
         <Box
           cursor="pointer"
           _hover={{ bg: secondary }}
-          onClick={onClick}
+          onClick={handleClick}
           borderRadius="lg"
         >
           <Flex justify="space-between" p={3.5}>
@@ -86,7 +103,7 @@ const ChatMember = ({
         <Box
           cursor="pointer"
           _hover={{ bg: secondary }}
-          onClick={onClick}
+          onClick={handleClick}
           borderRadius="lg"
         >
           <Flex justify="space-between" p={3.5} alignItems="flex-start">

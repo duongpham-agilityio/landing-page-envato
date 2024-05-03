@@ -17,22 +17,6 @@ import {
   Indicator,
 } from '@/ui/components';
 
-// Utils
-import {
-  formatUppercaseFirstLetter,
-  formatTransactionResponse,
-} from '@/lib/utils';
-import { customToast } from '@/lib/utils/toast';
-
-// Hooks
-import {
-  TSortField,
-  useDebounce,
-  usePagination,
-  useSearch,
-  useTransactions,
-} from '@/lib/hooks';
-
 // Constants
 import {
   COLUMNS_DASHBOARD,
@@ -45,10 +29,26 @@ import {
   MONTHS_OPTIONS,
   ROLES,
 } from '@/lib/constants';
-import { TYPE } from '@/lib/constants/notification';
+
+// Hooks
+import {
+  TSortField,
+  useDebounce,
+  usePagination,
+  useSearch,
+  useTransactions,
+} from '@/lib/hooks';
+
+// Utils
+import {
+  formatUppercaseFirstLetter,
+  formatTransactionResponse,
+} from '@/lib/utils';
+import { customToast } from '@/lib/utils/toast';
 
 // Types
 import { TDataSource, THeaderTable, TTransaction } from '@/lib/interfaces';
+import { TYPE } from '@/lib/constants/notification';
 
 // Stores
 import { authStore } from '@/lib/stores';

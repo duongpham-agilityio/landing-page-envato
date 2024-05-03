@@ -4,8 +4,7 @@ import { memo, useCallback, useEffect, useRef, useState } from 'react';
 import { Box, Heading, Flex } from '@chakra-ui/react';
 
 // Components
-import { InputSendMessages, Loading } from '@/ui/components';
-import Message from './Message';
+import { InputSendMessages, Loading, Message } from '@/ui/components';
 
 // Interface
 import { TMessages } from '@/lib/interfaces';
@@ -18,6 +17,8 @@ import { getInfoRoomChat, useSubscribeToChat } from '@/lib/hooks';
 
 // Firebase
 import { doc, getDoc, setDoc } from 'firebase/firestore';
+
+// Utils
 import { db } from '@/lib/utils';
 
 // Constants
@@ -39,6 +40,8 @@ const BoxChatComponent = () => {
   const hasPermission = user?.role === AUTHENTICATION_ROLE.MEMBER;
   const [userChat, setUserChat] = useState(initialUserChat);
   const boxRef = useRef<HTMLDivElement | null>(null);
+
+  const { avatarAdminUrl, avatarUrl, adminId } = userChat || {};
 
   const fetchData = async () => {
     const usersData = await getInfoRoomChat(user);
@@ -117,16 +120,21 @@ const BoxChatComponent = () => {
               maxHeight={361}
               padding={5}
             >
-              {messages.map((message) => (
-                <Message
-                  content={message.text}
-                  key={message.date.seconds}
-                  senderId={message.senderId}
-                  avatarAdmin={userChat.avatarAdminUrl}
-                  avatarUser={userChat.avatarUrl}
-                  superAdminId={userChat.adminId}
-                />
-              ))}
+              {messages.map((message) => {
+                const { text, date, senderId } = message || {};
+                const { seconds } = date || {};
+
+                return (
+                  <Message
+                    content={text}
+                    key={seconds}
+                    senderId={senderId}
+                    avatarAdmin={avatarAdminUrl}
+                    avatarUser={avatarUrl}
+                    superAdminId={adminId}
+                  />
+                );
+              })}
             </Box>
 
             <InputSendMessages boxRef={boxRef} />

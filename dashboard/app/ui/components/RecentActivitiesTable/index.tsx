@@ -22,9 +22,6 @@ import {
   PREV,
 } from '@/lib/constants';
 
-// Interfaces
-import { TDataSource, THeaderTable, TRecentActivities } from '@/lib/interfaces';
-
 // hooks
 import {
   TActivitiesSortField,
@@ -38,6 +35,9 @@ import {
   formatRecentActivitiesResponse,
   formatUppercaseFirstLetter,
 } from '@/lib/utils';
+
+// Interfaces
+import { TDataSource, THeaderTable, TRecentActivities } from '@/lib/interfaces';
 
 const RecentActivitiesTableComponent = () => {
   const { get, setSearchParam: setSearchTransaction } = useSearch();

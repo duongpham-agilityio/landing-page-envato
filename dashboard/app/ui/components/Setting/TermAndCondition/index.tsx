@@ -2,11 +2,11 @@ import { memo } from 'react';
 
 import { Box, Text } from '@chakra-ui/react';
 
-// Constants
-import { TERM_CONDITION } from '@/lib/constants';
-
 // Components
 import TermAndConditionItem from './TermAndConditionItem';
+
+// Constants
+import { TERM_CONDITION } from '@/lib/constants';
 
 const TermAndCondition = () => (
   <Box>

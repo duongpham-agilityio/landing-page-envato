@@ -10,30 +10,30 @@ import {
   useToast,
 } from '@chakra-ui/react';
 
-// Constants
-import { END_POINTS, SHOW_TIME, SIDEBAR } from '@/lib/constants';
-
 // Component
 import { Header, SideBar } from '@/ui/layouts';
 import { Indicator } from '@/ui/components';
 
-// Provider
-import { CheckPinCodeProvider } from '@/ui/providers';
-
-// Stores
-import { TAuthStoreData, authStore } from '@/lib/stores';
-
-// Interfaces
-import { TUserDetail } from '@/lib/interfaces';
+// Constants
+import { END_POINTS, SHOW_TIME, SIDEBAR } from '@/lib/constants';
 
 // Hooks
 import { useAuth } from '@/lib/hooks';
 
+// Stores
+import { TAuthStoreData, authStore } from '@/lib/stores';
+
 // Utils
 import { isWindowDefined } from '@/lib/utils';
 
+// Provider
+import { CheckPinCodeProvider } from '@/ui/providers';
+
 // firebase
 import { getMessaging, onMessage } from 'firebase/messaging';
+
+// Interfaces
+import { TUserDetail } from '@/lib/interfaces';
 
 const MainLayout = ({ children }: { children: React.ReactNode }) => {
   const [isDesktop] = useMediaQuery('(min-width: breakpoints.4xl)');

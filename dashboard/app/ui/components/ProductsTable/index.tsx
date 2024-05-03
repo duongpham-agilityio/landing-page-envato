@@ -20,18 +20,6 @@ import {
   ProductForm,
   Indicator,
 } from '@/ui/components';
-import { TOption } from '../common/Select';
-
-// Hooks
-import { useDebounce, useProducts, useSearch } from '@/lib/hooks';
-import { TProductSortField } from '@/lib/hooks/useProducts';
-
-// Utils
-import {
-  generatePlaceholder,
-  formatProductResponse,
-  customToast,
-} from '@/lib/utils';
 
 // Constants
 import {
@@ -46,6 +34,20 @@ import {
   PREV,
 } from '@/lib/constants';
 
+// Hooks
+import { useDebounce, useProducts, useSearch } from '@/lib/hooks';
+import { TProductSortField } from '@/lib/hooks/useProducts';
+
+// Stores
+import { authStore } from '@/lib/stores';
+
+// Utils
+import {
+  generatePlaceholder,
+  formatProductResponse,
+  customToast,
+} from '@/lib/utils';
+
 // Types
 import {
   TProductRequest,
@@ -54,9 +56,7 @@ import {
   TProduct,
   TProductResponse,
 } from '@/lib/interfaces';
-
-// Stores
-import { authStore } from '@/lib/stores';
+import { TOption } from '../common/Select';
 
 const ProductsTableComponent = () => {
   const toast = useToast();

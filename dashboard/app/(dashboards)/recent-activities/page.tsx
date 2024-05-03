@@ -1,12 +1,9 @@
 import dynamic from 'next/dynamic';
-import { memo } from 'react';
 
 const RecentActivitiesSection = dynamic(
   () => import('@/ui/sections/RecentActivities'),
 );
 
-const RecentActivities = () => <RecentActivitiesSection />;
-
-const RecentActivitiesPage = memo(RecentActivities);
+const RecentActivitiesPage = () => <RecentActivitiesSection />;
 
 export default RecentActivitiesPage;

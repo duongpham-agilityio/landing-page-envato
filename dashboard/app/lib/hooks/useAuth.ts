@@ -16,14 +16,14 @@ import {
 // Services
 import { MainHttpService, recentActivitiesHttpService } from '@/lib/services';
 
-// Types
-import { TUserDetail, EActivity, TActivitiesRequest } from '@/lib/interfaces';
+// Stores
+import { authStore } from '@/lib/stores';
 
 // Utils
 import { formatUppercaseFirstLetter, getCurrentTimeSeconds } from '@/lib/utils';
 
-// Stores
-import { authStore } from '@/lib/stores';
+// Types
+import { TUserDetail, EActivity, TActivitiesRequest } from '@/lib/interfaces';
 
 type TSignUpErrorField = Partial<
   Record<keyof Omit<TUserDetail, 'id' | 'createdAt'>, string>

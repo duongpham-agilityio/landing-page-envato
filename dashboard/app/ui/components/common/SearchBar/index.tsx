@@ -2,13 +2,13 @@ import { FormEventHandler, memo, useCallback } from 'react';
 import { Controller, useForm } from 'react-hook-form';
 import { Box, HStack } from '@chakra-ui/react';
 import isEqual from 'react-fast-compare';
+import { CloseIcon, Search2Icon } from '@chakra-ui/icons';
 
 // Components
 import { InputField, Select, Selector } from '@/ui/components';
 
 // Types
 import { TOption } from '@/ui/components/common/Select';
-import { CloseIcon, Search2Icon } from '@chakra-ui/icons';
 
 export type TSearchValue = {
   search: string;

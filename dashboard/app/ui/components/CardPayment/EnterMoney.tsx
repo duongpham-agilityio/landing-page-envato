@@ -2,12 +2,14 @@ import { memo } from 'react';
 import { Box, Button, Flex, Input, Text } from '@chakra-ui/react';
 import { Control, Controller } from 'react-hook-form';
 
-// Types
-import { TTransfer } from '.';
+// Constants
+import { AUTH_SCHEMA } from '@/lib/constants';
 
 // Utils
 import { formatAmountNumber } from '@/lib/utils';
-import { AUTH_SCHEMA } from '@/lib/constants';
+
+// Types
+import { TTransfer } from '.';
 
 export type TEnterMoneyProps = {
   control: Control<TTransfer>;

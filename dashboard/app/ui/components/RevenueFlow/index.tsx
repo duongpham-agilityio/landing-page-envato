@@ -1,17 +1,11 @@
 'use client';
 
-import { memo, useCallback, useMemo, useState } from 'react';
 import dynamic from 'next/dynamic';
+import { memo, useCallback, useMemo, useState } from 'react';
+import { Box, Flex, Heading, Skeleton, Text } from '@chakra-ui/react';
 
 // Components
-const Chart = dynamic(() => import('react-apexcharts'), {
-  ssr: false,
-  loading: () => <Skeleton bg="background.component.primary" h={230} />,
-});
-import { Box, Flex, Heading, Skeleton, Text } from '@chakra-ui/react';
 import { Fetching, Select } from '..';
-
-// Icon
 import { Arrow } from '@/ui/components/Icons';
 
 // Constants
@@ -23,6 +17,9 @@ import {
   REVENUE_FLOW_STATUS,
 } from '@/lib/constants';
 
+// Hooks
+import { useGetStatistic } from '@/lib/hooks';
+
 // Types
 import { IRevenueFlow, RevenueFlowStatus } from '@/lib/interfaces';
 import { TOption } from '@/ui/components/common/Select';
@@ -30,9 +27,13 @@ import { TOption } from '@/ui/components/common/Select';
 // Mocks
 import { INITIAL_REVENUE_FLOW } from '@/lib/mocks';
 
-// Hooks
-import { useGetStatistic } from '@/lib/hooks';
+// Themes
 import { useColorfill } from '@/ui/themes/bases';
+
+const Chart = dynamic(() => import('react-apexcharts'), {
+  ssr: false,
+  loading: () => <Skeleton bg="background.component.primary" h={230} />,
+});
 
 const RevenueFlowComponent = () => {
   const [option, setOption] = useState<string>('Jan,Dec');

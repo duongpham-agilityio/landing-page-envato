@@ -1,10 +1,12 @@
 import React, { memo, useMemo } from 'react';
 import isEqual from 'react-fast-compare';
-
 import { Control } from 'react-hook-form';
 
-import { TPinCodeForm } from '@/lib/interfaces';
+// Components
 import { Modal, PinCode } from '..';
+
+// Types
+import { TPinCodeForm } from '@/lib/interfaces';
 
 interface PinCodeModalProps {
   control: Control<TPinCodeForm>;

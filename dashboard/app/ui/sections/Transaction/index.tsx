@@ -1,7 +1,6 @@
 'use client';
 
 import { InView } from 'react-intersection-observer';
-
 import dynamic from 'next/dynamic';
 import { Box, Flex, Grid, GridItem } from '@chakra-ui/react';
 

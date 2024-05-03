@@ -8,17 +8,6 @@ import { CloseIcon } from '@chakra-ui/icons';
 // Components
 import { Box, Flex, useToast } from '@chakra-ui/react';
 import { Fetching, Indicator, InputField } from '@/ui/components';
-
-// Hooks
-import {
-  useDebounce,
-  useGetUserDetails,
-  useManagementUser,
-  usePagination,
-  useSearch,
-} from '@/lib/hooks';
-
-// Icons
 import { Search } from '@/ui/components/Icons';
 
 // Constants
@@ -29,15 +18,24 @@ import {
   SUCCESS_MESSAGES,
 } from '@/lib/constants';
 
+// Hooks
+import {
+  useDebounce,
+  useGetUserDetails,
+  useManagementUser,
+  usePagination,
+  useSearch,
+} from '@/lib/hooks';
+
 // Stores
 import { authStore } from '@/lib/stores';
+
+// Utils
+import { customToast } from '@/lib/utils';
 
 // Interfaces
 import { TSearchValue } from '@/ui/components/common/SearchBar';
 import { TUserDetail } from '@/lib/interfaces';
-
-// Utils
-import { customToast } from '@/lib/utils';
 
 // Lazy loading components
 const UsersTable = dynamic(() => import('@/ui/components/UsersTable'));

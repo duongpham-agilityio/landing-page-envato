@@ -1,7 +1,5 @@
 import { memo } from 'react';
 import isEqual from 'react-fast-compare';
-
-// components
 import {
   Box,
   Center,
@@ -14,6 +12,8 @@ import {
   VStack,
   useColorMode,
 } from '@chakra-ui/react';
+
+// components
 import { Menu } from '@/ui/components';
 
 // constants

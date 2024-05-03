@@ -3,7 +3,6 @@
 import { memo, useCallback, useState } from 'react';
 import { Controller } from 'react-hook-form';
 import { ViewOffIcon, ViewIcon } from '@chakra-ui/icons';
-
 import {
   Box,
   VStack,
@@ -17,6 +16,9 @@ import {
   Flex,
 } from '@chakra-ui/react';
 
+// Components
+import { FallbackImage, InputField } from '@/ui/components';
+
 // Constants
 import {
   AUTH_SCHEMA,
@@ -29,15 +31,16 @@ import {
 // Hooks
 import { useForm, useUpdatePassword } from '@/lib/hooks';
 
-// Components
-import { FallbackImage, InputField } from '@/ui/components';
-
 // Stores
 import { authStore } from '@/lib/stores';
-import { TPassword } from '@/lib/interfaces';
 
 // Utils
 import { customToast } from '@/lib/utils';
+
+// Types
+import { TPassword } from '@/lib/interfaces';
+
+// Providers
 import { QueryProvider } from '@/ui/providers';
 
 const SecurityPage = () => {

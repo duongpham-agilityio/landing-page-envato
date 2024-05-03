@@ -7,11 +7,11 @@ import { Box, Flex, Heading, Text } from '@chakra-ui/react';
 // Constants
 import { IMAGES, ROUTES } from '@/lib/constants';
 
-// Interfaces
-import { TImageDetails } from '@/lib/interfaces';
-
 // Utils
 import { generatePlaceholder } from '@/lib/utils';
+
+// Interfaces
+import { TImageDetails } from '@/lib/interfaces';
 
 interface BenefitProps {
   pathName?: string;
@@ -44,49 +44,33 @@ const BenefitComponent = ({ pathName }: BenefitProps) => {
           alt={alt}
           width={width}
           height={height}
-          placeholder='blur'
+          placeholder="blur"
           blurDataURL={generatePlaceholder(width, height)}
         />
-        <Box
-          position="absolute"
-          top={10}
-          left={8}
-          w={115}
-          h={115}
-        >
+        <Box position="absolute" top={10} left={8} w={115} h={115}>
           <Image
             src={IMAGES.SQUARE.url}
             alt={IMAGES.SQUARE.alt}
             fill
-            placeholder='blur'
+            placeholder="blur"
             blurDataURL={generatePlaceholder(115, 115)}
           />
         </Box>
-        <Box
-          position="absolute"
-          top={14}
-          right={12}
-          w={27}
-          h={143}
-        >
+        <Box position="absolute" top={14} right={12} w={27} h={143}>
           <Image
             src={IMAGES.VLINE.url}
             alt={IMAGES.VLINE.alt}
             fill
-            placeholder='blur'
+            placeholder="blur"
             blurDataURL={generatePlaceholder(27, 143)}
           />
         </Box>
-        <Box position="absolute"
-          bottom={1}
-          left={8}
-          w={81}
-          h={81}>
+        <Box position="absolute" bottom={1} left={8} w={81} h={81}>
           <Image
             src={IMAGES.DOTTED.url}
             alt={IMAGES.DOTTED.alt}
             fill
-            placeholder='blur'
+            placeholder="blur"
             blurDataURL={generatePlaceholder(81, 81)}
           />
         </Box>

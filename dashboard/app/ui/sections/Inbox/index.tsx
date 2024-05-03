@@ -10,9 +10,29 @@ import {
   useToast,
   Hide,
 } from '@chakra-ui/react';
+import { useRouter, useSearchParams } from 'next/navigation';
+
+// Components
+import {
+  ChatMember,
+  Conversation,
+  EditIcon,
+  FallbackImage,
+} from '@/ui/components';
+
+// Constants
+import { ERROR_MESSAGES, FIREBASE_CHAT, IMAGES, STATUS } from '@/lib/constants';
+
+// Hooks
+import { useGetUserDetails, useSubscribeToChat } from '@/lib/hooks';
+
+// Store
+import { authStore } from '@/lib/stores';
+
+// Utils
+import { convertTimeMessage, customToast, db } from '@/lib/utils';
 
 // Firebase
-import { convertTimeMessage, customToast, db } from '@/lib/utils';
 import {
   DocumentData,
   DocumentReference,
@@ -23,24 +43,10 @@ import {
   setDoc,
 } from 'firebase/firestore';
 
-// Components
-import {
-  ChatMember,
-  Conversation,
-  EditIcon,
-  FallbackImage,
-} from '@/ui/components';
-
-// Hooks
-import { useGetUserDetails, useSubscribeToChat } from '@/lib/hooks';
-
-// Store
-import { authStore } from '@/lib/stores';
-import { ERROR_MESSAGES, FIREBASE_CHAT, IMAGES, STATUS } from '@/lib/constants';
-
 // Interfaces
 import { TMessages } from '@/lib/interfaces';
-import { useRouter, useSearchParams } from 'next/navigation';
+
+// Themes
 import { useColorfill } from '@/ui/themes/bases';
 
 const ChatMemberList = () => {
@@ -59,10 +65,15 @@ const ChatMemberList = () => {
   });
 
   const { user: superAdmin } = authStore((state) => state);
+  const { uid: superAdminUid, id: superAdminId = '' } = superAdmin || {};
   const uidUser = searchParams?.get('id') as string;
-  const { filterDataUser } = useGetUserDetails(superAdmin?.id as string);
+
+  const { filterDataUser } = useGetUserDetails(superAdminId);
   const userChat = filterDataUser?.find((user) => user.uid === uidUser);
   const toast = useToast();
+
+  const { openRoom, nameUser, avatar, adminUid } = userInfo || {};
+  const { firstName = '', lastName = '', avatarURL } = userChat || {};
 
   const handleGetMessage = async (
     chatDocSnap: DocumentSnapshot<DocumentData, DocumentData>,
@@ -95,7 +106,7 @@ const ChatMemberList = () => {
     router.push(`/inbox?id=${id}`);
 
     try {
-      const combinedId = superAdmin?.uid + user.uid;
+      const combinedId = superAdminUid + user.uid;
       const chatDocRef = doc(db, FIREBASE_CHAT.CHATS, combinedId);
       const chatDocSnap = await getDoc(chatDocRef);
       const chatData = chatDocSnap.data();
@@ -126,7 +137,7 @@ const ChatMemberList = () => {
         const chatDocRef = doc(
           db,
           FIREBASE_CHAT.USER_CHATS,
-          `${superAdmin?.uid}`,
+          `${superAdminUid}`,
         );
         const unsub = onSnapshot(chatDocRef, (doc) => {
           setChats(doc.data());
@@ -146,8 +157,8 @@ const ChatMemberList = () => {
       }
     };
 
-    superAdmin?.uid && getLastMessagesByUserId();
-  }, [toast, superAdmin?.uid]);
+    superAdminUid && getLastMessagesByUserId();
+  }, [toast, superAdminUid]);
 
   const dataChats = useMemo(
     () => chats && Object.entries(chats)?.sort((a, b) => b[1].date - a[1].date),
@@ -157,7 +168,7 @@ const ChatMemberList = () => {
   useEffect(() => {
     const getRoomChat = async () => {
       if (uidUser) {
-        const roomChatId = superAdmin?.uid + uidUser;
+        const roomChatId = superAdminUid + uidUser;
         const userInfo = chats && chats[roomChatId]?.userInfo;
         const chatDocRef = doc(db, FIREBASE_CHAT.CHATS, roomChatId);
         const chatDocSnap = await getDoc(chatDocRef);
@@ -168,24 +179,15 @@ const ChatMemberList = () => {
           chatDocRef,
           chatData,
           roomChatId,
-          userInfo
-            ? userInfo.displayName
-            : `${userChat?.firstName} ${userChat?.lastName}`,
+          userInfo ? userInfo.displayName : `${firstName} ${lastName}`,
           uidUser,
-          userInfo ? userInfo?.avatarUrl : (userChat?.avatarURL as string),
+          userInfo ? userInfo?.avatarUrl : (avatarURL as string),
         );
       }
     };
 
-    superAdmin?.uid && getRoomChat();
-  }, [
-    chats,
-    uidUser,
-    superAdmin?.uid,
-    userChat?.firstName,
-    userChat?.lastName,
-    userChat?.avatarURL,
-  ]);
+    superAdminUid && getRoomChat();
+  }, [chats, uidUser, superAdminUid, firstName, lastName, avatarURL]);
 
   useSubscribeToChat(userInfo.roomChatId, setMessages);
 
@@ -207,8 +209,10 @@ const ChatMemberList = () => {
               dataChats.map((chat) => (
                 <ChatMember
                   key={chat[0]}
+                  uid={chat[1].userInfo?.uid}
                   avatar={chat[1].userInfo?.avatarUrl}
-                  onClick={() => handleSelectMember(chat[1].userInfo)}
+                  name={chat[1].userInfo?.displayName}
+                  onClick={handleSelectMember}
                 />
               ))}
           </Flex>
@@ -251,9 +255,10 @@ const ChatMemberList = () => {
               dataChats.map((chat) => (
                 <ChatMember
                   key={chat[0]}
+                  uid={chat[1].userInfo?.uid}
                   avatar={chat[1].userInfo?.avatarUrl}
                   name={chat[1].userInfo?.displayName}
-                  onClick={() => handleSelectMember(chat[1].userInfo)}
+                  onClick={handleSelectMember}
                   icon={
                     <FallbackImage
                       boxSize={4}
@@ -268,13 +273,13 @@ const ChatMemberList = () => {
           </Flex>
         </GridItem>
       </Hide>
-      {userInfo.openRoom && (
+      {openRoom && (
         <GridItem colSpan={isMobile ? 12 : 8}>
           <Conversation
-            nameUser={userInfo.nameUser}
-            avatarUser={userInfo.avatar}
+            nameUser={nameUser}
+            avatarUser={avatar}
             messages={messages}
-            adminUid={userInfo.adminUid}
+            adminUid={adminUid}
           />
         </GridItem>
       )}

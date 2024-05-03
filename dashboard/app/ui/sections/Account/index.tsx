@@ -8,11 +8,11 @@ import { Box, Flex } from '@chakra-ui/react';
 import { Benefit, Divider, Logo, SwitchTheme } from '@/ui/components';
 import Heading from '@/ui/layouts/AuthHeader';
 
-// Layouts
-import { AuthFooter } from '@/ui/layouts';
-
 // Constants
 import { ROUTES, TITLES } from '@/lib/constants';
+
+// Layouts
+import { AuthFooter } from '@/ui/layouts';
 
 type TAccountProps = {
   children?: ReactNode;

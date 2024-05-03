@@ -1,13 +1,11 @@
 import { memo } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-
-// Components
+import { ImageProps } from '@chakra-ui/next-js';
 import { Box, Flex, Td, Text, Tooltip } from '@chakra-ui/react';
 
 // Utils
 import { generatePlaceholder } from '@/lib/utils';
-import { ImageProps } from '@chakra-ui/next-js';
 
 type TUserInfoProps = Pick<ImageProps, 'loading' | 'priority'> & {
   name: string;

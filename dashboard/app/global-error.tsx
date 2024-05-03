@@ -13,7 +13,7 @@ const GlobalError = ({ reset }: { reset: () => void }) => (
       >
         Something went wrong!
       </Text>
-      <Button onClick={() => reset()}>Try again</Button>
+      <Button onClick={reset}>Try again</Button>
     </body>
   </html>
 );

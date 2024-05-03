@@ -2,15 +2,13 @@
 
 import { ReactElement, memo, useCallback, useState } from 'react';
 import { Grid, GridItem } from '@chakra-ui/react';
-
-// Constants
-import { OPTION_SETTING } from '@/lib/constants';
+import dynamic from 'next/dynamic';
 
 // Components
 import { Indicator, ItemSideBarSetting } from '@/ui/components';
 
-// HOCs
-import dynamic from 'next/dynamic';
+// Constants
+import { OPTION_SETTING } from '@/lib/constants';
 
 // Lazy loading components
 const AvatarSetting = dynamic(() =>
@@ -18,32 +16,27 @@ const AvatarSetting = dynamic(() =>
     default: module.AvatarSetting,
   })),
 );
-
 const Faq = dynamic(() =>
   import('@/ui/components/Icons/Faq').then((module) => ({
     default: module.Faq,
   })),
 );
-
 const Security = dynamic(() =>
   import('@/ui/components/Icons/Security').then((module) => ({
     default: module.Security,
   })),
 );
-
 const TermCondition = dynamic(() =>
   import('@/ui/components/Icons/TermCondition').then((module) => ({
     default: module.TermCondition,
   })),
 );
-
 const TermAndCondition = dynamic(
   () => import('@/ui/components/Setting/TermAndCondition'),
   {
     loading: () => <Indicator isOpen={true} />,
   },
 );
-
 const UserForm = dynamic(() => import('@/ui/components/Setting/Personal'), {
   loading: () => <Indicator isOpen={true} />,
 });

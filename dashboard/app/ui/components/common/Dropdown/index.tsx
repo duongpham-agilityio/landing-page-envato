@@ -13,13 +13,17 @@ import {
   MenuList,
   Text,
 } from '@chakra-ui/react';
-// Assets
+
+// Components
 import { Arrow, Avatar, Indicator } from '@/ui/components';
 
 // Constants
 import { IMAGES, MENU_LIST, MENU_LIST_ICON } from '@/lib/constants';
+
 // Hooks
 import { useAuth } from '@/lib/hooks';
+
+// Themes
 import { useColorfill } from '@/ui/themes/bases';
 
 interface DropdownProps {

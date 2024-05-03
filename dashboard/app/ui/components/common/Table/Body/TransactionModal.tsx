@@ -28,6 +28,10 @@ const TransactionModal = ({
   onUpdateTransaction,
   onCloseModal,
 }: TransactionProps) => {
+  const { id, customer } = transaction || {};
+  const { firstName, lastName, address } = customer || {};
+  const { state, street, city, zip } = address || {};
+
   const {
     control,
     formState: { isDirty },
@@ -36,15 +40,15 @@ const TransactionModal = ({
     reset,
   } = useForm<TTransaction>({
     defaultValues: {
-      _id: transaction?.id,
+      _id: id,
       customer: {
-        firstName: transaction?.customer?.firstName,
-        lastName: transaction?.customer?.lastName,
+        firstName: firstName,
+        lastName: lastName,
         address: {
-          state: transaction?.customer?.address.state,
-          street: transaction?.customer?.address.street,
-          city: transaction?.customer?.address.city,
-          zip: transaction?.customer?.address.zip,
+          state: state,
+          street: street,
+          city: city,
+          zip: zip,
         },
       },
     },
@@ -81,7 +85,7 @@ const TransactionModal = ({
       <Text fontSize="lg">
         Are you sure delete the transaction with id:
         <Text as="span" pl={1} color="red.500" fontWeight="bold">
-          {transaction?.id}
+          {id}
         </Text>
         ?
       </Text>

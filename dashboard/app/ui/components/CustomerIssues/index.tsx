@@ -10,19 +10,19 @@ import { CardIssues, Loading } from '@/ui/components';
 import { IIssues } from '@/lib/interfaces';
 
 interface CustomerProps {
+  dataList?: IIssues[];
+  isFetching?: boolean;
   isDisabled?: boolean;
   hasNextPage?: boolean;
-  dataList?: IIssues[];
   onLoadMore: () => void;
-  isFetching?: boolean;
 }
 
 const CustomerIssues = ({
-  dataList,
+  dataList = [],
+  isFetching = false,
   isDisabled = false,
   hasNextPage = true,
   onLoadMore,
-  isFetching,
 }: CustomerProps) => (
   <Box
     px={8}

@@ -24,6 +24,8 @@ const ListMessages = ({ messages, adminUid, avatarUser, nameUser }: Props) => {
   const user = authStore((state) => state.user);
   const boxRef = useRef<HTMLDivElement | null>(null);
 
+  const { uid, avatarURL } = user || {};
+
   useEffect(() => {
     if (boxRef.current) {
       boxRef.current.scrollTop = boxRef.current.scrollHeight;
@@ -52,17 +54,19 @@ const ListMessages = ({ messages, adminUid, avatarUser, nameUser }: Props) => {
         padding={5}
       >
         {messages.map((message) => {
-          const isSuperAdmin = message.senderId === user?.uid;
+          const { senderId, text, date } = message || {};
+          const { seconds } = date || {};
+          const isSuperAdmin = senderId === uid;
 
           return (
             <MessageAdmin
-              content={message.text}
-              key={message.date.seconds}
-              senderId={message.senderId}
+              content={text}
+              key={seconds}
+              senderId={senderId}
               isSuperAdmin={isSuperAdmin}
               avatarUser={avatarUser}
-              avatarAdmin={user?.avatarURL}
-              localeTime={convertTimeMessage(message.date.seconds)}
+              avatarAdmin={avatarURL}
+              localeTime={convertTimeMessage(seconds)}
             />
           );
         })}

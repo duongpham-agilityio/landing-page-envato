@@ -3,8 +3,6 @@ import isEqual from 'react-fast-compare';
 
 // Components
 import { Box, Flex, Heading, Text, IconButton, Avatar } from '@chakra-ui/react';
-
-// Icons
 import { BookMark, ShareNodes } from '@/ui/components/Icons';
 
 // Types
@@ -12,6 +10,8 @@ import { TEmployee } from '@/lib/interfaces';
 
 // Utils
 import { formatDecimalNumber } from '@/lib/utils';
+
+// Mocks
 import { USER_MOCK } from '@/lib/mocks';
 
 interface userCardProps {
@@ -33,6 +33,13 @@ const UserCardComponent = ({ user }: userCardProps) => {
     hiringAgent,
     jobTitle,
   } = user || USER_MOCK;
+
+  const {
+    avatarURL: hiringAgentAvatarURL,
+    firstName: hiringAgentFirstName,
+    lastName: hiringAgentLastName,
+    experience: hiringAgentExperience,
+  } = hiringAgent || {};
 
   const iconButtonStyles = {
     variant: 'outline',
@@ -125,15 +132,15 @@ const UserCardComponent = ({ user }: userCardProps) => {
           Hiring Agent
         </Text>
         <Flex gap={4} mt={4}>
-          <Avatar src={hiringAgent.avatarURL} w={10} h={10} />
+          <Avatar src={hiringAgentAvatarURL} w={10} h={10} />
           <Box>
             <Text variant="textSm" fontWeight="semibold" color="text.primary">
-              {hiringAgent.firstName} {hiringAgent.lastName}
+              {hiringAgentFirstName} {hiringAgentLastName}
             </Text>
             <Text color="primary.500" variant="textSm">
               HR Specialist •{' '}
               <Text as="span" color="text.nonary" variant="textSm">
-                {hiringAgent.experience} Exp
+                {hiringAgentExperience} Exp
               </Text>
             </Text>
           </Box>

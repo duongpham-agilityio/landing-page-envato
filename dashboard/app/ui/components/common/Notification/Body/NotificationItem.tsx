@@ -1,12 +1,12 @@
-import { memo } from 'react';
+import { memo, useCallback } from 'react';
 import { DeleteIcon } from '@chakra-ui/icons';
 import { Box, Divider, Flex, MenuItem, Text } from '@chakra-ui/react';
 
-// Interfaces
-import { TNotification } from '@/lib/interfaces';
-
 // Utils
 import { convertDateToTime } from '@/lib/utils';
+
+// Interfaces
+import { TNotification } from '@/lib/interfaces';
 
 interface NotificationProps {
   notification: TNotification;
@@ -27,6 +27,12 @@ const NotificationItem = ({
   onUpdateNotification,
 }: NotificationProps) => {
   const handleUpdateData = () => onUpdateNotification(notification);
+
+  const handleClickDeleteIcon = useCallback(
+    (event: React.MouseEvent<SVGElement, MouseEvent>) =>
+      onToggleModal(event, notification._id),
+    [],
+  );
 
   return (
     <MenuItem
@@ -77,7 +83,7 @@ const NotificationItem = ({
             position="relative"
             zIndex={10}
             data-testid={`delete-icon-${notification._id}`}
-            onClick={(event) => onToggleModal(event, notification._id)}
+            onClick={handleClickDeleteIcon}
           />
         </Flex>
         {!isLastItem && <Divider color="gray.300" />}

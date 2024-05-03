@@ -2,8 +2,6 @@
 
 import dynamic from 'next/dynamic';
 import { InView } from 'react-intersection-observer';
-
-//Components
 import { Box, Flex } from '@chakra-ui/react';
 
 // Lazy loading components

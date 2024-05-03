@@ -1,19 +1,15 @@
 'use client';
 
 import lazy from 'next/dynamic';
-
 import { InView } from 'react-intersection-observer';
+import { Box, Grid, GridItem, Stack } from '@chakra-ui/react';
 
 // Components
-import { Box, Grid, GridItem, Stack } from '@chakra-ui/react';
 import { TotalStatisticList } from '@/ui/components';
 
 // Lazy load components
 const CardPayment = lazy(() => import('@/ui/components/CardPayment'));
 const BoxChat = lazy(() => import('@/ui/components/BoxChat'));
-// const TotalStatisticList = lazy(
-//   () => import('@/ui/components/TotalStatisticList'),
-// );
 const RevenueFlow = lazy(() => import('@/ui/components/RevenueFlow'));
 const Efficiency = lazy(() => import('@/ui/components/Efficiency'));
 const TransactionTable = lazy(() => import('@/ui/components/TransactionTable'));

@@ -6,11 +6,11 @@ import { Box, Flex, Image, Text } from '@chakra-ui/react';
 // Constants
 import { IMAGES } from '@/lib/constants';
 
-// Interfaces
-import { IIssues } from '@/lib/interfaces';
-
 // Utils
 import { convertTimeStampToTime } from '@/lib/utils';
+
+// Interfaces
+import { IIssues } from '@/lib/interfaces';
 
 interface CardIssueProps {
   data: IIssues;

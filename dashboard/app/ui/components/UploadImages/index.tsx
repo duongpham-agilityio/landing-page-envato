@@ -7,27 +7,22 @@ import {
   Input,
   ResponsiveValue,
   FormLabel,
-  Image,
   Flex,
-  CloseButton,
 } from '@chakra-ui/react';
 
 // Components
-import { Loading } from '..';
-
-// Constants
-import { IMAGES } from '@/lib/constants';
+import { Loading, ProductGallery } from '@/ui/components';
 
 export type TUploadImageImagesProps = {
   label: string;
-  previewURL?: string[];
+  previewURLs?: string[];
   onChange: (files: File[]) => void;
   onRemove: (index: number) => void;
 };
 
 const UploadImagesComponent = ({
-  label,
-  previewURL = [],
+  label = 'Upload images',
+  previewURLs = [],
   onChange,
   onRemove,
 }: TUploadImageImagesProps) => {
@@ -38,10 +33,6 @@ const UploadImagesComponent = ({
   const { getRootProps, getInputProps, isFileDialogActive } = useDropzone({
     onDrop,
   });
-
-  const handleRemoveImage = (index: number) => {
-    onRemove(index);
-  };
 
   return (
     <Flex w="100%" flexDirection="column">
@@ -61,60 +52,28 @@ const UploadImagesComponent = ({
             w={{ base: 320, md: 474 }}
             flexWrap="wrap"
           >
-            {previewURL.slice(0, 3)?.map((v, i) => (
-              <Box key={v} position="relative">
-                <CloseButton
-                  color="common.white"
-                  bg="primary.600"
-                  borderRadius="50%"
-                  fontSize={8}
-                  size="lg"
-                  w={5}
-                  h={5}
-                  onClick={() => handleRemoveImage(i)}
-                  data-testid="del-icon"
-                  position="absolute"
-                  right={0}
+            {previewURLs
+              .slice(0, 3)
+              ?.map((previewURL, i) => (
+                <ProductGallery
+                  key={previewURL}
+                  previewURL={previewURL}
+                  index={i}
+                  onRemove={onRemove}
                 />
-                <Image
-                  w={{ base: 320, md: 150 }}
-                  h={{ base: 320, md: 150 }}
-                  src={v || IMAGES.SIGN_UP.url}
-                  alt={IMAGES.AVATAR_SIGN_UP.alt}
-                  fallbackSrc={IMAGES.SIGN_UP.url}
-                  borderRadius={20}
-                  objectFit="contain"
-                />
-              </Box>
-            ))}
+              ))}
           </Flex>
           <Flex alignItems="center" gap={3}>
-            {previewURL.slice(3, 5)?.map((v, i) => (
-              <Box key={v} position="relative">
-                <CloseButton
-                  color="common.white"
-                  bg="primary.600"
-                  borderRadius="50%"
-                  fontSize={8}
-                  size="lg"
-                  w={5}
-                  h={5}
-                  onClick={() => handleRemoveImage(i + 3)}
-                  data-testid="del-icon"
-                  position="absolute"
-                  right={0}
+            {previewURLs
+              .slice(3, 5)
+              ?.map((previewURL, i) => (
+                <ProductGallery
+                  key={previewURL}
+                  previewURL={previewURL}
+                  index={i + 3}
+                  onRemove={onRemove}
                 />
-                <Image
-                  w={{ base: 100, md: 150 }}
-                  h={{ base: 100, md: 150 }}
-                  src={v || IMAGES.SIGN_UP.url}
-                  alt={IMAGES.AVATAR_SIGN_UP.alt}
-                  fallbackSrc={IMAGES.SIGN_UP.url}
-                  borderRadius={20}
-                  objectFit="contain"
-                />
-              </Box>
-            ))}
+              ))}
           </Flex>
         </Flex>
       </FormLabel>

@@ -1,22 +1,26 @@
 import { Dispatch, MutableRefObject, SetStateAction, useEffect } from 'react';
 
+// Constants
+import { AUTHENTICATION_ROLE, FIREBASE_CHAT } from '@/lib/constants';
+
 // Stores
 import { authStore } from '@/lib/stores';
-
-// Interface
-import { TUserInfo, useGetUserDetails } from '.';
-import { TMessages } from '@/lib/interfaces';
 
 // Firebase
 import { collection, doc, getDocs, onSnapshot } from 'firebase/firestore';
 
-// Constants
-import { AUTHENTICATION_ROLE, FIREBASE_CHAT } from '@/lib/constants';
-
 // Utils
 import { db } from '@/lib/utils';
-import { MOCK_SUPER_ADMIN } from '../mocks';
+
+// Service
 import { getAdminDetailsWithId } from '../services';
+
+// Mocks
+import { MOCK_SUPER_ADMIN } from '../mocks';
+
+// Interface
+import { TUserInfo, useGetUserDetails } from '.';
+import { TMessages } from '@/lib/interfaces';
 
 // TODO: if have real id from firestore
 export const useGetRoomChat = () => {

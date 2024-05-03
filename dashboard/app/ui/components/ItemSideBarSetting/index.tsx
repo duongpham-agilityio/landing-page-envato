@@ -1,6 +1,8 @@
 import isEqual from 'react-fast-compare';
 import { memo, useCallback } from 'react';
 import { Box, Flex, Text, Heading } from '@chakra-ui/react';
+
+// Themes
 import { useColorfill } from '@/ui/themes/bases';
 
 export interface ItemSideBarSettingProps {
@@ -15,10 +17,10 @@ export interface ItemSideBarSettingProps {
 const ItemSideBarSetting = ({
   id,
   children,
-  activeItemId,
+  activeItemId = '',
+  title = '',
+  content = '',
   onClick,
-  title,
-  content,
 }: ItemSideBarSettingProps): JSX.Element => {
   const handleToggle = useCallback(() => {
     onClick(id);

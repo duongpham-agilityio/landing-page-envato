@@ -53,10 +53,20 @@ const ProductForm = ({
   onUpdateProduct,
   onCloseModal,
 }: ProductProps) => {
+  const { product } = data || {};
+  const {
+    _id,
+    name,
+    imageURLs,
+    currency,
+    amount,
+    stock,
+    description,
+    createdAt,
+  } = product || {};
+
   const toast = useToast();
-  const [previewURL, setPreviewURL] = useState<string[]>(
-    data?.product.imageURLs || [],
-  );
+  const [previewURLs, setPreviewURL] = useState<string[]>(imageURLs || []);
   const [imageFiles, setImageFiles] = useState<File[]>([]);
   const [isImagesDirty, setIsImagesDirty] = useState(false);
 
@@ -68,14 +78,14 @@ const ProductForm = ({
     reset,
   } = useForm<TProductRequest>({
     defaultValues: {
-      _id: data?.product._id,
-      name: data?.product.name,
-      imageURLs: data?.product.imageURLs,
-      currency: data?.product.currency || CURRENCY_PRODUCT,
-      amount: data?.product.amount,
-      stock: data?.product.stock,
-      description: data?.product.description,
-      createdAt: data?.product.createdAt,
+      _id: _id,
+      name: name,
+      imageURLs: imageURLs,
+      currency: currency || CURRENCY_PRODUCT,
+      amount: amount,
+      stock: stock,
+      description: description,
+      createdAt: createdAt,
     },
   });
   const userId = authStore((state) => state.user?.id);
@@ -128,13 +138,13 @@ const ProductForm = ({
 
   const handleRemoveImage = useCallback(
     (index: number) => {
-      const updatedImages = [...previewURL];
+      const updatedImages = [...previewURLs];
       updatedImages.splice(index, 1);
 
       setPreviewURL(updatedImages);
       setIsImagesDirty(true);
     },
-    [previewURL],
+    [previewURLs],
   );
 
   const handleChangeValue = useCallback(
@@ -167,7 +177,7 @@ const ProductForm = ({
 
       const requestData = {
         ...data,
-        imageURLs: imagesUpload.length ? imagesUpload : previewURL,
+        imageURLs: imagesUpload.length ? imagesUpload : previewURLs,
         stock: parseFormattedNumber(data.stock).toString(),
         amount: parseFormattedNumber(data.amount).toString(),
         userId,
@@ -185,7 +195,7 @@ const ProductForm = ({
       onCloseModal,
       onCreateProduct,
       onUpdateProduct,
-      previewURL,
+      previewURLs,
       reset,
       userId,
     ],
@@ -368,7 +378,7 @@ const ProductForm = ({
           <FormControl>
             <UploadImages
               label="Gallery Thumbnail"
-              previewURL={previewURL}
+              previewURLs={previewURLs}
               onChange={handleFilesChange}
               onRemove={handleRemoveImage}
             />

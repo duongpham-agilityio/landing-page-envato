@@ -1,14 +1,14 @@
 import { useCallback, useEffect, useMemo, useState } from 'react';
 
-// Types
-import { PaginationType } from '../interfaces';
-import { TOption } from '@/ui/components/common/Select';
+// Constants
+import { PAGE_SIZE, PREV } from '@/lib/constants';
 
 // Utils
 import { formatPagination } from '@/lib/utils';
 
-// Constants
-import { PAGE_SIZE, PREV } from '@/lib/constants';
+// Types
+import { PaginationType } from '../interfaces';
+import { TOption } from '@/ui/components/common/Select';
 
 export const usePagination = <T>(transactions: T[]) => {
   const [data, setData] = useState<PaginationType>({

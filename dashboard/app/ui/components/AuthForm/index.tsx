@@ -1,9 +1,10 @@
 'use client';
 
-import { ChangeEvent, memo, useCallback } from 'react';
+import { ChangeEvent, memo, useCallback, MouseEvent } from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import { ViewOffIcon, ViewIcon } from '@chakra-ui/icons';
+import { Controller, SubmitHandler } from 'react-hook-form';
 import {
   Button,
   HStack,
@@ -16,29 +17,31 @@ import {
   Flex,
 } from '@chakra-ui/react';
 
-import { Controller, SubmitHandler } from 'react-hook-form';
-
-// Hooks
-import { useForm, useAuth } from '@/lib/hooks';
+// Components
+import { InputField } from '@/ui/components';
 
 // Constants
 import { ROUTES, AUTH_SCHEMA } from '@/lib/constants';
 
-// Components
-import { InputField } from '@/ui/components';
+// Hooks
+import { useForm, useAuth } from '@/lib/hooks';
 
 // Utils
-import { isWindowDefined, validatePassword } from '@/lib/utils';
+import {
+  isWindowDefined,
+  validatePassword,
+  app,
+  requestForToken,
+} from '@/lib/utils';
 
 // Types
 import { TUserDetail } from '@/lib/interfaces';
-import { getMessaging } from 'firebase/messaging';
 
 // Layouts
 import { AuthFooter } from '@/ui/layouts';
 
 // firebase
-import { app, requestForToken } from '@/lib/utils';
+import { getMessaging } from 'firebase/messaging';
 
 type TAuthForm = Omit<TUserDetail, 'id' | 'createdAt'> & {
   confirmPassword: string;
@@ -179,6 +182,17 @@ const AuthFormComponent = ({
     () => clearErrors('root'),
     [clearErrors],
   );
+
+  const handleClickForgotPassword = useCallback(
+    (e: MouseEvent<HTMLButtonElement>) => {
+      isSubmitting && e.preventDefault();
+    },
+    [],
+  );
+
+  const handleClickSubmit = useCallback((e: MouseEvent<HTMLButtonElement>) => {
+    isSubmitting && e.preventDefault();
+  }, []);
 
   return (
     <Box
@@ -336,9 +350,7 @@ const AuthFormComponent = ({
               fontWeight="semibold"
               textTransform="capitalize"
               textDecoration="underline"
-              onClick={(e) => {
-                isSubmitting && e.preventDefault();
-              }}
+              onClick={handleClickForgotPassword}
             >
               forgot password?
             </Button>
@@ -473,9 +485,7 @@ const AuthFormComponent = ({
           fontWeight="semibold"
           textDecoration="underline"
           ml={2}
-          onClick={(e) => {
-            isSubmitting && e.preventDefault();
-          }}
+          onClick={handleClickSubmit}
         >
           {!isRegister ? 'Sign Up' : 'Sign In'}
         </Button>

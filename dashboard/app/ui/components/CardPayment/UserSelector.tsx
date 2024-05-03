@@ -18,18 +18,18 @@ import {
 } from 'react';
 import { Control, Controller } from 'react-hook-form';
 
-// Icons
+// Components
 import { ChevronIcon } from '@/ui/components/Icons';
-
-// Types
-import { TTransfer } from '.';
-import { TUserDetail } from '@/lib/interfaces';
 
 // Hooks
 import { useDebounce } from '@/lib/hooks';
 import { AUTH_SCHEMA, COMMON_MESSAGES } from '@/lib/constants';
 import { InputField } from '..';
 import isEqual from 'react-fast-compare';
+
+// Types
+import { TTransfer } from '.';
+import { TUserDetail } from '@/lib/interfaces';
 
 export type TUseSelectorProps = {
   control: Control<TTransfer>;
@@ -164,6 +164,10 @@ const UserSelectorComponent = ({
     [handleFilterOptions],
   );
 
+  const handleClick = useCallback((e: MouseEvent<HTMLInputElement>) => {
+    e.stopPropagation();
+  }, []);
+
   const handleSelectEmail = useCallback(
     (email: string, onChange: (val: string) => void) => (e: MouseEvent) => {
       e.stopPropagation();
@@ -233,7 +237,7 @@ const UserSelectorComponent = ({
                     onChange={handleChange}
                     onFocus={handleFocusOrBlur}
                     onBlur={handleFocusOrBlur}
-                    onClick={(e) => e.stopPropagation()}
+                    onClick={handleClick}
                   />
                   <InputRightElement>
                     <IconButton
