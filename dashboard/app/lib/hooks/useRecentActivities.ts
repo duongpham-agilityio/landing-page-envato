@@ -91,7 +91,7 @@ export const useRecentActivities = (queryParam?: TAction) => {
   // sort activitiesSorted
   const activitiesAfterSort: TRecentActivities[] =
     useMemo((): TRecentActivities[] => {
-      const tempActivities: TRecentActivities[] = activitiesData;
+      const tempActivities: TRecentActivities[] = [...activitiesData];
       const { field, type } = sortValue;
 
       if (!field) return activitiesData;
