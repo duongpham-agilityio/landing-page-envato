@@ -76,7 +76,11 @@ const TotalBalanceComponent = (): JSX.Element => {
   const {
     control: addMoneyControl,
     handleSubmit: handleSubmitAddMoney,
-    formState: { isValid: isAddMoneyValid, isSubmitting: isAddMoneySubmitting },
+    formState: {
+      isValid: isAddMoneyValid,
+      isSubmitting: isAddMoneySubmitting,
+      isDirty,
+    },
     reset: resetAddMoneyForm,
   } = useForm<TAddMoneyForm>({
     defaultValues: {
@@ -84,6 +88,9 @@ const TotalBalanceComponent = (): JSX.Element => {
       amount: '',
     },
   });
+
+  console.log('isAddMoneyValid', isAddMoneyValid);
+  console.log('isAddMoneySubmitting', isAddMoneySubmitting);
 
   const toast = useToast();
   const { addMoneyToUserWallet } = useMoney();
@@ -122,7 +129,7 @@ const TotalBalanceComponent = (): JSX.Element => {
 
   const onSubmitAddMoney: SubmitHandler<TAddMoneyForm> = useCallback(
     (data) => {
-      const addMoneyAmount: number = Number(data.amount);
+      const addMoneyAmount: number = +data.amount.replaceAll(',', '');
 
       const dataToSubmit = {
         ...data,
@@ -253,7 +260,7 @@ const TotalBalanceComponent = (): JSX.Element => {
             bg="primary.300"
             fontWeight="bold"
             type="submit"
-            isDisabled={!isAddMoneyValid || isAddMoneySubmitting}
+            isDisabled={!isDirty}
           >
             Add Money
           </Button>

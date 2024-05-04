@@ -102,8 +102,18 @@ export const AUTH_SCHEMA = {
   },
 
   TRANSFER_AMOUNT: {
-    required: true,
-    validate: (value: string) => !!value.length && !isNaN(+value),
+    required: ERROR_MESSAGES.FIELD_REQUIRED('amount'),
+    validate: (value: string) => {
+      if (Number(value) <= 0) {
+        return ERROR_MESSAGES.AMOUNT_INVALID;
+      }
+      const removeFormat = +value.replaceAll(',', '');
+      if (removeFormat > 1000000) {
+        return ERROR_MESSAGES.LIMIT_AMOUNT;
+      }
+
+      return value.length > 0 && value[0] !== '';
+    },
   },
   OLD_PASSWORD: {
     required: ERROR_MESSAGES.FIELD_REQUIRED('Old password'),

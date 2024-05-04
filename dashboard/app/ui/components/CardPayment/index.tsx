@@ -153,7 +153,7 @@ const CardPaymentComponent = (): JSX.Element => {
       const submitData: TSendMoney = {
         ...data,
         memberId: getMemberId(data.memberId),
-        amount: Number(data.amount),
+        amount: +data.amount.replaceAll(',', ''),
       };
 
       sendMoneyToUserWallet(submitData, {
