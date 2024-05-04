@@ -11,11 +11,11 @@ const meta: Meta<typeof MessageAdmin> = {
     content: {
       description: 'This is content message of supper admin or member',
     },
-    avatarUser: {
+    userAvatar: {
       // src: IMAGES.CHAT_USER_AVATAR.url,
       description: 'This is image of user avatar',
     },
-    avatarAdmin: {
+    adminAvatar: {
       // src: IMAGES.CHAT_USER_AVATAR.url,
       description: 'This is image of user avatar admin',
     },

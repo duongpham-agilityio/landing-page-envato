@@ -14,7 +14,7 @@ interface Props {
 const ProductGallery = ({ previewURL, index, onRemove }: Props) => {
   const handleRemove = useCallback(() => {
     onRemove(index);
-  }, []);
+  }, [index, onRemove]);
 
   return (
     <Box position="relative">

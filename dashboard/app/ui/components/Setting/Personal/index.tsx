@@ -56,20 +56,20 @@ const UserFormComponent = () => {
   const toast = useToast();
 
   const {
-    id,
-    avatarURL,
-    email,
-    firstName,
-    lastName,
-    phoneNumber,
-    country,
-    city,
-    address,
-    postalCode,
-    facebookURL,
-    linkedinURL,
-    twitterURL,
-    youtubeURL,
+    id = '',
+    avatarURL = '',
+    email = '',
+    firstName = '',
+    lastName = '',
+    phoneNumber = '',
+    country = '',
+    city = '',
+    address = '',
+    postalCode = '',
+    facebookURL = '',
+    linkedinURL = '',
+    twitterURL = '',
+    youtubeURL = '',
   } = user || {};
 
   const {

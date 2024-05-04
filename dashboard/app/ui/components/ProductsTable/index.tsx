@@ -87,7 +87,7 @@ const ProductsTableComponent = () => {
     isDisablePrev,
     pageArray,
   } = useProducts({
-    name: get('name')?.toLowerCase() || '',
+    name: get('keyword')?.toLowerCase() || '',
   });
 
   const productsMemorized = useMemo(
@@ -102,7 +102,7 @@ const ProductsTableComponent = () => {
 
   const handleDebounceSearch = useDebounce((value: string) => {
     resetPage();
-    setSearchTransaction('name', value);
+    setSearchTransaction('keyword', value);
   }, []);
 
   const handleClickPage = (value: number) => setCurrentPage(value);
@@ -399,7 +399,7 @@ const ProductsTableComponent = () => {
         <SearchBar
           placeholder="Search by name"
           filterOptions={FILTER_PRODUCT}
-          searchValue={get('name')?.toLowerCase() || ''}
+          searchValue={get('keyword')?.toLowerCase() || ''}
           onSearch={handleDebounceSearch}
           onFilter={setFilter}
         />

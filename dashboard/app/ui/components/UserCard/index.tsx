@@ -20,25 +20,25 @@ interface userCardProps {
 
 const UserCardComponent = ({ user }: userCardProps) => {
   const {
-    firstName,
-    lastName,
-    position,
-    lastActive,
-    lastPlace,
-    level,
-    workTime,
-    avatarURL,
-    salary,
-    experience,
+    firstName = '',
+    lastName = '',
+    position = '',
+    lastActive = '',
+    lastPlace = '',
+    level = '',
+    workTime = '',
+    avatarURL = '',
+    salary = 0,
+    experience = '',
     hiringAgent,
-    jobTitle,
+    jobTitle = '',
   } = user || USER_MOCK;
 
   const {
-    avatarURL: hiringAgentAvatarURL,
-    firstName: hiringAgentFirstName,
-    lastName: hiringAgentLastName,
-    experience: hiringAgentExperience,
+    avatarURL: hiringAgentAvatarURL = '',
+    firstName: hiringAgentFirstName = '',
+    lastName: hiringAgentLastName = '',
+    experience: hiringAgentExperience = '',
   } = hiringAgent || {};
 
   const iconButtonStyles = {

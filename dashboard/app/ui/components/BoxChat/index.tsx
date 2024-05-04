@@ -121,8 +121,8 @@ const BoxChatComponent = () => {
               padding={5}
             >
               {messages.map((message) => {
-                const { text, date, senderId } = message || {};
-                const { seconds } = date || {};
+                const { text = '', date, senderId = '' } = message || {};
+                const { seconds = 0 } = date || {};
 
                 return (
                   <Message

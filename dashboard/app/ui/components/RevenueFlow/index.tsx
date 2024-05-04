@@ -130,7 +130,6 @@ const RevenueFlowComponent = () => {
             w={120}
             h="37px"
             bgColor="background.body.primary"
-            pl={5}
             borderRadius={8}
           >
             <Select

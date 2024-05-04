@@ -57,7 +57,7 @@ const RecentActivitiesTableComponent = () => {
     setLimit,
     resetPage,
   } = useRecentActivities({
-    actionName: get('actionName')?.toLowerCase() || '',
+    actionName: get('keyword')?.toLowerCase() || '',
   });
 
   const activityMemorized = useMemo(
@@ -70,7 +70,7 @@ const RecentActivitiesTableComponent = () => {
 
   const handleDebounceSearch = useDebounce((value: string) => {
     resetPage();
-    setSearchTransaction('actionName', value);
+    setSearchTransaction('keyword', value);
   }, []);
 
   const handleClickPage = (value: number) => setCurrentPage(value);
@@ -226,7 +226,7 @@ const RecentActivitiesTableComponent = () => {
         <SearchBar
           placeholder="Search by name or email"
           filterOptions={ACTIVITY_OPTIONS}
-          searchValue={get('actionName')?.toLowerCase() || ''}
+          searchValue={get('keyword')?.toLowerCase() || ''}
           onSearch={handleDebounceSearch}
           onFilter={setFilter}
         />

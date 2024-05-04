@@ -58,22 +58,27 @@ const ChatMemberList = () => {
   const [messages, setMessages] = useState<TMessages[]>([]);
   const [userInfo, setUserInfo] = useState({
     roomChatId: '',
-    nameUser: '',
+    userName: '',
     adminUid: '',
     avatar: '',
     openRoom: false,
   });
 
   const { user: superAdmin } = authStore((state) => state);
-  const { uid: superAdminUid, id: superAdminId = '' } = superAdmin || {};
+  const { uid: superAdminUid = '', id: superAdminId = '' } = superAdmin || {};
   const uidUser = searchParams?.get('id') as string;
 
   const { filterDataUser } = useGetUserDetails(superAdminId);
   const userChat = filterDataUser?.find((user) => user.uid === uidUser);
   const toast = useToast();
 
-  const { openRoom, nameUser, avatar, adminUid } = userInfo || {};
-  const { firstName = '', lastName = '', avatarURL } = userChat || {};
+  const {
+    openRoom = false,
+    userName = '',
+    avatar = '',
+    adminUid = '',
+  } = userInfo || {};
+  const { firstName = '', lastName = '', avatarURL = '' } = userChat || {};
 
   const handleGetMessage = async (
     chatDocSnap: DocumentSnapshot<DocumentData, DocumentData>,
@@ -90,7 +95,7 @@ const ChatMemberList = () => {
 
     setUserInfo({
       roomChatId: combinedId,
-      nameUser: nameUser,
+      userName: nameUser,
       adminUid: adminUid,
       avatar: avatar,
       openRoom: true,
@@ -267,7 +272,7 @@ const ChatMemberList = () => {
                     />
                   }
                   localeTime={convertTimeMessage(chat[1].date)}
-                  lastMessages={chat[1]?.lastMessage?.text}
+                  lastMessage={chat[1]?.lastMessage?.text}
                 />
               ))}
           </Flex>
@@ -276,8 +281,8 @@ const ChatMemberList = () => {
       {openRoom && (
         <GridItem colSpan={isMobile ? 12 : 8}>
           <Conversation
-            nameUser={nameUser}
-            avatarUser={avatar}
+            userName={userName}
+            userAvatar={avatar}
             messages={messages}
             adminUid={adminUid}
           />

@@ -20,6 +20,7 @@ import { CustomerIssues, InputField } from '@/ui/components';
 import {
   AUTH_SCHEMA,
   ERROR_MESSAGES,
+  REGEX,
   STATUS,
   STATUS_SUBMIT,
   SUCCESS_MESSAGES,
@@ -45,8 +46,15 @@ const ReactQuill = dynamic(() => import('react-quill'), { ssr: false });
 const SupportsSection = () => {
   const toast = useToast();
   const user = authStore((state) => state.user);
-  const { id, email, firstName, lastName, phoneNumber, title, description } =
-    (user as TUserDetail) || {};
+  const {
+    id = '',
+    email = '',
+    firstName = '',
+    lastName = '',
+    phoneNumber = '',
+    title = '',
+    description = '',
+  } = (user as TUserDetail) || {};
 
   const {
     data: listIssue,
@@ -77,15 +85,17 @@ const SupportsSection = () => {
     },
   });
 
-  const hasTitle = watch('title');
-  const hasDescription = watch('description');
+  const hasTitle = watch('title')?.trim();
+  const hasDescription = watch('description')
+    ?.replace(REGEX.HTML_TAG_PATTERN, '')
+    ?.trim();
 
   const disabled = useMemo(
     () =>
       !isDirty ||
       status === STATUS_SUBMIT.PENDING ||
-      hasTitle === '' ||
-      hasDescription === '',
+      !hasTitle ||
+      !hasDescription,
     [isDirty, status, hasTitle, hasDescription],
   );
 
@@ -105,8 +115,8 @@ const SupportsSection = () => {
       createIssues(
         {
           userId: id,
-          firstName: firstName,
-          lastName: lastName,
+          firstName,
+          lastName,
           email: email,
           phone: phoneNumber,
           title: title,
@@ -138,7 +148,7 @@ const SupportsSection = () => {
         },
       );
     },
-    [createIssues, reset],
+    [createIssues, email, firstName, id, lastName, phoneNumber, reset, toast],
   );
 
   return (

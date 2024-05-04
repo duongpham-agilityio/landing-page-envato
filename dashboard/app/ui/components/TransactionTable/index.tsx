@@ -76,7 +76,7 @@ const TransactionTableComponent = ({
     updateTransaction,
     deleteTransaction,
   } = useTransactions({
-    name: get('name') || '',
+    name: get('keyword')?.toLowerCase() || '',
   });
 
   const listData = isOpenHistoryModal ? dataHistory : dataTransaction;
@@ -186,7 +186,7 @@ const TransactionTableComponent = ({
   // Update search params when end time debounce
   const handleDebounceSearch = useDebounce((value: string) => {
     resetPage();
-    setSearchTransaction('name', value);
+    setSearchTransaction('keyword', value);
   }, []);
 
   const renderHead = useCallback(
@@ -394,7 +394,7 @@ const TransactionTableComponent = ({
     <Indicator isOpen={isUpdateTransaction || isDeleteTransaction}>
       <SearchBar
         filterOptions={isOpenHistoryModal ? MONTHS_OPTIONS : ROLES}
-        searchValue={get('name') || ''}
+        searchValue={get('name')?.toLowerCase() || ''}
         onSearch={handleDebounceSearch}
         onFilter={setFilter}
       />

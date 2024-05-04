@@ -28,9 +28,9 @@ const TransactionModal = ({
   onUpdateTransaction,
   onCloseModal,
 }: TransactionProps) => {
-  const { id, customer } = transaction || {};
-  const { firstName, lastName, address } = customer || {};
-  const { state, street, city, zip } = address || {};
+  const { id = '', customer } = transaction || {};
+  const { firstName = '', lastName = '', address = '' } = customer || {};
+  const { state = '', street = '', city = '', zip = 0 } = address || {};
 
   const {
     control,

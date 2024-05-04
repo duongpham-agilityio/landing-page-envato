@@ -36,7 +36,12 @@ const HeaderComponent = () => {
     (state): number | undefined => state.user?.bonusTimes,
   );
 
-  const { firstName = '', lastName = '', role = '', avatarURL } = user || {};
+  const {
+    firstName = '',
+    lastName = '',
+    role = '',
+    avatarURL = '',
+  } = user || {};
 
   const username = `${firstName} ${lastName}`;
 

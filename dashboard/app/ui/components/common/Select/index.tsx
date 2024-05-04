@@ -8,9 +8,15 @@ import {
   MenuList,
   Text,
   MenuProps,
+  Flex,
+  Box,
+  theme,
 } from '@chakra-ui/react';
 import { MouseEventHandler, memo, useState } from 'react';
 import isEqual from 'react-fast-compare';
+
+// Components
+import { Arrow } from '@/ui/components/Icons';
 
 // Themes
 import { SIZES } from '@/ui/themes/components';
@@ -37,6 +43,7 @@ const SelectComponent = ({
   onSelect,
 }: TSelectProps): JSX.Element => {
   const [selected, setSelected] = useState<number>(0);
+  const colorFill = theme.colors.gray[400];
 
   return (
     <Menu matchWidth>
@@ -53,15 +60,21 @@ const SelectComponent = ({
         {options[selected]?.label === 'Default' ? (
           renderTitle(options[selected])
         ) : (
-          <Text
-            as="span"
-            textAlign="center"
-            fontSize="md"
-            color="text.currencyColor"
-            gap={3}
-          >
-            {options[selected]?.label}
-          </Text>
+          <Flex justifyContent="center">
+            <Text
+              as="span"
+              textAlign="center"
+              fontSize="sm"
+              color="text.currencyColor"
+              textTransform="capitalize"
+              gap={3}
+            >
+              {options[selected]?.label}
+            </Text>
+            <Box mt={-1} ml={2}>
+              <Arrow color={colorFill} width={18} height={15} />
+            </Box>
+          </Flex>
         )}
       </MenuButton>
       <MenuList

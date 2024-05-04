@@ -11,19 +11,19 @@ import { IMAGES } from '@/lib/constants';
 import { TMessages } from '@/lib/interfaces';
 
 export type Props = {
-  nameUser: string;
-  avatarUser: string;
+  userName: string;
+  userAvatar: string;
   messages: TMessages[];
   adminUid?: string;
 };
 
 const Conversation = ({
-  nameUser,
-  avatarUser = IMAGES.AVATAR.url,
+  userName,
+  userAvatar = IMAGES.AVATAR.url,
   messages = [],
   adminUid = '',
 }: Props) => {
-  const defaultName = nameUser;
+  const defaultName = userName;
 
   return (
     <Box w="full" borderRadius="lg">
@@ -41,7 +41,7 @@ const Conversation = ({
           textTransform="capitalize"
         >
           <ChatMember
-            avatar={avatarUser}
+            avatar={userAvatar}
             name={defaultName}
             statusColor="online"
           />
@@ -49,10 +49,10 @@ const Conversation = ({
       </Flex>
 
       <ListMessages
-        avatarUser={avatarUser}
+        userAvatar={userAvatar}
         messages={messages}
         adminUid={adminUid}
-        nameUser={nameUser}
+        userName={userName}
       />
     </Box>
   );

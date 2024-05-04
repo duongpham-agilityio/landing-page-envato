@@ -55,14 +55,14 @@ const ProductForm = ({
 }: ProductProps) => {
   const { product } = data || {};
   const {
-    _id,
-    name,
-    imageURLs,
-    currency,
-    amount,
-    stock,
-    description,
-    createdAt,
+    _id = '',
+    name = '',
+    imageURLs = [],
+    currency = '',
+    amount = '',
+    stock = '',
+    description = '',
+    createdAt = '',
   } = product || {};
 
   const toast = useToast();

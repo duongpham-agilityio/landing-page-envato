@@ -19,7 +19,7 @@ export type Props = {
   localeTime?: string;
   icon?: React.ReactNode;
   statusColor?: string;
-  lastMessages?: string;
+  lastMessage?: string;
   onClick?: (user: {
     uid: string;
     avatarUrl: string;
@@ -34,7 +34,7 @@ const ChatMember = ({
   localeTime = '',
   icon,
   statusColor = '',
-  lastMessages = '',
+  lastMessage = '',
   onClick,
 }: Props) => {
   const { secondary } = useColorfill();
@@ -47,7 +47,7 @@ const ChatMember = ({
     };
 
     onClick && onClick(user);
-  }, []);
+  }, [avatar, name, onClick, uid]);
 
   return (
     <>
@@ -147,7 +147,7 @@ const ChatMember = ({
                 </Box>
                 <Text
                   color="primary.300"
-                  dangerouslySetInnerHTML={{ __html: lastMessages ?? '' }}
+                  dangerouslySetInnerHTML={{ __html: lastMessage }}
                 />
               </Flex>
             </Flex>

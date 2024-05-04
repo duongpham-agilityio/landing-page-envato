@@ -13,4 +13,5 @@ export const REGEX = {
   FORMAT_MONEY: /(\d)(?=(\d{3})+(?!\d))/,
   URL: /^(https?|ftp):\/\/(-\.)?([^\s/?\.#-]+\.?)+([^\s]*)$/i,
   FORMAT_NUMBER: /[^\d.-]/g,
+  HTML_TAG_PATTERN: /<\/?[^>]+(>|$)/g,
 };

@@ -31,7 +31,7 @@ const NotificationItem = ({
   const handleClickDeleteIcon = useCallback(
     (event: React.MouseEvent<SVGElement, MouseEvent>) =>
       onToggleModal(event, notification._id),
-    [],
+    [notification._id, onToggleModal],
   );
 
   return (

@@ -10,8 +10,8 @@ import { generatePlaceholder } from '@/lib/utils';
 
 interface MessageProps {
   content?: string;
-  avatarUser?: string;
-  avatarAdmin?: string;
+  userAvatar?: string;
+  adminAvatar?: string;
   localeTime?: string;
   senderId: string;
   isSuperAdmin: boolean;
@@ -20,8 +20,8 @@ interface MessageProps {
 const MessageAdmin = ({
   content = '',
   isSuperAdmin = false,
-  avatarUser = IMAGES.CHAT_USER_AVATAR.url,
-  avatarAdmin = IMAGES.CHAT_USER_AVATAR.url,
+  userAvatar = IMAGES.CHAT_USER_AVATAR.url,
+  adminAvatar = IMAGES.CHAT_USER_AVATAR.url,
   localeTime,
 }: MessageProps) => {
   const justifyContent = isSuperAdmin ? 'flex-end' : 'flex-start';
@@ -40,8 +40,8 @@ const MessageAdmin = ({
       {!isSuperAdmin && (
         <Box pos="relative" w={9} h={9}>
           <Image
-            src={avatarUser}
-            alt={avatarUser}
+            src={userAvatar}
+            alt={userAvatar}
             fill
             sizes="100vw"
             placeholder="blur"
@@ -81,8 +81,8 @@ const MessageAdmin = ({
       {isSuperAdmin && (
         <Box pos="relative" w={9} h={9}>
           <Image
-            src={avatarAdmin}
-            alt={avatarAdmin}
+            src={adminAvatar}
+            alt={adminAvatar}
             fill
             sizes="100vw"
             placeholder="blur"

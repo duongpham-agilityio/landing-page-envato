@@ -10,7 +10,7 @@ import { SendIconLight } from '..';
 import CustomButton from '@/ui/components/common/Button';
 
 // Constants
-import { IMAGES } from '@/lib/constants';
+import { IMAGES, REGEX } from '@/lib/constants';
 
 // Hooks
 import { sendMessage } from '@/lib/utils';
@@ -27,15 +27,15 @@ import { useColorfill } from '@/ui/themes/bases';
 const ReactQuill = dynamic(() => import('react-quill'), { ssr: false });
 
 interface QuillProps {
-  avatarUser: string;
-  nameUser: string;
+  userAvatar: string;
+  userName: string;
   userUid?: string;
 }
 
 const Quill = ({
   userUid = '',
-  avatarUser = IMAGES.AVATAR.url,
-  nameUser = 'User',
+  userAvatar = IMAGES.AVATAR.url,
+  userName = 'User',
 }: QuillProps) => {
   const currentUser = authStore((state) => state.user);
 
@@ -68,7 +68,7 @@ const Quill = ({
 
   const handleSend = useCallback(
     async (data: TMessages) => {
-      const filterMessage = data.text.replace(/<\/?[^>]+(>|$)/g, '');
+      const filterMessage = data.text.replace(REGEX.HTML_TAG_PATTERN, '');
 
       const dataMessage: TMessages = {
         ...data,
@@ -83,14 +83,14 @@ const Quill = ({
         idRoomChat,
         userUid || '',
         adminId,
-        avatarUser,
+        userAvatar,
         currentUser?.avatarURL || '',
-        nameUser,
+        userName,
       );
 
       reset();
     },
-    [currentUser, userUid, avatarUser, nameUser, reset],
+    [currentUser, userUid, userAvatar, userName, reset],
   );
 
   const handleOnKeyDown = useCallback(

@@ -187,12 +187,15 @@ const AuthFormComponent = ({
     (e: MouseEvent<HTMLButtonElement>) => {
       isSubmitting && e.preventDefault();
     },
-    [],
+    [isSubmitting],
   );
 
-  const handleClickSubmit = useCallback((e: MouseEvent<HTMLButtonElement>) => {
-    isSubmitting && e.preventDefault();
-  }, []);
+  const handleClickSubmit = useCallback(
+    (e: MouseEvent<HTMLButtonElement>) => {
+      isSubmitting && e.preventDefault();
+    },
+    [isSubmitting],
+  );
 
   return (
     <Box

@@ -54,7 +54,7 @@ const Metadata = () => {
           <meta property="fb:app_id" content={SIGN_IN_PAGE.ogFbAppId} />
         </>
       )}
-      <link rel="shortcut icon" href={'/logos/favicon.ico'} />
+      <link rel="shortcut icon" href="/icons/logo-mini-light.svg" />
     </head>
   );
 };
