@@ -1,6 +1,6 @@
 'use client';
 
-import { FormEvent, memo, useCallback } from 'react';
+import { memo, useCallback } from 'react';
 import { Box, Button, useToast } from '@chakra-ui/react';
 import { SubmitHandler } from 'react-hook-form';
 import { AxiosError } from 'axios';
@@ -19,7 +19,11 @@ import { PinCodeModal } from '..';
 import { TPinCodeForm } from '@/lib/interfaces';
 
 // utils
-import { customToast, getErrorMessageFromAxiosError } from '@/lib/utils';
+import {
+  customToast,
+  getErrorMessageFromAxiosError,
+  removeAmountFormat,
+} from '@/lib/utils';
 
 // Services
 import { TMoneyResponse } from '@/lib/services';
@@ -76,11 +80,7 @@ const TotalBalanceComponent = (): JSX.Element => {
   const {
     control: addMoneyControl,
     handleSubmit: handleSubmitAddMoney,
-    formState: {
-      isValid: isAddMoneyValid,
-      isSubmitting: isAddMoneySubmitting,
-      isDirty,
-    },
+    formState: { isDirty },
     reset: resetAddMoneyForm,
   } = useForm<TAddMoneyForm>({
     defaultValues: {
@@ -88,9 +88,6 @@ const TotalBalanceComponent = (): JSX.Element => {
       amount: '',
     },
   });
-
-  console.log('isAddMoneyValid', isAddMoneyValid);
-  console.log('isAddMoneySubmitting', isAddMoneySubmitting);
 
   const toast = useToast();
   const { addMoneyToUserWallet } = useMoney();
@@ -129,7 +126,7 @@ const TotalBalanceComponent = (): JSX.Element => {
 
   const onSubmitAddMoney: SubmitHandler<TAddMoneyForm> = useCallback(
     (data) => {
-      const addMoneyAmount: number = +data.amount.replaceAll(',', '');
+      const addMoneyAmount: number = removeAmountFormat(data.amount);
 
       const dataToSubmit = {
         ...data,
@@ -149,8 +146,8 @@ const TotalBalanceComponent = (): JSX.Element => {
 
   const hasPinCode = user?.pinCode;
 
-  const handleOnSubmitAddMoney = (e: FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
+  const handleOnSubmitAddMoney = () => {
+    // e.preventDefault();
     hasPinCode ? onOpenConfirmPinCodeModal() : onOpenSetPinCodeModal();
   };
 
@@ -251,7 +248,7 @@ const TotalBalanceComponent = (): JSX.Element => {
         py={7}
         borderRadius="lg"
       >
-        <form onSubmit={handleOnSubmitAddMoney}>
+        <form onSubmit={handleSubmitAddMoney(handleOnSubmitAddMoney)}>
           <AddMoneyInput control={addMoneyControl} />
           <Button
             aria-label="btn-add-money"

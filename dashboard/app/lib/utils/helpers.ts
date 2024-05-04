@@ -159,6 +159,14 @@ export const formatAmountNumber = (value: string): string => {
   return decimalValue ? `${newValueFormat}${decimalValue}` : newValueFormat;
 };
 
+/**
+ * Remove amount format ex: 12,345.00 -> 12
+ * @param amount string
+ * @returns number
+ */
+export const removeAmountFormat = (amount: string) =>
+  +amount.replaceAll(',', '');
+
 export const parseFormattedNumber = (value: string): number => {
   if (!value) {
     return 0;
