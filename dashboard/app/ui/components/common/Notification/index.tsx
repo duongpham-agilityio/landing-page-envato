@@ -93,7 +93,7 @@ const NotificationComponent = ({ colorFill, user }: NotificationProps) => {
   );
 
   const {
-    data,
+    notificationData,
     quantity,
     hasNewNotification,
     isDeleteNotification,
@@ -205,8 +205,8 @@ const NotificationComponent = ({ colorFill, user }: NotificationProps) => {
                 }}
               >
                 {isOpen &&
-                  data?.map((item: TNotification, index) => {
-                    const isLastItem = index === data.length - 1;
+                  notificationData.map((item: TNotification, index) => {
+                    const isLastItem = index === notificationData.length - 1;
                     const isAddMoney = item.type === TYPE.ADD_MONEY;
 
                     return (

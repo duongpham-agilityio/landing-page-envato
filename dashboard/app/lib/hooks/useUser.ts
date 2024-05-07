@@ -11,6 +11,9 @@ import { END_POINTS } from '@/lib/constants';
 // stores
 import { authStore } from '../stores';
 
+// Hooks
+import { TSearchTransaction } from '@/lib/hooks';
+
 // Services
 import {
   MainHttpService,
@@ -19,19 +22,22 @@ import {
   userHttpRequest,
 } from '@/lib/services';
 
+// Utils
+import { logActivity } from '@/lib/utils';
+
 // Interfaces
 import { EActivity, IIssues, TPassword, TUserDetail } from '@/lib/interfaces';
-import { TSearchTransaction } from '.';
 
 export const useUpdateUser = () => {
   const { error, ...rest } = useMutation({
-    mutationFn: async (user: TUserDetail) =>
-      await MainHttpService.put<TUserDetail>(
-        END_POINTS.USERS,
-        user,
-        EActivity.SAVE_PROFILE,
-        user.id,
-      ),
+    mutationFn: (user: TUserDetail) =>
+      MainHttpService.put<TUserDetail>({
+        path: END_POINTS.USERS,
+        data: user,
+        actionName: EActivity.SAVE_PROFILE,
+        userId: user.id,
+        onActivity: logActivity,
+      }),
   });
 
   return {
@@ -43,19 +49,20 @@ export const useUpdateUser = () => {
 export const useUpdatePassword = () => {
   const { user } = authStore();
   const { error, ...rest } = useMutation({
-    mutationFn: async (passwordData: TPassword) => {
+    mutationFn: (passwordData: TPassword) => {
       const { oldPassword, newPassword, memberId } = passwordData;
 
-      await MainHttpService.put<TPassword>(
-        `${END_POINTS.UPDATE_PASSWORD}`,
-        {
+      return MainHttpService.put<TPassword>({
+        path: END_POINTS.UPDATE_PASSWORD,
+        data: {
           oldPassword,
           newPassword,
           memberId,
         },
-        EActivity.SAVE_PASSWORD,
-        user?.id,
-      );
+        actionName: EActivity.SAVE_PASSWORD,
+        userId: user?.id,
+        onActivity: logActivity,
+      });
     },
   });
 
@@ -89,7 +96,7 @@ export const useCreateIssues = () => {
   const queryClient = useQueryClient();
   const { user } = authStore();
   const { error, ...rest } = useMutation({
-    mutationFn: async (
+    mutationFn: (
       supportList: Partial<
         TUserDetail & {
           userId: string;
@@ -97,13 +104,13 @@ export const useCreateIssues = () => {
         }
       >,
     ) =>
-      await MainHttpService.post<TUserDetail>(
-        `${END_POINTS.SUPPORT}`,
-        supportList,
-        {},
-        EActivity.CREATE_ISSUES,
-        user?.id,
-      ),
+      MainHttpService.post<TUserDetail>({
+        path: END_POINTS.SUPPORT,
+        data: supportList,
+        actionName: EActivity.CREATE_ISSUES,
+        userId: user?.id,
+        onActivity: logActivity,
+      }),
     onSettled: () => {
       queryClient.invalidateQueries({ queryKey: [END_POINTS.SUPPORT] });
     },

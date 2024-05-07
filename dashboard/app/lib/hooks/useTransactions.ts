@@ -9,7 +9,7 @@ import { END_POINTS, TIME_FORMAT, TRANSACTION_STATUS } from '@/lib/constants';
 import { authStore } from '../stores';
 
 // Services
-import { getTransactions, transactionHttpService } from '@/lib/services';
+import { MainHttpService } from '@/lib/services';
 
 // Utils
 import { logActivity } from '../utils';
@@ -68,17 +68,24 @@ export const useTransactions = (queryParam?: TSearchTransaction) => {
     type: SortType.ASC,
   });
 
-  const { data = [], ...query } = useQuery({
+  const { data, ...query } = useQuery<{ data: TTransaction[] }>({
     queryKey: [END_POINTS.TRANSACTIONS, searchName, searchMonth],
-    queryFn: ({ signal }) => getTransactions('', { signal }, user?.id),
+    queryFn: async ({ signal }) =>
+      MainHttpService.get({
+        path: END_POINTS.TRANSACTIONS,
+        configs: { signal },
+        userId: user?.id,
+      }),
   });
+
+  const transactionData = data?.data || [];
 
   //  sort transactions
   const transactionsAfterSort: TTransaction[] = useMemo(() => {
-    const tempTransactions: TTransaction[] = [...data];
+    const tempTransactions: TTransaction[] = [...transactionData];
     const { field, type } = sortValue;
 
-    if (!field) return data;
+    if (!field) return transactionData;
 
     const handleSort = (
       type: SortType,
@@ -151,7 +158,7 @@ export const useTransactions = (queryParam?: TSearchTransaction) => {
     );
 
     return tempTransactions;
-  }, [data, sortValue]);
+  }, [sortValue, transactionData]);
 
   /**
    * TODO: Since the API is imprecise we will use this method for now.
@@ -207,29 +214,24 @@ export const useTransactions = (queryParam?: TSearchTransaction) => {
 
   const { mutate: updateTransaction, isPending: isUpdateTransaction } =
     useMutation({
-      mutationFn: async (
+      mutationFn: (
         transaction: Partial<
           TTransaction & TCustomer & TAddress & { transactionId: string }
         >,
-      ) => {
-        const activity = logActivity(
-          transactionHttpService,
-          EActivity.UPDATE_TRANSACTION,
-          user?.id,
-        );
+      ) =>
+        MainHttpService.put<TTransaction>({
+          path: END_POINTS.EDIT_TRANSACTION,
+          data: transaction,
+          actionName: EActivity.UPDATE_TRANSACTION,
+          onActivity: logActivity,
+          userId: user?.id,
+        }),
 
-        return await transactionHttpService
-          .put<TTransaction>(END_POINTS.EDIT_TRANSACTION, transaction)
-          .then((response) => {
-            transactionHttpService.interceptors.response.eject(activity);
-            return response;
-          });
-      },
       onSuccess: (_, variables) => {
         queryClient.setQueryData(
           [END_POINTS.TRANSACTIONS, searchName, searchMonth],
-          (oldData: TTransaction[]) => {
-            const dataUpdated = oldData.map((item) =>
+          (oldData: { data: TTransaction[] }) => {
+            const dataUpdated = oldData.data.map((item) =>
               item._id === variables.transactionId
                 ? {
                     ...item,
@@ -247,7 +249,7 @@ export const useTransactions = (queryParam?: TSearchTransaction) => {
                   }
                 : item,
             );
-            return dataUpdated;
+            return { data: dataUpdated };
           },
         );
       },
@@ -255,29 +257,23 @@ export const useTransactions = (queryParam?: TSearchTransaction) => {
 
   const { mutate: deleteTransaction, isPending: isDeleteTransaction } =
     useMutation({
-      mutationFn: async (
+      mutationFn: (
         transaction: Partial<
           TTransaction & TCustomer & TAddress & { transactionId: string }
         >,
-      ) => {
-        const activity = logActivity(
-          transactionHttpService,
-          EActivity.DELETE_TRANSACTION,
-          user?.id,
-        );
-
-        return await transactionHttpService
-          .put<TTransaction>(END_POINTS.DELETE_TRANSACTION, transaction)
-          .then((response) => {
-            transactionHttpService.interceptors.response.eject(activity);
-            return response;
-          });
-      },
+      ) =>
+        MainHttpService.put<TTransaction>({
+          path: END_POINTS.DELETE_TRANSACTION,
+          data: transaction,
+          actionName: EActivity.DELETE_TRANSACTION,
+          userId: user?.id,
+          onActivity: logActivity,
+        }),
       onSuccess: (_, variables) => {
         queryClient.setQueryData(
           [END_POINTS.TRANSACTIONS, searchName, searchMonth],
-          (oldData: TTransaction[]) => {
-            const dataUpdated = oldData.map((item) =>
+          (oldData: { data: TTransaction[] }) => {
+            const dataUpdated = oldData.data.map((item) =>
               item._id === variables.transactionId
                 ? {
                     ...item,
@@ -285,7 +281,7 @@ export const useTransactions = (queryParam?: TSearchTransaction) => {
                   }
                 : item,
             );
-            return dataUpdated;
+            return { data: dataUpdated };
           },
         );
       },

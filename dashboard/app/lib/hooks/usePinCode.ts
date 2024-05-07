@@ -8,6 +8,9 @@ import { END_POINTS } from '@/lib/constants';
 // Services
 import { MainHttpService } from '@/lib/services';
 
+// Utils
+import { logActivity } from '@/lib/utils';
+
 // Types
 import { EActivity, TPinCodeForm } from '@/lib/interfaces';
 
@@ -17,15 +20,15 @@ export type ResponsePinCode = {
 export const usePinCode = () => {
   const handleSetPinCode = useCallback(async (data: TPinCodeForm) => {
     try {
-      return await MainHttpService.post<ResponsePinCode>(
-        `${END_POINTS.CREATE_PIN}`,
-        {
+      return await MainHttpService.post<ResponsePinCode>({
+        path: END_POINTS.CREATE_PIN,
+        data: {
           pinCode: data.pinCode,
           userId: data.userId,
         },
-        {},
-        EActivity.CREATE_PIN_CODE,
-      );
+        actionName: EActivity.CREATE_PIN_CODE,
+        onActivity: logActivity,
+      });
     } catch (error) {
       const { message } = error as AxiosError;
 
@@ -35,16 +38,17 @@ export const usePinCode = () => {
 
   const handleConfirmPinCode = useCallback(async (data: TPinCodeForm) => {
     try {
-      return await MainHttpService.post<ResponsePinCode>(
-        `${END_POINTS.CONFIRM_PIN}`,
-        {
+      return await MainHttpService.post<ResponsePinCode>({
+        path: END_POINTS.CONFIRM_PIN,
+        data: {
           pinCode: data.pinCode,
           userId: data.userId,
         },
-        {},
-        EActivity.ACTIVE_PIN_CODE,
-        data.userId,
-      );
+
+        actionName: EActivity.ACTIVE_PIN_CODE,
+        userId: data.userId,
+        onActivity: logActivity,
+      });
     } catch (error) {
       const { message } = error as AxiosError;
 

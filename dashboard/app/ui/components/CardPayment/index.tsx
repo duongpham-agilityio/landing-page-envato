@@ -1,6 +1,6 @@
 'use client';
 
-import { FormEvent, memo, useCallback } from 'react';
+import { memo, useCallback } from 'react';
 import { Box, Heading, useDisclosure, useToast } from '@chakra-ui/react';
 import { SubmitHandler } from 'react-hook-form';
 import { AxiosError } from 'axios';
@@ -28,7 +28,12 @@ import {
 import { authStore } from '@/lib/stores';
 
 // Utils
-import { customToast, getErrorMessageFromAxiosError } from '@/lib/utils';
+import {
+  customToast,
+  getErrorMessageFromAxiosError,
+  removeAmountFormat,
+  isEnableSubmitButton,
+} from '@/lib/utils';
 
 // Types
 import { TPinCodeForm, TSendMoney } from '@/lib/interfaces';
@@ -42,6 +47,8 @@ export type TTransfer = {
   userId: string;
 };
 
+const REQUIRE_FIELDS = ['amount', 'memberId'];
+
 const CardPaymentComponent = (): JSX.Element => {
   const user = authStore((state) => state.user);
 
@@ -52,7 +59,7 @@ const CardPaymentComponent = (): JSX.Element => {
   const {
     control,
     handleSubmit: handleSubmitSendMoney,
-    formState: { isValid, isSubmitting },
+    formState: { isSubmitting, dirtyFields },
     reset: resetSendMoneyForm,
   } = useForm<TTransfer>({
     defaultValues: {
@@ -61,6 +68,11 @@ const CardPaymentComponent = (): JSX.Element => {
       userId: user?.id,
     },
   });
+
+  const dirtyItems = Object.keys(dirtyFields).filter(
+    (key) => dirtyFields[key as keyof TTransfer],
+  );
+  const shouldEnable = isEnableSubmitButton(REQUIRE_FIELDS, dirtyItems);
 
   const { currentWalletMoney } = useWallet(user?.id);
 
@@ -143,8 +155,7 @@ const CardPaymentComponent = (): JSX.Element => {
     toast(customToast(defaultError.title, responseErrorMessage, STATUS.ERROR));
   };
 
-  const handleOnSubmitSendMoney = (e: FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
+  const handleOnSubmitSendMoney = () => {
     hasPinCode ? onOpenConfirmPinCodeModal() : onOpenSetPinCodeModal();
   };
 
@@ -153,7 +164,7 @@ const CardPaymentComponent = (): JSX.Element => {
       const submitData: TSendMoney = {
         ...data,
         memberId: getMemberId(data.memberId),
-        amount: Number(data.amount),
+        amount: removeAmountFormat(data.amount),
       };
 
       sendMoneyToUserWallet(submitData, {
@@ -278,9 +289,16 @@ const CardPaymentComponent = (): JSX.Element => {
 
         <CardBalance balance={currentWalletMoney?.balance || 0} />
 
-        <Box as="form" mt={4} onSubmit={handleOnSubmitSendMoney}>
+        <Box
+          as="form"
+          mt={4}
+          onSubmit={handleSubmitSendMoney(handleOnSubmitSendMoney)}
+        >
           <UserSelector control={control} listUser={filterDataUser} />
-          <EnterMoney isDisabled={!isValid || isSubmitting} control={control} />
+          <EnterMoney
+            isDisabled={!shouldEnable || isSubmitting}
+            control={control}
+          />
         </Box>
       </Box>
       {/*Set/Confirm PIN code Modal */}

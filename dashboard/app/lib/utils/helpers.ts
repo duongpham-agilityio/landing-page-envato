@@ -33,22 +33,22 @@ export const formatPagination = ({
     tempNumberOfButtons = [
       ...(rangeEnd >= formatNumberButton(numberOfPage).length - 1
         ? [
-            ...(formatNumberButton(numberOfPage).length - 3 > 1
-              ? Array.from(
-                  { length: 3 },
-                  (_, i) => formatNumberButton(numberOfPage).length - 4 + i,
-                )
-              : []),
-            formatNumberButton(numberOfPage).length - 1,
-            formatNumberButton(numberOfPage).length,
-          ]
+          ...(formatNumberButton(numberOfPage).length - 3 > 1
+            ? Array.from(
+              { length: 3 },
+              (_, i) => formatNumberButton(numberOfPage).length - 4 + i,
+            )
+            : []),
+          formatNumberButton(numberOfPage).length - 1,
+          formatNumberButton(numberOfPage).length,
+        ]
         : [
-            rangeStart,
-            rangeStart + 1,
-            rangeStart + 2,
-            DOTS,
-            formatNumberButton(numberOfPage).length,
-          ]),
+          rangeStart,
+          rangeStart + 1,
+          rangeStart + 2,
+          DOTS,
+          formatNumberButton(numberOfPage).length,
+        ]),
     ].filter((button) => button !== null);
   }
 
@@ -78,22 +78,22 @@ export const formatPageArray = ({
     tempNumberOfButtons = [
       ...(rangeEnd >= formatNumberButton(numberOfPage).length - 1
         ? [
-            ...(formatNumberButton(numberOfPage).length - 3 > 1
-              ? Array.from(
-                  { length: 3 },
-                  (_, i) => formatNumberButton(numberOfPage).length - 4 + i,
-                )
-              : []),
-            formatNumberButton(numberOfPage).length - 1,
-            formatNumberButton(numberOfPage).length,
-          ]
+          ...(formatNumberButton(numberOfPage).length - 3 > 1
+            ? Array.from(
+              { length: 3 },
+              (_, i) => formatNumberButton(numberOfPage).length - 4 + i,
+            )
+            : []),
+          formatNumberButton(numberOfPage).length - 1,
+          formatNumberButton(numberOfPage).length,
+        ]
         : [
-            rangeStart,
-            rangeStart + 1,
-            rangeStart + 2,
-            DOTS,
-            formatNumberButton(numberOfPage).length,
-          ]),
+          rangeStart,
+          rangeStart + 1,
+          rangeStart + 2,
+          DOTS,
+          formatNumberButton(numberOfPage).length,
+        ]),
     ].filter((button) => button !== null);
   }
 
@@ -158,6 +158,14 @@ export const formatAmountNumber = (value: string): string => {
 
   return decimalValue ? `${newValueFormat}${decimalValue}` : newValueFormat;
 };
+
+/**
+ * Remove amount format ex: 12,345.00 -> 12345
+ * @param amount string
+ * @returns number
+ */
+export const removeAmountFormat = (amount: string): number =>
+  +amount.replaceAll(',', '');
 
 export const parseFormattedNumber = (value: string): number => {
   if (!value) {

@@ -9,7 +9,7 @@ import { END_POINTS, PAGE_SIZE, TIME_DETAIL_FORMAT } from '@/lib/constants';
 import { authStore } from '../stores';
 
 // Services
-import { getRecentActivities } from '@/lib/services';
+import { MainHttpService } from '@/lib/services';
 
 // Utils
 import { formatPageArray, handleSort } from '@/lib/utils';
@@ -20,6 +20,11 @@ import { SortType, TRecentActivities } from '@/lib/interfaces';
 export type TAction = {
   actionName: string;
   email?: string;
+};
+
+export type TActivity = {
+  result: Array<TRecentActivities>;
+  totalPage: number;
 };
 
 export type TActivitiesSortField = 'actionName' | 'email' | 'date';
@@ -56,7 +61,7 @@ export const useRecentActivities = (queryParam?: TAction) => {
     type: SortType.ASC,
   });
 
-  const { data, ...query } = useQuery({
+  const { data, ...query } = useQuery<{ data: TActivity }>({
     queryKey: [
       END_POINTS.RECENT_ACTIVITIES,
       searchActionName,
@@ -65,7 +70,13 @@ export const useRecentActivities = (queryParam?: TAction) => {
       limit,
     ],
     queryFn: ({ signal }) =>
-      getRecentActivities('', { signal }, userId, currentPage, limit),
+      MainHttpService.get({
+        path: END_POINTS.RECENT_ACTIVITIES,
+        userId,
+        page: currentPage,
+        limit,
+        configs: { signal },
+      }),
   });
 
   const activitiesData: TRecentActivities[] = data?.data.result || [];

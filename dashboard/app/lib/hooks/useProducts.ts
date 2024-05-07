@@ -15,11 +15,7 @@ import {
 import { authStore } from '@/lib/stores';
 
 // Services
-import {
-  TProductsResponse,
-  getProducts,
-  productsHttpService,
-} from '@/lib/services';
+import { MainHttpService, TProductsResponse } from '@/lib/services';
 
 // Utils
 import { formatPageArray, handleSort, logActivity } from '../utils';
@@ -69,10 +65,19 @@ export const useProducts = (queryParam?: TSearchProduct) => {
     queryParam,
   );
 
-  const { data, ...query } = useQuery<TProductsResponse>({
+  const { data, ...query } = useQuery({
     queryKey: [END_POINTS.PRODUCTS, searchName, currentPage, limit],
-    queryFn: ({ signal }) =>
-      getProducts('', { signal }, user?.id, currentPage, limit),
+    queryFn: async ({ signal }) =>
+      (
+        await MainHttpService.get<TProductsResponse>({
+          path: END_POINTS.PRODUCTS,
+          configs: { signal },
+          userId: user?.id,
+          page: currentPage,
+          limit: limit,
+          searchParam: '',
+        })
+      ).data,
   });
 
   const productData: TProduct[] = data?.result || [];
@@ -169,20 +174,15 @@ export const useProducts = (queryParam?: TSearchProduct) => {
   );
 
   const { mutate: createProduct, isPending: isCreateProduct } = useMutation({
-    mutationFn: async (product: Omit<TProductRequest, '_id'>) => {
-      const activity = logActivity(
-        productsHttpService,
-        EActivity.CREATE_PRODUCT,
-        user?.id,
-      );
+    mutationFn: async (product: Omit<TProductRequest, '_id'>) =>
+      await MainHttpService.post<TProductRequest>({
+        path: END_POINTS.PRODUCTS,
+        data: product,
+        actionName: EActivity.CREATE_PRODUCT,
+        userId: user?.id,
+        onActivity: logActivity,
+      }),
 
-      return await productsHttpService
-        .post<TProductRequest>(END_POINTS.PRODUCTS, product)
-        .then((response) => {
-          productsHttpService.interceptors.response.eject(activity);
-          return response;
-        });
-    },
     onSuccess: (dataResponse) => {
       const newData = JSON.parse(dataResponse.config.data);
 
@@ -199,22 +199,17 @@ export const useProducts = (queryParam?: TSearchProduct) => {
   const { mutate: deleteProduct, isPending: isDeleteProduct } = useMutation({
     mutationFn: async (
       payload: Partial<TProductRequest & { userId: string; productId: string }>,
-    ) => {
-      const activity = logActivity(
-        productsHttpService,
-        EActivity.DELETE_PRODUCT,
-        user?.id,
-      );
-
-      return await productsHttpService
-        .delete(END_POINTS.PRODUCTS, {
+    ) =>
+      await MainHttpService.delete({
+        path: END_POINTS.PRODUCTS,
+        data: {
           data: payload,
-        })
-        .then((response) => {
-          productsHttpService.interceptors.response.eject(activity);
-          return response;
-        });
-    },
+        },
+        actionName: EActivity.DELETE_PRODUCT,
+        userId: user?.id,
+        onActivity: logActivity,
+      }),
+
     onSuccess: (_, variables) => {
       queryClient.setQueryData(
         [END_POINTS.PRODUCTS, searchName, currentPage, limit],
@@ -231,20 +226,15 @@ export const useProducts = (queryParam?: TSearchProduct) => {
   const { mutate: updateProduct, isPending: isUpdateProduct } = useMutation({
     mutationFn: async (
       product: Partial<TProductRequest & { userId: string; productId: string }>,
-    ) => {
-      const activity = logActivity(
-        productsHttpService,
-        EActivity.UPDATE_PRODUCT,
-        user?.id,
-      );
+    ) =>
+      await MainHttpService.put<TProductRequest>({
+        path: END_POINTS.PRODUCTS,
+        data: product,
+        actionName: EActivity.UPDATE_PRODUCT,
+        userId: user?.id,
+        onActivity: logActivity,
+      }),
 
-      return await productsHttpService
-        .put<TProductRequest>(END_POINTS.PRODUCTS, product)
-        .then((response) => {
-          productsHttpService.interceptors.response.eject(activity);
-          return response;
-        });
-    },
     onSuccess: async (_, variables) => {
       queryClient.setQueryData(
         [END_POINTS.PRODUCTS, searchName, currentPage, limit],

@@ -20,7 +20,11 @@ import { MainHttpService, recentActivitiesHttpService } from '@/lib/services';
 import { authStore } from '@/lib/stores';
 
 // Utils
-import { formatUppercaseFirstLetter, getCurrentTimeSeconds } from '@/lib/utils';
+import {
+  formatUppercaseFirstLetter,
+  getCurrentTimeSeconds,
+  logActivity,
+} from '@/lib/utils';
 
 // Types
 import { TUserDetail, EActivity, TActivitiesRequest } from '@/lib/interfaces';
@@ -102,17 +106,17 @@ export const useAuth = () => {
         const { uid } = await handleSignInWithFirebase(email, password);
 
         const { data }: AxiosResponse<TUserAxiosResponse | undefined> =
-          await MainHttpService.post<TUserAxiosResponse | undefined>(
-            `${END_POINTS.SIGN_IN}`,
-            {
+          await MainHttpService.post<TUserAxiosResponse | undefined>({
+            path: END_POINTS.SIGN_IN,
+            data: {
               email,
               password,
               fcmToken,
               uid,
             },
-            {},
-            EActivity.SIGN_IN,
-          );
+            actionName: EActivity.SIGN_IN,
+            onActivity: logActivity,
+          });
 
         let localData: TUserInfo | undefined;
         if (data) {
@@ -136,7 +140,7 @@ export const useAuth = () => {
         throw new Error(formatUppercaseFirstLetter(response?.data));
       }
     },
-    [handleSignInWithFirebase, updateStore, user?.id],
+    [handleSignInWithFirebase, updateStore],
   );
 
   const handleSignUp = useCallback(
@@ -146,9 +150,9 @@ export const useAuth = () => {
       const { email, password, firstName, lastName, fcmToken } = userInfo;
       try {
         const { data }: AxiosResponse<TUserAxiosResponse | undefined> =
-          await MainHttpService.post<TUserAxiosResponse | undefined>(
-            `${END_POINTS.SIGN_UP}`,
-            {
+          await MainHttpService.post<TUserAxiosResponse | undefined>({
+            path: END_POINTS.SIGN_UP,
+            data: {
               ...userInfo,
               avatarURL: IMAGES.AVATAR_SIGN_UP.url,
               createdAt: Date.now(),
@@ -158,9 +162,9 @@ export const useAuth = () => {
               lastName,
               fcmToken,
             },
-            {},
-            EActivity.SIGN_UP,
-          );
+            actionName: EActivity.SIGN_UP,
+            onActivity: logActivity,
+          });
 
         let localData: TUserInfo | undefined;
         if (data) {
@@ -175,7 +179,7 @@ export const useAuth = () => {
         throw new Error(formatUppercaseFirstLetter(response?.data));
       }
     },
-    [updateStore, user?.id],
+    [updateStore],
   );
 
   const handleLogout = useCallback(

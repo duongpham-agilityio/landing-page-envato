@@ -1,0 +1,1 @@
+export const TRANSFER_AMOUNT_LIMIT = 999999;

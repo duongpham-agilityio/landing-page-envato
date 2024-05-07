@@ -3,8 +3,8 @@ import axios, { AxiosResponse } from 'axios';
 // Constants
 import { STATISTICAL_API } from '@/lib/constants';
 
-// Util
-import { logActivity } from '../utils';
+// Interfaces
+import { QueryOptions } from '@/lib/interfaces';
 
 class HttpService {
   private readonly baseApi: string;
@@ -19,49 +19,108 @@ class HttpService {
     },
   });
 
-  get<T>(path: string, configs?: object): Promise<AxiosResponse<T>> {
-    return this.axiosClient.get<T>(`${this.baseApi}${path}`, configs);
+  get<T>({
+    path,
+    configs,
+    userId = '',
+    searchParam = '',
+    page,
+    limit,
+  }: Omit<QueryOptions, 'data'>): Promise<AxiosResponse<T>> {
+    if (page && limit) {
+      return this.axiosClient.get<T>(
+        `${this.baseApi}${path}/${userId}/${page}/${limit}${searchParam}`,
+        configs,
+      );
+    }
+
+    return this.axiosClient.get<T>(`${this.baseApi}${path}/${userId}`, configs);
   }
 
-  post<T>(
-    path: string,
-    data: object,
-    configs: object,
-    actionName: string,
-    userId?: string,
-  ): Promise<AxiosResponse<T>> {
-    const activity = logActivity(this.axiosClient, actionName, userId);
+  post<T>({
+    path,
+    data,
+    configs,
+    actionName,
+    userId,
+    onActivity,
+  }: QueryOptions): Promise<AxiosResponse<T>> {
+    const activity =
+      actionName &&
+      onActivity &&
+      onActivity(this.axiosClient, actionName, userId);
 
     return this.axiosClient
       .post<T>(`${this.baseApi}${path}`, data, configs)
       .then((response) => {
-        this.axiosClient.interceptors.response.eject(activity);
+        typeof activity === 'number' &&
+          this.axiosClient.interceptors.response.eject(activity);
         return response;
       });
   }
 
-  put<T>(
-    path: string,
-    data: object,
-    actionName: string,
-    userId?: string,
-  ): Promise<AxiosResponse<T>> {
-    const activity = logActivity(this.axiosClient, actionName, userId);
+  put<T>({
+    path,
+    data,
+    configs,
+    actionName,
+    userId,
+    onActivity,
+  }: QueryOptions): Promise<AxiosResponse<T>> {
+    const activity =
+      actionName &&
+      onActivity &&
+      onActivity(this.axiosClient, actionName, userId);
 
     return this.axiosClient
-      .put<T>(`${this.baseApi}${path}`, data)
+      .put<T>(`${this.baseApi}${path}`, data, configs)
       .then((response) => {
-        this.axiosClient.interceptors.response.eject(activity);
+        typeof activity === 'number' &&
+          this.axiosClient.interceptors.response.eject(activity);
         return response;
       });
   }
 
-  patch<T>(path: string, data: object): Promise<AxiosResponse<T>> {
-    return this.axiosClient.patch<T>(`${this.baseApi}${path}`, data);
+  patch<T>({
+    path,
+    data,
+    actionName,
+    userId,
+    onActivity,
+  }: QueryOptions): Promise<AxiosResponse<T>> {
+    const activity =
+      actionName &&
+      onActivity &&
+      onActivity(this.axiosClient, actionName, userId);
+
+    return this.axiosClient
+      .patch<T>(`${this.baseApi}${path}`, data)
+      .then((response) => {
+        typeof activity === 'number' &&
+          this.axiosClient.interceptors.response.eject(activity);
+        return response;
+      });
   }
 
-  delete<T>(path: string): Promise<AxiosResponse<T>> {
-    return this.axiosClient.delete<T>(`${this.baseApi}${path}`);
+  delete<T>({
+    path,
+    data,
+    actionName,
+    userId,
+    onActivity,
+  }: QueryOptions): Promise<AxiosResponse<T>> {
+    const activity =
+      actionName &&
+      onActivity &&
+      onActivity(this.axiosClient, actionName, userId);
+
+    return this.axiosClient
+      .delete<T>(`${this.baseApi}${path}`, data)
+      .then((response) => {
+        typeof activity === 'number' &&
+          this.axiosClient.interceptors.response.eject(activity);
+        return response;
+      });
   }
 }
 

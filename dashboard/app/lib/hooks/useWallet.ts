@@ -3,17 +3,21 @@ import { useQuery } from '@tanstack/react-query';
 // Constants
 import { END_POINTS } from '@/lib/constants';
 
+// Types
+import { TWallet } from '@/lib/interfaces';
+
 // Services
-import { getUserWallet } from '@/lib/services';
+import { MainHttpService } from '@/lib/services';
 
 export const useWallet = (id?: string) => {
-  const { data: currentWalletMoney, ...query } = useQuery({
+  const { data, ...query } = useQuery<{ data: TWallet }>({
     queryKey: [END_POINTS.MY_WALLET, id],
-    queryFn: () => getUserWallet(id),
+    queryFn: () =>
+      MainHttpService.get({ path: END_POINTS.MY_WALLET, userId: id }),
   });
 
   return {
     ...query,
-    currentWalletMoney,
+    currentWalletMoney: data?.data,
   };
 };

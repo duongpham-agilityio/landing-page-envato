@@ -1,5 +1,13 @@
 import { memo } from 'react';
-import { Box, Button, Flex, Input, Text } from '@chakra-ui/react';
+import {
+  Box,
+  Button,
+  Flex,
+  FormControl,
+  FormErrorMessage,
+  Input,
+  Text,
+} from '@chakra-ui/react';
 import { Control, Controller } from 'react-hook-form';
 
 // Constants
@@ -38,7 +46,7 @@ const EnterMoneyComponent = ({
           rules={AUTH_SCHEMA.TRANSFER_AMOUNT}
           name="amount"
           defaultValue=""
-          render={({ field: { value, onChange } }) => {
+          render={({ field: { value, onChange }, fieldState: { error } }) => {
             const handleChange = (
               event: React.ChangeEvent<HTMLInputElement>,
             ) => {
@@ -53,24 +61,30 @@ const EnterMoneyComponent = ({
             };
 
             return (
-              <Input
-                variant="authentication"
-                type="text"
-                _dark={{
-                  border: 'none',
-                }}
-                placeholder="0.00"
-                sx={{ border: 'none', padding: 0 }}
-                color="text.primary"
-                fontWeight="bold"
-                fontSize="2xl"
-                ml={2}
-                value={value}
-                name="amount"
-                onChange={handleChange}
-                autoComplete="off"
-                position="static"
-              />
+              <FormControl isInvalid={!!error} mr={{ md: 2 }} mb={{ sm: 2 }}>
+                <Input
+                  variant="authentication"
+                  type="text"
+                  _dark={{
+                    border: 'none',
+                  }}
+                  placeholder="0.00"
+                  sx={{ border: 'none', padding: 0 }}
+                  color="text.primary"
+                  fontWeight="bold"
+                  fontSize="2xl"
+                  ml={2}
+                  value={value}
+                  name="amount"
+                  onChange={handleChange}
+                  autoComplete="off"
+                  position="static"
+                  isInvalid={!!error}
+                />
+                {!!error && (
+                  <FormErrorMessage>{error?.message}</FormErrorMessage>
+                )}
+              </FormControl>
             );
           }}
         />

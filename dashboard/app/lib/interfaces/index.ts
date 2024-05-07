@@ -16,3 +16,4 @@ export * from './wallet';
 export * from './money';
 export * from './products';
 export * from './recentActivities';
+export * from './httpClient';
