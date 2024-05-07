@@ -7,7 +7,7 @@ import { waitFor } from '@testing-library/react';
 import { END_POINTS } from '@/lib/constants';
 
 // Services
-import { moneyHttpRequest } from '@/lib/services';
+import { MainHttpService } from '@/lib/services';
 
 // Hooks
 import { useMoney } from '@/lib/hooks';
@@ -15,9 +15,6 @@ import { useMoney } from '@/lib/hooks';
 jest.mock('@/lib/services', () => ({
   addMoneyToUser: jest.fn(),
   sendMoneyToUser: jest.fn(),
-  moneyHttpRequest: {
-    put: jest.fn(),
-  },
 }));
 
 const queryClient = new QueryClient();
@@ -44,7 +41,7 @@ describe('useMoney Hook', () => {
     );
 
     waitFor(() =>
-      expect(moneyHttpRequest.put).toHaveBeenCalledWith(END_POINTS.ADD_MONEY, {
+      expect(MainHttpService.put).toHaveBeenCalledWith(END_POINTS.ADD_MONEY, {
         amount: 10,
         userId: '6593beacff649fc6c4d2964b',
       }),
@@ -63,7 +60,7 @@ describe('useMoney Hook', () => {
     );
 
     waitFor(() =>
-      expect(moneyHttpRequest.put).toHaveBeenCalledWith(END_POINTS.SEND_MONEY, {
+      expect(MainHttpService.put).toHaveBeenCalledWith(END_POINTS.SEND_MONEY, {
         amount: 10,
         memberId: '65a4a3a280522b2e38c4b4a6',
         userId: '6593beacff649fc6c4d2964b',
