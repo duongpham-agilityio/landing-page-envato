@@ -1,17 +1,20 @@
+// Libs
 import { ReactNode } from 'react';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { renderHook } from '@testing-library/react';
+import { AxiosRequestHeaders, AxiosResponse } from 'axios';
 
 // Hooks
 import { useWallet } from '@/lib/hooks';
 
 // Services
-import * as services from '@/lib/services';
-import { WALLET_MOCK } from '@/lib/mocks';
+import { MainHttpService } from '@/lib/services';
 
-jest.mock('@/lib/services', () => ({
-  getUserWallet: jest.fn(),
-}));
+// Types
+import { TWallet } from '@/lib/interfaces';
+
+// Mocks
+import { WALLET_MOCK } from '@/lib/mocks';
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -30,13 +33,25 @@ describe('useWallet', () => {
     jest.clearAllMocks();
   });
 
-  it('should fetch wallet and apply sorting and filtering', async () => {
-    const getUserWalletSpy = jest.spyOn(services, 'getUserWallet');
-    getUserWalletSpy.mockResolvedValue(WALLET_MOCK[0]);
+  it('should fetch wallet data successfully', async () => {
+    const walletResponse: AxiosResponse<TWallet> = {
+      data: WALLET_MOCK[0],
+      status: 200,
+      statusText: 'Ok',
+      headers: {},
+      config: {
+        headers: {} as AxiosRequestHeaders,
+      },
+    };
+
+    jest.spyOn(MainHttpService, 'get').mockResolvedValue(walletResponse);
 
     const { result } = renderHook(() => useWallet('6593beacff649fc6c4d2964b'), {
       wrapper,
     });
-    expect(result.current.isLoading).toEqual(true);
+
+    await waitFor(() =>
+      expect(result.current.currentWalletMoney).toEqual(WALLET_MOCK[0]),
+    );
   });
 });

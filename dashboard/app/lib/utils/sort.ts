@@ -24,3 +24,25 @@ export const handleSort = (
   prevValue: string = 'prev',
   nextValue: string = 'next',
 ): number => compareValues(prevValue, nextValue, type);
+
+export const sortByKey = <T>(
+  data: T[],
+  key: keyof T,
+  isAscending = true,
+): T[] => {
+  const sortedData = [...data];
+
+  sortedData.sort((a, b) => {
+    if (a[key] > b[key]) {
+      return isAscending ? 1 : -1;
+    }
+
+    if (a[key] < b[key]) {
+      return isAscending ? -1 : 1;
+    }
+
+    return 0;
+  });
+
+  return sortedData;
+};

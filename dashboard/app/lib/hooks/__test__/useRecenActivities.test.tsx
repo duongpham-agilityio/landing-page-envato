@@ -1,19 +1,19 @@
 import { ReactNode } from 'react';
-import { renderHook, act } from '@testing-library/react';
+import { renderHook } from '@testing-library/react';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
+import { AxiosRequestHeaders, AxiosResponse } from 'axios';
 
 // Hooks
-import { useRecentActivities } from '..';
+import { TActivity, useRecentActivities } from '@/lib/hooks';
 
 // Services
-import * as services from '@/lib/services';
+import { MainHttpService } from '@/lib/services';
+
+// Utils
+import { sortByKey } from '@/lib/utils';
 
 // Mocks
 import { RECENT_ACTIVITIES } from '@/lib/mocks';
-
-jest.mock('@/lib/services', () => ({
-  getRecentActivities: jest.fn(),
-}));
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -23,49 +23,45 @@ const queryClient = new QueryClient({
   },
 });
 
-jest.mock('@/lib/hooks', () => {
-  const originalModule = jest.requireActual('@/lib/hooks');
-  return {
-    ...originalModule,
-    handleSort: jest.fn(),
-  };
-});
-
 const wrapper = ({ children }: { children: ReactNode }) => (
   <QueryClientProvider client={queryClient}>{children}</QueryClientProvider>
 );
 
 describe('useRecentActivities', () => {
-  it('should fetch activities and apply sorting and filtering', async () => {
-    const getActivitiesSpy = jest.spyOn(services, 'getRecentActivities');
-    getActivitiesSpy.mockResolvedValue(RECENT_ACTIVITIES);
+  const activitiesData: AxiosResponse<TActivity> = {
+    data: { result: RECENT_ACTIVITIES, totalPage: 3 },
+    status: 200,
+    statusText: 'Ok',
+    headers: {},
+    config: {
+      headers: {} as AxiosRequestHeaders,
+    },
+  };
 
-    const { result, rerender } = renderHook(
-      () => useRecentActivities({ actionName: 'create' }),
-      { wrapper },
-    );
-    expect(result.current.data).toEqual([]);
-    expect(result.current.isLoading).toBe(true);
+  jest.spyOn(MainHttpService, 'get').mockResolvedValue(activitiesData);
 
-    await rerender();
+  it('should fetch activities data successfully', async () => {
+    const { result } = renderHook(() => useRecentActivities(), { wrapper });
 
-    expect(getActivitiesSpy).toHaveBeenCalledWith(
-      '',
-      expect.any(Object),
-      undefined,
-      1,
-    );
-    expect(result.current.isLoading).toBe(true);
+    await waitFor(() => expect(result.current.data).toEqual(RECENT_ACTIVITIES));
+  });
 
-    act(() => {
-      result.current.sortBy('actionName');
-    });
+  it('should reset page successfully', async () => {
+    const { result } = renderHook(() => useRecentActivities(), { wrapper });
 
-    expect(getActivitiesSpy).toHaveBeenCalledWith(
-      '',
-      expect.any(Object),
-      undefined,
-      1,
-    );
+    result.current.setCurrentPage(2);
+    result.current.resetPage();
+
+    await waitFor(() => expect(result.current.currentPage).toEqual(1));
+  });
+
+  it('should sort activities successfully', async () => {
+    const expectResult = sortByKey(RECENT_ACTIVITIES, 'actionName', false);
+
+    const { result } = renderHook(() => useRecentActivities(), { wrapper });
+
+    result.current.sortBy('actionName');
+
+    await waitFor(() => expect(result.current.data).toEqual(expectResult));
   });
 });
