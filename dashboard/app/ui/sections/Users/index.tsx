@@ -57,11 +57,11 @@ const UsersSections = () => {
     isLoading: isLoadingUser,
     isError: isUserError,
   } = useGetUserDetails(user?.id || '', {
-    name: get('name') || '',
+    name: get('name')?.toLowerCase() || '',
   });
 
   const { isSendRequestUser, managementUser } = useManagementUser(
-    get('name') || '',
+    get('name')?.toLowerCase() || '',
   );
 
   const {

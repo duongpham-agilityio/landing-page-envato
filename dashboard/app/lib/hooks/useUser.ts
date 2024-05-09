@@ -15,18 +15,24 @@ import { authStore } from '../stores';
 import { TSearchTransaction } from '@/lib/hooks';
 
 // Services
-import {
-  MainHttpService,
-  getAllUserDetailsExceptWithId,
-  getSupports,
-  userHttpRequest,
-} from '@/lib/services';
+import { MainHttpService } from '@/lib/services';
 
 // Utils
 import { logActivity } from '@/lib/utils';
 
 // Interfaces
 import { EActivity, IIssues, TPassword, TUserDetail } from '@/lib/interfaces';
+
+export type UsersResponse = Array<
+  Omit<TUserDetail, 'id'> & {
+    _id: string;
+  }
+>;
+
+export type TIssueResponse = {
+  result: Array<IIssues>;
+  totalPage: number;
+};
 
 export const useUpdateUser = () => {
   const { error, ...rest } = useMutation({
@@ -75,7 +81,16 @@ export const useUpdatePassword = () => {
 export const useGetListIssues = () => {
   const { data, ...rest } = useInfiniteQuery({
     queryKey: [END_POINTS.SUPPORT],
-    queryFn: ({ pageParam = 1 }) => getSupports(END_POINTS.SUPPORT, pageParam),
+    queryFn: async ({ pageParam = 1 }) => {
+      const data = (
+        await MainHttpService.get<TIssueResponse>({
+          path: END_POINTS.SUPPORT,
+          page: pageParam,
+        })
+      ).data;
+
+      return { data, pageParams: pageParam + 1 };
+    },
     getNextPageParam: (lastPage) => {
       if (lastPage.pageParams > lastPage.data.totalPage) return undefined;
 
@@ -133,15 +148,21 @@ export const useGetUserDetails = (
     queryParam,
   );
 
-  const { data: listUserDetail, ...query } = useQuery({
+  const { data: res, ...query } = useQuery({
     queryKey: [END_POINTS.USERS, queryParam?.name],
-    queryFn: () => getAllUserDetailsExceptWithId(id, ''),
+    queryFn: () =>
+      MainHttpService.get<UsersResponse>({
+        path: END_POINTS.USERS,
+        userId: id,
+      }),
   });
+
+  const listUserDetail = res?.data || [];
 
   const isNameMatchWith = (target: string): boolean =>
     (target || '').trim().toLowerCase().includes(searchName);
 
-  const filterDataUser = listUserDetail?.filter(({ firstName, lastName }) =>
+  const filterDataUser = listUserDetail.filter(({ firstName, lastName }) =>
     isNameMatchWith(`${firstName} ${lastName}`),
   );
 
@@ -159,22 +180,27 @@ export const useManagementUser = (querySearch = '') => {
     isPending: isSendRequestUser,
     ...query
   } = useMutation({
-    mutationFn: async ({
+    mutationFn: ({
       urlEndpoint = '',
       ...user
     }: Partial<
       TUserDetail & { memberId: string; userId: string; urlEndpoint: string }
-    >) => await userHttpRequest.put<TUserDetail>(urlEndpoint, user),
+    >) =>
+      MainHttpService.put<TUserDetail>({
+        path: urlEndpoint,
+        data: user,
+      }),
     onSuccess: (_, variables) => {
       queryClient.setQueryData(
         [END_POINTS.USERS, querySearch],
-        (oldData: TUserDetail[]) => {
-          const dataUpdated = oldData.map((item) =>
+        (oldData: { data: TUserDetail[] }) => {
+          const updatedData = oldData.data.map((item) =>
             item._id === variables.memberId
               ? { ...item, isBlock: !item.isBlock }
               : item,
           );
-          return dataUpdated;
+
+          return { ...oldData, data: updatedData };
         },
       );
     },

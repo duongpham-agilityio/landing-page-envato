@@ -1,7 +1,11 @@
 import { Dispatch, MutableRefObject, SetStateAction, useEffect } from 'react';
 
 // Constants
-import { AUTHENTICATION_ROLE, FIREBASE_CHAT } from '@/lib/constants';
+import {
+  AUTHENTICATION_ROLE,
+  END_POINTS,
+  FIREBASE_CHAT,
+} from '@/lib/constants';
 
 // Stores
 import { authStore } from '@/lib/stores';
@@ -13,14 +17,18 @@ import { collection, doc, getDocs, onSnapshot } from 'firebase/firestore';
 import { db } from '@/lib/utils';
 
 // Service
-import { getAdminDetailsWithId } from '../services';
+import { MainHttpService } from '@/lib/services';
 
 // Mocks
 import { MOCK_SUPER_ADMIN } from '../mocks';
 
 // Interface
 import { TUserInfo, useGetUserDetails } from '.';
-import { TMessages } from '@/lib/interfaces';
+import { TMessages, TUserDetail } from '@/lib/interfaces';
+
+export type AdminDetailsResponse = Omit<TUserDetail, 'id'> & {
+  _id: string;
+};
 
 // TODO: if have real id from firestore
 export const useGetRoomChat = () => {
@@ -38,16 +46,26 @@ export const useGetRoomChat = () => {
 
 // Author: Loc Vo
 export const getInfoRoomChat = async (user: TUserInfo) => {
-  const admin = await getAdminDetailsWithId(user?.id);
-  const userUid = user?.uid;
+  const res = await MainHttpService.get<AdminDetailsResponse>({
+    path: END_POINTS.ADMIN,
+    userId: user?.id,
+  });
+
+  const { uid: adminId = '' } = res?.data || {};
+  const {
+    uid: userId = '',
+    firstName: userFirstName = '',
+    lastName: userLastName = '',
+    avatarURL: userAvatarURL = '',
+  } = user || {};
 
   return {
-    roomChatId: `${admin.uid}${userUid}`,
-    userId: userUid || '',
-    adminId: admin.uid || '',
-    avatarUrl: user?.avatarURL || '',
-    avatarAdminUrl: MOCK_SUPER_ADMIN?.avatarURL || '',
-    displayName: `${user?.firstName} ${user?.lastName} `,
+    roomChatId: `${adminId}${userId}`,
+    userId,
+    adminId,
+    avatarUrl: userAvatarURL,
+    avatarAdminUrl: MOCK_SUPER_ADMIN.avatarURL,
+    displayName: `${userFirstName} ${userLastName} `,
   };
 };
 

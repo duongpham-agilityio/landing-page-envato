@@ -27,14 +27,12 @@ class HttpService {
     page,
     limit,
   }: Omit<QueryOptions, 'data'>): Promise<AxiosResponse<T>> {
-    if (page && limit) {
-      return this.axiosClient.get<T>(
-        `${this.baseApi}${path}/${userId}/${page}/${limit}${searchParam}`,
-        configs,
-      );
-    }
+    const endpointParts = [path, userId, page, limit]
+      .filter((part) => part !== undefined && part !== '')
+      .join('/');
+    const endpoint = `${endpointParts}${searchParam}`;
 
-    return this.axiosClient.get<T>(`${this.baseApi}${path}/${userId}`, configs);
+    return this.axiosClient.get<T>(`${this.baseApi}${endpoint}`, configs);
   }
 
   post<T>({

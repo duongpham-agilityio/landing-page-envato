@@ -7,19 +7,36 @@ import { END_POINTS } from '@/lib/constants';
 import { authStore } from '../stores';
 
 // Services
-import { addMoneyToUser, sendMoneyToUser } from '@/lib/services';
+import { MainHttpService } from '@/lib/services';
 
 // Types
-import { EActivity, TAddMoney, TSendMoney } from '@/lib/interfaces';
+import {
+  EActivity,
+  TAddMoney,
+  TRecentActivities,
+  TSendMoney,
+} from '@/lib/interfaces';
 
 export const useMoney = () => {
   const { user } = authStore();
   const queryClient = useQueryClient();
 
   const { mutate: addMoneyToUserWallet } = useMutation({
-    mutationFn: (userData: TAddMoney) =>
-      addMoneyToUser(EActivity.ADD_MONEY, userData, user?.id),
-    onSettled: () => {
+    mutationFn: async (userData: TAddMoney) => {
+      await MainHttpService.post<TRecentActivities>({
+        path: END_POINTS.RECENT_ACTIVITIES,
+        data: {
+          userId: user?.id,
+          actionName: EActivity.ADD_MONEY,
+        },
+      });
+
+      return MainHttpService.put({
+        path: END_POINTS.ADD_MONEY,
+        data: userData,
+      });
+    },
+    onSuccess: async () => {
       queryClient.invalidateQueries({
         queryKey: [END_POINTS.MY_WALLET],
       });
@@ -33,8 +50,20 @@ export const useMoney = () => {
   });
 
   const { mutate: sendMoneyToUserWallet } = useMutation({
-    mutationFn: (userData: TSendMoney) =>
-      sendMoneyToUser(EActivity.SEND_MONEY, userData, user?.id),
+    mutationFn: async (userData: TSendMoney) => {
+      await MainHttpService.post<TRecentActivities>({
+        path: END_POINTS.RECENT_ACTIVITIES,
+        data: {
+          userId: user?.id,
+          actionName: EActivity.SEND_MONEY,
+        },
+      });
+
+      return MainHttpService.put({
+        path: END_POINTS.SEND_MONEY,
+        data: userData,
+      });
+    },
     onSettled: () => {
       queryClient.invalidateQueries({
         queryKey: [END_POINTS.MY_WALLET],
