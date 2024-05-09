@@ -1,4 +1,11 @@
+// Libs
+import { AxiosRequestHeaders, AxiosResponse } from 'axios';
+
+// Types
 import { TRecentActivities } from '@/lib/interfaces';
+
+// Hooks
+import { TActivity } from '@/lib/hooks';
 
 export const RECENT_ACTIVITIES: TRecentActivities[] = [
   {
@@ -20,3 +27,13 @@ export const RECENT_ACTIVITIES: TRecentActivities[] = [
     _id: '3',
   },
 ];
+
+export const MOCK_RECENT_ACTIVITIES_SUCCESS_RES: AxiosResponse<TActivity> = {
+  data: { result: RECENT_ACTIVITIES, totalPage: 3 },
+  status: 200,
+  statusText: 'Ok',
+  headers: {},
+  config: {
+    headers: {} as AxiosRequestHeaders,
+  },
+};

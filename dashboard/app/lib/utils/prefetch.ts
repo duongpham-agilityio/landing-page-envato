@@ -1,5 +1,8 @@
+// Libs
 import { QueryClient } from '@tanstack/react-query';
-import { getStatistical } from '../services';
+
+// Services
+import { MainHttpService } from '@/lib/services';
 
 export const prefetchStatistical = async <T>(
   endPoint: string,
@@ -7,6 +10,7 @@ export const prefetchStatistical = async <T>(
 ) => {
   await queryClient.prefetchQuery({
     queryKey: [endPoint],
-    queryFn: () => getStatistical<T>(endPoint),
+    queryFn: async () =>
+      (await MainHttpService.get<T>({ path: endPoint })).data,
   });
 };

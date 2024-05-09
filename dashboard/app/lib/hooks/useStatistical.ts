@@ -1,14 +1,90 @@
 // Libs
 import { useQuery } from '@tanstack/react-query';
 
-// Services
-import { getStatistical } from '@/lib/services';
+// Constants
+import { END_POINTS } from '@/lib/constants';
 
-export const useGetStatistic = <T>(endPoint: string) =>
-  useQuery<T>({
-    queryKey: [endPoint],
-    queryFn: ({ signal }) => getStatistical(endPoint, { signal }),
+// Types
+import {
+  IEfficiency,
+  IRevenueFlow,
+  ISpendingStatistics,
+  TOverallBalance,
+} from '@/lib/interfaces';
+
+// Services
+import { MainHttpService } from '@/lib/services';
+
+export const useGetEfficiency = (efficiencyType: string) => {
+  const path = `${END_POINTS.EFFICIENCY}/${efficiencyType}`;
+
+  const { ...rest } = useQuery<IEfficiency>({
+    queryKey: [path],
+    queryFn: async () =>
+      (await MainHttpService.get<IEfficiency>({ path })).data,
   });
+
+  return {
+    ...rest,
+  };
+};
+
+export const useGetOverallBalance = () => {
+  const { data: res, ...rest } = useQuery({
+    queryKey: [END_POINTS.OVERALL_BALANCE],
+    queryFn: async () =>
+      (
+        await MainHttpService.get<TOverallBalance>({
+          path: END_POINTS.OVERALL_BALANCE,
+        })
+      ).data,
+  });
+
+  const { data = [], total = 0, growth = 0 } = res || {};
+
+  return {
+    ...rest,
+    data: {
+      data,
+      total: total,
+      growth: growth,
+    },
+  };
+};
+
+export const useGetRevenue = () => {
+  const { data: res, ...rest } = useQuery<IRevenueFlow[]>({
+    queryKey: [END_POINTS.REVENUE],
+    queryFn: async () =>
+      (
+        await MainHttpService.get<IRevenueFlow[]>({
+          path: END_POINTS.REVENUE,
+        })
+      ).data,
+  });
+
+  return {
+    ...rest,
+    data: res || [],
+  };
+};
+
+export const useGetStatistic = () => {
+  const { data: res, ...rest } = useQuery({
+    queryKey: [END_POINTS.STATISTICS],
+    queryFn: async () =>
+      (
+        await MainHttpService.get<ISpendingStatistics[]>({
+          path: END_POINTS.STATISTICS,
+        })
+      ).data,
+  });
+
+  return {
+    ...rest,
+    data: res || [],
+  };
+};
 
 // TODO: Use later
 // export const useGetMultipleStatistics = <T>(endPoints: string[]) =>

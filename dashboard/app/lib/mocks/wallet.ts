@@ -1,3 +1,9 @@
+// Libs
+import { AxiosRequestHeaders, AxiosResponse } from 'axios';
+
+// Types
+import { TWallet } from '@/lib/interfaces';
+
 export const WALLET_MOCK = [
   {
     accountId: '65a4a3a280522b2e38c4b4a6',
@@ -11,3 +17,13 @@ export const WALLET_MOCK = [
     _id: '65a4a3a280522b2e38c4b4a8',
   },
 ];
+
+export const MOCK_WALLET_SUCCESS_RES: AxiosResponse<TWallet> = {
+  data: WALLET_MOCK[0],
+  status: 200,
+  statusText: 'Ok',
+  headers: {},
+  config: {
+    headers: {} as AxiosRequestHeaders,
+  },
+};

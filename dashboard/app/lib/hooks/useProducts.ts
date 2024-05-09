@@ -15,7 +15,7 @@ import {
 import { authStore } from '@/lib/stores';
 
 // Services
-import { MainHttpService, TProductsResponse } from '@/lib/services';
+import { MainHttpService } from '@/lib/services';
 
 // Utils
 import { formatPageArray, handleSort, logActivity } from '../utils';
@@ -30,6 +30,11 @@ import {
 
 export type TSearchProduct = {
   name: string;
+};
+
+export type TProductsResponse = {
+  result: Array<TProduct>;
+  totalPage: number;
 };
 
 export type TProductSortField = 'name' | 'price' | 'date' | 'quantity';

@@ -6,9 +6,6 @@ import { Grid, GridItem } from '@chakra-ui/react';
 // Components
 import { Fetching, TotalStatisticCard } from '@/ui/components';
 
-// Constants
-import { END_POINTS } from '@/lib/constants';
-
 // Hooks
 import { useGetStatistic } from '@/lib/hooks';
 
@@ -23,7 +20,7 @@ const TotalStatisticListComponent = () => {
     data = INITIAL_TOTAL_STATISTICS,
     isLoading,
     isError,
-  } = useGetStatistic<ISpendingStatistics[]>(END_POINTS.STATISTICS);
+  } = useGetStatistic();
 
   return (
     <Fetching isError={isError} errorMessage="Total statistic data error">

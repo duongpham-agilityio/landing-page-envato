@@ -1,56 +1,43 @@
-import { ReactNode } from 'react';
-import { renderHook } from '@testing-library/react';
-import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
-import { AxiosRequestHeaders, AxiosResponse } from 'axios';
+// Libs
+import { renderHook, act } from '@testing-library/react';
 
 // Hooks
-import { TActivity, useRecentActivities } from '@/lib/hooks';
+import { useRecentActivities } from '@/lib/hooks';
 
 // Services
 import { MainHttpService } from '@/lib/services';
 
 // Utils
-import { sortByKey } from '@/lib/utils';
+import { sortByKey, queryProviderWrapper } from '@/lib/utils';
 
 // Mocks
-import { RECENT_ACTIVITIES } from '@/lib/mocks';
-
-const queryClient = new QueryClient({
-  defaultOptions: {
-    queries: {
-      retry: false,
-    },
-  },
-});
-
-const wrapper = ({ children }: { children: ReactNode }) => (
-  <QueryClientProvider client={queryClient}>{children}</QueryClientProvider>
-);
+import {
+  RECENT_ACTIVITIES,
+  MOCK_RECENT_ACTIVITIES_SUCCESS_RES,
+} from '@/lib/mocks';
 
 describe('useRecentActivities', () => {
-  const activitiesData: AxiosResponse<TActivity> = {
-    data: { result: RECENT_ACTIVITIES, totalPage: 3 },
-    status: 200,
-    statusText: 'Ok',
-    headers: {},
-    config: {
-      headers: {} as AxiosRequestHeaders,
-    },
-  };
-
-  jest.spyOn(MainHttpService, 'get').mockResolvedValue(activitiesData);
+  jest
+    .spyOn(MainHttpService, 'get')
+    .mockResolvedValue(MOCK_RECENT_ACTIVITIES_SUCCESS_RES);
 
   it('should fetch activities data successfully', async () => {
-    const { result } = renderHook(() => useRecentActivities(), { wrapper });
+    const { result } = renderHook(() => useRecentActivities(), {
+      wrapper: queryProviderWrapper,
+    });
 
     await waitFor(() => expect(result.current.data).toEqual(RECENT_ACTIVITIES));
   });
 
   it('should reset page successfully', async () => {
-    const { result } = renderHook(() => useRecentActivities(), { wrapper });
+    const { result } = renderHook(() => useRecentActivities(), {
+      wrapper: queryProviderWrapper,
+    });
 
-    result.current.setCurrentPage(2);
-    result.current.resetPage();
+    act(() => {
+      result.current.setCurrentPage(2);
+      result.current.resetPage();
+    });
 
     await waitFor(() => expect(result.current.currentPage).toEqual(1));
   });
@@ -58,9 +45,13 @@ describe('useRecentActivities', () => {
   it('should sort activities successfully', async () => {
     const expectResult = sortByKey(RECENT_ACTIVITIES, 'actionName', false);
 
-    const { result } = renderHook(() => useRecentActivities(), { wrapper });
+    const { result } = renderHook(() => useRecentActivities(), {
+      wrapper: queryProviderWrapper,
+    });
 
-    result.current.sortBy('actionName');
+    act(() => {
+      result.current.sortBy('actionName');
+    });
 
     await waitFor(() => expect(result.current.data).toEqual(expectResult));
   });

@@ -10,7 +10,6 @@ import { Arrow } from '@/ui/components/Icons';
 
 // Constants
 import {
-  END_POINTS,
   MONTHS,
   REVENUE_FLOW_COLORS,
   REVENUE_FLOW_OPTIONS,
@@ -18,7 +17,7 @@ import {
 } from '@/lib/constants';
 
 // Hooks
-import { useGetStatistic } from '@/lib/hooks';
+import { useGetRevenue } from '@/lib/hooks';
 
 // Types
 import { IRevenueFlow, RevenueFlowStatus } from '@/lib/interfaces';
@@ -37,11 +36,7 @@ const Chart = dynamic(() => import('react-apexcharts'), {
 
 const RevenueFlowComponent = () => {
   const [option, setOption] = useState<string>('Jan,Dec');
-  const {
-    data = INITIAL_REVENUE_FLOW,
-    isLoading,
-    isError,
-  } = useGetStatistic<IRevenueFlow[]>(END_POINTS.REVENUE);
+  const { data = INITIAL_REVENUE_FLOW, isLoading, isError } = useGetRevenue();
 
   const { primary } = useColorfill();
 

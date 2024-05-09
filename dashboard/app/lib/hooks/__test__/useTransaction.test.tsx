@@ -1,69 +1,150 @@
-import { ReactNode } from 'react';
+// Libs
 import { renderHook, act } from '@testing-library/react';
-import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
+
+// Constants
+import { TRANSACTION_STATUS } from '@/lib/constants';
 
 // Hooks
 import { useTransactions } from '@/lib/hooks';
 
 // Services
-import * as services from '@/lib/services';
+import { MainHttpService } from '@/lib/services';
+
+// Utils
+import { sortByKey, queryProviderWrapper } from '@/lib/utils';
 
 // Mocks
-import { TRANSACTIONS } from '@/lib/mocks';
-
-jest.mock('@/lib/services', () => ({
-  getTransactions: jest.fn(),
-}));
-
-const queryClient = new QueryClient({
-  defaultOptions: {
-    queries: {
-      retry: false,
-    },
-  },
-});
-
-jest.mock('@/lib/hooks', () => {
-  const originalModule = jest.requireActual('@/lib/hooks');
-  return {
-    ...originalModule,
-    handleSort: jest.fn(),
-  };
-});
-
-const wrapper = ({ children }: { children: ReactNode }) => (
-  <QueryClientProvider client={queryClient}>{children}</QueryClientProvider>
-);
+import {
+  MOCK_TRANSACTIONS_SUCCESS_RES,
+  MOCK_UPDATE_SUCCESS_RES,
+  TRANSACTIONS,
+} from '@/lib/mocks';
 
 describe('useTransactions', () => {
-  it('should fetch transactions and apply sorting and filtering', async () => {
-    const getTransactionsSpy = jest.spyOn(services, 'getTransactions');
-    getTransactionsSpy.mockResolvedValue(TRANSACTIONS);
+  jest
+    .spyOn(MainHttpService, 'get')
+    .mockResolvedValue(MOCK_TRANSACTIONS_SUCCESS_RES);
 
-    const { result, rerender } = renderHook(
-      () => useTransactions({ name: 'John', month: 'January' }),
-      { wrapper },
-    );
-    expect(result.current.data).toEqual([]);
-    expect(result.current.isLoading).toBe(true);
-
-    await rerender();
-
-    expect(getTransactionsSpy).toHaveBeenCalledWith(
-      '',
-      expect.any(Object),
-      undefined,
-    );
-    expect(result.current.isLoading).toBe(true);
-
-    act(() => {
-      result.current.sortBy('name');
+  it('should fetch transactions data successfully', async () => {
+    const { result } = renderHook(() => useTransactions(), {
+      wrapper: queryProviderWrapper,
     });
 
-    expect(getTransactionsSpy).toHaveBeenCalledWith(
-      '',
-      expect.any(Object),
-      undefined,
+    await waitFor(() => expect(result.current.data).toEqual(TRANSACTIONS));
+  });
+
+  it('should sort asc transactions successfully', async () => {
+    const expectResult = sortByKey(TRANSACTIONS, 'amount', false);
+
+    const { result } = renderHook(() => useTransactions(), {
+      wrapper: queryProviderWrapper,
+    });
+
+    act(() => {
+      result.current.sortBy('spent');
+    });
+
+    await waitFor(() => expect(result.current.data).toEqual(expectResult));
+  });
+
+  it('should sort desc transactions successfully', async () => {
+    const expectResult = sortByKey(TRANSACTIONS, 'amount', true);
+
+    const { result } = renderHook(() => useTransactions(), {
+      wrapper: queryProviderWrapper,
+    });
+
+    act(() => {
+      result.current.sortBy('spent');
+      result.current.sortBy('spent');
+    });
+
+    await waitFor(() => expect(result.current.data).toEqual(expectResult));
+  });
+
+  it('should search transactions successfully by location', async () => {
+    const { result } = renderHook(() => useTransactions({ name: '123' }), {
+      wrapper: queryProviderWrapper,
+    });
+
+    await waitFor(() => expect(result.current.data).toEqual(TRANSACTIONS));
+  });
+
+  it('should search transactions successfully by name', async () => {
+    const { result } = renderHook(
+      () =>
+        useTransactions({
+          name: TRANSACTIONS[0].customer.firstName.toLowerCase(),
+        }),
+      {
+        wrapper: queryProviderWrapper,
+      },
     );
+
+    await waitFor(() => expect(result.current.data).toEqual([TRANSACTIONS[0]]));
+  });
+
+  it('should update transactions successfully if have that item in cache', async () => {
+    jest
+      .spyOn(MainHttpService, 'put')
+      .mockResolvedValue(MOCK_UPDATE_SUCCESS_RES);
+
+    const { result } = renderHook(() => useTransactions(), {
+      wrapper: queryProviderWrapper,
+    });
+
+    result.current.updateTransaction({ transactionId: TRANSACTIONS[0]._id });
+
+    await waitFor(() =>
+      expect(jest.spyOn(MainHttpService, 'put')).toHaveBeenCalled(),
+    );
+  });
+
+  it('should update transactions successfully if NO have that item in cache', async () => {
+    jest
+      .spyOn(MainHttpService, 'put')
+      .mockResolvedValue(MOCK_UPDATE_SUCCESS_RES);
+
+    const { result } = renderHook(() => useTransactions(), {
+      wrapper: queryProviderWrapper,
+    });
+
+    result.current.updateTransaction({ transactionId: '1' });
+
+    await waitFor(() =>
+      expect(jest.spyOn(MainHttpService, 'put')).toHaveBeenCalled(),
+    );
+  });
+
+  it('should delete transactions successfully if have that item in cache', async () => {
+    jest
+      .spyOn(MainHttpService, 'put')
+      .mockResolvedValue(MOCK_UPDATE_SUCCESS_RES);
+
+    const { result } = renderHook(() => useTransactions(), {
+      wrapper: queryProviderWrapper,
+    });
+
+    result.current.deleteTransaction({ transactionId: TRANSACTIONS[0]._id });
+
+    await waitFor(() =>
+      expect(result.current.data[0].transactionStatus).toEqual(
+        TRANSACTION_STATUS.ARCHIVED,
+      ),
+    );
+  });
+
+  it('should delete transactions successfully if NO have that item in cache', async () => {
+    jest
+      .spyOn(MainHttpService, 'put')
+      .mockResolvedValue(MOCK_UPDATE_SUCCESS_RES);
+
+    const { result } = renderHook(() => useTransactions(), {
+      wrapper: queryProviderWrapper,
+    });
+
+    result.current.deleteTransaction({ transactionId: '1' });
+
+    await waitFor(() => expect(result.current.data).toEqual(TRANSACTIONS));
   });
 });

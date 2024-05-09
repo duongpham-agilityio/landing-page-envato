@@ -166,7 +166,7 @@ export const useTransactions = (queryParam?: TSearchTransaction) => {
    */
   const transactions: TTransaction[] = useMemo((): TTransaction[] => {
     const isNameMatchWith = (target: string): boolean =>
-      (target || '').trim().includes(searchName);
+      (target || '').trim().toLowerCase().includes(searchName);
 
     return transactionsAfterSort.filter(
       ({

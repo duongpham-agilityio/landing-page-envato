@@ -12,7 +12,6 @@ import { Fetching } from '..';
 
 // Constants
 import {
-  END_POINTS,
   OVERALL_BALANCE_COLORS,
   OVERALL_BALANCE_MONTH,
   REVENUE_FLOW_OPTIONS,
@@ -20,13 +19,13 @@ import {
 } from '@/lib/constants';
 
 // Hooks
-import { useGetStatistic } from '@/lib/hooks';
+import { useGetOverallBalance } from '@/lib/hooks';
 
 // Utils
 import { formatDecimalNumber } from '@/lib/utils';
 
 // Types
-import { IRevenueFlow, TOverallBalance } from '@/lib/interfaces';
+import { IRevenueFlow } from '@/lib/interfaces';
 
 // Mocks
 import { INITIAL_OVERALL_BALANCE } from '@/lib/mocks';
@@ -46,8 +45,9 @@ const OverallBalanceComponent = () => {
     data: overallBalanceData = INITIAL_OVERALL_BALANCE,
     isLoading: isLoadingOverallBalance,
     isError: isErrorOverallBalance,
-  } = useGetStatistic<TOverallBalance>(END_POINTS.OVERALL_BALANCE);
-  const { data, total, growth } = overallBalanceData;
+  } = useGetOverallBalance();
+
+  const { data = [], total = 0, growth = 0 } = overallBalanceData;
 
   const [option, setOption] = useState<string>('');
 

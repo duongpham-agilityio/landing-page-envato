@@ -394,7 +394,7 @@ const TransactionTableComponent = ({
     <Indicator isOpen={isUpdateTransaction || isDeleteTransaction}>
       <SearchBar
         filterOptions={isOpenHistoryModal ? MONTHS_OPTIONS : ROLES}
-        searchValue={get('name')?.toLowerCase() || ''}
+        searchValue={get('keyword')?.toLowerCase() || ''}
         onSearch={handleDebounceSearch}
         onFilter={setFilter}
       />

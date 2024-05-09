@@ -16,3 +16,4 @@ export * from './recentActivities';
 export * from './logAcitvity';
 export * from './updateColorScheme';
 export * from './validation';
+export * from './testUtils';

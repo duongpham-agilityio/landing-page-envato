@@ -1,8 +1,5 @@
 // Libs
-import { ReactNode } from 'react';
-import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { renderHook } from '@testing-library/react';
-import { AxiosRequestHeaders, AxiosResponse } from 'axios';
 
 // Hooks
 import { useWallet } from '@/lib/hooks';
@@ -10,23 +7,11 @@ import { useWallet } from '@/lib/hooks';
 // Services
 import { MainHttpService } from '@/lib/services';
 
-// Types
-import { TWallet } from '@/lib/interfaces';
+// Utils
+import { queryProviderWrapper } from '@/lib/utils';
 
 // Mocks
-import { WALLET_MOCK } from '@/lib/mocks';
-
-const queryClient = new QueryClient({
-  defaultOptions: {
-    queries: {
-      retry: false,
-    },
-  },
-});
-
-const wrapper = ({ children }: { children: ReactNode }) => (
-  <QueryClientProvider client={queryClient}>{children}</QueryClientProvider>
-);
+import { MOCK_WALLET_SUCCESS_RES, WALLET_MOCK } from '@/lib/mocks';
 
 describe('useWallet', () => {
   afterEach(() => {
@@ -34,20 +19,12 @@ describe('useWallet', () => {
   });
 
   it('should fetch wallet data successfully', async () => {
-    const walletResponse: AxiosResponse<TWallet> = {
-      data: WALLET_MOCK[0],
-      status: 200,
-      statusText: 'Ok',
-      headers: {},
-      config: {
-        headers: {} as AxiosRequestHeaders,
-      },
-    };
-
-    jest.spyOn(MainHttpService, 'get').mockResolvedValue(walletResponse);
+    jest
+      .spyOn(MainHttpService, 'get')
+      .mockResolvedValue(MOCK_WALLET_SUCCESS_RES);
 
     const { result } = renderHook(() => useWallet('6593beacff649fc6c4d2964b'), {
-      wrapper,
+      wrapper: queryProviderWrapper,
     });
 
     await waitFor(() =>

@@ -9,10 +9,10 @@ import EfficiencyInfo from './EfficiencyInfo';
 import EfficiencyRefetch from './Refetching';
 
 // Constants
-import { EFFICIENCY_OPTIONS, END_POINTS } from '@/lib/constants';
+import { EFFICIENCY_OPTIONS } from '@/lib/constants';
 
 // Hooks
-import { useGetStatistic } from '@/lib/hooks';
+import { useGetEfficiency } from '@/lib/hooks';
 
 // Types
 import { TOption } from '@/ui/components/common/Select';
@@ -20,9 +20,6 @@ import { EFFICIENCY_MOCK } from '@/lib/mocks';
 
 // Icons
 import { Arrow } from '@/ui/components/Icons';
-
-// Interfaces
-import { IEfficiency } from '@/lib/interfaces';
 
 // Themes
 import { useColorfill } from '@/ui/themes/bases';
@@ -38,9 +35,7 @@ const EfficiencyComponent = () => {
     data: efficiencyData,
     isLoading: isLoadingEfficiency,
     isError: isErrorEfficiency,
-  } = useGetStatistic<IEfficiency>(
-    `${END_POINTS.EFFICIENCY}/${efficiencyType}`,
-  );
+  } = useGetEfficiency(efficiencyType);
 
   const { arrival, spending, statistical } = efficiencyData || EFFICIENCY_MOCK;
 
