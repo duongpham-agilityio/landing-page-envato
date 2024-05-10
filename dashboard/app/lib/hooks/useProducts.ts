@@ -15,7 +15,7 @@ import {
 import { authStore } from '@/lib/stores';
 
 // Services
-import { MainHttpService } from '@/lib/services';
+import { mainHttpService } from '@/lib/services';
 
 // Utils
 import { formatPageArray, handleSort, logActivity } from '../utils';
@@ -74,7 +74,7 @@ export const useProducts = (queryParam?: TSearchProduct) => {
     queryKey: [END_POINTS.PRODUCTS, searchName, currentPage, limit],
     queryFn: async ({ signal }) =>
       (
-        await MainHttpService.get<TProductsResponse>({
+        await mainHttpService.get<TProductsResponse>({
           path: END_POINTS.PRODUCTS,
           configs: { signal },
           userId: user?.id,
@@ -180,7 +180,7 @@ export const useProducts = (queryParam?: TSearchProduct) => {
 
   const { mutate: createProduct, isPending: isCreateProduct } = useMutation({
     mutationFn: async (product: Omit<TProductRequest, '_id'>) =>
-      await MainHttpService.post<TProductRequest>({
+      await mainHttpService.post<TProductRequest>({
         path: END_POINTS.PRODUCTS,
         data: product,
         actionName: EActivity.CREATE_PRODUCT,
@@ -205,7 +205,7 @@ export const useProducts = (queryParam?: TSearchProduct) => {
     mutationFn: async (
       payload: Partial<TProductRequest & { userId: string; productId: string }>,
     ) =>
-      await MainHttpService.delete({
+      await mainHttpService.delete({
         path: END_POINTS.PRODUCTS,
         data: {
           data: payload,
@@ -232,7 +232,7 @@ export const useProducts = (queryParam?: TSearchProduct) => {
     mutationFn: async (
       product: Partial<TProductRequest & { userId: string; productId: string }>,
     ) =>
-      await MainHttpService.put<TProductRequest>({
+      await mainHttpService.put<TProductRequest>({
         path: END_POINTS.PRODUCTS,
         data: product,
         actionName: EActivity.UPDATE_PRODUCT,

@@ -1,5 +1,4 @@
-import { ReactNode } from 'react';
-import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
+// Libs
 import { act } from 'react-dom/test-utils';
 import { waitFor } from '@testing-library/react';
 
@@ -7,64 +6,65 @@ import { waitFor } from '@testing-library/react';
 import { END_POINTS } from '@/lib/constants';
 
 // Services
-import { MainHttpService } from '@/lib/services';
+import { mainHttpService } from '@/lib/services';
 
 // Hooks
 import { useMoney } from '@/lib/hooks';
 
-jest.mock('@/lib/services', () => ({
-  addMoneyToUser: jest.fn(),
-  sendMoneyToUser: jest.fn(),
-}));
+// Utils
+import { queryProviderWrapper } from '@/lib/utils';
 
-const queryClient = new QueryClient();
-
-const wrapper = ({ children }: { children: ReactNode }) => (
-  <QueryClientProvider client={queryClient}>{children}</QueryClientProvider>
-);
+// Mocks
+import {
+  MOCK_UPDATE_SUCCESS_RES,
+  MOCK_ADD_MONEY_PAYLOAD,
+  MOCK_SEND_MONEY_PAYLOAD,
+} from '@/lib/mocks';
 
 const { renderHook } = testLibReactUtils;
 
 describe('useMoney Hook', () => {
+  beforeEach(() => {
+    jest
+      .spyOn(mainHttpService, 'post')
+      .mockResolvedValue(MOCK_UPDATE_SUCCESS_RES);
+
+    jest
+      .spyOn(mainHttpService, 'put')
+      .mockResolvedValue(MOCK_UPDATE_SUCCESS_RES);
+  });
+
   afterEach(() => {
     jest.clearAllMocks();
   });
 
   it('should handle addMoneyToUserWallet success', () => {
-    const { result } = renderHook(() => useMoney(), { wrapper });
+    const { result } = renderHook(() => useMoney(), {
+      wrapper: queryProviderWrapper,
+    });
 
-    act(() =>
-      result.current.addMoneyToUserWallet({
-        amount: 10,
-        userId: '6593beacff649fc6c4d2964b',
-      }),
-    );
+    act(() => result.current.addMoneyToUserWallet(MOCK_ADD_MONEY_PAYLOAD));
 
     waitFor(() =>
-      expect(MainHttpService.put).toHaveBeenCalledWith(END_POINTS.ADD_MONEY, {
-        amount: 10,
-        userId: '6593beacff649fc6c4d2964b',
-      }),
+      expect(mainHttpService.put).toHaveBeenCalledWith(
+        END_POINTS.ADD_MONEY,
+        MOCK_ADD_MONEY_PAYLOAD,
+      ),
     );
   });
 
   it('should handle sendMoneyToUserWallet success', () => {
-    const { result } = renderHook(() => useMoney(), { wrapper });
+    const { result } = renderHook(() => useMoney(), {
+      wrapper: queryProviderWrapper,
+    });
 
-    act(() =>
-      result.current.sendMoneyToUserWallet({
-        amount: 10,
-        memberId: '65a4a3a280522b2e38c4b4a6',
-        userId: '6593beacff649fc6c4d2964b',
-      }),
-    );
+    act(() => result.current.sendMoneyToUserWallet(MOCK_SEND_MONEY_PAYLOAD));
 
     waitFor(() =>
-      expect(MainHttpService.put).toHaveBeenCalledWith(END_POINTS.SEND_MONEY, {
-        amount: 10,
-        memberId: '65a4a3a280522b2e38c4b4a6',
-        userId: '6593beacff649fc6c4d2964b',
-      }),
+      expect(mainHttpService.put).toHaveBeenCalledWith(
+        END_POINTS.SEND_MONEY,
+        MOCK_SEND_MONEY_PAYLOAD,
+      ),
     );
   });
 });

@@ -5,7 +5,7 @@ import { AxiosResponse } from 'axios';
 import { usePinCode } from '@/lib/hooks';
 
 // Services
-import { MainHttpService } from '@/lib/services';
+import { mainHttpService } from '@/lib/services';
 
 describe('usePinCode test cases', () => {
   const {
@@ -20,7 +20,7 @@ describe('usePinCode test cases', () => {
   const mockResponseError = '';
 
   it('should handle submit pin code', async () => {
-    jest.spyOn(MainHttpService, 'post').mockResolvedValue({
+    jest.spyOn(mainHttpService, 'post').mockResolvedValue({
       data: {
         message: mockResponseSuccess,
       },
@@ -37,7 +37,7 @@ describe('usePinCode test cases', () => {
   });
 
   it('should handle confirm pin code', async () => {
-    jest.spyOn(MainHttpService, 'post').mockResolvedValue({
+    jest.spyOn(mainHttpService, 'post').mockResolvedValue({
       data: {
         message: mockResponseSuccess,
       },
@@ -54,7 +54,7 @@ describe('usePinCode test cases', () => {
   });
 
   it('should handle error when setting pin code', async () => {
-    jest.spyOn(MainHttpService, 'post').mockRejectedValue({
+    jest.spyOn(mainHttpService, 'post').mockRejectedValue({
       data: {
         message: mockResponseError,
       },
@@ -74,7 +74,7 @@ describe('usePinCode test cases', () => {
   });
 
   it('should handle error when confirming pin code', async () => {
-    jest.spyOn(MainHttpService, 'post').mockRejectedValue({
+    jest.spyOn(mainHttpService, 'post').mockRejectedValue({
       data: {
         message: mockResponseError,
       },

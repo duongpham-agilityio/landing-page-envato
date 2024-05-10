@@ -21,7 +21,6 @@ import { Indicator, InputField, UpdateProfile } from '@/ui/components';
 // Constants
 import {
   ERROR_MESSAGES,
-  SHOW_TIME,
   STATUS_SUBMIT,
   SUCCESS_MESSAGES,
   AUTH_SCHEMA,
@@ -40,11 +39,11 @@ import { customToast, formatAllowOnlyNumbers } from '@/lib/utils';
 // Providers
 import { QueryProvider } from '@/ui/providers';
 
-// Services
-import { uploadImage } from '@/lib/services';
+// Hooks
+import { useUploadImage } from '@/lib/hooks';
 
 // Interfaces
-import { TUserDetail } from '@/lib/interfaces';
+import { IUploadImageResponse, TUserDetail } from '@/lib/interfaces';
 
 const UserFormComponent = () => {
   const [avatarFile, setAvatarFile] = useState<File>();
@@ -54,6 +53,7 @@ const UserFormComponent = () => {
   const user = authStore((state) => state.user);
   const { mutate: updateUser, status, isPending: isSubmit } = useUpdateUser();
   const toast = useToast();
+  const { uploadImage } = useUploadImage();
 
   const {
     id = '',
@@ -102,82 +102,85 @@ const UserFormComponent = () => {
     mode: 'onBlur',
   });
 
-  const handleShowErrorWhenUploadImage = useCallback((message: string) => {
-    toast({
-      description: message,
-      status: 'error',
-      duration: SHOW_TIME,
-      position: 'top-right',
-    });
-  }, []);
-
   const handleAvatarChange = useCallback((avatarFile: File) => {
     setAvatarFile(avatarFile);
     setIsAvatarDirty(true);
   }, []);
 
+  const handleShowErrorMessage = useCallback(
+    (message: string) => {
+      toast(customToast('', message, STATUS.ERROR));
+    },
+    [toast],
+  );
+
+  const handleUpdateUser = useCallback(
+    (updatedInfo: TUserDetail) => {
+      updateUser(updatedInfo, {
+        onSuccess: (response: AxiosResponse<TUserDetail>) => {
+          const updatedUser: TUserDetail = {
+            ...response.data,
+            id: response.data._id || '',
+          };
+
+          setUser({ user: updatedUser });
+          setIsAvatarDirty(false);
+
+          toast(
+            customToast(
+              SUCCESS_MESSAGES.UPDATE_SUCCESS.title,
+              SUCCESS_MESSAGES.UPDATE_SUCCESS.description,
+              STATUS.SUCCESS,
+            ),
+          );
+
+          reset(updatedInfo);
+        },
+        onError: () => {
+          setIsAvatarDirty(false);
+
+          toast(
+            customToast(
+              ERROR_MESSAGES.UPDATE_FAIL.title,
+              ERROR_MESSAGES.UPDATE_FAIL.description,
+              STATUS.ERROR,
+            ),
+          );
+        },
+      });
+    },
+    [reset, setUser, toast, updateUser],
+  );
+
+  const handleUploadAvatarError = useCallback(() => {
+    handleShowErrorMessage(ERROR_MESSAGES.UPDATE_FAIL.title);
+  }, [handleShowErrorMessage]);
+
   const handleSubmitForm = useCallback(
-    async (data: TUserDetail) => {
-      let uploadedAvatarUrl: string = '';
+    (userInfo: TUserDetail) => {
+      if (avatarFile) {
+        const formData = new FormData();
+        formData.append('image', avatarFile);
 
-      try {
-        if (avatarFile) {
-          const formData = new FormData();
-          formData.append('image', avatarFile);
+        return uploadImage(formData, {
+          onSuccess: (res: AxiosResponse<IUploadImageResponse>) => {
+            const { data } = res?.data || {};
+            const { url: imageURL = '' } = data || {};
 
-          uploadedAvatarUrl = await uploadImage(formData);
-        }
-
-        const updatedInfo = {
-          ...data,
-          avatarURL: uploadedAvatarUrl || avatarURL,
-        };
-
-        updateUser(updatedInfo, {
-          onSuccess: (response: AxiosResponse<TUserDetail>) => {
-            const updatedUser: TUserDetail = {
-              ...response.data,
-              id: response.data._id || '',
+            const updatedInfo = {
+              ...userInfo,
+              avatarURL: imageURL,
             };
 
-            setUser({ user: updatedUser });
-            setIsAvatarDirty(false);
-
-            toast(
-              customToast(
-                SUCCESS_MESSAGES.UPDATE_SUCCESS.title,
-                SUCCESS_MESSAGES.UPDATE_SUCCESS.description,
-                STATUS.SUCCESS,
-              ),
-            );
-
-            reset(updatedInfo);
+            handleUpdateUser(updatedInfo);
           },
-          onError: () => {
-            setIsAvatarDirty(false);
-
-            toast(
-              customToast(
-                ERROR_MESSAGES.UPDATE_FAIL.title,
-                ERROR_MESSAGES.UPDATE_FAIL.description,
-                STATUS.ERROR,
-              ),
-            );
-          },
+          onError: handleUploadAvatarError,
         });
-      } catch (error) {
-        handleShowErrorWhenUploadImage(ERROR_MESSAGES.UPDATE_FAIL.title);
       }
+
+      handleUpdateUser(userInfo);
     },
-    [
-      updateUser,
-      avatarFile,
-      handleShowErrorWhenUploadImage,
-      avatarURL,
-      setUser,
-      toast,
-      reset,
-    ],
+    [avatarFile, handleUpdateUser, handleUploadAvatarError, uploadImage],
   );
 
   const handleChangeValue = useCallback(
@@ -558,7 +561,7 @@ const UserFormComponent = () => {
 
           <GridItem order={1} colSpan={5}>
             <UpdateProfile
-              onUploadError={handleShowErrorWhenUploadImage}
+              onUploadError={handleShowErrorMessage}
               control={control}
               onFileChange={handleAvatarChange}
             />

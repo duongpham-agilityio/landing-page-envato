@@ -17,7 +17,7 @@ import { collection, doc, getDocs, onSnapshot } from 'firebase/firestore';
 import { db } from '@/lib/utils';
 
 // Service
-import { MainHttpService } from '@/lib/services';
+import { mainHttpService } from '@/lib/services';
 
 // Mocks
 import { MOCK_SUPER_ADMIN } from '../mocks';
@@ -46,7 +46,7 @@ export const useGetRoomChat = () => {
 
 // Author: Loc Vo
 export const getInfoRoomChat = async (user: TUserInfo) => {
-  const res = await MainHttpService.get<AdminDetailsResponse>({
+  const res = await mainHttpService.get<AdminDetailsResponse>({
     path: END_POINTS.ADMIN,
     userId: user?.id,
   });

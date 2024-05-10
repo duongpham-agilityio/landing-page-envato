@@ -10,3 +10,5 @@ export * from './users';
 export * from './image';
 export * from './products';
 export * from './recentActivities';
+export * from './imageHttpClient';
+export * from './mainHttpClient';

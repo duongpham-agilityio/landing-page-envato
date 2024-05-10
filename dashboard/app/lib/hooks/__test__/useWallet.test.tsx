@@ -5,7 +5,7 @@ import { renderHook } from '@testing-library/react';
 import { useWallet } from '@/lib/hooks';
 
 // Services
-import { MainHttpService } from '@/lib/services';
+import { mainHttpService } from '@/lib/services';
 
 // Utils
 import { queryProviderWrapper } from '@/lib/utils';
@@ -20,7 +20,7 @@ describe('useWallet', () => {
 
   it('should fetch wallet data successfully', async () => {
     jest
-      .spyOn(MainHttpService, 'get')
+      .spyOn(mainHttpService, 'get')
       .mockResolvedValue(MOCK_WALLET_SUCCESS_RES);
 
     const { result } = renderHook(() => useWallet('6593beacff649fc6c4d2964b'), {

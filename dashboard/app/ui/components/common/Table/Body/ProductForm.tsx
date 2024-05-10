@@ -2,6 +2,7 @@
 
 import { memo, useCallback, useMemo, useState } from 'react';
 import { Controller, useForm } from 'react-hook-form';
+import { AxiosResponse } from 'axios';
 
 // Components
 import {
@@ -18,7 +19,11 @@ import InputField from '@/ui/components/common/InputField';
 import { UploadImages } from '@/ui/components';
 
 // Interfaces
-import { TProductRequest, TProductResponse } from '@/lib/interfaces';
+import {
+  IUploadImageResponse,
+  TProductRequest,
+  TProductResponse,
+} from '@/lib/interfaces';
 
 // Constants
 import {
@@ -27,18 +32,22 @@ import {
   ERROR_MESSAGES,
   LIMIT_PRODUCT_IMAGES,
   REGEX,
-  SHOW_TIME,
+  STATUS,
   STATUS_SUBMIT,
 } from '@/lib/constants';
 
 // Stores
 import { authStore } from '@/lib/stores';
 
-// Services
-import { uploadImage } from '@/lib/services';
+// Hooks
+import { useUploadImage } from '@/lib/hooks';
 
 // Utils
-import { formatAmountNumber, parseFormattedNumber } from '@/lib/utils';
+import {
+  customToast,
+  formatAmountNumber,
+  parseFormattedNumber,
+} from '@/lib/utils';
 
 interface ProductProps {
   data?: TProductResponse;
@@ -70,6 +79,8 @@ const ProductForm = ({
   const [imageFiles, setImageFiles] = useState<File[]>([]);
   const [isImagesDirty, setIsImagesDirty] = useState(false);
 
+  const { uploadImage } = useUploadImage();
+
   const {
     control,
     formState: { isDirty },
@@ -95,14 +106,9 @@ const ProductForm = ({
     [isDirty, isImagesDirty],
   );
 
-  const handleShowErrorWhenUploadImage = useCallback(
+  const handleShowErrorMessage = useCallback(
     (message: string) => {
-      toast({
-        description: message,
-        status: 'error',
-        duration: SHOW_TIME,
-        position: 'top-right',
-      });
+      toast(customToast('', message, STATUS.ERROR));
     },
     [toast],
   );
@@ -112,7 +118,7 @@ const ProductForm = ({
       const imagesPreview: React.SetStateAction<string[]> = [];
 
       if (files.length > LIMIT_PRODUCT_IMAGES) {
-        return handleShowErrorWhenUploadImage(ERROR_MESSAGES.UPLOAD_IMAGE_ITEM);
+        return handleShowErrorMessage(ERROR_MESSAGES.UPLOAD_IMAGE_ITEM);
       }
 
       files.map(async (file) => {
@@ -122,7 +128,7 @@ const ProductForm = ({
 
         // Check type of image
         if (!REGEX.IMG.test(file.name)) {
-          return handleShowErrorWhenUploadImage(ERROR_MESSAGES.UPLOAD_IMAGE);
+          return handleShowErrorMessage(ERROR_MESSAGES.UPLOAD_IMAGE);
         }
 
         const previewImage: string = URL.createObjectURL(file);
@@ -133,7 +139,7 @@ const ProductForm = ({
       setPreviewURL(imagesPreview);
       setIsImagesDirty(true);
     },
-    [handleShowErrorWhenUploadImage],
+    [handleShowErrorMessage],
   );
 
   const handleRemoveImage = useCallback(
@@ -156,22 +162,28 @@ const ProductForm = ({
     [clearErrors],
   );
 
+  const handleUploadImageError = useCallback(() => {
+    handleShowErrorMessage(ERROR_MESSAGES.UPDATE_FAIL.title);
+  }, [handleShowErrorMessage]);
+
   const handleSubmitForm = useCallback(
     async (data: TProductRequest) => {
       const imagesUpload: string[] = [];
 
       await Promise.all(
         imageFiles.map(async (file) => {
-          try {
-            const formData = new FormData();
-            formData.append('image', file);
+          const formData = new FormData();
+          formData.append('image', file);
 
-            const result: string = await uploadImage(formData);
+          uploadImage(formData, {
+            onSuccess: (res: AxiosResponse<IUploadImageResponse>) => {
+              const { data } = res?.data || {};
+              const { url: imageURL = '' } = data || {};
 
-            imagesUpload.push(result);
-          } catch (error) {
-            handleShowErrorWhenUploadImage(ERROR_MESSAGES.UPDATE_FAIL.title);
-          }
+              imagesUpload.push(imageURL);
+            },
+            onError: handleUploadImageError,
+          });
         }),
       );
 
@@ -190,13 +202,14 @@ const ProductForm = ({
       onCloseModal && onCloseModal();
     },
     [
-      handleShowErrorWhenUploadImage,
+      handleUploadImageError,
       imageFiles,
       onCloseModal,
       onCreateProduct,
       onUpdateProduct,
       previewURLs,
       reset,
+      uploadImage,
       userId,
     ],
   );

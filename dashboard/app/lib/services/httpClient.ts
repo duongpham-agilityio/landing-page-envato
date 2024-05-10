@@ -1,12 +1,9 @@
 import axios, { AxiosResponse } from 'axios';
 
-// Constants
-import { STATISTICAL_API } from '@/lib/constants';
-
 // Interfaces
 import { QueryOptions } from '@/lib/interfaces';
 
-class HttpService {
+export class HttpService {
   private readonly baseApi: string;
 
   constructor(baseUrl: string) {
@@ -121,5 +118,3 @@ class HttpService {
       });
   }
 }
-
-export const MainHttpService = new HttpService(STATISTICAL_API);

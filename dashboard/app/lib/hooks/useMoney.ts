@@ -7,7 +7,7 @@ import { END_POINTS } from '@/lib/constants';
 import { authStore } from '../stores';
 
 // Services
-import { MainHttpService } from '@/lib/services';
+import { mainHttpService } from '@/lib/services';
 
 // Types
 import {
@@ -23,7 +23,7 @@ export const useMoney = () => {
 
   const { mutate: addMoneyToUserWallet } = useMutation({
     mutationFn: async (userData: TAddMoney) => {
-      await MainHttpService.post<TRecentActivities>({
+      await mainHttpService.post<TRecentActivities>({
         path: END_POINTS.RECENT_ACTIVITIES,
         data: {
           userId: user?.id,
@@ -31,7 +31,7 @@ export const useMoney = () => {
         },
       });
 
-      return MainHttpService.put({
+      return mainHttpService.put({
         path: END_POINTS.ADD_MONEY,
         data: userData,
       });
@@ -51,7 +51,7 @@ export const useMoney = () => {
 
   const { mutate: sendMoneyToUserWallet } = useMutation({
     mutationFn: async (userData: TSendMoney) => {
-      await MainHttpService.post<TRecentActivities>({
+      await mainHttpService.post<TRecentActivities>({
         path: END_POINTS.RECENT_ACTIVITIES,
         data: {
           userId: user?.id,
@@ -59,7 +59,7 @@ export const useMoney = () => {
         },
       });
 
-      return MainHttpService.put({
+      return mainHttpService.put({
         path: END_POINTS.SEND_MONEY,
         data: userData,
       });

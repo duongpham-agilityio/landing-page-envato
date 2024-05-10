@@ -13,7 +13,7 @@ import {
 } from '@/lib/interfaces';
 
 // Services
-import { MainHttpService } from '@/lib/services';
+import { mainHttpService } from '@/lib/services';
 
 export const useGetEfficiency = (efficiencyType: string) => {
   const path = `${END_POINTS.EFFICIENCY}/${efficiencyType}`;
@@ -21,7 +21,7 @@ export const useGetEfficiency = (efficiencyType: string) => {
   const { ...rest } = useQuery<IEfficiency>({
     queryKey: [path],
     queryFn: async () =>
-      (await MainHttpService.get<IEfficiency>({ path })).data,
+      (await mainHttpService.get<IEfficiency>({ path })).data,
   });
 
   return {
@@ -34,7 +34,7 @@ export const useGetOverallBalance = () => {
     queryKey: [END_POINTS.OVERALL_BALANCE],
     queryFn: async () =>
       (
-        await MainHttpService.get<TOverallBalance>({
+        await mainHttpService.get<TOverallBalance>({
           path: END_POINTS.OVERALL_BALANCE,
         })
       ).data,
@@ -57,7 +57,7 @@ export const useGetRevenue = () => {
     queryKey: [END_POINTS.REVENUE],
     queryFn: async () =>
       (
-        await MainHttpService.get<IRevenueFlow[]>({
+        await mainHttpService.get<IRevenueFlow[]>({
           path: END_POINTS.REVENUE,
         })
       ).data,
@@ -74,7 +74,7 @@ export const useGetStatistic = () => {
     queryKey: [END_POINTS.STATISTICS],
     queryFn: async () =>
       (
-        await MainHttpService.get<ISpendingStatistics[]>({
+        await mainHttpService.get<ISpendingStatistics[]>({
           path: END_POINTS.STATISTICS,
         })
       ).data,

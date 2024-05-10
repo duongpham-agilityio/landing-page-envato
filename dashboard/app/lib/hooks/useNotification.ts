@@ -4,7 +4,7 @@ import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
 import { END_POINTS } from '@/lib/constants';
 
 // Services
-import { MainHttpService } from '@/lib/services';
+import { mainHttpService } from '@/lib/services';
 
 // Interfaces
 import { TNotification } from '@/lib/interfaces';
@@ -15,7 +15,7 @@ export const useNotification = (userId?: string) => {
   const { data, ...query } = useQuery<{ data: TNotification[] }>({
     queryKey: [END_POINTS.NOTIFICATION],
     queryFn: () =>
-      MainHttpService.get({
+      mainHttpService.get({
         path: END_POINTS.NOTIFICATION,
         userId: userId,
       }),
@@ -41,7 +41,7 @@ export const useNotification = (userId?: string) => {
           TNotification & { userId: string; notificationId: string }
         >,
       ) => {
-        await MainHttpService.delete({
+        await mainHttpService.delete({
           path: END_POINTS.NOTIFICATION,
           data: {
             data: payload,
@@ -66,7 +66,7 @@ export const useNotification = (userId?: string) => {
         TNotification & { userId: string; notificationId: string }
       >,
     ) =>
-      await MainHttpService.put<TNotification>({
+      await mainHttpService.put<TNotification>({
         path: END_POINTS.NOTIFICATION,
         data: transaction,
       }),

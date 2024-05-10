@@ -15,7 +15,7 @@ import { authStore } from '../stores';
 import { TSearchTransaction } from '@/lib/hooks';
 
 // Services
-import { MainHttpService } from '@/lib/services';
+import { mainHttpService } from '@/lib/services';
 
 // Utils
 import { logActivity } from '@/lib/utils';
@@ -37,7 +37,7 @@ export type TIssueResponse = {
 export const useUpdateUser = () => {
   const { error, ...rest } = useMutation({
     mutationFn: (user: TUserDetail) =>
-      MainHttpService.put<TUserDetail>({
+      mainHttpService.put<TUserDetail>({
         path: END_POINTS.USERS,
         data: user,
         actionName: EActivity.SAVE_PROFILE,
@@ -58,7 +58,7 @@ export const useUpdatePassword = () => {
     mutationFn: (passwordData: TPassword) => {
       const { oldPassword, newPassword, memberId } = passwordData;
 
-      return MainHttpService.put<TPassword>({
+      return mainHttpService.put<TPassword>({
         path: END_POINTS.UPDATE_PASSWORD,
         data: {
           oldPassword,
@@ -83,7 +83,7 @@ export const useGetListIssues = () => {
     queryKey: [END_POINTS.SUPPORT],
     queryFn: async ({ pageParam = 1 }) => {
       const data = (
-        await MainHttpService.get<TIssueResponse>({
+        await mainHttpService.get<TIssueResponse>({
           path: END_POINTS.SUPPORT,
           page: pageParam,
         })
@@ -119,7 +119,7 @@ export const useCreateIssues = () => {
         }
       >,
     ) =>
-      MainHttpService.post<TUserDetail>({
+      mainHttpService.post<TUserDetail>({
         path: END_POINTS.SUPPORT,
         data: supportList,
         actionName: EActivity.CREATE_ISSUES,
@@ -151,7 +151,7 @@ export const useGetUserDetails = (
   const { data: res, ...query } = useQuery({
     queryKey: [END_POINTS.USERS, queryParam?.name],
     queryFn: () =>
-      MainHttpService.get<UsersResponse>({
+      mainHttpService.get<UsersResponse>({
         path: END_POINTS.USERS,
         userId: id,
       }),
@@ -186,7 +186,7 @@ export const useManagementUser = (querySearch = '') => {
     }: Partial<
       TUserDetail & { memberId: string; userId: string; urlEndpoint: string }
     >) =>
-      MainHttpService.put<TUserDetail>({
+      mainHttpService.put<TUserDetail>({
         path: urlEndpoint,
         data: user,
       }),

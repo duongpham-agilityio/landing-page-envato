@@ -17,7 +17,7 @@ import { TUserDetail } from '@/lib/interfaces';
 // Services
 import * as services from '@/lib/services';
 
-import { MainHttpService } from '@/lib/services';
+import { mainHttpService } from '@/lib/services';
 import {
   RESULT_LIST_USER,
   RESULT_LIST_USER_EXPECT,
@@ -67,7 +67,7 @@ describe('useUpdateUser', () => {
 
   it('update user failed', async () => {
     const { result } = renderHook(() => useUpdateUser(), { wrapper });
-    jest.spyOn(MainHttpService, 'put').mockRejectedValue(new Error('error'));
+    jest.spyOn(mainHttpService, 'put').mockRejectedValue(new Error('error'));
 
     act(() => {
       result.current.mutate(data);

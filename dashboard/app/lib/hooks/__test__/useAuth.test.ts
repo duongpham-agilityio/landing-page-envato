@@ -6,7 +6,7 @@ import { AxiosResponse } from 'axios';
 import { useAuth } from '@/lib/hooks';
 
 // Services
-import { MainHttpService } from '@/lib/services';
+import { mainHttpService } from '@/lib/services';
 
 // Constants
 import { ERROR_MESSAGES, LOGOUT_TIME } from '@/lib/constants';
@@ -50,7 +50,7 @@ describe('useAuth', () => {
 
   it('SignIn fail', async () => {
     try {
-      jest.spyOn(MainHttpService, 'post').mockResolvedValue({
+      jest.spyOn(mainHttpService, 'post').mockResolvedValue({
         data: undefined,
       } as AxiosResponse);
       const {
@@ -90,7 +90,7 @@ describe('useAuth', () => {
   // });
 
   it('SignUp success', async () => {
-    jest.spyOn(MainHttpService, 'post').mockResolvedValue({
+    jest.spyOn(mainHttpService, 'post').mockResolvedValue({
       data: SIGN_IN_PARAM,
     } as AxiosResponse);
 
@@ -134,6 +134,9 @@ describe('useAuth', () => {
     act(() => signOut());
 
     jest.advanceTimersByTime(LOGOUT_TIME);
-    expect(authStore.getState().user).toStrictEqual({ 'email': 'duong.pham@asnet.com.vn', 'password': 'Abcd@1231' });
+    expect(authStore.getState().user).toStrictEqual({
+      email: 'duong.pham@asnet.com.vn',
+      password: 'Abcd@1231',
+    });
   });
 });

@@ -9,7 +9,7 @@ import { END_POINTS, PAGE_SIZE, TIME_DETAIL_FORMAT } from '@/lib/constants';
 import { authStore } from '../stores';
 
 // Services
-import { MainHttpService } from '@/lib/services';
+import { mainHttpService } from '@/lib/services';
 
 // Utils
 import { formatPageArray, handleSort } from '@/lib/utils';
@@ -70,7 +70,7 @@ export const useRecentActivities = (queryParam?: TAction) => {
       limit,
     ],
     queryFn: ({ signal }) =>
-      MainHttpService.get({
+      mainHttpService.get({
         path: END_POINTS.RECENT_ACTIVITIES,
         userId,
         page: currentPage,

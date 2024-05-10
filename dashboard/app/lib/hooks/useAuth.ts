@@ -14,7 +14,7 @@ import {
 } from '@/lib/constants';
 
 // Services
-import { MainHttpService, recentActivitiesHttpService } from '@/lib/services';
+import { mainHttpService, recentActivitiesHttpService } from '@/lib/services';
 
 // Stores
 import { authStore } from '@/lib/stores';
@@ -106,7 +106,7 @@ export const useAuth = () => {
         const { uid } = await handleSignInWithFirebase(email, password);
 
         const { data }: AxiosResponse<TUserAxiosResponse | undefined> =
-          await MainHttpService.post<TUserAxiosResponse | undefined>({
+          await mainHttpService.post<TUserAxiosResponse | undefined>({
             path: END_POINTS.SIGN_IN,
             data: {
               email,
@@ -150,7 +150,7 @@ export const useAuth = () => {
       const { email, password, firstName, lastName, fcmToken } = userInfo;
       try {
         const { data }: AxiosResponse<TUserAxiosResponse | undefined> =
-          await MainHttpService.post<TUserAxiosResponse | undefined>({
+          await mainHttpService.post<TUserAxiosResponse | undefined>({
             path: END_POINTS.SIGN_UP,
             data: {
               ...userInfo,

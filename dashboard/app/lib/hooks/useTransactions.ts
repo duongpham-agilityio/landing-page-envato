@@ -9,7 +9,7 @@ import { END_POINTS, TIME_FORMAT, TRANSACTION_STATUS } from '@/lib/constants';
 import { authStore } from '../stores';
 
 // Services
-import { MainHttpService } from '@/lib/services';
+import { mainHttpService } from '@/lib/services';
 
 // Utils
 import { logActivity } from '../utils';
@@ -71,7 +71,7 @@ export const useTransactions = (queryParam?: TSearchTransaction) => {
   const { data, ...query } = useQuery<{ data: TTransaction[] }>({
     queryKey: [END_POINTS.TRANSACTIONS, searchName, searchMonth],
     queryFn: async ({ signal }) =>
-      MainHttpService.get({
+      mainHttpService.get({
         path: END_POINTS.TRANSACTIONS,
         configs: { signal },
         userId: user?.id,
@@ -219,7 +219,7 @@ export const useTransactions = (queryParam?: TSearchTransaction) => {
           TTransaction & TCustomer & TAddress & { transactionId: string }
         >,
       ) =>
-        MainHttpService.put<TTransaction>({
+        mainHttpService.put<TTransaction>({
           path: END_POINTS.EDIT_TRANSACTION,
           data: transaction,
           actionName: EActivity.UPDATE_TRANSACTION,
@@ -262,7 +262,7 @@ export const useTransactions = (queryParam?: TSearchTransaction) => {
           TTransaction & TCustomer & TAddress & { transactionId: string }
         >,
       ) =>
-        MainHttpService.put<TTransaction>({
+        mainHttpService.put<TTransaction>({
           path: END_POINTS.DELETE_TRANSACTION,
           data: transaction,
           actionName: EActivity.DELETE_TRANSACTION,

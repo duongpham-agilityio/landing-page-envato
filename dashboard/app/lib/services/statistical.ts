@@ -1,11 +1,11 @@
 import { IAxiosConfig } from '@/lib/interfaces';
-import { MainHttpService } from '.';
+import { mainHttpService } from '.';
 
 export const getStatistical = async <T>(
   endPoint: string,
   config?: IAxiosConfig,
 ): Promise<T> => {
-  const response = await MainHttpService.get<T>({
+  const response = await mainHttpService.get<T>({
     path: endPoint,
     configs: config,
   });

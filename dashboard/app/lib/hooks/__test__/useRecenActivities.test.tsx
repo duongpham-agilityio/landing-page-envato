@@ -5,7 +5,7 @@ import { renderHook, act } from '@testing-library/react';
 import { useRecentActivities } from '@/lib/hooks';
 
 // Services
-import { MainHttpService } from '@/lib/services';
+import { mainHttpService } from '@/lib/services';
 
 // Utils
 import { sortByKey, queryProviderWrapper } from '@/lib/utils';
@@ -18,7 +18,7 @@ import {
 
 describe('useRecentActivities', () => {
   jest
-    .spyOn(MainHttpService, 'get')
+    .spyOn(mainHttpService, 'get')
     .mockResolvedValue(MOCK_RECENT_ACTIVITIES_SUCCESS_RES);
 
   it('should fetch activities data successfully', async () => {

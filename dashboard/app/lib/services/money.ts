@@ -12,7 +12,7 @@ import {
 } from '@/lib/interfaces';
 
 // Service
-import { MainHttpService, recentActivitiesHttpService } from '@/lib/services';
+import { mainHttpService, recentActivitiesHttpService } from '@/lib/services';
 
 export const moneyHttpRequest: AxiosInstance = axios.create({
   baseURL: process.env.NEXT_PUBLIC_API,
@@ -36,7 +36,7 @@ export const addMoneyToUser = async (
     },
   );
   return (
-    await MainHttpService.put<TMoneyResponse>({
+    await mainHttpService.put<TMoneyResponse>({
       path: END_POINTS.ADD_MONEY,
       data: data,
       configs: config,
@@ -58,7 +58,7 @@ export const sendMoneyToUser = async (
     },
   );
   return (
-    await MainHttpService.put<TMoneyResponse>({
+    await mainHttpService.put<TMoneyResponse>({
       path: END_POINTS.SEND_MONEY,
       data: data,
       configs: config,

@@ -8,7 +8,7 @@ import { TRANSACTION_STATUS } from '@/lib/constants';
 import { useTransactions } from '@/lib/hooks';
 
 // Services
-import { MainHttpService } from '@/lib/services';
+import { mainHttpService } from '@/lib/services';
 
 // Utils
 import { sortByKey, queryProviderWrapper } from '@/lib/utils';
@@ -22,7 +22,7 @@ import {
 
 describe('useTransactions', () => {
   jest
-    .spyOn(MainHttpService, 'get')
+    .spyOn(mainHttpService, 'get')
     .mockResolvedValue(MOCK_TRANSACTIONS_SUCCESS_RES);
 
   it('should fetch transactions data successfully', async () => {
@@ -86,7 +86,7 @@ describe('useTransactions', () => {
 
   it('should update transactions successfully if have that item in cache', async () => {
     jest
-      .spyOn(MainHttpService, 'put')
+      .spyOn(mainHttpService, 'put')
       .mockResolvedValue(MOCK_UPDATE_SUCCESS_RES);
 
     const { result } = renderHook(() => useTransactions(), {
@@ -96,13 +96,13 @@ describe('useTransactions', () => {
     result.current.updateTransaction({ transactionId: TRANSACTIONS[0]._id });
 
     await waitFor(() =>
-      expect(jest.spyOn(MainHttpService, 'put')).toHaveBeenCalled(),
+      expect(jest.spyOn(mainHttpService, 'put')).toHaveBeenCalled(),
     );
   });
 
   it('should update transactions successfully if NO have that item in cache', async () => {
     jest
-      .spyOn(MainHttpService, 'put')
+      .spyOn(mainHttpService, 'put')
       .mockResolvedValue(MOCK_UPDATE_SUCCESS_RES);
 
     const { result } = renderHook(() => useTransactions(), {
@@ -112,13 +112,13 @@ describe('useTransactions', () => {
     result.current.updateTransaction({ transactionId: '1' });
 
     await waitFor(() =>
-      expect(jest.spyOn(MainHttpService, 'put')).toHaveBeenCalled(),
+      expect(jest.spyOn(mainHttpService, 'put')).toHaveBeenCalled(),
     );
   });
 
   it('should delete transactions successfully if have that item in cache', async () => {
     jest
-      .spyOn(MainHttpService, 'put')
+      .spyOn(mainHttpService, 'put')
       .mockResolvedValue(MOCK_UPDATE_SUCCESS_RES);
 
     const { result } = renderHook(() => useTransactions(), {
@@ -136,7 +136,7 @@ describe('useTransactions', () => {
 
   it('should delete transactions successfully if NO have that item in cache', async () => {
     jest
-      .spyOn(MainHttpService, 'put')
+      .spyOn(mainHttpService, 'put')
       .mockResolvedValue(MOCK_UPDATE_SUCCESS_RES);
 
     const { result } = renderHook(() => useTransactions(), {
