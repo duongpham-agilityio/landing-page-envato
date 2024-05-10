@@ -12,8 +12,8 @@ import { uploadImageHttpService } from '@/lib/services';
 
 export const useUploadImage = () => {
   const { mutate: uploadImage, ...rest } = useMutation({
-    mutationFn: (payload: FormData) =>
-      uploadImageHttpService.post<IUploadImageResponse>({
+    mutationFn: async (payload: FormData) =>
+      await uploadImageHttpService.post<IUploadImageResponse>({
         path: '',
         data: payload,
         configs: {
