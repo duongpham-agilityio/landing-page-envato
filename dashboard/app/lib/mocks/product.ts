@@ -1,5 +1,11 @@
-import { TProduct } from '@/lib/interfaces';
-import { PRODUCT_STATUS } from '../constants';
+// Libs
+import { AxiosRequestHeaders, AxiosResponse } from 'axios';
+
+// Types
+import { TProduct, TProductRequest } from '@/lib/interfaces';
+
+// Constants
+import { PRODUCT_STATUS } from '@/lib/constants';
 
 export const PRODUCTS: TProduct[] = [
   {
@@ -30,7 +36,7 @@ export const PRODUCTS: TProduct[] = [
   },
   {
     _id: '65f02ee5b31d51cdd5b5d34e',
-    name: 'Tay cam 3',
+    name: 'tay cam 3',
     imageURLs: [
       'https://i.ibb.co/3yzTC5Q/image-57.png',
       'https://i.ibb.co/Hq9kqmc/image-58.png',
@@ -45,7 +51,7 @@ export const PRODUCTS: TProduct[] = [
   },
   {
     _id: '65eff99138b174f345832cb4',
-    name: 'Envato Market',
+    name: 'envato market',
     imageURLs: [
       'https://i.ibb.co/vxCVqcz/image-59.png',
       'https://i.ibb.co/d0D0csn/image-61.png',
@@ -59,7 +65,7 @@ export const PRODUCTS: TProduct[] = [
   },
   {
     _id: '65efd2ea8f5954ecf024d4aa',
-    name: 'Tay cam 2',
+    name: 'tay cam 2',
     imageURLs: [
       'https://i.ibb.co/d0D0csn/image-61.png',
       'https://i.ibb.co/vxCVqcz/image-59.png',
@@ -72,3 +78,57 @@ export const PRODUCTS: TProduct[] = [
     productStatus: PRODUCT_STATUS.IN_STOCK,
   },
 ];
+
+export const MOCK_PRODUCTS_SUCCESS_RES = {
+  data: { result: PRODUCTS, totalPage: 3 },
+  status: 200,
+  statusText: 'Ok',
+  headers: {},
+  config: {
+    headers: {} as AxiosRequestHeaders,
+  },
+};
+
+export const MOCK_ADD_PRODUCT_PAYLOAD: Omit<TProductRequest, '_id'> = {
+  amount: ' 1',
+  currency: '$',
+  description: '',
+  imageURLs: ['https://i.ibb.co/xXd07BD/Img-01.png'],
+  name: 'Shoe',
+  stock: '2',
+};
+
+export const MOCK_ADD_PRODUCT_RES: AxiosResponse = {
+  data: 'success',
+  status: 200,
+  statusText: 'Ok',
+  headers: {},
+  config: {
+    headers: {} as AxiosRequestHeaders,
+    data: {
+      ...MOCK_ADD_PRODUCT_PAYLOAD,
+      id: '1',
+    },
+  },
+};
+
+export const MOCK_DELETE_PRODUCT_PAYLOAD = {
+  productId: PRODUCTS[0]._id,
+};
+
+export const MOCK_UPDATE_PRODUCT_PAYLOAD = {
+  name: 'Update name',
+  productId: PRODUCTS[0]._id,
+};
+
+export const MOCK_ADD_PRODUCT_SUCCESS_RES = {
+  data: {
+    config: { data: PRODUCTS[0] },
+  },
+  status: 200,
+  statusText: 'Ok',
+  headers: {},
+  config: {
+    headers: {} as AxiosRequestHeaders,
+  },
+};
