@@ -1,5 +1,6 @@
 import { memo } from 'react';
 import { Box, IconButton, Text } from '@chakra-ui/react';
+import isEqual from 'react-fast-compare';
 
 interface IconButtonProps {
   children: JSX.Element;
@@ -53,5 +54,5 @@ const IconButtonComponent = ({
   </Box>
 );
 
-const CustomIconButton = memo(IconButtonComponent);
+const CustomIconButton = memo(IconButtonComponent, isEqual);
 export default CustomIconButton;

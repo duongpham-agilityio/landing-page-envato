@@ -2,6 +2,7 @@
 
 import { memo, useCallback, useMemo } from 'react';
 import { Controller, useForm } from 'react-hook-form';
+import isEqual from 'react-fast-compare';
 
 // Components
 import { Box, Button, Flex, Text, VStack } from '@chakra-ui/react';
@@ -253,5 +254,5 @@ const TransactionModal = ({
   );
 };
 
-const TransactionModalMemorized = memo(TransactionModal);
+const TransactionModalMemorized = memo(TransactionModal, isEqual);
 export default TransactionModalMemorized;

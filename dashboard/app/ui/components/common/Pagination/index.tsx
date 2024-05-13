@@ -1,5 +1,6 @@
 import { memo, useCallback } from 'react';
 import { Box, Flex, Text, theme } from '@chakra-ui/react';
+import isEqual from 'react-fast-compare';
 
 // Components
 import { Button, Select } from '@/ui/components';
@@ -144,5 +145,5 @@ const PaginationComponent = ({
   );
 };
 
-const Pagination = memo(PaginationComponent);
+const Pagination = memo(PaginationComponent, isEqual);
 export default Pagination;

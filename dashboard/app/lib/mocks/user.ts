@@ -1,3 +1,6 @@
+import { AxiosRequestHeaders } from 'axios';
+
+// Types
 import { TEmployee, TUserDetail } from '@/lib/interfaces';
 
 export const USER_MOCK: TEmployee = {
@@ -496,4 +499,56 @@ export const MOCK_SUPER_ADMIN = {
   twitter: '',
   uid: 'GmCJFXqXubfAPdKs56C4Sq7DisY2',
   updatedAt: '2024-02-29T02:47:39.538Z',
+};
+
+export const MOCK_UPDATE_USER_PAYLOAD: TUserDetail = {
+  address: 'address',
+  city: 'Jakarta',
+  country: 'Indonesia',
+  createdAt: 0,
+  email: 'test@gmail.com',
+  firstName: 'Abdur',
+  id: '1',
+  lastName: 'Rohman',
+  password: 'test@123',
+  phoneNumber: '123123',
+  postalCode: '154353',
+  isBlock: true,
+  uid: '1',
+};
+
+export const MOCK_UPDATE_PASSWORD_PAYLOAD = {
+  oldPassword: 'old123',
+  newPassword: 'new123',
+  memberId: '123',
+};
+
+export const MOCK_CREATE_ISSUE_PAYLOAD = {
+  userId: '12',
+  firstName: 'John',
+  lastName: 'Does',
+  email: 'test@gmail.com',
+  phone: '0121234242',
+  title: 'test title',
+  description: 'test description',
+};
+
+export const MOCK_ISSUES_RES = {
+  data: RESULT_LIST_USER,
+  status: 200,
+  statusText: 'Ok',
+  headers: {},
+  config: {
+    headers: {} as AxiosRequestHeaders,
+  },
+};
+
+export const MOCK_USER_DETAILS_RES = {
+  data: [USER_DETAIL_MOCK],
+  status: 200,
+  statusText: 'Ok',
+  headers: {},
+  config: {
+    headers: {} as AxiosRequestHeaders,
+  },
 };

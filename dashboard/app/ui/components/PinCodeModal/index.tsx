@@ -13,6 +13,7 @@ interface PinCodeModalProps {
   title: string;
   isOpen: boolean;
   isDisabled: boolean;
+  isLoading?: boolean;
   onclose: () => void;
   onSubmit: () => void;
 }
@@ -22,6 +23,7 @@ const PinCodeModalComponent = ({
   title,
   isOpen,
   isDisabled,
+  isLoading = false,
   onclose,
   onSubmit,
 }: PinCodeModalProps) => {
@@ -30,11 +32,12 @@ const PinCodeModalComponent = ({
       <PinCode
         control={control}
         isDisabled={isDisabled}
+        isLoading={isLoading}
         onSubmit={onSubmit}
         onClose={onclose}
       />
     ),
-    [control, isDisabled, onSubmit, onclose],
+    [control, isDisabled, isLoading, onSubmit, onclose],
   );
   return (
     <Modal

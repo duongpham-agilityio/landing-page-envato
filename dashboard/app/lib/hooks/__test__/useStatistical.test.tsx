@@ -1,70 +1,81 @@
-import { ReactNode } from 'react';
-import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { renderHook, waitFor } from '@testing-library/react';
 
 // Hooks
-import { useGetStatistic } from '@/lib/hooks';
-
-// Constants
-import { END_POINTS } from '@/lib/constants';
+import {
+  useGetEfficiency,
+  useGetOverallBalance,
+  useGetRevenue,
+  useGetStatistic,
+} from '@/lib/hooks';
 
 // Services
-import * as services from '@/lib/services';
+import { mainHttpService } from '@/lib/services';
+
+// Utils
+import { queryProviderWrapper } from '@/lib/utils';
 
 // Mocks
-import { SPENDING_STATISTICS_MOCK } from '@/lib/mocks';
-
-const queryClient = new QueryClient({
-  defaultOptions: {
-    queries: {
-      retry: false,
-    },
-  },
-});
-
-const wrapper = ({ children }: { children: ReactNode }) => (
-  <QueryClientProvider client={queryClient}>{children}</QueryClientProvider>
-);
-
-jest.mock('@/lib/services');
+import {
+  MOCK_EFFICIENCY_SUCCESS_RES,
+  MOCK_OVERALL_BALANCE_RES,
+  MOCK_REVENUE_RES,
+  MOCK_STATISTIC_RES,
+} from '@/lib/mocks';
 
 describe('useGetStatistic', () => {
   beforeEach(() => {
     jest.clearAllMocks();
   });
 
-  it('fetch statistic data failed', async () => {
+  it('useGetEfficiency', async () => {
     jest
-      .spyOn(services, 'getStatistical')
-      .mockRejectedValue(new Error('error'));
+      .spyOn(mainHttpService, 'get')
+      .mockResolvedValue(MOCK_EFFICIENCY_SUCCESS_RES);
 
-    const { result } = renderHook(
-      () => useGetStatistic(END_POINTS.STATISTICS),
-      {
-        wrapper,
-      },
-    );
+    const { result } = renderHook(() => useGetEfficiency('weekly'), {
+      wrapper: queryProviderWrapper,
+    });
+
+    await waitFor(() => expect(result.current.isSuccess).toEqual(true));
+
+    expect(result.current.data).toEqual(MOCK_EFFICIENCY_SUCCESS_RES.data);
+  });
+
+  it('useGetOverallBalance', async () => {
+    jest
+      .spyOn(mainHttpService, 'get')
+      .mockResolvedValue(MOCK_OVERALL_BALANCE_RES);
+
+    const { result } = renderHook(() => useGetOverallBalance(), {
+      wrapper: queryProviderWrapper,
+    });
 
     await waitFor(() => {
-      expect(result.current.isError).toBe(true);
-      expect(result.current.data).toBe(undefined);
+      expect(result.current.data).toEqual(MOCK_OVERALL_BALANCE_RES.data);
     });
   });
 
-  it('fetch statistic data successfully', async () => {
-    jest
-      .spyOn(services, 'getStatistical')
-      .mockResolvedValue(SPENDING_STATISTICS_MOCK);
-    const { result } = renderHook(
-      () => useGetStatistic(END_POINTS.STATISTICS),
-      {
-        wrapper,
-      },
-    );
+  it('useGetRevenue', async () => {
+    jest.spyOn(mainHttpService, 'get').mockResolvedValue(MOCK_REVENUE_RES);
 
-    await waitFor(() => result.current.isSuccess);
+    const { result } = renderHook(() => useGetRevenue(), {
+      wrapper: queryProviderWrapper,
+    });
 
-    expect(result.current.isSuccess).toBe(true);
-    expect(result.current.data).toEqual(SPENDING_STATISTICS_MOCK);
+    await waitFor(() => {
+      expect(result.current.data).toEqual(MOCK_REVENUE_RES.data);
+    });
+  });
+
+  it('useGetStatistic', async () => {
+    jest.spyOn(mainHttpService, 'get').mockResolvedValue(MOCK_STATISTIC_RES);
+
+    const { result } = renderHook(() => useGetStatistic(), {
+      wrapper: queryProviderWrapper,
+    });
+
+    await waitFor(() => {
+      expect(result.current.data).toEqual(MOCK_STATISTIC_RES.data);
+    });
   });
 });

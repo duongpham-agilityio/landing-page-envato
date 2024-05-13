@@ -36,10 +36,7 @@ import {
 } from '@/lib/utils';
 
 // Types
-import { TPinCodeForm, TSendMoney } from '@/lib/interfaces';
-
-// services
-import { TMoneyResponse } from '@/lib/services';
+import { TPinCodeForm, TSendMoney, TMoneyResponse } from '@/lib/interfaces';
 
 export type TTransfer = {
   amount: string;
@@ -315,6 +312,7 @@ const CardPaymentComponent = (): JSX.Element => {
             ? !isConfirmValid || isConfirmSubmitting
             : !isSetValid || isSetSubmitting
         }
+        isLoading={hasPinCode ? isConfirmSubmitting : isSetSubmitting}
         onclose={
           isSetPinCodeModalOpen
             ? handleCloseSetPinCodeModal

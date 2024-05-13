@@ -1,6 +1,5 @@
 import { memo } from 'react';
 import { Box } from '@chakra-ui/react';
-import isEqual from 'react-fast-compare';
 import Image from 'next/image';
 
 // Utils
@@ -35,6 +34,6 @@ const AvatarComponent = ({ src = '', alt = '' }: AvatarProps) => (
   </Box>
 );
 
-const Avatar = memo(AvatarComponent, isEqual);
+const Avatar = memo(AvatarComponent);
 
 export default Avatar;

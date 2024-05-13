@@ -18,13 +18,14 @@ import { mainHttpService } from '@/lib/services';
 export const useGetEfficiency = (efficiencyType: string) => {
   const path = `${END_POINTS.EFFICIENCY}/${efficiencyType}`;
 
-  const { ...rest } = useQuery<IEfficiency>({
+  const { data, ...rest } = useQuery<IEfficiency>({
     queryKey: [path],
     queryFn: async () =>
       (await mainHttpService.get<IEfficiency>({ path })).data,
   });
 
   return {
+    data,
     ...rest,
   };
 };

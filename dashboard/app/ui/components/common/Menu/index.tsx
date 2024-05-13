@@ -6,8 +6,10 @@ import {
   ReactElement,
   ReactNode,
   useCallback,
+  memo,
 } from 'react';
 import { Flex, Heading, List, ListItem, Text, VStack } from '@chakra-ui/react';
+import isEqual from 'react-fast-compare';
 
 // Components
 import { Navigation } from '@/ui/components';
@@ -31,7 +33,7 @@ export type MenuProps = {
   onSignOut?: () => void;
 };
 
-const Menu = ({
+const MenuComponent = ({
   title = '',
   listItem,
   isExpandSidebar = false,
@@ -122,4 +124,5 @@ const Menu = ({
   );
 };
 
+const Menu = memo(MenuComponent, isEqual);
 export default Menu;

@@ -3,6 +3,7 @@
 import { memo, useCallback, useMemo, useState } from 'react';
 import { Controller, useForm } from 'react-hook-form';
 import { AxiosResponse } from 'axios';
+import isEqual from 'react-fast-compare';
 
 // Components
 import {
@@ -424,5 +425,5 @@ const ProductForm = ({
   );
 };
 
-const ProductFormMemorized = memo(ProductForm);
+const ProductFormMemorized = memo(ProductForm, isEqual);
 export default ProductFormMemorized;

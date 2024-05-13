@@ -11,3 +11,4 @@ export * from './wallet';
 export * from './supports';
 export * from './recentActivities';
 export * from './money';
+export * from './notification';

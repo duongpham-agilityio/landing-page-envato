@@ -9,3 +9,7 @@ export type TAddMoney = TMoney & {
 export type TSendMoney = TAddMoney & {
   memberId: string;
 };
+
+export type TMoneyResponse = {
+  message: string;
+};

@@ -11,6 +11,7 @@ import {
   Text,
   useToast,
 } from '@chakra-ui/react';
+import isEqual from 'react-fast-compare';
 
 // Components
 import { Bell, IconButton, Modal, Indicator } from '@/ui/components';
@@ -245,5 +246,5 @@ const NotificationComponent = ({ colorFill, user }: NotificationProps) => {
   );
 };
 
-const Notification = memo(NotificationComponent);
+const Notification = memo(NotificationComponent, isEqual);
 export default Notification;

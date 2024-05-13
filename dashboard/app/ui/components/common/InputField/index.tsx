@@ -16,6 +16,7 @@ import {
   FormLabel,
   FormErrorMessage,
 } from '@chakra-ui/react';
+import isEqual from 'react-fast-compare';
 
 type TInputFieldProps = Omit<InputProps, 'onChange'> & {
   label?: string;
@@ -92,6 +93,6 @@ const InputComponent = (
   );
 };
 
-const InputField = memo(forwardRef(InputComponent));
+const InputField = memo(forwardRef(InputComponent), isEqual);
 
 export default InputField;

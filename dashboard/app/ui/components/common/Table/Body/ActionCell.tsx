@@ -2,6 +2,7 @@
 
 import dynamic from 'next/dynamic';
 import { memo, useCallback, useState } from 'react';
+import isEqual from 'react-fast-compare';
 import {
   Button,
   Flex,
@@ -13,6 +14,8 @@ import {
   Td,
 } from '@chakra-ui/react';
 import { DeleteIcon, EditIcon, LockIcon, UnlockIcon } from '@chakra-ui/icons';
+
+// Components
 import { Dot, Modal, ProductForm } from '@/ui/components';
 
 const TransactionModal = dynamic(
@@ -275,6 +278,6 @@ const ActionCellComponent = ({
   );
 };
 
-const ActionCell = memo(ActionCellComponent);
+const ActionCell = memo(ActionCellComponent, isEqual);
 
 export default ActionCell;

@@ -37,7 +37,7 @@ const EnterMoneyComponent = ({
       borderRadius="lg"
     >
       <Text color="text.secondary"> Enter amount </Text>
-      <Flex direction="row" alignItems="center">
+      <Flex direction="row" alignItems="center" mb={{ sm: 2 }}>
         <Text color="text.primary" fontSize="2xl" fontWeight="bold">
           $
         </Text>
@@ -61,7 +61,7 @@ const EnterMoneyComponent = ({
             };
 
             return (
-              <FormControl isInvalid={!!error} mr={{ md: 2 }} mb={{ sm: 2 }}>
+              <FormControl isInvalid={!!error} mr={{ md: 2 }}>
                 <Input
                   variant="authentication"
                   type="text"

@@ -7,6 +7,7 @@ import {
   ModalHeader,
   ModalOverlay,
 } from '@chakra-ui/react';
+import isEqual from 'react-fast-compare';
 
 export type TModalProps = {
   isOpen: boolean;
@@ -40,5 +41,5 @@ const ModalComponent = ({
   </Modal>
 );
 
-const CustomModal = memo(ModalComponent);
+const CustomModal = memo(ModalComponent, isEqual);
 export default CustomModal;

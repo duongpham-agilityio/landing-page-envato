@@ -17,8 +17,7 @@ import { queryProviderWrapper } from '@/lib/utils';
 // Mocks
 import {
   MOCK_UPDATE_SUCCESS_RES,
-  MOCK_ADD_MONEY_PAYLOAD,
-  MOCK_SEND_MONEY_PAYLOAD,
+  MOCK_TRANSFER_MONEY_PAYLOAD,
 } from '@/lib/mocks';
 
 const { renderHook } = testLibReactUtils;
@@ -43,27 +42,31 @@ describe('useMoney Hook', () => {
       wrapper: queryProviderWrapper,
     });
 
-    act(() => result.current.addMoneyToUserWallet(MOCK_ADD_MONEY_PAYLOAD));
+    act(() => result.current.addMoneyToUserWallet(MOCK_TRANSFER_MONEY_PAYLOAD));
 
     waitFor(() =>
       expect(mainHttpService.put).toHaveBeenCalledWith(
         END_POINTS.ADD_MONEY,
-        MOCK_ADD_MONEY_PAYLOAD,
+        MOCK_TRANSFER_MONEY_PAYLOAD,
       ),
     );
   });
 
   it('should handle sendMoneyToUserWallet success', () => {
+    const mockSendMoneyPayload = {
+      ...MOCK_TRANSFER_MONEY_PAYLOAD,
+      memberId: '65a4a3a280522b2e38c4b4a6',
+    };
     const { result } = renderHook(() => useMoney(), {
       wrapper: queryProviderWrapper,
     });
 
-    act(() => result.current.sendMoneyToUserWallet(MOCK_SEND_MONEY_PAYLOAD));
+    act(() => result.current.sendMoneyToUserWallet(mockSendMoneyPayload));
 
     waitFor(() =>
       expect(mainHttpService.put).toHaveBeenCalledWith(
         END_POINTS.SEND_MONEY,
-        MOCK_SEND_MONEY_PAYLOAD,
+        mockSendMoneyPayload,
       ),
     );
   });

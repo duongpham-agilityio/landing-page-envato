@@ -21,6 +21,7 @@ import { colors } from '@/ui/themes/bases/colors';
 export type TPinCodeProps = {
   control: Control<TPinCodeForm>;
   isDisabled?: boolean;
+  isLoading?: boolean;
   onSubmit: (e: FormEvent<HTMLDivElement>) => void;
   onClose: () => void;
 };
@@ -34,6 +35,7 @@ const defaultStyle = {
 const PinCodeComponent = ({
   control,
   isDisabled = false,
+  isLoading = false,
   onSubmit,
   onClose,
 }: TPinCodeProps) => (
@@ -67,7 +69,7 @@ const PinCodeComponent = ({
       />
     </HStack>
     <HStack w="full" mx={6} my={4} gap={4}>
-      <Button type="submit" isDisabled={isDisabled}>
+      <Button type="submit" isDisabled={isDisabled} isLoading={isLoading}>
         Submit
       </Button>
       <Button onClick={onClose} bg="orange.300" _hover={{ bg: 'orange.400' }}>
