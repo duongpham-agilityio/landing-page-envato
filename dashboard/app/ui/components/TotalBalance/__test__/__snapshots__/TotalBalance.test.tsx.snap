@@ -15,21 +15,27 @@ exports[`TotalBalance render Should render match with snapshot. 1`] = `
            Enter amount 
         </p>
         <div
-          class="css-u4p24i"
+          class="css-17piex8"
         >
           <p
             class="chakra-text css-4xj0bk"
           >
             $
           </p>
-          <input
-            autocomplete="off"
-            class="chakra-input css-cr7iz"
-            name="amount"
-            placeholder="0.00"
-            type="text"
-            value=""
-          />
+          <div
+            class="chakra-form-control css-1eor3tg"
+            role="group"
+          >
+            <input
+              autocomplete="off"
+              class="chakra-input css-cr7iz"
+              id="field-:r2:"
+              name="amount"
+              placeholder="0.00"
+              type="text"
+              value=""
+            />
+          </div>
         </div>
       </div>
       <button

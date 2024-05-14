@@ -97,8 +97,7 @@ exports[`MainLayout render Should render match with snapshot. 1`] = `
                         alt=""
                         data-nimg="fill"
                         decoding="async"
-                        loading="lazy"
-                        src="/icons/user.svg"
+                        src=""
                         style="position: absolute; height: 100%; width: 100%; left: 0px; top: 0px; right: 0px; bottom: 0px; object-fit: cover; color: transparent; border-radius: 12px; border-width: 1px; padding-top: 2px; cursor: pointer; border-color: #e2e8f0; background-size: cover; background-position: 50% 50%; background-repeat: no-repeat;"
                       />
                     </div>
@@ -474,8 +473,7 @@ exports[`MainLayout render Should render match with snapshot. 1`] = `
                           alt=""
                           data-nimg="fill"
                           decoding="async"
-                          loading="lazy"
-                          src="/icons/user.svg"
+                          src=""
                           style="position: absolute; height: 100%; width: 100%; left: 0px; top: 0px; right: 0px; bottom: 0px; object-fit: cover; color: transparent; border-radius: 12px; border-width: 1px; padding-top: 2px; cursor: pointer; border-color: #e2e8f0; background-size: cover; background-position: 50% 50%; background-repeat: no-repeat;"
                         />
                       </div>
@@ -647,8 +645,7 @@ exports[`MainLayout render Should render match with snapshot. 1`] = `
                         alt=""
                         data-nimg="fill"
                         decoding="async"
-                        loading="lazy"
-                        src="/icons/user.svg"
+                        src=""
                         style="position: absolute; height: 100%; width: 100%; left: 0px; top: 0px; right: 0px; bottom: 0px; object-fit: cover; color: transparent; border-radius: 12px; border-width: 1px; padding-top: 2px; cursor: pointer; border-color: #e2e8f0; background-size: cover; background-position: 50% 50%; background-repeat: no-repeat;"
                       />
                     </div>

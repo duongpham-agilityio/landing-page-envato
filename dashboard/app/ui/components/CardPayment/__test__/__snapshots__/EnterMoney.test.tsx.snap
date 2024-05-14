@@ -11,21 +11,27 @@ exports[`CardPayment test cases CardPayment component renders correctly 1`] = `
        Enter amount 
     </p>
     <div
-      class="css-u4p24i"
+      class="css-17piex8"
     >
       <p
         class="chakra-text css-4xj0bk"
       >
         $
       </p>
-      <input
-        autocomplete="off"
-        class="chakra-input css-cz5fpu"
-        name="amount"
-        placeholder="0.00"
-        type="text"
-        value=""
-      />
+      <div
+        class="chakra-form-control css-1eor3tg"
+        role="group"
+      >
+        <input
+          autocomplete="off"
+          class="chakra-input css-cz5fpu"
+          id="field-:r0:"
+          name="amount"
+          placeholder="0.00"
+          type="text"
+          value=""
+        />
+      </div>
     </div>
   </div>
   <button

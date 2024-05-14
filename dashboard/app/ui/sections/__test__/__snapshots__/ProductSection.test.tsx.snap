@@ -204,153 +204,173 @@ exports[`ProductSection render Should render match with snapshot. 1`] = `
           class="chakra-skeleton css-s55j40"
         />
         <div
-          class="css-2qrmgs"
+          class="css-cyp3zu"
+          data-testid="pagination"
         >
           <div
-            class="css-1mngwok"
-            data-testid="pagination"
+            class="css-70qvj9"
           >
-            <div
-              class="css-1y90n2a"
+            <p
+              class="chakra-text css-r5mmfv"
             >
-              <p
-                class="chakra-text css-r5mmfv"
+              Show result:
+            </p>
+            <div
+              class="css-110fpu2"
+            >
+              <button
+                aria-controls="menu-list-:r7:"
+                aria-expanded="false"
+                aria-haspopup="menu"
+                class="chakra-button chakra-menu__menu-button css-10e6i5m"
+                id="menu-button-:r7:"
+                type="button"
               >
-                Show result:
-              </p>
-              <div
-                class="css-110fpu2"
-              >
-                <button
-                  aria-controls="menu-list-:r7:"
-                  aria-expanded="false"
-                  aria-haspopup="menu"
-                  class="chakra-button chakra-menu__menu-button css-10e6i5m"
-                  id="menu-button-:r7:"
-                  type="button"
+                <span
+                  class="css-xl71ch"
                 >
-                  <span
-                    class="css-xl71ch"
+                  <div
+                    class="css-1l4w6pd"
                   >
                     <span
-                      class="chakra-text css-8wdd17"
+                      class="chakra-text css-1ftaikx"
                     >
                       10
                     </span>
-                  </span>
-                </button>
-                <div
-                  class="css-r6z5ec"
-                  style="visibility: hidden; position: absolute; inset: 0 auto auto 0;"
-                >
-                  <div
-                    aria-orientation="vertical"
-                    class="chakra-menu__menu-list css-1k4isgz"
-                    id="menu-list-:r7:"
-                    role="menu"
-                    style="transform-origin: var(--popper-transform-origin); opacity: 0; visibility: hidden; transform: scale(0.8) translateZ(0);"
-                    tabindex="-1"
-                  >
-                    <button
-                      class="chakra-menu__menuitem css-o9weuj"
-                      data-index="0"
-                      id="menu-list-:r7:-menuitem-:r8:"
-                      role="menuitem"
-                      tabindex="-1"
-                      type="button"
+                    <div
+                      class="css-t4r95o"
                     >
-                      <p
-                        class="chakra-text css-15asmb0"
+                      <svg
+                        fill="none"
+                        height="15"
+                        stroke="#A0AEC0"
+                        style="transform: rotate(undefined);"
+                        viewBox="0 0 18 15"
+                        width="18"
+                        xmlns="http://www.w3.org/2000/svg"
                       >
-                        10
-                      </p>
-                    </button>
-                    <button
-                      class="chakra-menu__menuitem css-o9weuj"
-                      data-index="1"
-                      id="menu-list-:r7:-menuitem-:r9:"
-                      role="menuitem"
-                      tabindex="-1"
-                      type="button"
-                    >
-                      <p
-                        class="chakra-text css-15asmb0"
-                      >
-                        20
-                      </p>
-                    </button>
-                    <button
-                      class="chakra-menu__menuitem css-o9weuj"
-                      data-index="2"
-                      id="menu-list-:r7:-menuitem-:ra:"
-                      role="menuitem"
-                      tabindex="-1"
-                      type="button"
-                    >
-                      <p
-                        class="chakra-text css-15asmb0"
-                      >
-                        50
-                      </p>
-                    </button>
+                        <path
+                          d="M7 10L12 14L17 10"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          stroke-width="2"
+                        />
+                      </svg>
+                    </div>
                   </div>
+                </span>
+              </button>
+              <div
+                class="css-r6z5ec"
+                style="visibility: hidden; position: absolute; inset: 0 auto auto 0;"
+              >
+                <div
+                  aria-orientation="vertical"
+                  class="chakra-menu__menu-list css-1k4isgz"
+                  id="menu-list-:r7:"
+                  role="menu"
+                  style="transform-origin: var(--popper-transform-origin); opacity: 0; visibility: hidden; transform: scale(0.8) translateZ(0);"
+                  tabindex="-1"
+                >
+                  <button
+                    class="chakra-menu__menuitem css-o9weuj"
+                    data-index="0"
+                    id="menu-list-:r7:-menuitem-:r8:"
+                    role="menuitem"
+                    tabindex="-1"
+                    type="button"
+                  >
+                    <p
+                      class="chakra-text css-15asmb0"
+                    >
+                      10
+                    </p>
+                  </button>
+                  <button
+                    class="chakra-menu__menuitem css-o9weuj"
+                    data-index="1"
+                    id="menu-list-:r7:-menuitem-:r9:"
+                    role="menuitem"
+                    tabindex="-1"
+                    type="button"
+                  >
+                    <p
+                      class="chakra-text css-15asmb0"
+                    >
+                      20
+                    </p>
+                  </button>
+                  <button
+                    class="chakra-menu__menuitem css-o9weuj"
+                    data-index="2"
+                    id="menu-list-:r7:-menuitem-:ra:"
+                    role="menuitem"
+                    tabindex="-1"
+                    type="button"
+                  >
+                    <p
+                      class="chakra-text css-15asmb0"
+                    >
+                      50
+                    </p>
+                  </button>
                 </div>
               </div>
             </div>
-            <div
-              class="css-69i1ev"
+          </div>
+          <div
+            class="css-69i1ev"
+          >
+            <button
+              aria-label="btn-prev"
+              class="chakra-button css-1vy1nhu"
+              data-testid="prev-button"
+              disabled=""
+              type="button"
             >
-              <button
-                aria-label="btn-prev"
-                class="chakra-button css-1vy1nhu"
-                data-testid="prev-button"
-                disabled=""
-                type="button"
+              <svg
+                fill="none"
+                height="24"
+                stroke="#A0AEC0"
+                style="transform: rotate(90deg);"
+                viewBox="0 0 24 24"
+                width="24"
+                xmlns="http://www.w3.org/2000/svg"
               >
-                <svg
-                  fill="none"
-                  height="24"
-                  stroke="#A0AEC0"
-                  style="transform: rotate(90deg);"
-                  viewBox="0 0 24 24"
-                  width="24"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M7 10L12 14L17 10"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                  />
-                </svg>
-              </button>
-              <div
-                class="css-70qvj9"
-              />
-              <button
-                aria-label="btn-next"
-                class="chakra-button css-5dzvs"
-                data-testid="next-button"
-                type="button"
+                <path
+                  d="M7 10L12 14L17 10"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                />
+              </svg>
+            </button>
+            <div
+              class="css-70qvj9"
+            />
+            <button
+              aria-label="btn-next"
+              class="chakra-button css-5dzvs"
+              data-testid="next-button"
+              type="button"
+            >
+              <svg
+                fill="none"
+                height="24"
+                stroke="#A0AEC0"
+                style="transform: rotate(-90deg);"
+                viewBox="0 0 24 24"
+                width="24"
+                xmlns="http://www.w3.org/2000/svg"
               >
-                <svg
-                  fill="none"
-                  height="24"
-                  stroke="#A0AEC0"
-                  style="transform: rotate(-90deg);"
-                  viewBox="0 0 24 24"
-                  width="24"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M7 10L12 14L17 10"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                  />
-                </svg>
-              </button>
-            </div>
+                <path
+                  d="M7 10L12 14L17 10"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                />
+              </svg>
+            </button>
           </div>
         </div>
       </section>
@@ -512,21 +532,27 @@ exports[`ProductSection render Should render match with snapshot. 1`] = `
                  Enter amount 
               </p>
               <div
-                class="css-u4p24i"
+                class="css-17piex8"
               >
                 <p
                   class="chakra-text css-4xj0bk"
                 >
                   $
                 </p>
-                <input
-                  autocomplete="off"
-                  class="chakra-input css-cz5fpu"
-                  name="amount"
-                  placeholder="0.00"
-                  type="text"
-                  value=""
-                />
+                <div
+                  class="chakra-form-control css-1eor3tg"
+                  role="group"
+                >
+                  <input
+                    autocomplete="off"
+                    class="chakra-input css-cz5fpu"
+                    id="field-:rj:"
+                    name="amount"
+                    placeholder="0.00"
+                    type="text"
+                    value=""
+                  />
+                </div>
               </div>
             </div>
             <button

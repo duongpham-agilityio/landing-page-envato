@@ -4,34 +4,6 @@ exports[`TotalList component renders correctly 1`] = `
 <div>
   <div
     class="css-10hh4um"
-  >
-    <div
-      class="css-1gvp5h0"
-    >
-      <div
-        class="css-sjmnun"
-      >
-        <div
-          class="css-6ce5r8"
-        >
-          <div
-            class="chakra-stack css-ddke4u"
-          >
-            <img
-              alt="Total earn icon"
-              class="chakra-image css-1ee2qsp"
-              src="/icons/total-earn.svg"
-            />
-            <h2
-              class="chakra-text css-10ircq3"
-            />
-          </div>
-        </div>
-        <div
-          class="chakra-skeleton css-9bhriu"
-        />
-      </div>
-    </div>
-  </div>
+  />
 </div>
 `;

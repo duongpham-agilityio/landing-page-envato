@@ -15,68 +15,17 @@ exports[`BoxChatComponent BoxChat component renders user have roomChatId 1`] = `
       </h3>
     </div>
     <div
-      class="css-j9vbtn"
+      class="css-1iwi7g1"
     >
       <div
-        class="css-3htvxw"
-      />
-      <form
-        class="chakra-stack css-tl3ftk"
+        class="chakra-spinner css-nkpswe"
       >
-        <div
-          class="css-1jif775"
+        <span
+          class="css-8b45rq"
         >
-          <div
-            class="chakra-form-control css-1kxonj9"
-            role="group"
-          >
-            <div
-              class="css-1yae3jf"
-            >
-              <div
-                class="chakra-form-control css-1kxonj9"
-                role="group"
-              >
-                <div
-                  class="chakra-input__group css-1091msq"
-                  data-group="true"
-                >
-                  <input
-                    class="chakra-input css-1s8wmp9"
-                    id="field-:r2:"
-                    name="text"
-                    placeholder="Type your message..."
-                    type="text"
-                    value=""
-                  />
-                </div>
-              </div>
-            </div>
-          </div>
-          <p
-            class="chakra-text css-rj1t1b"
-          />
-          <button
-            class="chakra-button css-bg2fy7"
-            data-testid="btn-send"
-            disabled=""
-            type="submit"
-          >
-            <svg
-              fill="none"
-              height="18"
-              viewBox="0 0 20 18"
-              width="20"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M17.3894 0H2.61094C0.339326 0 -0.844596 2.63548 0.696196 4.26234L3.78568 7.52441C4.23 7.99355 4.47673 8.60858 4.47673 9.24704V15.4553C4.47673 17.8735 7.61615 18.9233 9.13941 17.0145L19.4463 4.09894C20.7775 2.43071 19.5578 0 17.3894 0Z"
-                fill="#22C55E"
-              />
-            </svg>
-          </button>
-        </div>
-      </form>
+          Loading...
+        </span>
+      </div>
     </div>
   </div>
   <span
@@ -101,68 +50,17 @@ exports[`BoxChatComponent BoxChat component renders user without roomChatId 1`] 
       </h3>
     </div>
     <div
-      class="css-j9vbtn"
+      class="css-1iwi7g1"
     >
       <div
-        class="css-3htvxw"
-      />
-      <form
-        class="chakra-stack css-tl3ftk"
+        class="chakra-spinner css-nkpswe"
       >
-        <div
-          class="css-1jif775"
+        <span
+          class="css-8b45rq"
         >
-          <div
-            class="chakra-form-control css-1kxonj9"
-            role="group"
-          >
-            <div
-              class="css-1yae3jf"
-            >
-              <div
-                class="chakra-form-control css-1kxonj9"
-                role="group"
-              >
-                <div
-                  class="chakra-input__group css-1091msq"
-                  data-group="true"
-                >
-                  <input
-                    class="chakra-input css-1s8wmp9"
-                    id="field-:r5:"
-                    name="text"
-                    placeholder="Type your message..."
-                    type="text"
-                    value=""
-                  />
-                </div>
-              </div>
-            </div>
-          </div>
-          <p
-            class="chakra-text css-rj1t1b"
-          />
-          <button
-            class="chakra-button css-bg2fy7"
-            data-testid="btn-send"
-            disabled=""
-            type="submit"
-          >
-            <svg
-              fill="none"
-              height="18"
-              viewBox="0 0 20 18"
-              width="20"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M17.3894 0H2.61094C0.339326 0 -0.844596 2.63548 0.696196 4.26234L3.78568 7.52441C4.23 7.99355 4.47673 8.60858 4.47673 9.24704V15.4553C4.47673 17.8735 7.61615 18.9233 9.13941 17.0145L19.4463 4.09894C20.7775 2.43071 19.5578 0 17.3894 0Z"
-                fill="#22C55E"
-              />
-            </svg>
-          </button>
-        </div>
-      </form>
+          Loading...
+        </span>
+      </div>
     </div>
   </div>
   <span
