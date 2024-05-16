@@ -1,5 +1,6 @@
 // icons
 import {
+  CalendarIcon,
   DashboardIcon,
   HistoryIcon,
   InboxIcon,
@@ -55,18 +56,24 @@ export const MENU_ITEM_LIST = (role: string) => [
   },
   {
     id: 5,
+    leftIcon: CalendarIcon,
+    menuItemContent: 'Calendar',
+    destination: `/${ROUTES.CALENDAR}`,
+  },
+  {
+    id: 6,
     leftIcon: HistoryIcon,
     menuItemContent: 'Histories',
     destination: `/${ROUTES.HISTORY}`,
   },
   {
-    id: 6,
+    id: 7,
     leftIcon: ProductIcon,
     menuItemContent: 'Products',
     destination: `/${ROUTES.PRODUCT}`,
   },
   {
-    id: 7,
+    id: 8,
     leftIcon: RecentActivityIcon,
     menuItemContent: 'Recent Activities',
     destination: `/${ROUTES.RECENT_ACTIVITIES}`,

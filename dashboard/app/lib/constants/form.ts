@@ -172,3 +172,19 @@ export const AUTH_SCHEMA = {
     required: ERROR_MESSAGES.FIELD_REQUIRED('Gallery Thumbnail'),
   },
 };
+
+export const EVENT_SCHEMA = {
+  TITLE: {
+    validate: (value: string) =>
+      !value.trim() ? ERROR_MESSAGES.FIELD_REQUIRED('Title') : true,
+  },
+  DATE: {
+    required: ERROR_MESSAGES.FIELD_REQUIRED('Date'),
+  },
+  START_TIME: {
+    required: ERROR_MESSAGES.FIELD_REQUIRED('Start time'),
+  },
+  END_TIME: {
+    required: ERROR_MESSAGES.FIELD_REQUIRED('End time'),
+  },
+};

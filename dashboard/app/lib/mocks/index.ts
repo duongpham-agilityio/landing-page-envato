@@ -12,3 +12,4 @@ export * from './supports';
 export * from './recentActivities';
 export * from './money';
 export * from './notification';
+export * from './event';

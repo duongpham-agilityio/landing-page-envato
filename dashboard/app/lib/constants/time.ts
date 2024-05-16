@@ -14,4 +14,8 @@ export const TIME_FORMAT = 'MMM DD, YYYY';
 
 export const TIME_DETAIL_FORMAT = 'HH:mm:ss MMM DD, YYYY';
 
+export const DATE_FORMAT = 'YYYY-MM-DD';
+
+export const TIME_FORMAT_HH_MM = 'hh:mm';
+
 export const LOGOUT_TIME = 1500;

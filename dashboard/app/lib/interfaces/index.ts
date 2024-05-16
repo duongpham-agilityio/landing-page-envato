@@ -18,3 +18,4 @@ export * from './products';
 export * from './recentActivities';
 export * from './httpClient';
 export * from './image';
+export * from './event';
