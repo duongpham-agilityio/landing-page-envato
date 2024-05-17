@@ -97,6 +97,10 @@ export const ERROR_MESSAGES = {
     title: 'Create failed',
     description: 'Your product has not been created successfully',
   },
+  CREATE_EVENT_FAIL: {
+    title: 'Create failed',
+    description: 'Your event has been created failed',
+  },
 };
 
 export const SUCCESS_MESSAGES = {
@@ -159,6 +163,10 @@ export const SUCCESS_MESSAGES = {
   CREATE_PRODUCT_SUCCESS: {
     title: 'Created success',
     description: 'Your product has been created successfully',
+  },
+  CREATE_EVENT_SUCCESS: {
+    title: 'Created success',
+    description: 'Your event has been created successfully',
   },
 };
 
