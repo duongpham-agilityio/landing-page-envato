@@ -15,3 +15,8 @@ export type AddEventPayload = Omit<TEvent, '_id'> & {
 };
 
 export type AddEventResponse = TEvent & { userId: string };
+
+export type UpdateEventPayload = Omit<TEvent, '_id'> & {
+  userId: string;
+  eventId: string;
+};

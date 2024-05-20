@@ -11,6 +11,7 @@ import {
   AddEventResponse,
   EActivity,
   TEventsResponse,
+  UpdateEventPayload,
 } from '@/lib/interfaces';
 
 // Utils
@@ -54,7 +55,7 @@ export const useAddEvent = () => {
 
   const {
     mutate: addEvent,
-    isPending: isAddProduct,
+    isPending: isAddEvent,
     ...rest
   } = useMutation({
     mutationFn: async (eventData: AddEventPayload) =>
@@ -89,7 +90,70 @@ export const useAddEvent = () => {
 
   return {
     ...rest,
-    isAddProduct,
+    isAddEvent,
     addEvent,
+  };
+};
+
+export const useUpdateEvent = () => {
+  const queryClient = useQueryClient();
+  const { user } = authStore();
+
+  const { id: userId = '' } = user || {};
+
+  const {
+    mutate: updateEvent,
+    isPending: isUpdateEvent,
+    ...rest
+  } = useMutation({
+    mutationFn: (eventData: UpdateEventPayload) =>
+      mainHttpService.put({
+        path: END_POINTS.EVENT,
+        data: eventData,
+        userId,
+        actionName: EActivity.ADD_EVENT,
+        onActivity: logActivity,
+      }),
+    onSuccess: (_, variables) => {
+      queryClient.setQueryData(
+        [END_POINTS.EVENT, userId],
+        (oldData: AxiosResponse<TEventsResponse>) => {
+          const { data } = oldData || {};
+          const { result: events = [] } = data || {};
+
+          const updatedEvents = events.map((item) => {
+            const { _id: itemId = '' } = item || {};
+            const {
+              eventId = '',
+              eventName = '',
+              startTime = '',
+              endTime = '',
+            } = variables || {};
+
+            return itemId === eventId
+              ? {
+                  ...item,
+                  eventName,
+                  startTime,
+                  endTime,
+                }
+              : item;
+          });
+
+          const updatedData = {
+            ...data,
+            result: updatedEvents,
+          };
+
+          return { data: updatedData };
+        },
+      );
+    },
+  });
+
+  return {
+    ...rest,
+    isUpdateEvent,
+    updateEvent,
   };
 };

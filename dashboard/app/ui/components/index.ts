@@ -66,3 +66,4 @@ export { default as ProductGallery } from './ProductGallery';
 export { default as Calendar } from './Calendar';
 export { default as CustomToolBar } from './Calendar/CustomToolBar';
 export { default as EventForm } from './Calendar/EventForm';
+export { default as EventDetails } from './Calendar/EventDetails';

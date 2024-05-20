@@ -8,7 +8,7 @@ import dynamic from 'next/dynamic';
 import moment from 'moment';
 
 // Hooks
-import { useAddEvent, useGetEvents } from '@/lib/hooks';
+import { useAddEvent, useGetEvents, useUpdateEvent } from '@/lib/hooks';
 
 // Store
 import { authStore } from '@/lib/stores';
@@ -35,7 +35,10 @@ const CalendarSection = () => {
   const { data: events = [], isLoading: isLoadingEvents } = useGetEvents();
 
   // Add event
-  const { isAddProduct, addEvent } = useAddEvent();
+  const { isAddEvent, addEvent } = useAddEvent();
+
+  // Update event
+  const { isUpdateEvent, updateEvent } = useUpdateEvent();
 
   const { id: userId = '' } = user || {};
 
@@ -89,11 +92,44 @@ const CalendarSection = () => {
     [addEvent, handleAddEventError, handleAddEventSuccess, userId],
   );
 
-  // TODO: Update later
-  const handleUpdateEvent = () => {};
+  const handleUpdateEventSuccess = useCallback(() => {
+    toast(
+      customToast(
+        SUCCESS_MESSAGES.UPDATE_EVENT_SUCCESS.title,
+        SUCCESS_MESSAGES.UPDATE_EVENT_SUCCESS.description,
+        STATUS.SUCCESS,
+      ),
+    );
+  }, [toast]);
+
+  const handleUpdateEventError = useCallback(() => {
+    toast(
+      customToast(
+        ERROR_MESSAGES.UPDATE_EVENT_FAIL.title,
+        ERROR_MESSAGES.UPDATE_EVENT_FAIL.description,
+        STATUS.ERROR,
+      ),
+    );
+  }, [toast]);
+
+  const handleUpdateEvent = useCallback(
+    (data: TEvent) => {
+      const payload = {
+        ...data,
+        userId,
+        eventId: data._id,
+      };
+
+      updateEvent(payload, {
+        onSuccess: handleUpdateEventSuccess,
+        onError: handleUpdateEventError,
+      });
+    },
+    [handleUpdateEventError, handleUpdateEventSuccess, updateEvent, userId],
+  );
 
   return (
-    <Indicator isOpen={isLoadingEvents || isAddProduct}>
+    <Indicator isOpen={isLoadingEvents || isAddEvent || isUpdateEvent}>
       <Grid
         bg="background.body.primary"
         py={12}

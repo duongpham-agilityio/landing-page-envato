@@ -180,6 +180,14 @@ export const EVENT_SCHEMA = {
   },
   DATE: {
     required: ERROR_MESSAGES.FIELD_REQUIRED('Date'),
+    validate: (value: string) => {
+      const selectedDate = new Date(value).setHours(0, 0, 0, 0);
+      const today = new Date().setHours(0, 0, 0, 0);
+
+      return selectedDate.valueOf() < today.valueOf()
+        ? ERROR_MESSAGES.MIN_DATE
+        : true;
+    },
   },
   START_TIME: {
     required: ERROR_MESSAGES.FIELD_REQUIRED('Start time'),

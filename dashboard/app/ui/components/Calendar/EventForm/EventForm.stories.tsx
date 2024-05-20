@@ -4,7 +4,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { EventForm } from '@/ui/components';
 
 const meta: Meta<typeof EventForm> = {
-  title: 'Custom Components/EventForm',
+  title: 'Custom Components/Calendar/EventForm',
   tags: ['autodocs'],
   component: EventForm,
   parameters: {

@@ -28,6 +28,8 @@ export const ERROR_MESSAGES = {
   QUANTITY_INVALID: 'Quantity is invalid',
   INVALID_TRANSFER_AMOUNT: 'Amount is invalid',
   LIMIT_TRANSFER_AMOUNT: 'Amount cannot exceed $999,999',
+  END_TIME_EVENT: 'Event must end after it starts',
+  MIN_DATE: 'Date must be today or later',
   SET_PIN_CODE: {
     title: 'Set PIN code failed',
     description:
@@ -101,6 +103,10 @@ export const ERROR_MESSAGES = {
     title: 'Create failed',
     description: 'Your event has been created failed',
   },
+  UPDATE_EVENT_FAIL: {
+    title: 'Update failed',
+    description: 'Your event has been updated failed',
+  },
 };
 
 export const SUCCESS_MESSAGES = {
@@ -167,6 +173,10 @@ export const SUCCESS_MESSAGES = {
   CREATE_EVENT_SUCCESS: {
     title: 'Created success',
     description: 'Your event has been created successfully',
+  },
+  UPDATE_EVENT_SUCCESS: {
+    title: 'Update success',
+    description: 'Your event has been updated successfully',
   },
 };
 

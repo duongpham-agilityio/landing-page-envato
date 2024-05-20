@@ -18,4 +18,8 @@ export const DATE_FORMAT = 'YYYY-MM-DD';
 
 export const TIME_FORMAT_HH_MM = 'hh:mm';
 
+export const MONTH_DATE_FORMAT = 'dddd, MMMM D';
+
+export const TIME_FORMAT_12H = 'hh:mm a';
+
 export const LOGOUT_TIME = 1500;
