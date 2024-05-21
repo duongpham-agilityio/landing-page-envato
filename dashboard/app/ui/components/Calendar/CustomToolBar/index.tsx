@@ -40,32 +40,42 @@ const CustomToolbarComponent = ({
         {label}
       </Heading>
 
-      <Flex alignItems="center" wrap="wrap" gap={3}>
-        <Flex gap={1} wrap="wrap">
+      <Flex
+        alignItems="center"
+        wrap="wrap"
+        justifyContent="space-between"
+        gap={5}
+        w={{ base: '100%', md: 'auto' }}
+        mt={{ base: 1, md: 0 }}
+      >
+        <Flex gap={1}>
           <Button
             size="sm"
+            w="60px"
             bg={view === Views.MONTH ? 'primary.600' : 'primary.500'}
             onClick={handleViewMonth}
           >
-            month
+            Month
           </Button>
           <Button
             size="sm"
+            w="60px"
             bg={view === Views.WEEK ? 'primary.600' : 'primary.500'}
             onClick={handleViewWeek}
           >
-            week
+            Week
           </Button>
           <Button
             size="sm"
+            w="60px"
             bg={view === Views.DAY ? 'primary.600' : 'primary.500'}
             onClick={handleViewDay}
           >
-            day
+            Day
           </Button>
         </Flex>
 
-        <Flex wrap="wrap">
+        <Flex>
           <Button
             aria-label="btn-next"
             variant="iconSecondary"

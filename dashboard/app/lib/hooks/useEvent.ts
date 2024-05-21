@@ -9,6 +9,7 @@ import { END_POINTS, DEFAULT_PAGE } from '@/lib/constants';
 import {
   AddEventPayload,
   AddEventResponse,
+  DeleteEventPayload,
   EActivity,
   TEventsResponse,
   UpdateEventPayload,
@@ -111,7 +112,7 @@ export const useUpdateEvent = () => {
         path: END_POINTS.EVENT,
         data: eventData,
         userId,
-        actionName: EActivity.ADD_EVENT,
+        actionName: EActivity.UPDATE_EVENT,
         onActivity: logActivity,
       }),
     onSuccess: (_, variables) => {
@@ -155,5 +156,56 @@ export const useUpdateEvent = () => {
     ...rest,
     isUpdateEvent,
     updateEvent,
+  };
+};
+
+export const useDeleteEvent = () => {
+  const queryClient = useQueryClient();
+  const { user } = authStore();
+
+  const { id: userId = '' } = user || {};
+
+  const {
+    mutate: deleteEvent,
+    isPending: isDeleteEvent,
+    ...rest
+  } = useMutation({
+    mutationFn: (payload: DeleteEventPayload) =>
+      mainHttpService.delete({
+        path: END_POINTS.EVENT,
+        data: { data: payload },
+        userId,
+        actionName: EActivity.DELETE_EVENT,
+        onActivity: logActivity,
+      }),
+    onSuccess: (_, variables) => {
+      queryClient.setQueryData(
+        [END_POINTS.EVENT, userId],
+        (oldData: AxiosResponse<TEventsResponse>) => {
+          const { data } = oldData || {};
+          const { result: events = [] } = data || {};
+
+          const updatedEvents = events.filter((item) => {
+            const { _id: itemId = '' } = item || {};
+            const { eventId = '' } = variables || {};
+
+            return itemId !== eventId;
+          });
+
+          const updatedData = {
+            ...data,
+            result: updatedEvents,
+          };
+
+          return { data: updatedData };
+        },
+      );
+    },
+  });
+
+  return {
+    ...rest,
+    deleteEvent,
+    isDeleteEvent,
   };
 };

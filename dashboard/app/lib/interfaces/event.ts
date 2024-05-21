@@ -20,3 +20,8 @@ export type UpdateEventPayload = Omit<TEvent, '_id'> & {
   userId: string;
   eventId: string;
 };
+
+export type DeleteEventPayload = {
+  userId: string;
+  eventId: string;
+};

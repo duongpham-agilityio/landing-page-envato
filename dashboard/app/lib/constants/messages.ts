@@ -107,6 +107,10 @@ export const ERROR_MESSAGES = {
     title: 'Update failed',
     description: 'Your event has been updated failed',
   },
+  DELETE_EVENT_FAIL: {
+    title: 'Delete failed',
+    description: 'Your event has been deleted failed',
+  },
 };
 
 export const SUCCESS_MESSAGES = {
@@ -177,6 +181,10 @@ export const SUCCESS_MESSAGES = {
   UPDATE_EVENT_SUCCESS: {
     title: 'Update success',
     description: 'Your event has been updated successfully',
+  },
+  DELETE_EVENT_SUCCESS: {
+    title: 'Delete success',
+    description: 'Your event has been deleted successfully',
   },
 };
 

@@ -33,6 +33,9 @@ import 'react-big-calendar/lib/css/react-big-calendar.css';
 
 // Lazy loading components
 const Modal = dynamic(() => import('@/ui/components/common/Modal'));
+const ConfirmDeleteModal = dynamic(
+  () => import('@/ui/components/common/Table/Body/ConfirmDeleteModal'),
+);
 
 type ViewType = 'month' | 'week' | 'work_week' | 'day' | 'agenda';
 
@@ -44,15 +47,16 @@ interface Slot {
 const localizer = momentLocalizer(moment);
 
 type CalendarProps = Omit<BigCalendarProps, 'localizer'> & {
-  onAddEvent?: (data: Omit<TEvent, '_id'>) => void;
-  onEditEvent?: (data: TEvent) => void;
-  onDeleteEvent?: (id: string) => void;
+  onAddEvent: (data: Omit<TEvent, '_id'>) => void;
+  onEditEvent: (data: TEvent) => void;
+  onDeleteEvent: (id: string) => void;
 };
 
 const CalendarComponent = ({
   events = [],
   onAddEvent,
   onEditEvent,
+  onDeleteEvent,
   ...rest
 }: CalendarProps) => {
   const [date, setDate] = useState(new Date());
@@ -60,6 +64,7 @@ const CalendarComponent = ({
   const [isAddEvent, setIsAddEvent] = useState(true);
   const [isOpenEventFormModal, setIsOpenEventFormModal] = useState(false);
   const [isOpenEventDetailModal, setIsOpenEventDetailModal] = useState(false);
+  const [isOpenConfirmModal, setIsOpenConfirmModal] = useState(false);
   const [slot, setSlot] = useState<Slot>();
   const [selectedEvent, setSelectedEvent] = useState<Event & Partial<TEvent>>();
 
@@ -163,6 +168,16 @@ const CalendarComponent = ({
     setIsOpenEventDetailModal(true);
   }, []);
 
+  const handleToggleConfirmModal = useCallback(() => {
+    setIsOpenEventDetailModal(false);
+    setIsOpenConfirmModal((prev) => !prev);
+  }, []);
+
+  const handleDeleteEvent = useCallback(() => {
+    onDeleteEvent(selectedEventId);
+    handleToggleConfirmModal();
+  }, [handleToggleConfirmModal, onDeleteEvent, selectedEventId]);
+
   return (
     <>
       <BigCalendar
@@ -215,7 +230,24 @@ const CalendarComponent = ({
               title={selectedEventTitle}
               time={selectedEventTime}
               onEdit={handleToggleEventFormModal}
+              onDelete={handleToggleConfirmModal}
               onCancel={handleToggleEventDetailsModal}
+            />
+          }
+          haveCloseButton
+        />
+      )}
+
+      {isOpenConfirmModal && (
+        <Modal
+          isOpen={isOpenConfirmModal}
+          onClose={handleToggleConfirmModal}
+          title="Delete Event"
+          body={
+            <ConfirmDeleteModal
+              itemName={selectedEventTitle}
+              onDeleteProduct={handleDeleteEvent}
+              onCloseModal={handleToggleConfirmModal}
             />
           }
           haveCloseButton

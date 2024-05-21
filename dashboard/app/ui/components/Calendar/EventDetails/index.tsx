@@ -8,6 +8,7 @@ interface EventDetailProps {
   title: string;
   time: string;
   onEdit: (id: string) => void;
+  onDelete: (id: string) => void;
   onCancel: () => void;
 }
 
@@ -16,48 +17,52 @@ const EventDetailComponent = ({
   title,
   time,
   onEdit,
+  onDelete,
   onCancel,
 }: EventDetailProps) => {
   const handleClickEdit = useCallback(() => {
     onEdit(id);
   }, [id, onEdit]);
 
-  // TODO: Update later
-  const handleOpenConfirmModal = () => {};
+  const handleClickDelete = useCallback(() => {
+    onDelete(id);
+  }, [id, onDelete]);
 
   return (
-    <Box minW={{ md: 500 }}>
-      <Heading>{title}</Heading>
-      <Flex gap={{ base: 4, md: 6 }}>
-        <Text>{time}</Text>
+    <>
+      <Box minW={{ md: 500 }}>
+        <Heading>{title}</Heading>
+        <Flex gap={{ base: 4, md: 6 }}>
+          <Text>{time}</Text>
 
-        <Flex gap={3}>
-          <EditIcon
-            w={5}
-            h={5}
-            onClick={handleClickEdit}
-            style={{ cursor: 'pointer' }}
-          />
-          <DeleteIcon
-            w={5}
-            h={5}
-            onClick={handleOpenConfirmModal}
-            style={{ cursor: 'pointer' }}
-          />
+          <Flex gap={3}>
+            <EditIcon
+              w={5}
+              h={5}
+              onClick={handleClickEdit}
+              style={{ cursor: 'pointer' }}
+            />
+            <DeleteIcon
+              w={5}
+              h={5}
+              onClick={handleClickDelete}
+              style={{ cursor: 'pointer' }}
+            />
+          </Flex>
         </Flex>
-      </Flex>
 
-      <Flex mt={6} justifyContent="end">
-        <Button
-          w={{ base: 120, md: 176 }}
-          bg="orange.300"
-          _hover={{ bg: 'orange.400' }}
-          onClick={onCancel}
-        >
-          Cancel
-        </Button>
-      </Flex>
-    </Box>
+        <Flex mt={6} justifyContent="end">
+          <Button
+            w={{ base: 120, md: 176 }}
+            bg="orange.300"
+            _hover={{ bg: 'orange.400' }}
+            onClick={onCancel}
+          >
+            Cancel
+          </Button>
+        </Flex>
+      </Box>
+    </>
   );
 };
 

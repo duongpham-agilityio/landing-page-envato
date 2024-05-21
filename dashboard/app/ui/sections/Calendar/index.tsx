@@ -8,7 +8,12 @@ import dynamic from 'next/dynamic';
 import moment from 'moment';
 
 // Hooks
-import { useAddEvent, useGetEvents, useUpdateEvent } from '@/lib/hooks';
+import {
+  useAddEvent,
+  useGetEvents,
+  useUpdateEvent,
+  useDeleteEvent,
+} from '@/lib/hooks';
 
 // Store
 import { authStore } from '@/lib/stores';
@@ -16,10 +21,14 @@ import { authStore } from '@/lib/stores';
 // Types
 import { TEvent } from '@/lib/interfaces';
 
+// Constants
+import { ERROR_MESSAGES, STATUS, SUCCESS_MESSAGES } from '@/lib/constants';
+
+// Utils
+import { customToast } from '@/lib/utils';
+
 // Components
 import { Indicator } from '@/ui/components';
-import { customToast } from '@/lib/utils';
-import { ERROR_MESSAGES, STATUS, SUCCESS_MESSAGES } from '@/lib/constants';
 
 // dynamic loading components
 const Calendar = dynamic(() => import('@/ui/components/Calendar'));
@@ -39,6 +48,9 @@ const CalendarSection = () => {
 
   // Update event
   const { isUpdateEvent, updateEvent } = useUpdateEvent();
+
+  // Delete Event
+  const { deleteEvent, isDeleteEvent } = useDeleteEvent();
 
   const { id: userId = '' } = user || {};
 
@@ -128,8 +140,45 @@ const CalendarSection = () => {
     [handleUpdateEventError, handleUpdateEventSuccess, updateEvent, userId],
   );
 
+  const handleDeleteEventSuccess = useCallback(() => {
+    toast(
+      customToast(
+        SUCCESS_MESSAGES.DELETE_EVENT_SUCCESS.title,
+        SUCCESS_MESSAGES.DELETE_EVENT_SUCCESS.description,
+        STATUS.SUCCESS,
+      ),
+    );
+  }, [toast]);
+
+  const handleDeleteEventError = useCallback(() => {
+    toast(
+      customToast(
+        ERROR_MESSAGES.DELETE_EVENT_FAIL.title,
+        ERROR_MESSAGES.DELETE_EVENT_FAIL.description,
+        STATUS.ERROR,
+      ),
+    );
+  }, [toast]);
+
+  const handleDeleteEvent = useCallback(
+    (eventId: string) => {
+      const payload = {
+        userId,
+        eventId,
+      };
+
+      deleteEvent(payload, {
+        onSuccess: handleDeleteEventSuccess,
+        onError: handleDeleteEventError,
+      });
+    },
+    [deleteEvent, handleDeleteEventError, handleDeleteEventSuccess, userId],
+  );
+
   return (
-    <Indicator isOpen={isLoadingEvents || isAddEvent || isUpdateEvent}>
+    <Indicator
+      isOpen={isLoadingEvents || isAddEvent || isUpdateEvent || isDeleteEvent}
+    >
       <Grid
         bg="background.body.primary"
         py={12}
@@ -146,13 +195,14 @@ const CalendarSection = () => {
                   as="section"
                   bgColor="background.component.primary"
                   borderRadius={8}
-                  px={10}
-                  py={5}
+                  px={{ base: 4, md: 10 }}
+                  py={{ base: 4, md: 5 }}
                 >
                   <Calendar
                     events={formattedEvents}
                     onAddEvent={handleAddEvent}
                     onEditEvent={handleUpdateEvent}
+                    onDeleteEvent={handleDeleteEvent}
                   />
                 </Box>
               )}
