@@ -19,7 +19,6 @@ type Story = StoryObj<typeof EventDetails>;
 
 export const Default: Story = {
   args: {
-    id: '1',
     title: 'Team Scrum',
     time: 'Sunday, May 19 5:30 – 7:30am',
   },

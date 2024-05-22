@@ -1,0 +1,26 @@
+:root {
+  /* Calendar month header */
+  --c-calendar-m-header-title: #22c55e;
+  --c-calendar-m-header-first-title: #ff4747;
+  --c--calendar-m-header-border-light: #e4f2ff;
+  --c-calendar-m-header-border-dark: #2a313c;
+
+  /* Calendar month cell */
+  --c-calendar-m-cell-light: #2f3032;
+  --c-calendar-m-cell-dark: #ffffff;
+  --c-calendar-m-first-last-column-cell: #ff4747;
+  --c-calendar-m-off-range-cell: #c0c0c0;
+  --c-calendar-m-first-last-column-off-range-cell: #ffc7c7;
+  --c-calendar-m-today-cell: #22c55e;
+
+  /* Calendar month event */
+  --c-calendar-m-event-light: #000000;
+  --c-calendar-m-event-dark: #ffffff;
+  --c-calendar-m-event-hover-light: #f5f5f5;
+  --c-calendar-m-event-hover-dark: #1a1b20;
+  --bg-calendar-m-event-dot: #f5ba47;
+
+  /* Calendar week view */
+  --bg-calendar-w-event: #f5ba47;
+  --c-calendar-w-event-border: #ffffff;
+}
