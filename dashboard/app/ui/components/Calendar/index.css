@@ -126,11 +126,67 @@
   margin-right: 6px;
 }
 
-/* Week view */
+/* Time view */
 .rbc-events-container .rbc-event {
-  background-color: var(--bg-calendar-w-event);
-  border-color: var(--c-calendar-w-event-border);
+  background-color: var(--bg-calendar-t-event);
+  border-color: var(--c-calendar-t-event-border);
   min-height: 50px !important;
+}
+
+.rbc-events-container .rbc-event:focus {
+  outline: none;
+  box-shadow:
+    0 6px 10px 0px
+      light-dark(
+        var(--box-shadow-t-event-primary-light),
+        var(--box-shadow-t-event-primary-dark)
+      ),
+    0 1px 18px 0px
+      light-dark(
+        var(--box-shadow-t-event-secondary-light),
+        var(--box-shadow-t-event-secondary-dark)
+      ),
+    0 3px 5px -1px light-dark(var(--box-shadow-t-event-tertiary-light), var(--box-shadow-t-event-tertiary-dark));
+}
+
+.rbc-time-view,
+.rbc-time-header-content,
+.rbc-time-view .rbc-header {
+  border: none !important;
+}
+
+.rbc-time-header-content .rbc-day-bg {
+  border-left: 1px solid var(--c-calendar-t-day) !important;
+}
+
+.rbc-time-slot {
+  font-size: 14px;
+  text-align: right;
+}
+
+.rbc-time-header-content .rbc-button-link {
+  font-weight: 500;
+}
+
+.rbc-time-header-content .rbc-header {
+  color: var(--c-calendar-t-header);
+}
+
+.rbc-time-header-content .rbc-header:first-child {
+  color: var(--c-calendar-t-header-first);
+}
+
+.rbc-time-view .rbc-today {
+  background-color: light-dark(
+    var(--bg-calendar-t-today-light),
+    var(--bg-calendar-t-today-dark)
+  );
+}
+
+.rbc-day-slot,
+.rbc-day-bg,
+.rbc-date-cell {
+  cursor: pointer;
 }
 
 .rbc-time-view .rbc-event .rbc-event-label {
@@ -139,6 +195,7 @@
 
 .rbc-time-view .rbc-event .rbc-event-content {
   font-size: 15px;
+  font-weight: 500;
 }
 
 /* Calendar */
@@ -147,12 +204,24 @@
 }
 
 @media screen and (min-width: 768px) {
+  /* Time view */
+  .rbc-time-header-content .rbc-button-link {
+    font-size: 16px;
+  }
+
+  /* Calendar view */
   .rbc-calendar {
     min-height: 700px;
   }
 }
 
 @media screen and (min-width: 992px) {
+  /* Time view */
+  .rbc-time-header-content .rbc-button-link {
+    font-size: 18px;
+  }
+
+  /* Calendar view */
   .rbc-calendar {
     min-height: 870px;
   }

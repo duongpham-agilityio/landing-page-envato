@@ -7,14 +7,14 @@ import { CloseButton, Flex, Heading } from '@chakra-ui/react';
 import { DeleteIcon, EditIcon } from '@chakra-ui/icons';
 import {
   Calendar as BigCalendar,
-  momentLocalizer,
+  dayjsLocalizer,
   Views,
   SlotInfo,
   CalendarProps as BigCalendarProps,
   Event,
 } from 'react-big-calendar';
 import isEqual from 'react-fast-compare';
-import moment from 'moment';
+import dayjs from 'dayjs';
 
 // Components
 import { CustomToolBar, EventForm, EventDetails } from '@/ui/components';
@@ -50,9 +50,10 @@ interface Slot {
   end: Date;
 }
 
-const localizer = momentLocalizer(moment);
+const localizer = dayjsLocalizer(dayjs);
 
 type CalendarProps = Omit<BigCalendarProps, 'localizer'> & {
+  events: (Event & Pick<TEvent, '_id'>)[];
   onAddEvent: (data: Omit<TEvent, '_id'>) => void;
   onEditEvent: (data: TEvent) => void;
   onDeleteEvent: (id: string) => void;
@@ -78,25 +79,26 @@ const CalendarComponent = ({
 
   const {
     _id: selectedEventId = '',
-    startTime: selectedEventStart = '',
-    endTime: selectedEventEnd = '',
-    eventName: selectedEventTitle = '',
+    start: selectedEventStart = '',
+    end: selectedEventEnd = '',
+    title = '',
   } = selectedEvent || {};
+  const selectedEventTitle = title?.toString() || '';
 
   const { start: startSlot = '', end: endSlot = '' } = slot || {};
 
   const formattedSelectedEventDate = useMemo(
-    () => moment(selectedEventStart).format(MONTH_DATE_FORMAT),
+    () => dayjs(selectedEventStart).format(MONTH_DATE_FORMAT),
     [selectedEventStart],
   );
 
   const formattedSelectedEventStart = useMemo(
-    () => moment(selectedEventStart).format(TIME_FORMAT_12H),
+    () => dayjs(selectedEventStart).format(TIME_FORMAT_12H),
     [selectedEventStart],
   );
 
   const formattedSelectedEventEnd = useMemo(
-    () => moment(selectedEventEnd).format(TIME_FORMAT_12H),
+    () => dayjs(selectedEventEnd).format(TIME_FORMAT_12H),
     [selectedEventEnd],
   );
 
@@ -121,17 +123,17 @@ const CalendarComponent = ({
   );
 
   const eventDate = useMemo(
-    () => moment(startEvent).format(DATE_FORMAT),
+    () => dayjs(startEvent).format(DATE_FORMAT),
     [startEvent],
   );
 
   const eventStartTime = useMemo(
-    () => moment(startEvent).format(TIME_FORMAT_HH_MM),
+    () => dayjs(startEvent).format(TIME_FORMAT_HH_MM),
     [startEvent],
   );
 
   const eventEndTime = useMemo(
-    () => moment(endEvent).format(TIME_FORMAT_HH_MM),
+    () => dayjs(endEvent).format(TIME_FORMAT_HH_MM),
     [endEvent],
   );
 

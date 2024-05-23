@@ -1,5 +1,4 @@
 import dayjs from 'dayjs';
-import moment from 'moment';
 
 // Constants
 import { DATE_FORMAT } from '@/lib/constants';
@@ -9,7 +8,7 @@ export const getCurrentYear = (): number => {
   return currentYear;
 };
 
-export const getCurrentDate = (): string => moment().format(DATE_FORMAT);
+export const getCurrentDate = (): string => dayjs().format(DATE_FORMAT);
 
 export const getCurrentTimeSeconds = (): number => Date.now() / 1000;
 

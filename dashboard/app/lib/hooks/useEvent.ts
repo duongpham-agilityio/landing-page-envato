@@ -24,12 +24,14 @@ import { mainHttpService } from '@/lib/services';
 // Stores
 import { authStore } from '@/lib/stores';
 
-export const useGetEvents = () => {
+export const useEvents = () => {
+  const queryClient = useQueryClient();
   const user = authStore((state) => state.user);
 
   const { id: userId = '' } = user || {};
 
-  const { data: res, ...rest } = useQuery<AxiosResponse<TEventsResponse>>({
+  // Get events
+  const { data: res, ...query } = useQuery<AxiosResponse<TEventsResponse>>({
     queryKey: [END_POINTS.EVENT, userId],
     queryFn: () =>
       mainHttpService.get<TEventsResponse>({
@@ -41,24 +43,8 @@ export const useGetEvents = () => {
 
   const { result = [], totalPage = 0 } = res?.data || {};
 
-  return {
-    data: result,
-    totalPage,
-    ...rest,
-  };
-};
-
-export const useAddEvent = () => {
-  const queryClient = useQueryClient();
-  const { user } = authStore();
-
-  const { id: userId = '' } = user || {};
-
-  const {
-    mutate: addEvent,
-    isPending: isAddEvent,
-    ...rest
-  } = useMutation({
+  // Add an event
+  const { mutate: addEvent, isPending: isAddEvent } = useMutation({
     mutationFn: async (eventData: AddEventPayload) =>
       (
         await mainHttpService.post<AddEventResponse>({
@@ -89,24 +75,8 @@ export const useAddEvent = () => {
     },
   });
 
-  return {
-    ...rest,
-    isAddEvent,
-    addEvent,
-  };
-};
-
-export const useUpdateEvent = () => {
-  const queryClient = useQueryClient();
-  const { user } = authStore();
-
-  const { id: userId = '' } = user || {};
-
-  const {
-    mutate: updateEvent,
-    isPending: isUpdateEvent,
-    ...rest
-  } = useMutation({
+  // Update event
+  const { mutate: updateEvent, isPending: isUpdateEvent } = useMutation({
     mutationFn: (eventData: UpdateEventPayload) =>
       mainHttpService.put({
         path: END_POINTS.EVENT,
@@ -152,24 +122,8 @@ export const useUpdateEvent = () => {
     },
   });
 
-  return {
-    ...rest,
-    isUpdateEvent,
-    updateEvent,
-  };
-};
-
-export const useDeleteEvent = () => {
-  const queryClient = useQueryClient();
-  const { user } = authStore();
-
-  const { id: userId = '' } = user || {};
-
-  const {
-    mutate: deleteEvent,
-    isPending: isDeleteEvent,
-    ...rest
-  } = useMutation({
+  // Delete event
+  const { mutate: deleteEvent, isPending: isDeleteEvent } = useMutation({
     mutationFn: (payload: DeleteEventPayload) =>
       mainHttpService.delete({
         path: END_POINTS.EVENT,
@@ -204,8 +158,14 @@ export const useDeleteEvent = () => {
   });
 
   return {
-    ...rest,
-    deleteEvent,
+    ...query,
+    data: result,
+    totalPage,
+    isAddEvent,
+    addEvent,
+    isUpdateEvent,
+    updateEvent,
     isDeleteEvent,
+    deleteEvent,
   };
 };

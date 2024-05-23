@@ -20,7 +20,22 @@
   --c-calendar-m-event-hover-dark: #1a1b20;
   --bg-calendar-m-event-dot: #f5ba47;
 
-  /* Calendar week view */
-  --bg-calendar-w-event: #f5ba47;
-  --c-calendar-w-event-border: #ffffff;
+  /* Calendar time view event*/
+  --bg-calendar-t-event: #f5ba47;
+  --c-calendar-t-event-border: #ffffff;
+  --box-shadow-t-event-primary-light: rgba(0, 0, 0, 0.14);
+  --box-shadow-t-event-secondary-light: rgba(0, 0, 0, 0.12);
+  --box-shadow-t-event-tertiary-light: rgba(0, 0, 0, 0.2);
+  --box-shadow-t-event-primary-dark: rgba(255, 255, 255, 0.14);
+  --box-shadow-t-event-secondary-dark: rgba(255, 255, 255, 0.12);
+  --box-shadow-t-event-tertiary-dark: rgba(255, 255, 255, 0.2);
+
+  /* Calendar time view today column*/
+  --bg-calendar-t-today-light: #e4f2ff;
+  --bg-calendar-t-today-dark: #2a313c;
+  --c-calendar-t-day: rgb(221, 221, 221);
+
+  /* Calendar time view header*/
+  --c-calendar-t-header: #22c55e;
+  --c-calendar-t-header-first: #ff4747;
 }

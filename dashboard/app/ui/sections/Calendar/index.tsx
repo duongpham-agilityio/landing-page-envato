@@ -5,15 +5,10 @@ import { useCallback, useMemo } from 'react';
 import { Box, Flex, Grid, GridItem, useToast } from '@chakra-ui/react';
 import { InView } from 'react-intersection-observer';
 import dynamic from 'next/dynamic';
-import moment from 'moment';
+import dayjs from 'dayjs';
 
 // Hooks
-import {
-  useAddEvent,
-  useGetEvents,
-  useUpdateEvent,
-  useDeleteEvent,
-} from '@/lib/hooks';
+import { useEvents } from '@/lib/hooks';
 
 // Store
 import { authStore } from '@/lib/stores';
@@ -40,17 +35,17 @@ const CalendarSection = () => {
   // Auth Store
   const { user } = authStore();
 
-  // Fetch events
-  const { data: events = [], isLoading: isLoadingEvents } = useGetEvents();
-
-  // Add event
-  const { isAddEvent, addEvent } = useAddEvent();
-
-  // Update event
-  const { isUpdateEvent, updateEvent } = useUpdateEvent();
-
-  // Delete Event
-  const { deleteEvent, isDeleteEvent } = useDeleteEvent();
+  // Events
+  const {
+    data: events = [],
+    isLoading: isLoadingEvents,
+    isAddEvent,
+    addEvent,
+    isUpdateEvent,
+    updateEvent,
+    isDeleteEvent,
+    deleteEvent,
+  } = useEvents();
 
   const { id: userId = '' } = user || {};
 
@@ -62,8 +57,8 @@ const CalendarSection = () => {
         return {
           ...event,
           title: eventName,
-          start: moment(startTime).toDate(),
-          end: moment(endTime).toDate(),
+          start: dayjs(startTime).toDate(),
+          end: dayjs(endTime).toDate(),
         };
       }),
     [events],
