@@ -62,11 +62,20 @@ const CustomToolbarComponent = ({
 
   return (
     <Flex justifyContent="space-between" alignItems="center" wrap="wrap" mb={6}>
-      <Heading as="h3" variant="heading2Xl" fontWeight="bold" lineHeight="9">
+      <Heading
+        as="h3"
+        variant="heading2Xl"
+        fontWeight="bold"
+        fontSize={{ base: '18px', '0.8sm': '20px', md: '24px' }}
+      >
         Calendar
       </Heading>
 
-      <Heading as="h3" variant="headingLg" lineHeight="7">
+      <Heading
+        as="h3"
+        variant="headingLg"
+        fontSize={{ base: '16px', '0.8sm': '18px', md: '20px' }}
+      >
         {label}
       </Heading>
 
