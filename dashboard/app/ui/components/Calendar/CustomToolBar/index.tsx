@@ -37,7 +37,7 @@ const CustomToolbarComponent = ({
     () => (
       <Flex>
         <Button
-          aria-label="btn-next"
+          aria-label="btn-back"
           variant="iconSecondary"
           w="30px"
           h="30px"

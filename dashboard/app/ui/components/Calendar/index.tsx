@@ -199,6 +199,7 @@ const CalendarComponent = ({
             h={5}
             onClick={handleToggleEventFormModal}
             style={{ cursor: 'pointer' }}
+            data-testid="edit-icon"
           />
           <DeleteIcon
             color={septenary}
@@ -206,12 +207,14 @@ const CalendarComponent = ({
             h={5}
             onClick={handleToggleConfirmModal}
             style={{ cursor: 'pointer' }}
+            data-testid="delete-icon"
           />
           <CloseButton
             color={septenary}
             size="lg"
             onClick={handleToggleEventDetailsModal}
             style={{ cursor: 'pointer' }}
+            data-testid="close-icon"
           />
         </Flex>
       </Flex>

@@ -18,7 +18,7 @@ export interface TEventForm extends TEvent {
   date: string;
 }
 
-interface AddEventFormProps {
+interface EventFormProps {
   id?: string;
   eventName?: string;
   date?: string;
@@ -38,7 +38,7 @@ const EventFormComponent = ({
   onCancel,
   onAddEvent,
   onEditEvent,
-}: AddEventFormProps) => {
+}: EventFormProps) => {
   const {
     control,
     clearErrors,
