@@ -1,0 +1,28 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Calendar section Should render match with snapshot. 1`] = `
+<div>
+  <div
+    class="css-1qfa3yr"
+  >
+    <div
+      class="css-rklm6r"
+    >
+      <section
+        class="css-e61c1n"
+      />
+    </div>
+    <div
+      class="css-1bm8fk6"
+    >
+      <div
+        class="css-1n88nru"
+      />
+    </div>
+  </div>
+  <span
+    hidden=""
+    id="__chakra_env"
+  />
+</div>
+`;

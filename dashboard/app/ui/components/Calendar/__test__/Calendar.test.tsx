@@ -1,8 +1,11 @@
 // Components
 import { Calendar } from '@/ui/components';
 
+// Utils
+import { getCurrentDisplayDate, getNextMonth } from '@/lib/utils';
+
 // Mocks
-import { MOCK_FORMATTED_EVENTS } from '@/lib/mocks';
+import { MOCK_CALENDAR_NOW_DATE, MOCK_FORMATTED_EVENTS } from '@/lib/mocks';
 
 const mockProps = {
   events: MOCK_FORMATTED_EVENTS,
@@ -15,7 +18,7 @@ const { render } = testLibReactUtils;
 
 describe('Calendar component', () => {
   beforeEach(() => {
-    jest.useFakeTimers({ now: new Date('2024-05-01') });
+    jest.useFakeTimers({ now: MOCK_CALENDAR_NOW_DATE });
   });
 
   afterEach(() => {
@@ -82,7 +85,7 @@ describe('Calendar component', () => {
 
     fireEvent.click(getByLabelText('btn-next'));
 
-    expect(getByText('June 2024')).toBeInTheDocument();
+    expect(getByText(getNextMonth())).toBeInTheDocument();
   });
 
   it('should view Day when click Day button', async () => {
@@ -90,7 +93,7 @@ describe('Calendar component', () => {
 
     fireEvent.click(getByRole('button', { name: 'Day' }));
 
-    expect(getByText('Wednesday May 01')).toBeInTheDocument();
+    expect(getByText(getCurrentDisplayDate())).toBeInTheDocument();
   });
 
   it('should call onDeleteEvent when click Delete button', async () => {

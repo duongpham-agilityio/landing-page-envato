@@ -1,14 +1,18 @@
 // Constants
 import { ERROR_MESSAGES } from '@/lib/constants';
 
+// Mocks
+import {
+  MOCK_CALENDAR_NOW_DATE,
+  MOCK_EVENT_FORM_DATA,
+  MOCK_UPDATE_EVENT_FORM,
+} from '@/lib/mocks';
+
 // Components
 import { EventForm } from '@/ui/components';
 
 const mockProps = {
-  eventName: 'Event 1',
-  date: '2024-05-27',
-  startTime: '10:00',
-  endTime: '11:00',
+  ...MOCK_EVENT_FORM_DATA,
   onCancel: jest.fn(),
   onAddEvent: jest.fn(),
   onEditEvent: jest.fn(),
@@ -18,7 +22,7 @@ const { render } = testLibReactUtils;
 
 describe('EventForm component', () => {
   beforeEach(() => {
-    jest.useFakeTimers({ now: new Date('2024-05-01') });
+    jest.useFakeTimers({ now: MOCK_CALENDAR_NOW_DATE });
   });
 
   afterEach(() => {
@@ -38,7 +42,7 @@ describe('EventForm component', () => {
     );
 
     fireEvent.change(getByLabelText('Title'), {
-      target: { value: mockProps.eventName },
+      target: { value: MOCK_EVENT_FORM_DATA.title },
     });
     fireEvent.click(getByRole('button', { name: 'Save' }));
 
@@ -63,7 +67,7 @@ describe('EventForm component', () => {
     );
 
     fireEvent.change(getByLabelText('Title'), {
-      target: { value: 'Event 1 Update' },
+      target: { value: MOCK_UPDATE_EVENT_FORM.title },
     });
     fireEvent.click(getByRole('button', { name: 'Save' }));
 
@@ -76,7 +80,7 @@ describe('EventForm component', () => {
     const { getByRole, getByLabelText } = render(<EventForm {...mockProps} />);
 
     fireEvent.change(getByLabelText('Date'), {
-      target: { value: '2024-05-28' },
+      target: { value: MOCK_UPDATE_EVENT_FORM.date },
     });
     fireEvent.click(getByRole('button', { name: 'Save' }));
 
@@ -90,8 +94,8 @@ describe('EventForm component', () => {
       <EventForm {...mockProps} id="1" />,
     );
 
-    fireEvent.change(getByLabelText('Start time'), {
-      target: { value: '09:00' },
+    fireEvent.change(getByLabelText('Date'), {
+      target: { value: MOCK_UPDATE_EVENT_FORM.date },
     });
     fireEvent.click(getByRole('button', { name: 'Save' }));
 

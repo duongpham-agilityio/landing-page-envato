@@ -29,7 +29,7 @@ interface EventFormProps {
   onEditEvent?: (data: TEvent) => void;
 }
 
-const EventFormComponent = ({
+const EventForm = ({
   id = '',
   eventName = '',
   date = '',
@@ -213,5 +213,5 @@ const EventFormComponent = ({
   );
 };
 
-const EventForm = memo(EventFormComponent);
-export default EventForm;
+const EventFormMemorized = memo(EventForm);
+export default EventFormMemorized;

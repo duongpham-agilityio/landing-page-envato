@@ -20,6 +20,10 @@ export const TIME_FORMAT_HH_MM = 'hh:mm';
 
 export const MONTH_DATE_FORMAT = 'dddd, MMMM D';
 
+export const MONTH_FORMAT = 'MMMM YYYY';
+
 export const TIME_FORMAT_12H = 'hh:mm a';
+
+export const DISPLAY_DATE_FORMAT = 'dddd MMM DD';
 
 export const LOGOUT_TIME = 1500;

@@ -11,12 +11,7 @@ import { Arrow } from '@/ui/components';
 // Themes
 import { useColorfill } from '@/ui/themes/bases';
 
-const CustomToolbarComponent = ({
-  label,
-  view,
-  onView,
-  onNavigate,
-}: ToolbarProps) => {
+const CustomToolbar = ({ label, view, onView, onNavigate }: ToolbarProps) => {
   const { primary } = useColorfill();
   const [isLargeThanMobile] = useMediaQuery('(min-width: 768px)');
 
@@ -126,6 +121,6 @@ const CustomToolbarComponent = ({
   );
 };
 
-const CustomToolbar = memo(CustomToolbarComponent);
+const CustomToolbarMemorized = memo(CustomToolbar);
 
-export default CustomToolbar;
+export default CustomToolbarMemorized;

@@ -59,7 +59,7 @@ type CalendarProps = Omit<BigCalendarProps, 'localizer'> & {
   onDeleteEvent: (id: string) => void;
 };
 
-const CalendarComponent = ({
+const Calendar = ({
   events = [],
   onAddEvent,
   onEditEvent,
@@ -298,6 +298,6 @@ const CalendarComponent = ({
   );
 };
 
-const Calendar = memo(CalendarComponent, isEqual);
+const CalendarMemorized = memo(Calendar, isEqual);
 
-export default Calendar;
+export default CalendarMemorized;

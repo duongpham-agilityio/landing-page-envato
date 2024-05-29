@@ -7,7 +7,7 @@ interface EventDetailProps {
   time: string;
 }
 
-const EventDetailComponent = ({ title, time }: EventDetailProps) => (
+const EventDetail = ({ title, time }: EventDetailProps) => (
   <Box minW={{ md: 500 }} pb={4}>
     <Heading fontWeight="medium" color="text.primary">
       {title}
@@ -18,6 +18,6 @@ const EventDetailComponent = ({ title, time }: EventDetailProps) => (
   </Box>
 );
 
-const EventDetail = memo(EventDetailComponent);
+const EventDetailMemorized = memo(EventDetail);
 
-export default EventDetail;
+export default EventDetailMemorized;
