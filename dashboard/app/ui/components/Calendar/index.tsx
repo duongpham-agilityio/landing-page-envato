@@ -17,7 +17,12 @@ import isEqual from 'react-fast-compare';
 import dayjs from 'dayjs';
 
 // Components
-import { CustomToolBar, EventForm, EventDetails } from '@/ui/components';
+import {
+  CustomToolBar,
+  EventForm,
+  EventDetails,
+  ConfirmDeleteModal,
+} from '@/ui/components';
 
 // Types
 import { TEvent } from '@/lib/interfaces';
@@ -35,9 +40,6 @@ import { useColorfill } from '@/ui/themes/bases/colors';
 
 // Lazy loading components
 const Modal = dynamic(() => import('@/ui/components/common/Modal'));
-const ConfirmDeleteModal = dynamic(
-  () => import('@/ui/components/common/Table/Body/ConfirmDeleteModal'),
-);
 
 // Styles
 import 'react-big-calendar/lib/css/react-big-calendar.css';

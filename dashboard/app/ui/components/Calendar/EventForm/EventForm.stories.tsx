@@ -18,5 +18,10 @@ export default meta;
 type Story = StoryObj<typeof EventForm>;
 
 export const Default: Story = {
-  args: {},
+  args: {
+    eventName: 'Event 1',
+    date: '2024-05-30',
+    startTime: '08:30',
+    endTime: '09:00',
+  },
 };

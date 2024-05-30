@@ -30,7 +30,7 @@ const CustomToolbar = ({ label, view, onView, onNavigate }: ToolbarProps) => {
 
   const renderNextBackBtn = useMemo(
     () => (
-      <Flex>
+      <Flex gap={{ base: 1, md: 0 }}>
         <Button
           aria-label="btn-back"
           variant="iconSecondary"

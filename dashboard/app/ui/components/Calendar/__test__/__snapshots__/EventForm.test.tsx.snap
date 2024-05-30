@@ -28,7 +28,7 @@ exports[`EventForm component EventForm component renders correctly 1`] = `
             id="field-:r0:"
             name="eventName"
             type="text"
-            value="Event 1"
+            value=""
           />
         </div>
       </div>
