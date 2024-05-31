@@ -61,8 +61,8 @@ export const useEvents = () => {
       queryClient.setQueryData(
         [END_POINTS.EVENT, userId],
         (oldData: AxiosResponse<TEventsResponse>) => {
-          const { data } = oldData || {};
-          const { result = [] } = data || {};
+          const { data } = oldData;
+          const { result } = data;
 
           const dataUpdated = {
             ...data,
@@ -89,17 +89,12 @@ export const useEvents = () => {
       queryClient.setQueryData(
         [END_POINTS.EVENT, userId],
         (oldData: AxiosResponse<TEventsResponse>) => {
-          const { data } = oldData || {};
-          const { result: events = [] } = data || {};
+          const { data } = oldData;
+          const { result: events } = data;
 
           const updatedEvents = events.map((item) => {
-            const { _id: itemId = '' } = item || {};
-            const {
-              eventId = '',
-              eventName = '',
-              startTime = '',
-              endTime = '',
-            } = variables || {};
+            const { _id: itemId } = item;
+            const { eventId, eventName, startTime, endTime } = variables;
 
             return itemId === eventId
               ? {
@@ -136,12 +131,12 @@ export const useEvents = () => {
       queryClient.setQueryData(
         [END_POINTS.EVENT, userId],
         (oldData: AxiosResponse<TEventsResponse>) => {
-          const { data } = oldData || {};
-          const { result: events = [] } = data || {};
+          const { data } = oldData;
+          const { result: events } = data;
 
           const updatedEvents = events.filter((item) => {
-            const { _id: itemId = '' } = item || {};
-            const { eventId = '' } = variables || {};
+            const { _id: itemId } = item;
+            const { eventId } = variables;
 
             return itemId !== eventId;
           });

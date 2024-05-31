@@ -27,8 +27,8 @@
 }
 
 .rbc-month-row .rbc-date-cell {
-  font-size: 18px;
-  line-height: 18px;
+  font-size: 20px;
+  line-height: 20px;
   color: light-dark(
     var(--c-calendar-m-cell-light),
     var(--c-calendar-m-cell-dark)
@@ -43,17 +43,25 @@
   color: var(--c-calendar-m-first-last-column-cell);
 }
 
+.rbc-month-row .rbc-now.rbc-date-cell {
+  color: var(--c-calendar-m-today-cell);
+}
+
+.rbc-month-row .rbc-now.rbc-date-cell .rbc-button-link {
+  font-weight: 700;
+}
+
 .rbc-month-row .rbc-off-range.rbc-date-cell {
   color: var(--c-calendar-m-off-range-cell);
+}
+
+.rbc-month-row .rbc-off-range.rbc-date-cell .rbc-button-link {
+  font-weight: 500;
 }
 
 .rbc-month-row .rbc-off-range.rbc-date-cell:first-child,
 .rbc-off-range.rbc-date-cell:last-child {
   color: var(--c-calendar-m-first-last-column-off-range-cell);
-}
-
-.rbc-month-row .rbc-now.rbc-date-cell {
-  color: var(--c-calendar-m-today-cell);
 }
 
 .rbc-month-row .rbc-off-range-bg {

@@ -59,16 +59,18 @@ type CalendarProps = Omit<BigCalendarProps, 'localizer'> & {
   onAddEvent: (data: Omit<TEvent, '_id'>) => void;
   onEditEvent: (data: TEvent) => void;
   onDeleteEvent: (id: string) => void;
+  onSetDate: (date: Date) => void;
 };
 
 const Calendar = ({
-  events = [],
+  events,
+  date,
   onAddEvent,
   onEditEvent,
   onDeleteEvent,
+  onSetDate,
   ...rest
 }: CalendarProps) => {
-  const [date, setDate] = useState(new Date());
   const [view, setView] = useState<ViewType>(Views.MONTH);
   const [isAddEvent, setIsAddEvent] = useState(true);
   const [isOpenEventFormModal, setIsOpenEventFormModal] = useState(false);
@@ -149,16 +151,6 @@ const Calendar = ({
     setIsOpenEventFormModal((prev) => !prev);
   }, []);
 
-  const handleNavigate = useCallback(
-    (newDate: Date) => setDate(newDate),
-    [setDate],
-  );
-
-  const handleView = useCallback(
-    (newView: ViewType) => setView(newView),
-    [setView],
-  );
-
   const handleSelectSlot = useCallback(
     (slotInfo: SlotInfo) => {
       setIsAddEvent(true);
@@ -238,11 +230,11 @@ const Calendar = ({
         startAccessor="start"
         endAccessor="end"
         date={date}
-        onNavigate={handleNavigate}
+        onNavigate={onSetDate}
         defaultView={Views.MONTH}
         view={view}
         views={[Views.MONTH, Views.WEEK, Views.DAY]}
-        onView={handleView}
+        onView={setView}
         onSelectSlot={handleSelectSlot}
         onSelectEvent={handleSelectEvent}
         components={{ toolbar: CustomToolBar }}

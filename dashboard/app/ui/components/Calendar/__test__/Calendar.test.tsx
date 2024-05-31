@@ -12,6 +12,7 @@ const mockProps = {
   onDeleteEvent: jest.fn(),
   onAddEvent: jest.fn(),
   onEditEvent: jest.fn(),
+  onSetDate: jest.fn(),
 };
 
 const { render } = testLibReactUtils;

@@ -1,7 +1,7 @@
 'use client';
 
 // Libs
-import { useCallback, useMemo } from 'react';
+import { useCallback, useMemo, useState } from 'react';
 import { Box, Flex, Grid, GridItem, useToast } from '@chakra-ui/react';
 import { InView } from 'react-intersection-observer';
 import dynamic from 'next/dynamic';
@@ -31,6 +31,7 @@ const CardPayment = dynamic(() => import('@/ui/components/CardPayment'));
 
 const CalendarSection = () => {
   const toast = useToast();
+  const [date, setDate] = useState(new Date());
 
   // Auth Store
   const { user } = authStore();
@@ -52,7 +53,7 @@ const CalendarSection = () => {
   const formattedEvents = useMemo(
     () =>
       events.map((event) => {
-        const { eventName = '', startTime = '', endTime = '' } = event || {};
+        const { eventName = '', startTime, endTime } = event || {};
 
         return {
           ...event,
@@ -64,15 +65,20 @@ const CalendarSection = () => {
     [events],
   );
 
-  const handleAddEventSuccess = useCallback(() => {
-    toast(
-      customToast(
-        SUCCESS_MESSAGES.CREATE_EVENT_SUCCESS.title,
-        SUCCESS_MESSAGES.CREATE_EVENT_SUCCESS.description,
-        STATUS.SUCCESS,
-      ),
-    );
-  }, [toast]);
+  const handleAddEventSuccess = useCallback(
+    (eventDate: Date) => {
+      setDate(eventDate);
+
+      toast(
+        customToast(
+          SUCCESS_MESSAGES.CREATE_EVENT_SUCCESS.title,
+          SUCCESS_MESSAGES.CREATE_EVENT_SUCCESS.description,
+          STATUS.SUCCESS,
+        ),
+      );
+    },
+    [toast],
+  );
 
   const handleAddEventError = useCallback(() => {
     toast(
@@ -86,28 +92,36 @@ const CalendarSection = () => {
 
   const handleAddEvent = useCallback(
     (data: Omit<TEvent, '_id'>) => {
+      const { startTime } = data;
+      const eventDate = new Date(startTime);
+
       const payload = {
         ...data,
         userId,
       };
 
       addEvent(payload, {
-        onSuccess: handleAddEventSuccess,
+        onSuccess: () => handleAddEventSuccess(eventDate),
         onError: handleAddEventError,
       });
     },
     [addEvent, handleAddEventError, handleAddEventSuccess, userId],
   );
 
-  const handleUpdateEventSuccess = useCallback(() => {
-    toast(
-      customToast(
-        SUCCESS_MESSAGES.UPDATE_EVENT_SUCCESS.title,
-        SUCCESS_MESSAGES.UPDATE_EVENT_SUCCESS.description,
-        STATUS.SUCCESS,
-      ),
-    );
-  }, [toast]);
+  const handleUpdateEventSuccess = useCallback(
+    (eventDate: Date) => {
+      setDate(eventDate);
+
+      toast(
+        customToast(
+          SUCCESS_MESSAGES.UPDATE_EVENT_SUCCESS.title,
+          SUCCESS_MESSAGES.UPDATE_EVENT_SUCCESS.description,
+          STATUS.SUCCESS,
+        ),
+      );
+    },
+    [toast],
+  );
 
   const handleUpdateEventError = useCallback(() => {
     toast(
@@ -121,6 +135,9 @@ const CalendarSection = () => {
 
   const handleUpdateEvent = useCallback(
     (data: TEvent) => {
+      const { startTime } = data;
+      const eventDate = new Date(startTime);
+
       const payload = {
         ...data,
         userId,
@@ -128,7 +145,7 @@ const CalendarSection = () => {
       };
 
       updateEvent(payload, {
-        onSuccess: handleUpdateEventSuccess,
+        onSuccess: () => handleUpdateEventSuccess(eventDate),
         onError: handleUpdateEventError,
       });
     },
@@ -195,6 +212,8 @@ const CalendarSection = () => {
                 >
                   <Calendar
                     events={formattedEvents}
+                    date={date}
+                    onSetDate={setDate}
                     onAddEvent={handleAddEvent}
                     onEditEvent={handleUpdateEvent}
                     onDeleteEvent={handleDeleteEvent}
