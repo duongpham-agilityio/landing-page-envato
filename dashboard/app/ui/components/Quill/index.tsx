@@ -1,6 +1,6 @@
 import dynamic from 'next/dynamic';
 
-import { useCallback, useEffect, useId } from 'react';
+import { useCallback, useEffect, useId, memo } from 'react';
 import { VStack, Flex, Text } from '@chakra-ui/react';
 import 'react-quill/dist/quill.snow.css';
 import { Controller, useForm } from 'react-hook-form';
@@ -164,4 +164,6 @@ const Quill = ({
   );
 };
 
-export default Quill;
+const QuillMemorized = memo(Quill);
+
+export default QuillMemorized;

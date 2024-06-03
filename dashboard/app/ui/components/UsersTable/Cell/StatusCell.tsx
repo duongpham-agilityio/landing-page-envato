@@ -5,10 +5,7 @@ type TStatusProps = BadgeProps & {
   text?: string | number | boolean;
 };
 
-const StatusComponent = ({
-  text = '',
-  ...props
-}: TStatusProps): JSX.Element => (
+const Status = ({ text = '', ...props }: TStatusProps): JSX.Element => (
   <Td
     py={5}
     px={0}
@@ -32,6 +29,6 @@ const StatusComponent = ({
   </Td>
 );
 
-const StatusCell = memo(StatusComponent);
+const StatusCellMemorized = memo(Status);
 
-export default StatusCell;
+export default StatusCellMemorized;

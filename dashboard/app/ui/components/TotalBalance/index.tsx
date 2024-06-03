@@ -38,7 +38,7 @@ export type TAddMoneyForm = {
   amount: string;
 };
 
-const TotalBalanceComponent = (): JSX.Element => {
+const TotalBalance = (): JSX.Element => {
   const user = authStore((state): TAuthStoreData['user'] => state.user);
 
   const { setUser } = useAuth();
@@ -308,6 +308,6 @@ const TotalBalanceComponent = (): JSX.Element => {
   );
 };
 
-const TotalBalance = memo(TotalBalanceComponent);
+const TotalBalanceMemorized = memo(TotalBalance);
 
-export default TotalBalance;
+export default TotalBalanceMemorized;

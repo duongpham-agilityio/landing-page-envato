@@ -1,5 +1,5 @@
+// Libs
 import { memo, useCallback } from 'react';
-import isEqual from 'react-fast-compare';
 import {
   Drawer,
   DrawerBody,
@@ -111,5 +111,5 @@ const ExpandSidebar = ({
   );
 };
 
-const ExpandSidebarComponent = memo(ExpandSidebar, isEqual);
+const ExpandSidebarComponent = memo(ExpandSidebar);
 export default ExpandSidebarComponent;

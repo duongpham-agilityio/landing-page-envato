@@ -13,7 +13,7 @@ import { THEMES } from '@/lib/constants';
 // Themes
 import { colors } from '@/ui/themes/bases';
 
-const SwitchThemeComponent = () => {
+const SwitchTheme = () => {
   const { colorMode, toggleColorMode } = useColorMode();
 
   const icons: Record<ColorMode, ReactElement> = {
@@ -35,6 +35,6 @@ const SwitchThemeComponent = () => {
   );
 };
 
-const SwitchTheme = memo(SwitchThemeComponent);
+const SwitchThemeMemorized = memo(SwitchTheme);
 
-export default SwitchTheme;
+export default SwitchThemeMemorized;

@@ -14,7 +14,7 @@ const RevenueFlow = lazy(() => import('@/ui/components/RevenueFlow'));
 const Efficiency = lazy(() => import('@/ui/components/Efficiency'));
 const TransactionTable = lazy(() => import('@/ui/components/TransactionTable'));
 
-const DashBoardSection = () => (
+const DashBoard = () => (
   <Grid
     display={{ sm: 'block', md: 'grid' }}
     bg="background.body.primary"
@@ -96,4 +96,4 @@ const DashBoardSection = () => (
   </Grid>
 );
 
-export default DashBoardSection;
+export default DashBoard;

@@ -9,6 +9,7 @@ import {
   Text,
 } from '@chakra-ui/react';
 import { Control, Controller } from 'react-hook-form';
+import isEqual from 'react-fast-compare';
 
 // Constants
 import { AUTH_SCHEMA } from '@/lib/constants';
@@ -105,5 +106,5 @@ const EnterMoneyComponent = ({
   </>
 );
 
-const EnterMoney = memo(EnterMoneyComponent);
+const EnterMoney = memo(EnterMoneyComponent, isEqual);
 export default EnterMoney;

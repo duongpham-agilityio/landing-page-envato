@@ -57,9 +57,7 @@ interface TFilterUserProps {
   isOpenHistoryModal?: boolean;
 }
 
-const TransactionTableComponent = ({
-  isOpenHistoryModal = false,
-}: TFilterUserProps) => {
+const TransactionTable = ({ isOpenHistoryModal = false }: TFilterUserProps) => {
   const toast = useToast();
   const userId = authStore((state) => state.user?.id);
   const { get, setSearchParam: setSearchTransaction } = useSearch();
@@ -424,6 +422,6 @@ const TransactionTableComponent = ({
   );
 };
 
-const TransactionTable = memo(TransactionTableComponent);
+const TransactionTableMemorized = memo(TransactionTable);
 
-export default TransactionTable;
+export default TransactionTableMemorized;
