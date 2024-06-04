@@ -22,14 +22,11 @@ import { ERROR_MESSAGES, STATUS, SUCCESS_MESSAGES } from '@/lib/constants';
 // Utils
 import { customToast } from '@/lib/utils';
 
-// Components
-import { Indicator } from '@/ui/components';
-
 // dynamic loading components
-const CalendarComponent = dynamic(() => import('@/ui/components/Calendar'));
+const Calendar = dynamic(() => import('@/ui/components/Calendar'));
 const CardPayment = dynamic(() => import('@/ui/components/CardPayment'));
 
-const Calendar = () => {
+const CalendarSection = () => {
   const toast = useToast();
   const [date, setDate] = useState(new Date());
 
@@ -49,6 +46,8 @@ const Calendar = () => {
   } = useEvents();
 
   const { id: userId = '' } = user || {};
+  const isLoading =
+    isLoadingEvents || isAddEvent || isUpdateEvent || isDeleteEvent;
 
   const formattedEvents = useMemo(
     () =>
@@ -188,58 +187,55 @@ const Calendar = () => {
   );
 
   return (
-    <Indicator
-      isOpen={isLoadingEvents || isAddEvent || isUpdateEvent || isDeleteEvent}
+    <Grid
+      bg="background.body.primary"
+      py={12}
+      px={{ base: 6, xl: 12 }}
+      templateColumns={{ base: 'repeat(1, 1fr)', '2xl': 'repeat(4, 1fr)' }}
+      display={{ sm: 'block', md: 'grid' }}
+      gap={{ base: 0, '2xl': 12 }}
     >
-      <Grid
-        bg="background.body.primary"
-        py={12}
-        px={{ base: 6, xl: 12 }}
-        templateColumns={{ base: 'repeat(1, 1fr)', '2xl': 'repeat(4, 1fr)' }}
-        display={{ sm: 'block', md: 'grid' }}
-        gap={{ base: 0, '2xl': 12 }}
-      >
-        <InView>
-          {({ inView, ref }) => (
-            <GridItem colSpan={3} ref={ref}>
-              {inView && (
-                <Box
-                  as="section"
-                  bgColor="background.component.primary"
-                  borderRadius={8}
-                  px={{ base: 4, md: 10 }}
-                  py={{ base: 4, md: 5 }}
-                >
-                  <CalendarComponent
-                    events={formattedEvents}
-                    date={date}
-                    onSetDate={setDate}
-                    onAddEvent={handleAddEvent}
-                    onEditEvent={handleUpdateEvent}
-                    onDeleteEvent={handleDeleteEvent}
-                  />
-                </Box>
-              )}
-            </GridItem>
-          )}
-        </InView>
-        <InView>
-          {({ inView, ref }) => (
-            <GridItem mt={{ base: 6, '2xl': 0 }} ref={ref}>
-              {inView && (
-                <Flex
-                  direction={{ base: 'column', lg: 'row', xl: 'column' }}
-                  gap={6}
-                >
-                  <CardPayment />
-                </Flex>
-              )}
-            </GridItem>
-          )}
-        </InView>
-      </Grid>
-    </Indicator>
+      <InView>
+        {({ inView, ref }) => (
+          <GridItem colSpan={3} ref={ref}>
+            {inView && (
+              <Box
+                as="section"
+                bgColor="background.component.primary"
+                borderRadius={8}
+                px={{ base: 4, md: 10 }}
+                py={{ base: 4, md: 5 }}
+              >
+                <Calendar
+                  events={formattedEvents}
+                  date={date}
+                  isLoading={isLoading}
+                  onSetDate={setDate}
+                  onAddEvent={handleAddEvent}
+                  onEditEvent={handleUpdateEvent}
+                  onDeleteEvent={handleDeleteEvent}
+                />
+              </Box>
+            )}
+          </GridItem>
+        )}
+      </InView>
+      <InView>
+        {({ inView, ref }) => (
+          <GridItem mt={{ base: 6, '2xl': 0 }} ref={ref}>
+            {inView && (
+              <Flex
+                direction={{ base: 'column', lg: 'row', xl: 'column' }}
+                gap={6}
+              >
+                <CardPayment />
+              </Flex>
+            )}
+          </GridItem>
+        )}
+      </InView>
+    </Grid>
   );
 };
 
-export default Calendar;
+export default CalendarSection;

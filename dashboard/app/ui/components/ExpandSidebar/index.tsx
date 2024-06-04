@@ -111,5 +111,5 @@ const ExpandSidebar = ({
   );
 };
 
-const ExpandSidebarComponent = memo(ExpandSidebar);
-export default ExpandSidebarComponent;
+const ExpandSidebarMemorized = memo(ExpandSidebar);
+export default ExpandSidebarMemorized;

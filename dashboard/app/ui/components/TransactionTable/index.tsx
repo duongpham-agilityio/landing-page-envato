@@ -145,7 +145,7 @@ const TransactionTable = ({ isOpenHistoryModal = false }: TFilterUserProps) => {
         },
       );
     },
-    [updateTransaction],
+    [toast, updateTransaction, userId],
   );
 
   const handleDeleteTransaction = useCallback(
@@ -178,7 +178,7 @@ const TransactionTable = ({ isOpenHistoryModal = false }: TFilterUserProps) => {
         },
       );
     },
-    [deleteTransaction],
+    [deleteTransaction, toast, userId],
   );
 
   // Update search params when end time debounce

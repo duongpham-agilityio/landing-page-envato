@@ -35,9 +35,10 @@ const PaginationComponent = ({
 }: PaginationProps) => {
   const colorFill = theme.colors.gray[400];
 
-  const handleNextPage = () => onPageChange(NEXT);
+  const handleNextPage = useCallback(() => onPageChange(NEXT), [onPageChange]);
 
-  const handlePrevPage = () => onPageChange(PREV);
+  const handlePrevPage = useCallback(() => onPageChange(PREV), [onPageChange]);
+
   const renderTitle = useCallback(
     () => (
       <Flex justifyContent="center">

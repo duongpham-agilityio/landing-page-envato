@@ -91,35 +91,40 @@ const TotalBalance = (): JSX.Element => {
 
   const bonusTimes = authStore((state): number => state.user?.bonusTimes ?? 0);
 
-  const handleTransferMoneySuccess = (success: {
-    title: string;
-    description: string;
-  }) => {
-    toast(customToast(success.title, success.description, STATUS.SUCCESS));
-    if (user?.bonusTimes) {
-      setUser({
-        user: {
-          ...user,
-          bonusTimes: --user.bonusTimes,
-        },
-      });
-    }
-  };
-
-  const handleTransferMoneyError = (
-    error: Error,
-    defaultError: {
-      title: string;
-      description: string;
+  const handleTransferMoneySuccess = useCallback(
+    (success: { title: string; description: string }) => {
+      toast(customToast(success.title, success.description, STATUS.SUCCESS));
+      if (user?.bonusTimes) {
+        setUser({
+          user: {
+            ...user,
+            bonusTimes: --user.bonusTimes,
+          },
+        });
+      }
     },
-  ) => {
-    const responseErrorMessage = getErrorMessageFromAxiosError(
-      error as AxiosError<TMoneyResponse>,
-      defaultError.description,
-    );
+    [setUser, toast, user],
+  );
 
-    toast(customToast(defaultError.title, responseErrorMessage, STATUS.ERROR));
-  };
+  const handleTransferMoneyError = useCallback(
+    (
+      error: Error,
+      defaultError: {
+        title: string;
+        description: string;
+      },
+    ) => {
+      const responseErrorMessage = getErrorMessageFromAxiosError(
+        error as AxiosError<TMoneyResponse>,
+        defaultError.description,
+      );
+
+      toast(
+        customToast(defaultError.title, responseErrorMessage, STATUS.ERROR),
+      );
+    },
+    [toast],
+  );
 
   const onSubmitAddMoney: SubmitHandler<TAddMoneyForm> = useCallback(
     (data) => {
@@ -138,14 +143,19 @@ const TotalBalance = (): JSX.Element => {
           handleTransferMoneyError(error, ERROR_MESSAGES.ADD_MONEY),
       });
     },
-    [addMoneyToUserWallet],
+    [
+      addMoneyToUserWallet,
+      bonusTimes,
+      handleTransferMoneyError,
+      handleTransferMoneySuccess,
+    ],
   );
 
   const hasPinCode = user?.pinCode;
 
-  const handleOnSubmitAddMoney = () => {
+  const handleOnSubmitAddMoney = useCallback(() => {
     hasPinCode ? onOpenConfirmPinCodeModal() : onOpenSetPinCodeModal();
-  };
+  }, [hasPinCode, onOpenConfirmPinCodeModal, onOpenSetPinCodeModal]);
 
   const onSubmitPinCode: SubmitHandler<TPinCodeForm> = useCallback(
     async (data) => {

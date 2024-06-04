@@ -73,7 +73,10 @@ const RecentActivitiesTable = () => {
     setSearchTransaction('keyword', value);
   }, []);
 
-  const handleClickPage = (value: number) => setCurrentPage(value);
+  const handleClickPage = useCallback(
+    (value: number) => setCurrentPage(value),
+    [setCurrentPage],
+  );
 
   const handlePageChange = useCallback(
     (direction: string) =>

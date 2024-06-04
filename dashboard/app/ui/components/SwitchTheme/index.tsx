@@ -1,6 +1,6 @@
 'use client';
 
-import { ReactElement, memo } from 'react';
+import { ReactElement, memo, useCallback } from 'react';
 import { ColorMode, useColorMode } from '@chakra-ui/react';
 
 // Components
@@ -21,12 +21,12 @@ const SwitchTheme = () => {
     dark: <DarkTheme color={colors.common.white} />,
   };
 
-  const handleToggleColorMode = () => {
+  const handleToggleColorMode = useCallback(() => {
     toggleColorMode();
     document.cookie = `colormode=${
       colorMode === THEMES.DARK ? THEMES.LIGHT : THEMES.DARK
     }`;
-  };
+  }, [colorMode, toggleColorMode]);
 
   return (
     <IconButton ariaLabel="switch-theme" onClick={handleToggleColorMode}>

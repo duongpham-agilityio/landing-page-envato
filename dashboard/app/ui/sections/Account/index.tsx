@@ -24,7 +24,7 @@ const Account = ({ children }: TAccountProps): JSX.Element => {
   const pathForgotPassword = pathname === `/${ROUTES.FORGOT_PASSWORD}`;
   const pathLogin = pathname === `/${ROUTES.LOGIN}`;
 
-  const title: string = pathForgotPassword
+  const title = pathForgotPassword
     ? TITLES.FORGOT_PASSWORD
     : pathLogin
       ? TITLES.SIGN_IN

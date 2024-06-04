@@ -22,6 +22,7 @@ import {
   EventForm,
   EventDetails,
   ConfirmDeleteModal,
+  Indicator,
 } from '@/ui/components';
 
 // Types
@@ -56,6 +57,7 @@ const localizer = dayjsLocalizer(dayjs);
 
 type CalendarProps = Omit<BigCalendarProps, 'localizer'> & {
   events: (Event & Pick<TEvent, '_id'>)[];
+  isLoading?: boolean;
   onAddEvent: (data: Omit<TEvent, '_id'>) => void;
   onEditEvent: (data: TEvent) => void;
   onDeleteEvent: (id: string) => void;
@@ -65,6 +67,7 @@ type CalendarProps = Omit<BigCalendarProps, 'localizer'> & {
 const Calendar = ({
   events,
   date,
+  isLoading = false,
   onAddEvent,
   onEditEvent,
   onDeleteEvent,
@@ -222,7 +225,7 @@ const Calendar = ({
   );
 
   return (
-    <>
+    <Indicator isOpen={isLoading}>
       <BigCalendar
         {...rest}
         localizer={localizer}
@@ -288,7 +291,7 @@ const Calendar = ({
           haveCloseButton
         />
       )}
-    </>
+    </Indicator>
   );
 };
 

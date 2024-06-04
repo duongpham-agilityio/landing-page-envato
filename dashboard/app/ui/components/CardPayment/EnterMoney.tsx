@@ -25,7 +25,7 @@ export type TEnterMoneyProps = {
   isDisabled?: boolean;
 };
 
-const EnterMoneyComponent = ({
+const EnterMoney = ({
   control,
   isDisabled = false,
 }: TEnterMoneyProps): JSX.Element => (
@@ -106,5 +106,5 @@ const EnterMoneyComponent = ({
   </>
 );
 
-const EnterMoney = memo(EnterMoneyComponent, isEqual);
-export default EnterMoney;
+const EnterMoneyMemorized = memo(EnterMoney, isEqual);
+export default EnterMoneyMemorized;
