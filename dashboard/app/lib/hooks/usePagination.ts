@@ -48,7 +48,7 @@ export const usePagination = <T>(transactions: T[]) => {
       ...data,
       arrOfCurrButtons: tempNumberOfButtons,
     });
-  }, [arrOfCurrButtons, currentPage, data, limit, totalCount]);
+  }, [currentPage, limit, totalCount]);
 
   const handleChangeLimit = useCallback(
     (limit: TOption) => {
