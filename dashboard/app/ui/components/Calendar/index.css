@@ -193,7 +193,8 @@
 
 .rbc-day-slot,
 .rbc-day-bg,
-.rbc-date-cell {
+.rbc-date-cell,
+.rbc-row-content {
   cursor: pointer;
 }
 

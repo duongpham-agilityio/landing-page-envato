@@ -40,7 +40,6 @@ export const MOCK_ADD_EVENT_PAYLOAD: AddEventPayload = {
   eventName: 'Event 3',
   startTime: '2024-05-20 01:30',
   endTime: '2024-05-20 05:30',
-  userId: '6593beacff649fc6c4d2964b',
 };
 
 export const MOCK_ADD_EVENT_SUCCESS_RES: AxiosResponse<
@@ -49,6 +48,7 @@ export const MOCK_ADD_EVENT_SUCCESS_RES: AxiosResponse<
   data: {
     ...MOCK_ADD_EVENT_PAYLOAD,
     _id: '664576b910c4c653733941c3',
+    userId: '6593beacff649fc6c4d2964c',
   },
   status: 200,
   statusText: 'Ok',
@@ -63,12 +63,10 @@ export const MOCK_UPDATE_EVENT_PAYLOAD: UpdateEventPayload = {
   eventName: 'Event 1 Update',
   startTime: MOCK_EVENTS[0].startTime,
   endTime: MOCK_EVENTS[0].endTime,
-  userId: '6593beacff649fc6c4d2964b',
 };
 
 export const MOCK_DELETE_EVENT_PAYLOAD: DeleteEventPayload = {
   eventId: MOCK_EVENTS[1]._id,
-  userId: '6593beacff649fc6c4d2964c',
 };
 
 export const MOCK_FORMATTED_EVENTS: (Event & Pick<TEvent, '_id'>)[] = [

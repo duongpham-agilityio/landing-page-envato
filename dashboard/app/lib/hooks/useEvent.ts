@@ -49,7 +49,10 @@ export const useEvents = () => {
       (
         await mainHttpService.post<AddEventResponse>({
           path: END_POINTS.EVENT,
-          data: eventData,
+          data: {
+            ...eventData,
+            userId,
+          },
           userId,
           actionName: EActivity.ADD_EVENT,
           onActivity: logActivity,
@@ -80,7 +83,10 @@ export const useEvents = () => {
     mutationFn: (eventData: UpdateEventPayload) =>
       mainHttpService.put({
         path: END_POINTS.EVENT,
-        data: eventData,
+        data: {
+          ...eventData,
+          userId,
+        },
         userId,
         actionName: EActivity.UPDATE_EVENT,
         onActivity: logActivity,
@@ -122,7 +128,7 @@ export const useEvents = () => {
     mutationFn: (payload: DeleteEventPayload) =>
       mainHttpService.delete({
         path: END_POINTS.EVENT,
-        data: { data: payload },
+        data: { data: { ...payload, userId } },
         userId,
         actionName: EActivity.DELETE_EVENT,
         onActivity: logActivity,

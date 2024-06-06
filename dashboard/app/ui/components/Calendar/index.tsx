@@ -21,7 +21,7 @@ import {
   CustomToolBar,
   EventForm,
   EventDetails,
-  ConfirmDeleteModal,
+  ConfirmDeleteModal as ConfirmDeleteModalBody,
   Indicator,
 } from '@/ui/components';
 
@@ -282,7 +282,7 @@ const Calendar = ({
           onClose={handleToggleConfirmModal}
           title="Delete Event"
           body={
-            <ConfirmDeleteModal
+            <ConfirmDeleteModalBody
               itemName={selectedEventTitle}
               onDeleteProduct={handleDeleteEvent}
               onCloseModal={handleToggleConfirmModal}
