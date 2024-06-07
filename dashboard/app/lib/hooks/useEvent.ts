@@ -1,6 +1,5 @@
 // Libs
 import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
-import { AxiosResponse } from 'axios';
 
 // Constants
 import { END_POINTS, DEFAULT_PAGE } from '@/lib/constants';
@@ -31,17 +30,19 @@ export const useEvents = () => {
   const { id: userId = '' } = user || {};
 
   // Get events
-  const { data: res, ...query } = useQuery<AxiosResponse<TEventsResponse>>({
+  const { data: res, ...query } = useQuery<TEventsResponse>({
     queryKey: [END_POINTS.EVENT, userId],
-    queryFn: () =>
-      mainHttpService.get<TEventsResponse>({
-        path: END_POINTS.EVENT,
-        userId,
-        page: DEFAULT_PAGE,
-      }),
+    queryFn: async () =>
+      (
+        await mainHttpService.get<TEventsResponse>({
+          path: END_POINTS.EVENT,
+          userId,
+          page: DEFAULT_PAGE,
+        })
+      ).data,
   });
 
-  const { result = [], totalPage = 0 } = res?.data || {};
+  const { result = [], totalPage = 0 } = res || {};
 
   // Add an event
   const { mutate: addEvent, isPending: isAddEvent } = useMutation({
@@ -63,16 +64,15 @@ export const useEvents = () => {
 
       queryClient.setQueryData(
         [END_POINTS.EVENT, userId],
-        (oldData: AxiosResponse<TEventsResponse>) => {
-          const { data } = oldData;
-          const { result } = data;
+        (oldData: TEventsResponse) => {
+          const { result = [] } = oldData || {};
 
           const dataUpdated = {
-            ...data,
+            ...oldData,
             result: [newData, ...result],
           };
 
-          return { data: dataUpdated };
+          return dataUpdated;
         },
       );
     },
@@ -94,13 +94,17 @@ export const useEvents = () => {
     onSuccess: (_, variables) => {
       queryClient.setQueryData(
         [END_POINTS.EVENT, userId],
-        (oldData: AxiosResponse<TEventsResponse>) => {
-          const { data } = oldData;
-          const { result: events } = data;
+        (oldData: TEventsResponse) => {
+          const { result: events = [] } = oldData || {};
 
           const updatedEvents = events.map((item) => {
-            const { _id: itemId } = item;
-            const { eventId, eventName, startTime, endTime } = variables;
+            const { _id: itemId = '' } = item || {};
+            const {
+              eventId = '',
+              eventName = '',
+              startTime = '',
+              endTime = '',
+            } = variables || {};
 
             return itemId === eventId
               ? {
@@ -113,11 +117,11 @@ export const useEvents = () => {
           });
 
           const updatedData = {
-            ...data,
+            ...oldData,
             result: updatedEvents,
           };
 
-          return { data: updatedData };
+          return updatedData;
         },
       );
     },
@@ -136,9 +140,8 @@ export const useEvents = () => {
     onSuccess: (_, variables) => {
       queryClient.setQueryData(
         [END_POINTS.EVENT, userId],
-        (oldData: AxiosResponse<TEventsResponse>) => {
-          const { data } = oldData;
-          const { result: events } = data;
+        (oldData: TEventsResponse) => {
+          const { result: events } = oldData;
 
           const updatedEvents = events.filter((item) => {
             const { _id: itemId } = item;
@@ -148,11 +151,11 @@ export const useEvents = () => {
           });
 
           const updatedData = {
-            ...data,
+            ...oldData,
             result: updatedEvents,
           };
 
-          return { data: updatedData };
+          return updatedData;
         },
       );
     },
