@@ -347,10 +347,10 @@ const ProductsTable = () => {
   type TStatus = keyof typeof STATUS_LABEL;
 
   const renderProductStatus = useCallback(
-    (productStatus: string): JSX.Element => (
+    ({ productStatus }: TDataSource): JSX.Element => (
       <StatusCell
         variant={STATUS_LABEL[`${productStatus}` as TStatus]}
-        text={productStatus}
+        text={productStatus as string}
       />
     ),
     [],
