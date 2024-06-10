@@ -31,7 +31,7 @@ import { formatUserResponse } from '@/lib/utils';
 type TUsersProps = {
   users: TUserDetail[];
   data?: PaginationType;
-  arrOfCurrButtons?: (string | number)[];
+  arrOfCurrButtons?: string[];
   isDisabledPrev?: boolean;
   isDisableNext?: boolean;
   onChangeLimit: (limit: TOption) => void;

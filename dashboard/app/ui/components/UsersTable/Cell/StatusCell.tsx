@@ -2,7 +2,7 @@ import { Badge, BadgeProps, Td, Tooltip } from '@chakra-ui/react';
 import { memo } from 'react';
 
 type TStatusProps = BadgeProps & {
-  text?: string | number | boolean;
+  text: string;
 };
 
 const Status = ({ text = '', ...props }: TStatusProps): JSX.Element => (

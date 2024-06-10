@@ -17,7 +17,7 @@ interface PaginationProps {
   currentPage?: number;
   isDisabledPrev?: boolean;
   isDisableNext?: boolean;
-  arrOfCurrButtons?: (number | string)[];
+  arrOfCurrButtons?: string[];
   onPageChange?: (direction: string) => void;
   onLimitChange?: (limit: TOption) => void;
   onClickPage?: (currentPage: number) => void;
@@ -85,9 +85,9 @@ const PaginationComponent = ({
           <Arrow color={colorFill} rotate="90deg" />
         </Button>
         <Flex alignItems="center">
-          {arrOfCurrButtons.map((item: string | number) => {
-            const isDots = item.toString() === '...';
-            const isDisable = currentPage === item || isDots;
+          {arrOfCurrButtons.map((item: string) => {
+            const isDots = item === '...';
+            const isDisable = currentPage === +item || isDots;
             const hoverStyle = isDots
               ? {}
               : {
@@ -100,7 +100,7 @@ const PaginationComponent = ({
                   color: 'text.quaternary',
                   bg: 'background.body.quinary',
                 };
-            const handleClickPage = () => onClickPage(item as number);
+            const handleClickPage = () => onClickPage(+item);
             return (
               <Button
                 key={item}
@@ -112,12 +112,12 @@ const PaginationComponent = ({
                 fontSize={{ base: 'xs', lg: 'sm' }}
                 px={{ base: 4, '2xl': 6 }}
                 bg={
-                  currentPage === item
+                  currentPage === +item
                     ? 'background.body.quinary'
                     : 'transparent'
                 }
                 color={
-                  currentPage === item ? 'text.quaternary' : 'secondary.250'
+                  currentPage === +item ? 'text.quaternary' : 'secondary.250'
                 }
                 {...(isDots && { cursor: 'not-allowed' })}
                 _hover={hoverStyle}

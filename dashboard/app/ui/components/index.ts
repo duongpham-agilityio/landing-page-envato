@@ -20,7 +20,7 @@ export { default as Button } from './common/Button';
 export { default as Table } from './common/Table';
 export { default as CustomerNameCell } from './common/Table/Body/CustomerNameCell';
 export { default as ProductNameCell } from './common/Table/Body/ProductNameCell';
-export { default as ConfirmDeleteModal } from './common/Table/Body/ConfirmDeleteModal';
+export { default as ConfirmDeleteModalBody } from './common/Table/Body/ConfirmDeleteModalBody';
 export { default as ActionCell } from './common/Table/Body/ActionCell';
 export { default as UserInfoCell } from './UsersTable/Cell/UserInfoCell';
 export { default as StatusCell } from './UsersTable/Cell/StatusCell';
