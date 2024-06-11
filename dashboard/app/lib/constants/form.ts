@@ -196,3 +196,13 @@ export const EVENT_SCHEMA = {
     required: ERROR_MESSAGES.FIELD_REQUIRED('End time'),
   },
 };
+
+export const QUILL_SCHEMA = {
+  MESSAGES: {
+    validate: (value: string) => {
+      const filterMessage = value.replace(REGEX.HTML_TAG_PATTERN, '').trim();
+
+      return !!filterMessage;
+    },
+  },
+};

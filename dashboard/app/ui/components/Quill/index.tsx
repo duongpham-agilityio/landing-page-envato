@@ -10,7 +10,7 @@ import { SendIconLight } from '..';
 import CustomButton from '@/ui/components/common/Button';
 
 // Constants
-import { IMAGES, REGEX } from '@/lib/constants';
+import { IMAGES, QUILL_SCHEMA, REGEX } from '@/lib/constants';
 
 // Hooks
 import { sendMessage } from '@/lib/utils';
@@ -115,6 +115,7 @@ const Quill = ({
       <Flex direction="column" width="full">
         <Controller
           control={control}
+          rules={QUILL_SCHEMA.MESSAGES}
           name="text"
           render={({ field: { onChange, ...rest } }) => (
             <Flex direction="row" alignItems="center">
