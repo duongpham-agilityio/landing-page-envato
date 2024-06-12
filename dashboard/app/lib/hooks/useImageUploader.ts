@@ -58,12 +58,15 @@ export const useUploadProductImageFiles = (imageURLs: string[] = []) => {
   const handleRemoveImage = useCallback(
     (index: number) => {
       const updatedImages = [...previewURLs];
+      const updatedFiles = [...imageFiles];
       updatedImages.splice(index, 1);
+      updatedFiles.splice(index, 1);
 
       setPreviewURL(updatedImages);
+      setImageFiles(updatedFiles);
       setIsImagesDirty(true);
     },
-    [previewURLs],
+    [imageFiles, previewURLs],
   );
 
   const handleFilesChange = useCallback(

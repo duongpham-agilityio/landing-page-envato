@@ -22,7 +22,7 @@ exports[`CustomToolbar component CustomToolbar component renders correctly 1`] =
         class="css-1ahss91"
       >
         <button
-          class="chakra-button css-pwitjq"
+          class="chakra-button css-1hkcv4m"
           type="button"
         >
           Month
@@ -41,7 +41,7 @@ exports[`CustomToolbar component CustomToolbar component renders correctly 1`] =
         </button>
       </div>
       <div
-        class="css-k008qs"
+        class="css-8mpp7j"
       >
         <button
           aria-label="btn-back"

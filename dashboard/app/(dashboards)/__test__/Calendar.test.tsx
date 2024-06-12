@@ -4,10 +4,18 @@ import { renderQueryProviderTest } from '@/lib/utils/testUtils';
 // Pages
 import Calendar from '../calendar/page';
 
-describe('Calendar render', () => {
-  test('Should render match with snapshot.', () => {
-    const { container } = renderQueryProviderTest(<Calendar />);
+jest.mock('next/headers', () => ({
+  cookies: jest.fn().mockReturnValue({
+    get: () => ({ value: 'testUserId' }),
+  }),
+}));
 
-    expect(container).toMatchSnapshot();
+describe('Calendar render', () => {
+  test('Should render match with snapshot.', async () => {
+    const { container } = renderQueryProviderTest(await Calendar());
+
+    await waitFor(() => {
+      expect(container).toMatchSnapshot();
+    });
   });
 });

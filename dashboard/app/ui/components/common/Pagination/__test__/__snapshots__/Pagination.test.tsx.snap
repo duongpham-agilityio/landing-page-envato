@@ -29,7 +29,7 @@ exports[`Pagination render Should render match with snapshot. 1`] = `
             class="css-xl71ch"
           >
             <div
-              class="css-1l4w6pd"
+              class="css-1n2mv2k"
             >
               <span
                 class="chakra-text css-mj5ko4"
@@ -37,7 +37,7 @@ exports[`Pagination render Should render match with snapshot. 1`] = `
                 10
               </span>
               <div
-                class="css-1x77umq"
+                class="css-v0v9en"
               >
                 <svg
                   fill="none"

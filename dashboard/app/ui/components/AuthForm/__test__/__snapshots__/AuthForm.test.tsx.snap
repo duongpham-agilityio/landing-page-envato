@@ -49,7 +49,7 @@ exports[`AuthForm components match snapshot with login form 1`] = `
             type="button"
           >
             <svg
-              class="chakra-icon css-1l546ul"
+              class="chakra-icon chakra-icon css-s34u7z"
               focusable="false"
               viewBox="0 0 24 24"
             >
@@ -243,7 +243,7 @@ exports[`AuthForm components match snapshot with register form 1`] = `
             type="button"
           >
             <svg
-              class="chakra-icon css-1l546ul"
+              class="chakra-icon chakra-icon css-s34u7z"
               focusable="false"
               viewBox="0 0 24 24"
             >
@@ -284,7 +284,7 @@ exports[`AuthForm components match snapshot with register form 1`] = `
             type="button"
           >
             <svg
-              class="chakra-icon css-1l546ul"
+              class="chakra-icon chakra-icon css-s34u7z"
               focusable="false"
               viewBox="0 0 24 24"
             >
