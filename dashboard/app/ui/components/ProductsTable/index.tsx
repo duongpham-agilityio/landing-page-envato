@@ -372,11 +372,12 @@ const ProductsTable = () => {
         isOpenModal={true}
         titleDelete="Delete Product"
         itemName={data.name}
+        onUploadImages={uploadImages}
         onDeleteProduct={handleDeleteProduct}
         onUpdateProduct={handleUpdateProduct}
       />
     ),
-    [handleDeleteProduct, handleUpdateProduct],
+    [handleDeleteProduct, handleUpdateProduct, uploadImages],
   );
 
   const columns = useMemo(
