@@ -1,6 +1,6 @@
 // Libs
 import { Box, Flex, Spacer, Text } from '@chakra-ui/react';
-import { useEffect, useState, memo } from 'react';
+import { useEffect, useState, memo, useCallback } from 'react';
 import Image from 'next/image';
 
 // Constants
@@ -30,6 +30,8 @@ const Message = ({
   superAdminId,
 }: MessageProps) => {
   const [adminId, setAdminId] = useState<string>('');
+  const [avatarUserURL, setAvatarURL] = useState(avatarUser);
+  const [avatarAdminURL, setAvatarAdminURL] = useState(avatarAdmin);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -41,17 +43,26 @@ const Message = ({
 
   const isAdmin = senderId === adminId;
 
+  const handleInvalidUserAvatar = useCallback(() => {
+    setAvatarURL(IMAGES.CHAT_USER_AVATAR.url);
+  }, []);
+
+  const handleInvalidAdminAvatar = useCallback(() => {
+    setAvatarAdminURL(IMAGES.CHAT_USER_AVATAR.url);
+  }, []);
+
   return (
     <Flex width="100%" justifyContent={!isAdmin ? 'flex-end' : 'flex-start'}>
       {isAdmin && (
         <Box pos="relative" w={9} h={9}>
           <Image
-            src={avatarAdmin}
+            src={avatarAdminURL}
             alt={avatarAdmin}
             fill
             sizes="100vw"
             placeholder="blur"
             blurDataURL={generatePlaceholder(36, 36)}
+            onError={handleInvalidAdminAvatar}
             objectFit="cover"
             style={{
               borderRadius: '50%',
@@ -93,12 +104,13 @@ const Message = ({
       {!isAdmin && (
         <Box pos="relative" w={9} h={9}>
           <Image
-            src={avatarUser}
+            src={avatarUserURL}
             alt={avatarUser}
             fill
             sizes="100vw"
             placeholder="blur"
             blurDataURL={generatePlaceholder(36, 36)}
+            onError={handleInvalidUserAvatar}
             objectFit="cover"
             style={{
               borderRadius: '50%',

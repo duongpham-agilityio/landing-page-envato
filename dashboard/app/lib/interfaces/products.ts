@@ -28,3 +28,5 @@ export interface TProductRequest {
 export interface TProductResponse extends TProduct {
   product: TProductRequest;
 }
+
+export type AddProductResponse = TProduct & Omit<TProduct, 'productStatus'>;

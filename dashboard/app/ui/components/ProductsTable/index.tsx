@@ -35,7 +35,12 @@ import {
 } from '@/lib/constants';
 
 // Hooks
-import { useDebounce, useProducts, useSearch } from '@/lib/hooks';
+import {
+  useDebounce,
+  useProducts,
+  useSearch,
+  useUploadImages,
+} from '@/lib/hooks';
 import { TProductSortField } from '@/lib/hooks/useProducts';
 
 // Stores
@@ -89,6 +94,9 @@ const ProductsTable = () => {
   } = useProducts({
     name: get('keyword')?.toLowerCase() || '',
   });
+
+  // Upload images
+  const { uploadImages, isPending: isUploadImages } = useUploadImages();
 
   const productsMemorized = useMemo(
     () =>
@@ -394,7 +402,11 @@ const ProductsTable = () => {
   );
 
   return (
-    <Indicator isOpen={isCreateProduct || isDeleteProduct || isUpdateProduct}>
+    <Indicator
+      isOpen={
+        isCreateProduct || isDeleteProduct || isUpdateProduct || isUploadImages
+      }
+    >
       <Flex flexDirection={{ base: 'column', lg: 'row' }}>
         <SearchBar
           placeholder="Search by name"
@@ -450,6 +462,7 @@ const ProductsTable = () => {
             <ProductForm
               onCloseModal={handleToggleModal}
               onCreateProduct={handleCreateProduct}
+              uploadImages={uploadImages}
             />
           }
           haveCloseButton

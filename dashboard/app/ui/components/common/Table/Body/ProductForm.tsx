@@ -1,11 +1,10 @@
 'use client';
 
-import { memo, useCallback, useMemo, useState } from 'react';
+// Libs
+import { memo, useCallback, useMemo } from 'react';
 import { Controller, useForm } from 'react-hook-form';
 import { AxiosResponse } from 'axios';
 import isEqual from 'react-fast-compare';
-
-// Components
 import {
   Button,
   Flex,
@@ -16,8 +15,9 @@ import {
   VStack,
   useToast,
 } from '@chakra-ui/react';
-import InputField from '@/ui/components/common/InputField';
-import { UploadImages } from '@/ui/components';
+
+// Components
+import { UploadImages, InputField } from '@/ui/components';
 
 // Interfaces
 import {
@@ -31,8 +31,6 @@ import {
   AUTH_SCHEMA,
   CURRENCY_PRODUCT,
   ERROR_MESSAGES,
-  LIMIT_PRODUCT_IMAGES,
-  REGEX,
   STATUS,
   STATUS_SUBMIT,
 } from '@/lib/constants';
@@ -41,7 +39,7 @@ import {
 import { authStore } from '@/lib/stores';
 
 // Hooks
-import { useUploadImage } from '@/lib/hooks';
+import { useUploadProductImageFiles } from '@/lib/hooks';
 
 // Utils
 import {
@@ -49,16 +47,23 @@ import {
   formatAmountNumber,
   parseFormattedNumber,
 } from '@/lib/utils';
+import { UseMutateFunction } from '@tanstack/react-query';
 
 interface ProductProps {
   data?: TProductResponse;
   onCreateProduct?: (productData: Omit<TProductRequest, 'id'>) => void;
   onUpdateProduct?: (productData: TProductRequest) => void;
-  onCloseModal?: () => void;
+  onCloseModal: () => void;
+  uploadImages: UseMutateFunction<
+    AxiosResponse<IUploadImageResponse>[],
+    Error,
+    FormData[]
+  >;
 }
 
 const ProductForm = ({
   data,
+  uploadImages,
   onCreateProduct,
   onUpdateProduct,
   onCloseModal,
@@ -76,11 +81,16 @@ const ProductForm = ({
   } = product || {};
 
   const toast = useToast();
-  const [previewURLs, setPreviewURL] = useState<string[]>(imageURLs || []);
-  const [imageFiles, setImageFiles] = useState<File[]>([]);
-  const [isImagesDirty, setIsImagesDirty] = useState(false);
 
-  const { uploadImage } = useUploadImage();
+  const {
+    getRootProps,
+    getInputProps,
+    isFileDialogActive,
+    handleRemoveImage,
+    previewURLs,
+    imageFiles,
+    isImagesDirty,
+  } = useUploadProductImageFiles(imageURLs);
 
   const {
     control,
@@ -114,46 +124,6 @@ const ProductForm = ({
     [toast],
   );
 
-  const handleFilesChange = useCallback(
-    (files: File[]) => {
-      const imagesPreview: React.SetStateAction<string[]> = [];
-
-      if (files.length > LIMIT_PRODUCT_IMAGES) {
-        return handleShowErrorMessage(ERROR_MESSAGES.UPLOAD_IMAGE_ITEM);
-      }
-
-      files.map(async (file) => {
-        if (!file) {
-          return;
-        }
-
-        // Check type of image
-        if (!REGEX.IMG.test(file.name)) {
-          return handleShowErrorMessage(ERROR_MESSAGES.UPLOAD_IMAGE);
-        }
-
-        const previewImage: string = URL.createObjectURL(file);
-        imagesPreview.push(previewImage);
-      });
-
-      setImageFiles(files);
-      setPreviewURL(imagesPreview);
-      setIsImagesDirty(true);
-    },
-    [handleShowErrorMessage],
-  );
-
-  const handleRemoveImage = useCallback(
-    (index: number) => {
-      const updatedImages = [...previewURLs];
-      updatedImages.splice(index, 1);
-
-      setPreviewURL(updatedImages);
-      setIsImagesDirty(true);
-    },
-    [previewURLs],
-  );
-
   const handleChangeValue = useCallback(
     <T,>(field: keyof TProductRequest, changeHandler: (value: T) => void) =>
       (data: T) => {
@@ -163,55 +133,66 @@ const ProductForm = ({
     [clearErrors],
   );
 
+  const handleUploadImageSuccess = useCallback(
+    (
+      product: TProductRequest,
+      res: AxiosResponse<IUploadImageResponse>[] = [],
+    ) => {
+      const imagesUpload: string[] = [];
+
+      const uploadedImages = res.map((item) => {
+        const { data: res } = item || {};
+        const { data } = res || {};
+        const { url: imageURL = '' } = data || {};
+
+        return imageURL;
+      });
+
+      imagesUpload.push(...uploadedImages);
+
+      const requestData = {
+        ...product,
+        imageURLs: imagesUpload.length ? imagesUpload : previewURLs,
+        stock: parseFormattedNumber(product.stock).toString(),
+        amount: parseFormattedNumber(product.amount).toString(),
+        userId,
+      };
+
+      product._id
+        ? onUpdateProduct && onUpdateProduct(requestData)
+        : onCreateProduct && onCreateProduct(requestData);
+      reset(requestData);
+    },
+    [onCreateProduct, onUpdateProduct, previewURLs, reset, userId],
+  );
+
   const handleUploadImageError = useCallback(() => {
     handleShowErrorMessage(ERROR_MESSAGES.UPDATE_FAIL.title);
   }, [handleShowErrorMessage]);
 
   const handleSubmitForm = useCallback(
     async (data: TProductRequest) => {
-      const imagesUpload: string[] = [];
+      const payload = imageFiles.map((imageFile) => {
+        const formData = new FormData();
+        formData.append('image', imageFile);
+        return formData;
+      });
 
-      await Promise.all(
-        imageFiles.map(async (file) => {
-          const formData = new FormData();
-          formData.append('image', file);
+      uploadImages(payload, {
+        onSuccess: (res: AxiosResponse<IUploadImageResponse>[]) => {
+          handleUploadImageSuccess(data, res);
+        },
+        onError: handleUploadImageError,
+      });
 
-          uploadImage(formData, {
-            onSuccess: (res: AxiosResponse<IUploadImageResponse>) => {
-              const { data } = res?.data || {};
-              const { url: imageURL = '' } = data || {};
-
-              imagesUpload.push(imageURL);
-            },
-            onError: handleUploadImageError,
-          });
-        }),
-      );
-
-      const requestData = {
-        ...data,
-        imageURLs: imagesUpload.length ? imagesUpload : previewURLs,
-        stock: parseFormattedNumber(data.stock).toString(),
-        amount: parseFormattedNumber(data.amount).toString(),
-        userId,
-      };
-
-      data._id
-        ? onUpdateProduct && onUpdateProduct(requestData)
-        : onCreateProduct && onCreateProduct(requestData);
-      reset(requestData);
-      onCloseModal && onCloseModal();
+      onCloseModal();
     },
     [
       handleUploadImageError,
+      handleUploadImageSuccess,
       imageFiles,
       onCloseModal,
-      onCreateProduct,
-      onUpdateProduct,
-      previewURLs,
-      reset,
-      uploadImage,
-      userId,
+      uploadImages,
     ],
   );
 
@@ -393,7 +374,9 @@ const ProductForm = ({
             <UploadImages
               label="Gallery Thumbnail"
               previewURLs={previewURLs}
-              onChange={handleFilesChange}
+              getRootProps={getRootProps}
+              getInputProps={getInputProps}
+              isFileDialogActive={isFileDialogActive}
               onRemove={handleRemoveImage}
             />
           </FormControl>

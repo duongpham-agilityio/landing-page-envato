@@ -40,7 +40,7 @@ import { customToast, formatAllowOnlyNumbers } from '@/lib/utils';
 import { QueryProvider } from '@/ui/providers';
 
 // Hooks
-import { useUploadImage } from '@/lib/hooks';
+import { useUploadImages } from '@/lib/hooks';
 
 // Interfaces
 import { IUploadImageResponse, TUserDetail } from '@/lib/interfaces';
@@ -53,7 +53,7 @@ const UserForm = () => {
   const user = authStore((state) => state.user);
   const { mutate: updateUser, status, isPending: isSubmit } = useUpdateUser();
   const toast = useToast();
-  const { uploadImage } = useUploadImage();
+  const { uploadImages } = useUploadImages();
 
   const {
     id = '',
@@ -161,10 +161,12 @@ const UserForm = () => {
       if (avatarFile) {
         const formData = new FormData();
         formData.append('image', avatarFile);
+        const payload = [formData];
 
-        return uploadImage(formData, {
-          onSuccess: (res: AxiosResponse<IUploadImageResponse>) => {
-            const { data } = res?.data || {};
+        return uploadImages(payload, {
+          onSuccess: (res: AxiosResponse<IUploadImageResponse>[] = []) => {
+            const { data: dataRes } = res[0] || {};
+            const { data } = dataRes || {};
             const { url: imageURL = '' } = data || {};
 
             const updatedInfo = {
@@ -180,7 +182,7 @@ const UserForm = () => {
 
       handleUpdateUser(userInfo);
     },
-    [avatarFile, handleUpdateUser, handleUploadAvatarError, uploadImage],
+    [avatarFile, handleUpdateUser, handleUploadAvatarError, uploadImages],
   );
 
   const handleChangeValue = useCallback(

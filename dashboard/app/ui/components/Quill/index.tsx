@@ -10,7 +10,7 @@ import { SendIconLight } from '..';
 import CustomButton from '@/ui/components/common/Button';
 
 // Constants
-import { IMAGES, QUILL_SCHEMA, REGEX } from '@/lib/constants';
+import { IMAGES, QUILL_SCHEMA } from '@/lib/constants';
 
 // Hooks
 import { sendMessage } from '@/lib/utils';
@@ -68,11 +68,9 @@ const Quill = ({
 
   const handleSend = useCallback(
     async (data: TMessages) => {
-      const filterMessage = data.text.replace(REGEX.HTML_TAG_PATTERN, '');
-
       const dataMessage: TMessages = {
         ...data,
-        text: filterMessage,
+        text: data.text,
       };
 
       const idRoomChat = `${currentUser?.uid}${userUid}`;

@@ -63,7 +63,7 @@ const SelectComponent = ({
         {options[selected]?.label === 'Default' ? (
           memorizedTitle
         ) : (
-          <Flex justifyContent="center">
+          <Flex justifyContent="center" alignItems="center">
             <Text
               as="span"
               textAlign="center"
@@ -74,7 +74,7 @@ const SelectComponent = ({
             >
               {options[selected]?.label}
             </Text>
-            <Box mt={-1} ml={2}>
+            <Box ml={2} alignItems="center">
               <Arrow color={colorFill} width={18} height={15} />
             </Box>
           </Flex>

@@ -22,6 +22,7 @@ import { formatPageArray, handleSort, logActivity } from '../utils';
 
 // Interface
 import {
+  AddProductResponse,
   EActivity,
   SortType,
   TProduct,
@@ -180,16 +181,18 @@ export const useProducts = (queryParam?: TSearchProduct) => {
 
   const { mutate: createProduct, isPending: isCreateProduct } = useMutation({
     mutationFn: async (product: Omit<TProductRequest, '_id'>) =>
-      await mainHttpService.post<TProductRequest>({
-        path: END_POINTS.PRODUCTS,
-        data: product,
-        actionName: EActivity.CREATE_PRODUCT,
-        userId: user?.id,
-        onActivity: logActivity,
-      }),
+      (
+        await mainHttpService.post<AddProductResponse>({
+          path: END_POINTS.PRODUCTS,
+          data: product,
+          actionName: EActivity.CREATE_PRODUCT,
+          userId: user?.id,
+          onActivity: logActivity,
+        })
+      ).data,
 
-    onSuccess: (dataResponse) => {
-      const newData = JSON.parse(dataResponse.config.data);
+    onSuccess: (dataResponse: AddProductResponse) => {
+      const newData = dataResponse;
 
       queryClient.setQueryData(
         [END_POINTS.PRODUCTS, searchName, currentPage, limit],

@@ -13,5 +13,5 @@ export const REGEX = {
   FORMAT_MONEY: /(\d)(?=(\d{3})+(?!\d))/,
   URL: /^(http(s):\/\/.)[-a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)$/,
   FORMAT_NUMBER: /[^\d.-]/g,
-  HTML_TAG_PATTERN: /<\/?[^>]+(>|$)/g,
+  HTML_TAG_PATTERN: /<(?!img\b)\/?[^>]+(>|$)/g,
 };
