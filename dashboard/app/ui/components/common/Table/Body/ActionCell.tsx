@@ -29,6 +29,7 @@ const TransactionModal = dynamic(
 
 // Interfaces
 import {
+  IUploadImageResponse,
   TProduct,
   TProductRequest,
   TProductResponse,
@@ -36,6 +37,8 @@ import {
   TTransaction,
   TUserDetail,
 } from '@/lib/interfaces';
+import { UseMutateFunction } from '@tanstack/react-query';
+import { AxiosResponse } from 'axios';
 
 interface ActionCallProps {
   user?: TUserDetail;
@@ -59,6 +62,11 @@ interface ActionCallProps {
   ) => void;
   onLockUser?: (userData?: TUserDetail) => void;
   onUnlockUser?: (userData?: TUserDetail) => void;
+  onUploadImages?: UseMutateFunction<
+    AxiosResponse<IUploadImageResponse>[],
+    Error,
+    FormData[]
+  >;
 }
 
 const ActionCellComponent = ({
@@ -77,6 +85,7 @@ const ActionCellComponent = ({
   onDeleteProduct,
   onUpdateProduct,
   onUpdateTransaction,
+  onUploadImages,
 }: ActionCallProps) => {
   const [isOpenConfirmModal, setIsOpenConfirmModal] = useState<boolean>(false);
   const [isDelete, setIsDelete] = useState<boolean>(false);
@@ -266,6 +275,7 @@ const ActionCellComponent = ({
           body={
             <ProductForm
               data={product}
+              uploadImages={onUploadImages}
               onUpdateProduct={onUpdateProduct}
               onCloseModal={handleToggleModal}
             />
