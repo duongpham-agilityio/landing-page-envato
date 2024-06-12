@@ -54,7 +54,7 @@ interface ProductProps {
   onCreateProduct?: (productData: Omit<TProductRequest, 'id'>) => void;
   onUpdateProduct?: (productData: TProductRequest) => void;
   onCloseModal: () => void;
-  uploadImages: UseMutateFunction<
+  uploadImages?: UseMutateFunction<
     AxiosResponse<IUploadImageResponse>[],
     Error,
     FormData[]
@@ -178,12 +178,13 @@ const ProductForm = ({
         return formData;
       });
 
-      uploadImages(payload, {
-        onSuccess: (res: AxiosResponse<IUploadImageResponse>[]) => {
-          handleUploadImageSuccess(data, res);
-        },
-        onError: handleUploadImageError,
-      });
+      uploadImages &&
+        uploadImages(payload, {
+          onSuccess: (res: AxiosResponse<IUploadImageResponse>[]) => {
+            handleUploadImageSuccess(data, res);
+          },
+          onError: handleUploadImageError,
+        });
 
       onCloseModal();
     },
