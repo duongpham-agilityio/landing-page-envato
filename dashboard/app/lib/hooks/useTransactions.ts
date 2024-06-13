@@ -12,7 +12,7 @@ import { authStore } from '../stores';
 import { mainHttpService } from '@/lib/services';
 
 // Utils
-import { logActivity } from '../utils';
+import { handleSort, logActivity } from '../utils';
 
 // Types
 import {
@@ -87,64 +87,41 @@ export const useTransactions = (queryParam?: TSearchTransaction) => {
 
     if (!field) return transactionData;
 
-    const handleSort = (
-      type: SortType,
-      prevValue: string,
-      nextValue: string,
-    ): number => {
-      const convertPreValue: string = prevValue.toString().trim().toLowerCase();
-      const convertNextValue: string = nextValue
-        .toString()
-        .trim()
-        .toLowerCase();
-
-      if (type === 'asc') {
-        if (convertPreValue > convertNextValue) return 1;
-
-        if (convertPreValue < convertNextValue) return -1;
-      }
-
-      if (type === 'desc') {
-        if (convertPreValue > convertNextValue) return -1;
-
-        if (convertPreValue < convertNextValue) return 1;
-      }
-
-      return 0;
-    };
-
     tempTransactions.sort(
       (
         {
           customer: {
-            firstName: prevCustomerName,
+            firstName: prevFirstName,
+            lastName: prevLastName,
             email: prevEmail,
             role: prevRole,
-            address: { state: prevState },
+            address: { city: prevCity, street: prevStreet },
           },
           createdAt: prevCreatedAt,
           amount: prevAmount,
         }: TTransaction,
         {
           customer: {
-            firstName: nextCustomerName,
+            firstName: nextFirstName,
+            lastName: nextLastName,
             email: nextEmail,
             role: nextRole,
-            address: { state: nextState },
+            address: { city: nextCity, street: nextStreet },
           },
           createdAt: nextCreatedAt,
           amount: nextAmount,
         }: TTransaction,
       ) => {
+        const prevName = `${prevFirstName} ${prevLastName}`;
+        const nextName = `${nextFirstName} ${nextLastName}`;
+        const prevAddress = `${prevStreet} ${prevCity}`;
+        const nextAddress = `${nextStreet} ${nextCity}`;
+
         const valueForField: Record<TSortField, number> = {
-          name: handleSort(
-            type,
-            prevCustomerName ?? '',
-            nextCustomerName ?? '',
-          ),
+          name: handleSort(type, prevName ?? '', nextName ?? ''),
           email: handleSort(type, prevEmail ?? '', nextEmail ?? ''),
-          location: handleSort(type, prevState ?? '', nextState ?? ''),
-          spent: handleSort(type, prevAmount ?? '', nextAmount ?? ''),
+          location: handleSort(type, prevAddress ?? '', nextAddress ?? ''),
+          spent: handleSort(type, prevAmount ?? 0, nextAmount ?? 0),
           role: handleSort(type, prevRole ?? '', nextRole ?? ''),
           date: handleSort(
             type,

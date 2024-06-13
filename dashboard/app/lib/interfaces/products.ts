@@ -4,8 +4,8 @@ export type TProduct = {
   _id: string;
   name: string;
   description: string;
-  stock: string;
-  amount: string;
+  stock: number;
+  amount: number;
   currency: string;
   createdAt: string;
   imageURLs: string[];

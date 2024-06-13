@@ -25,7 +25,7 @@ export const TRANSACTIONS: TTransaction[] = [
       },
     },
     type: 'Add money',
-    amount: '101',
+    amount: 101,
     currency: '$',
     name: 'Devon Lane 1',
     image:
@@ -52,7 +52,7 @@ export const TRANSACTIONS: TTransaction[] = [
       },
     },
     type: 'Add money',
-    amount: '101',
+    amount: 101,
     currency: '$',
     name: 'Bessie Cooper 1',
     image:
@@ -79,7 +79,7 @@ export const TRANSACTIONS: TTransaction[] = [
       },
     },
     type: 'Send money',
-    amount: '101',
+    amount: 101,
     currency: '$',
     name: 'Zepeda lorna 1',
     image:

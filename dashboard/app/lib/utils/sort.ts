@@ -1,12 +1,20 @@
 import { SortType } from '../interfaces';
 
-const compareValues = (
-  prevValue: string,
-  nextValue: string,
+const normalizeValue = <T>(value: T): string | T => {
+  if (typeof value === 'string') {
+    return value.trim().toLowerCase();
+  }
+
+  return value;
+};
+
+const compareValues = <T>(
+  prevValue: T,
+  nextValue: T,
   sortOrder: SortType,
 ): number => {
-  const convertPrevValue: string = prevValue.toString().trim().toLowerCase();
-  const convertNextValue: string = nextValue.toString().trim().toLowerCase();
+  const convertPrevValue = normalizeValue(prevValue);
+  const convertNextValue = normalizeValue(nextValue);
 
   if (sortOrder === SortType.ASC) {
     if (convertPrevValue > convertNextValue) return 1;
@@ -19,10 +27,10 @@ const compareValues = (
   return 0;
 };
 
-export const handleSort = (
+export const handleSort = <T>(
   type: SortType = SortType.ASC,
-  prevValue: string = 'prev',
-  nextValue: string = 'next',
+  prevValue: T,
+  nextValue: T,
 ): number => compareValues(prevValue, nextValue, type);
 
 export const sortByKey = <T>(
@@ -33,11 +41,14 @@ export const sortByKey = <T>(
   const sortedData = [...data];
 
   sortedData.sort((a, b) => {
-    if (a[key] > b[key]) {
+    const aValue = normalizeValue(a[key]);
+    const bValue = normalizeValue(b[key]);
+
+    if (aValue > bValue) {
       return isAscending ? 1 : -1;
     }
 
-    if (a[key] < b[key]) {
+    if (aValue < bValue) {
       return isAscending ? -1 : 1;
     }
 

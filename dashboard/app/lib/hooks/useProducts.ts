@@ -130,16 +130,8 @@ export const useProducts = (queryParam?: TSearchProduct) => {
       ) => {
         const valueForField: Record<TProductSortField, number> = {
           name: handleSort(type, prevProductName ?? '', nextProductName ?? ''),
-          price: handleSort(
-            type,
-            String(prevAmount) ?? '',
-            String(nextAmount) ?? '',
-          ),
-          quantity: handleSort(
-            type,
-            String(prevQuantity) ?? '',
-            String(nextQuantity) ?? '',
-          ),
+          price: handleSort(type, prevAmount ?? 0, nextAmount ?? 0),
+          quantity: handleSort(type, prevQuantity ?? 0, nextQuantity ?? 0),
           date: handleSort(
             type,
             dayjs(prevCreatedAt).format(TIME_FORMAT) ?? '',

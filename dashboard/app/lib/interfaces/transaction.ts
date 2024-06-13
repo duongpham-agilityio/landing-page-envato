@@ -8,7 +8,7 @@ export type TTransaction = {
   _id: string;
   userId?: string;
   customer: TCustomer;
-  amount: string;
+  amount: number;
   currency: string;
   createdAt: string;
   name: string;
