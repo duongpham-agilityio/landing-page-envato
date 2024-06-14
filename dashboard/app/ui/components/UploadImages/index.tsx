@@ -1,13 +1,6 @@
 // Libs
 import React, { memo } from 'react';
-import {
-  Box,
-  Text,
-  Input,
-  ResponsiveValue,
-  FormLabel,
-  Flex,
-} from '@chakra-ui/react';
+import { Box, Text, Input, FormLabel, Flex } from '@chakra-ui/react';
 import isEqual from 'react-fast-compare';
 
 // Components
@@ -87,11 +80,7 @@ const UploadImages = ({
       _hover={{ borderColor: 'green.500' }}
       bg="background.body.primary"
     >
-      <Input
-        {...getInputProps()}
-        size={undefined as ResponsiveValue<string> | undefined}
-        data-testid="field-image"
-      />
+      <Input {...getInputProps()} data-testid="field-image" />
 
       <Text>Drag drop some files here, or click to select files</Text>
     </Box>

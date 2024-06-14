@@ -1,5 +1,4 @@
 'use client';
-// import dynamic from 'next/dynamic';
 import { Fragment, memo } from 'react';
 import {
   Box,
@@ -18,15 +17,12 @@ import {
 import { Arrow, Avatar, Indicator } from '@/ui/components';
 
 // Constants
-import { IMAGES, MENU_LIST, MENU_LIST_ICON } from '@/lib/constants';
-
-// Hooks
-import { useAuth } from '@/lib/hooks';
+import { IMAGES, MENU_LIST_ICON } from '@/lib/constants';
 
 // Themes
 import { useColorfill } from '@/ui/themes/bases';
 
-interface DropdownProps {
+interface UserDropdownProps {
   src?: string;
   role: string;
   name?: string;
@@ -34,8 +30,10 @@ interface DropdownProps {
   permission?: string;
   offsetX?: number;
   offsetY?: number;
+  isLogoutHandling?: boolean;
+  onSingOut: () => void;
 }
-const UserDropdownMenu = ({
+const UserDropdown = ({
   src = IMAGES.USER.url,
   name = '',
   role,
@@ -43,8 +41,9 @@ const UserDropdownMenu = ({
   permission = '',
   offsetX = 0,
   offsetY = 10,
-}: DropdownProps) => {
-  const { isLogoutHandling, signOut } = useAuth();
+  isLogoutHandling = false,
+  onSingOut,
+}: UserDropdownProps) => {
   const { primary } = useColorfill();
   const currencyColor = 'text.currencyColor';
 
@@ -107,17 +106,23 @@ const UserDropdownMenu = ({
               borderRadius="lg"
               bg="background.component.primary"
             >
-              {MENU_LIST_ICON(role).map(({ id, href, icon, value }) => {
-                const Icon = icon || Fragment;
-                return (
-                  <>
-                    {!value ? (
-                      <></>
-                    ) : (
+              {MENU_LIST_ICON(role).map(
+                ({ id, href, icon, value, isHaveDivider }) => {
+                  const Icon = icon || Fragment;
+                  const props = href
+                    ? {
+                        as: Link,
+                        href: href,
+                      }
+                    : {
+                        onClick: onSingOut,
+                      };
+
+                  return (
+                    <>
+                      {isHaveDivider && <Divider my={3.5} color="gray.300" />}
                       <MenuItem
                         key={id}
-                        as={Link}
-                        href={href}
                         p={3.5}
                         aria-label={`menu-icon-${value}`}
                         borderRadius="lg"
@@ -135,6 +140,7 @@ const UserDropdownMenu = ({
                         _focus={{
                           outline: 'none',
                         }}
+                        {...props}
                       >
                         <Flex>
                           <Icon color={primary} />
@@ -143,54 +149,10 @@ const UserDropdownMenu = ({
                           </Text>
                         </Flex>
                       </MenuItem>
-                    )}
-                  </>
-                );
-              })}
-              <Divider my={3.5} color="gray.300" />
-              {MENU_LIST.map(({ id, value, href, icon }) => {
-                const Icon = icon || Fragment;
-                const handleSignOut = () => signOut();
-
-                const props =
-                  id === 1
-                    ? {
-                        onClick: handleSignOut,
-                      }
-                    : {
-                        as: Link,
-                        href: href,
-                      };
-
-                return (
-                  <MenuItem
-                    key={id}
-                    p={3.5}
-                    borderRadius="lg"
-                    bg="transparent"
-                    aria-label={`menu-item-${value}`}
-                    _hover={{
-                      bg: 'background.component.tertiary',
-                      color: currencyColor,
-                      svg: { stroke: currencyColor },
-                      path: { stroke: currencyColor },
-                      borderColor: 'transparent',
-                      textDecoration: 'none',
-                    }}
-                    _focus={{
-                      outline: 'none',
-                    }}
-                    {...props}
-                  >
-                    <Flex>
-                      <Icon color={primary} />
-                      <Text ml={18} variant="text4Xl">
-                        {value}
-                      </Text>
-                    </Flex>
-                  </MenuItem>
-                );
-              })}
+                    </>
+                  );
+                },
+              )}
             </MenuList>
           </Box>
         )}
@@ -198,5 +160,5 @@ const UserDropdownMenu = ({
     </Indicator>
   );
 };
-const Dropdown = memo(UserDropdownMenu);
-export default Dropdown;
+const UserDropdownMemorized = memo(UserDropdown);
+export default UserDropdownMemorized;

@@ -11,7 +11,6 @@ import {
   Text,
   useToast,
 } from '@chakra-ui/react';
-import isEqual from 'react-fast-compare';
 
 // Components
 import { Bell, IconButton, Modal, Indicator } from '@/ui/components';
@@ -33,11 +32,11 @@ import { useNotification } from '@/lib/hooks';
 import { customToast } from '@/lib/utils/toast';
 
 // Interfaces
-import { TNotification, TUserDetail } from '@/lib/interfaces';
+import { TNotification } from '@/lib/interfaces';
 
 interface NotificationProps {
   colorFill: string;
-  user: TUserDetail;
+  userId: string;
 }
 
 type TModalContentProps = {
@@ -77,12 +76,21 @@ const ModalContent = ({
 
 const ModalContentMemorized = memo(ModalContent);
 
-const Notification = ({ colorFill, user }: NotificationProps) => {
+const Notification = ({ colorFill, userId }: NotificationProps) => {
   const toast = useToast();
 
   const [isOpenConfirmModal, setIsOpenConfirmModal] = useState<boolean>(false);
   const [currentNotificationId, setCurrentNotificationId] =
     useState<string>('');
+
+  const {
+    notificationData,
+    quantity,
+    hasNewNotification,
+    isDeleteNotification,
+    deleteNotification,
+    updateNotification,
+  } = useNotification(userId);
 
   const handleToggleModal = useCallback(
     (event?: React.MouseEvent<SVGElement, MouseEvent>, id?: string) => {
@@ -93,32 +101,23 @@ const Notification = ({ colorFill, user }: NotificationProps) => {
     [isOpenConfirmModal],
   );
 
-  const {
-    notificationData,
-    quantity,
-    hasNewNotification,
-    isDeleteNotification,
-    deleteNotification,
-    updateNotification,
-  } = useNotification(user?.id);
-
   const handleUpdateNotification = useCallback(
     (updateData: TNotification) =>
       updateNotification({
-        userId: user?.id,
+        userId,
         notificationId: updateData._id,
         isMarkAsRead: true,
       }),
-    [updateNotification, user?.id],
+    [updateNotification, userId],
   );
 
   const handleDeleteNotification = useCallback(
-    (id?: string) => {
+    (notificationId: string) => {
       handleToggleModal();
       deleteNotification(
         {
-          userId: user?.id,
-          notificationId: id,
+          userId,
+          notificationId,
         },
         {
           onSuccess: () => {
@@ -142,11 +141,13 @@ const Notification = ({ colorFill, user }: NotificationProps) => {
         },
       );
     },
-    [deleteNotification, handleToggleModal, toast, user?.id],
+    [deleteNotification, handleToggleModal, toast, userId],
   );
 
-  const handleDeleteData = () =>
-    handleDeleteNotification(currentNotificationId);
+  const handleDeleteData = useCallback(
+    () => handleDeleteNotification(currentNotificationId),
+    [currentNotificationId, handleDeleteNotification],
+  );
 
   return (
     <Indicator isOpen={isDeleteNotification}>
@@ -246,5 +247,5 @@ const Notification = ({ colorFill, user }: NotificationProps) => {
   );
 };
 
-const NotificationMemorized = memo(Notification, isEqual);
+const NotificationMemorized = memo(Notification);
 export default NotificationMemorized;

@@ -2,7 +2,7 @@ import { render, waitFor } from '@testing-library/react';
 import '@testing-library/jest-dom';
 
 // component
-import { Dropdown } from '@/ui/components';
+import { UserDropdown } from '@/ui/components';
 
 // Constants
 import { AUTHENTICATION_ROLE } from '@/lib/constants';
@@ -15,14 +15,14 @@ const renderComponent = ({
   permission?: string;
 }) =>
   render(
-    <Dropdown
+    <UserDropdown
       name={name}
       permission={permission}
       role={AUTHENTICATION_ROLE.MEMBER}
     />,
   );
 
-describe('Dropdown render', () => {
+describe('UserDropdown render', () => {
   it('Should render match with snapshot.', async () => {
     const { container } = await renderComponent({
       name: 'John Doe',
@@ -34,7 +34,7 @@ describe('Dropdown render', () => {
     });
   });
 
-  it('Get Dropdown component', () => {
+  it('Get UserDropdown component', () => {
     const { getByTestId } = renderComponent({});
 
     const avatar = getByTestId('TestDropdown');

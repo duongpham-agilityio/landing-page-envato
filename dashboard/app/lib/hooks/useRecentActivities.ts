@@ -82,15 +82,9 @@ export const useRecentActivities = (queryParam?: TAction) => {
   const activitiesData: TRecentActivities[] = data?.data.result || [];
   const totalPage = data?.data.totalPage as number;
 
-  const arrOfCurrButtons: string[] = Array.from(
-    { length: totalPage },
-    (_, index) => index.toString(),
-  );
-
   const pageArray = formatPageArray({
     totalPage,
     currentPage,
-    arrOfCurrButtons,
   });
 
   const isDisableNext = currentPage === totalPage || currentPage < 1;

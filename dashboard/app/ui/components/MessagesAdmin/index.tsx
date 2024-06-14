@@ -46,6 +46,7 @@ const MessageAdmin = ({
             sizes="100vw"
             placeholder="blur"
             blurDataURL={generatePlaceholder(36, 36)}
+            objectFit="cover"
             style={{
               borderRadius: '50%',
               marginRight: '8px',
@@ -87,6 +88,7 @@ const MessageAdmin = ({
             sizes="100vw"
             placeholder="blur"
             blurDataURL={generatePlaceholder(36, 36)}
+            objectFit="cover"
             style={{
               borderRadius: '50%',
               marginLeft: '8px',

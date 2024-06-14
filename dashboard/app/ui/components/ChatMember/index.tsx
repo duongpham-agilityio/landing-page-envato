@@ -75,6 +75,7 @@ const ChatMember = ({
                 height={48}
                 placeholder="blur"
                 blurDataURL={generatePlaceholder(48, 48)}
+                objectFit="cover"
                 style={{
                   borderRadius: '50%',
                 }}
@@ -123,6 +124,7 @@ const ChatMember = ({
                   height={47}
                   placeholder="blur"
                   blurDataURL={generatePlaceholder(47, 47)}
+                  objectFit="cover"
                   style={{
                     borderRadius: '50%',
                   }}

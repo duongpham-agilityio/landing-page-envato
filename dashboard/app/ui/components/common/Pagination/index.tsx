@@ -7,7 +7,7 @@ import { Button, Select } from '@/ui/components';
 import { Arrow } from '@/ui/components/Icons';
 
 // Constants
-import { NEXT, PAGE_SIZE, PAGINATION, PREV } from '@/lib/constants';
+import { DOTS, NEXT, PAGE_SIZE, PAGINATION, PREV } from '@/lib/constants';
 
 // Interfaces
 import { TOption } from '@/ui/components/common/Select';
@@ -85,8 +85,8 @@ const PaginationComponent = ({
           <Arrow color={colorFill} rotate="90deg" />
         </Button>
         <Flex alignItems="center">
-          {arrOfCurrButtons.map((item: string) => {
-            const isDots = item === '...';
+          {arrOfCurrButtons.map((item: string, index: number) => {
+            const isDots = item === DOTS;
             const isDisable = currentPage === +item || isDots;
             const hoverStyle = isDots
               ? {}
@@ -101,9 +101,10 @@ const PaginationComponent = ({
                   bg: 'background.body.quinary',
                 };
             const handleClickPage = () => onClickPage(+item);
+
             return (
               <Button
-                key={item}
+                key={`${item}-${index}`}
                 data-testid={`page-${item}-button`}
                 aria-label="btn-pages"
                 isDisabled={isDisable}

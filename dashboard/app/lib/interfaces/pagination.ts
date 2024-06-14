@@ -4,12 +4,14 @@ export interface PaginationType {
   limit: number;
 }
 
-export interface FormatPaginationParams extends PaginationType {
+export type FormatPaginationParams = Omit<
+  PaginationType,
+  'arrOfCurrButtons'
+> & {
   totalCount: number;
-}
+};
 
 export interface PaginationTableType {
-  arrOfCurrButtons: string[];
   currentPage: number;
   totalPage: number;
 }

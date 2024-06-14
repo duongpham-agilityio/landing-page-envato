@@ -15,7 +15,7 @@ import { Header, SideBar } from '@/ui/layouts';
 import { Indicator } from '@/ui/components';
 
 // Constants
-import { END_POINTS, SHOW_TIME, SIDEBAR } from '@/lib/constants';
+import { END_POINTS, IMAGES, SHOW_TIME, SIDEBAR } from '@/lib/constants';
 
 // Hooks
 import { useAuth } from '@/lib/hooks';
@@ -42,8 +42,17 @@ const MainLayout = ({ children }: { children: React.ReactNode }) => {
     defaultIsOpen: false,
   });
 
-  const user = authStore((state): TAuthStoreData['user'] => state.user);
   const { isLogoutHandling, signOut } = useAuth();
+  const user = authStore((state): TAuthStoreData['user'] => state.user);
+
+  const {
+    firstName = '',
+    lastName = '',
+    role = '',
+    avatarURL = IMAGES.USER.url,
+    bonusTimes = 0,
+    id: userId = '',
+  } = user || {};
 
   useEffect(() => {
     if (isDesktop) {
@@ -108,7 +117,16 @@ const MainLayout = ({ children }: { children: React.ReactNode }) => {
               onClose={onClose}
               onSignOut={signOut}
             />
-            <Header />
+            <Header
+              userId={userId}
+              firstName={firstName}
+              lastName={lastName}
+              role={role}
+              avatarURL={avatarURL}
+              bonusTimes={bonusTimes}
+              isLogoutHandling={isLogoutHandling}
+              onSingOut={signOut}
+            />
             {children}
           </Box>
         </Flex>

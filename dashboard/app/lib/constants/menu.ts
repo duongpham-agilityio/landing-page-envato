@@ -10,6 +10,7 @@ export const MENU_LIST_ICON = (role?: string) => [
     href: `/${ROUTES.SETTING}`,
     value: 'My profile',
     icon: Account,
+    isHaveDivider: false,
   },
   {
     ...(role === AUTHENTICATION_ROLE.SUPER_ADMIN && {
@@ -17,15 +18,13 @@ export const MENU_LIST_ICON = (role?: string) => [
       href: `/${ROUTES.USER}`,
       value: 'User',
       icon: UserIcon,
+      isHaveDivider: false,
     }),
   },
-];
-
-export const MENU_LIST = [
   {
-    id: 1,
-    href: `/${ROUTES.LOGIN}`,
+    id: 3,
     value: 'Logout',
     icon: Logout,
+    isHaveDivider: true,
   },
 ];

@@ -13,7 +13,7 @@ export { default as Avatar } from './common/Avatar';
 export { default as Benefit } from './common/Benefit';
 export { default as Divider } from './common/Divider';
 export { default as IconButton } from './common/IconButton';
-export { default as Dropdown } from './common/Dropdown';
+export { default as UserDropdown } from './UserDropdown';
 export { default as Select } from './common/Select';
 export { default as Pagination } from './common/Pagination';
 export { default as Button } from './common/Button';

@@ -1,13 +1,12 @@
 'use client';
 import { memo } from 'react';
-import { useStore } from 'zustand';
 import { usePathname } from 'next/navigation';
 import { Box, Flex, Heading, Text } from '@chakra-ui/react';
 
 // Components
 import {
   BonusNotification,
-  Dropdown,
+  UserDropdown,
   IconButton,
   Logo,
   SwitchTheme,
@@ -18,34 +17,37 @@ import Notification from '@/ui/components/common/Notification';
 // Constants
 import { AUTHENTICATION_ROLE, TITLES_HEADER } from '@/lib/constants';
 
-// Stores
-import { authStore } from '@/lib/stores';
-
-// Types
-import { TUserDetail } from '@/lib/interfaces';
-
 // Themes
 import { useColorfill } from '@/ui/themes/bases';
 
-const HeaderComponent = () => {
+interface Props {
+  userId: string;
+  firstName: string;
+  lastName: string;
+  role: string;
+  avatarURL: string;
+  bonusTimes: number;
+  isLogoutHandling?: boolean;
+  onSingOut: () => void;
+}
+
+const HeaderComponent = ({
+  userId,
+  firstName,
+  lastName,
+  role,
+  avatarURL,
+  bonusTimes,
+  isLogoutHandling = false,
+  onSingOut,
+}: Props) => {
   const { primary } = useColorfill();
   const pathname = usePathname();
   const name = TITLES_HEADER[`${pathname?.slice(1)}`] || TITLES_HEADER.DEFAULT;
-  const user = useStore(authStore, (state) => state.user);
-  const bonusTimes = authStore(
-    (state): number | undefined => state.user?.bonusTimes,
-  );
-
-  const {
-    firstName = '',
-    lastName = '',
-    role = '',
-    avatarURL = '',
-  } = user || {};
 
   const username = `${firstName} ${lastName}`;
+  const isSuperAdmin = role === AUTHENTICATION_ROLE.SUPER_ADMIN;
 
-  const roles = role === AUTHENTICATION_ROLE.SUPER_ADMIN;
   return (
     <Flex
       h="100%"
@@ -86,11 +88,15 @@ const HeaderComponent = () => {
           </Text>
         </Box>
         <Box display={{ base: 'block', default: 'none' }}>
-          <Dropdown
+          <UserDropdown
+            {...(isSuperAdmin && {
+              permission: AUTHENTICATION_ROLE.SUPER_ADMIN,
+            })}
             name={username}
             role={role}
-            permission="Super Admin"
             src={avatarURL}
+            isLogoutHandling={isLogoutHandling}
+            onSingOut={onSingOut}
           />
         </Box>
       </Flex>
@@ -110,7 +116,7 @@ const HeaderComponent = () => {
             justifyContent="space-between"
           >
             <SwitchTheme />
-            <Notification colorFill={primary} user={user as TUserDetail} />
+            <Notification colorFill={primary} userId={userId} />
             <IconButton ariaLabel="email-content">
               <Email color={primary} />
             </IconButton>
@@ -120,11 +126,15 @@ const HeaderComponent = () => {
             display={{ base: 'none', default: 'inline-flex', md: 'none' }}
             ml={4}
           >
-            <Dropdown
+            <UserDropdown
+              {...(isSuperAdmin && {
+                permission: AUTHENTICATION_ROLE.SUPER_ADMIN,
+              })}
               name={username}
               role={role}
-              permission={roles ? AUTHENTICATION_ROLE.SUPER_ADMIN : ''}
               src={avatarURL}
+              isLogoutHandling={isLogoutHandling}
+              onSingOut={onSingOut}
             />
           </Box>
         </Flex>
@@ -135,11 +145,15 @@ const HeaderComponent = () => {
           borderColor="border.primary"
           height="min-content"
         >
-          <Dropdown
+          <UserDropdown
+            {...(isSuperAdmin && {
+              permission: AUTHENTICATION_ROLE.SUPER_ADMIN,
+            })}
             name={username}
             role={role}
-            permission={roles ? AUTHENTICATION_ROLE.SUPER_ADMIN : ''}
             src={avatarURL}
+            isLogoutHandling={isLogoutHandling}
+            onSingOut={onSingOut}
           />
         </Box>
       </Flex>

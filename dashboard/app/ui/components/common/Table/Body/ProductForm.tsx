@@ -140,9 +140,9 @@ const ProductForm = ({
     ) => {
       const imagesUpload: string[] = [];
 
-      const uploadedImages = res.map((item) => {
-        const { data: res } = item || {};
-        const { data } = res || {};
+      const uploadedImages = res.map((resItem) => {
+        const { data: productImageData } = resItem || {};
+        const { data } = productImageData || {};
         const { url: imageURL = '' } = data || {};
 
         return imageURL;

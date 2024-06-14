@@ -89,15 +89,9 @@ export const useProducts = (queryParam?: TSearchProduct) => {
   const productData: TProduct[] = data?.result || [];
   const totalPage = data?.totalPage as number;
 
-  const arrOfCurrButtons: string[] = Array.from(
-    { length: totalPage },
-    (_, index) => index.toString(),
-  );
-
   const pageArray = formatPageArray({
     totalPage,
     currentPage,
-    arrOfCurrButtons,
   });
 
   const isDisableNext = currentPage === totalPage || currentPage < 1;

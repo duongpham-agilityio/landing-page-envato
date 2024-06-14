@@ -165,13 +165,13 @@ const UserForm = () => {
 
         return uploadImages(payload, {
           onSuccess: (res: AxiosResponse<IUploadImageResponse>[] = []) => {
-            const { data: dataRes } = res[0] || {};
-            const { data } = dataRes || {};
-            const { url: imageURL = '' } = data || {};
+            const { data: avatarData } = res[0] || {};
+            const { data } = avatarData || {};
+            const { url: uploadedImageURL = '' } = data || {};
 
             const updatedInfo = {
               ...userInfo,
-              avatarURL: imageURL,
+              avatarURL: uploadedImageURL,
             };
 
             handleUpdateUser(updatedInfo);

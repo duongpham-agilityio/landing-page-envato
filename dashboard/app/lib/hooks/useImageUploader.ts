@@ -98,10 +98,8 @@ export const useUploadProductImageFiles = (imageURLs: string[] = []) => {
     [handleShowErrorMessage],
   );
 
-  const onDrop = (acceptedFiles: File[]) => handleFilesChange(acceptedFiles);
-
   const { getRootProps, getInputProps, isFileDialogActive } = useDropzone({
-    onDrop,
+    onDrop: handleFilesChange,
   });
 
   return {

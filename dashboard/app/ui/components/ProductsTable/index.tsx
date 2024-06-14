@@ -271,7 +271,6 @@ const ProductsTable = () => {
           gap="10px"
           minW={180}
           borderRadius="15px"
-          paddingLeft={{ base: 30 }}
           w={{ base: 100, '3xl': 150, '5xl': 250 }}
         >
           <Box
@@ -287,7 +286,7 @@ const ProductsTable = () => {
               placeholder="blur"
               blurDataURL={generatePlaceholder(40, 40)}
               style={{
-                objectFit: 'contain',
+                objectFit: 'cover',
                 borderRadius: '15px',
               }}
             />

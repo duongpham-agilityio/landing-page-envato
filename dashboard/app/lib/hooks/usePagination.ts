@@ -41,11 +41,11 @@ export const usePagination = <T>(transactions: T[]) => {
       totalCount,
       limit,
       currentPage,
-      arrOfCurrButtons,
     });
 
     setData({
-      ...data,
+      limit: limit,
+      currentPage: currentPage,
       arrOfCurrButtons: tempNumberOfButtons,
     });
   }, [currentPage, limit, totalCount]);
