@@ -118,6 +118,8 @@ const UserDropdown = ({
                         onClick: onSingOut,
                       };
 
+                  if (!value) return;
+
                   return (
                     <>
                       {isHaveDivider && <Divider my={3.5} color="gray.300" />}
