@@ -1,78 +1,55 @@
-import { ReactElement, memo, useCallback, useMemo } from 'react';
+// Libs
+import { ReactElement, memo, useCallback } from 'react';
 import { SubmitHandler, useForm } from 'react-hook-form';
-import {
-  Center,
-  Flex,
-  IconButton,
-  Text,
-  useDisclosure,
-  useToast,
-} from '@chakra-ui/react';
+import { Center, Flex, IconButton, Text } from '@chakra-ui/react';
+import dynamic from 'next/dynamic';
 
 // Components
-import { Eye, EyeSlash } from '@/ui/components/Icons';
-import { Modal, PinCode } from '..';
+import { Eye, EyeSlash } from '@/ui/components';
 
 // Constants
-import {
-  ERROR_MESSAGES,
-  IMAGES,
-  STATUS,
-  SUCCESS_MESSAGES,
-} from '@/lib/constants';
-
-// Hooks
-import { useAuth, usePinCode } from '@/lib/hooks';
-
-// Store
-import { TAuthStoreData, authStore } from '@/lib/stores';
+import { IMAGES } from '@/lib/constants';
 
 // Utils
-import { customToast, formatDecimalNumber } from '@/lib/utils';
+import { formatDecimalNumber } from '@/lib/utils';
 
-// Types
-import { TPinCodeForm } from '@/lib/interfaces';
+const PinCodeModal = dynamic(() => import('@/ui/components/PinCodeModal'));
 
 type TBalanceStatus = {
   balance: string;
   iconBalance: ReactElement;
 };
 
+type TPinCodeForm = {
+  pinCode: string;
+};
+
 export type TCardProps = {
   balance: number;
+  userPinCode: string;
+  isPinCodeModalOpen: boolean;
+  isLoadingPinCode: boolean;
+  onTogglePinCodeModal: () => void;
+  onSubmitPinCode: (pinCode: string, callback?: () => void) => void;
+  isShowBalance: boolean;
+  onToggleShowBalance: () => void;
 };
-const Card = ({ balance }: TCardProps) => {
-  const { isOpen: isShowBalance, onToggle: onToggleShowBalance } =
-    useDisclosure({ defaultIsOpen: true });
 
+const CardBalance = ({
+  balance,
+  userPinCode,
+  isLoadingPinCode,
+  isPinCodeModalOpen,
+  onTogglePinCodeModal,
+  isShowBalance,
+  onToggleShowBalance,
+  onSubmitPinCode,
+}: TCardProps) => {
   const {
-    handleSetPinCode,
-    handleConfirmPinCode,
-    isConfirmPinCodeModalOpen,
-    isSetPinCodeModalOpen,
-    onCloseConfirmPinCodeModal,
-    onCloseSetPinCodeModal,
-    onOpenConfirmPinCodeModal,
-    onOpenSetPinCodeModal,
-  } = usePinCode();
-
-  const { iconBalance, balance: balanceStatus }: TBalanceStatus = {
-    iconBalance: isShowBalance ? <EyeSlash /> : <Eye />,
-    balance: isShowBalance ? '******' : `$${formatDecimalNumber(balance)}`,
-  };
-
-  const {
-    control: setPinCodeControl,
-    handleSubmit: handleSubmitSetPinCode,
-    formState: { isValid: isSetValid, isSubmitting: isSetSubmitting },
-    reset: resetSetPinCodeForm,
-  } = useForm<TPinCodeForm>({});
-
-  const {
-    control: confirmPinCodeControl,
-    handleSubmit: handleSubmitConfirmPinCode,
-    formState: { isValid: isConfirmValid, isSubmitting: isConfirmSubmitting },
-    reset: resetConfirmPinCodeForm,
+    control,
+    handleSubmit: handleSubmitPinCode,
+    formState: { isValid: isConfirmValid },
+    reset: resetPinCodeForm,
   } = useForm<TPinCodeForm>({
     defaultValues: {
       pinCode: '',
@@ -81,145 +58,34 @@ const Card = ({ balance }: TCardProps) => {
     reValidateMode: 'onSubmit',
   });
 
-  const user = authStore((state): TAuthStoreData['user'] => state.user);
-
-  const { setUser } = useAuth();
-
-  const toast = useToast();
+  const { iconBalance, balance: balanceStatus }: TBalanceStatus = {
+    iconBalance: isShowBalance ? <EyeSlash /> : <Eye />,
+    balance: isShowBalance ? '******' : `$${formatDecimalNumber(balance)}`,
+  };
 
   const handleToggleShowBalance = useCallback(() => {
     if (!isShowBalance) {
       onToggleShowBalance();
-    } else {
-      if (!user?.pinCode) {
-        onOpenSetPinCodeModal();
-      } else {
-        onOpenConfirmPinCodeModal();
-      }
+
+      return;
     }
-  }, [
-    isShowBalance,
-    onOpenConfirmPinCodeModal,
-    onOpenSetPinCodeModal,
-    onToggleShowBalance,
-    user?.pinCode,
-  ]);
 
-  const onSubmitPinCode: SubmitHandler<TPinCodeForm> = useCallback(
+    // Open Pin Code modal
+    onTogglePinCodeModal();
+  }, [isShowBalance, onTogglePinCodeModal, onToggleShowBalance]);
+
+  const onSubmitPinCodeForm: SubmitHandler<TPinCodeForm> = useCallback(
     async (data) => {
-      if (user) {
-        data.userId = user.id;
-        if (!user?.pinCode) {
-          try {
-            await handleSetPinCode(data);
-
-            setUser({ user: { ...user, pinCode: data.pinCode } });
-
-            onCloseSetPinCodeModal();
-
-            resetSetPinCodeForm();
-
-            toast(
-              customToast(
-                SUCCESS_MESSAGES.SET_PIN_CODE.title,
-                SUCCESS_MESSAGES.SET_PIN_CODE.description,
-                STATUS.SUCCESS,
-              ),
-            );
-          } catch (error) {
-            toast(
-              customToast(
-                SUCCESS_MESSAGES.SET_PIN_CODE.title,
-                SUCCESS_MESSAGES.SET_PIN_CODE.description,
-                STATUS.SUCCESS,
-              ),
-            );
-          }
-        } else {
-          try {
-            await handleConfirmPinCode(data);
-            onCloseConfirmPinCodeModal();
-            resetConfirmPinCodeForm({
-              pinCode: '',
-            });
-            onToggleShowBalance();
-
-            toast(
-              customToast(
-                SUCCESS_MESSAGES.CONFIRM_PIN_CODE.title,
-                SUCCESS_MESSAGES.CONFIRM_PIN_CODE.description,
-                STATUS.SUCCESS,
-              ),
-            );
-          } catch (error) {
-            toast(
-              customToast(
-                ERROR_MESSAGES.CONFIRM_PIN_CODE.title,
-                ERROR_MESSAGES.CONFIRM_PIN_CODE.description,
-                STATUS.ERROR,
-              ),
-            ),
-              resetConfirmPinCodeForm();
-          }
-        }
-      }
+      const pinCode = data.pinCode;
+      onSubmitPinCode(pinCode, resetPinCodeForm);
     },
-    [
-      handleConfirmPinCode,
-      handleSetPinCode,
-      onCloseConfirmPinCodeModal,
-      onCloseSetPinCodeModal,
-      onToggleShowBalance,
-      resetConfirmPinCodeForm,
-      resetSetPinCodeForm,
-      setUser,
-      toast,
-      user,
-    ],
+    [onSubmitPinCode, resetPinCodeForm],
   );
 
-  const handleCloseSetPinCodeModal = useCallback(() => {
-    onCloseSetPinCodeModal();
-    resetSetPinCodeForm();
-  }, [onCloseSetPinCodeModal, resetSetPinCodeForm]);
-
-  const handleCloseConfirmPinCodeModal = useCallback(() => {
-    onCloseConfirmPinCodeModal();
-    resetConfirmPinCodeForm();
-  }, [onCloseConfirmPinCodeModal, resetConfirmPinCodeForm]);
-
-  const pinCodeModalBody = useMemo(
-    () =>
-      user?.pinCode ? (
-        <PinCode
-          control={confirmPinCodeControl}
-          isDisabled={!isConfirmValid || isConfirmSubmitting}
-          onSubmit={handleSubmitConfirmPinCode(onSubmitPinCode)}
-          onClose={handleCloseConfirmPinCodeModal}
-        />
-      ) : (
-        <PinCode
-          control={setPinCodeControl}
-          isDisabled={!isSetValid || isSetSubmitting}
-          onSubmit={handleSubmitSetPinCode(onSubmitPinCode)}
-          onClose={handleCloseSetPinCodeModal}
-        />
-      ),
-    [
-      confirmPinCodeControl,
-      handleCloseConfirmPinCodeModal,
-      handleCloseSetPinCodeModal,
-      handleSubmitConfirmPinCode,
-      handleSubmitSetPinCode,
-      isConfirmSubmitting,
-      isConfirmValid,
-      isSetSubmitting,
-      isSetValid,
-      onSubmitPinCode,
-      setPinCodeControl,
-      user?.pinCode,
-    ],
-  );
+  const handleClosePinCodeModal = useCallback(() => {
+    onTogglePinCodeModal();
+    resetPinCodeForm();
+  }, [onTogglePinCodeModal, resetPinCodeForm]);
 
   return (
     <>
@@ -266,29 +132,26 @@ const Card = ({ balance }: TCardProps) => {
         </Flex>
       </Center>
 
-      {/*Set PIN code Modal */}
-      {isSetPinCodeModalOpen && (
-        <Modal
-          title="Please set the PIN code to your account"
-          isOpen={isSetPinCodeModalOpen}
-          onClose={handleCloseSetPinCodeModal}
-          body={pinCodeModalBody}
-        />
-      )}
-
-      {/*Confirm PIN code Modal */}
-      {isConfirmPinCodeModalOpen && (
-        <Modal
-          title="Please enter your PIN code"
-          isOpen={isConfirmPinCodeModalOpen}
-          onClose={handleCloseConfirmPinCodeModal}
-          body={pinCodeModalBody}
+      {/*Set/Confirm PIN code Modal */}
+      {isPinCodeModalOpen && (
+        <PinCodeModal
+          title={
+            userPinCode
+              ? 'Please enter your PIN code'
+              : 'Please set the PIN code to your account'
+          }
+          control={control}
+          isOpen={true}
+          isDisabled={!isConfirmValid || isLoadingPinCode}
+          isLoading={isLoadingPinCode}
+          onclose={handleClosePinCodeModal}
+          onSubmit={handleSubmitPinCode(onSubmitPinCodeForm)}
         />
       )}
     </>
   );
 };
 
-const CardBalance = memo(Card);
+const CardBalanceMemorized = memo(CardBalance);
 
-export default CardBalance;
+export default CardBalanceMemorized;

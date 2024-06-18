@@ -8,7 +8,7 @@ import dynamic from 'next/dynamic';
 import dayjs from 'dayjs';
 
 // Hooks
-import { useEvents } from '@/lib/hooks';
+import { useEvents, useSubmitPinCode } from '@/lib/hooks';
 
 // Types
 import { TEvent } from '@/lib/interfaces';
@@ -40,6 +40,17 @@ const CalendarSection = () => {
     isDeleteEvent,
     deleteEvent,
   } = useEvents();
+
+  // Pin Code
+  const {
+    isLoadingPinCode,
+    userPinCode,
+    isPinCodeModalOpen,
+    onTogglePinCodeModal,
+    isShowBalance,
+    onToggleShowBalance,
+    onSubmitPinCode,
+  } = useSubmitPinCode();
 
   const isLoading =
     isLoadingEvents || isAddEvent || isUpdateEvent || isDeleteEvent;
@@ -206,7 +217,17 @@ const CalendarSection = () => {
       <InView>
         {({ inView, ref }) => (
           <GridItem mt={{ base: 6, '2xl': 0 }} ref={ref}>
-            {inView && <CardPayment />}
+            {inView && (
+              <CardPayment
+                isLoadingPinCode={isLoadingPinCode}
+                userPinCode={userPinCode}
+                onSubmitPinCodeForm={onSubmitPinCode}
+                isPinCodeModalOpen={isPinCodeModalOpen}
+                onTogglePinCodeModal={onTogglePinCodeModal}
+                isShowBalance={isShowBalance}
+                onToggleShowBalance={onToggleShowBalance}
+              />
+            )}
           </GridItem>
         )}
       </InView>

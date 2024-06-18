@@ -36,7 +36,12 @@ import {
 } from '@/lib/utils';
 
 // Types
-import { TPinCodeForm, TSendMoney, TMoneyResponse } from '@/lib/interfaces';
+import {
+  TPinCodeForm,
+  TSendMoney,
+  TMoneyResponse,
+  TUserDetail,
+} from '@/lib/interfaces';
 
 export type TTransfer = {
   amount: string;
@@ -44,9 +49,27 @@ export type TTransfer = {
   userId: string;
 };
 
+interface CardPaymentProps {
+  userPinCode: string;
+  isLoadingPinCode: boolean;
+  onSubmitPinCodeForm: (pinCode: string, callback?: () => void) => void;
+  isPinCodeModalOpen: boolean;
+  onTogglePinCodeModal: () => void;
+  isShowBalance: boolean;
+  onToggleShowBalance: () => void;
+}
+
 const REQUIRE_FIELDS = ['amount', 'memberId'];
 
-const CardPayment = (): JSX.Element => {
+const CardPayment = ({
+  userPinCode,
+  isLoadingPinCode,
+  isPinCodeModalOpen,
+  onTogglePinCodeModal,
+  isShowBalance,
+  onToggleShowBalance,
+  onSubmitPinCodeForm,
+}: CardPaymentProps): JSX.Element => {
   const user = authStore((state) => state.user);
 
   const { setUser } = useAuth();
@@ -87,19 +110,20 @@ const CardPayment = (): JSX.Element => {
     onOpen: onOpenConfirmPinCodeModal,
   } = useDisclosure();
 
-  const { handleSetPinCode, handleConfirmPinCode } = usePinCode();
+  const { isSetNewPinCode, isConfirmPinCode, setNewPinCode, confirmPinCode } =
+    usePinCode();
 
   const {
     control: setPinCodeControl,
     handleSubmit: handleSubmitSetPinCode,
-    formState: { isValid: isSetValid, isSubmitting: isSetSubmitting },
+    formState: { isValid: isSetValid },
     reset: resetSetPinCodeForm,
   } = useForm<TPinCodeForm>({});
 
   const {
     control: confirmPinCodeControl,
     handleSubmit: handleSubmitConfirmPinCode,
-    formState: { isValid: isConfirmValid, isSubmitting: isConfirmSubmitting },
+    formState: { isValid: isConfirmValid },
     reset: resetConfirmPinCodeForm,
   } = useForm<TPinCodeForm>({
     defaultValues: {
@@ -186,80 +210,94 @@ const CardPayment = (): JSX.Element => {
     ],
   );
 
+  const handleSetNewPinCodeSuccess = useCallback(
+    (user: Omit<TUserDetail, 'password'>, pinCode: string) => {
+      setUser({ user: { ...user, pinCode } });
+      onCloseSetPinCodeModal();
+      resetSetPinCodeForm();
+
+      toast(
+        customToast(
+          SUCCESS_MESSAGES.SET_PIN_CODE.title,
+          SUCCESS_MESSAGES.SET_PIN_CODE.description,
+          STATUS.SUCCESS,
+        ),
+      );
+    },
+    [onCloseSetPinCodeModal, resetSetPinCodeForm, setUser, toast],
+  );
+
+  const handleSetNewPinCodeError = useCallback(() => {
+    toast(
+      customToast(
+        ERROR_MESSAGES.SET_PIN_CODE.title,
+        ERROR_MESSAGES.SET_PIN_CODE.description,
+        STATUS.ERROR,
+      ),
+    );
+  }, [toast]);
+
+  const handleConfirmPinCodeSuccess = useCallback(async () => {
+    onCloseConfirmPinCodeModal();
+    resetConfirmPinCodeForm({
+      pinCode: '',
+    });
+
+    await handleSubmitSendMoney(onSubmitSendMoney)();
+    resetSendMoneyForm();
+
+    toast(
+      customToast(
+        SUCCESS_MESSAGES.CONFIRM_PIN_CODE.title,
+        SUCCESS_MESSAGES.CONFIRM_PIN_CODE.description,
+        STATUS.SUCCESS,
+      ),
+    );
+  }, [
+    handleSubmitSendMoney,
+    onCloseConfirmPinCodeModal,
+    onSubmitSendMoney,
+    resetConfirmPinCodeForm,
+    resetSendMoneyForm,
+    toast,
+  ]);
+
+  const handleConfirmPinCodeError = useCallback(() => {
+    toast(
+      customToast(
+        ERROR_MESSAGES.CONFIRM_PIN_CODE.title,
+        ERROR_MESSAGES.CONFIRM_PIN_CODE.description,
+        STATUS.ERROR,
+      ),
+    );
+    resetConfirmPinCodeForm();
+  }, [resetConfirmPinCodeForm, toast]);
+
   const onSubmitPinCode: SubmitHandler<TPinCodeForm> = useCallback(
     async (data) => {
       if (user) {
         data.userId = user.id;
         if (!hasPinCode) {
-          try {
-            await handleSetPinCode(data);
-
-            setUser({ user: { ...user, pinCode: data.pinCode } });
-
-            onCloseSetPinCodeModal();
-
-            resetSetPinCodeForm();
-
-            toast(
-              customToast(
-                SUCCESS_MESSAGES.SET_PIN_CODE.title,
-                SUCCESS_MESSAGES.SET_PIN_CODE.description,
-                STATUS.SUCCESS,
-              ),
-            );
-          } catch (error) {
-            toast(
-              customToast(
-                ERROR_MESSAGES.SET_PIN_CODE.title,
-                ERROR_MESSAGES.SET_PIN_CODE.description,
-                STATUS.ERROR,
-              ),
-            );
-          }
+          setNewPinCode(data, {
+            onSuccess: () => handleSetNewPinCodeSuccess(user, data.pinCode),
+            onError: handleSetNewPinCodeError,
+          });
         } else {
-          try {
-            await handleConfirmPinCode(data);
-            onCloseConfirmPinCodeModal();
-            resetConfirmPinCodeForm({
-              pinCode: '',
-            });
-
-            await handleSubmitSendMoney(onSubmitSendMoney)();
-            resetSendMoneyForm();
-
-            toast(
-              customToast(
-                SUCCESS_MESSAGES.CONFIRM_PIN_CODE.title,
-                SUCCESS_MESSAGES.CONFIRM_PIN_CODE.description,
-                STATUS.SUCCESS,
-              ),
-            );
-          } catch (error) {
-            toast(
-              customToast(
-                ERROR_MESSAGES.CONFIRM_PIN_CODE.title,
-                ERROR_MESSAGES.CONFIRM_PIN_CODE.description,
-                STATUS.ERROR,
-              ),
-            );
-            resetConfirmPinCodeForm();
-          }
+          confirmPinCode(data, {
+            onSuccess: handleConfirmPinCodeSuccess,
+            onError: handleConfirmPinCodeError,
+          });
         }
       }
     },
     [
-      handleConfirmPinCode,
-      handleSetPinCode,
-      handleSubmitSendMoney,
+      confirmPinCode,
+      handleConfirmPinCodeError,
+      handleConfirmPinCodeSuccess,
+      handleSetNewPinCodeError,
+      handleSetNewPinCodeSuccess,
       hasPinCode,
-      onCloseConfirmPinCodeModal,
-      onCloseSetPinCodeModal,
-      onSubmitSendMoney,
-      resetConfirmPinCodeForm,
-      resetSendMoneyForm,
-      resetSetPinCodeForm,
-      setUser,
-      toast,
+      setNewPinCode,
       user,
     ],
   );
@@ -295,7 +333,16 @@ const CardPayment = (): JSX.Element => {
           my wallet
         </Heading>
 
-        <CardBalance balance={currentWalletMoney?.balance || 0} />
+        <CardBalance
+          balance={currentWalletMoney?.balance || 0}
+          isLoadingPinCode={isLoadingPinCode}
+          userPinCode={userPinCode}
+          onSubmitPinCode={onSubmitPinCodeForm}
+          isPinCodeModalOpen={isPinCodeModalOpen}
+          onTogglePinCodeModal={onTogglePinCodeModal}
+          isShowBalance={isShowBalance}
+          onToggleShowBalance={onToggleShowBalance}
+        />
 
         <Box
           as="form"
@@ -320,10 +367,10 @@ const CardPayment = (): JSX.Element => {
         isOpen={isSetPinCodeModalOpen || isConfirmPinCodeModalOpen}
         isDisabled={
           hasPinCode
-            ? !isConfirmValid || isConfirmSubmitting
-            : !isSetValid || isSetSubmitting
+            ? !isConfirmValid || isConfirmPinCode
+            : !isSetValid || isSetNewPinCode
         }
-        isLoading={hasPinCode ? isConfirmSubmitting : isSetSubmitting}
+        isLoading={hasPinCode ? isConfirmPinCode : isSetNewPinCode}
         onclose={
           isSetPinCodeModalOpen
             ? handleCloseSetPinCodeModal

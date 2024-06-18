@@ -7,6 +7,9 @@ import { Box, Grid, GridItem, Stack } from '@chakra-ui/react';
 // Stores
 import { authStore } from '@/lib/stores';
 
+// Hooks
+import { useSubmitPinCode } from '@/lib/hooks';
+
 // Components
 import { TotalStatisticList } from '@/ui/components';
 
@@ -20,6 +23,17 @@ const CheckPinCode = lazy(() => import('@/ui/providers/CheckPinCode'));
 
 const DashBoard = () => {
   const user = authStore((state) => state.user);
+
+  // Pin Code
+  const {
+    isLoadingPinCode,
+    userPinCode,
+    isPinCodeModalOpen,
+    onTogglePinCodeModal,
+    isShowBalance,
+    onToggleShowBalance,
+    onSubmitPinCode,
+  } = useSubmitPinCode();
 
   return (
     <>
@@ -88,7 +102,15 @@ const DashBoard = () => {
                   spacing={{ base: 6, lg: 0 }}
                 >
                   <Box w="full">
-                    <CardPayment />
+                    <CardPayment
+                      isLoadingPinCode={isLoadingPinCode}
+                      userPinCode={userPinCode}
+                      onSubmitPinCodeForm={onSubmitPinCode}
+                      isPinCodeModalOpen={isPinCodeModalOpen}
+                      onTogglePinCodeModal={onTogglePinCodeModal}
+                      isShowBalance={isShowBalance}
+                      onToggleShowBalance={onToggleShowBalance}
+                    />
                   </Box>
 
                   <Box

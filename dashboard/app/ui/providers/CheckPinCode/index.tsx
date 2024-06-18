@@ -18,7 +18,7 @@ import { TAuthStoreData, authStore } from '@/lib/stores';
 import { customToast } from '@/lib/utils';
 
 // Types
-import { TPinCodeForm } from '@/lib/interfaces';
+import { TPinCodeForm, TUserDetail } from '@/lib/interfaces';
 
 const Modal = dynamic(() => import('@/ui/components/common/Modal'));
 const PinCode = dynamic(() => import('@/ui/components/common/PinCode'));
@@ -32,7 +32,7 @@ const CheckPinCodeProvider = () => {
   const {
     control,
     handleSubmit,
-    formState: { isValid, isSubmitting },
+    formState: { isValid },
   } = useForm<TPinCodeForm>({
     defaultValues: {
       pinCode: '',
@@ -43,46 +43,54 @@ const CheckPinCodeProvider = () => {
 
   const toast = useToast();
 
-  const { handleSetPinCode } = usePinCode();
+  const { setNewPinCode, isSetNewPinCode } = usePinCode();
+
+  const handleSetNewPinCodeSuccess = useCallback(
+    (user: Omit<TUserDetail, 'password'>, pinCode: string) => {
+      setUser({ user: { ...user, pinCode } });
+      onClosePinCodeModal();
+
+      toast(
+        customToast(
+          SUCCESS_MESSAGES.SET_PIN_CODE.title,
+          SUCCESS_MESSAGES.SET_PIN_CODE.description,
+          STATUS.SUCCESS,
+        ),
+      );
+    },
+    [onClosePinCodeModal, setUser, toast],
+  );
+
+  const handleSetNewPinCodeError = useCallback(() => {
+    toast(
+      customToast(
+        ERROR_MESSAGES.SET_PIN_CODE.title,
+        ERROR_MESSAGES.SET_PIN_CODE.description,
+        STATUS.ERROR,
+      ),
+    );
+  }, [toast]);
 
   const onSubmitPinCode: SubmitHandler<TPinCodeForm> = useCallback(
     (data) => {
       if (user) {
         data.userId = user.id;
 
-        try {
-          handleSetPinCode(data);
-
-          setUser({ user: { ...user, pinCode: data.pinCode } });
-
-          onClosePinCodeModal();
-
-          toast(
-            customToast(
-              SUCCESS_MESSAGES.SET_PIN_CODE.title,
-              SUCCESS_MESSAGES.SET_PIN_CODE.description,
-              STATUS.SUCCESS,
-            ),
-          );
-        } catch (error) {
-          toast(
-            customToast(
-              ERROR_MESSAGES.SET_PIN_CODE.title,
-              ERROR_MESSAGES.SET_PIN_CODE.description,
-              STATUS.ERROR,
-            ),
-          );
-        }
+        setNewPinCode(data, {
+          onSuccess: () => handleSetNewPinCodeSuccess(user, data.pinCode),
+          onError: handleSetNewPinCodeError,
+        });
       }
     },
-    [handleSetPinCode, onClosePinCodeModal, setUser, toast, user],
+    [handleSetNewPinCodeError, handleSetNewPinCodeSuccess, setNewPinCode, user],
   );
 
   const pinCodeModalBody = useMemo(
     () => (
       <PinCode
         control={control}
-        isDisabled={!isValid || isSubmitting}
+        isDisabled={!isValid || isSetNewPinCode}
+        isLoading={isSetNewPinCode}
         onSubmit={handleSubmit(onSubmitPinCode)}
         onClose={onClosePinCodeModal}
       />
@@ -90,7 +98,7 @@ const CheckPinCodeProvider = () => {
     [
       control,
       handleSubmit,
-      isSubmitting,
+      isSetNewPinCode,
       isValid,
       onClosePinCodeModal,
       onSubmitPinCode,
