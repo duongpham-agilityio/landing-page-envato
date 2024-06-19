@@ -30,8 +30,7 @@ import { useDebounce } from '@/lib/hooks';
 import { AUTH_SCHEMA, COMMON_MESSAGES } from '@/lib/constants';
 
 // Types
-import { TTransfer } from '.';
-import { TUserDetail } from '@/lib/interfaces';
+import { TTransfer, TUserDetail } from '@/lib/interfaces';
 
 export type TUseSelectorProps = {
   control: Control<TTransfer>;

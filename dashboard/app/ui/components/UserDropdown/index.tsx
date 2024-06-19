@@ -31,7 +31,7 @@ interface UserDropdownProps {
   offsetX?: number;
   offsetY?: number;
   isLogoutHandling?: boolean;
-  onSingOut: () => void;
+  onSignOut: () => void;
 }
 const UserDropdown = ({
   src = IMAGES.USER.url,
@@ -42,7 +42,7 @@ const UserDropdown = ({
   offsetX = 0,
   offsetY = 10,
   isLogoutHandling = false,
-  onSingOut,
+  onSignOut,
 }: UserDropdownProps) => {
   const { primary } = useColorfill();
   const currencyColor = 'text.currencyColor';
@@ -107,7 +107,7 @@ const UserDropdown = ({
               bg="background.component.primary"
             >
               {MENU_LIST_ICON(role).map(
-                ({ id, href, icon, value, isHaveDivider }) => {
+                ({ id, href, icon, value, hasDivider }) => {
                   const Icon = icon || Fragment;
                   const props = href
                     ? {
@@ -115,14 +115,14 @@ const UserDropdown = ({
                         href: href,
                       }
                     : {
-                        onClick: onSingOut,
+                        onClick: onSignOut,
                       };
 
                   if (!value) return;
 
                   return (
                     <>
-                      {isHaveDivider && <Divider my={3.5} color="gray.300" />}
+                      {hasDivider && <Divider my={3.5} color="gray.300" />}
                       <MenuItem
                         key={id}
                         p={3.5}

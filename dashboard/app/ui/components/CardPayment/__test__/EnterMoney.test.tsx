@@ -3,7 +3,9 @@ import { Control, useForm } from 'react-hook-form';
 
 // Components
 import EnterMoney from '../EnterMoney';
-import { TTransfer } from '..';
+
+// Types
+import { TTransfer } from '@/lib/interfaces';
 
 const { result } = renderHook(() => useForm<TTransfer>());
 

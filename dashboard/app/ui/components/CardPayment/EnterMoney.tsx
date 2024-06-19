@@ -18,7 +18,7 @@ import { AUTH_SCHEMA } from '@/lib/constants';
 import { formatAmountNumber } from '@/lib/utils';
 
 // Types
-import { TTransfer } from '.';
+import { TTransfer } from '@/lib/interfaces';
 
 export type TEnterMoneyProps = {
   control: Control<TTransfer>;

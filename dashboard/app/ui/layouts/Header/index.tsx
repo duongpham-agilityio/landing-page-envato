@@ -28,7 +28,7 @@ interface Props {
   avatarURL: string;
   bonusTimes: number;
   isLogoutHandling?: boolean;
-  onSingOut: () => void;
+  onSignOut: () => void;
 }
 
 const HeaderComponent = ({
@@ -39,7 +39,7 @@ const HeaderComponent = ({
   avatarURL,
   bonusTimes,
   isLogoutHandling = false,
-  onSingOut,
+  onSignOut,
 }: Props) => {
   const { primary } = useColorfill();
   const pathname = usePathname();
@@ -96,7 +96,7 @@ const HeaderComponent = ({
             role={role}
             src={avatarURL}
             isLogoutHandling={isLogoutHandling}
-            onSingOut={onSingOut}
+            onSignOut={onSignOut}
           />
         </Box>
       </Flex>
@@ -134,7 +134,7 @@ const HeaderComponent = ({
               role={role}
               src={avatarURL}
               isLogoutHandling={isLogoutHandling}
-              onSingOut={onSingOut}
+              onSignOut={onSignOut}
             />
           </Box>
         </Flex>
@@ -153,7 +153,7 @@ const HeaderComponent = ({
             role={role}
             src={avatarURL}
             isLogoutHandling={isLogoutHandling}
-            onSingOut={onSingOut}
+            onSignOut={onSignOut}
           />
         </Box>
       </Flex>

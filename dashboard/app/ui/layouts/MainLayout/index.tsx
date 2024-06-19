@@ -125,7 +125,7 @@ const MainLayout = ({ children }: { children: React.ReactNode }) => {
               avatarURL={avatarURL}
               bonusTimes={bonusTimes}
               isLogoutHandling={isLogoutHandling}
-              onSingOut={signOut}
+              onSignOut={signOut}
             />
             {children}
           </Box>

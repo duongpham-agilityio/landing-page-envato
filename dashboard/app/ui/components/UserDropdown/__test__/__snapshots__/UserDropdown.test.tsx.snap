@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Dropdown render Should render match with snapshot. 1`] = `
+exports[`UserDropdown component Should render match with snapshot. 1`] = `
 <div>
   <div
     class="css-0"
@@ -11,7 +11,7 @@ exports[`Dropdown render Should render match with snapshot. 1`] = `
       aria-haspopup="menu"
       class="chakra-button chakra-menu__menu-button css-14rg285"
       id="menu-button-:r1:"
-      title="John Doe"
+      title=""
       type="button"
     >
       <span
@@ -43,9 +43,7 @@ exports[`Dropdown render Should render match with snapshot. 1`] = `
               >
                 <p
                   class="chakra-text css-8odann"
-                >
-                  John Doe
-                </p>
+                />
                 <svg
                   fill="none"
                   height="24"
@@ -137,8 +135,8 @@ exports[`Dropdown render Should render match with snapshot. 1`] = `
           class="chakra-divider css-19ob8qo"
         />
         <button
-          aria-label="menu-item-Logout"
-          class="chakra-menu__menuitem css-10y1xuw"
+          aria-label="menu-icon-Logout"
+          class="chakra-menu__menuitem css-7a5ou2"
           data-index="1"
           id="menu-list-:r1:-menuitem-:r3:"
           role="menuitem"
