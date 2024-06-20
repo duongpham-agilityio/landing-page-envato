@@ -2,7 +2,7 @@ export interface IUserBase {
   id: string;
   firstName: string;
   lastName: string;
-  createdAt: number;
+  createdAt: string;
   avatarURL: string;
   email: string;
 }

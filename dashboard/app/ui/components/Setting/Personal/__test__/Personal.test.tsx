@@ -5,7 +5,7 @@ import UserForm from '..';
 import userEvent from '@testing-library/user-event';
 import { renderQueryProviderTest } from '@/lib/utils/testUtils';
 import { useUpdateUser } from '@/lib/hooks';
-import { USER_DETAIL_MOCK } from '@/lib/mocks';
+import { MOCK_USERS } from '@/lib/mocks';
 
 const updateProfileMock = jest.fn();
 
@@ -22,7 +22,7 @@ jest.mock('@chakra-ui/react', () => ({
 describe('Personal Page test cases', () => {
   beforeAll(() => {
     (useUpdateUser as jest.Mock).mockReturnValue({
-      data: USER_DETAIL_MOCK,
+      data: MOCK_USERS,
       useCreateIssues: updateProfileMock,
     });
   });

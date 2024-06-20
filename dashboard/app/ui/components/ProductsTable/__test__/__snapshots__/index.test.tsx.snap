@@ -412,7 +412,7 @@ exports[`Product table Match with snapshot with default prop 1`] = `
               class="css-5x3kvh"
             >
               <div
-                class="css-1x2nzxp"
+                class="css-9ywnbm"
               >
                 <div
                   class="css-1gb8e9t"
@@ -425,7 +425,7 @@ exports[`Product table Match with snapshot with default prop 1`] = `
                     sizes="100vw"
                     src="/_next/image?url=https%3A%2F%2Fi.ibb.co%2FsC4FyPz%2Fban-phim-co-gaming-sidotech-yindiao-k100-jpg-1659689824-05082022155704.jpg&w=3840&q=75"
                     srcset="/_next/image?url=https%3A%2F%2Fi.ibb.co%2FsC4FyPz%2Fban-phim-co-gaming-sidotech-yindiao-k100-jpg-1659689824-05082022155704.jpg&w=640&q=75 640w, /_next/image?url=https%3A%2F%2Fi.ibb.co%2FsC4FyPz%2Fban-phim-co-gaming-sidotech-yindiao-k100-jpg-1659689824-05082022155704.jpg&w=750&q=75 750w, /_next/image?url=https%3A%2F%2Fi.ibb.co%2FsC4FyPz%2Fban-phim-co-gaming-sidotech-yindiao-k100-jpg-1659689824-05082022155704.jpg&w=828&q=75 828w, /_next/image?url=https%3A%2F%2Fi.ibb.co%2FsC4FyPz%2Fban-phim-co-gaming-sidotech-yindiao-k100-jpg-1659689824-05082022155704.jpg&w=1080&q=75 1080w, /_next/image?url=https%3A%2F%2Fi.ibb.co%2FsC4FyPz%2Fban-phim-co-gaming-sidotech-yindiao-k100-jpg-1659689824-05082022155704.jpg&w=1200&q=75 1200w, /_next/image?url=https%3A%2F%2Fi.ibb.co%2FsC4FyPz%2Fban-phim-co-gaming-sidotech-yindiao-k100-jpg-1659689824-05082022155704.jpg&w=1920&q=75 1920w, /_next/image?url=https%3A%2F%2Fi.ibb.co%2FsC4FyPz%2Fban-phim-co-gaming-sidotech-yindiao-k100-jpg-1659689824-05082022155704.jpg&w=2048&q=75 2048w, /_next/image?url=https%3A%2F%2Fi.ibb.co%2FsC4FyPz%2Fban-phim-co-gaming-sidotech-yindiao-k100-jpg-1659689824-05082022155704.jpg&w=3840&q=75 3840w"
-                    style="position: absolute; height: 100%; width: 100%; left: 0px; top: 0px; right: 0px; bottom: 0px; object-fit: contain; color: transparent; border-radius: 15px; background-size: contain; background-position: 50% 50%; background-repeat: no-repeat;"
+                    style="position: absolute; height: 100%; width: 100%; left: 0px; top: 0px; right: 0px; bottom: 0px; object-fit: cover; color: transparent; border-radius: 15px; background-size: cover; background-position: 50% 50%; background-repeat: no-repeat;"
                   />
                 </div>
               </div>
@@ -589,7 +589,7 @@ exports[`Product table Match with snapshot with default prop 1`] = `
               class="css-5x3kvh"
             >
               <div
-                class="css-1x2nzxp"
+                class="css-9ywnbm"
               >
                 <div
                   class="css-1gb8e9t"
@@ -602,7 +602,7 @@ exports[`Product table Match with snapshot with default prop 1`] = `
                     sizes="100vw"
                     src="/_next/image?url=https%3A%2F%2Fi.ibb.co%2FpwH6GTk%2Fpng-clipart-playstation-3-playstation-2-gamepad-directinput-gamepad-game-electronics.png&w=3840&q=75"
                     srcset="/_next/image?url=https%3A%2F%2Fi.ibb.co%2FpwH6GTk%2Fpng-clipart-playstation-3-playstation-2-gamepad-directinput-gamepad-game-electronics.png&w=640&q=75 640w, /_next/image?url=https%3A%2F%2Fi.ibb.co%2FpwH6GTk%2Fpng-clipart-playstation-3-playstation-2-gamepad-directinput-gamepad-game-electronics.png&w=750&q=75 750w, /_next/image?url=https%3A%2F%2Fi.ibb.co%2FpwH6GTk%2Fpng-clipart-playstation-3-playstation-2-gamepad-directinput-gamepad-game-electronics.png&w=828&q=75 828w, /_next/image?url=https%3A%2F%2Fi.ibb.co%2FpwH6GTk%2Fpng-clipart-playstation-3-playstation-2-gamepad-directinput-gamepad-game-electronics.png&w=1080&q=75 1080w, /_next/image?url=https%3A%2F%2Fi.ibb.co%2FpwH6GTk%2Fpng-clipart-playstation-3-playstation-2-gamepad-directinput-gamepad-game-electronics.png&w=1200&q=75 1200w, /_next/image?url=https%3A%2F%2Fi.ibb.co%2FpwH6GTk%2Fpng-clipart-playstation-3-playstation-2-gamepad-directinput-gamepad-game-electronics.png&w=1920&q=75 1920w, /_next/image?url=https%3A%2F%2Fi.ibb.co%2FpwH6GTk%2Fpng-clipart-playstation-3-playstation-2-gamepad-directinput-gamepad-game-electronics.png&w=2048&q=75 2048w, /_next/image?url=https%3A%2F%2Fi.ibb.co%2FpwH6GTk%2Fpng-clipart-playstation-3-playstation-2-gamepad-directinput-gamepad-game-electronics.png&w=3840&q=75 3840w"
-                    style="position: absolute; height: 100%; width: 100%; left: 0px; top: 0px; right: 0px; bottom: 0px; object-fit: contain; color: transparent; border-radius: 15px; background-size: contain; background-position: 50% 50%; background-repeat: no-repeat;"
+                    style="position: absolute; height: 100%; width: 100%; left: 0px; top: 0px; right: 0px; bottom: 0px; object-fit: cover; color: transparent; border-radius: 15px; background-size: cover; background-position: 50% 50%; background-repeat: no-repeat;"
                   />
                 </div>
               </div>
@@ -766,7 +766,7 @@ exports[`Product table Match with snapshot with default prop 1`] = `
               class="css-5x3kvh"
             >
               <div
-                class="css-1x2nzxp"
+                class="css-9ywnbm"
               >
                 <div
                   class="css-1gb8e9t"
@@ -779,7 +779,7 @@ exports[`Product table Match with snapshot with default prop 1`] = `
                     sizes="100vw"
                     src="/_next/image?url=https%3A%2F%2Fi.ibb.co%2F3yzTC5Q%2Fimage-57.png%2Chttps%3A%2F%2Fi.ibb.co%2FHq9kqmc%2Fimage-58.png%2Chttps%3A%2F%2Fi.ibb.co%2FYdnfHMf%2Fimage-63.png&w=3840&q=75"
                     srcset="/_next/image?url=https%3A%2F%2Fi.ibb.co%2F3yzTC5Q%2Fimage-57.png%2Chttps%3A%2F%2Fi.ibb.co%2FHq9kqmc%2Fimage-58.png%2Chttps%3A%2F%2Fi.ibb.co%2FYdnfHMf%2Fimage-63.png&w=640&q=75 640w, /_next/image?url=https%3A%2F%2Fi.ibb.co%2F3yzTC5Q%2Fimage-57.png%2Chttps%3A%2F%2Fi.ibb.co%2FHq9kqmc%2Fimage-58.png%2Chttps%3A%2F%2Fi.ibb.co%2FYdnfHMf%2Fimage-63.png&w=750&q=75 750w, /_next/image?url=https%3A%2F%2Fi.ibb.co%2F3yzTC5Q%2Fimage-57.png%2Chttps%3A%2F%2Fi.ibb.co%2FHq9kqmc%2Fimage-58.png%2Chttps%3A%2F%2Fi.ibb.co%2FYdnfHMf%2Fimage-63.png&w=828&q=75 828w, /_next/image?url=https%3A%2F%2Fi.ibb.co%2F3yzTC5Q%2Fimage-57.png%2Chttps%3A%2F%2Fi.ibb.co%2FHq9kqmc%2Fimage-58.png%2Chttps%3A%2F%2Fi.ibb.co%2FYdnfHMf%2Fimage-63.png&w=1080&q=75 1080w, /_next/image?url=https%3A%2F%2Fi.ibb.co%2F3yzTC5Q%2Fimage-57.png%2Chttps%3A%2F%2Fi.ibb.co%2FHq9kqmc%2Fimage-58.png%2Chttps%3A%2F%2Fi.ibb.co%2FYdnfHMf%2Fimage-63.png&w=1200&q=75 1200w, /_next/image?url=https%3A%2F%2Fi.ibb.co%2F3yzTC5Q%2Fimage-57.png%2Chttps%3A%2F%2Fi.ibb.co%2FHq9kqmc%2Fimage-58.png%2Chttps%3A%2F%2Fi.ibb.co%2FYdnfHMf%2Fimage-63.png&w=1920&q=75 1920w, /_next/image?url=https%3A%2F%2Fi.ibb.co%2F3yzTC5Q%2Fimage-57.png%2Chttps%3A%2F%2Fi.ibb.co%2FHq9kqmc%2Fimage-58.png%2Chttps%3A%2F%2Fi.ibb.co%2FYdnfHMf%2Fimage-63.png&w=2048&q=75 2048w, /_next/image?url=https%3A%2F%2Fi.ibb.co%2F3yzTC5Q%2Fimage-57.png%2Chttps%3A%2F%2Fi.ibb.co%2FHq9kqmc%2Fimage-58.png%2Chttps%3A%2F%2Fi.ibb.co%2FYdnfHMf%2Fimage-63.png&w=3840&q=75 3840w"
-                    style="position: absolute; height: 100%; width: 100%; left: 0px; top: 0px; right: 0px; bottom: 0px; object-fit: contain; color: transparent; border-radius: 15px; background-size: contain; background-position: 50% 50%; background-repeat: no-repeat;"
+                    style="position: absolute; height: 100%; width: 100%; left: 0px; top: 0px; right: 0px; bottom: 0px; object-fit: cover; color: transparent; border-radius: 15px; background-size: cover; background-position: 50% 50%; background-repeat: no-repeat;"
                   />
                 </div>
               </div>
@@ -943,7 +943,7 @@ exports[`Product table Match with snapshot with default prop 1`] = `
               class="css-5x3kvh"
             >
               <div
-                class="css-1x2nzxp"
+                class="css-9ywnbm"
               >
                 <div
                   class="css-1gb8e9t"
@@ -956,7 +956,7 @@ exports[`Product table Match with snapshot with default prop 1`] = `
                     sizes="100vw"
                     src="/_next/image?url=https%3A%2F%2Fi.ibb.co%2FvxCVqcz%2Fimage-59.png%2Chttps%3A%2F%2Fi.ibb.co%2Fd0D0csn%2Fimage-61.png&w=3840&q=75"
                     srcset="/_next/image?url=https%3A%2F%2Fi.ibb.co%2FvxCVqcz%2Fimage-59.png%2Chttps%3A%2F%2Fi.ibb.co%2Fd0D0csn%2Fimage-61.png&w=640&q=75 640w, /_next/image?url=https%3A%2F%2Fi.ibb.co%2FvxCVqcz%2Fimage-59.png%2Chttps%3A%2F%2Fi.ibb.co%2Fd0D0csn%2Fimage-61.png&w=750&q=75 750w, /_next/image?url=https%3A%2F%2Fi.ibb.co%2FvxCVqcz%2Fimage-59.png%2Chttps%3A%2F%2Fi.ibb.co%2Fd0D0csn%2Fimage-61.png&w=828&q=75 828w, /_next/image?url=https%3A%2F%2Fi.ibb.co%2FvxCVqcz%2Fimage-59.png%2Chttps%3A%2F%2Fi.ibb.co%2Fd0D0csn%2Fimage-61.png&w=1080&q=75 1080w, /_next/image?url=https%3A%2F%2Fi.ibb.co%2FvxCVqcz%2Fimage-59.png%2Chttps%3A%2F%2Fi.ibb.co%2Fd0D0csn%2Fimage-61.png&w=1200&q=75 1200w, /_next/image?url=https%3A%2F%2Fi.ibb.co%2FvxCVqcz%2Fimage-59.png%2Chttps%3A%2F%2Fi.ibb.co%2Fd0D0csn%2Fimage-61.png&w=1920&q=75 1920w, /_next/image?url=https%3A%2F%2Fi.ibb.co%2FvxCVqcz%2Fimage-59.png%2Chttps%3A%2F%2Fi.ibb.co%2Fd0D0csn%2Fimage-61.png&w=2048&q=75 2048w, /_next/image?url=https%3A%2F%2Fi.ibb.co%2FvxCVqcz%2Fimage-59.png%2Chttps%3A%2F%2Fi.ibb.co%2Fd0D0csn%2Fimage-61.png&w=3840&q=75 3840w"
-                    style="position: absolute; height: 100%; width: 100%; left: 0px; top: 0px; right: 0px; bottom: 0px; object-fit: contain; color: transparent; border-radius: 15px; background-size: contain; background-position: 50% 50%; background-repeat: no-repeat;"
+                    style="position: absolute; height: 100%; width: 100%; left: 0px; top: 0px; right: 0px; bottom: 0px; object-fit: cover; color: transparent; border-radius: 15px; background-size: cover; background-position: 50% 50%; background-repeat: no-repeat;"
                   />
                 </div>
               </div>
@@ -1120,7 +1120,7 @@ exports[`Product table Match with snapshot with default prop 1`] = `
               class="css-5x3kvh"
             >
               <div
-                class="css-1x2nzxp"
+                class="css-9ywnbm"
               >
                 <div
                   class="css-1gb8e9t"
@@ -1133,7 +1133,7 @@ exports[`Product table Match with snapshot with default prop 1`] = `
                     sizes="100vw"
                     src="/_next/image?url=https%3A%2F%2Fi.ibb.co%2Fd0D0csn%2Fimage-61.png%2Chttps%3A%2F%2Fi.ibb.co%2FvxCVqcz%2Fimage-59.png&w=3840&q=75"
                     srcset="/_next/image?url=https%3A%2F%2Fi.ibb.co%2Fd0D0csn%2Fimage-61.png%2Chttps%3A%2F%2Fi.ibb.co%2FvxCVqcz%2Fimage-59.png&w=640&q=75 640w, /_next/image?url=https%3A%2F%2Fi.ibb.co%2Fd0D0csn%2Fimage-61.png%2Chttps%3A%2F%2Fi.ibb.co%2FvxCVqcz%2Fimage-59.png&w=750&q=75 750w, /_next/image?url=https%3A%2F%2Fi.ibb.co%2Fd0D0csn%2Fimage-61.png%2Chttps%3A%2F%2Fi.ibb.co%2FvxCVqcz%2Fimage-59.png&w=828&q=75 828w, /_next/image?url=https%3A%2F%2Fi.ibb.co%2Fd0D0csn%2Fimage-61.png%2Chttps%3A%2F%2Fi.ibb.co%2FvxCVqcz%2Fimage-59.png&w=1080&q=75 1080w, /_next/image?url=https%3A%2F%2Fi.ibb.co%2Fd0D0csn%2Fimage-61.png%2Chttps%3A%2F%2Fi.ibb.co%2FvxCVqcz%2Fimage-59.png&w=1200&q=75 1200w, /_next/image?url=https%3A%2F%2Fi.ibb.co%2Fd0D0csn%2Fimage-61.png%2Chttps%3A%2F%2Fi.ibb.co%2FvxCVqcz%2Fimage-59.png&w=1920&q=75 1920w, /_next/image?url=https%3A%2F%2Fi.ibb.co%2Fd0D0csn%2Fimage-61.png%2Chttps%3A%2F%2Fi.ibb.co%2FvxCVqcz%2Fimage-59.png&w=2048&q=75 2048w, /_next/image?url=https%3A%2F%2Fi.ibb.co%2Fd0D0csn%2Fimage-61.png%2Chttps%3A%2F%2Fi.ibb.co%2FvxCVqcz%2Fimage-59.png&w=3840&q=75 3840w"
-                    style="position: absolute; height: 100%; width: 100%; left: 0px; top: 0px; right: 0px; bottom: 0px; object-fit: contain; color: transparent; border-radius: 15px; background-size: contain; background-position: 50% 50%; background-repeat: no-repeat;"
+                    style="position: absolute; height: 100%; width: 100%; left: 0px; top: 0px; right: 0px; bottom: 0px; object-fit: cover; color: transparent; border-radius: 15px; background-size: cover; background-position: 50% 50%; background-repeat: no-repeat;"
                   />
                 </div>
               </div>

@@ -1,95 +1,47 @@
-// YourComponent.test.tsx
-
-import React from 'react';
+// Libs
 import { render, screen } from '@testing-library/react';
-import '@testing-library/jest-dom';
-import { act } from 'react-dom/test-utils';
-import CardBalance from '../CardBalance'; // Import the component to be tested
-import userEvent from '@testing-library/user-event';
 
-jest.mock('@/lib/hooks', () => ({
-  ...jest.requireActual('@/lib/hooks'),
-  usePinCode: jest.fn(),
-}));
+// Utils
+import { formatDecimalNumber } from '@/lib/utils';
 
-jest.mock('@/lib/stores', () => ({
-  ...jest.requireActual('@/lib/stores'),
-  authStore: jest.fn().mockImplementation(() => ({ user: { pinCode: null } })),
-}));
+// Components
+import { TCardProps, CardBalance } from '../CardBalance';
 
-jest.mock('@chakra-ui/react', () => ({
-  ...jest.requireActual('@chakra-ui/react'),
-  useToast: jest.fn(),
-  useDisclosure: jest.fn(() => ({ isOpen: false, onToggle: jest.fn() })),
-}));
+describe('CardBalance Component', () => {
+  const mockProps: TCardProps = {
+    balance: 1234.56,
+    isShowBalance: true,
+    onToggleShowBalance: jest.fn(),
+  };
 
-describe('CardPayment', () => {
-  test('CardPayment component renders correctly', () => {
-    const usePinCodeMock = jest.requireMock('@/lib/hooks').usePinCode;
-    usePinCodeMock.mockReturnValue({
-      isConfirmPinCodeModalOpen: false,
-      isSetPinCodeModalOpen: false,
-      handleSetPinCode: jest.fn(),
-      handleConfirmPinCode: jest.fn(),
-      onCloseConfirmPinCodeModal: jest.fn(),
-      onCloseSetPinCodeModal: jest.fn(),
-      onOpenConfirmPinCodeModal: jest.fn(),
-      onOpenSetPinCodeModal: jest.fn(),
-    });
-    const { container } = render(<CardBalance balance={0} />);
+  test(' should render to match snapshot', () => {
+    const { container } = render(<CardBalance {...mockProps} />);
 
     expect(container).toMatchSnapshot();
   });
 
-  it('updates isSetPinCodeModalOpen state when button is clicked', async () => {
-    const usePinCodeMock = jest.requireMock('@/lib/hooks').usePinCode;
-    usePinCodeMock.mockReturnValue({
-      isSetPinCodeModalOpen: true,
-      onOpenSetPinCodeModal: jest.fn(),
-      onCloseSetPinCodeModal: jest.fn(),
-    });
+  test('renders the component with balance visible', () => {
+    render(<CardBalance {...mockProps} />);
 
-    render(<CardBalance balance={0} />);
-
-    userEvent.click(screen.getByTestId('btn-eye'));
-
-    await act(async () => {});
-
-    const { isSetPinCodeModalOpen } = usePinCodeMock();
-
-    expect(isSetPinCodeModalOpen).toBe(true);
+    expect(screen.getByText('Balance')).toBeInTheDocument();
+    expect(
+      screen.getByText(`$${formatDecimalNumber(mockProps.balance)}`),
+    ).toBeInTheDocument();
   });
 
-  it('opens Set PIN code modal when user has no PIN code', async () => {
-    const usePinCodeMock = jest.requireMock('@/lib/hooks').usePinCode;
-    const onCloseSetPinCodeModalMock = jest.fn();
-    usePinCodeMock.mockReturnValue({
-      isSetPinCodeModalOpen: true,
-      onOpenSetPinCodeModal: jest.fn(),
-      onCloseSetPinCodeModal: onCloseSetPinCodeModalMock,
-    });
+  test('renders the component with balance hidden', () => {
+    render(<CardBalance {...mockProps} isShowBalance={false} />);
 
-    render(<CardBalance balance={0} />);
+    expect(screen.getByText('Balance')).toBeInTheDocument();
+    expect(screen.getByText('******')).toBeInTheDocument();
+  });
 
-    userEvent.click(screen.getByTestId('btn-eye'));
+  test('calls onToggleShowBalance when the button is clicked', () => {
+    render(<CardBalance {...mockProps} />);
 
-    await act(async () => {});
+    const button = screen.getByTestId('btn-eye');
+    fireEvent.click(button);
 
-    const { isSetPinCodeModalOpen } = usePinCodeMock();
-
-    const cancelBtn = screen.getByRole<HTMLButtonElement>('button', {
-      name: 'Cancel',
-      hidden: true,
-    });
-
-    await userEvent.click(cancelBtn);
-
-    expect(onCloseSetPinCodeModalMock).toHaveBeenCalled();
-
-    expect(isSetPinCodeModalOpen).toBe(true);
-
-    expect(
-      screen.getByText('Please set the PIN code to your account'),
-    ).toBeInTheDocument();
+    expect(mockProps.onToggleShowBalance).toHaveBeenCalledTimes(1);
   });
 });

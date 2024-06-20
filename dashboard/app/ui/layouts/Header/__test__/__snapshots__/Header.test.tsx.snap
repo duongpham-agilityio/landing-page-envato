@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Header render Should render match with snapshot. 1`] = `
+exports[`Header component Should render match with snapshot. 1`] = `
 <div>
   <div
     class="css-2urpt7"
@@ -70,7 +70,7 @@ exports[`Header render Should render match with snapshot. 1`] = `
             aria-haspopup="menu"
             class="chakra-button chakra-menu__menu-button css-1of25bg"
             id="menu-button-:r1:"
-            title=" "
+            title="Abdur Rohman"
             type="button"
           >
             <span
@@ -86,7 +86,10 @@ exports[`Header render Should render match with snapshot. 1`] = `
                     alt=""
                     data-nimg="fill"
                     decoding="async"
-                    src=""
+                    loading="lazy"
+                    sizes="100vw"
+                    src="/_next/image?url=https%3A%2F%2Fcdn-icons-png.flaticon.com%2F512%2F5556%2F5556468.png&w=3840&q=75"
+                    srcset="/_next/image?url=https%3A%2F%2Fcdn-icons-png.flaticon.com%2F512%2F5556%2F5556468.png&w=640&q=75 640w, /_next/image?url=https%3A%2F%2Fcdn-icons-png.flaticon.com%2F512%2F5556%2F5556468.png&w=750&q=75 750w, /_next/image?url=https%3A%2F%2Fcdn-icons-png.flaticon.com%2F512%2F5556%2F5556468.png&w=828&q=75 828w, /_next/image?url=https%3A%2F%2Fcdn-icons-png.flaticon.com%2F512%2F5556%2F5556468.png&w=1080&q=75 1080w, /_next/image?url=https%3A%2F%2Fcdn-icons-png.flaticon.com%2F512%2F5556%2F5556468.png&w=1200&q=75 1200w, /_next/image?url=https%3A%2F%2Fcdn-icons-png.flaticon.com%2F512%2F5556%2F5556468.png&w=1920&q=75 1920w, /_next/image?url=https%3A%2F%2Fcdn-icons-png.flaticon.com%2F512%2F5556%2F5556468.png&w=2048&q=75 2048w, /_next/image?url=https%3A%2F%2Fcdn-icons-png.flaticon.com%2F512%2F5556%2F5556468.png&w=3840&q=75 3840w"
                     style="position: absolute; height: 100%; width: 100%; left: 0px; top: 0px; right: 0px; bottom: 0px; object-fit: cover; color: transparent; border-radius: 12px; border-width: 1px; padding-top: 2px; cursor: pointer; border-color: #e2e8f0; background-size: cover; background-position: 50% 50%; background-repeat: no-repeat;"
                   />
                 </div>
@@ -102,7 +105,7 @@ exports[`Header render Should render match with snapshot. 1`] = `
                       <p
                         class="chakra-text css-9sqk9o"
                       >
-                         
+                        Abdur Rohman
                       </p>
                       <svg
                         fill="none"
@@ -123,9 +126,7 @@ exports[`Header render Should render match with snapshot. 1`] = `
                     </div>
                     <p
                       class="chakra-text css-179zs4q"
-                    >
-                      Super Admin
-                    </p>
+                    />
                   </div>
                 </div>
               </div>
@@ -195,8 +196,8 @@ exports[`Header render Should render match with snapshot. 1`] = `
                 class="chakra-divider css-1sulk9x"
               />
               <button
-                aria-label="menu-item-Logout"
-                class="chakra-menu__menuitem css-1way4u7"
+                aria-label="menu-icon-Logout"
+                class="chakra-menu__menuitem css-1gjvndh"
                 data-index="1"
                 id="menu-list-:r1:-menuitem-:r3:"
                 role="menuitem"
@@ -375,7 +376,7 @@ exports[`Header render Should render match with snapshot. 1`] = `
                 <p
                   class="chakra-text css-1gcq9kx"
                 >
-                  5
+                  10
                 </p>
                 <div
                   aria-label="limit-bonus"
@@ -446,7 +447,7 @@ exports[`Header render Should render match with snapshot. 1`] = `
               aria-haspopup="menu"
               class="chakra-button chakra-menu__menu-button css-1of25bg"
               id="menu-button-:r9:"
-              title=" "
+              title="Abdur Rohman"
               type="button"
             >
               <span
@@ -462,7 +463,10 @@ exports[`Header render Should render match with snapshot. 1`] = `
                       alt=""
                       data-nimg="fill"
                       decoding="async"
-                      src=""
+                      loading="lazy"
+                      sizes="100vw"
+                      src="/_next/image?url=https%3A%2F%2Fcdn-icons-png.flaticon.com%2F512%2F5556%2F5556468.png&w=3840&q=75"
+                      srcset="/_next/image?url=https%3A%2F%2Fcdn-icons-png.flaticon.com%2F512%2F5556%2F5556468.png&w=640&q=75 640w, /_next/image?url=https%3A%2F%2Fcdn-icons-png.flaticon.com%2F512%2F5556%2F5556468.png&w=750&q=75 750w, /_next/image?url=https%3A%2F%2Fcdn-icons-png.flaticon.com%2F512%2F5556%2F5556468.png&w=828&q=75 828w, /_next/image?url=https%3A%2F%2Fcdn-icons-png.flaticon.com%2F512%2F5556%2F5556468.png&w=1080&q=75 1080w, /_next/image?url=https%3A%2F%2Fcdn-icons-png.flaticon.com%2F512%2F5556%2F5556468.png&w=1200&q=75 1200w, /_next/image?url=https%3A%2F%2Fcdn-icons-png.flaticon.com%2F512%2F5556%2F5556468.png&w=1920&q=75 1920w, /_next/image?url=https%3A%2F%2Fcdn-icons-png.flaticon.com%2F512%2F5556%2F5556468.png&w=2048&q=75 2048w, /_next/image?url=https%3A%2F%2Fcdn-icons-png.flaticon.com%2F512%2F5556%2F5556468.png&w=3840&q=75 3840w"
                       style="position: absolute; height: 100%; width: 100%; left: 0px; top: 0px; right: 0px; bottom: 0px; object-fit: cover; color: transparent; border-radius: 12px; border-width: 1px; padding-top: 2px; cursor: pointer; border-color: #e2e8f0; background-size: cover; background-position: 50% 50%; background-repeat: no-repeat;"
                     />
                   </div>
@@ -478,7 +482,7 @@ exports[`Header render Should render match with snapshot. 1`] = `
                         <p
                           class="chakra-text css-9sqk9o"
                         >
-                           
+                          Abdur Rohman
                         </p>
                         <svg
                           fill="none"
@@ -569,8 +573,8 @@ exports[`Header render Should render match with snapshot. 1`] = `
                   class="chakra-divider css-1sulk9x"
                 />
                 <button
-                  aria-label="menu-item-Logout"
-                  class="chakra-menu__menuitem css-1way4u7"
+                  aria-label="menu-icon-Logout"
+                  class="chakra-menu__menuitem css-1gjvndh"
                   data-index="1"
                   id="menu-list-:r9:-menuitem-:rb:"
                   role="menuitem"
@@ -618,7 +622,7 @@ exports[`Header render Should render match with snapshot. 1`] = `
             aria-haspopup="menu"
             class="chakra-button chakra-menu__menu-button css-1of25bg"
             id="menu-button-:rd:"
-            title=" "
+            title="Abdur Rohman"
             type="button"
           >
             <span
@@ -634,7 +638,10 @@ exports[`Header render Should render match with snapshot. 1`] = `
                     alt=""
                     data-nimg="fill"
                     decoding="async"
-                    src=""
+                    loading="lazy"
+                    sizes="100vw"
+                    src="/_next/image?url=https%3A%2F%2Fcdn-icons-png.flaticon.com%2F512%2F5556%2F5556468.png&w=3840&q=75"
+                    srcset="/_next/image?url=https%3A%2F%2Fcdn-icons-png.flaticon.com%2F512%2F5556%2F5556468.png&w=640&q=75 640w, /_next/image?url=https%3A%2F%2Fcdn-icons-png.flaticon.com%2F512%2F5556%2F5556468.png&w=750&q=75 750w, /_next/image?url=https%3A%2F%2Fcdn-icons-png.flaticon.com%2F512%2F5556%2F5556468.png&w=828&q=75 828w, /_next/image?url=https%3A%2F%2Fcdn-icons-png.flaticon.com%2F512%2F5556%2F5556468.png&w=1080&q=75 1080w, /_next/image?url=https%3A%2F%2Fcdn-icons-png.flaticon.com%2F512%2F5556%2F5556468.png&w=1200&q=75 1200w, /_next/image?url=https%3A%2F%2Fcdn-icons-png.flaticon.com%2F512%2F5556%2F5556468.png&w=1920&q=75 1920w, /_next/image?url=https%3A%2F%2Fcdn-icons-png.flaticon.com%2F512%2F5556%2F5556468.png&w=2048&q=75 2048w, /_next/image?url=https%3A%2F%2Fcdn-icons-png.flaticon.com%2F512%2F5556%2F5556468.png&w=3840&q=75 3840w"
                     style="position: absolute; height: 100%; width: 100%; left: 0px; top: 0px; right: 0px; bottom: 0px; object-fit: cover; color: transparent; border-radius: 12px; border-width: 1px; padding-top: 2px; cursor: pointer; border-color: #e2e8f0; background-size: cover; background-position: 50% 50%; background-repeat: no-repeat;"
                   />
                 </div>
@@ -650,7 +657,7 @@ exports[`Header render Should render match with snapshot. 1`] = `
                       <p
                         class="chakra-text css-9sqk9o"
                       >
-                         
+                        Abdur Rohman
                       </p>
                       <svg
                         fill="none"
@@ -741,8 +748,8 @@ exports[`Header render Should render match with snapshot. 1`] = `
                 class="chakra-divider css-1sulk9x"
               />
               <button
-                aria-label="menu-item-Logout"
-                class="chakra-menu__menuitem css-1way4u7"
+                aria-label="menu-icon-Logout"
+                class="chakra-menu__menuitem css-1gjvndh"
                 data-index="1"
                 id="menu-list-:rd:-menuitem-:rf:"
                 role="menuitem"

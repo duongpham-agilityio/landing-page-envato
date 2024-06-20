@@ -1,80 +1,50 @@
-import { render, screen } from '@testing-library/react';
-import '@testing-library/jest-dom';
-import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
-import userEvent from '@testing-library/user-event';
+// Libs
+import { screen } from '@testing-library/react';
+import { useForm } from 'react-hook-form';
 
-// Components
-import CardPayment from '@/ui/components/CardPayment';
+// Types
+import { TTransfer } from '@/lib/interfaces';
+
+// Utils
+import { renderQueryProviderTest } from '@/lib/utils';
 
 // Mocks
-import { MOCK_FILTER_DATA_USER } from '@/lib/mocks';
+import { MOCK_FILTER_DATA_USERS } from '@/lib/mocks';
 
-const queryClient = new QueryClient();
+// Components
+import { CardPayment } from '..';
 
-describe('CardPayment test cases', () => {
-  const setup = () =>
-    render(
-      <QueryClientProvider client={queryClient}>
-        <CardPayment />
-      </QueryClientProvider>,
+describe('CardPayment', () => {
+  const { result } = renderHook(() => useForm<TTransfer>());
+
+  const mockDirtyFields = {
+    amount: true,
+    memberId: true,
+  };
+
+  const mockProps = {
+    control: result.current.control,
+    dirtyFields: mockDirtyFields,
+    userList: MOCK_FILTER_DATA_USERS,
+    isSendMoneySubmitting: true,
+    onSubmitSendMoneyHandler: result.current.handleSubmit,
+    onSubmitSendMoney: jest.fn(),
+  };
+
+  it('should match with snapshot', () => {
+    const { container } = renderQueryProviderTest(
+      <CardPayment {...mockProps} />,
     );
 
-  test('CardPayment component renders correctly', () => {
-    const { container } = setup();
     expect(container).toMatchSnapshot();
   });
 
-  test('should invoke handleChange function to prevent negative number when typing money amount', async () => {
-    const { container } = setup();
-    const moneyInput = container.querySelector<HTMLInputElement>(
-      'input[name="money"]',
+  it('The Send button should be enabled when the form is dirty', () => {
+    renderQueryProviderTest(
+      <CardPayment {...mockProps} isSendMoneySubmitting={false} />,
     );
 
-    if (moneyInput) {
-      await userEvent.type(moneyInput, '-123');
-
-      expect(moneyInput.value).toBe('123');
-    }
-  });
-
-  test('should hide money amount when clicking the eye icon button', async () => {
-    setup();
-    const eyeButton = screen.getByTestId('btn-eye');
-
-    await userEvent.click(eyeButton);
-
-    const hiddenTextField = screen.getByText(/\*\*\*\*\*\*/i);
-
-    expect(hiddenTextField).toBeDefined();
-  });
-
-  it('returns the correct _id for an existing email', () => {
-    const email = 'usertwo@example.com';
-    const expectedId = '2';
-
-    const getMemberId = (email: string) =>
-      MOCK_FILTER_DATA_USER.find(
-        (user) =>
-          user.email.trim().toLowerCase() === email.trim().toLowerCase(),
-      )?._id || '';
-
-    const memberId = getMemberId(email);
-
-    expect(memberId).toEqual(expectedId);
-  });
-
-  it('returns an empty string for an email that does not exist', () => {
-    const email = 'nonexistent@example.com';
-    const expectedId = '';
-
-    const getMemberId = (email: string) =>
-      MOCK_FILTER_DATA_USER.find(
-        (user) =>
-          user.email.trim().toLowerCase() === email.trim().toLowerCase(),
-      )?._id || '';
-
-    const memberId = getMemberId(email);
-
-    expect(memberId).toEqual(expectedId);
+    const sendButton = screen.getByText('Send Money');
+    expect(sendButton).not.toBeDisabled();
   });
 });

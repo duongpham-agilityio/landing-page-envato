@@ -3,386 +3,632 @@
 exports[`MyWalletSection render should render snapshot 1`] = `
 <div>
   <div
-    class="css-ahthbn"
+    class="css-et9gjv"
   >
     <div
-      class="css-hctu2c"
+      class="css-zd4of5"
     >
       <div
-        class="css-1n1b5z6"
+        class="css-6iskwu"
       >
         <div
-          class="chakra-skeleton css-19rj3b7"
-        />
-      </div>
-      <div
-        class="css-ugfeub"
-      >
-        <div
-          class="css-6uoxe3"
+          class="css-1z03mj8"
         >
+          <form>
+            <div
+              class="css-1hlzswh"
+            >
+              <p
+                class="chakra-text css-1ki0mgu"
+              >
+                 Enter amount 
+              </p>
+              <div
+                class="css-17piex8"
+              >
+                <p
+                  class="chakra-text css-4xj0bk"
+                >
+                  $
+                </p>
+                <div
+                  class="chakra-form-control css-1eor3tg"
+                  role="group"
+                >
+                  <input
+                    autocomplete="off"
+                    class="chakra-input css-cr7iz"
+                    id="field-:r2:"
+                    name="amount"
+                    placeholder="0.00"
+                    type="text"
+                    value=""
+                  />
+                </div>
+              </div>
+            </div>
+            <button
+              aria-label="btn-add-money"
+              class="chakra-button css-d8rbc1"
+              disabled=""
+              type="submit"
+            >
+              Add Money
+            </button>
+          </form>
+        </div>
+        <div
+          class="css-1p0sw78"
+        >
+          <h3
+            class="chakra-heading css-1jhdndu"
+          >
+            my wallet
+          </h3>
           <div
-            class="chakra-skeleton css-19rj3b7"
-          />
+            class="css-gmuwbf"
+          >
+            <div
+              class="css-140b0vm"
+            >
+              <div
+                class="css-1loy0ln"
+              >
+                <p
+                  class="chakra-text css-mskrhv"
+                >
+                  Balance
+                </p>
+                <button
+                  aria-label="eye"
+                  class="chakra-button css-he8p55"
+                  data-testid="btn-eye"
+                  type="button"
+                >
+                  <svg
+                    height="16"
+                    viewBox="0 0 576 512"
+                    width="18"
+                  >
+                    <g
+                      opacity="0.6"
+                    >
+                      <path
+                        d="M288 80c-65.2 0-118.8 29.6-159.9 67.7C89.6 183.5 63 226 49.4 256c13.6 30 40.2 72.5 78.6 108.3C169.2 402.4 222.8 432 288 432s118.8-29.6 159.9-67.7C486.4 328.5 513 286 526.6 256c-13.6-30-40.2-72.5-78.6-108.3C406.8 109.6 353.2 80 288 80zM95.4 112.6C142.5 68.8 207.2 32 288 32s145.5 36.8 192.6 80.6c46.8 43.5 78.1 95.4 93 131.1c3.3 7.9 3.3 16.7 0 24.6c-14.9 35.7-46.2 87.7-93 131.1C433.5 443.2 368.8 480 288 480s-145.5-36.8-192.6-80.6C48.6 356 17.3 304 2.5 268.3c-3.3-7.9-3.3-16.7 0-24.6C17.3 208 48.6 156 95.4 112.6zM288 336c44.2 0 80-35.8 80-80s-35.8-80-80-80c-.7 0-1.3 0-2 0c1.3 5.1 2 10.5 2 16c0 35.3-28.7 64-64 64c-5.5 0-10.9-.7-16-2c0 .7 0 1.3 0 2c0 44.2 35.8 80 80 80zm0-208a128 128 0 1 1 0 256 128 128 0 1 1 0-256z"
+                        fill="white"
+                        opacity="1"
+                      />
+                    </g>
+                  </svg>
+                </button>
+              </div>
+              <p
+                class="chakra-text css-llqfbq"
+              >
+                ******
+              </p>
+            </div>
+          </div>
+          <form
+            class="css-1ayfwcb"
+          >
+            <p
+              class="chakra-text css-y05pe7"
+            >
+              quick transfer
+            </p>
+            <div
+              class="css-79elbk"
+            >
+              <div
+                class="chakra-input__group css-1lq0mp5"
+                data-group="true"
+              >
+                <div
+                  class="chakra-form-control css-1kxonj9"
+                  role="group"
+                >
+                  <div
+                    class="chakra-input__group css-1091msq"
+                    data-group="true"
+                  >
+                    <input
+                      class="chakra-input css-18ql1xp"
+                      id="field-:rb:"
+                      name="memberId"
+                      placeholder="Choose an account to transfer"
+                      type="text"
+                      value=""
+                    />
+                    <button
+                      aria-label="The eye icon"
+                      class="chakra-input__right-element css-1stj06r"
+                      data-testid="right-icon-input"
+                      type="button"
+                    >
+                      <button
+                        aria-label="Icon dropdown"
+                        class="chakra-button css-1rb8ldf"
+                        type="button"
+                      >
+                        <svg
+                          fill="none"
+                          height="21"
+                          style="transform: translateY(4px);"
+                          viewBox="0 0 21 21"
+                          width="21"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            d="M7.72168 5.03271L12.7217 10.0327L17.7217 5.03271"
+                            stroke="#A0AEC0"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            stroke-width="2"
+                          />
+                        </svg>
+                      </button>
+                    </button>
+                  </div>
+                </div>
+                <div
+                  class="chakra-input__right-element css-f46tp1"
+                >
+                  <button
+                    aria-label="Icon dropdown"
+                    class="chakra-button css-1rb8ldf"
+                    type="button"
+                  >
+                    <svg
+                      fill="none"
+                      height="21"
+                      style="transform: translateY(4px);"
+                      viewBox="0 0 21 21"
+                      width="21"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M7.72168 5.03271L12.7217 10.0327L17.7217 5.03271"
+                        stroke="#A0AEC0"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                      />
+                    </svg>
+                  </button>
+                </div>
+              </div>
+            </div>
+            <div
+              class="css-1hlzswh"
+            >
+              <p
+                class="chakra-text css-1ki0mgu"
+              >
+                 Enter amount 
+              </p>
+              <div
+                class="css-17piex8"
+              >
+                <p
+                  class="chakra-text css-4xj0bk"
+                >
+                  $
+                </p>
+                <div
+                  class="chakra-form-control css-1eor3tg"
+                  role="group"
+                >
+                  <input
+                    autocomplete="off"
+                    class="chakra-input css-cz5fpu"
+                    id="field-:rc:"
+                    name="amount"
+                    placeholder="0.00"
+                    type="text"
+                    value=""
+                  />
+                </div>
+              </div>
+            </div>
+            <button
+              aria-label="btn-send-money"
+              class="chakra-button css-1mu22hy"
+              disabled=""
+              type="submit"
+            >
+              Send Money
+            </button>
+          </form>
         </div>
       </div>
     </div>
     <div
-      class="css-0"
+      class="css-gca1gs"
     >
-      <section
-        class="css-1gg9e9z"
+      <div
+        class="css-ahthbn"
       >
-        <form
-          class="chakra-stack css-16wym0o"
-          data-testid="search-bar"
+        <div
+          class="css-hctu2c"
         >
           <div
-            class="css-1b9rej7"
+            class="css-1n1b5z6"
           >
             <div
-              class="chakra-form-control css-1kxonj9"
-              role="group"
+              class="chakra-skeleton css-19rj3b7"
+            />
+          </div>
+          <div
+            class="css-ugfeub"
+          >
+            <div
+              class="css-6uoxe3"
             >
               <div
-                class="chakra-input__group css-1091msq"
-                data-group="true"
+                class="chakra-skeleton css-19rj3b7"
+              />
+            </div>
+          </div>
+        </div>
+        <div
+          class="css-0"
+        >
+          <section
+            class="css-1gg9e9z"
+          >
+            <form
+              class="chakra-stack css-16wym0o"
+              data-testid="search-bar"
+            >
+              <div
+                class="css-1b9rej7"
               >
                 <div
-                  class="chakra-input__left-element css-1kg931p"
-                >
-                  <svg
-                    class="chakra-icon css-onkibi"
-                    focusable="false"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      d="M23.414,20.591l-4.645-4.645a10.256,10.256,0,1,0-2.828,2.829l4.645,4.644a2.025,2.025,0,0,0,2.828,0A2,2,0,0,0,23.414,20.591ZM10.25,3.005A7.25,7.25,0,1,1,3,10.255,7.258,7.258,0,0,1,10.25,3.005Z"
-                      fill="currentColor"
-                    />
-                  </svg>
-                </div>
-                <input
-                  class="chakra-input css-1x84oq"
-                  data-testid="search-transaction"
-                  id="field-:r0:"
-                  placeholder="Search by name, email, or other..."
-                  type="text"
-                  value=""
-                />
-              </div>
-            </div>
-          </div>
-          <div
-            class="css-tzs3vb"
-          >
-            <button
-              aria-controls="menu-list-:r2:"
-              aria-expanded="false"
-              aria-haspopup="menu"
-              class="chakra-button chakra-menu__menu-button css-10e6i5m"
-              id="menu-button-:r2:"
-              type="button"
-            >
-              <span
-                class="css-xl71ch"
-              >
-                <span
-                  class="css-ccj5l2"
-                >
-                  <svg
-                    fill="none"
-                    height="17"
-                    stroke="#1D1E24"
-                    width="18"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      d="M7.552 13.502H1.25M10.362 3.81h6.301"
-                    />
-                    <path
-                      clip-rule="evenodd"
-                      d="M5.948 3.756a2.355 2.355 0 0 0-2.363-2.347 2.355 2.355 0 0 0-2.363 2.347 2.355 2.355 0 0 0 2.363 2.346 2.355 2.355 0 0 0 2.363-2.346ZM17.221 13.463a2.354 2.354 0 0 0-2.362-2.346 2.355 2.355 0 0 0-2.364 2.346 2.355 2.355 0 0 0 2.364 2.347 2.354 2.354 0 0 0 2.362-2.347Z"
-                    />
-                  </svg>
-                  Filters
-                </span>
-              </span>
-            </button>
-            <div
-              class="css-r6z5ec"
-              style="visibility: hidden; position: absolute; inset: 0 auto auto 0;"
-            >
-              <div
-                aria-orientation="vertical"
-                class="chakra-menu__menu-list css-1k4isgz"
-                id="menu-list-:r2:"
-                role="menu"
-                style="transform-origin: var(--popper-transform-origin); opacity: 0; visibility: hidden; transform: scale(0.8) translateZ(0);"
-                tabindex="-1"
-              >
-                <button
-                  class="chakra-menu__menuitem css-o9weuj"
-                  data-index="0"
-                  id="menu-list-:r2:-menuitem-:r3:"
-                  role="menuitem"
-                  tabindex="-1"
-                  type="button"
-                >
-                  <p
-                    class="chakra-text css-15asmb0"
-                  >
-                    Default
-                  </p>
-                </button>
-                <button
-                  class="chakra-menu__menuitem css-o9weuj"
-                  data-index="1"
-                  id="menu-list-:r2:-menuitem-:r4:"
-                  role="menuitem"
-                  tabindex="-1"
-                  type="button"
-                >
-                  <p
-                    class="chakra-text css-15asmb0"
-                  >
-                    Member
-                  </p>
-                </button>
-                <button
-                  class="chakra-menu__menuitem css-o9weuj"
-                  data-index="2"
-                  id="menu-list-:r2:-menuitem-:r5:"
-                  role="menuitem"
-                  tabindex="-1"
-                  type="button"
-                >
-                  <p
-                    class="chakra-text css-15asmb0"
-                  >
-                    Anonymous
-                  </p>
-                </button>
-              </div>
-            </div>
-          </div>
-        </form>
-        <div
-          class="chakra-skeleton css-s55j40"
-        />
-        <div
-          class="chakra-skeleton css-s55j40"
-        />
-        <div
-          class="chakra-skeleton css-s55j40"
-        />
-        <div
-          class="chakra-skeleton css-s55j40"
-        />
-        <div
-          class="chakra-skeleton css-s55j40"
-        />
-        <div
-          class="chakra-skeleton css-s55j40"
-        />
-        <div
-          class="chakra-skeleton css-s55j40"
-        />
-        <div
-          class="chakra-skeleton css-s55j40"
-        />
-        <div
-          class="chakra-skeleton css-s55j40"
-        />
-        <div
-          class="chakra-skeleton css-s55j40"
-        />
-        <div
-          class="chakra-skeleton css-s55j40"
-        />
-        <div
-          class="chakra-skeleton css-s55j40"
-        />
-        <div
-          class="chakra-skeleton css-s55j40"
-        />
-        <div
-          class="chakra-skeleton css-s55j40"
-        />
-        <div
-          class="chakra-skeleton css-s55j40"
-        />
-        <div
-          class="css-cyp3zu"
-          data-testid="pagination"
-        >
-          <div
-            class="css-70qvj9"
-          >
-            <p
-              class="chakra-text css-r5mmfv"
-            >
-              Show result:
-            </p>
-            <div
-              class="css-110fpu2"
-            >
-              <button
-                aria-controls="menu-list-:r7:"
-                aria-expanded="false"
-                aria-haspopup="menu"
-                class="chakra-button chakra-menu__menu-button css-10e6i5m"
-                id="menu-button-:r7:"
-                type="button"
-              >
-                <span
-                  class="css-xl71ch"
+                  class="chakra-form-control css-1kxonj9"
+                  role="group"
                 >
                   <div
-                    class="css-1n2mv2k"
+                    class="chakra-input__group css-1091msq"
+                    data-group="true"
+                  >
+                    <div
+                      class="chakra-input__left-element css-1kg931p"
+                    >
+                      <svg
+                        class="chakra-icon css-onkibi"
+                        focusable="false"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          d="M23.414,20.591l-4.645-4.645a10.256,10.256,0,1,0-2.828,2.829l4.645,4.644a2.025,2.025,0,0,0,2.828,0A2,2,0,0,0,23.414,20.591ZM10.25,3.005A7.25,7.25,0,1,1,3,10.255,7.258,7.258,0,0,1,10.25,3.005Z"
+                          fill="currentColor"
+                        />
+                      </svg>
+                    </div>
+                    <input
+                      class="chakra-input css-1x84oq"
+                      data-testid="search-transaction"
+                      id="field-:rd:"
+                      placeholder="Search by name, email, or other..."
+                      type="text"
+                      value=""
+                    />
+                  </div>
+                </div>
+              </div>
+              <div
+                class="css-tzs3vb"
+              >
+                <button
+                  aria-controls="menu-list-:rf:"
+                  aria-expanded="false"
+                  aria-haspopup="menu"
+                  class="chakra-button chakra-menu__menu-button css-10e6i5m"
+                  id="menu-button-:rf:"
+                  type="button"
+                >
+                  <span
+                    class="css-xl71ch"
                   >
                     <span
-                      class="chakra-text css-1ftaikx"
-                    >
-                      10
-                    </span>
-                    <div
-                      class="css-zaxsyz"
+                      class="css-ccj5l2"
                     >
                       <svg
                         fill="none"
-                        height="15"
-                        stroke="#A0AEC0"
-                        style="transform: rotate(undefined);"
-                        viewBox="0 0 24 24"
+                        height="17"
+                        stroke="#1D1E24"
                         width="18"
                         xmlns="http://www.w3.org/2000/svg"
                       >
                         <path
-                          d="M7 10L12 14L17 10"
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
-                          stroke-width="2"
+                          d="M7.552 13.502H1.25M10.362 3.81h6.301"
+                        />
+                        <path
+                          clip-rule="evenodd"
+                          d="M5.948 3.756a2.355 2.355 0 0 0-2.363-2.347 2.355 2.355 0 0 0-2.363 2.347 2.355 2.355 0 0 0 2.363 2.346 2.355 2.355 0 0 0 2.363-2.346ZM17.221 13.463a2.354 2.354 0 0 0-2.362-2.346 2.355 2.355 0 0 0-2.364 2.346 2.355 2.355 0 0 0 2.364 2.347 2.354 2.354 0 0 0 2.362-2.347Z"
                         />
                       </svg>
-                    </div>
-                  </div>
-                </span>
-              </button>
-              <div
-                class="css-r6z5ec"
-                style="visibility: hidden; position: absolute; inset: 0 auto auto 0;"
-              >
+                      Filters
+                    </span>
+                  </span>
+                </button>
                 <div
-                  aria-orientation="vertical"
-                  class="chakra-menu__menu-list css-1k4isgz"
-                  id="menu-list-:r7:"
-                  role="menu"
-                  style="transform-origin: var(--popper-transform-origin); opacity: 0; visibility: hidden; transform: scale(0.8) translateZ(0);"
-                  tabindex="-1"
+                  class="css-r6z5ec"
+                  style="visibility: hidden; position: absolute; inset: 0 auto auto 0;"
                 >
-                  <button
-                    class="chakra-menu__menuitem css-o9weuj"
-                    data-index="0"
-                    id="menu-list-:r7:-menuitem-:r8:"
-                    role="menuitem"
+                  <div
+                    aria-orientation="vertical"
+                    class="chakra-menu__menu-list css-1k4isgz"
+                    id="menu-list-:rf:"
+                    role="menu"
+                    style="transform-origin: var(--popper-transform-origin); opacity: 0; visibility: hidden; transform: scale(0.8) translateZ(0);"
                     tabindex="-1"
-                    type="button"
                   >
-                    <p
-                      class="chakra-text css-15asmb0"
+                    <button
+                      class="chakra-menu__menuitem css-o9weuj"
+                      data-index="0"
+                      id="menu-list-:rf:-menuitem-:rg:"
+                      role="menuitem"
+                      tabindex="-1"
+                      type="button"
                     >
-                      10
-                    </p>
-                  </button>
-                  <button
-                    class="chakra-menu__menuitem css-o9weuj"
-                    data-index="1"
-                    id="menu-list-:r7:-menuitem-:r9:"
-                    role="menuitem"
-                    tabindex="-1"
-                    type="button"
-                  >
-                    <p
-                      class="chakra-text css-15asmb0"
+                      <p
+                        class="chakra-text css-15asmb0"
+                      >
+                        Default
+                      </p>
+                    </button>
+                    <button
+                      class="chakra-menu__menuitem css-o9weuj"
+                      data-index="1"
+                      id="menu-list-:rf:-menuitem-:rh:"
+                      role="menuitem"
+                      tabindex="-1"
+                      type="button"
                     >
-                      20
-                    </p>
-                  </button>
-                  <button
-                    class="chakra-menu__menuitem css-o9weuj"
-                    data-index="2"
-                    id="menu-list-:r7:-menuitem-:ra:"
-                    role="menuitem"
-                    tabindex="-1"
-                    type="button"
-                  >
-                    <p
-                      class="chakra-text css-15asmb0"
+                      <p
+                        class="chakra-text css-15asmb0"
+                      >
+                        Member
+                      </p>
+                    </button>
+                    <button
+                      class="chakra-menu__menuitem css-o9weuj"
+                      data-index="2"
+                      id="menu-list-:rf:-menuitem-:ri:"
+                      role="menuitem"
+                      tabindex="-1"
+                      type="button"
                     >
-                      50
-                    </p>
-                  </button>
+                      <p
+                        class="chakra-text css-15asmb0"
+                      >
+                        Anonymous
+                      </p>
+                    </button>
+                  </div>
                 </div>
               </div>
-            </div>
-          </div>
-          <div
-            class="css-69i1ev"
-          >
-            <button
-              aria-label="btn-prev"
-              class="chakra-button css-1vy1nhu"
-              data-testid="prev-button"
-              disabled=""
-              type="button"
-            >
-              <svg
-                fill="none"
-                height="24"
-                stroke="#A0AEC0"
-                style="transform: rotate(90deg);"
-                viewBox="0 0 24 24"
-                width="24"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M7 10L12 14L17 10"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                />
-              </svg>
-            </button>
+            </form>
             <div
-              class="css-70qvj9"
+              class="chakra-skeleton css-s55j40"
             />
-            <button
-              aria-label="btn-next"
-              class="chakra-button css-5dzvs"
-              data-testid="next-button"
-              type="button"
+            <div
+              class="chakra-skeleton css-s55j40"
+            />
+            <div
+              class="chakra-skeleton css-s55j40"
+            />
+            <div
+              class="chakra-skeleton css-s55j40"
+            />
+            <div
+              class="chakra-skeleton css-s55j40"
+            />
+            <div
+              class="chakra-skeleton css-s55j40"
+            />
+            <div
+              class="chakra-skeleton css-s55j40"
+            />
+            <div
+              class="chakra-skeleton css-s55j40"
+            />
+            <div
+              class="chakra-skeleton css-s55j40"
+            />
+            <div
+              class="chakra-skeleton css-s55j40"
+            />
+            <div
+              class="chakra-skeleton css-s55j40"
+            />
+            <div
+              class="chakra-skeleton css-s55j40"
+            />
+            <div
+              class="chakra-skeleton css-s55j40"
+            />
+            <div
+              class="chakra-skeleton css-s55j40"
+            />
+            <div
+              class="chakra-skeleton css-s55j40"
+            />
+            <div
+              class="css-cyp3zu"
+              data-testid="pagination"
             >
-              <svg
-                fill="none"
-                height="24"
-                stroke="#A0AEC0"
-                style="transform: rotate(-90deg);"
-                viewBox="0 0 24 24"
-                width="24"
-                xmlns="http://www.w3.org/2000/svg"
+              <div
+                class="css-70qvj9"
               >
-                <path
-                  d="M7 10L12 14L17 10"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
+                <p
+                  class="chakra-text css-r5mmfv"
+                >
+                  Show result:
+                </p>
+                <div
+                  class="css-110fpu2"
+                >
+                  <button
+                    aria-controls="menu-list-:rk:"
+                    aria-expanded="false"
+                    aria-haspopup="menu"
+                    class="chakra-button chakra-menu__menu-button css-10e6i5m"
+                    id="menu-button-:rk:"
+                    type="button"
+                  >
+                    <span
+                      class="css-xl71ch"
+                    >
+                      <div
+                        class="css-1n2mv2k"
+                      >
+                        <span
+                          class="chakra-text css-1ftaikx"
+                        >
+                          10
+                        </span>
+                        <div
+                          class="css-zaxsyz"
+                        >
+                          <svg
+                            fill="none"
+                            height="15"
+                            stroke="#A0AEC0"
+                            style="transform: rotate(undefined);"
+                            viewBox="0 0 24 24"
+                            width="18"
+                            xmlns="http://www.w3.org/2000/svg"
+                          >
+                            <path
+                              d="M7 10L12 14L17 10"
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                              stroke-width="2"
+                            />
+                          </svg>
+                        </div>
+                      </div>
+                    </span>
+                  </button>
+                  <div
+                    class="css-r6z5ec"
+                    style="visibility: hidden; position: absolute; inset: 0 auto auto 0;"
+                  >
+                    <div
+                      aria-orientation="vertical"
+                      class="chakra-menu__menu-list css-1k4isgz"
+                      id="menu-list-:rk:"
+                      role="menu"
+                      style="transform-origin: var(--popper-transform-origin); opacity: 0; visibility: hidden; transform: scale(0.8) translateZ(0);"
+                      tabindex="-1"
+                    >
+                      <button
+                        class="chakra-menu__menuitem css-o9weuj"
+                        data-index="0"
+                        id="menu-list-:rk:-menuitem-:rl:"
+                        role="menuitem"
+                        tabindex="-1"
+                        type="button"
+                      >
+                        <p
+                          class="chakra-text css-15asmb0"
+                        >
+                          10
+                        </p>
+                      </button>
+                      <button
+                        class="chakra-menu__menuitem css-o9weuj"
+                        data-index="1"
+                        id="menu-list-:rk:-menuitem-:rm:"
+                        role="menuitem"
+                        tabindex="-1"
+                        type="button"
+                      >
+                        <p
+                          class="chakra-text css-15asmb0"
+                        >
+                          20
+                        </p>
+                      </button>
+                      <button
+                        class="chakra-menu__menuitem css-o9weuj"
+                        data-index="2"
+                        id="menu-list-:rk:-menuitem-:rn:"
+                        role="menuitem"
+                        tabindex="-1"
+                        type="button"
+                      >
+                        <p
+                          class="chakra-text css-15asmb0"
+                        >
+                          50
+                        </p>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div
+                class="css-69i1ev"
+              >
+                <button
+                  aria-label="btn-prev"
+                  class="chakra-button css-1vy1nhu"
+                  data-testid="prev-button"
+                  disabled=""
+                  type="button"
+                >
+                  <svg
+                    fill="none"
+                    height="24"
+                    stroke="#A0AEC0"
+                    style="transform: rotate(90deg);"
+                    viewBox="0 0 24 24"
+                    width="24"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M7 10L12 14L17 10"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                    />
+                  </svg>
+                </button>
+                <div
+                  class="css-70qvj9"
                 />
-              </svg>
-            </button>
-          </div>
+                <button
+                  aria-label="btn-next"
+                  class="chakra-button css-5dzvs"
+                  data-testid="next-button"
+                  type="button"
+                >
+                  <svg
+                    fill="none"
+                    height="24"
+                    stroke="#A0AEC0"
+                    style="transform: rotate(-90deg);"
+                    viewBox="0 0 24 24"
+                    width="24"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M7 10L12 14L17 10"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                    />
+                  </svg>
+                </button>
+              </div>
+            </div>
+          </section>
         </div>
-      </section>
+      </div>
     </div>
   </div>
   <span

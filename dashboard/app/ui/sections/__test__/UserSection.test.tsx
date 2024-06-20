@@ -11,7 +11,7 @@ import { QueryProvider } from '@/ui/providers';
 import { UsersSection } from '@/ui/sections';
 
 // Mocks
-import { USER_DETAIL_MOCK } from '@/lib/mocks';
+import { MOCK_USERS } from '@/lib/mocks';
 
 // Types
 import { Status } from '@/lib/interfaces';
@@ -38,10 +38,7 @@ const resetMock = jest.fn();
 
 const setup = () => {
   jest.spyOn(hooks, 'usePagination').mockReturnValue({
-    filterData: [
-      ...USER_DETAIL_MOCK,
-      { ...USER_DETAIL_MOCK[0], isBlock: true, _id: '2' },
-    ],
+    filterData: [...MOCK_USERS, { ...MOCK_USERS[0], isBlock: true, _id: '2' }],
     data: [1],
     resetPage: resetMock,
   } as unknown as ReturnType<typeof hooks.usePagination>);
@@ -100,7 +97,7 @@ describe('UsersSection render', () => {
   test('Lock user success', async () => {
     jest
       .spyOn(axios, 'put')
-      .mockResolvedValue({ ...USER_DETAIL_MOCK[0], isBlock: true });
+      .mockResolvedValue({ ...MOCK_USERS[0], isBlock: true });
 
     const { getAllByTestId } = setup();
 
@@ -137,7 +134,7 @@ describe('UsersSection render', () => {
   test('Lock user failed', async () => {
     jest
       .spyOn(axios, 'put')
-      .mockRejectedValue({ ...USER_DETAIL_MOCK[0], isBlock: true });
+      .mockRejectedValue({ ...MOCK_USERS[0], isBlock: true });
 
     const { getAllByTestId } = setup();
     const getTextStatus = (status: Element | null) =>
@@ -180,7 +177,7 @@ describe('UsersSection render', () => {
   test('Unblock user success', async () => {
     jest
       .spyOn(axios, 'put')
-      .mockResolvedValue({ ...USER_DETAIL_MOCK[0], isBlock: true });
+      .mockResolvedValue({ ...MOCK_USERS[0], isBlock: true });
     const { getAllByTestId } = setup();
     const getTextStatus = (status: Element | null) =>
       status ? status.textContent?.trim() ?? '' : '';
@@ -222,7 +219,7 @@ describe('UsersSection render', () => {
   test('Unblock user failed', async () => {
     jest
       .spyOn(axios, 'put')
-      .mockRejectedValue({ ...USER_DETAIL_MOCK[0], isBlock: true });
+      .mockRejectedValue({ ...MOCK_USERS[0], isBlock: true });
     const { getAllByTestId } = setup();
     const getTextStatus = (status: Element | null) =>
       status ? status.textContent?.trim() ?? '' : '';

@@ -21,10 +21,10 @@ import { TPinCodeForm, TTransfer, TWithSendMoney } from '@/lib/interfaces';
 // Components
 import { PinCodeModal } from '@/ui/components';
 
-const withBalance = <T,>(
+const withSendMoney = <T,>(
   WrappedComponent: (props: TWithSendMoney<T>) => ReactNode,
 ) => {
-  const BalanceWrapper = (props: T) => {
+  const SendMoneyWrapper = (props: T) => {
     const toast = useToast();
     const { isOpen: isPinCodeModalOpen, onToggle: onTogglePinCodeModal } =
       useDisclosure();
@@ -275,7 +275,7 @@ const withBalance = <T,>(
     );
   };
 
-  return BalanceWrapper;
+  return SendMoneyWrapper;
 };
 
-export default withBalance;
+export default withSendMoney;

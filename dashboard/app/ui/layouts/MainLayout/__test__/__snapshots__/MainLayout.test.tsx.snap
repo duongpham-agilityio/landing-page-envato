@@ -97,7 +97,8 @@ exports[`MainLayout render Should render match with snapshot. 1`] = `
                         alt=""
                         data-nimg="fill"
                         decoding="async"
-                        src=""
+                        loading="lazy"
+                        src="/icons/user.svg"
                         style="position: absolute; height: 100%; width: 100%; left: 0px; top: 0px; right: 0px; bottom: 0px; object-fit: cover; color: transparent; border-radius: 12px; border-width: 1px; padding-top: 2px; cursor: pointer; border-color: #e2e8f0; background-size: cover; background-position: 50% 50%; background-repeat: no-repeat;"
                       />
                     </div>
@@ -134,9 +135,7 @@ exports[`MainLayout render Should render match with snapshot. 1`] = `
                         </div>
                         <p
                           class="chakra-text css-179zs4q"
-                        >
-                          Super Admin
-                        </p>
+                        />
                       </div>
                     </div>
                   </div>
@@ -206,8 +205,8 @@ exports[`MainLayout render Should render match with snapshot. 1`] = `
                     class="chakra-divider css-1sulk9x"
                   />
                   <button
-                    aria-label="menu-item-Logout"
-                    class="chakra-menu__menuitem css-1way4u7"
+                    aria-label="menu-icon-Logout"
+                    class="chakra-menu__menuitem css-1gjvndh"
                     data-index="1"
                     id="menu-list-:r2:-menuitem-:r4:"
                     role="menuitem"
@@ -383,11 +382,6 @@ exports[`MainLayout render Should render match with snapshot. 1`] = `
                     class="css-1ve4u7y"
                     data-testid="icon-button-component"
                   >
-                    <p
-                      class="chakra-text css-1gcq9kx"
-                    >
-                      5
-                    </p>
                     <div
                       aria-label="limit-bonus"
                       class="chakra-button css-8s8ddv"
@@ -412,38 +406,6 @@ exports[`MainLayout render Should render match with snapshot. 1`] = `
                   </div>
                 </span>
               </button>
-              <div
-                class="css-r6z5ec"
-                style="visibility: hidden; position: absolute; min-width: max-content; inset: 0 auto auto 0;"
-              >
-                <div
-                  aria-orientation="vertical"
-                  class="chakra-menu__menu-list css-12anmev"
-                  id="menu-list-:r8:"
-                  role="menu"
-                  style="transform-origin: var(--popper-transform-origin); opacity: 0; visibility: hidden; transform: scale(0.8) translateZ(0);"
-                  tabindex="-1"
-                >
-                  <div
-                    class="css-z4dayy"
-                  >
-                    <h3
-                      class="chakra-text css-pgott3"
-                    >
-                      60
-                      % Bonus
-                    </h3>
-                    <p
-                      class="chakra-text css-1kzgd7p"
-                    >
-                      Create an Account and Get Bonus
-                    </p>
-                    <div
-                      class="css-174qtmr"
-                    />
-                  </div>
-                </div>
-              </div>
             </div>
             <div
               class="css-m6awie"
@@ -473,7 +435,8 @@ exports[`MainLayout render Should render match with snapshot. 1`] = `
                           alt=""
                           data-nimg="fill"
                           decoding="async"
-                          src=""
+                          loading="lazy"
+                          src="/icons/user.svg"
                           style="position: absolute; height: 100%; width: 100%; left: 0px; top: 0px; right: 0px; bottom: 0px; object-fit: cover; color: transparent; border-radius: 12px; border-width: 1px; padding-top: 2px; cursor: pointer; border-color: #e2e8f0; background-size: cover; background-position: 50% 50%; background-repeat: no-repeat;"
                         />
                       </div>
@@ -580,8 +543,8 @@ exports[`MainLayout render Should render match with snapshot. 1`] = `
                       class="chakra-divider css-1sulk9x"
                     />
                     <button
-                      aria-label="menu-item-Logout"
-                      class="chakra-menu__menuitem css-1way4u7"
+                      aria-label="menu-icon-Logout"
+                      class="chakra-menu__menuitem css-1gjvndh"
                       data-index="1"
                       id="menu-list-:ra:-menuitem-:rc:"
                       role="menuitem"
@@ -645,7 +608,8 @@ exports[`MainLayout render Should render match with snapshot. 1`] = `
                         alt=""
                         data-nimg="fill"
                         decoding="async"
-                        src=""
+                        loading="lazy"
+                        src="/icons/user.svg"
                         style="position: absolute; height: 100%; width: 100%; left: 0px; top: 0px; right: 0px; bottom: 0px; object-fit: cover; color: transparent; border-radius: 12px; border-width: 1px; padding-top: 2px; cursor: pointer; border-color: #e2e8f0; background-size: cover; background-position: 50% 50%; background-repeat: no-repeat;"
                       />
                     </div>
@@ -752,8 +716,8 @@ exports[`MainLayout render Should render match with snapshot. 1`] = `
                     class="chakra-divider css-1sulk9x"
                   />
                   <button
-                    aria-label="menu-item-Logout"
-                    class="chakra-menu__menuitem css-1way4u7"
+                    aria-label="menu-icon-Logout"
+                    class="chakra-menu__menuitem css-1gjvndh"
                     data-index="1"
                     id="menu-list-:re:-menuitem-:rg:"
                     role="menuitem"

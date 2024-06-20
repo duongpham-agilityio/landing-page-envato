@@ -22,7 +22,7 @@ interface CardPaymentProps {}
 
 const REQUIRE_FIELDS = ['amount', 'memberId'];
 
-const CardPayment = ({
+export const CardPayment = ({
   control,
   dirtyFields,
   userList,

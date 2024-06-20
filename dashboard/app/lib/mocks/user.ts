@@ -14,7 +14,7 @@ export const USER_MOCK: TEmployee = {
   lastPlace: 'Indonesia',
   jobTitle: 'Finance managers',
   id: '1',
-  createdAt: 3123123,
+  createdAt: '2024-03-19T08:14:39.688Z',
   salary: 1234,
   experience: '2-4 Years',
   hiringAgent: {
@@ -81,7 +81,7 @@ export const INITIAL_USER = {
   position: '',
   lastPlace: '',
   id: '',
-  createdAt: 0,
+  createdAt: '',
   salary: 0,
   experience: '',
   jobTitle: '',
@@ -275,7 +275,7 @@ export const MOCK_USER_DETAIL: TUserDetail = {
   email: 'test@gmail.com',
   role: 'member',
   description: 'description',
-  createdAt: 3123123,
+  createdAt: '2024-03-19T08:14:39.688Z',
   isBlock: false,
   uid: '1',
 };
@@ -296,11 +296,11 @@ export const MOCK_USER_DETAIL_WITHOUT_IMAGE: TUserDetail = {
   email: 'test@gmail.com',
   role: 'member',
   description: 'description',
-  createdAt: 3123123,
+  createdAt: '2024-03-19T08:14:39.688Z',
   isBlock: false,
 };
 
-export const USER_DETAIL_MOCK = [
+export const MOCK_USERS = [
   {
     _id: '1',
     title: 'What is the issues',
@@ -319,6 +319,7 @@ export const USER_DETAIL_MOCK = [
     createdAt: 3123123,
     isBlock: false,
     uid: '1',
+    bonusTimes: 10,
   },
 ];
 
@@ -437,7 +438,7 @@ export const INIT_USER_DETAIL: TUserDetail = {
   email: '',
   role: '',
   description: '',
-  createdAt: 0,
+  createdAt: '',
   isBlock: false,
   uid: '',
 };
@@ -464,10 +465,27 @@ export const USER_DATA = {
   displayName: 'John Doe',
 };
 
-export const MOCK_FILTER_DATA_USER = [
-  { _id: '1', email: 'userone@example.com' },
-  { _id: '2', email: 'usertwo@example.com' },
-  { _id: '3', email: 'userthree@example.com' },
+export const MOCK_FILTER_DATA_USERS: Array<
+  Omit<TUserDetail, 'id'> & {
+    _id: string;
+  }
+> = [
+  {
+    _id: '660a85d9d6eb03502e197ac5',
+    firstName: 'Join',
+    lastName: 'A',
+    email: 'userone@example.com',
+    avatarURL: '/images/avatar-sign-up.webp',
+    password: '',
+    phoneNumber: '',
+    country: '',
+    city: '',
+    address: '',
+    postalCode: '',
+    isBlock: false,
+    createdAt: '2024-03-19T08:14:39.688Z',
+    uid: '660a85d9d6eb03502e197ac5',
+  },
 ];
 
 export const MOCK_ROOM_CHAT_USER = {
@@ -505,7 +523,7 @@ export const MOCK_UPDATE_USER_PAYLOAD: TUserDetail = {
   address: 'address',
   city: 'Jakarta',
   country: 'Indonesia',
-  createdAt: 0,
+  createdAt: '2024-03-19T08:14:39.688Z',
   email: 'test@gmail.com',
   firstName: 'Abdur',
   id: '1',
@@ -544,7 +562,7 @@ export const MOCK_ISSUES_RES = {
 };
 
 export const MOCK_USER_DETAILS_RES = {
-  data: [USER_DETAIL_MOCK],
+  data: MOCK_USERS,
   status: 200,
   statusText: 'Ok',
   headers: {},
