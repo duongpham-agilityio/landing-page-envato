@@ -30,3 +30,5 @@ export interface TProductResponse extends TProduct {
 }
 
 export type AddProductResponse = TProduct & Omit<TProduct, 'productStatus'>;
+
+export type TProductSortField = 'name' | 'price' | 'date' | 'quantity';

@@ -27,6 +27,7 @@ import {
   SortType,
   TProduct,
   TProductRequest,
+  TProductSortField,
 } from '@/lib/interfaces';
 
 export type TSearchProduct = {
@@ -38,7 +39,6 @@ export type TProductsResponse = {
   totalPage: number;
 };
 
-export type TProductSortField = 'name' | 'price' | 'date' | 'quantity';
 type TSort = {
   field: TProductSortField | '';
   type: SortType;

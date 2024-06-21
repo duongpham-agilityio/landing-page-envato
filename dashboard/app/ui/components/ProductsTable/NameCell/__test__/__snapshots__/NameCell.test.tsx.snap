@@ -1,0 +1,23 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`NameCell component should match with snapshot 1`] = `
+<div>
+  <table
+    class="chakra-table css-0"
+  >
+    <td
+      class="css-xpdvke"
+    >
+      <div
+        class="css-1h2sv0j"
+      >
+        <p
+          class="chakra-text css-s51d82"
+        >
+          shoe
+        </p>
+      </div>
+    </td>
+  </table>
+</div>
+`;

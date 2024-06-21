@@ -1,14 +1,17 @@
 // Types
 import {
+  TActivitiesSortField,
   TDataSource,
   TProduct,
   TProductResponse,
+  TProductSortField,
   TRecentActivities,
   TTransaction,
+  TTransactionSortField,
 } from '../interfaces';
 
 export const COLUMNS_DASHBOARD = (
-  onRenderHead: (title: string, key: string) => void,
+  onRenderHead: (title: string, key: TTransactionSortField) => void,
   onRenderBody: ({ id, image, name }: TDataSource) => void,
   onRenderEmail: (email: TTransaction) => void,
   onRenderLocation: (location: TTransaction) => void,
@@ -55,7 +58,7 @@ export const COLUMNS_DASHBOARD = (
 ];
 
 export const COLUMNS_HISTORY = (
-  renderHead: (title: string, key: string) => void,
+  renderHead: (title: string, key: TTransactionSortField) => void,
   renderBody: ({ id, image, name }: TDataSource) => void,
   renderPaymentStatus: ({ paymentStatus }: TDataSource) => void,
   renderTransactionStatus: ({ paymentStatus }: TDataSource) => void,
@@ -93,12 +96,12 @@ export const COLUMNS_HISTORY = (
 ];
 
 export const COLUMNS_PRODUCTS = (
-  onRenderHead: (title: string, key: string) => void,
-  onRenderBody: ({ id, name }: TDataSource) => void,
+  onRenderHead: (title: string, key: TProductSortField) => void,
+  onRenderBody: ({ name }: TProduct) => void,
   onRenderGallery: ({ imageURLs, name }: TProduct) => void,
   onRenderPrice: (amount: TProduct) => void,
-  onRenderStatus: (productStatus: TDataSource) => void,
-  onRenderQuantity: (stock: TProduct) => void,
+  onRenderStatus: ({ productStatus }: TProduct) => void,
+  onRenderQuantity: ({ stock }: TProduct) => void,
   onRenderActionIcon: (data: TProductResponse) => void,
 ) => [
   {
@@ -145,9 +148,9 @@ export const COLUMNS_PRODUCTS = (
 ];
 
 export const COLUMNS_RECENT_ACTIVITIES = (
-  onRenderHead: (title: string, key: string) => void,
-  onRenderBody: ({ id, actionName }: TDataSource) => void,
-  onRenderName: (actionName: TRecentActivities) => void,
+  onRenderHead: (title: string, key: TActivitiesSortField) => void,
+  onRenderBody: ({ _id }: TRecentActivities) => void,
+  onRenderName: ({ actionName }: TRecentActivities) => void,
   onRenderEmail: (email: TRecentActivities) => void,
 ) => [
   {

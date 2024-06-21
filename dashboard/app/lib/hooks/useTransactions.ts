@@ -21,6 +21,7 @@ import {
   SortType,
   TAddress,
   TCustomer,
+  TTransactionSortField,
   TTransaction,
 } from '@/lib/interfaces';
 
@@ -29,18 +30,11 @@ export type TSearchTransaction = {
   month?: string;
 };
 
-export type TSortField =
-  | 'name'
-  | 'email'
-  | 'location'
-  | 'spent'
-  | 'role'
-  | 'date';
 type TSort = {
-  field: TSortField | '';
+  field: TTransactionSortField | '';
   type: SortType;
 };
-export type TSortHandler = (field: TSortField) => void;
+export type TSortHandler = (field: TTransactionSortField) => void;
 
 export const useTransactions = (queryParam?: TSearchTransaction) => {
   const queryClient = useQueryClient();
@@ -117,7 +111,7 @@ export const useTransactions = (queryParam?: TSearchTransaction) => {
         const prevAddress = `${prevStreet} ${prevCity}`;
         const nextAddress = `${nextStreet} ${nextCity}`;
 
-        const valueForField: Record<TSortField, number> = {
+        const valueForField: Record<TTransactionSortField, number> = {
           name: handleSort(type, prevName ?? '', nextName ?? ''),
           email: handleSort(type, prevEmail ?? '', nextEmail ?? ''),
           location: handleSort(type, prevAddress ?? '', nextAddress ?? ''),
@@ -180,7 +174,7 @@ export const useTransactions = (queryParam?: TSearchTransaction) => {
   );
 
   const sortBy: TSortHandler = useCallback(
-    (field: TSortField) => {
+    (field: TTransactionSortField) => {
       setSortValue((prev) => ({
         field: field,
         type: sortType[prev.type],

@@ -15,7 +15,11 @@ import { mainHttpService } from '@/lib/services';
 import { formatPageArray, handleSort } from '@/lib/utils';
 
 // Interface
-import { SortType, TRecentActivities } from '@/lib/interfaces';
+import {
+  SortType,
+  TActivitiesSortField,
+  TRecentActivities,
+} from '@/lib/interfaces';
 
 export type TAction = {
   actionName: string;
@@ -27,7 +31,6 @@ export type TActivity = {
   totalPage: number;
 };
 
-export type TActivitiesSortField = 'actionName' | 'email' | 'date';
 type TSort = {
   field: TActivitiesSortField | '';
   type: SortType;

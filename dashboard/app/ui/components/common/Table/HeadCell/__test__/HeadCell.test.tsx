@@ -1,24 +1,31 @@
-import { render } from '@testing-library/react';
+import { render, fireEvent } from '@testing-library/react';
 import { Table } from '@chakra-ui/react';
 
 // Components
 import { HeadCell } from '@/ui/components';
 
-const setup = () =>
-  render(<HeadCell title="Title" />, {
-    wrapper: Table,
-  });
+const mockProps = {
+  title: 'Product Name',
+  columnKey: 'name',
+  onSort: jest.fn(),
+};
 
 describe('HeadCell', () => {
   it('Match to snapshot', () => {
-    const { container } = setup();
+    const { container } = render(<HeadCell {...mockProps} title="" />, {
+      wrapper: Table,
+    });
 
     expect(container).toMatchSnapshot();
   });
 
-  it('Render', () => {
-    const { getByText } = setup();
+  it('should call onSort when click sort icon', () => {
+    const { getByTestId } = render(<HeadCell {...mockProps} />, {
+      wrapper: Table,
+    });
 
-    expect(getByText('Title')).toBeDefined();
+    fireEvent.click(getByTestId('sort-icon'));
+
+    expect(mockProps.onSort).toHaveBeenCalledWith(mockProps.columnKey);
   });
 });

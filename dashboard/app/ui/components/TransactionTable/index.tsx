@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 import { memo, useCallback, useMemo, useState } from 'react';
-import { Box, Td, Text, Th, useToast } from '@chakra-ui/react';
+import { Box, Td, Text, useToast } from '@chakra-ui/react';
 
 // Components
 import {
@@ -32,7 +32,6 @@ import {
 
 // Hooks
 import {
-  TSortField,
   useDebounce,
   usePagination,
   useSearch,
@@ -47,7 +46,12 @@ import {
 import { customToast } from '@/lib/utils/toast';
 
 // Types
-import { TDataSource, THeaderTable, TTransaction } from '@/lib/interfaces';
+import {
+  TDataSource,
+  THeaderTable,
+  TTransaction,
+  TTransactionSortField,
+} from '@/lib/interfaces';
 import { TYPE } from '@/lib/constants/notification';
 
 // Stores
@@ -188,17 +192,9 @@ const TransactionTable = ({ isOpenHistoryModal = false }: TFilterUserProps) => {
   }, []);
 
   const renderHead = useCallback(
-    (title: string, key: string): JSX.Element => {
-      const handleClick = () => {
-        sortBy && sortBy(key as TSortField);
-      };
-
-      return title ? (
-        <HeadCell key={title} title={title} onClick={handleClick} />
-      ) : (
-        <Th w={50} maxW={50} />
-      );
-    },
+    (title: string, key: TTransactionSortField): JSX.Element => (
+      <HeadCell title={title} columnKey={key} onSort={sortBy} />
+    ),
     [sortBy],
   );
 
@@ -241,7 +237,7 @@ const TransactionTable = ({ isOpenHistoryModal = false }: TFilterUserProps) => {
         onUpdateTransaction={handleUpdateTransaction}
       />
     ),
-    [],
+    [handleDeleteTransaction, handleUpdateTransaction, isOpenHistoryModal],
   );
 
   const renderRole = useCallback(

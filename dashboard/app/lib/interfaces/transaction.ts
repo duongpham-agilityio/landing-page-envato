@@ -23,3 +23,11 @@ export interface IDataList {
   dataTransaction: TTransaction[];
   dataHistory: TTransaction[];
 }
+
+export type TTransactionSortField =
+  | 'name'
+  | 'email'
+  | 'location'
+  | 'spent'
+  | 'role'
+  | 'date';

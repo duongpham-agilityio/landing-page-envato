@@ -1,25 +1,8 @@
 'use client';
 
 // Libs
-import Image from 'next/image';
 import { memo, useCallback, useMemo, useState } from 'react';
-import { Box, Flex, Td, Text, Th, useToast } from '@chakra-ui/react';
-
-// Components
-import {
-  Table,
-  Pagination,
-  HeadCell,
-  SearchBar,
-  Fetching,
-  ActionCell,
-  StatusCell,
-  ProductNameCell,
-  Modal,
-  Button,
-  ProductForm,
-  Indicator,
-} from '@/ui/components';
+import { Box, Flex, useToast } from '@chakra-ui/react';
 
 // Constants
 import {
@@ -30,7 +13,6 @@ import {
   ERROR_MESSAGES,
   FILTER_PRODUCT,
   PRODUCT_STATUS,
-  IMAGES,
   PREV,
 } from '@/lib/constants';
 
@@ -41,27 +23,41 @@ import {
   useSearch,
   useUploadImages,
 } from '@/lib/hooks';
-import { TProductSortField } from '@/lib/hooks/useProducts';
 
 // Stores
 import { authStore } from '@/lib/stores';
 
 // Utils
-import {
-  generatePlaceholder,
-  formatProductResponse,
-  customToast,
-} from '@/lib/utils';
+import { formatProductResponse, customToast } from '@/lib/utils';
 
 // Types
 import {
   TProductRequest,
-  TDataSource,
   THeaderTable,
   TProduct,
   TProductResponse,
+  TProductSortField,
 } from '@/lib/interfaces';
+
+// Components
+import {
+  Table,
+  Pagination,
+  SearchBar,
+  Fetching,
+  ActionCell,
+  StatusCell,
+  Modal,
+  Button,
+  ProductForm,
+  Indicator,
+  HeadCell,
+} from '@/ui/components';
 import { TOption } from '../common/Select';
+import GalleryCell from './GalleryCell';
+import PriceCell from './PriceCell';
+import QuantityCell from './QuantityCell';
+import NameCell from './NameCell';
 
 const ProductsTable = () => {
   const toast = useToast();
@@ -233,131 +229,38 @@ const ProductsTable = () => {
   );
 
   const renderHead = useCallback(
-    (title: string, key: string): JSX.Element => {
-      const handleClick = () => {
-        sortBy && sortBy(key as TProductSortField);
-      };
-
-      return title ? (
-        <HeadCell key={title} title={title} onClick={handleClick} />
-      ) : (
-        <Th w={50} maxW={50} />
-      );
-    },
+    (title: string, key: TProductSortField): JSX.Element => (
+      <HeadCell title={title} columnKey={key} onSort={sortBy} />
+    ),
     [sortBy],
   );
 
   const renderNameUser = useCallback(
-    ({ id, _id, name }: TDataSource): JSX.Element => (
-      <ProductNameCell _id={_id} key={id} name={name} />
-    ),
+    ({ name }: TProduct): JSX.Element => <NameCell name={name} />,
     [],
   );
 
-  const renderGallery = useCallback(
-    ({ imageURLs, name }: TDataSource) => (
-      <Td
-        py={5}
-        pr={5}
-        pl={0}
-        fontSize="md"
-        color="text.primary"
-        fontWeight="semibold"
-        textAlign="left"
-        w={{ base: 150, md: 20 }}
-      >
-        <Flex
-          alignItems="center"
-          gap="10px"
-          minW={180}
-          borderRadius="15px"
-          w={{ base: 100, '3xl': 150, '5xl': 250 }}
-        >
-          <Box
-            pos="relative"
-            w={{ base: 50, lg: 100 }}
-            h={{ base: 50, lg: 100 }}
-          >
-            <Image
-              src={imageURLs?.toString() || IMAGES.SIGN_UP.url}
-              alt={`Image of ${name}`}
-              fill
-              sizes="100vw"
-              placeholder="blur"
-              blurDataURL={generatePlaceholder(40, 40)}
-              style={{
-                objectFit: 'cover',
-                borderRadius: '15px',
-              }}
-            />
-          </Box>
-        </Flex>
-      </Td>
-    ),
-    [],
-  );
+  const renderGallery = useCallback(({ imageURLs, name }: TProduct) => {
+    const imageURL = imageURLs[0];
+
+    return <GalleryCell imageURL={imageURL} name={name} />;
+  }, []);
 
   const renderPrice = useCallback(
-    ({ amount }: TProduct) => (
-      <Td
-        py={5}
-        pr={5}
-        pl={0}
-        fontSize="md"
-        color="text.primary"
-        fontWeight="semibold"
-        textAlign="left"
-        w={{ base: 150, md: 20 }}
-      >
-        <Text
-          fontSize="md"
-          fontWeight="semibold"
-          whiteSpace="break-spaces"
-          noOfLines={1}
-          w={{ base: 100, '3xl': 150, '5xl': 200 }}
-          flex={1}
-        >
-          {amount}
-        </Text>
-      </Td>
-    ),
+    ({ amount }: TProduct) => <PriceCell price={amount} />,
     [],
   );
 
   const renderQuantity = useCallback(
-    ({ stock }: TProduct) => (
-      <Td
-        py={5}
-        pr={5}
-        pl={0}
-        fontSize="md"
-        color="text.primary"
-        fontWeight="semibold"
-        textAlign="left"
-        w={{ base: 100, md: 20 }}
-      >
-        <Text
-          fontSize="md"
-          fontWeight="semibold"
-          whiteSpace="break-spaces"
-          noOfLines={1}
-          w={{ base: 100, '3xl': 150, '5xl': 200 }}
-          flex={1}
-        >
-          {stock}
-        </Text>
-      </Td>
-    ),
+    ({ stock }: TProduct) => <QuantityCell quantity={stock} />,
     [],
   );
 
-  type TStatus = keyof typeof STATUS_LABEL;
-
   const renderProductStatus = useCallback(
-    ({ productStatus }: TDataSource): JSX.Element => (
+    ({ productStatus }: TProduct): JSX.Element => (
       <StatusCell
-        variant={STATUS_LABEL[`${productStatus}` as TStatus]}
-        text={productStatus as string}
+        variant={STATUS_LABEL[`${productStatus}`]}
+        text={productStatus}
       />
     ),
     [],

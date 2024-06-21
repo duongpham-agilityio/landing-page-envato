@@ -35,3 +35,5 @@ export enum EActivity {
   UPDATE_EVENT = 'Update event',
   DELETE_EVENT = 'Delete event',
 }
+
+export type TActivitiesSortField = 'actionName' | 'email' | 'date';

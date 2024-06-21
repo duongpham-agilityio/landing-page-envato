@@ -2,12 +2,12 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { Box } from '@chakra-ui/react';
 
 // Components
-import Dropdown from '.';
+import UserDropdown from '.';
 
-const meta: Meta<typeof Dropdown> = {
-  title: 'Custom Components/Dropdown',
+const meta: Meta<typeof UserDropdown> = {
+  title: 'Custom Components/UserDropdown',
   tags: ['autodocs'],
-  component: Dropdown,
+  component: UserDropdown,
   argTypes: {
     name: {
       description: 'This is username after login',
@@ -32,7 +32,7 @@ const meta: Meta<typeof Dropdown> = {
 };
 
 export default meta;
-type Story = StoryObj<typeof Dropdown>;
+type Story = StoryObj<typeof UserDropdown>;
 
 export const Default: Story = {
   args: {

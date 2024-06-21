@@ -1,7 +1,7 @@
 'use client';
 
 import { memo, useCallback, useMemo, useState } from 'react';
-import { Box, Td, Text, Th } from '@chakra-ui/react';
+import { Box, Td, Text } from '@chakra-ui/react';
 
 // Components
 import {
@@ -25,7 +25,6 @@ import { TYPE } from '@/lib/constants/notification';
 
 // Hooks
 import {
-  TSortField,
   useDebounce,
   usePagination,
   useSearch,
@@ -36,7 +35,12 @@ import {
 import { formatTransactionResponse } from '@/lib/utils';
 
 // Types
-import { TDataSource, THeaderTable, TTransaction } from '@/lib/interfaces';
+import {
+  TDataSource,
+  THeaderTable,
+  TTransaction,
+  TTransactionSortField,
+} from '@/lib/interfaces';
 
 const HistoriesTable = () => {
   const { get, setSearchParam: setSearchTransaction } = useSearch();
@@ -84,17 +88,10 @@ const HistoriesTable = () => {
   }, []);
 
   const renderHead = useCallback(
-    (title: string, key: string): JSX.Element => {
-      const handleClick = () => {
-        sortBy && sortBy(key as TSortField);
-      };
+    (title: string, key: TTransactionSortField): JSX.Element => (
+      <HeadCell columnKey={key} title={title} onSort={sortBy} />
+    ),
 
-      return title ? (
-        <HeadCell key={title} title={title} onClick={handleClick} />
-      ) : (
-        <Th w={50} maxW={50} />
-      );
-    },
     [sortBy],
   );
 
