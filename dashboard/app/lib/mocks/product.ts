@@ -90,7 +90,7 @@ export const MOCK_PRODUCTS_SUCCESS_RES = {
 };
 
 export const MOCK_ADD_PRODUCT_PAYLOAD: Omit<TProductRequest, '_id'> = {
-  amount: ' 1',
+  amount: '1',
   currency: '$',
   description: '',
   imageURLs: ['https://i.ibb.co/xXd07BD/Img-01.png'],
@@ -125,6 +125,20 @@ export const MOCK_ADD_PRODUCT_SUCCESS_RES = {
   data: {
     config: { data: PRODUCTS[0] },
   },
+  status: 200,
+  statusText: 'Ok',
+  headers: {},
+  config: {
+    headers: {} as AxiosRequestHeaders,
+  },
+};
+
+export const MOCK_IMAGE_FILES = [
+  new File(['Shoe'], './shoe.png', { type: 'image/png' }),
+];
+
+export const MOCK_UPLOAD_IMAGE_RES_SUCCESS: AxiosResponse = {
+  data: [{ data: { data: { url: 'https://i.ibb.co/xXd07BD/Img-01.png' } } }],
   status: 200,
   statusText: 'Ok',
   headers: {},
