@@ -1,7 +1,7 @@
 // Libs
 import { ReactNode, useCallback } from 'react';
 import { useToast } from '@chakra-ui/react';
-import { SubmitHandler, useForm } from 'react-hook-form';
+import { SubmitHandler } from 'react-hook-form';
 
 // Stores
 import { authStore } from '@/lib/stores';
@@ -51,18 +51,6 @@ export const withSendMoneyForCalendar = (
 
     const { id: userId = '', bonusTimes = 0 } = user || {};
 
-    const {
-      control: controlSendMoney,
-      handleSubmit: submitSendMoney,
-      formState: { dirtyFields: sendMoneyDirtyFields, isSubmitting },
-      reset: resetSendMoney,
-    } = useForm<TTransfer>({
-      defaultValues: {
-        memberId: '',
-        amount: '',
-      },
-    });
-
     const getMemberId = useCallback(
       (email: string): string =>
         userList.find(
@@ -88,7 +76,7 @@ export const withSendMoneyForCalendar = (
 
         if (error) {
           toast(customToast(error.title, error.description, STATUS.ERROR));
-          resetSendMoney();
+          // resetSendMoney();
 
           return;
         }
@@ -108,23 +96,20 @@ export const withSendMoneyForCalendar = (
               bonusTimes: bonusTimes - 1,
             },
           });
-        resetSendMoney();
+        // resetSendMoney();
       },
-      [bonusTimes, getMemberId, resetSendMoney, setUser, toast, user, userId],
+      [bonusTimes, getMemberId, setUser, toast, user, userId],
     );
 
     const handleConfirmPinCodeSuccess = useCallback(() => {
-      submitSendMoney(handleSubmitSendMoney)();
-    }, [handleSubmitSendMoney, submitSendMoney]);
+      // Call api to send money here
+      // handleSubmitSendMoney();
+    }, []);
 
     return (
       <WrappedComponent
         balance={balance}
-        control={controlSendMoney}
-        dirtyFields={sendMoneyDirtyFields}
         userList={userList}
-        isSendMoneySubmitting={isSubmitting}
-        onSubmitSendMoneyHandler={submitSendMoney}
         onConfirmPinCodeSuccess={handleConfirmPinCodeSuccess}
       />
     );

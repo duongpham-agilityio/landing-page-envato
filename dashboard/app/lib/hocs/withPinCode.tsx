@@ -132,10 +132,17 @@ export const withPinCode = <T,>(
       resetPinCodeForm();
     }, [onTogglePinCodeModal, resetPinCodeForm]);
 
+    const handleTogglePinCodeModal = () =>
+      // submitSendMoney?: UseFormHandleSubmit<TTransfer>,
+      // resetSendMoney?: UseFormReset<TTransfer>,
+      {
+        onTogglePinCodeModal();
+      };
+
     return (
       <>
         <WrappedComponent
-          onTogglePinCodeModal={onTogglePinCodeModal}
+          onTogglePinCodeModal={handleTogglePinCodeModal}
           {...(props as T)}
         />
         {isPinCodeModalOpen && (

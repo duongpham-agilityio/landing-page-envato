@@ -1,8 +1,8 @@
 'use client';
 
-import { memo } from 'react';
+import { memo, useCallback, useMemo } from 'react';
 import { Box, Heading } from '@chakra-ui/react';
-import { Control, UseFormHandleSubmit } from 'react-hook-form';
+import { useForm } from 'react-hook-form';
 
 // Components
 import CardBalanceForCalendar from './CardBalanceForCalendar';
@@ -18,43 +18,70 @@ import { withPinCode, withSendMoneyForCalendar } from '@/lib/hocs';
 // Types
 import {
   TTransfer,
-  TTransferDirtyFields,
   TUserDetail,
   TWithPinCode,
-  TWithSendMoney,
+  TWithSendMoneyForCalendar,
 } from '@/lib/interfaces';
 
 const REQUIRE_FIELDS = ['amount', 'memberId'];
 
 interface TCardPaymentProps {
-  control: Control<TTransfer>;
-  dirtyFields: TTransferDirtyFields;
   userList: Array<
     Omit<TUserDetail, 'id'> & {
       _id: string;
     }
   >;
-  isSendMoneySubmitting: boolean;
-  onSubmitSendMoneyHandler: UseFormHandleSubmit<TTransfer>;
   balance: number;
 }
 
-export type TCardPaymentWithPinCode = TWithSendMoney &
+export type TCardPaymentWithPinCode = TWithSendMoneyForCalendar &
   TWithPinCode<TCardPaymentProps>;
 
 const CardPaymentForCalendar = ({
-  control,
-  dirtyFields,
   userList,
-  isSendMoneySubmitting,
   balance,
-  onSubmitSendMoneyHandler,
   onTogglePinCodeModal,
 }: TCardPaymentWithPinCode): JSX.Element => {
+  const {
+    control,
+    handleSubmit: submitSendMoney,
+    formState: { dirtyFields, isSubmitting },
+    reset: resetSendMoney,
+  } = useForm<TTransfer>({
+    defaultValues: {
+      memberId: '',
+      amount: '',
+    },
+  });
+
   const dirtyItems = Object.keys(dirtyFields).filter(
     (key) => dirtyFields[key as keyof TTransfer],
   );
   const shouldEnable = isEnableSubmitButton(REQUIRE_FIELDS, dirtyItems);
+
+  const BalanceSection = useMemo(
+    () => (
+      <>
+        <Heading
+          as="h3"
+          fontWeight="bold"
+          color="text.primary"
+          fontSize="lg"
+          mb={3}
+          textTransform="capitalize"
+        >
+          my wallet
+        </Heading>
+
+        <CardBalanceForCalendar balance={balance} />
+      </>
+    ),
+    [balance],
+  );
+
+  const handleSubmitSendMoney = useCallback(() => {
+    onTogglePinCodeModal(submitSendMoney, resetSendMoney);
+  }, [onTogglePinCodeModal, resetSendMoney, submitSendMoney]);
 
   return (
     <Box
@@ -65,28 +92,13 @@ const CardPaymentForCalendar = ({
       px={{ base: 4, md: 10 }}
       borderRadius="lg"
     >
-      <Heading
-        as="h3"
-        fontWeight="bold"
-        color="text.primary"
-        fontSize="lg"
-        mb={3}
-        textTransform="capitalize"
-      >
-        my wallet
-      </Heading>
+      {BalanceSection}
 
-      <CardBalanceForCalendar balance={balance} />
-
-      <Box
-        as="form"
-        mt={4}
-        onSubmit={onSubmitSendMoneyHandler(onTogglePinCodeModal)}
-      >
+      <Box as="form" mt={4} onSubmit={submitSendMoney(handleSubmitSendMoney)}>
         <UserSelector control={control} listUser={userList} />
         <EnterMoney
-          isDisabled={!shouldEnable || isSendMoneySubmitting}
-          isLoading={isSendMoneySubmitting}
+          isDisabled={!shouldEnable || isSubmitting}
+          isLoading={isSubmitting}
           control={control}
         />
       </Box>
