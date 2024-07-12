@@ -1,6 +1,7 @@
 // Libs
 import {
   Box,
+  CloseButton,
   IconButton,
   InputGroup,
   InputRightElement,
@@ -16,7 +17,6 @@ import {
   useCallback,
   useEffect,
   useState,
-  useTransition,
 } from 'react';
 import { Control, Controller } from 'react-hook-form';
 import isEqual from 'react-fast-compare';
@@ -122,7 +122,6 @@ const UserSelector = ({
 }: TUseSelectorProps): JSX.Element => {
   const [isOpenOptions, setOpenOptions] = useState<boolean>(false);
   const [options, setOptions] = useState<TUseSelectorProps['listUser']>();
-  const [, startTransition] = useTransition();
 
   const filter: TUseSelectorProps['listUser'] = options ?? listUser;
 
@@ -142,11 +141,9 @@ const UserSelector = ({
 
   const handleChangeSearch = useCallback(
     (searchValue: string, onChange: (val: string) => void) => {
-      startTransition(() => {
-        onChange(searchValue);
-        setOpenOptions(true);
-        handleFilterOptions(searchValue);
-      });
+      onChange(searchValue);
+      setOpenOptions(true);
+      handleFilterOptions(searchValue);
     },
     [handleFilterOptions],
   );
@@ -178,10 +175,8 @@ const UserSelector = ({
     (email: string, onChange: (val: string) => void) => (e: MouseEvent) => {
       e.stopPropagation();
 
-      startTransition(() => {
-        onChange(email);
-        setOpenOptions(false);
-      });
+      onChange(email);
+      setOpenOptions(false);
     },
     [],
   );
@@ -217,9 +212,11 @@ const UserSelector = ({
             ...AUTH_SCHEMA.EMAIL,
             validate: () => !!filter.length,
           }}
-          render={({ field: { onChange, ...field } }) => {
+          render={({ field: { onChange, value, ...field } }) => {
             const handleChange = (search: string) =>
               handleChangeSearch(search, onChange);
+
+            const handleClearValue = () => onChange('');
 
             return (
               <>
@@ -227,27 +224,27 @@ const UserSelector = ({
                   <InputField
                     variant="authentication"
                     placeholder="Choose an account to transfer"
-                    rightIcon={
-                      <IconButton
-                        p={1}
-                        w="fit-content"
-                        h="fit-content"
-                        aria-label="Icon dropdown"
-                        bg="transparent"
-                        _hover={{
-                          bg: 'transparent',
-                        }}
-                      >
-                        <ChevronIcon />
-                      </IconButton>
-                    }
+                    pr="80px"
                     {...field}
+                    value={value}
                     onChange={handleChange}
                     onFocus={handleFocusOrBlur}
                     onBlur={handleFocusOrBlur}
                     onClick={handleClick}
                   />
-                  <InputRightElement>
+                  <InputRightElement w="80px" justifyContent="end" p={4}>
+                    <CloseButton
+                      color="icon.closeIcon"
+                      size="sm"
+                      cursor="pointer"
+                      mr={1.5}
+                      _hover={{
+                        bg: 'transparent',
+                      }}
+                      onClick={handleClearValue}
+                      display={value.trim() ? 'block' : 'none'}
+                    />
+
                     <IconButton
                       p={1}
                       w="fit-content"
