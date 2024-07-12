@@ -1,6 +1,6 @@
 'use client';
 
-import { memo, useCallback, useMemo } from 'react';
+import { memo, useCallback, useEffect, useMemo } from 'react';
 import { Box, Heading } from '@chakra-ui/react';
 import { useForm } from 'react-hook-form';
 
@@ -45,12 +45,16 @@ const CardPaymentForCalendar = ({
   const {
     control,
     handleSubmit: submitSendMoney,
-    formState: { dirtyFields, isSubmitting },
+    formState: { dirtyFields, isSubmitting, isSubmitted },
     reset: resetSendMoney,
   } = useForm<TTransfer>({
     defaultValues: {
       memberId: '',
       amount: '',
+    },
+    resetOptions: {
+      keepDirtyValues: true, // user-interacted input will be retained
+      keepErrors: true, // input errors will be retained with value update
     },
   });
 
@@ -79,9 +83,16 @@ const CardPaymentForCalendar = ({
     [balance],
   );
 
-  const handleSubmitSendMoney = useCallback(() => {
-    onTogglePinCodeModal(submitSendMoney, resetSendMoney);
-  }, [onTogglePinCodeModal, resetSendMoney, submitSendMoney]);
+  const handleSubmitSendMoney = useCallback(
+    (data: TTransfer) => {
+      onTogglePinCodeModal(data, resetSendMoney);
+    },
+    [onTogglePinCodeModal, resetSendMoney],
+  );
+
+  useEffect(() => {
+    console.log('isSubmitted', isSubmitted);
+  }, [isSubmitted]);
 
   return (
     <Box

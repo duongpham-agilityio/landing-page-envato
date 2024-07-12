@@ -1,7 +1,7 @@
 // Libs
 import { ReactNode, useCallback } from 'react';
 import { useToast } from '@chakra-ui/react';
-import { SubmitHandler } from 'react-hook-form';
+import { SubmitHandler, UseFormReset } from 'react-hook-form';
 
 // Stores
 import { authStore } from '@/lib/stores';
@@ -61,8 +61,8 @@ export const withSendMoneyForCalendar = (
       [userList],
     );
 
-    const handleSubmitSendMoney: SubmitHandler<TTransfer> = useCallback(
-      async (data) => {
+    const handleSubmitSendMoney = useCallback(
+      async (data: TTransfer, reset: UseFormReset<TTransfer>) => {
         const submitData = {
           ...data,
           userId,
@@ -76,7 +76,7 @@ export const withSendMoneyForCalendar = (
 
         if (error) {
           toast(customToast(error.title, error.description, STATUS.ERROR));
-          // resetSendMoney();
+          reset();
 
           return;
         }
@@ -96,15 +96,21 @@ export const withSendMoneyForCalendar = (
               bonusTimes: bonusTimes - 1,
             },
           });
-        // resetSendMoney();
+        reset();
       },
       [bonusTimes, getMemberId, setUser, toast, user, userId],
     );
 
-    const handleConfirmPinCodeSuccess = useCallback(() => {
-      // Call api to send money here
-      // handleSubmitSendMoney();
-    }, []);
+    const handleConfirmPinCodeSuccess = useCallback(
+      (data?: TTransfer, reset?: UseFormReset<TTransfer>) => {
+        console.log('data', data);
+        console.log('reset', reset);
+
+        // Call api to send money here
+        data && handleSubmitSendMoney(data, reset);
+      },
+      [handleSubmitSendMoney],
+    );
 
     return (
       <WrappedComponent

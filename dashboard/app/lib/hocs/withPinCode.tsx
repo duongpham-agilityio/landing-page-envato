@@ -1,7 +1,7 @@
 // Libs
-import { ReactNode, useCallback } from 'react';
+import { ReactNode, useCallback, useState } from 'react';
 import { useDisclosure, useToast } from '@chakra-ui/react';
-import { useForm } from 'react-hook-form';
+import { UseFormHandleSubmit, UseFormReset, useForm } from 'react-hook-form';
 
 // Stores
 import { authStore } from '@/lib/stores';
@@ -22,6 +22,7 @@ import { customToast } from '@/lib/utils';
 import {
   PinCodeWrapperProps,
   TPinCodeForm,
+  TTransfer,
   TWithPinCode,
 } from '@/lib/interfaces';
 
@@ -35,6 +36,12 @@ export const withPinCode = <T,>(
     onConfirmPinCodeSuccess,
     ...props
   }: PinCodeWrapperProps<T>) => {
+    const [data, setData] = useState<TTransfer>();
+    // const [resetSendMoney, setResetSendMoney] =
+    //   useState<UseFormReset<TTransfer>>();
+
+    let resetSendMoney: UseFormReset<TTransfer> | undefined;
+
     const toast = useToast();
     const { isOpen: isPinCodeModalOpen, onToggle: onTogglePinCodeModal } =
       useDisclosure();
@@ -83,9 +90,16 @@ export const withPinCode = <T,>(
           ),
         );
 
-        onConfirmPinCodeSuccess();
+        onConfirmPinCodeSuccess(data, resetSendMoney);
       },
-      [onConfirmPinCodeSuccess, onTogglePinCodeModal, resetPinCodeForm, toast],
+      [
+        data,
+        onConfirmPinCodeSuccess,
+        onTogglePinCodeModal,
+        resetPinCodeForm,
+        resetSendMoney,
+        toast,
+      ],
     );
 
     const handleSetPinCode = useCallback(
@@ -132,12 +146,22 @@ export const withPinCode = <T,>(
       resetPinCodeForm();
     }, [onTogglePinCodeModal, resetPinCodeForm]);
 
-    const handleTogglePinCodeModal = () =>
-      // submitSendMoney?: UseFormHandleSubmit<TTransfer>,
-      // resetSendMoney?: UseFormReset<TTransfer>,
-      {
-        onTogglePinCodeModal();
-      };
+    console.log('withPinCode--data', data);
+
+    const handleTogglePinCodeModal = (
+      data?: TTransfer,
+      reset?: UseFormReset<TTransfer>,
+    ) => {
+      // Open modal
+      onTogglePinCodeModal();
+
+      console.log('handleTogglePinCodeModal--data', data);
+
+      console.log('handleTogglePinCodeModal---reset', reset);
+
+      data && setData(data);
+      resetSendMoney = reset;
+    };
 
     return (
       <>
