@@ -44,8 +44,14 @@ export type TWithSendMoney = {
   onConfirmPinCodeSuccess: () => void;
 };
 
-export type TWithSendMoneyForCalendar = TWithSendMoney & {
+export type TWithSendMoneyForCalendar = {
   balance: number;
+  userList: Array<
+    Omit<TUserDetail, 'id'> & {
+      _id: string;
+    }
+  >;
+  onConfirmPinCodeSuccess: () => void;
 };
 
 export type TWithAddMoney = {
