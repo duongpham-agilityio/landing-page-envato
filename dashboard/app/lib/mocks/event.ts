@@ -58,6 +58,11 @@ export const MOCK_ADD_EVENT_SUCCESS_RES: AxiosResponse<
   },
 };
 
+export const MOCK_ADD_EVENT_FAILED_RES = {
+  status: 500,
+  statusText: 'Add event failed',
+};
+
 export const MOCK_UPDATE_EVENT_PAYLOAD: UpdateEventPayload = {
   eventId: MOCK_EVENTS[0]._id,
   eventName: 'Event 1 Update',
@@ -65,8 +70,24 @@ export const MOCK_UPDATE_EVENT_PAYLOAD: UpdateEventPayload = {
   endTime: MOCK_EVENTS[0].endTime,
 };
 
+export const MOCK_UPDATE_EVENT_FAILED_RES = {
+  status: 500,
+  statusText: 'Update event failed',
+};
+
 export const MOCK_DELETE_EVENT_PAYLOAD: DeleteEventPayload = {
   eventId: MOCK_EVENTS[1]._id,
+};
+
+export const MOCK_DELETE_EVENT_SUCCESS_RES = {
+  data: 'success',
+  status: 200,
+  statusText: 'Ok',
+};
+
+export const MOCK_DELETE_EVENT_FAILED_RES = {
+  status: 500,
+  statusText: 'Delete event failed',
 };
 
 export const MOCK_FORMATTED_EVENTS: (Event & Pick<TEvent, '_id'>)[] = [
