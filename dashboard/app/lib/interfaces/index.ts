@@ -19,5 +19,5 @@ export * from './recentActivities';
 export * from './httpClient';
 export * from './image';
 export * from './event';
-export * from './pin-code';
+export * from './pinCode';
 export * from './messages';

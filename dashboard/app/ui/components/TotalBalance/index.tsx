@@ -1,6 +1,6 @@
 'use client';
 
-import { memo } from 'react';
+import { memo, useCallback } from 'react';
 import { Box, Button } from '@chakra-ui/react';
 import { Control, UseFormHandleSubmit } from 'react-hook-form';
 
@@ -28,25 +28,37 @@ const TotalBalance = ({
   isSubmitting,
   onSubmitHandler,
   onTogglePinCodeModal,
-}: TTotalBalanceWithPinCode): JSX.Element => (
-  <Box w="full" bg="background.body.quaternary" px={8} py={7} borderRadius="lg">
-    <form onSubmit={onSubmitHandler(onTogglePinCodeModal)}>
-      <AddMoneyInput control={control} />
-      <Button
-        aria-label="btn-add-money"
-        mt={14}
-        colorScheme="primary"
-        bg="primary.300"
-        fontWeight="bold"
-        type="submit"
-        isDisabled={!isDirty || isSubmitting}
-        isLoading={isSubmitting}
-      >
-        Add Money
-      </Button>
-    </form>
-  </Box>
-);
+}: TTotalBalanceWithPinCode): JSX.Element => {
+  const handleToggleModal = useCallback(() => {
+    onTogglePinCodeModal();
+  }, [onTogglePinCodeModal]);
+
+  return (
+    <Box
+      w="full"
+      bg="background.body.quaternary"
+      px={8}
+      py={7}
+      borderRadius="lg"
+    >
+      <form onSubmit={onSubmitHandler(handleToggleModal)}>
+        <AddMoneyInput control={control} />
+        <Button
+          aria-label="btn-add-money"
+          mt={14}
+          colorScheme="primary"
+          bg="primary.300"
+          fontWeight="bold"
+          type="submit"
+          isDisabled={!isDirty || isSubmitting}
+          isLoading={isSubmitting}
+        >
+          Add Money
+        </Button>
+      </form>
+    </Box>
+  );
+};
 
 const TotalBalanceMemorized = memo(withAddMoney(withPinCode(TotalBalance)));
 

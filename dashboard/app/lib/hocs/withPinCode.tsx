@@ -1,7 +1,7 @@
 // Libs
-import { ReactNode, useCallback } from 'react';
+import { ReactNode, useCallback, useState } from 'react';
 import { useDisclosure, useToast } from '@chakra-ui/react';
-import { useForm } from 'react-hook-form';
+import { UseFormReset, useForm } from 'react-hook-form';
 
 // Stores
 import { authStore } from '@/lib/stores';
@@ -22,11 +22,16 @@ import { customToast } from '@/lib/utils';
 import {
   PinCodeWrapperProps,
   TPinCodeForm,
+  TTransfer,
   TWithPinCode,
 } from '@/lib/interfaces';
 
 // Components
 import { PinCodeModal } from '@/ui/components';
+
+export type TTransferData = TTransfer & {
+  resetSendMoney?: () => void;
+};
 
 export const withPinCode = <T,>(
   WrappedComponent: (props: TWithPinCode<T>) => ReactNode,
@@ -35,6 +40,7 @@ export const withPinCode = <T,>(
     onConfirmPinCodeSuccess,
     ...props
   }: PinCodeWrapperProps<T>) => {
+    const [data, setData] = useState<TTransferData>();
     const toast = useToast();
     const { isOpen: isPinCodeModalOpen, onToggle: onTogglePinCodeModal } =
       useDisclosure();
@@ -83,9 +89,15 @@ export const withPinCode = <T,>(
           ),
         );
 
-        onConfirmPinCodeSuccess();
+        onConfirmPinCodeSuccess(data);
       },
-      [onConfirmPinCodeSuccess, onTogglePinCodeModal, resetPinCodeForm, toast],
+      [
+        data,
+        onConfirmPinCodeSuccess,
+        onTogglePinCodeModal,
+        resetPinCodeForm,
+        toast,
+      ],
     );
 
     const handleSetPinCode = useCallback(
@@ -132,10 +144,25 @@ export const withPinCode = <T,>(
       resetPinCodeForm();
     }, [onTogglePinCodeModal, resetPinCodeForm]);
 
+    const handleTogglePinCodeModal = useCallback(
+      (data?: TTransfer, reset?: UseFormReset<TTransfer>) => {
+        // Open modal
+        onTogglePinCodeModal();
+
+        // Save both data & reset func
+        data &&
+          setData({
+            ...data,
+            resetSendMoney: reset,
+          });
+      },
+      [onTogglePinCodeModal],
+    );
+
     return (
       <>
         <WrappedComponent
-          onTogglePinCodeModal={onTogglePinCodeModal}
+          onTogglePinCodeModal={handleTogglePinCodeModal}
           {...(props as T)}
         />
         {isPinCodeModalOpen && (

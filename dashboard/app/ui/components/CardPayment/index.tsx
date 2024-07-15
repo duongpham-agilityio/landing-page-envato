@@ -1,6 +1,6 @@
 'use client';
 
-import { memo } from 'react';
+import { memo, useCallback } from 'react';
 import { Box, Heading } from '@chakra-ui/react';
 import { Control, UseFormHandleSubmit } from 'react-hook-form';
 
@@ -54,6 +54,10 @@ const CardPayment = ({
   );
   const shouldEnable = isEnableSubmitButton(REQUIRE_FIELDS, dirtyItems);
 
+  const handleToggleModal = useCallback(() => {
+    onTogglePinCodeModal();
+  }, [onTogglePinCodeModal]);
+
   return (
     <Box
       p={4}
@@ -79,7 +83,7 @@ const CardPayment = ({
       <Box
         as="form"
         mt={4}
-        onSubmit={onSubmitSendMoneyHandler(onTogglePinCodeModal)}
+        onSubmit={onSubmitSendMoneyHandler(handleToggleModal)}
       >
         <UserSelector control={control} listUser={userList} />
         <EnterMoney
