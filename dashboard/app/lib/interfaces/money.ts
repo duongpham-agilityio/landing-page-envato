@@ -25,7 +25,6 @@ export type TTransfer = {
   amount: string;
   memberId: string;
   userId: string;
-  resetSendMoney?: () => void;
 };
 
 export type TTransferDirtyFields = {

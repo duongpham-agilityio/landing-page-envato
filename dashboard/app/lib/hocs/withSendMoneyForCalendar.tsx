@@ -1,7 +1,6 @@
 // Libs
 import { ReactNode, useCallback } from 'react';
 import { useToast } from '@chakra-ui/react';
-import { SubmitHandler, UseFormReset } from 'react-hook-form';
 
 // Stores
 import { authStore } from '@/lib/stores';
@@ -24,6 +23,7 @@ import {
   TUserDetail,
   TWithSendMoneyForCalendar,
 } from '@/lib/interfaces';
+import { TTransferData } from './withPinCode';
 
 interface SendMoneyForCalendarWrapperProps {
   userList: Array<
@@ -62,7 +62,7 @@ export const withSendMoneyForCalendar = (
     );
 
     const handleSubmitSendMoney = useCallback(
-      async (data: TTransfer) => {
+      async (data: TTransferData) => {
         const submitData = {
           userId,
           memberId: getMemberId(data.memberId),

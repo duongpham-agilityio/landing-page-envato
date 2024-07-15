@@ -29,6 +29,10 @@ import {
 // Components
 import { PinCodeModal } from '@/ui/components';
 
+export type TTransferData = TTransfer & {
+  resetSendMoney?: () => void;
+};
+
 export const withPinCode = <T,>(
   WrappedComponent: (props: TWithPinCode<T>) => ReactNode,
 ) => {
@@ -36,7 +40,7 @@ export const withPinCode = <T,>(
     onConfirmPinCodeSuccess,
     ...props
   }: PinCodeWrapperProps<T>) => {
-    const [data, setData] = useState<TTransfer>();
+    const [data, setData] = useState<TTransferData>();
     const toast = useToast();
     const { isOpen: isPinCodeModalOpen, onToggle: onTogglePinCodeModal } =
       useDisclosure();
@@ -140,19 +144,20 @@ export const withPinCode = <T,>(
       resetPinCodeForm();
     }, [onTogglePinCodeModal, resetPinCodeForm]);
 
-    const handleTogglePinCodeModal = (
-      data?: TTransfer,
-      reset?: UseFormReset<TTransfer>,
-    ) => {
-      // Open modal
-      onTogglePinCodeModal();
+    const handleTogglePinCodeModal = useCallback(
+      (data?: TTransfer, reset?: UseFormReset<TTransfer>) => {
+        // Open modal
+        onTogglePinCodeModal();
 
-      // Save both data & reset func
-      data && setData({
-        ...data,
-        resetSendMoney: reset
-      });
-    };
+        // Save both data & reset func
+        data &&
+          setData({
+            ...data,
+            resetSendMoney: reset,
+          });
+      },
+      [onTogglePinCodeModal],
+    );
 
     return (
       <>

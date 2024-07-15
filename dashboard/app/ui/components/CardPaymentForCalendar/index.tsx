@@ -1,6 +1,6 @@
 'use client';
 
-import { memo, useCallback, useEffect, useMemo } from 'react';
+import { memo, useCallback, useMemo } from 'react';
 import { Box, Heading } from '@chakra-ui/react';
 import { useForm } from 'react-hook-form';
 
@@ -45,16 +45,12 @@ const CardPaymentForCalendar = ({
   const {
     control,
     handleSubmit: submitSendMoney,
-    formState: { dirtyFields, isSubmitting, isSubmitted },
+    formState: { dirtyFields, isSubmitting },
     reset: resetSendMoney,
   } = useForm<TTransfer>({
     defaultValues: {
       memberId: '',
       amount: '',
-    },
-    resetOptions: {
-      keepDirtyValues: true, // user-interacted input will be retained
-      keepErrors: true, // input errors will be retained with value update
     },
   });
 
