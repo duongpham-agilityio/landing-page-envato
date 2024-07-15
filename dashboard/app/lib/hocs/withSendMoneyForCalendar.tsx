@@ -62,13 +62,13 @@ export const withSendMoneyForCalendar = (
     );
 
     const handleSubmitSendMoney = useCallback(
-      async (data: TTransfer, reset: UseFormReset<TTransfer>) => {
+      async (data: TTransfer) => {
         const submitData = {
-          ...data,
           userId,
           memberId: getMemberId(data.memberId),
           amount: removeAmountFormat(data.amount),
         };
+        const resetFn = data.resetSendMoney || (() => {});
 
         const res = await sendMoney(submitData);
 
@@ -76,7 +76,7 @@ export const withSendMoneyForCalendar = (
 
         if (error) {
           toast(customToast(error.title, error.description, STATUS.ERROR));
-          reset();
+          resetFn();
 
           return;
         }
@@ -96,18 +96,15 @@ export const withSendMoneyForCalendar = (
               bonusTimes: bonusTimes - 1,
             },
           });
-        reset();
+        resetFn();
       },
       [bonusTimes, getMemberId, setUser, toast, user, userId],
     );
 
     const handleConfirmPinCodeSuccess = useCallback(
-      (data?: TTransfer, reset?: UseFormReset<TTransfer>) => {
-        console.log('data', data);
-        console.log('reset', reset);
-
+      (data?: TTransfer) => {
         // Call api to send money here
-        data && handleSubmitSendMoney(data, reset);
+        data && handleSubmitSendMoney(data);
       },
       [handleSubmitSendMoney],
     );

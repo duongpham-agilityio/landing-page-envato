@@ -90,10 +90,6 @@ const CardPaymentForCalendar = ({
     [onTogglePinCodeModal, resetSendMoney],
   );
 
-  useEffect(() => {
-    console.log('isSubmitted', isSubmitted);
-  }, [isSubmitted]);
-
   return (
     <Box
       p={4}

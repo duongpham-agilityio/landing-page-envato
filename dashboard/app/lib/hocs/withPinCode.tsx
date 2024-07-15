@@ -1,7 +1,7 @@
 // Libs
 import { ReactNode, useCallback, useState } from 'react';
 import { useDisclosure, useToast } from '@chakra-ui/react';
-import { UseFormHandleSubmit, UseFormReset, useForm } from 'react-hook-form';
+import { UseFormReset, useForm } from 'react-hook-form';
 
 // Stores
 import { authStore } from '@/lib/stores';
@@ -37,11 +37,6 @@ export const withPinCode = <T,>(
     ...props
   }: PinCodeWrapperProps<T>) => {
     const [data, setData] = useState<TTransfer>();
-    // const [resetSendMoney, setResetSendMoney] =
-    //   useState<UseFormReset<TTransfer>>();
-
-    let resetSendMoney: UseFormReset<TTransfer> | undefined;
-
     const toast = useToast();
     const { isOpen: isPinCodeModalOpen, onToggle: onTogglePinCodeModal } =
       useDisclosure();
@@ -90,14 +85,13 @@ export const withPinCode = <T,>(
           ),
         );
 
-        onConfirmPinCodeSuccess(data, resetSendMoney);
+        onConfirmPinCodeSuccess(data);
       },
       [
         data,
         onConfirmPinCodeSuccess,
         onTogglePinCodeModal,
         resetPinCodeForm,
-        resetSendMoney,
         toast,
       ],
     );
@@ -146,8 +140,6 @@ export const withPinCode = <T,>(
       resetPinCodeForm();
     }, [onTogglePinCodeModal, resetPinCodeForm]);
 
-    console.log('withPinCode--data', data);
-
     const handleTogglePinCodeModal = (
       data?: TTransfer,
       reset?: UseFormReset<TTransfer>,
@@ -155,12 +147,11 @@ export const withPinCode = <T,>(
       // Open modal
       onTogglePinCodeModal();
 
-      console.log('handleTogglePinCodeModal--data', data);
-
-      console.log('handleTogglePinCodeModal---reset', reset);
-
-      data && setData(data);
-      resetSendMoney = reset;
+      // Save both data & reset func
+      data && setData({
+        ...data,
+        resetSendMoney: reset
+      });
     };
 
     return (

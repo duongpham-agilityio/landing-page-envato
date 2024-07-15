@@ -134,7 +134,7 @@ export const MOCK_ADD_PRODUCT_SUCCESS_RES = {
 };
 
 export const MOCK_IMAGE_FILES = [
-  new File(['Shoe'], './shoe.png', { type: 'image/png' }),
+  // new File(['Shoe'], './shoe.png', { type: 'image/png' }),
 ];
 
 export const MOCK_UPLOAD_IMAGE_RES_SUCCESS: AxiosResponse = {
