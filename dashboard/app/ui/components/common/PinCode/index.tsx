@@ -49,8 +49,7 @@ const PinCodeComponent = ({
         name="pinCode"
         defaultValue=""
         render={({
-          // eslint-disable-next-line @typescript-eslint/no-unused-vars
-          field: { onChange, value, ref: _, ...rest },
+          field: { onChange, value, ...rest },
           fieldState: { error, invalid },
         }) => (
           <PinInput

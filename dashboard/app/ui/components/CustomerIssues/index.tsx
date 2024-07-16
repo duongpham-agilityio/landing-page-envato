@@ -11,6 +11,9 @@ import { CardIssues, Loading } from '@/ui/components';
 // Interfaces
 import { IIssues } from '@/lib/interfaces';
 
+// Constants
+import { IMAGES } from '@/lib/constants';
+
 interface CustomerProps {
   dataList?: IIssues[];
   isFetching?: boolean;
@@ -63,7 +66,7 @@ const CustomerIssues = ({
             lastName = '',
             title = '',
             description = '',
-            avatar = '',
+            avatar = IMAGES.USER.url,
             createdAt = '',
           } = item || {};
 

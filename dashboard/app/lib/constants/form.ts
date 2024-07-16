@@ -39,14 +39,6 @@ export const AUTH_SCHEMA = {
   REMEMBER_ME: {
     required: false,
   },
-  AGREE_POLICY: {
-    validate: (
-      value: boolean,
-      //eslint-disable-next-line @typescript-eslint/no-explicit-any, @typescript-eslint/no-unused-vars
-      { isAcceptPrivacyPolicy: __, ...fieldValues }: any,
-    ) => Object.values(fieldValues).every((value) => value) && value,
-  },
-
   PHONE_NUMBER: {
     pattern: {
       value: REGEX.PHONE_NUMBER,

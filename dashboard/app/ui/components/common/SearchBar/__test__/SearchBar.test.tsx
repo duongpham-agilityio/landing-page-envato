@@ -77,7 +77,6 @@ describe('SearchBar render', () => {
     await userEvent.type(input, 'abc');
     await waitFor(async () => {
       const clearIcon = getByTestId('right-icon-input');
-      console.log(clearIcon);
 
       await userEvent.click(clearIcon);
     });

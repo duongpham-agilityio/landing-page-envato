@@ -13,6 +13,11 @@ jest.mock('next/navigation', () => ({
   useRouter: jest.fn(),
 }));
 
+jest.mock('next/headers', () => ({
+  ...jest.requireActual('next/headers'),
+  cookies: jest.fn(),
+}));
+
 jest.mock('firebase/firestore', () => ({
   ...jest.requireActual('firebase/firestore'),
   getFirestore: jest.fn(),
