@@ -41,13 +41,11 @@ const GalleryCell = ({
           src={imageURL}
           alt={`Image of ${name}`}
           fill
-          sizes="100vw"
+          sizes="(max-width: 992px) 7vw, 15vw"
           placeholder="blur"
           blurDataURL={generatePlaceholder(40, 40)}
-          style={{
-            objectFit: 'cover',
-            borderRadius: '15px',
-          }}
+          objectFit="cover"
+          style={{ borderRadius: '15px' }}
         />
       </Box>
     </Flex>
