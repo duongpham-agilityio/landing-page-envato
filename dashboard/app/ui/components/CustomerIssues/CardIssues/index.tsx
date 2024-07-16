@@ -37,7 +37,7 @@ const CardIssues = ({
   >
     <Image
       src={avatar}
-      alt={IMAGES.AVATAR_SIGN_UP.alt}
+      alt={IMAGES.AVATAR.alt}
       rounded="full"
       objectFit="cover"
       w={43}
