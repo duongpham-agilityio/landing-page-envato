@@ -1,4 +1,4 @@
-import { Box, Flex, Td, Text, Tooltip } from '@chakra-ui/react';
+import { Flex, Td, Text, Tooltip } from '@chakra-ui/react';
 import { memo } from 'react';
 import Image from 'next/image';
 
@@ -27,20 +27,18 @@ const CustomerNameCellComponent = ({
       gap="10px"
       w={{ base: 240, '3xl': 200, '5xl': 240 }}
     >
-      <Box pos="relative" w={10} h={10}>
-        <Image
-          src={`${image}`}
-          alt={`Image of ${name}`}
-          fill
-          sizes="100vw"
-          placeholder="blur"
-          blurDataURL={generatePlaceholder(40, 40)}
-          style={{
-            borderRadius: '50%',
-            objectFit: 'cover',
-          }}
-        />
-      </Box>
+      <Image
+        src={`${image}`}
+        alt={`Image of ${name}`}
+        width={40}
+        height={40}
+        blurDataURL={generatePlaceholder(40, 40)}
+        style={{
+          borderRadius: '50%',
+          objectFit: 'cover',
+        }}
+      />
+
       <Tooltip
         minW="max-content"
         placement="bottom-start"
