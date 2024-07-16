@@ -1,21 +1,19 @@
-// Utils
-import { renderQueryProviderTest } from '@/lib/utils/testUtils';
+// Libs
+import { render } from '@testing-library/react';
 
 // Pages
 import Calendar from '../calendar/page';
 
-jest.mock('next/headers', () => ({
-  cookies: jest.fn().mockReturnValue({
-    get: () => ({ value: 'testUserId' }),
-  }),
+jest.mock('@/ui/sections/Calendar', () => ({
+  __esModule: true,
+  ...jest.requireActual('@/ui/sections/Calendar'),
+  default: () => <div>Calendar</div>,
 }));
 
-describe('Calendar render', () => {
-  test('Should render match with snapshot.', async () => {
-    const { container } = renderQueryProviderTest(await Calendar());
+describe('Calendar page', () => {
+  test('Should render match with snapshot.', () => {
+    const { container } = render(<Calendar />);
 
-    await waitFor(() => {
-      expect(container).toMatchSnapshot();
-    });
+    expect(container).toMatchSnapshot();
   });
 });
