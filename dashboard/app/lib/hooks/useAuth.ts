@@ -185,29 +185,23 @@ export const useAuth = () => {
     [updateStore],
   );
 
-  const handleLogout = useCallback(
-    async (
-      redirectPath?: string,
-      option?: keyof Pick<typeof router, 'push' | 'replace'>,
-    ) => {
-      setIsLogout(true);
+  const handleLogout = useCallback(async () => {
+    setIsLogout(true);
 
-      await recentActivitiesHttpService.post<TActivitiesRequest>(
-        END_POINTS.RECENT_ACTIVITIES,
-        {
-          userId: user?.id,
-          actionName: EActivity.SIGN_OUT,
-        },
-      );
+    await recentActivitiesHttpService.post<TActivitiesRequest>(
+      END_POINTS.RECENT_ACTIVITIES,
+      {
+        userId: user?.id,
+        actionName: EActivity.SIGN_OUT,
+      },
+    );
 
-      setTimeout(() => {
-        clearStore();
-        setIsLogout(false);
-        router[option ?? 'replace'](redirectPath ?? ROUTES.LOGIN);
-      }, LOGOUT_TIME);
-    },
-    [clearStore, router, user?.id],
-  );
+    setTimeout(() => {
+      clearStore();
+      setIsLogout(false);
+      router.push(ROUTES.LOGIN);
+    }, LOGOUT_TIME);
+  }, [clearStore, router, user?.id]);
 
   return {
     isLogoutHandling: isLogout,
