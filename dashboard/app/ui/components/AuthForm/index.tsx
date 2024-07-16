@@ -307,7 +307,6 @@ const AuthForm = ({
             <Flex gap={3}>
               <Controller
                 control={control}
-                rules={AUTH_SCHEMA.AGREE_POLICY}
                 name="isAcceptPrivacyPolicy"
                 render={({ field: { value, onChange } }) => (
                   <Checkbox
