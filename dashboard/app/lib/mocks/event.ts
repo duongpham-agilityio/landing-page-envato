@@ -8,6 +8,7 @@ import {
   AddEventPayload,
   DeleteEventPayload,
   TEvent,
+  TEventsResponse,
   UpdateEventPayload,
 } from '@/lib/interfaces';
 
@@ -25,6 +26,27 @@ export const MOCK_EVENTS: TEvent[] = [
     endTime: '2024-05-15 14:00',
   },
 ];
+
+export const MOCK_EVENTS_DATA_RES: TEventsResponse = {
+  result: [
+    {
+      _id: '664576b910c4c653733941c1',
+      eventName: 'Event 1',
+      startTime: '2024-05-16 01:30',
+      endTime: '2024-05-16 05:30',
+      userId: '6593beacff649fc6c4d2964c',
+    },
+    {
+      _id: '664576b910c4c653733941c2',
+      eventName: 'Event 2',
+      startTime: '2024-05-15 13:30',
+      endTime: '2024-05-15 14:00',
+      userId: '6593beacff649fc6c4d2964c',
+    },
+  ],
+
+  totalPage: 1,
+};
 
 export const MOCK_EVENTS_SUCCESS_RES: AxiosResponse = {
   data: { result: MOCK_EVENTS, totalPage: 3 },
