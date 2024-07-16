@@ -14,6 +14,9 @@ import { formatDecimalNumber } from '@/lib/utils';
 // Mocks
 import { USER_MOCK } from '@/lib/mocks';
 
+// Constants
+import { IMAGES } from '@/lib/constants';
+
 interface userCardProps {
   user: TEmployee;
 }
@@ -27,7 +30,7 @@ const UserCardComponent = ({ user }: userCardProps) => {
     lastPlace = '',
     level = '',
     workTime = '',
-    avatarURL = '',
+    avatarURL = IMAGES.USER.url,
     salary = 0,
     experience = '',
     hiringAgent,
@@ -35,7 +38,7 @@ const UserCardComponent = ({ user }: userCardProps) => {
   } = user || USER_MOCK;
 
   const {
-    avatarURL: hiringAgentAvatarURL = '',
+    avatarURL: hiringAgentAvatarURL = IMAGES.USER.url,
     firstName: hiringAgentFirstName = '',
     lastName: hiringAgentLastName = '',
     experience: hiringAgentExperience = '',

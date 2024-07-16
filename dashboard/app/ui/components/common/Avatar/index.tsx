@@ -8,12 +8,18 @@ import { generatePlaceholder } from '@/lib/utils';
 // Themes
 import { colors } from '@/ui/themes/bases';
 
+// Constants
+import { IMAGES } from '@/lib/constants';
+
 interface AvatarProps {
   src?: string;
   alt?: string;
 }
 
-const AvatarComponent = ({ src = '', alt = '' }: AvatarProps) => (
+const AvatarComponent = ({
+  src = IMAGES.USER.url,
+  alt = IMAGES.USER.alt,
+}: AvatarProps) => (
   <Box pos="relative" w="50px" h="50px">
     <Image
       src={src}
