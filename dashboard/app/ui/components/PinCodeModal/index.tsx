@@ -3,7 +3,8 @@ import isEqual from 'react-fast-compare';
 import { Control } from 'react-hook-form';
 
 // Components
-import { Modal, PinCode } from '..';
+import Modal from '@/ui/components/common/Modal';
+import PinCode from '@/ui/components/common/PinCode';
 
 // Types
 import { TPinCodeForm } from '@/lib/interfaces';
