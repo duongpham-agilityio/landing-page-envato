@@ -30,6 +30,8 @@ const Calendar = ({ events }: CalendarProps): JSX.Element => {
   const [date, setDate] = useState(new Date());
   const [isMutatingEvents, setIsMutatingEvents] = useState(false);
 
+  console.log('events', events);
+
   const handleAddEvent = useCallback(
     async (data: Omit<TEvent, '_id'>) => {
       setIsMutatingEvents(true);

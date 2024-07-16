@@ -78,6 +78,8 @@ const Calendar = ({
   const [slot, setSlot] = useState<Slot | null>(null);
   const [selectedEvent, setSelectedEvent] = useState<Event & Partial<TEvent>>();
 
+  console.log('Calendar component--events', events);
+
   const { isOpen: isOpenEventFormModal, onToggle: onToggleEventFormModal } =
     useDisclosure();
   const {
