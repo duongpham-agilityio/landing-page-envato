@@ -27,7 +27,7 @@ import {
 } from '@/lib/interfaces';
 
 // Components
-import { PinCodeModal } from '@/ui/components';
+import PinCodeModal from '@/ui/components/PinCodeModal';
 
 export type TTransferData = TTransfer & {
   resetSendMoney?: () => void;

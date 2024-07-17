@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`TotalBalance render Should render match with snapshot. 1`] = `
+exports[`TotalBalance should match with snapshot 1`] = `
 <div>
   <div
     class="css-1z03mj8"
@@ -29,7 +29,7 @@ exports[`TotalBalance render Should render match with snapshot. 1`] = `
             <input
               autocomplete="off"
               class="chakra-input css-cr7iz"
-              id="field-:r2:"
+              id="field-:r1:"
               name="amount"
               placeholder="0.00"
               type="text"
