@@ -647,7 +647,7 @@ exports[`Recent Activities table Match with snapshot with default prop 1`] = `
     </div>
   </div>
   <div
-    class="css-cyp3zu"
+    class="css-1akh2sr"
     data-testid="pagination"
   >
     <div
@@ -762,11 +762,11 @@ exports[`Recent Activities table Match with snapshot with default prop 1`] = `
       </div>
     </div>
     <div
-      class="css-69i1ev"
+      class="css-70qvj9"
     >
       <button
         aria-label="btn-prev"
-        class="chakra-button css-1u5n2r4"
+        class="chakra-button css-1ghaizy"
         data-testid="prev-button"
         type="button"
       >
@@ -788,11 +788,11 @@ exports[`Recent Activities table Match with snapshot with default prop 1`] = `
         </svg>
       </button>
       <div
-        class="css-70qvj9"
+        class="css-3j42x1"
       />
       <button
         aria-label="btn-next"
-        class="chakra-button css-5dzvs"
+        class="chakra-button css-17152jb"
         data-testid="next-button"
         type="button"
       >

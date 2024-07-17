@@ -374,20 +374,17 @@ exports[`Transaction table Match with snapshot with default prop 1`] = `
               <div
                 class="css-12agq4v"
               >
-                <div
-                  class="css-3mb4de"
-                >
-                  <img
-                    alt="Image of Devon Lane"
-                    data-nimg="fill"
-                    decoding="async"
-                    loading="lazy"
-                    sizes="100vw"
-                    src="/_next/image?url=https%3A%2F%2Fstatic.nike.com%2Fa%2Fimages%2Ft_PDP_1280_v1%2Ff_auto%2Cq_auto%3Aeco%2Faf53d53d-561f-450a-a483-70a7ceee380f%2Fdunk-low-shoes-t9dFBx.png&w=3840&q=75"
-                    srcset="/_next/image?url=https%3A%2F%2Fstatic.nike.com%2Fa%2Fimages%2Ft_PDP_1280_v1%2Ff_auto%2Cq_auto%3Aeco%2Faf53d53d-561f-450a-a483-70a7ceee380f%2Fdunk-low-shoes-t9dFBx.png&w=640&q=75 640w, /_next/image?url=https%3A%2F%2Fstatic.nike.com%2Fa%2Fimages%2Ft_PDP_1280_v1%2Ff_auto%2Cq_auto%3Aeco%2Faf53d53d-561f-450a-a483-70a7ceee380f%2Fdunk-low-shoes-t9dFBx.png&w=750&q=75 750w, /_next/image?url=https%3A%2F%2Fstatic.nike.com%2Fa%2Fimages%2Ft_PDP_1280_v1%2Ff_auto%2Cq_auto%3Aeco%2Faf53d53d-561f-450a-a483-70a7ceee380f%2Fdunk-low-shoes-t9dFBx.png&w=828&q=75 828w, /_next/image?url=https%3A%2F%2Fstatic.nike.com%2Fa%2Fimages%2Ft_PDP_1280_v1%2Ff_auto%2Cq_auto%3Aeco%2Faf53d53d-561f-450a-a483-70a7ceee380f%2Fdunk-low-shoes-t9dFBx.png&w=1080&q=75 1080w, /_next/image?url=https%3A%2F%2Fstatic.nike.com%2Fa%2Fimages%2Ft_PDP_1280_v1%2Ff_auto%2Cq_auto%3Aeco%2Faf53d53d-561f-450a-a483-70a7ceee380f%2Fdunk-low-shoes-t9dFBx.png&w=1200&q=75 1200w, /_next/image?url=https%3A%2F%2Fstatic.nike.com%2Fa%2Fimages%2Ft_PDP_1280_v1%2Ff_auto%2Cq_auto%3Aeco%2Faf53d53d-561f-450a-a483-70a7ceee380f%2Fdunk-low-shoes-t9dFBx.png&w=1920&q=75 1920w, /_next/image?url=https%3A%2F%2Fstatic.nike.com%2Fa%2Fimages%2Ft_PDP_1280_v1%2Ff_auto%2Cq_auto%3Aeco%2Faf53d53d-561f-450a-a483-70a7ceee380f%2Fdunk-low-shoes-t9dFBx.png&w=2048&q=75 2048w, /_next/image?url=https%3A%2F%2Fstatic.nike.com%2Fa%2Fimages%2Ft_PDP_1280_v1%2Ff_auto%2Cq_auto%3Aeco%2Faf53d53d-561f-450a-a483-70a7ceee380f%2Fdunk-low-shoes-t9dFBx.png&w=3840&q=75 3840w"
-                    style="position: absolute; height: 100%; width: 100%; left: 0px; top: 0px; right: 0px; bottom: 0px; object-fit: cover; color: transparent; border-radius: 50%; background-size: cover; background-position: 50% 50%; background-repeat: no-repeat;"
-                  />
-                </div>
+                <img
+                  alt="Image of Devon Lane"
+                  data-nimg="1"
+                  decoding="async"
+                  height="40"
+                  loading="lazy"
+                  src="/_next/image?url=https%3A%2F%2Fstatic.nike.com%2Fa%2Fimages%2Ft_PDP_1280_v1%2Ff_auto%2Cq_auto%3Aeco%2Faf53d53d-561f-450a-a483-70a7ceee380f%2Fdunk-low-shoes-t9dFBx.png&w=96&q=75"
+                  srcset="/_next/image?url=https%3A%2F%2Fstatic.nike.com%2Fa%2Fimages%2Ft_PDP_1280_v1%2Ff_auto%2Cq_auto%3Aeco%2Faf53d53d-561f-450a-a483-70a7ceee380f%2Fdunk-low-shoes-t9dFBx.png&w=48&q=75 1x, /_next/image?url=https%3A%2F%2Fstatic.nike.com%2Fa%2Fimages%2Ft_PDP_1280_v1%2Ff_auto%2Cq_auto%3Aeco%2Faf53d53d-561f-450a-a483-70a7ceee380f%2Fdunk-low-shoes-t9dFBx.png&w=96&q=75 2x"
+                  style="color: transparent; border-radius: 50%; object-fit: cover;"
+                  width="40"
+                />
                 <p
                   class="chakra-text css-b5wh8g"
                 >
@@ -444,11 +441,10 @@ exports[`Transaction table Match with snapshot with default prop 1`] = `
                 <span
                   class="css-xl71ch"
                 >
-                  <button
+                  <div
                     aria-label="This is the icon action"
-                    class="chakra-button css-1c8sy4r"
+                    class="chakra-button css-1jcnabc"
                     data-testid="dot-icon"
-                    type="button"
                   >
                     <svg
                       aria-hidden="true"
@@ -466,7 +462,7 @@ exports[`Transaction table Match with snapshot with default prop 1`] = `
                         stroke-width="2"
                       />
                     </svg>
-                  </button>
+                  </div>
                 </span>
               </button>
               <div
@@ -542,20 +538,17 @@ exports[`Transaction table Match with snapshot with default prop 1`] = `
               <div
                 class="css-12agq4v"
               >
-                <div
-                  class="css-3mb4de"
-                >
-                  <img
-                    alt="Image of Bessie Cooper"
-                    data-nimg="fill"
-                    decoding="async"
-                    loading="lazy"
-                    sizes="100vw"
-                    src="/_next/image?url=https%3A%2F%2Fstatic.nike.com%2Fa%2Fimages%2Ft_PDP_1280_v1%2Ff_auto%2Cq_auto%3Aeco%2Faf53d53d-561f-450a-a483-70a7ceee380f%2Fdunk-low-shoes-t9dFBx.png&w=3840&q=75"
-                    srcset="/_next/image?url=https%3A%2F%2Fstatic.nike.com%2Fa%2Fimages%2Ft_PDP_1280_v1%2Ff_auto%2Cq_auto%3Aeco%2Faf53d53d-561f-450a-a483-70a7ceee380f%2Fdunk-low-shoes-t9dFBx.png&w=640&q=75 640w, /_next/image?url=https%3A%2F%2Fstatic.nike.com%2Fa%2Fimages%2Ft_PDP_1280_v1%2Ff_auto%2Cq_auto%3Aeco%2Faf53d53d-561f-450a-a483-70a7ceee380f%2Fdunk-low-shoes-t9dFBx.png&w=750&q=75 750w, /_next/image?url=https%3A%2F%2Fstatic.nike.com%2Fa%2Fimages%2Ft_PDP_1280_v1%2Ff_auto%2Cq_auto%3Aeco%2Faf53d53d-561f-450a-a483-70a7ceee380f%2Fdunk-low-shoes-t9dFBx.png&w=828&q=75 828w, /_next/image?url=https%3A%2F%2Fstatic.nike.com%2Fa%2Fimages%2Ft_PDP_1280_v1%2Ff_auto%2Cq_auto%3Aeco%2Faf53d53d-561f-450a-a483-70a7ceee380f%2Fdunk-low-shoes-t9dFBx.png&w=1080&q=75 1080w, /_next/image?url=https%3A%2F%2Fstatic.nike.com%2Fa%2Fimages%2Ft_PDP_1280_v1%2Ff_auto%2Cq_auto%3Aeco%2Faf53d53d-561f-450a-a483-70a7ceee380f%2Fdunk-low-shoes-t9dFBx.png&w=1200&q=75 1200w, /_next/image?url=https%3A%2F%2Fstatic.nike.com%2Fa%2Fimages%2Ft_PDP_1280_v1%2Ff_auto%2Cq_auto%3Aeco%2Faf53d53d-561f-450a-a483-70a7ceee380f%2Fdunk-low-shoes-t9dFBx.png&w=1920&q=75 1920w, /_next/image?url=https%3A%2F%2Fstatic.nike.com%2Fa%2Fimages%2Ft_PDP_1280_v1%2Ff_auto%2Cq_auto%3Aeco%2Faf53d53d-561f-450a-a483-70a7ceee380f%2Fdunk-low-shoes-t9dFBx.png&w=2048&q=75 2048w, /_next/image?url=https%3A%2F%2Fstatic.nike.com%2Fa%2Fimages%2Ft_PDP_1280_v1%2Ff_auto%2Cq_auto%3Aeco%2Faf53d53d-561f-450a-a483-70a7ceee380f%2Fdunk-low-shoes-t9dFBx.png&w=3840&q=75 3840w"
-                    style="position: absolute; height: 100%; width: 100%; left: 0px; top: 0px; right: 0px; bottom: 0px; object-fit: cover; color: transparent; border-radius: 50%; background-size: cover; background-position: 50% 50%; background-repeat: no-repeat;"
-                  />
-                </div>
+                <img
+                  alt="Image of Bessie Cooper"
+                  data-nimg="1"
+                  decoding="async"
+                  height="40"
+                  loading="lazy"
+                  src="/_next/image?url=https%3A%2F%2Fstatic.nike.com%2Fa%2Fimages%2Ft_PDP_1280_v1%2Ff_auto%2Cq_auto%3Aeco%2Faf53d53d-561f-450a-a483-70a7ceee380f%2Fdunk-low-shoes-t9dFBx.png&w=96&q=75"
+                  srcset="/_next/image?url=https%3A%2F%2Fstatic.nike.com%2Fa%2Fimages%2Ft_PDP_1280_v1%2Ff_auto%2Cq_auto%3Aeco%2Faf53d53d-561f-450a-a483-70a7ceee380f%2Fdunk-low-shoes-t9dFBx.png&w=48&q=75 1x, /_next/image?url=https%3A%2F%2Fstatic.nike.com%2Fa%2Fimages%2Ft_PDP_1280_v1%2Ff_auto%2Cq_auto%3Aeco%2Faf53d53d-561f-450a-a483-70a7ceee380f%2Fdunk-low-shoes-t9dFBx.png&w=96&q=75 2x"
+                  style="color: transparent; border-radius: 50%; object-fit: cover;"
+                  width="40"
+                />
                 <p
                   class="chakra-text css-b5wh8g"
                 >
@@ -612,11 +605,10 @@ exports[`Transaction table Match with snapshot with default prop 1`] = `
                 <span
                   class="css-xl71ch"
                 >
-                  <button
+                  <div
                     aria-label="This is the icon action"
-                    class="chakra-button css-1c8sy4r"
+                    class="chakra-button css-1jcnabc"
                     data-testid="dot-icon"
-                    type="button"
                   >
                     <svg
                       aria-hidden="true"
@@ -634,7 +626,7 @@ exports[`Transaction table Match with snapshot with default prop 1`] = `
                         stroke-width="2"
                       />
                     </svg>
-                  </button>
+                  </div>
                 </span>
               </button>
               <div
@@ -690,20 +682,17 @@ exports[`Transaction table Match with snapshot with default prop 1`] = `
               <div
                 class="css-12agq4v"
               >
-                <div
-                  class="css-3mb4de"
-                >
-                  <img
-                    alt="Image of Zepeda lorna"
-                    data-nimg="fill"
-                    decoding="async"
-                    loading="lazy"
-                    sizes="100vw"
-                    src="/_next/image?url=https%3A%2F%2Fstatic.nike.com%2Fa%2Fimages%2Ft_PDP_1280_v1%2Fceee380f%2Fdunk-low-shoes-t9dFBx.png&w=3840&q=75"
-                    srcset="/_next/image?url=https%3A%2F%2Fstatic.nike.com%2Fa%2Fimages%2Ft_PDP_1280_v1%2Fceee380f%2Fdunk-low-shoes-t9dFBx.png&w=640&q=75 640w, /_next/image?url=https%3A%2F%2Fstatic.nike.com%2Fa%2Fimages%2Ft_PDP_1280_v1%2Fceee380f%2Fdunk-low-shoes-t9dFBx.png&w=750&q=75 750w, /_next/image?url=https%3A%2F%2Fstatic.nike.com%2Fa%2Fimages%2Ft_PDP_1280_v1%2Fceee380f%2Fdunk-low-shoes-t9dFBx.png&w=828&q=75 828w, /_next/image?url=https%3A%2F%2Fstatic.nike.com%2Fa%2Fimages%2Ft_PDP_1280_v1%2Fceee380f%2Fdunk-low-shoes-t9dFBx.png&w=1080&q=75 1080w, /_next/image?url=https%3A%2F%2Fstatic.nike.com%2Fa%2Fimages%2Ft_PDP_1280_v1%2Fceee380f%2Fdunk-low-shoes-t9dFBx.png&w=1200&q=75 1200w, /_next/image?url=https%3A%2F%2Fstatic.nike.com%2Fa%2Fimages%2Ft_PDP_1280_v1%2Fceee380f%2Fdunk-low-shoes-t9dFBx.png&w=1920&q=75 1920w, /_next/image?url=https%3A%2F%2Fstatic.nike.com%2Fa%2Fimages%2Ft_PDP_1280_v1%2Fceee380f%2Fdunk-low-shoes-t9dFBx.png&w=2048&q=75 2048w, /_next/image?url=https%3A%2F%2Fstatic.nike.com%2Fa%2Fimages%2Ft_PDP_1280_v1%2Fceee380f%2Fdunk-low-shoes-t9dFBx.png&w=3840&q=75 3840w"
-                    style="position: absolute; height: 100%; width: 100%; left: 0px; top: 0px; right: 0px; bottom: 0px; object-fit: cover; color: transparent; border-radius: 50%; background-size: cover; background-position: 50% 50%; background-repeat: no-repeat;"
-                  />
-                </div>
+                <img
+                  alt="Image of Zepeda lorna"
+                  data-nimg="1"
+                  decoding="async"
+                  height="40"
+                  loading="lazy"
+                  src="/_next/image?url=https%3A%2F%2Fstatic.nike.com%2Fa%2Fimages%2Ft_PDP_1280_v1%2Fceee380f%2Fdunk-low-shoes-t9dFBx.png&w=96&q=75"
+                  srcset="/_next/image?url=https%3A%2F%2Fstatic.nike.com%2Fa%2Fimages%2Ft_PDP_1280_v1%2Fceee380f%2Fdunk-low-shoes-t9dFBx.png&w=48&q=75 1x, /_next/image?url=https%3A%2F%2Fstatic.nike.com%2Fa%2Fimages%2Ft_PDP_1280_v1%2Fceee380f%2Fdunk-low-shoes-t9dFBx.png&w=96&q=75 2x"
+                  style="color: transparent; border-radius: 50%; object-fit: cover;"
+                  width="40"
+                />
                 <p
                   class="chakra-text css-b5wh8g"
                 >
@@ -760,11 +749,10 @@ exports[`Transaction table Match with snapshot with default prop 1`] = `
                 <span
                   class="css-xl71ch"
                 >
-                  <button
+                  <div
                     aria-label="This is the icon action"
-                    class="chakra-button css-1c8sy4r"
+                    class="chakra-button css-1jcnabc"
                     data-testid="dot-icon"
-                    type="button"
                   >
                     <svg
                       aria-hidden="true"
@@ -782,7 +770,7 @@ exports[`Transaction table Match with snapshot with default prop 1`] = `
                         stroke-width="2"
                       />
                     </svg>
-                  </button>
+                  </div>
                 </span>
               </button>
               <div
@@ -833,7 +821,7 @@ exports[`Transaction table Match with snapshot with default prop 1`] = `
     </div>
   </div>
   <div
-    class="css-cyp3zu"
+    class="css-1akh2sr"
     data-testid="pagination"
   >
     <div
@@ -948,11 +936,11 @@ exports[`Transaction table Match with snapshot with default prop 1`] = `
       </div>
     </div>
     <div
-      class="css-69i1ev"
+      class="css-70qvj9"
     >
       <button
         aria-label="btn-prev"
-        class="chakra-button css-1u5n2r4"
+        class="chakra-button css-1ghaizy"
         data-testid="prev-button"
         type="button"
       >
@@ -974,11 +962,11 @@ exports[`Transaction table Match with snapshot with default prop 1`] = `
         </svg>
       </button>
       <div
-        class="css-70qvj9"
+        class="css-3j42x1"
       />
       <button
         aria-label="btn-next"
-        class="chakra-button css-5dzvs"
+        class="chakra-button css-17152jb"
         data-testid="next-button"
         type="button"
       >
@@ -1519,20 +1507,17 @@ exports[`Transaction table Match with snapshot with isOpenHistoryModal = true 1`
               <div
                 class="css-12agq4v"
               >
-                <div
-                  class="css-3mb4de"
-                >
-                  <img
-                    alt="Image of Devon Lane"
-                    data-nimg="fill"
-                    decoding="async"
-                    loading="lazy"
-                    sizes="100vw"
-                    src="/_next/image?url=https%3A%2F%2Fstatic.nike.com%2Fa%2Fimages%2Ft_PDP_1280_v1%2Ff_auto%2Cq_auto%3Aeco%2Faf53d53d-561f-450a-a483-70a7ceee380f%2Fdunk-low-shoes-t9dFBx.png&w=3840&q=75"
-                    srcset="/_next/image?url=https%3A%2F%2Fstatic.nike.com%2Fa%2Fimages%2Ft_PDP_1280_v1%2Ff_auto%2Cq_auto%3Aeco%2Faf53d53d-561f-450a-a483-70a7ceee380f%2Fdunk-low-shoes-t9dFBx.png&w=640&q=75 640w, /_next/image?url=https%3A%2F%2Fstatic.nike.com%2Fa%2Fimages%2Ft_PDP_1280_v1%2Ff_auto%2Cq_auto%3Aeco%2Faf53d53d-561f-450a-a483-70a7ceee380f%2Fdunk-low-shoes-t9dFBx.png&w=750&q=75 750w, /_next/image?url=https%3A%2F%2Fstatic.nike.com%2Fa%2Fimages%2Ft_PDP_1280_v1%2Ff_auto%2Cq_auto%3Aeco%2Faf53d53d-561f-450a-a483-70a7ceee380f%2Fdunk-low-shoes-t9dFBx.png&w=828&q=75 828w, /_next/image?url=https%3A%2F%2Fstatic.nike.com%2Fa%2Fimages%2Ft_PDP_1280_v1%2Ff_auto%2Cq_auto%3Aeco%2Faf53d53d-561f-450a-a483-70a7ceee380f%2Fdunk-low-shoes-t9dFBx.png&w=1080&q=75 1080w, /_next/image?url=https%3A%2F%2Fstatic.nike.com%2Fa%2Fimages%2Ft_PDP_1280_v1%2Ff_auto%2Cq_auto%3Aeco%2Faf53d53d-561f-450a-a483-70a7ceee380f%2Fdunk-low-shoes-t9dFBx.png&w=1200&q=75 1200w, /_next/image?url=https%3A%2F%2Fstatic.nike.com%2Fa%2Fimages%2Ft_PDP_1280_v1%2Ff_auto%2Cq_auto%3Aeco%2Faf53d53d-561f-450a-a483-70a7ceee380f%2Fdunk-low-shoes-t9dFBx.png&w=1920&q=75 1920w, /_next/image?url=https%3A%2F%2Fstatic.nike.com%2Fa%2Fimages%2Ft_PDP_1280_v1%2Ff_auto%2Cq_auto%3Aeco%2Faf53d53d-561f-450a-a483-70a7ceee380f%2Fdunk-low-shoes-t9dFBx.png&w=2048&q=75 2048w, /_next/image?url=https%3A%2F%2Fstatic.nike.com%2Fa%2Fimages%2Ft_PDP_1280_v1%2Ff_auto%2Cq_auto%3Aeco%2Faf53d53d-561f-450a-a483-70a7ceee380f%2Fdunk-low-shoes-t9dFBx.png&w=3840&q=75 3840w"
-                    style="position: absolute; height: 100%; width: 100%; left: 0px; top: 0px; right: 0px; bottom: 0px; object-fit: cover; color: transparent; border-radius: 50%; background-size: cover; background-position: 50% 50%; background-repeat: no-repeat;"
-                  />
-                </div>
+                <img
+                  alt="Image of Devon Lane"
+                  data-nimg="1"
+                  decoding="async"
+                  height="40"
+                  loading="lazy"
+                  src="/_next/image?url=https%3A%2F%2Fstatic.nike.com%2Fa%2Fimages%2Ft_PDP_1280_v1%2Ff_auto%2Cq_auto%3Aeco%2Faf53d53d-561f-450a-a483-70a7ceee380f%2Fdunk-low-shoes-t9dFBx.png&w=96&q=75"
+                  srcset="/_next/image?url=https%3A%2F%2Fstatic.nike.com%2Fa%2Fimages%2Ft_PDP_1280_v1%2Ff_auto%2Cq_auto%3Aeco%2Faf53d53d-561f-450a-a483-70a7ceee380f%2Fdunk-low-shoes-t9dFBx.png&w=48&q=75 1x, /_next/image?url=https%3A%2F%2Fstatic.nike.com%2Fa%2Fimages%2Ft_PDP_1280_v1%2Ff_auto%2Cq_auto%3Aeco%2Faf53d53d-561f-450a-a483-70a7ceee380f%2Fdunk-low-shoes-t9dFBx.png&w=96&q=75 2x"
+                  style="color: transparent; border-radius: 50%; object-fit: cover;"
+                  width="40"
+                />
                 <p
                   class="chakra-text css-b5wh8g"
                 >
@@ -1587,20 +1572,17 @@ exports[`Transaction table Match with snapshot with isOpenHistoryModal = true 1`
               <div
                 class="css-12agq4v"
               >
-                <div
-                  class="css-3mb4de"
-                >
-                  <img
-                    alt="Image of Bessie Cooper"
-                    data-nimg="fill"
-                    decoding="async"
-                    loading="lazy"
-                    sizes="100vw"
-                    src="/_next/image?url=https%3A%2F%2Fstatic.nike.com%2Fa%2Fimages%2Ft_PDP_1280_v1%2Ff_auto%2Cq_auto%3Aeco%2Faf53d53d-561f-450a-a483-70a7ceee380f%2Fdunk-low-shoes-t9dFBx.png&w=3840&q=75"
-                    srcset="/_next/image?url=https%3A%2F%2Fstatic.nike.com%2Fa%2Fimages%2Ft_PDP_1280_v1%2Ff_auto%2Cq_auto%3Aeco%2Faf53d53d-561f-450a-a483-70a7ceee380f%2Fdunk-low-shoes-t9dFBx.png&w=640&q=75 640w, /_next/image?url=https%3A%2F%2Fstatic.nike.com%2Fa%2Fimages%2Ft_PDP_1280_v1%2Ff_auto%2Cq_auto%3Aeco%2Faf53d53d-561f-450a-a483-70a7ceee380f%2Fdunk-low-shoes-t9dFBx.png&w=750&q=75 750w, /_next/image?url=https%3A%2F%2Fstatic.nike.com%2Fa%2Fimages%2Ft_PDP_1280_v1%2Ff_auto%2Cq_auto%3Aeco%2Faf53d53d-561f-450a-a483-70a7ceee380f%2Fdunk-low-shoes-t9dFBx.png&w=828&q=75 828w, /_next/image?url=https%3A%2F%2Fstatic.nike.com%2Fa%2Fimages%2Ft_PDP_1280_v1%2Ff_auto%2Cq_auto%3Aeco%2Faf53d53d-561f-450a-a483-70a7ceee380f%2Fdunk-low-shoes-t9dFBx.png&w=1080&q=75 1080w, /_next/image?url=https%3A%2F%2Fstatic.nike.com%2Fa%2Fimages%2Ft_PDP_1280_v1%2Ff_auto%2Cq_auto%3Aeco%2Faf53d53d-561f-450a-a483-70a7ceee380f%2Fdunk-low-shoes-t9dFBx.png&w=1200&q=75 1200w, /_next/image?url=https%3A%2F%2Fstatic.nike.com%2Fa%2Fimages%2Ft_PDP_1280_v1%2Ff_auto%2Cq_auto%3Aeco%2Faf53d53d-561f-450a-a483-70a7ceee380f%2Fdunk-low-shoes-t9dFBx.png&w=1920&q=75 1920w, /_next/image?url=https%3A%2F%2Fstatic.nike.com%2Fa%2Fimages%2Ft_PDP_1280_v1%2Ff_auto%2Cq_auto%3Aeco%2Faf53d53d-561f-450a-a483-70a7ceee380f%2Fdunk-low-shoes-t9dFBx.png&w=2048&q=75 2048w, /_next/image?url=https%3A%2F%2Fstatic.nike.com%2Fa%2Fimages%2Ft_PDP_1280_v1%2Ff_auto%2Cq_auto%3Aeco%2Faf53d53d-561f-450a-a483-70a7ceee380f%2Fdunk-low-shoes-t9dFBx.png&w=3840&q=75 3840w"
-                    style="position: absolute; height: 100%; width: 100%; left: 0px; top: 0px; right: 0px; bottom: 0px; object-fit: cover; color: transparent; border-radius: 50%; background-size: cover; background-position: 50% 50%; background-repeat: no-repeat;"
-                  />
-                </div>
+                <img
+                  alt="Image of Bessie Cooper"
+                  data-nimg="1"
+                  decoding="async"
+                  height="40"
+                  loading="lazy"
+                  src="/_next/image?url=https%3A%2F%2Fstatic.nike.com%2Fa%2Fimages%2Ft_PDP_1280_v1%2Ff_auto%2Cq_auto%3Aeco%2Faf53d53d-561f-450a-a483-70a7ceee380f%2Fdunk-low-shoes-t9dFBx.png&w=96&q=75"
+                  srcset="/_next/image?url=https%3A%2F%2Fstatic.nike.com%2Fa%2Fimages%2Ft_PDP_1280_v1%2Ff_auto%2Cq_auto%3Aeco%2Faf53d53d-561f-450a-a483-70a7ceee380f%2Fdunk-low-shoes-t9dFBx.png&w=48&q=75 1x, /_next/image?url=https%3A%2F%2Fstatic.nike.com%2Fa%2Fimages%2Ft_PDP_1280_v1%2Ff_auto%2Cq_auto%3Aeco%2Faf53d53d-561f-450a-a483-70a7ceee380f%2Fdunk-low-shoes-t9dFBx.png&w=96&q=75 2x"
+                  style="color: transparent; border-radius: 50%; object-fit: cover;"
+                  width="40"
+                />
                 <p
                   class="chakra-text css-b5wh8g"
                 >
@@ -1655,20 +1637,17 @@ exports[`Transaction table Match with snapshot with isOpenHistoryModal = true 1`
               <div
                 class="css-12agq4v"
               >
-                <div
-                  class="css-3mb4de"
-                >
-                  <img
-                    alt="Image of Zepeda lorna"
-                    data-nimg="fill"
-                    decoding="async"
-                    loading="lazy"
-                    sizes="100vw"
-                    src="/_next/image?url=https%3A%2F%2Fstatic.nike.com%2Fa%2Fimages%2Ft_PDP_1280_v1%2Fceee380f%2Fdunk-low-shoes-t9dFBx.png&w=3840&q=75"
-                    srcset="/_next/image?url=https%3A%2F%2Fstatic.nike.com%2Fa%2Fimages%2Ft_PDP_1280_v1%2Fceee380f%2Fdunk-low-shoes-t9dFBx.png&w=640&q=75 640w, /_next/image?url=https%3A%2F%2Fstatic.nike.com%2Fa%2Fimages%2Ft_PDP_1280_v1%2Fceee380f%2Fdunk-low-shoes-t9dFBx.png&w=750&q=75 750w, /_next/image?url=https%3A%2F%2Fstatic.nike.com%2Fa%2Fimages%2Ft_PDP_1280_v1%2Fceee380f%2Fdunk-low-shoes-t9dFBx.png&w=828&q=75 828w, /_next/image?url=https%3A%2F%2Fstatic.nike.com%2Fa%2Fimages%2Ft_PDP_1280_v1%2Fceee380f%2Fdunk-low-shoes-t9dFBx.png&w=1080&q=75 1080w, /_next/image?url=https%3A%2F%2Fstatic.nike.com%2Fa%2Fimages%2Ft_PDP_1280_v1%2Fceee380f%2Fdunk-low-shoes-t9dFBx.png&w=1200&q=75 1200w, /_next/image?url=https%3A%2F%2Fstatic.nike.com%2Fa%2Fimages%2Ft_PDP_1280_v1%2Fceee380f%2Fdunk-low-shoes-t9dFBx.png&w=1920&q=75 1920w, /_next/image?url=https%3A%2F%2Fstatic.nike.com%2Fa%2Fimages%2Ft_PDP_1280_v1%2Fceee380f%2Fdunk-low-shoes-t9dFBx.png&w=2048&q=75 2048w, /_next/image?url=https%3A%2F%2Fstatic.nike.com%2Fa%2Fimages%2Ft_PDP_1280_v1%2Fceee380f%2Fdunk-low-shoes-t9dFBx.png&w=3840&q=75 3840w"
-                    style="position: absolute; height: 100%; width: 100%; left: 0px; top: 0px; right: 0px; bottom: 0px; object-fit: cover; color: transparent; border-radius: 50%; background-size: cover; background-position: 50% 50%; background-repeat: no-repeat;"
-                  />
-                </div>
+                <img
+                  alt="Image of Zepeda lorna"
+                  data-nimg="1"
+                  decoding="async"
+                  height="40"
+                  loading="lazy"
+                  src="/_next/image?url=https%3A%2F%2Fstatic.nike.com%2Fa%2Fimages%2Ft_PDP_1280_v1%2Fceee380f%2Fdunk-low-shoes-t9dFBx.png&w=96&q=75"
+                  srcset="/_next/image?url=https%3A%2F%2Fstatic.nike.com%2Fa%2Fimages%2Ft_PDP_1280_v1%2Fceee380f%2Fdunk-low-shoes-t9dFBx.png&w=48&q=75 1x, /_next/image?url=https%3A%2F%2Fstatic.nike.com%2Fa%2Fimages%2Ft_PDP_1280_v1%2Fceee380f%2Fdunk-low-shoes-t9dFBx.png&w=96&q=75 2x"
+                  style="color: transparent; border-radius: 50%; object-fit: cover;"
+                  width="40"
+                />
                 <p
                   class="chakra-text css-b5wh8g"
                 >
@@ -1718,7 +1697,7 @@ exports[`Transaction table Match with snapshot with isOpenHistoryModal = true 1`
     </div>
   </div>
   <div
-    class="css-cyp3zu"
+    class="css-1akh2sr"
     data-testid="pagination"
   >
     <div
@@ -1833,11 +1812,11 @@ exports[`Transaction table Match with snapshot with isOpenHistoryModal = true 1`
       </div>
     </div>
     <div
-      class="css-69i1ev"
+      class="css-70qvj9"
     >
       <button
         aria-label="btn-prev"
-        class="chakra-button css-1u5n2r4"
+        class="chakra-button css-1ghaizy"
         data-testid="prev-button"
         type="button"
       >
@@ -1859,11 +1838,11 @@ exports[`Transaction table Match with snapshot with isOpenHistoryModal = true 1`
         </svg>
       </button>
       <div
-        class="css-70qvj9"
+        class="css-3j42x1"
       />
       <button
         aria-label="btn-next"
-        class="chakra-button css-5dzvs"
+        class="chakra-button css-17152jb"
         data-testid="next-button"
         type="button"
       >

@@ -433,10 +433,10 @@ exports[`CalendarEvents section Should render match with snapshot. 1`] = `
             class="rbc-day-bg"
           />
           <div
-            class="rbc-day-bg rbc-today"
+            class="rbc-day-bg"
           />
           <div
-            class="rbc-day-bg"
+            class="rbc-day-bg rbc-today"
           />
           <div
             class="rbc-day-bg"
@@ -480,7 +480,7 @@ exports[`CalendarEvents section Should render match with snapshot. 1`] = `
               </button>
             </div>
             <div
-              class="rbc-date-cell rbc-now rbc-current"
+              class="rbc-date-cell"
               role="cell"
             >
               <button
@@ -492,7 +492,7 @@ exports[`CalendarEvents section Should render match with snapshot. 1`] = `
               </button>
             </div>
             <div
-              class="rbc-date-cell"
+              class="rbc-date-cell rbc-now rbc-current"
               role="cell"
             >
               <button
