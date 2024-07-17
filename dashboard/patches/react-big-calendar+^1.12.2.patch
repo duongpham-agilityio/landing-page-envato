@@ -26,7 +26,7 @@ index 8523805..80d93f0 100644
  
  
 diff --git a/node_modules/react-big-calendar/dist/react-big-calendar.esm.js b/node_modules/react-big-calendar/dist/react-big-calendar.esm.js
-index 226beae..6d3d8b7 100644
+index 226beae..d834c84 100644
 --- a/node_modules/react-big-calendar/dist/react-big-calendar.esm.js
 +++ b/node_modules/react-big-calendar/dist/react-big-calendar.esm.js
 @@ -29,6 +29,7 @@ import listen from 'dom-helpers/listen';
@@ -172,15 +172,7 @@ index 226beae..6d3d8b7 100644
        });
      };
      _this.renderDummy = function () {
-@@ -1844,6 +1852,7 @@ var DateContentRow = /*#__PURE__*/function (_React$Component) {
-         range = _this$props4.range,
-         renderHeader = _this$props4.renderHeader,
-         showAllEvents = _this$props4.showAllEvents;
-+
-       return /*#__PURE__*/React.createElement("div", {
-         className: className,
-         ref: _this.containerRef
-@@ -1869,8 +1878,7 @@ var DateContentRow = /*#__PURE__*/function (_React$Component) {
+@@ -1869,8 +1877,7 @@ var DateContentRow = /*#__PURE__*/function (_React$Component) {
      _this.slotMetrics = getSlotMetrics$1();
      return _this;
    }
@@ -190,7 +182,7 @@ index 226beae..6d3d8b7 100644
      key: "getRowLimit",
      value: function getRowLimit() {
        var _this$headingRowRef;
-@@ -1926,6 +1934,7 @@ var DateContentRow = /*#__PURE__*/function (_React$Component) {
+@@ -1926,6 +1933,7 @@ var DateContentRow = /*#__PURE__*/function (_React$Component) {
          slotMetrics: metrics,
          resizable: resizable
        };
@@ -198,7 +190,7 @@ index 226beae..6d3d8b7 100644
        return /*#__PURE__*/React.createElement("div", {
          className: className,
          role: "rowgroup",
-@@ -1946,7 +1955,7 @@ var DateContentRow = /*#__PURE__*/function (_React$Component) {
+@@ -1946,7 +1954,7 @@ var DateContentRow = /*#__PURE__*/function (_React$Component) {
          longPressThreshold: longPressThreshold,
          resourceId: resourceId
        }), /*#__PURE__*/React.createElement("div", {
@@ -207,7 +199,7 @@ index 226beae..6d3d8b7 100644
          role: "row"
        }, renderHeader && /*#__PURE__*/React.createElement("div", {
          className: "rbc-row ",
-@@ -1966,6 +1975,7 @@ var DateContentRow = /*#__PURE__*/function (_React$Component) {
+@@ -1966,6 +1974,7 @@ var DateContentRow = /*#__PURE__*/function (_React$Component) {
        }, eventRowProps))))));
      }
    }]);
@@ -215,7 +207,7 @@ index 226beae..6d3d8b7 100644
  }(React.Component);
  DateContentRow.defaultProps = {
    minRows: 0,
-@@ -2002,6 +2012,7 @@ var eventsForWeek = function eventsForWeek(evts, start, end, accessors, localize
+@@ -2002,6 +2011,7 @@ var eventsForWeek = function eventsForWeek(evts, start, end, accessors, localize
    });
  };
  var MonthView = /*#__PURE__*/function (_React$Component) {
@@ -223,7 +215,7 @@ index 226beae..6d3d8b7 100644
    function MonthView() {
      var _this;
      _classCallCheck(this, MonthView);
-@@ -2160,8 +2171,7 @@ var MonthView = /*#__PURE__*/function (_React$Component) {
+@@ -2160,8 +2170,7 @@ var MonthView = /*#__PURE__*/function (_React$Component) {
      _this._pendingSelection = [];
      return _this;
    }
@@ -233,7 +225,7 @@ index 226beae..6d3d8b7 100644
      key: "componentDidMount",
      value: function componentDidMount() {
        var _this2 = this;
-@@ -2342,6 +2352,7 @@ var MonthView = /*#__PURE__*/function (_React$Component) {
+@@ -2342,6 +2351,7 @@ var MonthView = /*#__PURE__*/function (_React$Component) {
        };
      }
    }]);
@@ -241,7 +233,7 @@ index 226beae..6d3d8b7 100644
  }(React.Component);
  MonthView.range = function (date, _ref3) {
    var localizer = _ref3.localizer;
-@@ -2510,7 +2521,7 @@ var Event = /*#__PURE__*/function () {
+@@ -2510,7 +2520,7 @@ var Event = /*#__PURE__*/function () {
    /**
     * The event's width without any overlap.
     */
@@ -250,7 +242,7 @@ index 226beae..6d3d8b7 100644
      key: "_width",
      get: function get() {
        // The container event's width is determined by the maximum number of
-@@ -2579,6 +2590,7 @@ var Event = /*#__PURE__*/function () {
+@@ -2579,6 +2589,7 @@ var Event = /*#__PURE__*/function () {
        return xOffset + index * _width;
      }
    }]);
@@ -258,7 +250,7 @@ index 226beae..6d3d8b7 100644
  }();
  /**
   * Return true if event a and b is considered to be on the same row.
-@@ -2809,12 +2821,12 @@ function getStyledEvents(_ref) {
+@@ -2809,12 +2820,12 @@ function getStyledEvents(_ref) {
  }
  
  var TimeSlotGroup = /*#__PURE__*/function (_Component) {
@@ -273,7 +265,7 @@ index 226beae..6d3d8b7 100644
      key: "render",
      value: function render() {
        var _this$props = this.props,
-@@ -2841,6 +2853,7 @@ var TimeSlotGroup = /*#__PURE__*/function (_Component) {
+@@ -2841,6 +2852,7 @@ var TimeSlotGroup = /*#__PURE__*/function (_Component) {
        }));
      }
    }]);
@@ -281,7 +273,7 @@ index 226beae..6d3d8b7 100644
  }(Component);
  
  function stringifyPercent(v) {
-@@ -2928,6 +2941,7 @@ var DayColumnWrapper$1 = /*#__PURE__*/React.forwardRef(function (props, ref) {
+@@ -2928,6 +2940,7 @@ var DayColumnWrapper$1 = /*#__PURE__*/React.forwardRef(function (props, ref) {
  var _excluded$5 = ["dayProp"],
    _excluded2$1 = ["eventContainerWrapper"];
  var DayColumn = /*#__PURE__*/function (_React$Component) {
@@ -289,7 +281,7 @@ index 226beae..6d3d8b7 100644
    function DayColumn() {
      var _this;
      _classCallCheck(this, DayColumn);
-@@ -2954,8 +2968,8 @@ var DayColumn = /*#__PURE__*/function (_React$Component) {
+@@ -2954,8 +2967,8 @@ var DayColumn = /*#__PURE__*/function (_React$Component) {
          timeslots = _this$props.timeslots,
          dayLayoutAlgorithm = _this$props.dayLayoutAlgorithm,
          resizable = _this$props.resizable;
@@ -300,7 +292,7 @@ index 226beae..6d3d8b7 100644
        var messages = localizer.messages;
        var styledEvents = getStyledEvents({
          events: events,
-@@ -3152,8 +3166,7 @@ var DayColumn = /*#__PURE__*/function (_React$Component) {
+@@ -3152,8 +3165,7 @@ var DayColumn = /*#__PURE__*/function (_React$Component) {
      _this.containerRef = /*#__PURE__*/createRef();
      return _this;
    }
@@ -310,7 +302,7 @@ index 226beae..6d3d8b7 100644
      key: "componentDidMount",
      value: function componentDidMount() {
        this.props.selectable && this._selectable();
-@@ -3198,15 +3211,15 @@ var DayColumn = /*#__PURE__*/function (_React$Component) {
+@@ -3198,15 +3210,15 @@ var DayColumn = /*#__PURE__*/function (_React$Component) {
    }, {
      key: "setTimeIndicatorPositionUpdateInterval",
      value: function setTimeIndicatorPositionUpdateInterval() {
@@ -330,7 +322,7 @@ index 226beae..6d3d8b7 100644
        }, 60000);
      }
    }, {
-@@ -3273,8 +3286,7 @@ var DayColumn = /*#__PURE__*/function (_React$Component) {
+@@ -3273,8 +3285,7 @@ var DayColumn = /*#__PURE__*/function (_React$Component) {
          className: clsx(className, 'rbc-day-slot', 'rbc-time-column', isNow && 'rbc-now', isNow && 'rbc-today',
          // WHY
          selecting && 'rbc-slot-selecting'),
@@ -340,7 +332,7 @@ index 226beae..6d3d8b7 100644
        }, slotMetrics.groups.map(function (grp, idx) {
          return /*#__PURE__*/React.createElement(TimeSlotGroup, {
            key: idx,
-@@ -3311,6 +3323,7 @@ var DayColumn = /*#__PURE__*/function (_React$Component) {
+@@ -3311,6 +3322,7 @@ var DayColumn = /*#__PURE__*/function (_React$Component) {
        }));
      }
    }]);
@@ -348,7 +340,7 @@ index 226beae..6d3d8b7 100644
  }(React.Component);
  DayColumn.defaultProps = {
    dragThroughEvents: true,
-@@ -3422,6 +3435,7 @@ var ResourceHeader = function ResourceHeader(_ref) {
+@@ -3422,6 +3434,7 @@ var ResourceHeader = function ResourceHeader(_ref) {
  };
  
  var TimeGridHeader = /*#__PURE__*/function (_React$Component) {
@@ -356,7 +348,7 @@ index 226beae..6d3d8b7 100644
    function TimeGridHeader() {
      var _this;
      _classCallCheck(this, TimeGridHeader);
-@@ -3478,8 +3492,7 @@ var TimeGridHeader = /*#__PURE__*/function (_React$Component) {
+@@ -3478,8 +3491,7 @@ var TimeGridHeader = /*#__PURE__*/function (_React$Component) {
      };
      return _this;
    }
@@ -366,7 +358,7 @@ index 226beae..6d3d8b7 100644
      key: "renderHeaderCells",
      value: function renderHeaderCells(range) {
        var _this2 = this;
-@@ -3601,6 +3614,7 @@ var TimeGridHeader = /*#__PURE__*/function (_React$Component) {
+@@ -3601,6 +3613,7 @@ var TimeGridHeader = /*#__PURE__*/function (_React$Component) {
        }));
      }
    }]);
@@ -374,7 +366,7 @@ index 226beae..6d3d8b7 100644
  }(React.Component);
  
  var NONE = {};
-@@ -3639,6 +3653,7 @@ function Resources(resources, accessors) {
+@@ -3639,6 +3652,7 @@ function Resources(resources, accessors) {
  }
  
  var TimeGrid = /*#__PURE__*/function (_Component) {
@@ -382,7 +374,7 @@ index 226beae..6d3d8b7 100644
    function TimeGrid(props) {
      var _this;
      _classCallCheck(this, TimeGrid);
-@@ -3745,8 +3760,7 @@ var TimeGrid = /*#__PURE__*/function (_Component) {
+@@ -3745,8 +3759,7 @@ var TimeGrid = /*#__PURE__*/function (_Component) {
      _this.gutterRef = /*#__PURE__*/createRef();
      return _this;
    }
@@ -392,7 +384,7 @@ index 226beae..6d3d8b7 100644
      key: "getSnapshotBeforeUpdate",
      value: function getSnapshotBeforeUpdate() {
        this.checkOverflow();
-@@ -3996,6 +4010,7 @@ var TimeGrid = /*#__PURE__*/function (_Component) {
+@@ -3996,6 +4009,7 @@ var TimeGrid = /*#__PURE__*/function (_Component) {
        this._scrollRatio = diffMillis / totalMillis;
      }
    }]);
@@ -400,7 +392,7 @@ index 226beae..6d3d8b7 100644
  }(Component);
  TimeGrid.defaultProps = {
    step: 30,
-@@ -4004,12 +4019,12 @@ TimeGrid.defaultProps = {
+@@ -4004,12 +4018,12 @@ TimeGrid.defaultProps = {
  
  var _excluded$4 = ["date", "localizer", "min", "max", "scrollToTime", "enableAutoScroll"];
  var Day = /*#__PURE__*/function (_React$Component) {
@@ -415,7 +407,7 @@ index 226beae..6d3d8b7 100644
      key: "render",
      value: function render() {
        /**
-@@ -4043,6 +4058,7 @@ var Day = /*#__PURE__*/function (_React$Component) {
+@@ -4043,6 +4057,7 @@ var Day = /*#__PURE__*/function (_React$Component) {
        }));
      }
    }]);
@@ -423,7 +415,7 @@ index 226beae..6d3d8b7 100644
  }(React.Component);
  Day.range = function (date, _ref) {
    var localizer = _ref.localizer;
-@@ -4066,12 +4082,12 @@ Day.title = function (date, _ref3) {
+@@ -4066,12 +4081,12 @@ Day.title = function (date, _ref3) {
  
  var _excluded$3 = ["date", "localizer", "min", "max", "scrollToTime", "enableAutoScroll"];
  var Week = /*#__PURE__*/function (_React$Component) {
@@ -438,7 +430,7 @@ index 226beae..6d3d8b7 100644
      key: "render",
      value: function render() {
        /**
-@@ -4103,6 +4119,7 @@ var Week = /*#__PURE__*/function (_React$Component) {
+@@ -4103,6 +4118,7 @@ var Week = /*#__PURE__*/function (_React$Component) {
        }));
      }
    }]);
@@ -446,7 +438,7 @@ index 226beae..6d3d8b7 100644
  }(React.Component);
  Week.defaultProps = TimeGrid.defaultProps;
  Week.navigate = function (date, action, _ref) {
-@@ -4144,12 +4161,12 @@ function workWeekRange(date, options) {
+@@ -4144,12 +4160,12 @@ function workWeekRange(date, options) {
    });
  }
  var WorkWeek = /*#__PURE__*/function (_React$Component) {
@@ -461,7 +453,7 @@ index 226beae..6d3d8b7 100644
      key: "render",
      value: function render() {
        /**
-@@ -4181,6 +4198,7 @@ var WorkWeek = /*#__PURE__*/function (_React$Component) {
+@@ -4181,6 +4197,7 @@ var WorkWeek = /*#__PURE__*/function (_React$Component) {
        }));
      }
    }]);
@@ -469,7 +461,7 @@ index 226beae..6d3d8b7 100644
  }(React.Component);
  WorkWeek.defaultProps = TimeGrid.defaultProps;
  WorkWeek.range = workWeekRange;
-@@ -4199,15 +4217,13 @@ WorkWeek.title = function (date, _ref) {
+@@ -4199,15 +4216,13 @@ WorkWeek.title = function (date, _ref) {
    }, 'dayRangeHeaderFormat');
  };
  
@@ -486,7 +478,7 @@ index 226beae..6d3d8b7 100644
      localizer = _ref.localizer,
      onDoubleClickEvent = _ref.onDoubleClickEvent,
      onSelectEvent = _ref.onSelectEvent,
-@@ -4344,9 +4360,12 @@ function Agenda(_ref) {
+@@ -4344,9 +4359,12 @@ function Agenda(_ref) {
      className: "rbc-agenda-empty"
    }, messages.noEventsInRange));
  }
@@ -500,7 +492,7 @@ index 226beae..6d3d8b7 100644
      localizer = _ref2.localizer;
    var end = localizer.add(start, length, 'day');
    return {
-@@ -4356,7 +4375,7 @@ Agenda.range = function (start, _ref2) {
+@@ -4356,7 +4374,7 @@ Agenda.range = function (start, _ref2) {
  };
  Agenda.navigate = function (date, action, _ref3) {
    var _ref3$length = _ref3.length,
@@ -509,7 +501,7 @@ index 226beae..6d3d8b7 100644
      localizer = _ref3.localizer;
    switch (action) {
      case navigate.PREVIOUS:
-@@ -4369,7 +4388,7 @@ Agenda.navigate = function (date, action, _ref3) {
+@@ -4369,7 +4387,7 @@ Agenda.navigate = function (date, action, _ref3) {
  };
  Agenda.title = function (start, _ref4) {
    var _ref4$length = _ref4.length,
@@ -518,7 +510,7 @@ index 226beae..6d3d8b7 100644
      localizer = _ref4.localizer;
    var end = localizer.add(start, length, 'day');
    return localizer.format({
-@@ -4401,6 +4420,7 @@ function moveDate(View, _ref) {
+@@ -4401,6 +4419,7 @@ function moveDate(View, _ref) {
  }
  
  var Toolbar = /*#__PURE__*/function (_React$Component) {
@@ -526,7 +518,7 @@ index 226beae..6d3d8b7 100644
    function Toolbar() {
      var _this;
      _classCallCheck(this, Toolbar);
-@@ -4416,8 +4436,7 @@ var Toolbar = /*#__PURE__*/function (_React$Component) {
+@@ -4416,8 +4435,7 @@ var Toolbar = /*#__PURE__*/function (_React$Component) {
      };
      return _this;
    }
@@ -536,7 +528,7 @@ index 226beae..6d3d8b7 100644
      key: "render",
      value: function render() {
        var _this$props = this.props,
-@@ -4462,6 +4481,7 @@ var Toolbar = /*#__PURE__*/function (_React$Component) {
+@@ -4462,6 +4480,7 @@ var Toolbar = /*#__PURE__*/function (_React$Component) {
        }
      }
    }]);
@@ -544,7 +536,7 @@ index 226beae..6d3d8b7 100644
  }(React.Component);
  
  /**
-@@ -4505,6 +4525,7 @@ function isValidView(view, _ref) {
+@@ -4505,6 +4524,7 @@ function isValidView(view, _ref) {
    return names.indexOf(view) !== -1;
  }
  var Calendar = /*#__PURE__*/function (_React$Component) {
@@ -552,7 +544,7 @@ index 226beae..6d3d8b7 100644
    function Calendar() {
      var _this;
      _classCallCheck(this, Calendar);
-@@ -4625,8 +4646,7 @@ var Calendar = /*#__PURE__*/function (_React$Component) {
+@@ -4625,8 +4645,7 @@ var Calendar = /*#__PURE__*/function (_React$Component) {
      };
      return _this;
    }
@@ -562,7 +554,7 @@ index 226beae..6d3d8b7 100644
      key: "render",
      value: function render() {
        var _this$props4 = this.props,
-@@ -4771,6 +4791,7 @@ var Calendar = /*#__PURE__*/function (_React$Component) {
+@@ -4771,6 +4790,7 @@ var Calendar = /*#__PURE__*/function (_React$Component) {
        };
      }
    }]);

@@ -218,10 +218,6 @@
   cursor: default;
 }
 
-.rbc-past-day .rbc-button-link {
-  cursor: default;
-}
-
 .rbc-future-day {
   cursor: pointer;
 }
