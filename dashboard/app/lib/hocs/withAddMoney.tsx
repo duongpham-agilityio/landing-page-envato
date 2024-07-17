@@ -63,7 +63,6 @@ export const withAddMoney = (
       resetAddMoney();
 
       bonusTimes &&
-        user &&
         setUser({
           user: {
             ...user,

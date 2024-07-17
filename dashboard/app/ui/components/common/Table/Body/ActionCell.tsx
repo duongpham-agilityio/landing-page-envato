@@ -4,6 +4,7 @@ import dynamic from 'next/dynamic';
 import { memo, useCallback, useState } from 'react';
 import isEqual from 'react-fast-compare';
 import {
+  Box,
   Button,
   Flex,
   IconButton,
@@ -151,6 +152,7 @@ const ActionCellComponent = ({
                 }}
               >
                 <IconButton
+                  as={Box}
                   aria-label="This is the icon action"
                   w={7}
                   h={7}
