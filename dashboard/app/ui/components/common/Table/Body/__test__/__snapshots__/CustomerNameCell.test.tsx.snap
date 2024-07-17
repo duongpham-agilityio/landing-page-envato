@@ -11,20 +11,17 @@ exports[`CustomerNameCell Match to snapshot 1`] = `
       <div
         class="css-eqoncq"
       >
-        <div
-          class="css-1n4k6cm"
-        >
-          <img
-            alt="Image of Duong Pham"
-            data-nimg="fill"
-            decoding="async"
-            loading="lazy"
-            sizes="100vw"
-            src="/_next/image?url=%2Fimages%2Favatar.webp&w=3840&q=75"
-            srcset="/_next/image?url=%2Fimages%2Favatar.webp&w=640&q=75 640w, /_next/image?url=%2Fimages%2Favatar.webp&w=750&q=75 750w, /_next/image?url=%2Fimages%2Favatar.webp&w=828&q=75 828w, /_next/image?url=%2Fimages%2Favatar.webp&w=1080&q=75 1080w, /_next/image?url=%2Fimages%2Favatar.webp&w=1200&q=75 1200w, /_next/image?url=%2Fimages%2Favatar.webp&w=1920&q=75 1920w, /_next/image?url=%2Fimages%2Favatar.webp&w=2048&q=75 2048w, /_next/image?url=%2Fimages%2Favatar.webp&w=3840&q=75 3840w"
-            style="position: absolute; height: 100%; width: 100%; left: 0px; top: 0px; right: 0px; bottom: 0px; object-fit: cover; color: transparent; border-radius: 50%; background-size: cover; background-position: 50% 50%; background-repeat: no-repeat;"
-          />
-        </div>
+        <img
+          alt="Image of Duong Pham"
+          data-nimg="1"
+          decoding="async"
+          height="40"
+          loading="lazy"
+          src="/_next/image?url=%2Fimages%2Favatar.webp&w=96&q=75"
+          srcset="/_next/image?url=%2Fimages%2Favatar.webp&w=48&q=75 1x, /_next/image?url=%2Fimages%2Favatar.webp&w=96&q=75 2x"
+          style="color: transparent; border-radius: 50%; object-fit: cover;"
+          width="40"
+        />
         <p
           class="chakra-text css-tuvgq"
         >

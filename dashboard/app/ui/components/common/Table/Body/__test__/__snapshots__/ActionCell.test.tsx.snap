@@ -19,11 +19,10 @@ exports[`CustomerNameCell Match to snapshot 1`] = `
         <span
           class="css-xl71ch"
         >
-          <button
+          <div
             aria-label="This is the icon action"
-            class="chakra-button css-1x5hsk6"
+            class="chakra-button css-9bfnea"
             data-testid="dot-icon"
-            type="button"
           >
             <svg
               aria-hidden="true"
@@ -41,7 +40,7 @@ exports[`CustomerNameCell Match to snapshot 1`] = `
                 stroke-width="2"
               />
             </svg>
-          </button>
+          </div>
         </span>
       </button>
     </td>

@@ -431,9 +431,9 @@ exports[`Product section Should render match with snapshot. 1`] = `
                           data-nimg="fill"
                           decoding="async"
                           loading="lazy"
-                          sizes="100vw"
+                          sizes="(max-width: 992px) 7vw, 15vw"
                           src="/_next/image?url=https%3A%2F%2Fi.ibb.co%2FsC4FyPz%2Fban-phim-co-gaming-sidotech-yindiao-k100-jpg-1659689824-05082022155704.jpg&w=3840&q=75"
-                          srcset="/_next/image?url=https%3A%2F%2Fi.ibb.co%2FsC4FyPz%2Fban-phim-co-gaming-sidotech-yindiao-k100-jpg-1659689824-05082022155704.jpg&w=640&q=75 640w, /_next/image?url=https%3A%2F%2Fi.ibb.co%2FsC4FyPz%2Fban-phim-co-gaming-sidotech-yindiao-k100-jpg-1659689824-05082022155704.jpg&w=750&q=75 750w, /_next/image?url=https%3A%2F%2Fi.ibb.co%2FsC4FyPz%2Fban-phim-co-gaming-sidotech-yindiao-k100-jpg-1659689824-05082022155704.jpg&w=828&q=75 828w, /_next/image?url=https%3A%2F%2Fi.ibb.co%2FsC4FyPz%2Fban-phim-co-gaming-sidotech-yindiao-k100-jpg-1659689824-05082022155704.jpg&w=1080&q=75 1080w, /_next/image?url=https%3A%2F%2Fi.ibb.co%2FsC4FyPz%2Fban-phim-co-gaming-sidotech-yindiao-k100-jpg-1659689824-05082022155704.jpg&w=1200&q=75 1200w, /_next/image?url=https%3A%2F%2Fi.ibb.co%2FsC4FyPz%2Fban-phim-co-gaming-sidotech-yindiao-k100-jpg-1659689824-05082022155704.jpg&w=1920&q=75 1920w, /_next/image?url=https%3A%2F%2Fi.ibb.co%2FsC4FyPz%2Fban-phim-co-gaming-sidotech-yindiao-k100-jpg-1659689824-05082022155704.jpg&w=2048&q=75 2048w, /_next/image?url=https%3A%2F%2Fi.ibb.co%2FsC4FyPz%2Fban-phim-co-gaming-sidotech-yindiao-k100-jpg-1659689824-05082022155704.jpg&w=3840&q=75 3840w"
+                          srcset="/_next/image?url=https%3A%2F%2Fi.ibb.co%2FsC4FyPz%2Fban-phim-co-gaming-sidotech-yindiao-k100-jpg-1659689824-05082022155704.jpg&w=48&q=75 48w, /_next/image?url=https%3A%2F%2Fi.ibb.co%2FsC4FyPz%2Fban-phim-co-gaming-sidotech-yindiao-k100-jpg-1659689824-05082022155704.jpg&w=64&q=75 64w, /_next/image?url=https%3A%2F%2Fi.ibb.co%2FsC4FyPz%2Fban-phim-co-gaming-sidotech-yindiao-k100-jpg-1659689824-05082022155704.jpg&w=96&q=75 96w, /_next/image?url=https%3A%2F%2Fi.ibb.co%2FsC4FyPz%2Fban-phim-co-gaming-sidotech-yindiao-k100-jpg-1659689824-05082022155704.jpg&w=128&q=75 128w, /_next/image?url=https%3A%2F%2Fi.ibb.co%2FsC4FyPz%2Fban-phim-co-gaming-sidotech-yindiao-k100-jpg-1659689824-05082022155704.jpg&w=256&q=75 256w, /_next/image?url=https%3A%2F%2Fi.ibb.co%2FsC4FyPz%2Fban-phim-co-gaming-sidotech-yindiao-k100-jpg-1659689824-05082022155704.jpg&w=384&q=75 384w, /_next/image?url=https%3A%2F%2Fi.ibb.co%2FsC4FyPz%2Fban-phim-co-gaming-sidotech-yindiao-k100-jpg-1659689824-05082022155704.jpg&w=640&q=75 640w, /_next/image?url=https%3A%2F%2Fi.ibb.co%2FsC4FyPz%2Fban-phim-co-gaming-sidotech-yindiao-k100-jpg-1659689824-05082022155704.jpg&w=750&q=75 750w, /_next/image?url=https%3A%2F%2Fi.ibb.co%2FsC4FyPz%2Fban-phim-co-gaming-sidotech-yindiao-k100-jpg-1659689824-05082022155704.jpg&w=828&q=75 828w, /_next/image?url=https%3A%2F%2Fi.ibb.co%2FsC4FyPz%2Fban-phim-co-gaming-sidotech-yindiao-k100-jpg-1659689824-05082022155704.jpg&w=1080&q=75 1080w, /_next/image?url=https%3A%2F%2Fi.ibb.co%2FsC4FyPz%2Fban-phim-co-gaming-sidotech-yindiao-k100-jpg-1659689824-05082022155704.jpg&w=1200&q=75 1200w, /_next/image?url=https%3A%2F%2Fi.ibb.co%2FsC4FyPz%2Fban-phim-co-gaming-sidotech-yindiao-k100-jpg-1659689824-05082022155704.jpg&w=1920&q=75 1920w, /_next/image?url=https%3A%2F%2Fi.ibb.co%2FsC4FyPz%2Fban-phim-co-gaming-sidotech-yindiao-k100-jpg-1659689824-05082022155704.jpg&w=2048&q=75 2048w, /_next/image?url=https%3A%2F%2Fi.ibb.co%2FsC4FyPz%2Fban-phim-co-gaming-sidotech-yindiao-k100-jpg-1659689824-05082022155704.jpg&w=3840&q=75 3840w"
                           style="position: absolute; height: 100%; width: 100%; left: 0px; top: 0px; right: 0px; bottom: 0px; object-fit: cover; color: transparent; border-radius: 15px; background-size: cover; background-position: 50% 50%; background-repeat: no-repeat;"
                         />
                       </div>
@@ -489,11 +489,10 @@ exports[`Product section Should render match with snapshot. 1`] = `
                       <span
                         class="css-xl71ch"
                       >
-                        <button
+                        <div
                           aria-label="This is the icon action"
-                          class="chakra-button css-1c8sy4r"
+                          class="chakra-button css-1jcnabc"
                           data-testid="dot-icon"
-                          type="button"
                         >
                           <svg
                             aria-hidden="true"
@@ -511,7 +510,7 @@ exports[`Product section Should render match with snapshot. 1`] = `
                               stroke-width="2"
                             />
                           </svg>
-                        </button>
+                        </div>
                       </span>
                     </button>
                     <div
@@ -608,9 +607,9 @@ exports[`Product section Should render match with snapshot. 1`] = `
                           data-nimg="fill"
                           decoding="async"
                           loading="lazy"
-                          sizes="100vw"
+                          sizes="(max-width: 992px) 7vw, 15vw"
                           src="/_next/image?url=https%3A%2F%2Fi.ibb.co%2FpwH6GTk%2Fpng-clipart-playstation-3-playstation-2-gamepad-directinput-gamepad-game-electronics.png&w=3840&q=75"
-                          srcset="/_next/image?url=https%3A%2F%2Fi.ibb.co%2FpwH6GTk%2Fpng-clipart-playstation-3-playstation-2-gamepad-directinput-gamepad-game-electronics.png&w=640&q=75 640w, /_next/image?url=https%3A%2F%2Fi.ibb.co%2FpwH6GTk%2Fpng-clipart-playstation-3-playstation-2-gamepad-directinput-gamepad-game-electronics.png&w=750&q=75 750w, /_next/image?url=https%3A%2F%2Fi.ibb.co%2FpwH6GTk%2Fpng-clipart-playstation-3-playstation-2-gamepad-directinput-gamepad-game-electronics.png&w=828&q=75 828w, /_next/image?url=https%3A%2F%2Fi.ibb.co%2FpwH6GTk%2Fpng-clipart-playstation-3-playstation-2-gamepad-directinput-gamepad-game-electronics.png&w=1080&q=75 1080w, /_next/image?url=https%3A%2F%2Fi.ibb.co%2FpwH6GTk%2Fpng-clipart-playstation-3-playstation-2-gamepad-directinput-gamepad-game-electronics.png&w=1200&q=75 1200w, /_next/image?url=https%3A%2F%2Fi.ibb.co%2FpwH6GTk%2Fpng-clipart-playstation-3-playstation-2-gamepad-directinput-gamepad-game-electronics.png&w=1920&q=75 1920w, /_next/image?url=https%3A%2F%2Fi.ibb.co%2FpwH6GTk%2Fpng-clipart-playstation-3-playstation-2-gamepad-directinput-gamepad-game-electronics.png&w=2048&q=75 2048w, /_next/image?url=https%3A%2F%2Fi.ibb.co%2FpwH6GTk%2Fpng-clipart-playstation-3-playstation-2-gamepad-directinput-gamepad-game-electronics.png&w=3840&q=75 3840w"
+                          srcset="/_next/image?url=https%3A%2F%2Fi.ibb.co%2FpwH6GTk%2Fpng-clipart-playstation-3-playstation-2-gamepad-directinput-gamepad-game-electronics.png&w=48&q=75 48w, /_next/image?url=https%3A%2F%2Fi.ibb.co%2FpwH6GTk%2Fpng-clipart-playstation-3-playstation-2-gamepad-directinput-gamepad-game-electronics.png&w=64&q=75 64w, /_next/image?url=https%3A%2F%2Fi.ibb.co%2FpwH6GTk%2Fpng-clipart-playstation-3-playstation-2-gamepad-directinput-gamepad-game-electronics.png&w=96&q=75 96w, /_next/image?url=https%3A%2F%2Fi.ibb.co%2FpwH6GTk%2Fpng-clipart-playstation-3-playstation-2-gamepad-directinput-gamepad-game-electronics.png&w=128&q=75 128w, /_next/image?url=https%3A%2F%2Fi.ibb.co%2FpwH6GTk%2Fpng-clipart-playstation-3-playstation-2-gamepad-directinput-gamepad-game-electronics.png&w=256&q=75 256w, /_next/image?url=https%3A%2F%2Fi.ibb.co%2FpwH6GTk%2Fpng-clipart-playstation-3-playstation-2-gamepad-directinput-gamepad-game-electronics.png&w=384&q=75 384w, /_next/image?url=https%3A%2F%2Fi.ibb.co%2FpwH6GTk%2Fpng-clipart-playstation-3-playstation-2-gamepad-directinput-gamepad-game-electronics.png&w=640&q=75 640w, /_next/image?url=https%3A%2F%2Fi.ibb.co%2FpwH6GTk%2Fpng-clipart-playstation-3-playstation-2-gamepad-directinput-gamepad-game-electronics.png&w=750&q=75 750w, /_next/image?url=https%3A%2F%2Fi.ibb.co%2FpwH6GTk%2Fpng-clipart-playstation-3-playstation-2-gamepad-directinput-gamepad-game-electronics.png&w=828&q=75 828w, /_next/image?url=https%3A%2F%2Fi.ibb.co%2FpwH6GTk%2Fpng-clipart-playstation-3-playstation-2-gamepad-directinput-gamepad-game-electronics.png&w=1080&q=75 1080w, /_next/image?url=https%3A%2F%2Fi.ibb.co%2FpwH6GTk%2Fpng-clipart-playstation-3-playstation-2-gamepad-directinput-gamepad-game-electronics.png&w=1200&q=75 1200w, /_next/image?url=https%3A%2F%2Fi.ibb.co%2FpwH6GTk%2Fpng-clipart-playstation-3-playstation-2-gamepad-directinput-gamepad-game-electronics.png&w=1920&q=75 1920w, /_next/image?url=https%3A%2F%2Fi.ibb.co%2FpwH6GTk%2Fpng-clipart-playstation-3-playstation-2-gamepad-directinput-gamepad-game-electronics.png&w=2048&q=75 2048w, /_next/image?url=https%3A%2F%2Fi.ibb.co%2FpwH6GTk%2Fpng-clipart-playstation-3-playstation-2-gamepad-directinput-gamepad-game-electronics.png&w=3840&q=75 3840w"
                           style="position: absolute; height: 100%; width: 100%; left: 0px; top: 0px; right: 0px; bottom: 0px; object-fit: cover; color: transparent; border-radius: 15px; background-size: cover; background-position: 50% 50%; background-repeat: no-repeat;"
                         />
                       </div>
@@ -666,11 +665,10 @@ exports[`Product section Should render match with snapshot. 1`] = `
                       <span
                         class="css-xl71ch"
                       >
-                        <button
+                        <div
                           aria-label="This is the icon action"
-                          class="chakra-button css-1c8sy4r"
+                          class="chakra-button css-1jcnabc"
                           data-testid="dot-icon"
-                          type="button"
                         >
                           <svg
                             aria-hidden="true"
@@ -688,7 +686,7 @@ exports[`Product section Should render match with snapshot. 1`] = `
                               stroke-width="2"
                             />
                           </svg>
-                        </button>
+                        </div>
                       </span>
                     </button>
                     <div
@@ -785,9 +783,9 @@ exports[`Product section Should render match with snapshot. 1`] = `
                           data-nimg="fill"
                           decoding="async"
                           loading="lazy"
-                          sizes="100vw"
+                          sizes="(max-width: 992px) 7vw, 15vw"
                           src="/_next/image?url=https%3A%2F%2Fi.ibb.co%2F3yzTC5Q%2Fimage-57.png&w=3840&q=75"
-                          srcset="/_next/image?url=https%3A%2F%2Fi.ibb.co%2F3yzTC5Q%2Fimage-57.png&w=640&q=75 640w, /_next/image?url=https%3A%2F%2Fi.ibb.co%2F3yzTC5Q%2Fimage-57.png&w=750&q=75 750w, /_next/image?url=https%3A%2F%2Fi.ibb.co%2F3yzTC5Q%2Fimage-57.png&w=828&q=75 828w, /_next/image?url=https%3A%2F%2Fi.ibb.co%2F3yzTC5Q%2Fimage-57.png&w=1080&q=75 1080w, /_next/image?url=https%3A%2F%2Fi.ibb.co%2F3yzTC5Q%2Fimage-57.png&w=1200&q=75 1200w, /_next/image?url=https%3A%2F%2Fi.ibb.co%2F3yzTC5Q%2Fimage-57.png&w=1920&q=75 1920w, /_next/image?url=https%3A%2F%2Fi.ibb.co%2F3yzTC5Q%2Fimage-57.png&w=2048&q=75 2048w, /_next/image?url=https%3A%2F%2Fi.ibb.co%2F3yzTC5Q%2Fimage-57.png&w=3840&q=75 3840w"
+                          srcset="/_next/image?url=https%3A%2F%2Fi.ibb.co%2F3yzTC5Q%2Fimage-57.png&w=48&q=75 48w, /_next/image?url=https%3A%2F%2Fi.ibb.co%2F3yzTC5Q%2Fimage-57.png&w=64&q=75 64w, /_next/image?url=https%3A%2F%2Fi.ibb.co%2F3yzTC5Q%2Fimage-57.png&w=96&q=75 96w, /_next/image?url=https%3A%2F%2Fi.ibb.co%2F3yzTC5Q%2Fimage-57.png&w=128&q=75 128w, /_next/image?url=https%3A%2F%2Fi.ibb.co%2F3yzTC5Q%2Fimage-57.png&w=256&q=75 256w, /_next/image?url=https%3A%2F%2Fi.ibb.co%2F3yzTC5Q%2Fimage-57.png&w=384&q=75 384w, /_next/image?url=https%3A%2F%2Fi.ibb.co%2F3yzTC5Q%2Fimage-57.png&w=640&q=75 640w, /_next/image?url=https%3A%2F%2Fi.ibb.co%2F3yzTC5Q%2Fimage-57.png&w=750&q=75 750w, /_next/image?url=https%3A%2F%2Fi.ibb.co%2F3yzTC5Q%2Fimage-57.png&w=828&q=75 828w, /_next/image?url=https%3A%2F%2Fi.ibb.co%2F3yzTC5Q%2Fimage-57.png&w=1080&q=75 1080w, /_next/image?url=https%3A%2F%2Fi.ibb.co%2F3yzTC5Q%2Fimage-57.png&w=1200&q=75 1200w, /_next/image?url=https%3A%2F%2Fi.ibb.co%2F3yzTC5Q%2Fimage-57.png&w=1920&q=75 1920w, /_next/image?url=https%3A%2F%2Fi.ibb.co%2F3yzTC5Q%2Fimage-57.png&w=2048&q=75 2048w, /_next/image?url=https%3A%2F%2Fi.ibb.co%2F3yzTC5Q%2Fimage-57.png&w=3840&q=75 3840w"
                           style="position: absolute; height: 100%; width: 100%; left: 0px; top: 0px; right: 0px; bottom: 0px; object-fit: cover; color: transparent; border-radius: 15px; background-size: cover; background-position: 50% 50%; background-repeat: no-repeat;"
                         />
                       </div>
@@ -843,11 +841,10 @@ exports[`Product section Should render match with snapshot. 1`] = `
                       <span
                         class="css-xl71ch"
                       >
-                        <button
+                        <div
                           aria-label="This is the icon action"
-                          class="chakra-button css-1c8sy4r"
+                          class="chakra-button css-1jcnabc"
                           data-testid="dot-icon"
-                          type="button"
                         >
                           <svg
                             aria-hidden="true"
@@ -865,7 +862,7 @@ exports[`Product section Should render match with snapshot. 1`] = `
                               stroke-width="2"
                             />
                           </svg>
-                        </button>
+                        </div>
                       </span>
                     </button>
                     <div
@@ -962,9 +959,9 @@ exports[`Product section Should render match with snapshot. 1`] = `
                           data-nimg="fill"
                           decoding="async"
                           loading="lazy"
-                          sizes="100vw"
+                          sizes="(max-width: 992px) 7vw, 15vw"
                           src="/_next/image?url=https%3A%2F%2Fi.ibb.co%2FvxCVqcz%2Fimage-59.png&w=3840&q=75"
-                          srcset="/_next/image?url=https%3A%2F%2Fi.ibb.co%2FvxCVqcz%2Fimage-59.png&w=640&q=75 640w, /_next/image?url=https%3A%2F%2Fi.ibb.co%2FvxCVqcz%2Fimage-59.png&w=750&q=75 750w, /_next/image?url=https%3A%2F%2Fi.ibb.co%2FvxCVqcz%2Fimage-59.png&w=828&q=75 828w, /_next/image?url=https%3A%2F%2Fi.ibb.co%2FvxCVqcz%2Fimage-59.png&w=1080&q=75 1080w, /_next/image?url=https%3A%2F%2Fi.ibb.co%2FvxCVqcz%2Fimage-59.png&w=1200&q=75 1200w, /_next/image?url=https%3A%2F%2Fi.ibb.co%2FvxCVqcz%2Fimage-59.png&w=1920&q=75 1920w, /_next/image?url=https%3A%2F%2Fi.ibb.co%2FvxCVqcz%2Fimage-59.png&w=2048&q=75 2048w, /_next/image?url=https%3A%2F%2Fi.ibb.co%2FvxCVqcz%2Fimage-59.png&w=3840&q=75 3840w"
+                          srcset="/_next/image?url=https%3A%2F%2Fi.ibb.co%2FvxCVqcz%2Fimage-59.png&w=48&q=75 48w, /_next/image?url=https%3A%2F%2Fi.ibb.co%2FvxCVqcz%2Fimage-59.png&w=64&q=75 64w, /_next/image?url=https%3A%2F%2Fi.ibb.co%2FvxCVqcz%2Fimage-59.png&w=96&q=75 96w, /_next/image?url=https%3A%2F%2Fi.ibb.co%2FvxCVqcz%2Fimage-59.png&w=128&q=75 128w, /_next/image?url=https%3A%2F%2Fi.ibb.co%2FvxCVqcz%2Fimage-59.png&w=256&q=75 256w, /_next/image?url=https%3A%2F%2Fi.ibb.co%2FvxCVqcz%2Fimage-59.png&w=384&q=75 384w, /_next/image?url=https%3A%2F%2Fi.ibb.co%2FvxCVqcz%2Fimage-59.png&w=640&q=75 640w, /_next/image?url=https%3A%2F%2Fi.ibb.co%2FvxCVqcz%2Fimage-59.png&w=750&q=75 750w, /_next/image?url=https%3A%2F%2Fi.ibb.co%2FvxCVqcz%2Fimage-59.png&w=828&q=75 828w, /_next/image?url=https%3A%2F%2Fi.ibb.co%2FvxCVqcz%2Fimage-59.png&w=1080&q=75 1080w, /_next/image?url=https%3A%2F%2Fi.ibb.co%2FvxCVqcz%2Fimage-59.png&w=1200&q=75 1200w, /_next/image?url=https%3A%2F%2Fi.ibb.co%2FvxCVqcz%2Fimage-59.png&w=1920&q=75 1920w, /_next/image?url=https%3A%2F%2Fi.ibb.co%2FvxCVqcz%2Fimage-59.png&w=2048&q=75 2048w, /_next/image?url=https%3A%2F%2Fi.ibb.co%2FvxCVqcz%2Fimage-59.png&w=3840&q=75 3840w"
                           style="position: absolute; height: 100%; width: 100%; left: 0px; top: 0px; right: 0px; bottom: 0px; object-fit: cover; color: transparent; border-radius: 15px; background-size: cover; background-position: 50% 50%; background-repeat: no-repeat;"
                         />
                       </div>
@@ -1020,11 +1017,10 @@ exports[`Product section Should render match with snapshot. 1`] = `
                       <span
                         class="css-xl71ch"
                       >
-                        <button
+                        <div
                           aria-label="This is the icon action"
-                          class="chakra-button css-1c8sy4r"
+                          class="chakra-button css-1jcnabc"
                           data-testid="dot-icon"
-                          type="button"
                         >
                           <svg
                             aria-hidden="true"
@@ -1042,7 +1038,7 @@ exports[`Product section Should render match with snapshot. 1`] = `
                               stroke-width="2"
                             />
                           </svg>
-                        </button>
+                        </div>
                       </span>
                     </button>
                     <div
@@ -1139,9 +1135,9 @@ exports[`Product section Should render match with snapshot. 1`] = `
                           data-nimg="fill"
                           decoding="async"
                           loading="lazy"
-                          sizes="100vw"
+                          sizes="(max-width: 992px) 7vw, 15vw"
                           src="/_next/image?url=https%3A%2F%2Fi.ibb.co%2Fd0D0csn%2Fimage-61.png&w=3840&q=75"
-                          srcset="/_next/image?url=https%3A%2F%2Fi.ibb.co%2Fd0D0csn%2Fimage-61.png&w=640&q=75 640w, /_next/image?url=https%3A%2F%2Fi.ibb.co%2Fd0D0csn%2Fimage-61.png&w=750&q=75 750w, /_next/image?url=https%3A%2F%2Fi.ibb.co%2Fd0D0csn%2Fimage-61.png&w=828&q=75 828w, /_next/image?url=https%3A%2F%2Fi.ibb.co%2Fd0D0csn%2Fimage-61.png&w=1080&q=75 1080w, /_next/image?url=https%3A%2F%2Fi.ibb.co%2Fd0D0csn%2Fimage-61.png&w=1200&q=75 1200w, /_next/image?url=https%3A%2F%2Fi.ibb.co%2Fd0D0csn%2Fimage-61.png&w=1920&q=75 1920w, /_next/image?url=https%3A%2F%2Fi.ibb.co%2Fd0D0csn%2Fimage-61.png&w=2048&q=75 2048w, /_next/image?url=https%3A%2F%2Fi.ibb.co%2Fd0D0csn%2Fimage-61.png&w=3840&q=75 3840w"
+                          srcset="/_next/image?url=https%3A%2F%2Fi.ibb.co%2Fd0D0csn%2Fimage-61.png&w=48&q=75 48w, /_next/image?url=https%3A%2F%2Fi.ibb.co%2Fd0D0csn%2Fimage-61.png&w=64&q=75 64w, /_next/image?url=https%3A%2F%2Fi.ibb.co%2Fd0D0csn%2Fimage-61.png&w=96&q=75 96w, /_next/image?url=https%3A%2F%2Fi.ibb.co%2Fd0D0csn%2Fimage-61.png&w=128&q=75 128w, /_next/image?url=https%3A%2F%2Fi.ibb.co%2Fd0D0csn%2Fimage-61.png&w=256&q=75 256w, /_next/image?url=https%3A%2F%2Fi.ibb.co%2Fd0D0csn%2Fimage-61.png&w=384&q=75 384w, /_next/image?url=https%3A%2F%2Fi.ibb.co%2Fd0D0csn%2Fimage-61.png&w=640&q=75 640w, /_next/image?url=https%3A%2F%2Fi.ibb.co%2Fd0D0csn%2Fimage-61.png&w=750&q=75 750w, /_next/image?url=https%3A%2F%2Fi.ibb.co%2Fd0D0csn%2Fimage-61.png&w=828&q=75 828w, /_next/image?url=https%3A%2F%2Fi.ibb.co%2Fd0D0csn%2Fimage-61.png&w=1080&q=75 1080w, /_next/image?url=https%3A%2F%2Fi.ibb.co%2Fd0D0csn%2Fimage-61.png&w=1200&q=75 1200w, /_next/image?url=https%3A%2F%2Fi.ibb.co%2Fd0D0csn%2Fimage-61.png&w=1920&q=75 1920w, /_next/image?url=https%3A%2F%2Fi.ibb.co%2Fd0D0csn%2Fimage-61.png&w=2048&q=75 2048w, /_next/image?url=https%3A%2F%2Fi.ibb.co%2Fd0D0csn%2Fimage-61.png&w=3840&q=75 3840w"
                           style="position: absolute; height: 100%; width: 100%; left: 0px; top: 0px; right: 0px; bottom: 0px; object-fit: cover; color: transparent; border-radius: 15px; background-size: cover; background-position: 50% 50%; background-repeat: no-repeat;"
                         />
                       </div>
@@ -1197,11 +1193,10 @@ exports[`Product section Should render match with snapshot. 1`] = `
                       <span
                         class="css-xl71ch"
                       >
-                        <button
+                        <div
                           aria-label="This is the icon action"
-                          class="chakra-button css-1c8sy4r"
+                          class="chakra-button css-1jcnabc"
                           data-testid="dot-icon"
-                          type="button"
                         >
                           <svg
                             aria-hidden="true"
@@ -1219,7 +1214,7 @@ exports[`Product section Should render match with snapshot. 1`] = `
                               stroke-width="2"
                             />
                           </svg>
-                        </button>
+                        </div>
                       </span>
                     </button>
                     <div
@@ -1290,7 +1285,7 @@ exports[`Product section Should render match with snapshot. 1`] = `
           </div>
         </div>
         <div
-          class="css-cyp3zu"
+          class="css-1akh2sr"
           data-testid="pagination"
         >
           <div
@@ -1405,11 +1400,11 @@ exports[`Product section Should render match with snapshot. 1`] = `
             </div>
           </div>
           <div
-            class="css-69i1ev"
+            class="css-70qvj9"
           >
             <button
               aria-label="btn-prev"
-              class="chakra-button css-1u5n2r4"
+              class="chakra-button css-1ghaizy"
               data-testid="prev-button"
               type="button"
             >
@@ -1431,11 +1426,11 @@ exports[`Product section Should render match with snapshot. 1`] = `
               </svg>
             </button>
             <div
-              class="css-70qvj9"
+              class="css-3j42x1"
             />
             <button
               aria-label="btn-next"
-              class="chakra-button css-5dzvs"
+              class="chakra-button css-17152jb"
               data-testid="next-button"
               type="button"
             >

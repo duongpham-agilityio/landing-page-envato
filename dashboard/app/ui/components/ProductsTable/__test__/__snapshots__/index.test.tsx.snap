@@ -422,9 +422,9 @@ exports[`ProductForm component should match with snapshot 1`] = `
                     data-nimg="fill"
                     decoding="async"
                     loading="lazy"
-                    sizes="100vw"
+                    sizes="(max-width: 992px) 7vw, 15vw"
                     src="/_next/image?url=https%3A%2F%2Fi.ibb.co%2FsC4FyPz%2Fban-phim-co-gaming-sidotech-yindiao-k100-jpg-1659689824-05082022155704.jpg&w=3840&q=75"
-                    srcset="/_next/image?url=https%3A%2F%2Fi.ibb.co%2FsC4FyPz%2Fban-phim-co-gaming-sidotech-yindiao-k100-jpg-1659689824-05082022155704.jpg&w=640&q=75 640w, /_next/image?url=https%3A%2F%2Fi.ibb.co%2FsC4FyPz%2Fban-phim-co-gaming-sidotech-yindiao-k100-jpg-1659689824-05082022155704.jpg&w=750&q=75 750w, /_next/image?url=https%3A%2F%2Fi.ibb.co%2FsC4FyPz%2Fban-phim-co-gaming-sidotech-yindiao-k100-jpg-1659689824-05082022155704.jpg&w=828&q=75 828w, /_next/image?url=https%3A%2F%2Fi.ibb.co%2FsC4FyPz%2Fban-phim-co-gaming-sidotech-yindiao-k100-jpg-1659689824-05082022155704.jpg&w=1080&q=75 1080w, /_next/image?url=https%3A%2F%2Fi.ibb.co%2FsC4FyPz%2Fban-phim-co-gaming-sidotech-yindiao-k100-jpg-1659689824-05082022155704.jpg&w=1200&q=75 1200w, /_next/image?url=https%3A%2F%2Fi.ibb.co%2FsC4FyPz%2Fban-phim-co-gaming-sidotech-yindiao-k100-jpg-1659689824-05082022155704.jpg&w=1920&q=75 1920w, /_next/image?url=https%3A%2F%2Fi.ibb.co%2FsC4FyPz%2Fban-phim-co-gaming-sidotech-yindiao-k100-jpg-1659689824-05082022155704.jpg&w=2048&q=75 2048w, /_next/image?url=https%3A%2F%2Fi.ibb.co%2FsC4FyPz%2Fban-phim-co-gaming-sidotech-yindiao-k100-jpg-1659689824-05082022155704.jpg&w=3840&q=75 3840w"
+                    srcset="/_next/image?url=https%3A%2F%2Fi.ibb.co%2FsC4FyPz%2Fban-phim-co-gaming-sidotech-yindiao-k100-jpg-1659689824-05082022155704.jpg&w=48&q=75 48w, /_next/image?url=https%3A%2F%2Fi.ibb.co%2FsC4FyPz%2Fban-phim-co-gaming-sidotech-yindiao-k100-jpg-1659689824-05082022155704.jpg&w=64&q=75 64w, /_next/image?url=https%3A%2F%2Fi.ibb.co%2FsC4FyPz%2Fban-phim-co-gaming-sidotech-yindiao-k100-jpg-1659689824-05082022155704.jpg&w=96&q=75 96w, /_next/image?url=https%3A%2F%2Fi.ibb.co%2FsC4FyPz%2Fban-phim-co-gaming-sidotech-yindiao-k100-jpg-1659689824-05082022155704.jpg&w=128&q=75 128w, /_next/image?url=https%3A%2F%2Fi.ibb.co%2FsC4FyPz%2Fban-phim-co-gaming-sidotech-yindiao-k100-jpg-1659689824-05082022155704.jpg&w=256&q=75 256w, /_next/image?url=https%3A%2F%2Fi.ibb.co%2FsC4FyPz%2Fban-phim-co-gaming-sidotech-yindiao-k100-jpg-1659689824-05082022155704.jpg&w=384&q=75 384w, /_next/image?url=https%3A%2F%2Fi.ibb.co%2FsC4FyPz%2Fban-phim-co-gaming-sidotech-yindiao-k100-jpg-1659689824-05082022155704.jpg&w=640&q=75 640w, /_next/image?url=https%3A%2F%2Fi.ibb.co%2FsC4FyPz%2Fban-phim-co-gaming-sidotech-yindiao-k100-jpg-1659689824-05082022155704.jpg&w=750&q=75 750w, /_next/image?url=https%3A%2F%2Fi.ibb.co%2FsC4FyPz%2Fban-phim-co-gaming-sidotech-yindiao-k100-jpg-1659689824-05082022155704.jpg&w=828&q=75 828w, /_next/image?url=https%3A%2F%2Fi.ibb.co%2FsC4FyPz%2Fban-phim-co-gaming-sidotech-yindiao-k100-jpg-1659689824-05082022155704.jpg&w=1080&q=75 1080w, /_next/image?url=https%3A%2F%2Fi.ibb.co%2FsC4FyPz%2Fban-phim-co-gaming-sidotech-yindiao-k100-jpg-1659689824-05082022155704.jpg&w=1200&q=75 1200w, /_next/image?url=https%3A%2F%2Fi.ibb.co%2FsC4FyPz%2Fban-phim-co-gaming-sidotech-yindiao-k100-jpg-1659689824-05082022155704.jpg&w=1920&q=75 1920w, /_next/image?url=https%3A%2F%2Fi.ibb.co%2FsC4FyPz%2Fban-phim-co-gaming-sidotech-yindiao-k100-jpg-1659689824-05082022155704.jpg&w=2048&q=75 2048w, /_next/image?url=https%3A%2F%2Fi.ibb.co%2FsC4FyPz%2Fban-phim-co-gaming-sidotech-yindiao-k100-jpg-1659689824-05082022155704.jpg&w=3840&q=75 3840w"
                     style="position: absolute; height: 100%; width: 100%; left: 0px; top: 0px; right: 0px; bottom: 0px; object-fit: cover; color: transparent; border-radius: 15px; background-size: cover; background-position: 50% 50%; background-repeat: no-repeat;"
                   />
                 </div>
@@ -480,11 +480,10 @@ exports[`ProductForm component should match with snapshot 1`] = `
                 <span
                   class="css-xl71ch"
                 >
-                  <button
+                  <div
                     aria-label="This is the icon action"
-                    class="chakra-button css-1x5hsk6"
+                    class="chakra-button css-9bfnea"
                     data-testid="dot-icon"
-                    type="button"
                   >
                     <svg
                       aria-hidden="true"
@@ -502,7 +501,7 @@ exports[`ProductForm component should match with snapshot 1`] = `
                         stroke-width="2"
                       />
                     </svg>
-                  </button>
+                  </div>
                 </span>
               </button>
               <div
@@ -599,9 +598,9 @@ exports[`ProductForm component should match with snapshot 1`] = `
                     data-nimg="fill"
                     decoding="async"
                     loading="lazy"
-                    sizes="100vw"
+                    sizes="(max-width: 992px) 7vw, 15vw"
                     src="/_next/image?url=https%3A%2F%2Fi.ibb.co%2FpwH6GTk%2Fpng-clipart-playstation-3-playstation-2-gamepad-directinput-gamepad-game-electronics.png&w=3840&q=75"
-                    srcset="/_next/image?url=https%3A%2F%2Fi.ibb.co%2FpwH6GTk%2Fpng-clipart-playstation-3-playstation-2-gamepad-directinput-gamepad-game-electronics.png&w=640&q=75 640w, /_next/image?url=https%3A%2F%2Fi.ibb.co%2FpwH6GTk%2Fpng-clipart-playstation-3-playstation-2-gamepad-directinput-gamepad-game-electronics.png&w=750&q=75 750w, /_next/image?url=https%3A%2F%2Fi.ibb.co%2FpwH6GTk%2Fpng-clipart-playstation-3-playstation-2-gamepad-directinput-gamepad-game-electronics.png&w=828&q=75 828w, /_next/image?url=https%3A%2F%2Fi.ibb.co%2FpwH6GTk%2Fpng-clipart-playstation-3-playstation-2-gamepad-directinput-gamepad-game-electronics.png&w=1080&q=75 1080w, /_next/image?url=https%3A%2F%2Fi.ibb.co%2FpwH6GTk%2Fpng-clipart-playstation-3-playstation-2-gamepad-directinput-gamepad-game-electronics.png&w=1200&q=75 1200w, /_next/image?url=https%3A%2F%2Fi.ibb.co%2FpwH6GTk%2Fpng-clipart-playstation-3-playstation-2-gamepad-directinput-gamepad-game-electronics.png&w=1920&q=75 1920w, /_next/image?url=https%3A%2F%2Fi.ibb.co%2FpwH6GTk%2Fpng-clipart-playstation-3-playstation-2-gamepad-directinput-gamepad-game-electronics.png&w=2048&q=75 2048w, /_next/image?url=https%3A%2F%2Fi.ibb.co%2FpwH6GTk%2Fpng-clipart-playstation-3-playstation-2-gamepad-directinput-gamepad-game-electronics.png&w=3840&q=75 3840w"
+                    srcset="/_next/image?url=https%3A%2F%2Fi.ibb.co%2FpwH6GTk%2Fpng-clipart-playstation-3-playstation-2-gamepad-directinput-gamepad-game-electronics.png&w=48&q=75 48w, /_next/image?url=https%3A%2F%2Fi.ibb.co%2FpwH6GTk%2Fpng-clipart-playstation-3-playstation-2-gamepad-directinput-gamepad-game-electronics.png&w=64&q=75 64w, /_next/image?url=https%3A%2F%2Fi.ibb.co%2FpwH6GTk%2Fpng-clipart-playstation-3-playstation-2-gamepad-directinput-gamepad-game-electronics.png&w=96&q=75 96w, /_next/image?url=https%3A%2F%2Fi.ibb.co%2FpwH6GTk%2Fpng-clipart-playstation-3-playstation-2-gamepad-directinput-gamepad-game-electronics.png&w=128&q=75 128w, /_next/image?url=https%3A%2F%2Fi.ibb.co%2FpwH6GTk%2Fpng-clipart-playstation-3-playstation-2-gamepad-directinput-gamepad-game-electronics.png&w=256&q=75 256w, /_next/image?url=https%3A%2F%2Fi.ibb.co%2FpwH6GTk%2Fpng-clipart-playstation-3-playstation-2-gamepad-directinput-gamepad-game-electronics.png&w=384&q=75 384w, /_next/image?url=https%3A%2F%2Fi.ibb.co%2FpwH6GTk%2Fpng-clipart-playstation-3-playstation-2-gamepad-directinput-gamepad-game-electronics.png&w=640&q=75 640w, /_next/image?url=https%3A%2F%2Fi.ibb.co%2FpwH6GTk%2Fpng-clipart-playstation-3-playstation-2-gamepad-directinput-gamepad-game-electronics.png&w=750&q=75 750w, /_next/image?url=https%3A%2F%2Fi.ibb.co%2FpwH6GTk%2Fpng-clipart-playstation-3-playstation-2-gamepad-directinput-gamepad-game-electronics.png&w=828&q=75 828w, /_next/image?url=https%3A%2F%2Fi.ibb.co%2FpwH6GTk%2Fpng-clipart-playstation-3-playstation-2-gamepad-directinput-gamepad-game-electronics.png&w=1080&q=75 1080w, /_next/image?url=https%3A%2F%2Fi.ibb.co%2FpwH6GTk%2Fpng-clipart-playstation-3-playstation-2-gamepad-directinput-gamepad-game-electronics.png&w=1200&q=75 1200w, /_next/image?url=https%3A%2F%2Fi.ibb.co%2FpwH6GTk%2Fpng-clipart-playstation-3-playstation-2-gamepad-directinput-gamepad-game-electronics.png&w=1920&q=75 1920w, /_next/image?url=https%3A%2F%2Fi.ibb.co%2FpwH6GTk%2Fpng-clipart-playstation-3-playstation-2-gamepad-directinput-gamepad-game-electronics.png&w=2048&q=75 2048w, /_next/image?url=https%3A%2F%2Fi.ibb.co%2FpwH6GTk%2Fpng-clipart-playstation-3-playstation-2-gamepad-directinput-gamepad-game-electronics.png&w=3840&q=75 3840w"
                     style="position: absolute; height: 100%; width: 100%; left: 0px; top: 0px; right: 0px; bottom: 0px; object-fit: cover; color: transparent; border-radius: 15px; background-size: cover; background-position: 50% 50%; background-repeat: no-repeat;"
                   />
                 </div>
@@ -657,11 +656,10 @@ exports[`ProductForm component should match with snapshot 1`] = `
                 <span
                   class="css-xl71ch"
                 >
-                  <button
+                  <div
                     aria-label="This is the icon action"
-                    class="chakra-button css-1x5hsk6"
+                    class="chakra-button css-9bfnea"
                     data-testid="dot-icon"
-                    type="button"
                   >
                     <svg
                       aria-hidden="true"
@@ -679,7 +677,7 @@ exports[`ProductForm component should match with snapshot 1`] = `
                         stroke-width="2"
                       />
                     </svg>
-                  </button>
+                  </div>
                 </span>
               </button>
               <div
@@ -776,9 +774,9 @@ exports[`ProductForm component should match with snapshot 1`] = `
                     data-nimg="fill"
                     decoding="async"
                     loading="lazy"
-                    sizes="100vw"
+                    sizes="(max-width: 992px) 7vw, 15vw"
                     src="/_next/image?url=https%3A%2F%2Fi.ibb.co%2F3yzTC5Q%2Fimage-57.png&w=3840&q=75"
-                    srcset="/_next/image?url=https%3A%2F%2Fi.ibb.co%2F3yzTC5Q%2Fimage-57.png&w=640&q=75 640w, /_next/image?url=https%3A%2F%2Fi.ibb.co%2F3yzTC5Q%2Fimage-57.png&w=750&q=75 750w, /_next/image?url=https%3A%2F%2Fi.ibb.co%2F3yzTC5Q%2Fimage-57.png&w=828&q=75 828w, /_next/image?url=https%3A%2F%2Fi.ibb.co%2F3yzTC5Q%2Fimage-57.png&w=1080&q=75 1080w, /_next/image?url=https%3A%2F%2Fi.ibb.co%2F3yzTC5Q%2Fimage-57.png&w=1200&q=75 1200w, /_next/image?url=https%3A%2F%2Fi.ibb.co%2F3yzTC5Q%2Fimage-57.png&w=1920&q=75 1920w, /_next/image?url=https%3A%2F%2Fi.ibb.co%2F3yzTC5Q%2Fimage-57.png&w=2048&q=75 2048w, /_next/image?url=https%3A%2F%2Fi.ibb.co%2F3yzTC5Q%2Fimage-57.png&w=3840&q=75 3840w"
+                    srcset="/_next/image?url=https%3A%2F%2Fi.ibb.co%2F3yzTC5Q%2Fimage-57.png&w=48&q=75 48w, /_next/image?url=https%3A%2F%2Fi.ibb.co%2F3yzTC5Q%2Fimage-57.png&w=64&q=75 64w, /_next/image?url=https%3A%2F%2Fi.ibb.co%2F3yzTC5Q%2Fimage-57.png&w=96&q=75 96w, /_next/image?url=https%3A%2F%2Fi.ibb.co%2F3yzTC5Q%2Fimage-57.png&w=128&q=75 128w, /_next/image?url=https%3A%2F%2Fi.ibb.co%2F3yzTC5Q%2Fimage-57.png&w=256&q=75 256w, /_next/image?url=https%3A%2F%2Fi.ibb.co%2F3yzTC5Q%2Fimage-57.png&w=384&q=75 384w, /_next/image?url=https%3A%2F%2Fi.ibb.co%2F3yzTC5Q%2Fimage-57.png&w=640&q=75 640w, /_next/image?url=https%3A%2F%2Fi.ibb.co%2F3yzTC5Q%2Fimage-57.png&w=750&q=75 750w, /_next/image?url=https%3A%2F%2Fi.ibb.co%2F3yzTC5Q%2Fimage-57.png&w=828&q=75 828w, /_next/image?url=https%3A%2F%2Fi.ibb.co%2F3yzTC5Q%2Fimage-57.png&w=1080&q=75 1080w, /_next/image?url=https%3A%2F%2Fi.ibb.co%2F3yzTC5Q%2Fimage-57.png&w=1200&q=75 1200w, /_next/image?url=https%3A%2F%2Fi.ibb.co%2F3yzTC5Q%2Fimage-57.png&w=1920&q=75 1920w, /_next/image?url=https%3A%2F%2Fi.ibb.co%2F3yzTC5Q%2Fimage-57.png&w=2048&q=75 2048w, /_next/image?url=https%3A%2F%2Fi.ibb.co%2F3yzTC5Q%2Fimage-57.png&w=3840&q=75 3840w"
                     style="position: absolute; height: 100%; width: 100%; left: 0px; top: 0px; right: 0px; bottom: 0px; object-fit: cover; color: transparent; border-radius: 15px; background-size: cover; background-position: 50% 50%; background-repeat: no-repeat;"
                   />
                 </div>
@@ -834,11 +832,10 @@ exports[`ProductForm component should match with snapshot 1`] = `
                 <span
                   class="css-xl71ch"
                 >
-                  <button
+                  <div
                     aria-label="This is the icon action"
-                    class="chakra-button css-1x5hsk6"
+                    class="chakra-button css-9bfnea"
                     data-testid="dot-icon"
-                    type="button"
                   >
                     <svg
                       aria-hidden="true"
@@ -856,7 +853,7 @@ exports[`ProductForm component should match with snapshot 1`] = `
                         stroke-width="2"
                       />
                     </svg>
-                  </button>
+                  </div>
                 </span>
               </button>
               <div
@@ -953,9 +950,9 @@ exports[`ProductForm component should match with snapshot 1`] = `
                     data-nimg="fill"
                     decoding="async"
                     loading="lazy"
-                    sizes="100vw"
+                    sizes="(max-width: 992px) 7vw, 15vw"
                     src="/_next/image?url=https%3A%2F%2Fi.ibb.co%2FvxCVqcz%2Fimage-59.png&w=3840&q=75"
-                    srcset="/_next/image?url=https%3A%2F%2Fi.ibb.co%2FvxCVqcz%2Fimage-59.png&w=640&q=75 640w, /_next/image?url=https%3A%2F%2Fi.ibb.co%2FvxCVqcz%2Fimage-59.png&w=750&q=75 750w, /_next/image?url=https%3A%2F%2Fi.ibb.co%2FvxCVqcz%2Fimage-59.png&w=828&q=75 828w, /_next/image?url=https%3A%2F%2Fi.ibb.co%2FvxCVqcz%2Fimage-59.png&w=1080&q=75 1080w, /_next/image?url=https%3A%2F%2Fi.ibb.co%2FvxCVqcz%2Fimage-59.png&w=1200&q=75 1200w, /_next/image?url=https%3A%2F%2Fi.ibb.co%2FvxCVqcz%2Fimage-59.png&w=1920&q=75 1920w, /_next/image?url=https%3A%2F%2Fi.ibb.co%2FvxCVqcz%2Fimage-59.png&w=2048&q=75 2048w, /_next/image?url=https%3A%2F%2Fi.ibb.co%2FvxCVqcz%2Fimage-59.png&w=3840&q=75 3840w"
+                    srcset="/_next/image?url=https%3A%2F%2Fi.ibb.co%2FvxCVqcz%2Fimage-59.png&w=48&q=75 48w, /_next/image?url=https%3A%2F%2Fi.ibb.co%2FvxCVqcz%2Fimage-59.png&w=64&q=75 64w, /_next/image?url=https%3A%2F%2Fi.ibb.co%2FvxCVqcz%2Fimage-59.png&w=96&q=75 96w, /_next/image?url=https%3A%2F%2Fi.ibb.co%2FvxCVqcz%2Fimage-59.png&w=128&q=75 128w, /_next/image?url=https%3A%2F%2Fi.ibb.co%2FvxCVqcz%2Fimage-59.png&w=256&q=75 256w, /_next/image?url=https%3A%2F%2Fi.ibb.co%2FvxCVqcz%2Fimage-59.png&w=384&q=75 384w, /_next/image?url=https%3A%2F%2Fi.ibb.co%2FvxCVqcz%2Fimage-59.png&w=640&q=75 640w, /_next/image?url=https%3A%2F%2Fi.ibb.co%2FvxCVqcz%2Fimage-59.png&w=750&q=75 750w, /_next/image?url=https%3A%2F%2Fi.ibb.co%2FvxCVqcz%2Fimage-59.png&w=828&q=75 828w, /_next/image?url=https%3A%2F%2Fi.ibb.co%2FvxCVqcz%2Fimage-59.png&w=1080&q=75 1080w, /_next/image?url=https%3A%2F%2Fi.ibb.co%2FvxCVqcz%2Fimage-59.png&w=1200&q=75 1200w, /_next/image?url=https%3A%2F%2Fi.ibb.co%2FvxCVqcz%2Fimage-59.png&w=1920&q=75 1920w, /_next/image?url=https%3A%2F%2Fi.ibb.co%2FvxCVqcz%2Fimage-59.png&w=2048&q=75 2048w, /_next/image?url=https%3A%2F%2Fi.ibb.co%2FvxCVqcz%2Fimage-59.png&w=3840&q=75 3840w"
                     style="position: absolute; height: 100%; width: 100%; left: 0px; top: 0px; right: 0px; bottom: 0px; object-fit: cover; color: transparent; border-radius: 15px; background-size: cover; background-position: 50% 50%; background-repeat: no-repeat;"
                   />
                 </div>
@@ -1011,11 +1008,10 @@ exports[`ProductForm component should match with snapshot 1`] = `
                 <span
                   class="css-xl71ch"
                 >
-                  <button
+                  <div
                     aria-label="This is the icon action"
-                    class="chakra-button css-1x5hsk6"
+                    class="chakra-button css-9bfnea"
                     data-testid="dot-icon"
-                    type="button"
                   >
                     <svg
                       aria-hidden="true"
@@ -1033,7 +1029,7 @@ exports[`ProductForm component should match with snapshot 1`] = `
                         stroke-width="2"
                       />
                     </svg>
-                  </button>
+                  </div>
                 </span>
               </button>
               <div
@@ -1130,9 +1126,9 @@ exports[`ProductForm component should match with snapshot 1`] = `
                     data-nimg="fill"
                     decoding="async"
                     loading="lazy"
-                    sizes="100vw"
+                    sizes="(max-width: 992px) 7vw, 15vw"
                     src="/_next/image?url=https%3A%2F%2Fi.ibb.co%2Fd0D0csn%2Fimage-61.png&w=3840&q=75"
-                    srcset="/_next/image?url=https%3A%2F%2Fi.ibb.co%2Fd0D0csn%2Fimage-61.png&w=640&q=75 640w, /_next/image?url=https%3A%2F%2Fi.ibb.co%2Fd0D0csn%2Fimage-61.png&w=750&q=75 750w, /_next/image?url=https%3A%2F%2Fi.ibb.co%2Fd0D0csn%2Fimage-61.png&w=828&q=75 828w, /_next/image?url=https%3A%2F%2Fi.ibb.co%2Fd0D0csn%2Fimage-61.png&w=1080&q=75 1080w, /_next/image?url=https%3A%2F%2Fi.ibb.co%2Fd0D0csn%2Fimage-61.png&w=1200&q=75 1200w, /_next/image?url=https%3A%2F%2Fi.ibb.co%2Fd0D0csn%2Fimage-61.png&w=1920&q=75 1920w, /_next/image?url=https%3A%2F%2Fi.ibb.co%2Fd0D0csn%2Fimage-61.png&w=2048&q=75 2048w, /_next/image?url=https%3A%2F%2Fi.ibb.co%2Fd0D0csn%2Fimage-61.png&w=3840&q=75 3840w"
+                    srcset="/_next/image?url=https%3A%2F%2Fi.ibb.co%2Fd0D0csn%2Fimage-61.png&w=48&q=75 48w, /_next/image?url=https%3A%2F%2Fi.ibb.co%2Fd0D0csn%2Fimage-61.png&w=64&q=75 64w, /_next/image?url=https%3A%2F%2Fi.ibb.co%2Fd0D0csn%2Fimage-61.png&w=96&q=75 96w, /_next/image?url=https%3A%2F%2Fi.ibb.co%2Fd0D0csn%2Fimage-61.png&w=128&q=75 128w, /_next/image?url=https%3A%2F%2Fi.ibb.co%2Fd0D0csn%2Fimage-61.png&w=256&q=75 256w, /_next/image?url=https%3A%2F%2Fi.ibb.co%2Fd0D0csn%2Fimage-61.png&w=384&q=75 384w, /_next/image?url=https%3A%2F%2Fi.ibb.co%2Fd0D0csn%2Fimage-61.png&w=640&q=75 640w, /_next/image?url=https%3A%2F%2Fi.ibb.co%2Fd0D0csn%2Fimage-61.png&w=750&q=75 750w, /_next/image?url=https%3A%2F%2Fi.ibb.co%2Fd0D0csn%2Fimage-61.png&w=828&q=75 828w, /_next/image?url=https%3A%2F%2Fi.ibb.co%2Fd0D0csn%2Fimage-61.png&w=1080&q=75 1080w, /_next/image?url=https%3A%2F%2Fi.ibb.co%2Fd0D0csn%2Fimage-61.png&w=1200&q=75 1200w, /_next/image?url=https%3A%2F%2Fi.ibb.co%2Fd0D0csn%2Fimage-61.png&w=1920&q=75 1920w, /_next/image?url=https%3A%2F%2Fi.ibb.co%2Fd0D0csn%2Fimage-61.png&w=2048&q=75 2048w, /_next/image?url=https%3A%2F%2Fi.ibb.co%2Fd0D0csn%2Fimage-61.png&w=3840&q=75 3840w"
                     style="position: absolute; height: 100%; width: 100%; left: 0px; top: 0px; right: 0px; bottom: 0px; object-fit: cover; color: transparent; border-radius: 15px; background-size: cover; background-position: 50% 50%; background-repeat: no-repeat;"
                   />
                 </div>
@@ -1188,11 +1184,10 @@ exports[`ProductForm component should match with snapshot 1`] = `
                 <span
                   class="css-xl71ch"
                 >
-                  <button
+                  <div
                     aria-label="This is the icon action"
-                    class="chakra-button css-1x5hsk6"
+                    class="chakra-button css-9bfnea"
                     data-testid="dot-icon"
-                    type="button"
                   >
                     <svg
                       aria-hidden="true"
@@ -1210,7 +1205,7 @@ exports[`ProductForm component should match with snapshot 1`] = `
                         stroke-width="2"
                       />
                     </svg>
-                  </button>
+                  </div>
                 </span>
               </button>
               <div
@@ -1281,7 +1276,7 @@ exports[`ProductForm component should match with snapshot 1`] = `
     </div>
   </div>
   <div
-    class="css-1dqn28w"
+    class="css-1p1azyo"
     data-testid="pagination"
   >
     <div
@@ -1396,11 +1391,11 @@ exports[`ProductForm component should match with snapshot 1`] = `
       </div>
     </div>
     <div
-      class="css-69i1ev"
+      class="css-70qvj9"
     >
       <button
         aria-label="btn-prev"
-        class="chakra-button css-1d6knu5"
+        class="chakra-button css-ax9ml0"
         data-testid="prev-button"
         type="button"
       >
@@ -1422,11 +1417,11 @@ exports[`ProductForm component should match with snapshot 1`] = `
         </svg>
       </button>
       <div
-        class="css-70qvj9"
+        class="css-1fu46g5"
       >
         <button
           aria-label="btn-pages"
-          class="chakra-button css-1vs89a4"
+          class="chakra-button css-2xr62x"
           data-testid="page-1-button"
           type="button"
         >
@@ -1434,7 +1429,7 @@ exports[`ProductForm component should match with snapshot 1`] = `
         </button>
         <button
           aria-label="btn-pages"
-          class="chakra-button css-179yk2q"
+          class="chakra-button css-1wx2jwy"
           data-testid="page-2-button"
           disabled=""
           type="button"
@@ -1443,7 +1438,7 @@ exports[`ProductForm component should match with snapshot 1`] = `
         </button>
         <button
           aria-label="btn-pages"
-          class="chakra-button css-1vs89a4"
+          class="chakra-button css-2xr62x"
           data-testid="page-3-button"
           type="button"
         >
@@ -1452,7 +1447,7 @@ exports[`ProductForm component should match with snapshot 1`] = `
       </div>
       <button
         aria-label="btn-next"
-        class="chakra-button css-14pgy6q"
+        class="chakra-button css-u2i7i4"
         data-testid="next-button"
         type="button"
       >
