@@ -21,14 +21,14 @@ type TAccountProps = {
 const Account = ({ children }: TAccountProps): JSX.Element => {
   const pathname = usePathname();
 
-  const pathForgotPassword = pathname === `/${ROUTES.FORGOT_PASSWORD}`;
-  const pathLogin = pathname === `/${ROUTES.LOGIN}`;
+  // const pathForgotPassword = pathname === `/${ROUTES.FORGOT_PASSWORD}`;
+  // const pathLogin = pathname === `/${ROUTES.LOGIN}`;
 
-  const title = pathForgotPassword
-    ? TITLES.FORGOT_PASSWORD
-    : pathLogin
-      ? TITLES.SIGN_IN
-      : TITLES.SIGN_UP;
+  // const title = pathForgotPassword
+  //   ? TITLES.FORGOT_PASSWORD
+  //   : pathLogin
+  //     ? TITLES.SIGN_IN
+  //     : TITLES.SIGN_UP;
 
   return (
     <Flex width="100%" minH="100vh">
@@ -63,15 +63,15 @@ const Account = ({ children }: TAccountProps): JSX.Element => {
             },
           }}
         >
-          <Heading title={title} pathName={pathname} />
-          <Divider content={!pathForgotPassword ? TITLES.AUTH_DiVIDER : ''} />
           {children}
-          {pathForgotPassword && <AuthFooter />}
+          {/* <Heading title={title} pathName={pathname} />
+        <Divider content={!pathForgotPassword ? TITLES.AUTH_DiVIDER : ''} />
+        {children}
+        {pathForgotPassword && <AuthFooter />} */}
         </Box>
       </Box>
       <Benefit pathName={pathname} />
     </Flex>
   );
 };
-
 export default Account;

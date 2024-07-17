@@ -6,10 +6,10 @@ import {
 } from '@chakra-ui/react';
 
 type TDividerProps = {
-  content: string;
+  content?: string;
 };
 
-const DividerComponent = ({ content }: TDividerProps) => (
+const DividerComponent = ({ content = '' }: TDividerProps) => (
   <Box position="relative" w="full" m="auto" py="10">
     <ChakraProvider w="full" bg="gray.500" _dark={{ height: '1px' }} />
 
