@@ -1,16 +1,21 @@
-'use client';
-
+// Libs
 import { ReactNode } from 'react';
 import { Box, Flex } from '@chakra-ui/react';
 
+// Layouts
+import AuthHeader from '@/ui/layouts/AuthHeader';
+
 // Components
-import { Benefit, Logo, SwitchTheme } from '@/ui/components';
+import { Benefit, Divider, Logo, SwitchTheme } from '@/ui/components';
 
-type TAccountProps = {
-  children?: ReactNode;
-};
+// Constants
+import { TITLES } from '@/lib/constants';
 
-const Account = ({ children }: TAccountProps): JSX.Element => (
+interface RegisterLayoutProps {
+  children: ReactNode;
+}
+
+const RegisterLayout = ({ children }: RegisterLayoutProps) => (
   <Flex width="100%" minH="100vh">
     <Box
       as="section"
@@ -43,10 +48,13 @@ const Account = ({ children }: TAccountProps): JSX.Element => (
           },
         }}
       >
+        <AuthHeader title={TITLES.SIGN_UP} isShowDescription={true} />
+        <Divider content={TITLES.AUTH_DIVIDER} />
         {children}
       </Box>
     </Box>
     <Benefit />
   </Flex>
 );
-export default Account;
+
+export default RegisterLayout;
