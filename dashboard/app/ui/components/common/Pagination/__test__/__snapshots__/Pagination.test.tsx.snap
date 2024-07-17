@@ -3,7 +3,7 @@
 exports[`Pagination render Should render match with snapshot. 1`] = `
 <div>
   <div
-    class="css-1dqn28w"
+    class="css-1p1azyo"
     data-testid="pagination"
   >
     <div
@@ -118,11 +118,11 @@ exports[`Pagination render Should render match with snapshot. 1`] = `
       </div>
     </div>
     <div
-      class="css-69i1ev"
+      class="css-70qvj9"
     >
       <button
         aria-label="btn-prev"
-        class="chakra-button css-1nz9y48"
+        class="chakra-button css-11op8wz"
         data-testid="prev-button"
         disabled=""
         type="button"
@@ -145,11 +145,11 @@ exports[`Pagination render Should render match with snapshot. 1`] = `
         </svg>
       </button>
       <div
-        class="css-70qvj9"
+        class="css-1fu46g5"
       >
         <button
           aria-label="btn-pages"
-          class="chakra-button css-179yk2q"
+          class="chakra-button css-1wx2jwy"
           data-testid="page-1-button"
           disabled=""
           type="button"
@@ -159,7 +159,7 @@ exports[`Pagination render Should render match with snapshot. 1`] = `
       </div>
       <button
         aria-label="btn-next"
-        class="chakra-button css-1ljbk21"
+        class="chakra-button css-1egskbo"
         data-testid="next-button"
         disabled=""
         type="button"

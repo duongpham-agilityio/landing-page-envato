@@ -38,7 +38,7 @@ exports[`MyWalletSection render should render snapshot 1`] = `
                   <input
                     autocomplete="off"
                     class="chakra-input css-cr7iz"
-                    id="field-:r2:"
+                    id="field-:r1:"
                     name="amount"
                     placeholder="0.00"
                     type="text"
@@ -133,47 +133,35 @@ exports[`MyWalletSection render should render snapshot 1`] = `
                     data-group="true"
                   >
                     <input
-                      class="chakra-input css-18ql1xp"
-                      id="field-:rb:"
+                      class="chakra-input css-ts2iig"
+                      id="field-:r5:"
                       name="memberId"
                       placeholder="Choose an account to transfer"
                       type="text"
                       value=""
                     />
-                    <button
-                      aria-label="The eye icon"
-                      class="chakra-input__right-element css-1stj06r"
-                      data-testid="right-icon-input"
-                      type="button"
-                    >
-                      <button
-                        aria-label="Icon dropdown"
-                        class="chakra-button css-1rb8ldf"
-                        type="button"
-                      >
-                        <svg
-                          fill="none"
-                          height="21"
-                          style="transform: translateY(4px);"
-                          viewBox="0 0 21 21"
-                          width="21"
-                          xmlns="http://www.w3.org/2000/svg"
-                        >
-                          <path
-                            d="M7.72168 5.03271L12.7217 10.0327L17.7217 5.03271"
-                            stroke="#A0AEC0"
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                            stroke-width="2"
-                          />
-                        </svg>
-                      </button>
-                    </button>
                   </div>
                 </div>
                 <div
-                  class="chakra-input__right-element css-f46tp1"
+                  class="chakra-input__right-element css-79ygq2"
                 >
+                  <button
+                    aria-label="Close"
+                    class="css-1yaz3da"
+                    type="button"
+                  >
+                    <svg
+                      aria-hidden="true"
+                      class="chakra-icon css-onkibi"
+                      focusable="false"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        d="M.439,21.44a1.5,1.5,0,0,0,2.122,2.121L11.823,14.3a.25.25,0,0,1,.354,0l9.262,9.263a1.5,1.5,0,1,0,2.122-2.121L14.3,12.177a.25.25,0,0,1,0-.354l9.263-9.262A1.5,1.5,0,0,0,21.439.44L12.177,9.7a.25.25,0,0,1-.354,0L2.561.44A1.5,1.5,0,0,0,.439,2.561L9.7,11.823a.25.25,0,0,1,0,.354Z"
+                        fill="currentColor"
+                      />
+                    </svg>
+                  </button>
                   <button
                     aria-label="Icon dropdown"
                     class="chakra-button css-1rb8ldf"
@@ -222,7 +210,7 @@ exports[`MyWalletSection render should render snapshot 1`] = `
                   <input
                     autocomplete="off"
                     class="chakra-input css-cz5fpu"
-                    id="field-:rc:"
+                    id="field-:r6:"
                     name="amount"
                     placeholder="0.00"
                     type="text"
@@ -309,7 +297,7 @@ exports[`MyWalletSection render should render snapshot 1`] = `
                     <input
                       class="chakra-input css-1x84oq"
                       data-testid="search-transaction"
-                      id="field-:rd:"
+                      id="field-:r7:"
                       placeholder="Search by name, email, or other..."
                       type="text"
                       value=""
@@ -321,11 +309,11 @@ exports[`MyWalletSection render should render snapshot 1`] = `
                 class="css-tzs3vb"
               >
                 <button
-                  aria-controls="menu-list-:rf:"
+                  aria-controls="menu-list-:r9:"
                   aria-expanded="false"
                   aria-haspopup="menu"
                   class="chakra-button chakra-menu__menu-button css-10e6i5m"
-                  id="menu-button-:rf:"
+                  id="menu-button-:r9:"
                   type="button"
                 >
                   <span
@@ -360,7 +348,7 @@ exports[`MyWalletSection render should render snapshot 1`] = `
                   <div
                     aria-orientation="vertical"
                     class="chakra-menu__menu-list css-1k4isgz"
-                    id="menu-list-:rf:"
+                    id="menu-list-:r9:"
                     role="menu"
                     style="transform-origin: var(--popper-transform-origin); opacity: 0; visibility: hidden; transform: scale(0.8) translateZ(0);"
                     tabindex="-1"
@@ -368,7 +356,7 @@ exports[`MyWalletSection render should render snapshot 1`] = `
                     <button
                       class="chakra-menu__menuitem css-o9weuj"
                       data-index="0"
-                      id="menu-list-:rf:-menuitem-:rg:"
+                      id="menu-list-:r9:-menuitem-:ra:"
                       role="menuitem"
                       tabindex="-1"
                       type="button"
@@ -382,7 +370,7 @@ exports[`MyWalletSection render should render snapshot 1`] = `
                     <button
                       class="chakra-menu__menuitem css-o9weuj"
                       data-index="1"
-                      id="menu-list-:rf:-menuitem-:rh:"
+                      id="menu-list-:r9:-menuitem-:rb:"
                       role="menuitem"
                       tabindex="-1"
                       type="button"
@@ -396,7 +384,7 @@ exports[`MyWalletSection render should render snapshot 1`] = `
                     <button
                       class="chakra-menu__menuitem css-o9weuj"
                       data-index="2"
-                      id="menu-list-:rf:-menuitem-:ri:"
+                      id="menu-list-:r9:-menuitem-:rc:"
                       role="menuitem"
                       tabindex="-1"
                       type="button"
@@ -457,7 +445,7 @@ exports[`MyWalletSection render should render snapshot 1`] = `
               class="chakra-skeleton css-s55j40"
             />
             <div
-              class="css-cyp3zu"
+              class="css-1akh2sr"
               data-testid="pagination"
             >
               <div
@@ -472,11 +460,11 @@ exports[`MyWalletSection render should render snapshot 1`] = `
                   class="css-110fpu2"
                 >
                   <button
-                    aria-controls="menu-list-:rk:"
+                    aria-controls="menu-list-:re:"
                     aria-expanded="false"
                     aria-haspopup="menu"
                     class="chakra-button chakra-menu__menu-button css-10e6i5m"
-                    id="menu-button-:rk:"
+                    id="menu-button-:re:"
                     type="button"
                   >
                     <span
@@ -520,7 +508,7 @@ exports[`MyWalletSection render should render snapshot 1`] = `
                     <div
                       aria-orientation="vertical"
                       class="chakra-menu__menu-list css-1k4isgz"
-                      id="menu-list-:rk:"
+                      id="menu-list-:re:"
                       role="menu"
                       style="transform-origin: var(--popper-transform-origin); opacity: 0; visibility: hidden; transform: scale(0.8) translateZ(0);"
                       tabindex="-1"
@@ -528,7 +516,7 @@ exports[`MyWalletSection render should render snapshot 1`] = `
                       <button
                         class="chakra-menu__menuitem css-o9weuj"
                         data-index="0"
-                        id="menu-list-:rk:-menuitem-:rl:"
+                        id="menu-list-:re:-menuitem-:rf:"
                         role="menuitem"
                         tabindex="-1"
                         type="button"
@@ -542,7 +530,7 @@ exports[`MyWalletSection render should render snapshot 1`] = `
                       <button
                         class="chakra-menu__menuitem css-o9weuj"
                         data-index="1"
-                        id="menu-list-:rk:-menuitem-:rm:"
+                        id="menu-list-:re:-menuitem-:rg:"
                         role="menuitem"
                         tabindex="-1"
                         type="button"
@@ -556,7 +544,7 @@ exports[`MyWalletSection render should render snapshot 1`] = `
                       <button
                         class="chakra-menu__menuitem css-o9weuj"
                         data-index="2"
-                        id="menu-list-:rk:-menuitem-:rn:"
+                        id="menu-list-:re:-menuitem-:rh:"
                         role="menuitem"
                         tabindex="-1"
                         type="button"
@@ -572,11 +560,11 @@ exports[`MyWalletSection render should render snapshot 1`] = `
                 </div>
               </div>
               <div
-                class="css-69i1ev"
+                class="css-70qvj9"
               >
                 <button
                   aria-label="btn-prev"
-                  class="chakra-button css-1vy1nhu"
+                  class="chakra-button css-oukzte"
                   data-testid="prev-button"
                   disabled=""
                   type="button"
@@ -599,11 +587,11 @@ exports[`MyWalletSection render should render snapshot 1`] = `
                   </svg>
                 </button>
                 <div
-                  class="css-70qvj9"
+                  class="css-3j42x1"
                 />
                 <button
                   aria-label="btn-next"
-                  class="chakra-button css-5dzvs"
+                  class="chakra-button css-17152jb"
                   data-testid="next-button"
                   type="button"
                 >

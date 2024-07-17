@@ -191,7 +191,7 @@ exports[`TransactionSection render Should render match with snapshot. 1`] = `
           class="chakra-skeleton css-s55j40"
         />
         <div
-          class="css-cyp3zu"
+          class="css-1akh2sr"
           data-testid="pagination"
         >
           <div
@@ -306,11 +306,11 @@ exports[`TransactionSection render Should render match with snapshot. 1`] = `
             </div>
           </div>
           <div
-            class="css-69i1ev"
+            class="css-70qvj9"
           >
             <button
               aria-label="btn-prev"
-              class="chakra-button css-1vy1nhu"
+              class="chakra-button css-oukzte"
               data-testid="prev-button"
               disabled=""
               type="button"
@@ -333,11 +333,11 @@ exports[`TransactionSection render Should render match with snapshot. 1`] = `
               </svg>
             </button>
             <div
-              class="css-70qvj9"
+              class="css-3j42x1"
             />
             <button
               aria-label="btn-next"
-              class="chakra-button css-5dzvs"
+              class="chakra-button css-17152jb"
               data-testid="next-button"
               type="button"
             >
@@ -444,47 +444,35 @@ exports[`TransactionSection render Should render match with snapshot. 1`] = `
                     data-group="true"
                   >
                     <input
-                      class="chakra-input css-18ql1xp"
-                      id="field-:ri:"
+                      class="chakra-input css-ts2iig"
+                      id="field-:re:"
                       name="memberId"
                       placeholder="Choose an account to transfer"
                       type="text"
                       value=""
                     />
-                    <button
-                      aria-label="The eye icon"
-                      class="chakra-input__right-element css-1stj06r"
-                      data-testid="right-icon-input"
-                      type="button"
-                    >
-                      <button
-                        aria-label="Icon dropdown"
-                        class="chakra-button css-1rb8ldf"
-                        type="button"
-                      >
-                        <svg
-                          fill="none"
-                          height="21"
-                          style="transform: translateY(4px);"
-                          viewBox="0 0 21 21"
-                          width="21"
-                          xmlns="http://www.w3.org/2000/svg"
-                        >
-                          <path
-                            d="M7.72168 5.03271L12.7217 10.0327L17.7217 5.03271"
-                            stroke="#A0AEC0"
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                            stroke-width="2"
-                          />
-                        </svg>
-                      </button>
-                    </button>
                   </div>
                 </div>
                 <div
-                  class="chakra-input__right-element css-f46tp1"
+                  class="chakra-input__right-element css-79ygq2"
                 >
+                  <button
+                    aria-label="Close"
+                    class="css-1yaz3da"
+                    type="button"
+                  >
+                    <svg
+                      aria-hidden="true"
+                      class="chakra-icon css-onkibi"
+                      focusable="false"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        d="M.439,21.44a1.5,1.5,0,0,0,2.122,2.121L11.823,14.3a.25.25,0,0,1,.354,0l9.262,9.263a1.5,1.5,0,1,0,2.122-2.121L14.3,12.177a.25.25,0,0,1,0-.354l9.263-9.262A1.5,1.5,0,0,0,21.439.44L12.177,9.7a.25.25,0,0,1-.354,0L2.561.44A1.5,1.5,0,0,0,.439,2.561L9.7,11.823a.25.25,0,0,1,0,.354Z"
+                        fill="currentColor"
+                      />
+                    </svg>
+                  </button>
                   <button
                     aria-label="Icon dropdown"
                     class="chakra-button css-1rb8ldf"
@@ -533,7 +521,7 @@ exports[`TransactionSection render Should render match with snapshot. 1`] = `
                   <input
                     autocomplete="off"
                     class="chakra-input css-cz5fpu"
-                    id="field-:rj:"
+                    id="field-:rf:"
                     name="amount"
                     placeholder="0.00"
                     type="text"

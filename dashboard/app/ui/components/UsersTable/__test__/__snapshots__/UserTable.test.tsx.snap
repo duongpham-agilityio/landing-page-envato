@@ -103,11 +103,10 @@ exports[`UserTable component should renders correctly 1`] = `
               <span
                 class="css-xl71ch"
               >
-                <button
+                <div
                   aria-label="This is the icon action"
-                  class="chakra-button css-1x5hsk6"
+                  class="chakra-button css-9bfnea"
                   data-testid="dot-icon"
-                  type="button"
                 >
                   <svg
                     aria-hidden="true"
@@ -125,7 +124,7 @@ exports[`UserTable component should renders correctly 1`] = `
                       stroke-width="2"
                     />
                   </svg>
-                </button>
+                </div>
               </span>
             </button>
             <div
@@ -175,7 +174,7 @@ exports[`UserTable component should renders correctly 1`] = `
     class="css-164r41r"
   >
     <div
-      class="css-1dqn28w"
+      class="css-1p1azyo"
       data-testid="pagination"
     >
       <div
@@ -290,11 +289,11 @@ exports[`UserTable component should renders correctly 1`] = `
         </div>
       </div>
       <div
-        class="css-69i1ev"
+        class="css-70qvj9"
       >
         <button
           aria-label="btn-prev"
-          class="chakra-button css-1nz9y48"
+          class="chakra-button css-11op8wz"
           data-testid="prev-button"
           disabled=""
           type="button"
@@ -317,11 +316,11 @@ exports[`UserTable component should renders correctly 1`] = `
           </svg>
         </button>
         <div
-          class="css-70qvj9"
+          class="css-1fu46g5"
         />
         <button
           aria-label="btn-next"
-          class="chakra-button css-1ljbk21"
+          class="chakra-button css-1egskbo"
           data-testid="next-button"
           disabled=""
           type="button"
