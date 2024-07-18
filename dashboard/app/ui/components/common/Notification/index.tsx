@@ -11,9 +11,10 @@ import {
   Text,
   useToast,
 } from '@chakra-ui/react';
+import dynamic from 'next/dynamic';
 
 // Components
-import { Bell, IconButton, Modal, Indicator } from '@/ui/components';
+import { Bell, IconButton, Indicator } from '@/ui/components';
 import { NotificationItem } from './Body';
 
 // Constants
@@ -33,6 +34,9 @@ import { customToast } from '@/lib/utils/toast';
 
 // Interfaces
 import { TNotification } from '@/lib/interfaces';
+
+// Lazy loading components
+const Modal = dynamic(() => import('@/ui/components/common/Modal'));
 
 interface NotificationProps {
   colorFill: string;

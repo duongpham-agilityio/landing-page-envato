@@ -71,3 +71,4 @@ export { default as EventDetails } from './Calendar/EventDetails';
 export { default as PasswordSwitcher } from './common/PasswordSwitcher';
 export { default as CalendarSkeleton } from './Skeleton/CalendarSkeleton';
 export { default as CardPaymentSkeleton } from './Skeleton/CardPaymentSkeleton';
+export { default as TransactionModal } from './common/Table/Body/TransactionModal';

@@ -20,8 +20,10 @@ import { customToast } from '@/lib/utils';
 // Types
 import { TPinCodeForm, TUserDetail } from '@/lib/interfaces';
 
+// Components
+import { PinCode } from '@/ui/components';
+
 const Modal = dynamic(() => import('@/ui/components/common/Modal'));
-const PinCode = dynamic(() => import('@/ui/components/common/PinCode'));
 
 const CheckPinCodeProvider = () => {
   const user = authStore((state): TAuthStoreData['user'] => state.user);
