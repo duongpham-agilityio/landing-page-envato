@@ -3,6 +3,7 @@
 // Libs
 import { memo, useCallback, useMemo, useState } from 'react';
 import { Box, Flex, useDisclosure } from '@chakra-ui/react';
+import dynamic from 'next/dynamic';
 
 // Constants
 import {
@@ -36,7 +37,6 @@ import {
   Fetching,
   ActionCell,
   StatusCell,
-  Modal,
   Button,
   ProductForm,
   Indicator,
@@ -47,6 +47,9 @@ import GalleryCell from './GalleryCell';
 import PriceCell from './PriceCell';
 import QuantityCell from './QuantityCell';
 import NameCell from './NameCell';
+
+// Lazy loading components
+const Modal = dynamic(() => import('@/ui/components/common/Modal'));
 
 interface ProductsTableProps {
   isFetching: boolean;

@@ -1,6 +1,5 @@
 'use client';
 
-import dynamic from 'next/dynamic';
 import { memo, useCallback, useState } from 'react';
 import isEqual from 'react-fast-compare';
 import {
@@ -15,18 +14,15 @@ import {
   Td,
 } from '@chakra-ui/react';
 import { DeleteIcon, EditIcon, LockIcon, UnlockIcon } from '@chakra-ui/icons';
+import dynamic from 'next/dynamic';
 
 // Components
 import {
   Dot,
-  Modal,
   ProductForm,
   ConfirmDeleteModalBody,
+  TransactionModal,
 } from '@/ui/components';
-
-const TransactionModal = dynamic(
-  () => import('@/ui/components/common/Table/Body/TransactionModal'),
-);
 
 // Interfaces
 import {
@@ -36,6 +32,9 @@ import {
   TTransaction,
   TUserDetail,
 } from '@/lib/interfaces';
+
+// Lazy loading components
+const Modal = dynamic(() => import('@/ui/components/common/Modal'));
 
 interface ActionCallProps {
   user?: TUserDetail;
