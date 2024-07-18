@@ -100,7 +100,7 @@ const EventForm = ({
 
   return (
     <VStack as="form" onSubmit={handleSubmit(handleSubmitForm)}>
-      <Flex w="100%" minW={{ md: 500 }} mb={5}>
+      <Flex w="100%" minW={{ sm: 400, md: 500 }} mb={5}>
         <Controller
           control={control}
           name="eventName"
