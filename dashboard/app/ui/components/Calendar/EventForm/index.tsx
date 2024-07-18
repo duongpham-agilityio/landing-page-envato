@@ -4,6 +4,9 @@
 import { memo, useCallback } from 'react';
 import { Controller, useForm } from 'react-hook-form';
 import { Button, Flex, VStack } from '@chakra-ui/react';
+import dayjs from 'dayjs';
+import utc from 'dayjs/plugin/utc';
+dayjs.extend(utc);
 
 // Interfaces
 import { TEvent } from '@/lib/interfaces';
@@ -81,8 +84,8 @@ const EventForm = ({
       const requestData = {
         _id: data._id,
         eventName: data.eventName,
-        startTime: `${data.date} ${data.startTime}`,
-        endTime: `${data.date} ${data.endTime}`,
+        startTime: dayjs(`${data.date} ${data.startTime}`).utc().format(),
+        endTime: dayjs(`${data.date} ${data.endTime}`).utc().format(),
       };
 
       !data._id
