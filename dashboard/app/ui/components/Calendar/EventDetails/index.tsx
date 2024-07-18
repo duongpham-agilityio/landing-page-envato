@@ -8,7 +8,7 @@ interface EventDetailProps {
 }
 
 const EventDetail = ({ title, time }: EventDetailProps) => (
-  <Box minW={{ md: 500 }} pb={4}>
+  <Box minW={{ sm: 400, md: 500 }} pb={4}>
     <Heading
       fontWeight="medium"
       color="text.primary"
