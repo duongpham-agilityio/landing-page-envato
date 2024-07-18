@@ -56,9 +56,9 @@ const PaginationComponent = ({
       data-testid="pagination"
       justifyContent="space-between"
       mt={8}
-      flexDir={{ base: 'column', default: 'row' }}
+      flexDir="row"
       flexWrap="wrap"
-      gap={{ base: 5, default: 0 }}
+      gap={{ base: 3, default: 0 }}
     >
       <Flex alignItems="center">
         <Text w={100} fontSize="sm" fontWeight="semibold" color="text.primary">
@@ -78,7 +78,14 @@ const PaginationComponent = ({
           />
         </Box>
       </Flex>
-      <Flex alignItems="center">
+      <Flex
+        alignItems="center"
+        w={{
+          base: arrOfCurrButtons.length > 1 ? '100%' : 'auto',
+          '0.8sm': arrOfCurrButtons.length > 2 ? '100%' : 'auto',
+          default: 'auto',
+        }}
+      >
         <Button
           width={{ base: 6, default: 30 }}
           height={{ base: 6, default: 30 }}
