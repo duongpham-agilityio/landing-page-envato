@@ -4,27 +4,37 @@
 #   react-big-calendar: 1.12.2
 #
 diff --git a/node_modules/react-big-calendar/dist/react-big-calendar.esm.js b/node_modules/react-big-calendar/dist/react-big-calendar.esm.js
-index 2deb3f0..0c3dfc7 100644
+index 2deb3f0..058de2f 100644
 --- a/node_modules/react-big-calendar/dist/react-big-calendar.esm.js
 +++ b/node_modules/react-big-calendar/dist/react-big-calendar.esm.js
-@@ -1284,6 +1284,7 @@ var BackgroundCells = /*#__PURE__*/function (_React$Component) {
+@@ -1283,22 +1283,24 @@ var BackgroundCells = /*#__PURE__*/function (_React$Component) {
+         selecting = _this$state.selecting,
          startIdx = _this$state.startIdx,
          endIdx = _this$state.endIdx;
-       var current = getNow();
-+      var isPastDay = currentDate < getNow();
+-      var current = getNow();
        return /*#__PURE__*/React.createElement("div", {
          className: "rbc-row-bg",
          ref: this.containerRef
-@@ -1298,7 +1299,7 @@ var BackgroundCells = /*#__PURE__*/function (_React$Component) {
+       }, range.map(function (date, index) {
+         var selected = selecting && index >= startIdx && index <= endIdx;
++        var current = getNow();
+         var _getters$dayProp = getters.dayProp(date),
+           className = _getters$dayProp.className,
++          isPastDay = date < current,
+           style = _getters$dayProp.style;
++
+         return /*#__PURE__*/React.createElement(Wrapper, {
+           key: index,
+           value: date,
            range: range
          }, /*#__PURE__*/React.createElement("div", {
            style: style,
 -          className: clsx('rbc-day-bg', className, selected && 'rbc-selected-cell', localizer.isSameDate(date, current) && 'rbc-today', currentDate && localizer.neq(currentDate, date, 'month') && 'rbc-off-range-bg')
-+          className: clsx('rbc-day-bg', className, selected && 'rbc-selected-cell', localizer.isSameDate(date, current) && 'rbc-today', currentDate && localizer.neq(currentDate, date, 'month') && 'rbc-off-range-bg', isPastDay ? 'rbc-past-day' : 'rbc-feture-day')
++          className: clsx('rbc-day-bg', className, selected && 'rbc-selected-cell', localizer.isSameDate(date, current) && 'rbc-today', currentDate && localizer.neq(currentDate, date, 'month') && 'rbc-off-range-bg', isPastDay && !localizer.isSameDate(date, current) ? 'rbc-past-day' : 'rbc-feture-day')
          }));
        }));
      }
-@@ -1455,7 +1456,7 @@ var EventRowMixin = {
+@@ -1455,7 +1457,7 @@ var EventRowMixin = {
        resizable: resizable
      });
    },
@@ -33,7 +43,7 @@ index 2deb3f0..0c3dfc7 100644
      var content = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : ' ';
      var per = Math.abs(len) / slots * 100 + '%';
      return /*#__PURE__*/React.createElement("div", {
-@@ -1838,11 +1839,12 @@ var DateContentRow = /*#__PURE__*/function (_React$Component) {
+@@ -1838,11 +1840,12 @@ var DateContentRow = /*#__PURE__*/function (_React$Component) {
        var _this$props3 = _this.props,
          renderHeader = _this$props3.renderHeader,
          getNow = _this$props3.getNow,
@@ -44,11 +54,11 @@ index 2deb3f0..0c3dfc7 100644
          date: date,
          key: "header_".concat(index),
 -        className: clsx('rbc-date-cell', localizer.isSameDate(date, getNow()) && 'rbc-now')
-+        className: clsx('rbc-date-cell', localizer.isSameDate(date, getNow()) && 'rbc-now', isPastDay ? 'rbc-past-day' : 'rbc-future-day',)
++        className: clsx('rbc-date-cell', localizer.isSameDate(date, getNow()) && 'rbc-now', isPastDay && !localizer.isSameDate(date, getNow()) ? 'rbc-past-day' : 'rbc-future-day',)
        });
      };
      _this.renderDummy = function () {
-@@ -1850,7 +1852,10 @@ var DateContentRow = /*#__PURE__*/function (_React$Component) {
+@@ -1850,7 +1853,10 @@ var DateContentRow = /*#__PURE__*/function (_React$Component) {
          className = _this$props4.className,
          range = _this$props4.range,
          renderHeader = _this$props4.renderHeader,
@@ -59,7 +69,7 @@ index 2deb3f0..0c3dfc7 100644
        return /*#__PURE__*/React.createElement("div", {
          className: className,
          ref: _this.containerRef
-@@ -1932,6 +1937,7 @@ var DateContentRow = /*#__PURE__*/function (_React$Component) {
+@@ -1932,6 +1938,7 @@ var DateContentRow = /*#__PURE__*/function (_React$Component) {
          slotMetrics: metrics,
          resizable: resizable
        };
@@ -67,3 +77,23 @@ index 2deb3f0..0c3dfc7 100644
        return /*#__PURE__*/React.createElement("div", {
          className: className,
          role: "rowgroup",
+diff --git a/node_modules/react-big-calendar/dist/react-big-calendar.js b/node_modules/react-big-calendar/dist/react-big-calendar.js
+index 0ffaae4..0e1e514 100644
+--- a/node_modules/react-big-calendar/dist/react-big-calendar.js
++++ b/node_modules/react-big-calendar/dist/react-big-calendar.js
+@@ -38673,13 +38673,14 @@
+           var _getters$dayProp = getters.dayProp(date),
+             className = _getters$dayProp.className,
+             style = _getters$dayProp.style;
++          var isPastDay = date < current;
+           return /*#__PURE__*/React.createElement(Wrapper, {
+             key: index,
+             value: date,
+             range: range
+           }, /*#__PURE__*/React.createElement("div", {
+             style: style,
+-            className: clsx('rbc-day-bg', className, selected && 'rbc-selected-cell', localizer.isSameDate(date, current) && 'rbc-today', currentDate && localizer.neq(currentDate, date, 'month') && 'rbc-off-range-bg')
++            className: clsx('rbc-day-bg', className, selected && 'rbc-selected-cell', localizer.isSameDate(date, current) && 'rbc-today', currentDate && localizer.neq(currentDate, date, 'month') && 'rbc-off-range-bg', isPastDay ? 'rbc-past-day' : "rbc-feture-day")
+           }));
+         }));
+       }

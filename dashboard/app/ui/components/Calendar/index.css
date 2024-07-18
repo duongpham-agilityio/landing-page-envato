@@ -216,9 +216,10 @@
 /* Calendar */
 .rbc-past-day {
   cursor: default !important;
+  background-color: #ddd !important;
 }
 
-.rbc-future-day {
+.rbc-future-day .rbc-now {
   cursor: pointer !important;
 }
 
