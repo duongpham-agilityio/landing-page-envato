@@ -9,7 +9,14 @@ interface EventDetailProps {
 
 const EventDetail = ({ title, time }: EventDetailProps) => (
   <Box minW={{ md: 500 }} pb={4}>
-    <Heading fontWeight="medium" color="text.primary">
+    <Heading
+      fontWeight="medium"
+      color="text.primary"
+      whiteSpace="nowrap"
+      overflow="hidden"
+      textOverflow="ellipsis"
+      maxWidth={{ sm: '400px', md: '500px' }}
+    >
       {title}
     </Heading>
     <Text mt={1} fontWeight="medium">
