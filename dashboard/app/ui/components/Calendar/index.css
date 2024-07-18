@@ -213,6 +213,20 @@
   min-height: 530px;
 }
 
+/* Calendar */
+.rbc-past-day {
+  cursor: default !important;
+  background-color: var(--bg-calendar-past-day) !important;
+}
+
+.rbc-future-day .rbc-now {
+  cursor: pointer !important;
+}
+
+.rbc-row-segment {
+  cursor: default;
+}
+
 @media screen and (min-width: 768px) {
   /* Time view */
   .rbc-time-header-content .rbc-button-link {
