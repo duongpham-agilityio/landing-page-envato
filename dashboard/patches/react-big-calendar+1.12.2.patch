@@ -4,10 +4,36 @@
 #   react-big-calendar: 1.12.2
 #
 diff --git a/node_modules/react-big-calendar/dist/react-big-calendar.esm.js b/node_modules/react-big-calendar/dist/react-big-calendar.esm.js
-index 2deb3f0..d834c84 100644
+index 2deb3f0..0c3dfc7 100644
 --- a/node_modules/react-big-calendar/dist/react-big-calendar.esm.js
 +++ b/node_modules/react-big-calendar/dist/react-big-calendar.esm.js
-@@ -1838,11 +1838,12 @@ var DateContentRow = /*#__PURE__*/function (_React$Component) {
+@@ -1284,6 +1284,7 @@ var BackgroundCells = /*#__PURE__*/function (_React$Component) {
+         startIdx = _this$state.startIdx,
+         endIdx = _this$state.endIdx;
+       var current = getNow();
++      var isPastDay = currentDate < getNow();
+       return /*#__PURE__*/React.createElement("div", {
+         className: "rbc-row-bg",
+         ref: this.containerRef
+@@ -1298,7 +1299,7 @@ var BackgroundCells = /*#__PURE__*/function (_React$Component) {
+           range: range
+         }, /*#__PURE__*/React.createElement("div", {
+           style: style,
+-          className: clsx('rbc-day-bg', className, selected && 'rbc-selected-cell', localizer.isSameDate(date, current) && 'rbc-today', currentDate && localizer.neq(currentDate, date, 'month') && 'rbc-off-range-bg')
++          className: clsx('rbc-day-bg', className, selected && 'rbc-selected-cell', localizer.isSameDate(date, current) && 'rbc-today', currentDate && localizer.neq(currentDate, date, 'month') && 'rbc-off-range-bg', isPastDay ? 'rbc-past-day' : 'rbc-feture-day')
+         }));
+       }));
+     }
+@@ -1455,7 +1456,7 @@ var EventRowMixin = {
+       resizable: resizable
+     });
+   },
+-  renderSpan: function renderSpan(slots, len, key) {
++  renderSpan: function rendreSpan(slots, len, key) {
+     var content = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : ' ';
+     var per = Math.abs(len) / slots * 100 + '%';
+     return /*#__PURE__*/React.createElement("div", {
+@@ -1838,11 +1839,12 @@ var DateContentRow = /*#__PURE__*/function (_React$Component) {
        var _this$props3 = _this.props,
          renderHeader = _this$props3.renderHeader,
          getNow = _this$props3.getNow,
@@ -22,7 +48,18 @@ index 2deb3f0..d834c84 100644
        });
      };
      _this.renderDummy = function () {
-@@ -1932,6 +1933,7 @@ var DateContentRow = /*#__PURE__*/function (_React$Component) {
+@@ -1850,7 +1852,10 @@ var DateContentRow = /*#__PURE__*/function (_React$Component) {
+         className = _this$props4.className,
+         range = _this$props4.range,
+         renderHeader = _this$props4.renderHeader,
++        date = _this$props4.date,
++        getNow = _this$props4.getNow,
+         showAllEvents = _this$props4.showAllEvents;
++        var fromNow = date >= getNow();
+       return /*#__PURE__*/React.createElement("div", {
+         className: className,
+         ref: _this.containerRef
+@@ -1932,6 +1937,7 @@ var DateContentRow = /*#__PURE__*/function (_React$Component) {
          slotMetrics: metrics,
          resizable: resizable
        };
@@ -30,12 +67,3 @@ index 2deb3f0..d834c84 100644
        return /*#__PURE__*/React.createElement("div", {
          className: className,
          role: "rowgroup",
-@@ -1952,7 +1954,7 @@ var DateContentRow = /*#__PURE__*/function (_React$Component) {
-         longPressThreshold: longPressThreshold,
-         resourceId: resourceId
-       }), /*#__PURE__*/React.createElement("div", {
--        className: clsx('rbc-row-content', showAllEvents && 'rbc-row-content-scrollable'),
-+        className: clsx('rbc-row-content', showAllEvents && 'rbc-row-content-scrollable', isPast && 'rbc-past-day'),
-         role: "row"
-       }, renderHeader && /*#__PURE__*/React.createElement("div", {
-         className: "rbc-row ",

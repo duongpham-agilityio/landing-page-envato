@@ -215,11 +215,15 @@
 
 /* Calendar */
 .rbc-past-day {
-  cursor: default;
+  cursor: default !important;
 }
 
 .rbc-future-day {
-  cursor: pointer;
+  cursor: pointer !important;
+}
+
+.rbc-row-segment {
+  cursor: default;
 }
 
 @media screen and (min-width: 768px) {
