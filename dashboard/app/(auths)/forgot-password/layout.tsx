@@ -1,16 +1,21 @@
-'use client';
-
+// Libs
 import { ReactNode } from 'react';
 import { Box, Flex } from '@chakra-ui/react';
 
+// Layouts
+import { AuthFooter, AuthHeader } from '@/ui/layouts';
+
 // Components
-import { Benefit, Logo, SwitchTheme } from '@/ui/components';
+import { Divider, Logo, SwitchTheme } from '@/ui/components';
 
-type TAccountProps = {
-  children?: ReactNode;
-};
+// Constants
+import { TITLES } from '@/lib/constants';
 
-const Account = ({ children }: TAccountProps): JSX.Element => (
+interface ForgotPasswordLayoutProps {
+  children: ReactNode;
+}
+
+const ForgotPasswordLayout = ({ children }: ForgotPasswordLayoutProps) => (
   <Flex width="100%" minH="100vh">
     <Box
       as="section"
@@ -43,10 +48,13 @@ const Account = ({ children }: TAccountProps): JSX.Element => (
           },
         }}
       >
+        <AuthHeader title={TITLES.FORGOT_PASSWORD} />
+        <Divider />
         {children}
+        <AuthFooter />
       </Box>
     </Box>
-    <Benefit />
   </Flex>
 );
-export default Account;
+
+export default ForgotPasswordLayout;

@@ -1,5 +1,5 @@
 // Constants
-import { DEFAULT_PAGE, END_POINTS, QUERY_TAGS } from '@/lib/constants';
+import { END_POINTS, QUERY_TAGS } from '@/lib/constants';
 
 // Types
 import { TEventsResponse } from '@/lib/interfaces';
@@ -8,7 +8,7 @@ import { TEventsResponse } from '@/lib/interfaces';
 import { mainHttpServiceWithFetch } from '@/lib/services';
 
 export const getEvents = async (userId: string) => {
-  const endpoint = `${END_POINTS.EVENT}/${userId}/${DEFAULT_PAGE}`;
+  const endpoint = `${END_POINTS.EVENT}/${userId}`;
 
   const res: TEventsResponse = await mainHttpServiceWithFetch.getRequest({
     endpoint,
