@@ -150,6 +150,10 @@ const Calendar = ({
 
   const handleSelectSlot = useCallback(
     (slotInfo: SlotInfo) => {
+      if (dayjs(slotInfo.start).isBefore(dayjs(), 'day')) {
+        return;
+      }
+
       setSlot((prev) => ({
         ...prev,
         start: slotInfo.start,
@@ -241,6 +245,18 @@ const Calendar = ({
     ],
   );
 
+  const handleDisablePastDate = useCallback((date: Date) => {
+    const isPastDate = dayjs(date).isBefore(dayjs(), 'day');
+
+    return {
+      ...(isPastDate && {
+        style: {
+          cursor: 'default',
+        },
+      }),
+    };
+  }, []);
+
   return (
     <Indicator isOpen={isLoading}>
       <BigCalendar
@@ -258,6 +274,7 @@ const Calendar = ({
         onSelectSlot={handleSelectSlot}
         onSelectEvent={handleSelectEvent}
         components={{ toolbar: CustomToolBar }}
+        dayPropGetter={handleDisablePastDate}
         selectable
       />
       {isOpenEventFormModal && (
