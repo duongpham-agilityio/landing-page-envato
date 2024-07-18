@@ -5,6 +5,12 @@ import { TAuthStoreData, authStore } from '@/lib/stores';
 import { redirect, usePathname } from 'next/navigation';
 import { useEffect } from 'react';
 
+// Utils
+import { getCookie } from '@/lib/utils';
+
+// Hooks
+import { useAuth } from '@/lib/hooks';
+
 type TValidateRoute = {
   id?: number;
   path?: string;
@@ -17,6 +23,7 @@ const CheckAuthenticationProvider = ({
 }) => {
   const pathname = usePathname();
   const user = authStore((state): TAuthStoreData['user'] => state.user);
+  const { signOut } = useAuth();
 
   const { role = '' } = user || {};
 
@@ -29,6 +36,8 @@ const CheckAuthenticationProvider = ({
   );
 
   useEffect(() => {
+    const userId = getCookie('userId');
+
     if (!!user && (isMatchPublicRoute || !isMatchPrivateRoute)) {
       return redirect(ROUTES.ROOT);
     }
@@ -36,7 +45,11 @@ const CheckAuthenticationProvider = ({
     if (isMatchPrivateRoute && !user) {
       return redirect(ROUTES.LOGIN);
     }
-  }, [isMatchPrivateRoute, isMatchPublicRoute, user]);
+
+    if (!userId) {
+      signOut();
+    }
+  }, [isMatchPrivateRoute, isMatchPublicRoute, signOut, user]);
 
   return children;
 };
