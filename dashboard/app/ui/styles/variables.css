@@ -38,4 +38,5 @@
   /* Calendar time view header*/
   --c-calendar-t-header: #0c642f;
   --c-calendar-t-header-first: #b30000;
+  --bg-calendar-past-day: #ddd;
 }
