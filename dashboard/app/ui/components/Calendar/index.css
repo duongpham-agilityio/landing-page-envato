@@ -214,9 +214,12 @@
 }
 
 /* Calendar */
-.rbc-past-day {
+.rbc-month-view .rbc-past-day {
   cursor: default !important;
-  background-color: var(--bg-calendar-past-day) !important;
+  background-color: light-dark(
+    var(--bg-calendar-past-day-light),
+    var(--bg-calendar-past-day-dark)
+  ) !important;
 }
 
 .rbc-future-day .rbc-now {
