@@ -334,3 +334,4 @@ const Calendar = ({
 const CalendarMemorized = memo(Calendar, isEqual);
 
 export default CalendarMemorized;
+// #2d2f32
