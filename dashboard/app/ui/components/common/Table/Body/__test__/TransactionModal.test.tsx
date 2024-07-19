@@ -2,17 +2,6 @@ import { render, screen, fireEvent, waitFor } from '@testing-library/react';
 import { TransactionModal } from '..';
 import userEvent from '@testing-library/user-event';
 
-// jest.mock('react-hook-form', () => ({
-//   ...jest.requireActual('react-hook-form'),
-//   useForm: () => ({
-//     clearErrors: mockClearErrors,
-//     formState: { isDirty: false },
-//     handleSubmit: jest.fn(),
-//     reset: jest.fn(),
-//     control: {},
-//   }),
-// }));
-
 describe('Transaction Modal', () => {
   const mockTransaction = {
     id: '123',
@@ -108,22 +97,4 @@ describe('Transaction Modal', () => {
       expect(onCloseModalMock).toHaveBeenCalled();
     });
   });
-
-  // it('should call handleChangeValue correctly', () => {
-  //   const mockChangeHandler = jest.fn();
-
-  //   render(<TransactionModal transaction={mockTransaction} />);
-
-  //   // Find the input field
-  //   const inputField = screen.getByTestId('edit-field-name');
-
-  //   // Simulate a user typing in the input field
-  //   fireEvent.change(inputField, { target: { value: 'NewValue' } });
-
-  //   waitFor(() => {
-  //     expect(mockClearErrors).toHaveBeenCalled();
-
-  //     expect(mockChangeHandler).toHaveBeenCalled();
-  //   });
-  // });
 });
