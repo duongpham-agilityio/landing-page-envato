@@ -17,3 +17,4 @@ export * from './logAcitvity';
 export * from './updateColorScheme';
 export * from './validation';
 export * from './testUtils';
+export * from './cookies';

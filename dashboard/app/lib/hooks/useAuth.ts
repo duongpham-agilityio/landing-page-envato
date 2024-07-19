@@ -11,6 +11,7 @@ import {
   IMAGES,
   LOGOUT_TIME,
   ROUTES,
+  USER_ID_COOKIE_EXPIRATION,
 } from '@/lib/constants';
 
 // Services
@@ -21,9 +22,11 @@ import { authStore } from '@/lib/stores';
 
 // Utils
 import {
+  clearCookie,
   formatUppercaseFirstLetter,
   getCurrentTimeSeconds,
   logActivity,
+  setCookie,
 } from '@/lib/utils';
 
 // Types
@@ -123,7 +126,7 @@ export const useAuth = () => {
           const { _id, ...rest } = data;
           localData = { ...rest, id: _id };
 
-          document.cookie = `userId=${_id}`;
+          setCookie('userId', _id, USER_ID_COOKIE_EXPIRATION);
         }
 
         return updateStore({
@@ -198,6 +201,7 @@ export const useAuth = () => {
 
     setTimeout(() => {
       clearStore();
+      clearCookie('userId');
       setIsLogout(false);
       router.push(ROUTES.LOGIN);
     }, LOGOUT_TIME);

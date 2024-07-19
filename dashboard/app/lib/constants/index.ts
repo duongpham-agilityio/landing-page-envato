@@ -33,3 +33,4 @@ export * from './chat';
 export * from './product';
 export * from './amount';
 export * from './queryTags';
+export * from './cookies';
