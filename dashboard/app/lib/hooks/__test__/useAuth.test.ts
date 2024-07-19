@@ -67,28 +67,6 @@ describe('useAuth', () => {
     }
   });
 
-  // TODO: Update later
-  // it('SignIn success', async () => {
-  //   jest.spyOn(AuthenticationHttpService, 'post').mockResolvedValue({
-  //     data: [SIGN_IN_PARAM],
-  //   } as AxiosResponse);
-  //   const {
-  //     result: {
-  //       current: { signIn },
-  //     },
-  //   } = setup();
-  //   await act(async () => {
-  //     await signIn(SIGN_IN_PARAM);
-  //   });
-
-  //   expect(authStore.getState().user).toEqual([
-  //     {
-  //       email: SIGN_IN_PARAM.email,
-  //       password: SIGN_IN_PARAM.password,
-  //     },
-  //   ]);
-  // });
-
   it('SignUp success', async () => {
     jest.spyOn(mainHttpService, 'post').mockResolvedValue({
       data: SIGN_IN_PARAM,
