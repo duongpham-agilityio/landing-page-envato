@@ -23,10 +23,7 @@ import {
   TUserDetail,
   TWithSendMoneyForCalendar,
 } from '@/lib/interfaces';
-// import { TTransferData } from './withPinCode';
-export type TTransferData = TTransfer & {
-  resetSendMoney?: () => void;
-};
+import { TTransferData } from './withPinCode';
 
 interface SendMoneyForCalendarWrapperProps {
   userList: Array<
@@ -40,9 +37,9 @@ interface SendMoneyForCalendarWrapperProps {
 export const withSendMoneyForCalendar = (
   WrappedComponent: (props: TWithSendMoneyForCalendar) => ReactNode,
 ) => {
-  const SendMoneyForCalendarWrapper = async ({
-    userList = [],
-    balance = 0,
+  const SendMoneyForCalendarWrapper = ({
+    userList,
+    balance,
   }: SendMoneyForCalendarWrapperProps) => {
     const toast = useToast();
 
@@ -111,8 +108,6 @@ export const withSendMoneyForCalendar = (
       },
       [handleSubmitSendMoney],
     );
-
-    console.log('userList', userList);
 
     return (
       <WrappedComponent
