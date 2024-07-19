@@ -1,5 +1,6 @@
 import { useSearchParams, useRouter } from 'next/navigation';
 import axios from 'axios';
+import { screen } from '@testing-library/react';
 
 // Components
 import TransactionTable from '..';
@@ -44,6 +45,25 @@ const setup = (isOpenHistoryModal = false) =>
   );
 
 describe('Transaction table', () => {
+  const editTransaction = async () => {
+    const dotIcons = screen.getAllByTestId(DOT_ICON);
+
+    await act(async () => fireEvent.click(dotIcons[0]));
+
+    const editIcon = screen.getAllByTestId(EDIT_ICON)[0];
+
+    await act(async () => fireEvent.click(editIcon));
+
+    await act(() => {
+      fireEvent.change(screen.getByLabelText('First Name'), {
+        target: {
+          value: '123',
+        },
+      });
+      fireEvent.click(screen.getByText('Save'));
+    });
+  };
+
   beforeEach(() => {
     jest.spyOn(hooks, 'usePagination').mockReturnValue({
       resetPage: resetMock,
@@ -170,70 +190,49 @@ describe('Transaction table', () => {
     });
   });
 
-  // TODO: Error "long-running", will check and update later
-  // const EDIT_ICON = 'edit-icon';
-  // const INPUT_FIELD_NAME = 'edit-field-name';
-  // it('Edit transaction success', async () => {
-  //   jest.spyOn(axios, 'put').mockResolvedValue([]);
-  //   const { getAllByTestId, getByTestId } = setup();
-  //   const dotIcons = getAllByTestId(DOT_ICON);
+  const EDIT_ICON = 'edit-icon';
+  it('Edit transaction success', async () => {
+    jest.useRealTimers();
 
-  //   await act(async () => fireEvent.click(dotIcons[0]));
+    (hooks.useTransactions as jest.Mock).mockReturnValue({
+      dataHistory: TRANSACTIONS,
+      dataTransaction: TRANSACTIONS,
+      updateTransaction: jest.fn((_, { onSuccess }) => onSuccess()),
+    });
 
-  //   const editIcon = getAllByTestId(EDIT_ICON)[0];
+    setup();
 
-  //   await waitFor(() => fireEvent.click(editIcon));
-  //   await waitFor(() => {
-  //     fireEvent.change(getByTestId(INPUT_FIELD_NAME), {
-  //       target: {
-  //         value: '123',
-  //       },
-  //     });
-  //     fireEvent.click(getByTestId(ACCEPT_BUTTON));
-  //   });
+    await editTransaction();
 
-  //   await waitFor(async () => {
-  //     expect(updateTransactionMock).toHaveBeenCalledWith(
-  //       {
-  //         transactionId: '1701513537051',
-  //         transactionStatus: TRANSACTION_STATUS.ARCHIVED,
-  //       },
-  //       expect.objectContaining({
-  //         onSuccess: expect.any(Function),
-  //         onError: expect.any(Function),
-  //       }),
-  //     );
+    waitFor(() => {
+      expect(updateTransactionMock).toHaveBeenCalledWith(
+        {
+          transactionId: '1701513537051',
+          transactionStatus: TRANSACTION_STATUS.ARCHIVED,
+        },
+        expect.objectContaining({
+          onSuccess: expect.any(Function),
+          onError: expect.any(Function),
+        }),
+      );
 
-  //     updateTransactionMock.mock.calls[2][1].onSuccess();
-  //   });
-  // });
+      updateTransactionMock.mock.calls[2][1].onSuccess();
+    });
+  });
 
-  // it('Edit transaction failed', async () => {
-  //   jest.spyOn(axios, 'put').mockRejectedValue([]);
-  //   const { getAllByTestId, getByTestId } = setup();
-  //   const dotIcons = getAllByTestId(DOT_ICON);
+  it('Edit transaction failed', async () => {
+    jest.useRealTimers();
 
-  //   await act(async () => fireEvent.click(dotIcons[0]));
+    (hooks.useTransactions as jest.Mock).mockReturnValue({
+      dataHistory: TRANSACTIONS,
+      dataTransaction: TRANSACTIONS,
+      updateTransaction: jest.fn((_, { onError }) => onError()),
+    });
 
-  //   const delIcon = getAllByTestId(DEL_ICON)[0];
+    setup();
 
-  //   await waitFor(async () => fireEvent.click(delIcon));
+    await editTransaction();
 
-  //   await waitFor(async () => fireEvent.click(getByTestId(ACCEPT_BUTTON)));
-
-  //   await waitFor(async () => {
-  //     expect(deleteTransactionMock).toHaveBeenCalledWith(
-  //       {
-  //         transactionId: '1701513537051',
-  //         transactionStatus: TRANSACTION_STATUS.ARCHIVED,
-  //       },
-  //       expect.objectContaining({
-  //         onSuccess: expect.any(Function),
-  //         onError: expect.any(Function),
-  //       }),
-  //     );
-
-  //     deleteTransactionMock.mock.calls[1][1].onError();
-  //   });
-  // });
+    waitFor(() => updateTransactionMock.mock.calls[2][1].onError());
+  });
 });
