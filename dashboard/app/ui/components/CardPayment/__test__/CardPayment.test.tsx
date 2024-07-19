@@ -10,12 +10,6 @@ import { MOCK_FILTER_DATA_USERS, USERS_MOCK } from '@/lib/mocks';
 // Components
 import CardPaymentWithPinCode from '..';
 
-// Hooks
-import { useGetUserDetails, useMoney, usePinCode } from '@/lib/hooks';
-
-// Stores
-import { authStore } from '@/lib/stores';
-
 // Constants
 import { ERROR_MESSAGES, SUCCESS_MESSAGES } from '@/lib/constants';
 
@@ -23,15 +17,14 @@ jest.mock('@/lib/stores', () => ({
   authStore: jest.fn(() => ({ ...USERS_MOCK[0] })),
 }));
 
+jest.mock('@/lib/actions', () => ({
+  ...jest.requireActual('@/lib/actions'),
+  confirmPinCode: jest.fn(),
+}));
+
 jest.mock('@/lib/hooks', () => ({
   ...jest.requireActual('@/lib/hooks'),
   useAuth: jest.fn(() => ({ setUser: jest.fn() })),
-  usePinCode: jest.fn(() => ({
-    isSetNewPinCode: false,
-    isConfirmPinCode: false,
-    setNewPinCode: jest.fn(),
-    confirmPinCode: jest.fn(),
-  })),
   useWallet: jest.fn(() => ({ currentWalletMoney: { balance: 100 } })),
   useGetUserDetails: jest.fn(() => ({
     filterDataUser: MOCK_FILTER_DATA_USERS,
@@ -42,7 +35,18 @@ jest.mock('@/lib/hooks', () => ({
   })),
 }));
 
+// Actions
+import * as actions from '@/lib/actions';
+
+// Hooks
+import { useGetUserDetails, useMoney } from '@/lib/hooks';
+
+// Stores
+import { authStore } from '@/lib/stores';
+
 describe('CardPayment', () => {
+  beforeEach(() => jest.spyOn(actions, 'confirmPinCode').mockResolvedValue());
+
   afterEach(() => {
     jest.clearAllMocks();
   });
@@ -62,11 +66,6 @@ describe('CardPayment', () => {
       ...USERS_MOCK[0],
       bonusTimes: 10,
       pinCode: '1234',
-    });
-
-    (usePinCode as jest.Mock).mockReturnValue({
-      confirmPinCode: jest.fn((_, { onSuccess }) => onSuccess()),
-      setNewPinCode: jest.fn(),
     });
 
     (useMoney as jest.Mock).mockReturnValue({
@@ -122,11 +121,6 @@ describe('CardPayment', () => {
 
     (useGetUserDetails as jest.Mock).mockReturnValue({
       filterDataUser: [{ ...MOCK_FILTER_DATA_USERS[0], _id: null }],
-    });
-
-    (usePinCode as jest.Mock).mockReturnValue({
-      confirmPinCode: jest.fn((_, { onSuccess }) => onSuccess()),
-      setNewPinCode: jest.fn(),
     });
 
     (useMoney as jest.Mock).mockReturnValue({

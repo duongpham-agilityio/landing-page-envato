@@ -37,7 +37,7 @@ interface SendMoneyForCalendarWrapperProps {
 export const withSendMoneyForCalendar = (
   WrappedComponent: (props: TWithSendMoneyForCalendar) => ReactNode,
 ) => {
-  const SendMoneyForCalendarWrapper = async ({
+  const SendMoneyForCalendarWrapper = ({
     userList,
     balance,
   }: SendMoneyForCalendarWrapperProps) => {

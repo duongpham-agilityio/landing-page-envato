@@ -1,0 +1,178 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CardPayment should match with snapshot 1`] = `
+<div>
+  <div
+    class="css-9ft5fw"
+  >
+    <h3
+      class="chakra-heading css-1vczax5"
+    >
+      my wallet
+    </h3>
+    <div
+      class="css-gmuwbf"
+    >
+      <div
+        class="css-159ui0o"
+      >
+        <div
+          class="css-1foj61n"
+        >
+          <p
+            class="chakra-text css-rxozpz"
+          >
+            Balance
+          </p>
+          <button
+            aria-label="eye"
+            class="chakra-button css-c713z0"
+            data-testid="btn-eye"
+            type="button"
+          >
+            <svg
+              height="16"
+              viewBox="0 0 576 512"
+              width="18"
+            >
+              <g
+                opacity="0.6"
+              >
+                <path
+                  d="M288 80c-65.2 0-118.8 29.6-159.9 67.7C89.6 183.5 63 226 49.4 256c13.6 30 40.2 72.5 78.6 108.3C169.2 402.4 222.8 432 288 432s118.8-29.6 159.9-67.7C486.4 328.5 513 286 526.6 256c-13.6-30-40.2-72.5-78.6-108.3C406.8 109.6 353.2 80 288 80zM95.4 112.6C142.5 68.8 207.2 32 288 32s145.5 36.8 192.6 80.6c46.8 43.5 78.1 95.4 93 131.1c3.3 7.9 3.3 16.7 0 24.6c-14.9 35.7-46.2 87.7-93 131.1C433.5 443.2 368.8 480 288 480s-145.5-36.8-192.6-80.6C48.6 356 17.3 304 2.5 268.3c-3.3-7.9-3.3-16.7 0-24.6C17.3 208 48.6 156 95.4 112.6zM288 336c44.2 0 80-35.8 80-80s-35.8-80-80-80c-.7 0-1.3 0-2 0c1.3 5.1 2 10.5 2 16c0 35.3-28.7 64-64 64c-5.5 0-10.9-.7-16-2c0 .7 0 1.3 0 2c0 44.2 35.8 80 80 80zm0-208a128 128 0 1 1 0 256 128 128 0 1 1 0-256z"
+                  fill="white"
+                  opacity="1"
+                />
+              </g>
+            </svg>
+          </button>
+        </div>
+        <p
+          class="chakra-text css-1was8s"
+        >
+          ******
+        </p>
+      </div>
+    </div>
+    <form
+      class="css-1fhgjcy"
+    >
+      <p
+        class="chakra-text css-1vczax5"
+      >
+        quick transfer
+      </p>
+      <div
+        class="css-79elbk"
+      >
+        <div
+          class="chakra-input__group css-pbb1q5"
+          data-group="true"
+        >
+          <div
+            class="chakra-form-control css-0"
+            role="group"
+          >
+            <div
+              class="chakra-input__group css-169ufh8"
+              data-group="true"
+            >
+              <input
+                class="chakra-input css-81uc9x"
+                id="field-:r3:"
+                name="memberId"
+                placeholder="Choose an account to transfer"
+                type="text"
+                value=""
+              />
+            </div>
+          </div>
+          <div
+            class="chakra-input__right-element css-m2vphi"
+          >
+            <button
+              aria-label="Close"
+              class="css-1f8nq6l"
+              type="button"
+            >
+              <svg
+                aria-hidden="true"
+                class="chakra-icon css-onkibi"
+                focusable="false"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M.439,21.44a1.5,1.5,0,0,0,2.122,2.121L11.823,14.3a.25.25,0,0,1,.354,0l9.262,9.263a1.5,1.5,0,1,0,2.122-2.121L14.3,12.177a.25.25,0,0,1,0-.354l9.263-9.262A1.5,1.5,0,0,0,21.439.44L12.177,9.7a.25.25,0,0,1-.354,0L2.561.44A1.5,1.5,0,0,0,.439,2.561L9.7,11.823a.25.25,0,0,1,0,.354Z"
+                  fill="currentColor"
+                />
+              </svg>
+            </button>
+            <button
+              aria-label="Icon dropdown"
+              class="chakra-button css-1gpu7bx"
+              type="button"
+            >
+              <svg
+                fill="none"
+                height="21"
+                style="transform: translateY(4px);"
+                viewBox="0 0 21 21"
+                width="21"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M7.72168 5.03271L12.7217 10.0327L17.7217 5.03271"
+                  stroke="#A0AEC0"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                />
+              </svg>
+            </button>
+          </div>
+        </div>
+      </div>
+      <div
+        class="css-qusax6"
+      >
+        <p
+          class="chakra-text css-jz5bk3"
+        >
+           Enter amount 
+        </p>
+        <div
+          class="css-fw0l5r"
+        >
+          <p
+            class="chakra-text css-vax188"
+          >
+            $
+          </p>
+          <div
+            class="chakra-form-control css-1mgooai"
+            role="group"
+          >
+            <input
+              autocomplete="off"
+              class="chakra-input css-xgmxbo"
+              id="field-:r4:"
+              name="amount"
+              placeholder="0.00"
+              type="text"
+              value=""
+            />
+          </div>
+        </div>
+      </div>
+      <button
+        aria-label="btn-send-money"
+        class="chakra-button css-1dj84lh"
+        disabled=""
+        type="submit"
+      >
+        Send Money
+      </button>
+    </form>
+  </div>
+</div>
+`;
